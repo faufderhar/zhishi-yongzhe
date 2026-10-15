@@ -60,6 +60,7 @@ describe('章节与关卡', () => {
   it('星级与解锁', () => {
     expect(starsFor(false, 1, false)).toBe(0); expect(starsFor(true, 0.5, false)).toBe(1);
     expect(starsFor(true, 0.8, true)).toBe(2); expect(starsFor(true, 0.8, false)).toBe(3);
+    expect(starsFor(true, 0.6, false)).toBe(2); expect(starsFor(true, 0.75, false)).toBe(2); expect(starsFor(true, 2 / 3, false)).toBe(2); expect(starsFor(true, 1 / 3, false)).toBe(1);   // D3（小班 3 题：0-1 ★ / 2 ★★ / 3 ★★★）
     const L = ch[0].levels;
     expect(isUnlocked(L, 0, {})).toBe(true);
     const j = L.findIndex((l, i) => i > 0 && l.unit === L[i - 1].unit && l.volume === L[i - 1].volume);
@@ -185,5 +186,66 @@ describe('题库 v7', () => {
     expect(chapterOf('必修第一册·第一章 宇宙中的地球·第一节 地球的宇宙环境')?.key).toBe('第1章');
     expect(chapterOf('必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.1 原始社会的解体')?.key).toBe('第1课');
     expect(chapterOf('三上·研究土壤')).toBeNull();
+  });
+});
+
+import { levelsOfUnit } from '../src/game/levels';
+describe('试玩报告 r1', () => {
+  it('#1 关卡出题（含补题）只来自同一章：高一每一关', () => {
+    const qs = pub('10').filter(q => canPlay(q.status, false)); const byKey = new Map(qs.map(q => [q.key, q]));
+    for (const ch of buildChapters(qs)) for (const l of ch.levels) {
+      const unitKeys = new Set(levelsOfUnit(ch.levels, l).flatMap(x => x.pool));
+      const pick = selectQuestions({ pool: l.pool.map(k => byKey.get(k)!), fallback: [...unitKeys].map(k => byKey.get(k)!), n: 12, target: 2, kind: l.kind });
+      for (const q of pick) expect(unitKeys.has(q.key)).toBe(true);
+    }
+    // M10-115 余弦定理不在「集合」章
+    const math = buildChapters(qs).find(c => c.subject === '数学')!;
+    const setCh = math.levels.filter(l => l.unit.includes('集合')).flatMap(l => l.pool);
+    expect(setCh.includes('10:M10-115')).toBe(false);
+  });
+  it('#11 关卡/章节标题不截断', () => {
+    const math = buildChapters(pub('10').filter(q => canPlay(q.status, false))).find(c => c.subject === '数学')!;
+    expect(math.levels.some(l => l.name.includes('两角和与差的三角函数'))).toBe(true);
+  });
+});
+
+import { checkClock } from '../src/state';
+import { nextLock } from '../src/game/pin';
+import { splitStem } from '../src/ui/Battle';
+describe('技术修复 & 策划确认单', () => {
+  it('D8 时钟：倒退 > 5 分钟锁定；前进正常', () => {
+    const c = checkClock({ maxSeen: 0, locked: false }, 1e12);
+    expect(checkClock(c, 1e12 + 60e3)).toMatchObject({ locked: false, maxSeen: 1e12 + 60e3 });
+    expect(checkClock(c, 1e12 - 4 * 60e3).locked).toBe(false);
+    expect(checkClock(c, 1e12 - 6 * 60e3).locked).toBe(true);
+  });
+  it('D9 锁定：5 次 → 60 秒，再 5 次 → 5 分钟，再 → 15 分钟；对一次清零', () => {
+    let s = { fails: 0, level: 0, until: 0 };
+    for (let i = 0; i < 5; i++) s = nextLock(s, false, 0);
+    expect(s.until).toBe(60e3);
+    for (let i = 0; i < 5; i++) s = nextLock(s, false, 0);
+    expect(s.until).toBe(300e3);
+    for (let i = 0; i < 5; i++) s = nextLock(s, false, 0);
+    expect(s.until).toBe(900e3);
+    expect(nextLock(s, true, 0)).toEqual({ fails: 0, level: 0, until: 0 });
+  });
+  it('J-1 数数题：题干 emoji 拆成可数物品，数量与答案一致', () => {
+    const k1 = loadBank(JSON.parse(readFileSync(new URL('../public/banks/bank_K1.json', import.meta.url), 'utf8')), 'k').all;
+    const counting = k1.filter(q => /数一数/.test(q.question) && q.type === '选择');
+    expect(counting.length).toBeGreaterThan(20);
+    for (const q of counting) {
+      const items = splitStem(q.question).flatMap(x => x.items);
+      const ans = q.options.find(o => o.key === q.answer[0])!.text;
+      if (/^\d+$/.test(ans)) expect(items.length, q.id).toBe(Number(ans));
+    }
+    expect(splitStem('数一数，有几个苹果？🍎')[1].items).toEqual(['🍎']);
+  });
+  it('v8：M10-115 在 11.1 余弦定理关；初一 2.2 数轴单独成关', () => {
+    const lv10 = buildChapters(pub('10').filter(q => q.status !== '停用')).flatMap(c => c.levels).filter(l => l.kind === 'normal');
+    const l115 = lv10.find(l => l.pool.includes('10:M10-115'))!;
+    expect(l115.name).toContain('余弦定理');
+    const lv7 = buildChapters(pub('7')).flatMap(c => c.levels);
+    expect(lv7.some(l => l.kind === 'normal' && l.name.includes('数轴'))).toBe(true);
+    expect(lv7.filter(l => l.kind === 'normal').every(l => new Set(l.pool.map(k => pub('7').find(q => q.key === k)!.unit)).size === 1)).toBe(true);
   });
 });

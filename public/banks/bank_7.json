@@ -233,15 +233,16 @@
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.1 正数与负数",
    "type": "判断",
-   "question": "$\\pi$ 是有理数。",
+   "question": "$3.14$ 是有理数。",
    "tts_text": "-",
-   "answer": "错",
-   "explanation": "$\\pi$ 是无限不循环小数，不是有理数。",
+   "answer": "对",
+   "explanation": "$3.14=\\dfrac{314}{100}$，可以写成分数，所以是有理数。",
    "difficulty": 3,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "有理数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "有理数",
@@ -620,17 +621,18 @@
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.4 有理数的加法与减法",
    "type": "填空",
-   "question": "$3-(-4)=$ ?",
+   "question": "早晨气温是 $-3^\\circ\\mathrm{C}$，中午比早晨高 $8^\\circ\\mathrm{C}$，中午气温是多少 $^\\circ\\mathrm{C}$？",
    "tts_text": "-",
    "answer": [
-    "7"
+    "5"
    ],
-   "explanation": "减去一个数等于加上它的相反数。",
+   "explanation": "$-3+8=5$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "有理数减法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "有理数减法"
@@ -643,18 +645,17 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.4 有理数的加法与减法",
-   "type": "填空",
-   "question": "$-5-7=$ ?",
+   "type": "判断",
+   "question": "两个有理数相加，和一定大于其中每一个加数。",
    "tts_text": "-",
-   "answer": [
-    "-12"
-   ],
-   "explanation": "$-5+(-7)=-12$。",
+   "answer": "错",
+   "explanation": "例如 $3+(-2)=1$，和比 $3$ 小。加上负数，和反而变小。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "有理数减法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "有理数减法"
@@ -790,18 +791,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.5 有理数的乘法与除法",
-   "type": "填空",
-   "question": "$(-24)\\div 6=$ ?",
+   "type": "选择",
+   "question": "下列运算结果是负数的是？",
    "tts_text": "-",
-   "answer": [
-    "-4"
+   "options": [
+    {
+     "text": "$(-6)\\div(-2)$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$0\\times(-5)$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-4)\\times3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-2)\\times(-3)$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "异号得负。",
+   "answer": "C",
+   "explanation": "异号两数相乘得负；同号得正；0 乘任何数得 0。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "有理数除法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "有理数除法"
@@ -815,17 +837,18 @@
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.5 有理数的乘法与除法",
    "type": "填空",
-   "question": "$\\left(-\\dfrac{3}{4}\\right)\\times\\left(-\\dfrac{8}{9}\\right)=$ ?（分数写成 a/b）",
+   "question": "某地气温每小时下降 $2^\\circ\\mathrm{C}$，3 小时后气温变化了多少 $^\\circ\\mathrm{C}$？（下降用负数表示）",
    "tts_text": "-",
    "answer": [
-    "2/3"
+    "-6"
    ],
-   "explanation": "同号得正，$\\frac{3\\times8}{4\\times9}=\\frac23$。",
+   "explanation": "$(-2)\\times3=-6$，即下降 $6^\\circ\\mathrm{C}$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "有理数乘法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "有理数乘法"
@@ -1025,18 +1048,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.6 有理数的乘方",
-   "type": "填空",
-   "question": "$-3^2=$ ?",
+   "type": "选择",
+   "question": "下列各组数中，结果相等的一组是？",
    "tts_text": "-",
-   "answer": [
-    "-9"
+   "options": [
+    {
+     "text": "$-3^2$ 与 $(-3)^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-2^2$ 与 $(-2)^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-2)^3$ 与 $-2^3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2^3$ 与 $3^2$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "先算 $3^2=9$，再取负。",
+   "answer": "C",
+   "explanation": "$(-2)^3=-8$，$-2^3=-8$；$-3^2=-9$ 而 $(-3)^2=9$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "乘方",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "乘方",
@@ -1051,17 +1095,18 @@
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.6 有理数的乘方",
    "type": "填空",
-   "question": "$(-1)^{2025}=$ ?",
+   "question": "一张纸对折 1 次有 2 层，对折 5 次有多少层？",
    "tts_text": "-",
    "answer": [
-    "-1"
+    "32"
    ],
-   "explanation": "$-1$ 的奇数次幂是 $-1$。",
+   "explanation": "每对折一次层数乘 2：$2^5=32$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "乘方",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "乘方",
@@ -1168,18 +1213,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.7 有理数的混合运算",
-   "type": "填空",
-   "question": "计算：$-1^4-(1-0.5)\\times\\dfrac13\\times\\left[2-(-3)^2\\right]=$ ?（分数写成 a/b）",
+   "type": "选择",
+   "question": "计算 $8\\div(-2)\\times\\dfrac12$ 的结果是？",
    "tts_text": "-",
-   "answer": [
-    "1/6"
+   "options": [
+    {
+     "text": "$8$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-8$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "$-1-\\frac12\\times\\frac13\\times(2-9)=-1+\\frac76=\\frac16$。",
+   "answer": "C",
+   "explanation": "乘除同级，从左到右：$8\\div(-2)=-4$，$-4\\times\\dfrac12=-2$。",
    "difficulty": 5,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "混合运算",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "混合运算"
@@ -1467,18 +1533,17 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第4章 一元一次方程",
-   "type": "填空",
-   "question": "解方程：$5x+2=3x-6$，$x=$ ?",
+   "type": "判断",
+   "question": "$x=2$ 是方程 $3x-1=5$ 的解。",
    "tts_text": "-",
-   "answer": [
-    "-4"
-   ],
-   "explanation": "$2x=-8$。",
+   "answer": "对",
+   "explanation": "把 $x=2$ 代入：$3\\times2-1=5$，左右相等。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "解一元一次方程",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解一元一次方程",
@@ -1492,18 +1557,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第4章 一元一次方程",
-   "type": "填空",
-   "question": "解方程：$\\dfrac{x+1}{2}-\\dfrac{x-1}{3}=1$，$x=$ ?",
+   "type": "选择",
+   "question": "解方程 $\\dfrac{x+1}{2}-\\dfrac{x-1}{3}=1$，去分母正确的是？",
    "tts_text": "-",
-   "answer": [
-    "1"
+   "options": [
+    {
+     "text": "$2(x+1)-3(x-1)=6$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3(x+1)-2(x-1)=1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3x+1-2x-1=6$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3(x+1)-2(x-1)=6$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "两边乘 6：$3x+3-2x+2=6$，$x=1$。",
+   "answer": "D",
+   "explanation": "两边同乘 6，每一项都要乘，分子是整体要加括号。",
    "difficulty": 4,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "解一元一次方程",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解一元一次方程",
@@ -1889,12 +1975,13 @@
     }
    ],
    "answer": "B",
-   "explanation": "朱自清《春》，七上第一课。",
+   "explanation": "《春》的作者是朱自清。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "文学常识",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "文学常识"
@@ -10031,16 +10118,17 @@
    "textbook": "苏科版2024",
    "unit": "七上·第1章 数学与我们同行·1.1 生活 观察",
    "type": "填空",
-   "question": "按规律摆圆点：第 1 个图形 1 个点，第 2 个 3 个，第 3 个 5 个……第 8 个图形有几个点？",
+   "question": "日历上同一竖列相邻的三个日期之和是 45，其中最小的日期是几号？",
    "answer": [
-    "15"
+    "8"
    ],
-   "explanation": "每次多 2 个：$2n-1=2\\times8-1=15$。",
+   "explanation": "设最小为 $x$，三个数为 $x$、$x+7$、$x+14$，$3x+21=45$，$x=8$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "找规律",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "找规律",
@@ -10054,17 +10142,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第1章 数学与我们同行·1.1 生活 观察",
-   "type": "填空",
-   "question": "按规律摆圆点：第 1 个图形 1 个点，第 2 个 3 个，第 3 个 5 个……第 10 个图形有几个点？",
-   "answer": [
-    "19"
+   "type": "选择",
+   "question": "用火柴棒搭一排三角形：1 个三角形用 3 根，2 个用 5 根，3 个用 7 根……搭 $n$ 个三角形需要几根？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$2n+1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2n+3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3n-1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3n$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "每次多 2 个：$2n-1=2\\times10-1=19$。",
+   "answer": "A",
+   "explanation": "每多 1 个三角形多 2 根：$3+2(n-1)=2n+1$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "找规律",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "找规律",
@@ -10869,18 +10979,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第3章 代数式·3.2 代数式的概念",
-   "type": "填空",
-   "question": "当 $x=-1$ 时，代数式 $x^2+4x-5$ 的值是？",
+   "type": "选择",
+   "question": "“比 $a$ 的 2 倍少 3 的数”用代数式表示是？",
    "tts_text": "-",
-   "answer": [
-    "-8"
+   "options": [
+    {
+     "text": "$2a+3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3-2a$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2(a-3)$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2a-3$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "代入 $x=-1$ 计算得 $-8$。",
+   "answer": "D",
+   "explanation": "先算 $a$ 的 2 倍 $2a$，再减 3。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "代数式求值",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "代数式求值"
@@ -10894,17 +11025,18 @@
    "textbook": "苏科版2024",
    "unit": "七上·第3章 代数式·3.2 代数式的概念",
    "type": "填空",
-   "question": "当 $x=3$ 时，代数式 $\\dfrac{x+1}{2}-x$ 的值是？",
+   "question": "长方形长 $a$ cm、宽 $b$ cm，周长是 $2(a+b)$ cm。当 $a=5$，$b=3$ 时，周长是多少 cm？",
    "tts_text": "-",
    "answer": [
-    "-1"
+    "16"
    ],
-   "explanation": "代入 $x=3$ 计算得 $-1$。",
+   "explanation": "$2\\times(5+3)=16$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "代数式求值",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "代数式求值"
@@ -10986,38 +11118,17 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第3章 代数式·3.3 整式的加减",
-   "type": "选择",
-   "question": "化简：$(-2x-4)+(2x+5)=$ ?",
+   "type": "判断",
+   "question": "$3a^2b$ 与 $-2ba^2$ 是同类项。",
    "tts_text": "-",
-   "options": [
-    {
-     "text": "$2$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$-9$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$-4x-9$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$1$",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "D",
-   "explanation": "去括号，合并同类项。",
+   "answer": "对",
+   "explanation": "所含字母相同，相同字母的指数也相同，就是同类项，与字母顺序无关。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "整式加减",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "整式加减",
@@ -11031,38 +11142,19 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第3章 代数式·3.3 整式的加减",
-   "type": "选择",
-   "question": "化简：$(3x+5)+(2x-4)=$ ?",
+   "type": "填空",
+   "question": "笔记本每本 3 元，小明买了 $x$ 本，小红比小明多买 2 本，两人共花 $(6x+k)$ 元，$k=$ ?",
    "tts_text": "-",
-   "options": [
-    {
-     "text": "$5x+9$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$5x+1$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x+9$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$5x+2$",
-     "image": "",
-     "audio": ""
-    }
+   "answer": [
+    "6"
    ],
-   "answer": "B",
-   "explanation": "去括号，合并同类项。",
+   "explanation": "$3x+3(x+2)=6x+6$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "整式加减",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "整式加减",
@@ -11459,18 +11551,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第4章 一元一次方程·4.2 一元一次方程及其解法",
-   "type": "填空",
-   "question": "解方程：$5x+1=-x-35$，$x=$ ?",
+   "type": "选择",
+   "question": "解方程 $2(x-1)=4$，去括号正确的是？",
    "tts_text": "-",
-   "answer": [
-    "-6"
+   "options": [
+    {
+     "text": "$2x+2=4$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x-2=4$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2x-1=4$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2x-2=4$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "移项得 $(5-(-1))x=-35-1$，即 $6x=-36$，$x=-6$。",
+   "answer": "D",
+   "explanation": "括号前的 2 要乘括号里的每一项。",
    "difficulty": 3,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "解一元一次方程",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解一元一次方程"
@@ -11483,18 +11596,17 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第4章 一元一次方程·4.2 一元一次方程及其解法",
-   "type": "填空",
-   "question": "解方程：$5x-9=-x-27$，$x=$ ?",
+   "type": "判断",
+   "question": "方程 $3x=-6$ 两边同时除以 3，得 $x=2$。",
    "tts_text": "-",
-   "answer": [
-    "-3"
-   ],
-   "explanation": "移项得 $(5-(-1))x=-27-(-9)$，即 $6x=-18$，$x=-3$。",
+   "answer": "错",
+   "explanation": "$-6\\div3=-2$，所以 $x=-2$，别丢了负号。",
    "difficulty": 3,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "解一元一次方程",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解一元一次方程"
@@ -12244,18 +12356,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.2 角",
-   "type": "填空",
-   "question": "一个角是 $35^\\circ$，它的补角是多少度？",
+   "type": "选择",
+   "question": "一个锐角的补角比它的余角大多少度？",
    "tts_text": "-",
-   "answer": [
-    "145"
+   "options": [
+    {
+     "text": "$45^\\circ$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$180^\\circ$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不能确定",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$90^\\circ$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "$180^\\circ-35^\\circ=145^\\circ$。",
+   "answer": "D",
+   "explanation": "$(180^\\circ-\\alpha)-(90^\\circ-\\alpha)=90^\\circ$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "补角",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "补角"
@@ -12269,17 +12402,18 @@
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.2 角",
    "type": "填空",
-   "question": "一个角是 $62^\\circ$，它的余角是多少度？",
+   "question": "钟表上 3 点整，时针与分针的夹角是多少度？",
    "tts_text": "-",
    "answer": [
-    "28"
+    "90"
    ],
-   "explanation": "$90^\\circ-62^\\circ=28^\\circ$。",
+   "explanation": "钟面一大格是 $30^\\circ$，3 点整相差 3 大格：$3\\times30^\\circ=90^\\circ$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "余角",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "余角"
@@ -12436,18 +12570,17 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.3 相交线",
-   "type": "填空",
-   "question": "两条直线相交，其中一个角是 $40^\\circ$，与它相邻的邻补角是多少度？",
+   "type": "判断",
+   "question": "两条直线相交，如果其中一个角是直角，那么另外三个角也都是直角。",
    "tts_text": "-",
-   "answer": [
-    "140"
-   ],
-   "explanation": "邻补角和为 $180^\\circ$。",
+   "answer": "对",
+   "explanation": "对顶角相等、邻补角互补，所以四个角都是 $90^\\circ$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "邻补角",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "邻补角"
@@ -12591,17 +12724,38 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.5 多边形",
-   "type": "填空",
-   "question": "从 6 边形的一个顶点出发，可以画几条对角线？",
-   "answer": [
-    "3"
+   "type": "选择",
+   "question": "蜂巢每个巢室的横截面形状是？",
+   "options": [
+    {
+     "text": "正五边形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "正六边形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "正方形",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "$n-3=3$。",
+   "answer": "C",
+   "explanation": "蜂巢由许多正六边形拼成，能铺满平面又省材料。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "多边形",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "多边形",
@@ -12615,17 +12769,16 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.5 多边形",
-   "type": "填空",
-   "question": "从 8 边形的一个顶点出发，可以画几条对角线？",
-   "answer": [
-    "5"
-   ],
-   "explanation": "$n-3=5$。",
+   "type": "判断",
+   "question": "各边都相等、各角也都相等的多边形叫正多边形。",
+   "answer": "对",
+   "explanation": "正多边形要求边相等且角相等，两个条件缺一不可。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "多边形",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "多边形",
@@ -12664,17 +12817,18 @@
    "textbook": "苏科版2024",
    "unit": "七下·第7章 幂的运算·7.1 同底数幂的乘法",
    "type": "填空",
-   "question": "$a^3\\cdot a^5=a^k$，$k=$ ?",
+   "question": "长方形菜地长 $10^3$ m、宽 $10^2$ m，面积是 $10^k\\,\\mathrm{m^2}$，$k=$ ?",
    "tts_text": "-",
    "answer": [
-    "8"
+    "5"
    ],
-   "explanation": "同底数幂相乘，底数不变指数相加。",
+   "explanation": "$10^3\\times10^2=10^{3+2}=10^5$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "同底数幂乘法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "同底数幂乘法"
@@ -12687,18 +12841,17 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七下·第7章 幂的运算·7.1 同底数幂的乘法",
-   "type": "填空",
-   "question": "$a^4\\cdot a^4=a^k$，$k=$ ?",
+   "type": "判断",
+   "question": "$a^3\\cdot a^3=a^9$。",
    "tts_text": "-",
-   "answer": [
-    "8"
-   ],
-   "explanation": "同底数幂相乘，底数不变指数相加。",
+   "answer": "错",
+   "explanation": "同底数幂相乘，指数相加：$a^3\\cdot a^3=a^6$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "同底数幂乘法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "同底数幂乘法"
@@ -12803,18 +12956,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七下·第7章 幂的运算·7.2 幂的乘方与积的乘方",
-   "type": "填空",
-   "question": "$(a^3)^4=a^k$，$k=$ ?",
+   "type": "选择",
+   "question": "下列计算正确的是？",
    "tts_text": "-",
-   "answer": [
-    "12"
+   "options": [
+    {
+     "text": "$(a^3)^4=a^{12}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a^3+a^3=a^6$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(ab)^2=ab^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a^2\\cdot a^3=a^6$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "幂的乘方，指数相乘。",
+   "answer": "A",
+   "explanation": "幂的乘方指数相乘；$a^3+a^3=2a^3$；$(ab)^2=a^2b^2$；$a^2\\cdot a^3=a^5$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "幂的乘方",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "幂的乘方"
@@ -13126,7 +13300,7 @@
    "textbook": "苏科版2024",
    "unit": "七下·第8章 整式乘法·8.3 多项式乘多项式",
    "type": "选择",
-   "question": "$(x+4)(x+6)=$ ?",
+   "question": "长方形长 $(x+4)$、宽 $(x+6)$，面积是多少？",
    "tts_text": "-",
    "options": [
     {
@@ -13151,12 +13325,13 @@
     }
    ],
    "answer": "B",
-   "explanation": "$x^2+(4+6)x+4\\times6$。",
+   "explanation": "$(x+4)(x+6)=x^2+6x+4x+24=x^2+10x+24$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "多项式乘法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "多项式乘法"
@@ -13169,38 +13344,19 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七下·第8章 整式乘法·8.3 多项式乘多项式",
-   "type": "选择",
-   "question": "$(x-5)(x+4)=$ ?",
+   "type": "填空",
+   "question": "若 $(x-5)(x+4)=x^2+mx-20$，则 $m=$ ?",
    "tts_text": "-",
-   "options": [
-    {
-     "text": "$x^2-20x-1$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x^2-x+20$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x^2-9x-20$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x^2-x-20$",
-     "image": "",
-     "audio": ""
-    }
+   "answer": [
+    "-1"
    ],
-   "answer": "D",
-   "explanation": "$x^2+(-5+4)x+(-5)\\times4$。",
+   "explanation": "一次项系数 $-5+4=-1$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "多项式乘法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "多项式乘法"
@@ -13796,18 +13952,39 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七下·第10章 二元一次方程组·10.3 解二元一次方程组",
-   "type": "填空",
-   "question": "解方程组 $\\begin{cases}2x-y=-5\\\\x-3y=0\\end{cases}$，$x+y=$ ?",
+   "type": "选择",
+   "question": "解方程组 $\\begin{cases}2x+y=5\\\\x-y=1\\end{cases}$，最简便的第一步是？",
    "tts_text": "-",
-   "answer": [
-    "-4"
+   "options": [
+    {
+     "text": "两式相加消去 $y$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第一个式子乘 2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "先令 $x=0$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两式相减消去 $x$",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "用代入或加减消元得 $x=-3$，$y=-1$，所以 $x+y=-4$。",
+   "answer": "A",
+   "explanation": "$y$ 的系数互为相反数，两式相加得 $3x=6$。",
    "difficulty": 3,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "解二元一次方程组",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解二元一次方程组",
@@ -13821,13 +13998,11 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七下·第10章 二元一次方程组·10.3 解二元一次方程组",
-   "type": "填空",
-   "question": "解方程组 $\\begin{cases}x+y=1\\\\-x+y=-9\\end{cases}$，$x=$ ?",
+   "type": "判断",
+   "question": "$\\begin{cases}x=2\\\\y=1\\end{cases}$ 是方程组 $\\begin{cases}x+y=3\\\\x-y=1\\end{cases}$ 的解。",
    "tts_text": "-",
-   "answer": [
-    "5"
-   ],
-   "explanation": "用代入或加减消元得 $x=5$，$y=-4$。",
+   "answer": "对",
+   "explanation": "代入：$2+1=3$，$2-1=1$，两个方程都成立。",
    "difficulty": 3,
    "source": "AI",
    "volume": "七年级下册",
@@ -14179,16 +14354,11 @@
    "textbook": "苏科版2024",
    "unit": "七下·第11章 一元一次不等式·11.3 解一元一次不等式",
    "type": "选择",
-   "question": "不等式 $2x>4$ 的解集是？",
+   "question": "解不等式 $-2x>4$，结果是？",
    "tts_text": "-",
    "options": [
     {
-     "text": "$x>2$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x<2$",
+     "text": "$x>-2$",
      "image": "",
      "audio": ""
     },
@@ -14198,18 +14368,24 @@
      "audio": ""
     },
     {
-     "text": "$x>-2$",
+     "text": "$x>2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x<2$",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "移项、系数化为 1；系数为正，方向不变。",
+   "answer": "B",
+   "explanation": "两边除以负数 $-2$，不等号方向要改变。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "解一元一次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解一元一次不等式"
@@ -14222,38 +14398,19 @@
    "grade": 7,
    "textbook": "苏科版2024",
    "unit": "七下·第11章 一元一次不等式·11.3 解一元一次不等式",
-   "type": "选择",
-   "question": "不等式 $3x+3>3$ 的解集是？",
+   "type": "填空",
+   "question": "不等式 $2x-1\\le5$ 的最大整数解是？",
    "tts_text": "-",
-   "options": [
-    {
-     "text": "$x<0$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x>1$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x<1$",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "$x>0$",
-     "image": "",
-     "audio": ""
-    }
+   "answer": [
+    "3"
    ],
-   "answer": "D",
-   "explanation": "移项、系数化为 1；系数为正，方向不变。",
+   "explanation": "$2x\\le6$，$x\\le3$，最大整数是 3。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级下册",
    "knowledge_point": "解一元一次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "tags": [
     "解一元一次不等式"

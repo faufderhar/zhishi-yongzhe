@@ -20,7 +20,7 @@ const SUBJECT_ORDER = ['数数', '颜色形状', '认识动物', '生活常识',
 export function shortUnit(u?: string) {
   if (!u) return '';
   const parts = u.split('·');
-  return (parts[parts.length - 1] || u).replace(/^第[一二三四五六七八九十\d]+[单元章课节]\s*/, '').slice(0, 14);
+  return (parts[parts.length - 1] || u).replace(/^第[一二三四五六七八九十\d]+[单元章课节]\s*/, '');
 }
 
 /** volumes：已学册别（null = 全部）；volumeOrder：册别显示顺序 */
@@ -37,7 +37,18 @@ export function buildChapters(qs: Question[], volumes: string[] | null = null): 
     for (const q of list) if (!volOrder.includes(q.volume)) volOrder.push(q.volume);
     volOrder.sort((a, b) => volRank(a) - volRank(b));
     // 册别为主键；册内按单元文本排序（只用于排序，不用于分组/命名 id），再按源顺序
-    list.sort((a, b) => volOrder.indexOf(a.volume) - volOrder.indexOf(b.volume) || unitKey(a.unit).localeCompare(unitKey(b.unit)) || a.order - b.order);
+    // 排序：册别 → 章/单元号（数字序）→ 小节：都是「n.m」编号时按编号，否则按题库中首次出现顺序（如一年级语文课名）→ 源顺序
+    const firstSeen = new Map<string, number>();
+    for (const q of list) { const k = q.volume + '|' + (q.unit ?? ''); if (!firstSeen.has(k)) firstSeen.set(k, q.order); }
+    const ck = (q: Question) => { const c = chapterOf(q.unit); return c ? unitKey(c.key) : unitKey(q.unit); };
+    const secNum = (u?: string) => { const m = (u ?? '').split('·').pop()!.match(/^(\d+)\.(\d+)/); return m ? +m[1] * 1000 + +m[2] : null; };
+    list.sort((a, b) => {
+      const v = volOrder.indexOf(a.volume) - volOrder.indexOf(b.volume); if (v) return v;
+      const c = ck(a).localeCompare(ck(b)); if (c) return c;
+      const sa = secNum(a.unit), sb = secNum(b.unit);
+      if (sa !== null && sb !== null && sa !== sb) return sa - sb;
+      return (firstSeen.get(a.volume + '|' + (a.unit ?? ''))! - firstSeen.get(b.volume + '|' + (b.unit ?? ''))!) || a.order - b.order;
+    });
     // 1) 先按「册别 + 单元原文」分成小节（与旧版完全相同 → 普通关 id 不变，星级不丢）
     const subs: { volume: string; units: string[]; qs: Question[] }[] = [];
     for (const q of list) {
@@ -45,10 +56,7 @@ export function buildChapters(qs: Question[], volumes: string[] | null = null): 
       if (last && last.volume === q.volume && last.units[last.units.length - 1] === (q.unit ?? '')) last.qs.push(q);
       else subs.push({ volume: q.volume, units: [q.unit ?? ''], qs: [q] });
     }
-    for (let i = subs.length - 1; i > 0; i--) if (subs[i].qs.length < 4 && subs[i - 1].volume === subs[i].volume) {
-      subs[i - 1].qs.push(...subs[i].qs); subs[i - 1].units.push(...subs[i].units); subs.splice(i, 1);
-    }
-    if (subs.length > 1 && subs[0].qs.length < 4 && subs[1].volume === subs[0].volume) { subs[1].qs.unshift(...subs[0].qs); subs[1].units.unshift(...subs[0].units); subs.shift(); }
+    // 小节题少也单独成关（不再并入相邻小节，避免「2.2 数轴」被吞进 2.1 关；审核 v8）
     // 2) 小节按「册别 + 章/单元号」合并成地图上的章节（2.1、2.2 → 第2章）；小节变成章内关卡顺序
     const groups: { volume: string; title: string; subs: typeof subs }[] = [];
     for (const sb of subs) {
@@ -95,10 +103,14 @@ function volRank(v: string) {
   return 5;
 }
 
-/** 星级（GDD §7.1）：★ 通关；★★ 正确率 ≥ 80%；★★★ 正确率 ≥ 80% 且没有用复活 */
+/** 同一章（册别 + 章/单元）的所有关卡 */
+export const levelsOfUnit = (levels: Level[], l: Level) => levels.filter(x => x.volume === l.volume && x.unit === l.unit);
+/** 星级（策划 D3，全年龄统一）：正确率 = 第 1 次就答对 ÷ 作答题数；★ 通关；★★ ≥ 60%；★★★ ≥ 80% 且未复活 */
+export const STAR_RULES = '⭐ 过关　⭐⭐ 第一次就答对六成　⭐⭐⭐ 第一次就答对八成';
 export function starsFor(win: boolean, accuracy: number, revived: boolean): number {
   if (!win) return 0;
-  if (accuracy >= 0.8) return revived ? 2 : 3;
+  if (accuracy >= 0.8 - 1e-9) return revived ? 2 : 3;
+  if (accuracy >= 0.6 - 1e-9) return 2;
   return 1;
 }
 /** 解锁：每个教材单元的第 1 关开放（孩子可从正在学的单元开始）；单元内前一关 ≥1 星解锁下一关 */
@@ -117,15 +129,15 @@ export function chapterOf(u?: string): { key: string; title: string } | null {
   const body = segs.length > 1 && /[上下]$|必修|选修|纲要|^[\dA-Z]+[AB]$/.test(segs[0]) ? segs.slice(1) : segs;
   for (const sg of body) {
     let m = sg.match(/^专题\s*(\d+)/);
-    if (m) return { key: '专题' + m[1], title: sg.replace(/\s*第[一二三四五六七八九十]+单元.*$/, '').trim().slice(0, 18) };
+    if (m) return { key: '专题' + m[1], title: sg.replace(/\s*第[一二三四五六七八九十]+单元.*$/, '').trim() };
     m = sg.match(/^第([一二三四五六七八九十\d]+)([章单元课]+)/);
-    if (m) return { key: '第' + (/\d/.test(m[1]) ? m[1] : String(cnNum(m[1]))) + m[2], title: sg.trim().slice(0, 18) };
+    if (m) return { key: '第' + (/\d/.test(m[1]) ? m[1] : String(cnNum(m[1]))) + m[2], title: sg.trim() };
     m = sg.match(/\bUnit\s*(\d+)/i);
-    if (m) return { key: 'Unit' + m[1], title: sg.replace(/（.*$|\(.*$/, '').trim().slice(0, 24) };
+    if (m) return { key: 'Unit' + m[1], title: sg.replace(/（.*$|\(.*$/, '').trim() };
     m = sg.match(/^(\d+)\.\d+/);
     if (m) return { key: '第' + m[1] + '章', title: '第' + m[1] + '章' };
     m = sg.match(/^([一二三四五六七八九十]+)[\s、]/);
-    if (m) return { key: '第' + cnNum(m[1]) + '单元', title: sg.trim().slice(0, 18) };
+    if (m) return { key: '第' + cnNum(m[1]) + '单元', title: sg.trim() };
   }
   return null;
 }

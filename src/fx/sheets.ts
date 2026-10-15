@@ -34,8 +34,9 @@ export async function loadCharAnims(charId: string): Promise<CharAnims | null> {
 }
 export const loadFx = (name: string) => load('fx/' + name, name);
 /** 家长页「预下载动画」：把全部序列帧拉进离线缓存 */
-export async function prefetchAll(onP?: (d: number, t: number) => void) {
-  const jobs = [...Object.keys(ANIM_DIR).map(id => () => loadCharAnims(id)), ...FX_NAMES.map(n => () => loadFx(n))];
+export async function prefetchAll(onP?: (d: number, t: number) => void, kinds: ('pup' | 'hs')[] = ['pup', 'hs']) {
+  const ids = Object.keys(ANIM_DIR).filter(id => kinds.some(k => ANIM_DIR[id].startsWith(k + '_')));
+  const jobs = [...ids.map(id => () => loadCharAnims(id)), ...FX_NAMES.map(n => () => loadFx(n))];
   let d = 0; for (const j of jobs) { await j(); onP?.(++d, jobs.length); }
 }
 

@@ -9,7 +9,7 @@ export interface Question {
   id: string; status: Status; subject: string; grade: GradeKey; gradeNum: number;
   textbook?: string; textbook_note?: string; unit?: string; volume: string;
   type: QType; question: string; question_image?: string; question_audio?: string; tts_text?: string;
-  options: Option[]; answer: string[]; tolerance?: number; explanation: string; difficulty: number;
+  options: Option[]; answer: string[]; template?: string; tolerance?: number; explanation: string; difficulty: number;
   tags: string[]; knowledge_point?: string; time?: number; source?: string; review_note?: string;
   order: number;          // 在源文件中的顺序（章节排序用）
 }
@@ -56,7 +56,7 @@ export function validateQuestion(q: any, ctxGrade?: GradeKey): string[] {
     if (opts.length < 2) e.push('选项少于 2 个');
     if (opts.length > 6) e.push('选项多于 6 个');
     if (opts.some(o => !String(o?.text ?? '').trim() && !o?.image)) e.push('有空选项');
-    const letters = String(ans ?? '').toUpperCase().split('');
+    const letters = (Array.isArray(ans) ? ans.join('') : String(ans ?? '')).toUpperCase().replace(/[^A-Z]/g, '').split('');   // 数组答案先 join（技术QA P2-7）
     const valid = KEYS.slice(0, opts.length);
     if (letters.some(l => !valid.includes(l))) e.push(`answer 为 ${ans}，但只有 ${opts.length} 个选项`);
     if (q.type === '选择' && letters.length !== 1) e.push('单选题答案应为 1 个字母');
@@ -85,7 +85,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
   const ansRaw = Array.isArray(q.answer) ? q.answer : String(q.answer);
   const answer = q.type === '填空'
     ? (Array.isArray(ansRaw) ? ansRaw : ansRaw.split('|')).map((s: any) => String(s).trim()).filter(Boolean)
-    : q.type === '判断' ? [String(Array.isArray(ansRaw) ? ansRaw[0] : ansRaw)] : String(ansRaw).toUpperCase().split('');
+    : q.type === '判断' ? [String(Array.isArray(ansRaw) ? ansRaw[0] : ansRaw)] : (Array.isArray(ansRaw) ? ansRaw.join('') : String(ansRaw)).toUpperCase().replace(/[^A-Z]/g, '').split('');
   const t = Number(q.time);
   return {
     key: `${grade}:${q.id}`, id: String(q.id), status: (q.status || '待审核') as Status, subject: String(q.subject).trim(), grade, gradeNum: gradeNumOf(grade),
@@ -97,7 +97,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
     tags: Array.isArray(q.tags) ? q.tags : String(q.tags ?? q.tag ?? '').split('|').map(s => s.trim()).filter(Boolean),
     knowledge_point: q.knowledge_point || undefined, time: t > 0 ? t : undefined, source: q.source, review_note: q.review_note || undefined,
     tolerance: q.tolerance === undefined || q.tolerance === '' || q.tolerance === null ? undefined : Number(q.tolerance),
-    explanation: q.explanation ?? '', order,
+    explanation: q.explanation ?? '', order, template: q.template ? String(q.template) : undefined,
   };
 }
 
@@ -191,7 +191,7 @@ export function correctText(q: Question): string {
 export function ttsText(q: Pick<Question, 'tts_text' | 'question'>): string | null {
   if (q.tts_text === '-') return null;
   if (q.tts_text && q.tts_text.trim()) return q.tts_text;
-  if (/\$/.test(q.question)) return null;
+  if (/\$/.test(q.question)) { const t = q.question.replace(/\\\$/g, "美元").replace(/\$[^$]*\$/g, "").trim(); return t.length >= 4 ? t : null; }
   return q.question;
 }
 

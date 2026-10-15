@@ -20,7 +20,7 @@ button:disabled{opacity:.4}
 .tag{background:#ffd54a;color:#333;border-radius:99px;padding:2px 12px;font-size:15px}
 .back{position:absolute;left:24px;top:24px;width:72px;height:72px;border-radius:50%;background:rgba(0,0,0,.2);font-size:36px}
 .warn{color:#ffb3b3}
-.portrait-tip{position:fixed;top:0;left:0;right:0;background:#ffd54a;color:#333;text-align:center;padding:8px;z-index:9;font-size:18px}
+.portrait-tip{animation:tipfade .4s 6s forwards;position:fixed;top:0;left:0;right:0;background:#ffd54a;color:#333;text-align:center;padding:8px;z-index:9;font-size:18px}
 /* battle layout: 左战斗 右答题 */
 .battle{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;min-height:0}
 .battle.kinder{grid-template-rows:1fr}
@@ -133,7 +133,7 @@ img.unit{height:min(260px,30vh);width:auto;object-fit:contain;filter:drop-shadow
 .chapter.on{background:#ffd54a;color:#333}.chapter b{display:block;font-size:20px}.chapter small{font-size:14px;opacity:.8}
 .ch-icon{font-size:38px}
 .theme-kinder .chapter,.theme-g1 .chapter{background:#fff8;color:#5a3a1a}.theme-kinder .chapter.on,.theme-g1 .chapter.on{background:#ffd54a}
-.levels{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px;padding:20px;overflow:auto;align-content:start}
+.levels{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;padding:20px;overflow:auto;align-content:start}
 .level{min-height:140px;border-radius:24px;background:#fff;color:#223;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 6px 0 #0003;padding:8px}
 .level .lv-no{font-size:36px;font-weight:900}.level .lv-name{font-size:14px;opacity:.75;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .level.elite{background:#ffe7b3}.level.boss{background:#ffc2c2}.level.locked{opacity:.45}.level .stars .off{color:#0002}
@@ -231,3 +231,131 @@ img.unit.boss{height:min(300px,34vh)}
 .arena .fx-shake{justify-content:space-between;padding:0 4%}
 .arena .mon-wrap{margin-right:2%}
 @media (orientation:portrait){.battle.std,.battle.hs{grid-template-columns:1fr}}
+.countbar.smooth div{animation:none;transform-origin:left;width:100%}
+.dim{opacity:.6;font-size:.75em}
+/* r1：标题完整显示（两行折行），家长档案卡头像不压字 */
+.level .lv-name{white-space:normal;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;line-height:1.25;text-align:center;font-size:13px;word-break:break-all}
+.unit-head{white-space:normal;line-height:1.35}
+.p-card .big-emoji{font-size:52px;line-height:1.15;height:64px;display:flex;align-items:center;justify-content:center;flex:none}
+.p-card b{display:block;margin-top:4px}
+/* r1 #14：图片加载前后卡片不再移位（以前首次点击可能落空）；整卡是唯一点击目标 */
+.char-card{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.char-card *{pointer-events:none}
+.char-card .char-img,.char-card picture{height:150px;width:auto;aspect-ratio:auto;display:block}
+.char-card picture{height:150px;min-width:120px;display:flex;justify-content:center}
+.char-card .char-img{max-width:200px;object-fit:contain}
+.star-rules{font-size:15px;opacity:.75;margin:0}
+.p-card.wide{width:100%;align-items:flex-start;text-align:left}.report-card ul{margin:4px 0 0 18px}
+.parent-hint{font-size:20px;max-width:640px;text-align:center;background:#fff2;border-radius:14px;padding:10px 16px}
+.pin-hint{font-size:17px;opacity:.85;margin:0}
+.pin-keys .ok{background:#1e7d3a!important;color:#fff!important;font-weight:700}
+.pin-keys .ok:disabled{background:#555!important;color:#ccc!important}
+
+@keyframes tipfade{to{opacity:0;transform:translateY(-100%)}}
+.sys-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;z-index:50;background:#2b3a78;color:#fff;border:2px solid #ffd54a;border-radius:14px;padding:12px 20px;font-size:17px;min-height:48px;max-width:90vw}
+.warn-bar{background:#7a2a2a;top:12px;bottom:auto}
+html{touch-action:manipulation}
+
+/* ===== 策划确认单 2026-10-15 ===== */
+/* D12 全视口：根容器 100dvw×100dvh，无黑边；战斗区 45% / 答题区 55%（竖屏上 35% / 下 65%） */
+html,body,#root{width:100%;height:100%;height:100dvh;margin:0;background:#1d2340}
+.app{width:100vw;width:100dvw;height:100vh;height:100dvh;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden}
+.app>*{min-height:0}
+.battle,.battle.std,.battle.hs{grid-template-columns:45% 55%}
+.arena .stage,.stage{height:clamp(240px,46dvh,620px)}
+.kpup,.kmon{height:clamp(200px,36dvh,560px)}
+@media (orientation:portrait){
+  .battle,.battle.std,.battle.hs{grid-template-columns:1fr;grid-template-rows:auto 35dvh 1fr}
+  .arena .stage,.stage{height:calc(35dvh - 60px)}
+  .kbattle{grid-template-rows:auto 35dvh 1fr}
+}
+/* D11 字号 & 按钮（按 1024×600 验收，大屏 clamp 放大） */
+body{font-size:clamp(18px,1.6vw,26px)}
+.theme-kinder .kq{font-size:clamp(40px,4vw,64px)}
+.kopts{gap:clamp(32px,3vw,56px)}
+.kopt{width:clamp(180px,20vw,340px);height:clamp(160px,26dvh,320px);min-width:160px;min-height:160px;transition:opacity .4s,transform .4s}
+.kopt.gone{opacity:0;transform:scale(.6);filter:grayscale(1);pointer-events:none;visibility:hidden;transition:opacity .4s,transform .4s,visibility 0s .4s}
+.kopt.reveal{transform:scale(1.2);border-color:#ffd54a;animation:goldflash .6s 2}
+.kopt.okmark::after{content:'✓ 对啦';position:absolute;top:-18px;right:-12px;background:#4cd964;color:#fff;border-radius:99px;padding:4px 14px;font-size:24px;font-weight:800}
+.kopt{position:relative}
+@keyframes goldflash{50%{box-shadow:0 0 0 10px #ffd54a,0 8px 0 #0003}}
+.kface{display:grid;grid-template-rows:70% 30%;width:100%;height:100%;align-items:center;justify-items:center}
+.kface-emo{font-size:calc(clamp(160px,26dvh,320px) * .45);line-height:1}
+.kface-txt{font-size:32px;font-weight:800;color:#5a3a1a;white-space:nowrap;overflow:hidden;max-width:100%}
+.kface-txt.small{font-size:26px}
+.kopt-img{max-width:90%;max-height:90%}
+.kitems{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:calc(5 * 96px);margin:8px auto 0}
+.kitem{font-size:72px;min-width:88px;min-height:88px;line-height:1;background:none;border:0;border-radius:20px;filter:saturate(.8);opacity:.85;transition:transform .2s}
+.kitem.on{opacity:1;filter:none;transform:scale(1.12);background:#fff6}
+.hearts{align-items:center}.hearts-label{font-size:24px;color:#5a3a1a;font-weight:700;margin-right:4px}
+.hearts .pop{animation:heartpop .4s}
+@keyframes heartpop{50%{transform:scale(1.5)}}
+.ktilt{animation:ktilt .6s}
+@keyframes ktilt{30%{transform:rotate(-12deg)}70%{transform:rotate(8deg)}}
+.ksub{font-size:28px}.klines{font-size:32px;display:flex;flex-direction:column;gap:8px;font-weight:700}
+.star-rules{font-size:24px;opacity:.85}
+.theme-kinder .pause-btn,.theme-kinder .kspeaker{min-width:88px;min-height:88px;font-size:40px}
+.pause-btn,.kspeaker,.speak-btn,.back,.back-inline,.opt-spk{min-width:64px;min-height:64px}
+.hold{position:relative}
+.hold::after{content:'';position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(#ffd54a calc(var(--p,0)*360deg),transparent 0);-webkit-mask:radial-gradient(circle,transparent 60%,#000 61%);mask:radial-gradient(circle,transparent 60%,#000 61%);pointer-events:none}
+.level .lv-name{font-size:clamp(20px,1.8vw,26px);-webkit-line-clamp:2;max-width:9.5em;line-height:1.2}
+.theme-kinder .level .lv-name,.theme-g1 .level .lv-name{font-size:24px}
+.level .stars{font-size:24px}
+.level.locked{opacity:.55}
+.level.nudge{animation:nudge .45s}
+@keyframes nudge{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.kind-tag{font-size:16px;border-radius:99px;padding:0 10px;background:#0002;font-weight:700}
+.kind-tag.boss{background:#ff6b6b;color:#fff}.kind-tag.elite{background:#ff9f0a;color:#fff}
+.map-tip{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#fff;color:#223;border-radius:20px;padding:14px 24px;font-size:24px;box-shadow:0 6px 0 #0003;z-index:40;max-width:80vw}
+.time-left,.left-time,.star-total{font-size:clamp(22px,2vw,28px)}
+.profile-card small.left-time{font-size:24px;opacity:1}
+.theme-std .qtext,.theme-g1 .qtext{font-size:clamp(28px,2.8vw,40px)}
+.theme-hs .qtext{font-size:clamp(24px,2.3vw,34px)}
+.theme-g1 .opt{min-height:120px;font-size:clamp(30px,2.8vw,40px)}
+.theme-std .opt{min-height:88px;min-width:200px;font-size:clamp(26px,2.4vw,34px)}
+.theme-hs .opt{min-height:72px;font-size:clamp(24px,2.1vw,30px)}
+.parent{font-size:16px}.parent .btn,.parent .chip{min-height:48px}
+/* 暂停面板（X-10） */
+.xl-btn{min-width:240px;min-height:88px;font-size:28px}
+.pause-q{font-size:24px}
+/* 行动倒计时圆环（D6） */
+.act{position:relative}
+.act .ring{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);pointer-events:none;transform:rotate(-90deg)}
+.act .ring circle{fill:none;stroke:#fff;stroke-width:2.5;opacity:.8}
+/* 新手引导（D5） */
+.tutorial .finger{position:absolute;bottom:-10px;right:10px;font-size:64px;animation:tap 1s infinite}
+.tutorial .finger.at-speaker{position:absolute;left:40px;top:70px;right:auto;bottom:auto}
+@keyframes tap{50%{transform:translateY(-18px)}}
+.tutorial .skip,.tut-card .skip{position:absolute;top:12px;right:12px}
+.tutorial .ktop{position:relative}
+.tut-overlay{position:fixed;inset:0;background:#0009;z-index:60;display:grid;place-items:center}
+.tut-card{position:relative;background:#fff;color:#223;border-radius:24px;padding:40px 32px 24px;max-width:min(640px,86vw);font-size:clamp(22px,2.2vw,30px);text-align:center;display:flex;flex-direction:column;gap:16px;align-items:center}
+.tut-hi{position:fixed;border:4px dashed #ffd54a;border-radius:20px;pointer-events:none}
+.tut-hi.at-q{right:2%;top:12%;width:52%;height:40%}.tut-hi.at-m{left:24%;top:8%;width:20%;height:40%}
+.tut-hi.at-a{right:2%;bottom:4%;width:52%;height:30%}.tut-hi.at-h{left:2%;top:1%;width:40%;height:12%}
+.tut-card.at-q{margin-right:auto;margin-left:5%}.tut-card.at-m,.tut-card.at-h{margin-top:30%}
+/* 数字键盘 3×4 + 右侧一列（P2-4） */
+.keypad.num3{display:grid;grid-template-columns:3fr 1fr;gap:10px}
+.kp-digits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kp-side{display:flex;flex-direction:column;gap:10px}.kp-side .ok{flex:1}
+.keypad.num3 button{min-height:64px;border-radius:12px;background:#fff3;font-size:28px;color:inherit}
+.keypad.num3 .ok{background:#4cd964;color:#123}.keypad.num3 .del{background:#ff8a8a55}
+/* 家长密码（J-11 对比度 ≥ 4.5:1） */
+.pin-keys button{background:#2b3a78;color:#fff;border:2px solid #fff6}
+.pin-keys .ok{background:#1f7a3a;color:#fff}.pin-keys button:disabled{background:#444;color:#ddd}
+.pin-keys.locked button{opacity:.5}
+.pin-why{font-size:16px;color:#ffe08a;margin:4px 0}
+.link-btn{background:none;border:0;color:#9cc8ff;text-decoration:underline;font-size:18px;min-height:48px}
+.parent-btn.icon-only{font-size:32px;min-width:64px;min-height:64px}
+.char-card.sel{outline:6px solid #4cd964;transform:translateY(-4px)}
+.btn.big{min-width:280px;min-height:88px;font-size:28px}
+.yellow-bar{background:#ffd54a;color:#222;padding:10px 16px;border-radius:10px;margin:8px 16px;font-weight:700}
+.sys-bar.yellow-bar{position:fixed;top:12px;bottom:auto}
+.install-guide{position:fixed;top:10px;right:16px;background:#fff;color:#223;border-radius:16px;padding:10px 16px;display:flex;gap:12px;align-items:center;font-size:18px;z-index:30;box-shadow:0 4px 0 #0003}
+.share-arrow{font-size:28px;animation:tap 1s infinite}
+.big-sq{min-width:64px;min-height:64px}
+.backup-age{margin:4px 16px}
+.level .lv-name{white-space:normal !important;display:-webkit-box !important;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;text-overflow:ellipsis;word-break:break-all;max-height:2.5em}
+.hearts-label{white-space:nowrap;writing-mode:horizontal-tb}
+.levels .level{min-height:160px}
+.kstars{white-space:nowrap}.kind-tag{font-size:20px;padding:2px 14px}

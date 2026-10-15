@@ -67,30 +67,32 @@ describe('多选漏选', () => {
   });
 });
 
-describe('幼儿园温和模式（不会失败）', () => {
-  it('第 1 次答错 → retry：去掉 1 个错误选项，不演示、不点亮、不给星', () => {
-    const [s, r] = kinderAnswer(newKinder(3), false, ['A', 'B'], () => 0);
-    expect(r).toBe('retry'); expect(s.removed).toEqual(['A']); expect(s.lit).toBe(0); expect(s.stars).toBe(0); expect(s.attempt).toBe(1);
+describe('幼儿园温和模式（策划确认单 D1）', () => {
+  it('第 1 次点错 → 去掉刚点的那个选项（不随机）', () => {
+    const [s, r] = kinderAnswer(newKinder(3), false, 'B', ['A', 'B']);
+    expect(r).toBe('retry'); expect(s.removed).toEqual(['B']); expect(s.lit).toBe(0); expect(s.stars).toBe(0); expect(s.attempt).toBe(1);
   });
-  it('retry 后答对 → correct，点亮爱心并清空移除', () => {
-    let [s] = kinderAnswer(newKinder(3), false, ['A', 'B'], () => 0);
-    let r; [s, r] = kinderAnswer(s, true, ['B']);
-    expect(r).toBe('correct'); expect(s.lit).toBe(1); expect(s.stars).toBe(1); expect(s.removed).toEqual([]); expect(s.attempt).toBe(0);
+  it('再试答对 → correct，计入 retry', () => {
+    let [s] = kinderAnswer(newKinder(3), false, 'A', ['A', 'B']);
+    let r; [s, r] = kinderAnswer(s, true, 'C', ['B']);
+    expect(r).toBe('correct'); expect(s.lit).toBe(1); expect(s.retry).toBe(1); expect(s.first).toBe(0); expect(s.removed).toEqual([]);
   });
-  it('第 2 次答错 → demo，照样给星', () => {
-    let [s] = kinderAnswer(newKinder(3), false, ['A', 'B'], () => 0);
-    let r; [s, r] = kinderAnswer(s, false, ['B']);
-    expect(r).toBe('demo'); expect(s.lit).toBe(1); expect(s.stars).toBe(1);
+  it('第 2 次又错 → demo，默认照样给星；关掉奖励则只亮爱心', () => {
+    let [s] = kinderAnswer(newKinder(3), false, 'A', ['A', 'B']);
+    expect(kinderAnswer(s, false, 'B', ['B'])[0]).toMatchObject({ lit: 1, stars: 1, demo: 1 });
+    expect(kinderAnswer(s, false, 'B', ['B'], false)[0]).toMatchObject({ lit: 1, stars: 0, demo: 1 });
+    void s;
   });
-  it('只剩 1 个错误选项（2 选 1 题）时不再移除，避免直接暴露答案', () => {
-    const [s, r] = kinderAnswer(newKinder(3), false, ['A']);
-    expect(r).toBe('retry'); expect(s.removed).toEqual([]);
+  it('只有 2 个选项：第 1 次点错直接进演示', () => {
+    const [s, r] = kinderAnswer(newKinder(3), false, 'A', ['A']);
+    expect(r).toBe('demo'); expect(s.demo).toBe(1);
   });
-  it('无论对错，3 颗爱心后必定完成', () => {
-    for (const ok of [true, false]) {
-      let s = newKinder(3), n = 0;
-      while (!s.done && n < 20) { s = kinderAnswer(s, ok, ['A', 'B'])[0]; n++; }
-      expect(s.done).toBe(true); expect(n).toBe(ok ? 3 : 6);
-    }
+  it('三类之和 = 题数；3 颗爱心后完成', () => {
+    let s = newKinder(3);
+    s = kinderAnswer(s, true, 'C', ['A', 'B'])[0];
+    s = kinderAnswer(kinderAnswer(s, false, 'A', ['A', 'B'])[0], true, 'C', ['B'])[0];
+    s = kinderAnswer(kinderAnswer(s, false, 'A', ['A', 'B'])[0], false, 'B', ['B'])[0];
+    expect([s.first, s.retry, s.demo, s.done]).toEqual([1, 1, 1, true]);
   });
 });
+

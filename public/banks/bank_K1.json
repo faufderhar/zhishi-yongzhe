@@ -9360,7 +9360,7 @@
     }
    ],
    "answer": "B",
-   "explanation": "《好爸爸坏爸爸》常见唱法：我有一个好爸爸，爸爸爸爸好爸爸。（版本较多，家长按自家唱法核对）",
+   "explanation": "《好爸爸坏爸爸》常见唱法：我有一个好爸爸，爸爸爸爸好爸爸。",
    "difficulty": 2,
    "source": "AI",
    "volume": "小班",
@@ -9368,6 +9368,7 @@
    "review_note": "儿歌有多种唱法，请按家里的唱法确认",
    "assets_todo": "question_audio audio/k/KG-032.m4a（家长朗读/唱）",
    "game_ready": false,
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9437,7 +9438,7 @@
     }
    ],
    "answer": "A",
-   "explanation": "常见唱法：一只没有耳朵，一只没有尾巴（也有唱“眼睛”的版本）。",
+   "explanation": "常见唱法：一只没有耳朵，一只没有尾巴。",
    "difficulty": 2,
    "source": "AI",
    "volume": "小班",
@@ -9445,6 +9446,7 @@
    "review_note": "儿歌有多种唱法，请按家里的唱法确认",
    "assets_todo": "question_audio audio/k/KG-035.m4a（家长朗读/唱）",
    "game_ready": false,
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]

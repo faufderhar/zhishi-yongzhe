@@ -21,12 +21,36 @@ function db() {
   return dbp;
 }
 const safe = async <T>(f: () => Promise<T>, dflt: T): Promise<T> => { try { return await f(); } catch (e) { console.warn('IDB', e); return dflt; } };
-export const recordAnswer = (r: AnswerRecord) => safe(async () => { await (await db()).add('answers', r); }, undefined);
+/** 写入失败不再静默：广播 zy-storage-error，界面给家长可见提示（技术QA P1-4） */
+export const STORAGE_ERROR = 'zy-storage-error';
+const safeW = async (f: () => Promise<void>): Promise<boolean> => {
+  try { await f(); return true; } catch (e) { console.warn('IDB write', e); try { window.dispatchEvent(new CustomEvent(STORAGE_ERROR, { detail: String((e as Error)?.name ?? e) })); } catch { /* */ } return false; }
+};
+/** 每个档案最多保留最近 ANSWER_CAP 条答题记录（防止无限增长） */
+export const ANSWER_CAP = 5000;
+let answerCount = 0;
+export const recordAnswer = (r: AnswerRecord) => safeW(async () => {
+  const d = await db(); await d.add('answers', r);
+  if (++answerCount % 200 === 0) {
+    const tx = d.transaction('answers', 'readwrite'); const idx = tx.store.index('byProfile');
+    const keys = await idx.getAllKeys(r.profileId); const vals = await idx.getAll(r.profileId);
+    const old = Date.now() - 180 * 864e5;   // 明细只保留最近 180 天（策划 T-P1-4）
+    for (let i = 0; i < keys.length; i++) if (i < keys.length - ANSWER_CAP || (vals[i]?.at ?? 0) < old) await tx.store.delete(keys[i]);
+    await tx.done;
+  }
+});
+/** 删档案：清理该档案的 kv 前缀、错题和答题记录（技术QA P1-2） */
+export const deleteProfileData = (pid: string, kvKeys: string[]) => safeW(async () => {
+  const d = await db(); const tx = d.transaction(['kv', 'wrong', 'answers'], 'readwrite');
+  for (const k of kvKeys) await tx.objectStore('kv').delete(k);
+  for (const s of ['wrong', 'answers'] as const) { const idx = tx.objectStore(s).index('byProfile'); for (const k of await idx.getAllKeys(pid)) await tx.objectStore(s).delete(k); }
+  await tx.done;
+});
 export const getKV = <T>(k: string) => safe<T | undefined>(async () => (await db()).get('kv', k), undefined);
-export const setKV = (k: string, v: unknown) => safe(async () => { await (await db()).put('kv', v, k); }, undefined);
+export const setKV = (k: string, v: unknown) => safeW(async () => { await (await db()).put('kv', v, k); });
 export const answersOf = (pid: string) => safe<AnswerRecord[]>(async () => (await db()).getAllFromIndex('answers', 'byProfile', pid), []);
 export const wrongOf = (pid: string) => safe<WrongEntry[]>(async () => (await db()).getAllFromIndex('wrong', 'byProfile', pid), []);
-export const putWrong = (e: WrongEntry) => safe(async () => { await (await db()).put('wrong', e); }, undefined);
+export const putWrong = (e: WrongEntry) => safeW(async () => { await (await db()).put('wrong', e); });
 export const delWrong = (id: string) => safe(async () => { await (await db()).delete('wrong', id); }, undefined);
 export const importedQuestions = () => safe<any[]>(async () => (await db()).getAll('bank'), []);
 export const putImported = (qs: any[]) => safe(async () => {
@@ -48,17 +72,34 @@ export async function exportAll() {
   }
   return { app: 'zhishi-yongzhe', format: 1, exportedAt: new Date().toISOString(), stores: out };
 }
-/** 恢复：清空后写入（会覆盖当前平板上的全部数据） */
+/** 恢复前校验（技术QA P1-3）：格式、各表行结构；返回预览和清洗后的数据；不合格抛出中文错误 */
+export function validateBackup(data: any): { clean: Record<string, unknown[]>; preview: { exportedAt?: string; profiles: number; kv: number; answers: number; wrong: number; bank: number; skipped: number } } {
+  if (!data || typeof data !== 'object' || data.app !== 'zhishi-yongzhe' || !data.stores || typeof data.stores !== 'object') throw new Error('这个文件不是知识勇者的备份，或已损坏');
+  if (data.format !== undefined && data.format !== 1) throw new Error(`备份格式版本 ${data.format} 不支持，请更新 App 后再恢复`);
+  let skipped = 0; const clean: Record<string, unknown[]> = {};
+  const arr = (x: unknown) => Array.isArray(x) ? x : [];
+  clean.kv = arr(data.stores.kv).filter(r => { const ok = Array.isArray(r) && r.length === 2 && typeof r[0] === 'string'; if (!ok) skipped++; return ok; });
+  clean.answers = arr(data.stores.answers).filter(r => { const v = Array.isArray(r) ? r[1] : null; const ok = !!v && typeof v.profileId === 'string' && typeof v.questionId === 'string'; if (!ok) skipped++; return ok; });
+  clean.wrong = arr(data.stores.wrong).filter((v: any) => { const ok = v && typeof v.id === 'string' && typeof v.profileId === 'string' && typeof v.qkey === 'string'; if (!ok) skipped++; return ok; });
+  clean.bank = arr(data.stores.bank).filter((v: any) => { const ok = v && typeof v.key === 'string' && typeof v.question === 'string'; if (!ok) skipped++; return ok; });
+  const prof = (clean.kv as [string, unknown][]).find(r => r[0] === 'profiles')?.[1];
+  if (prof !== undefined && !Array.isArray(prof)) throw new Error('备份里的孩子档案已损坏，不能恢复');
+  return { clean, preview: { exportedAt: data.exportedAt, profiles: Array.isArray(prof) ? prof.length : 0, kv: clean.kv.length, answers: clean.answers.length, wrong: clean.wrong.length, bank: clean.bank.length, skipped } };
+}
+/** 恢复：先校验，再把当前数据快照存到 localStorage 外的 kv 快照里不现实（会被清空），因此返回当前快照供界面下载；整库在一个事务里写入 */
 export async function importAll(data: any) {
-  if (data?.app !== 'zhishi-yongzhe' || !data.stores) throw new Error('不是《知识勇者》的备份文件');
+  const { clean } = validateBackup(data);
+  const snapshot = await exportAll();
   const d = await db();
   const tx = d.transaction([...STORES], 'readwrite');
   for (const s of STORES) {
     const st = tx.objectStore(s); await st.clear();
-    const rows = data.stores[s] ?? [];
-    if (s === 'kv') for (const [k, v] of rows) await st.put(v, k);
-    else if (s === 'answers') for (const [, v] of rows) await st.add(v);
+    const rows = clean[s] ?? [];
+    if (s === 'kv') for (const [k, v] of rows as [string, unknown][]) await st.put(v, k);
+    else if (s === 'answers') for (const [, v] of rows as [unknown, unknown][]) await st.add(v);
     else for (const v of rows) await st.put(v);
   }
   await tx.done;
+  await setKV('snapshot:last', snapshot);   // 恢复后可「撤销恢复」（策划 T-P1-3）
+  return snapshot;
 }

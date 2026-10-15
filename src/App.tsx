@@ -1,11 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
 import { loadFxManifests } from './fx/assets';
+import { prefetchAll } from './fx/sheets';
+import { STORAGE_ERROR, deleteProfileData } from './db';
+import { DESIGN } from './game/config';
+import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, type Question } from './game/questions';
 import { bandConfig } from './game/grades';
-import { buildChapters, starsFor, type Level } from './game/levels';
-import { selectQuestions, updateSkill, type Skills } from './game/adaptive';
+import { buildChapters, starsFor, levelsOfUnit, type Level } from './game/levels';
+import { selectQuestions, spreadTemplates, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
 import { PUPS, SCIFI, type Character } from './game/characters';
@@ -13,12 +17,13 @@ import { unlockAudio } from './tts';
 import { recordAnswer, wrongOf, putWrong, delWrong, answersOf } from './db';
 import * as S from './state';
 import type { Profile, Progress, Settings } from './state';
-import { KinderBattle, StdBattle, type BattleResult } from './ui/Battle';
+import { KinderTutorial, StdTutorial } from './ui/Tutorial';
+import { KinderBattle, StdBattle, FORCE_END, type BattleResult } from './ui/Battle';
 import { ProfileSelect, CharSelect, MapScreen, ResultScreen, WrongBookScreen, ReviewSession } from './ui/Screens';
 import { ParentGate, ParentSettings } from './ui/Parent';
 
 type Screen =
-  | { s: 'loading' } | { s: 'profiles' } | { s: 'gate' } | { s: 'parent' }
+  | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' } | { s: 'parent' }
   | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; nonce: number }
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
@@ -40,15 +45,35 @@ export default function App() {
   const [chapterIdx, setChapterIdx] = useState(0);
   const [portrait, setPortrait] = useState(false);
   const masteredThisLevel = useRef(0);
+  useEffect(() => { setAudioPrefs({ sfx: settings.sfx ?? true, tts: settings.tts ?? true, volume: settings.volume ?? 0.8 }); }, [settings.sfx, settings.tts, settings.volume]);
+  const [clock, setClock] = useState<S.ClockState>({ maxSeen: 0, locked: false });
+  const [storageErr, setStorageErr] = useState<string>();
+  const [updateReady, setUpdateReady] = useState<null | (() => void)>(null);
+  const [tipGone, setTipGone] = useState(false);
+  // 写入失败提示（技术QA P1-4）、新版本提示（P1-7：不在战斗中自动刷新）
+  useEffect(() => {
+    const f = (e: Event) => setStorageErr(String((e as CustomEvent).detail ?? ''));
+    const u = (e: Event) => setUpdateReady(() => (e as CustomEvent).detail as () => void);
+    window.addEventListener(STORAGE_ERROR, f); window.addEventListener('zy-update-ready', u);
+    void navigator.storage?.persist?.().catch(() => {});   // P1-5：申请持久化存储
+    return () => { window.removeEventListener(STORAGE_ERROR, f); window.removeEventListener('zy-update-ready', u); };
+  }, []);
 
   const reloadBank = useCallback(async () => { setBank(await loadAllBanks((d, t) => setLoadPct(Math.round(d / t * 100)))); }, []);
   useEffect(() => { void loadFxManifests(); }, []);
   useEffect(() => {
     (async () => {
-      const [st, ps, fl] = await Promise.all([S.loadSettings(), S.loadProfiles(), S.loadFlags()]);
+      const [st, ps, fl, ck] = await Promise.all([S.loadSettings(), S.loadProfiles(), S.loadFlags(), S.loadClock()]);
+      let ck2 = S.checkClock(ck, Date.now());
       setSettingsState(st); setProfilesState(ps); setFlags(fl);
       const us: Record<string, Usage> = {}, sk: Record<string, Skills> = {};
       for (const p of ps) { us[p.id] = await S.loadUsage(p.id); sk[p.id] = await S.loadSkills(p.id); }
+      // D8：今天早于时长记录里最大的日期 → 也算时间被调回
+      const maxDay = Object.values(us).flatMap(u => Object.keys(u)).sort().pop();
+      if (maxDay && dayStr() < maxDay && !ck2.locked) ck2 = { ...ck2, locked: true, lockedAt: Date.now() };
+      setClock(ck2); void S.saveClock(ck2);
+      // 切回前台时也检查（D8）
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState !== 'visible') return; setClock(c => { const n = S.checkClock(c, Date.now()); if (n !== c) void S.saveClock(n); return n; }); });
       setUsageAll(us); setAllSkills(sk);
       await reloadBank();
       setScreen({ s: 'profiles' });
@@ -63,23 +88,57 @@ export default function App() {
   const chapters = useMemo(() => buildChapters(gradeQs, p?.volumes ?? null), [gradeQs, p?.volumes]);
   const playableKeys = useMemo(() => new Set(gradeQs.map(q => q.key)), [gradeQs]);
   const today = dayStr();
-  const remaining = (id: string) => { const pp = profiles.find(x => x.id === id); return pp ? remainingSec(pp.limit, usage[id] ?? {}, today) : Infinity; };
+  // 时钟被调回（GDD §8.2）：按「今日已用满」处理，家长在「时长」页解除
+  const remaining = (id: string) => { if (clock.locked) return 0; const pp = profiles.find(x => x.id === id); return pp ? remainingSec(pp.limit, usage[id] ?? {}, today) : Infinity; };
   const myRemaining = pid ? remaining(pid) : Infinity;
+  // 到时：允许打完当前关，最多再 3 分钟，之后按已答题结算（策划 T-P2-2）
+  // 首次联网后后台预下载各档案年龄段用到的动画（技术QA P1-6）；失败不影响流程（有程序动效兜底）
+  useEffect(() => {
+    if (!profiles.length || !navigator.onLine) return;
+    const kinds = [...new Set(profiles.map(x => bandConfig(x.grade).chars === 'scifi' ? 'hs' : 'pup'))] as ('pup' | 'hs')[];
+    const t = setTimeout(() => { void prefetchAll(undefined, kinds).catch(() => {}); }, 8000);
+    return () => clearTimeout(t);
+  }, [profiles.map(x => x.grade).join()]);
+  const needTutorial = !!p && (!p.tutorialDone || !!settings.tutorialReplay?.[p.id]);
+  const finishTutorial = () => {
+    if (!p) return;
+    setProfiles(profiles.map(x => x.id === p.id ? { ...x, tutorialDone: true } : x));
+    if (settings.tutorialReplay?.[p.id]) { const r = { ...settings.tutorialReplay }; delete r[p.id]; setSettings({ ...settings, tutorialReplay: r }); }
+  };
+  const overTime = myRemaining <= 0 && screen.s === 'battle';
+  useEffect(() => { if (!overTime) return; const t = setTimeout(() => window.dispatchEvent(new Event(FORCE_END)), 3 * 60e3); return () => clearTimeout(t); }, [overTime]);
   const char: Character | undefined = p && cfg ? (cfg.chars === 'scifi' ? SCIFI : PUPS).find(c => c.id === p.charId) : undefined;
 
-  // 计时：只在答题 / 复习时，页面可见时计
-  const playing = screen.s === 'battle' || screen.s === 'review';
+  // 计时：进入孩子档案后（地图/选角色/战斗/结算/错题本/复习）且页面可见时都计；幼儿园短关卡以前只计战斗，几乎为 0（试玩报告 #10）
+  const playing = !!pid && ['battle', 'review', 'map', 'result', 'char', 'wrongbook'].includes(screen.s);
+  // 按时间戳差值累计（技术QA P2-3）：每秒结算一次、暂停/后台不计、单次差值封顶 2 秒；同时做会话内时钟跳变检测
   useEffect(() => {
     if (!playing || !pid) return;
+    let lastPerf = performance.now(), lastWall = Date.now(), acc = 0;
     const t = setInterval(() => {
-      if (document.visibilityState !== 'visible') return;
-      setUsageAll(u => { const nu = addUsage(u[pid] ?? {}, dayStr(), 5); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
-    }, 5000);
-    return () => clearInterval(t);
+      const nowP = performance.now(), nowW = Date.now();
+      const dp = nowP - lastPerf, dw = nowW - lastWall; lastPerf = nowP; lastWall = nowW;
+      if (Math.abs(dw - dp) > 10 * 60e3 || dw < -60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
+      else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
+      if (document.visibilityState !== 'visible' || (window as unknown as { __zyPaused?: boolean }).__zyPaused) return;
+      acc += Math.min(dp, 2000);
+      if (acc >= 5000) {
+        const sec = Math.floor(acc / 1000); acc -= sec * 1000;
+        setUsageAll(u => { const nu = addUsage(u[pid] ?? {}, dayStr(), sec); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
+      }
+    }, 1000);
+    return () => {
+      clearInterval(t);
+      const sec = Math.round(acc / 1000);   // 退出时把不足 5 秒的部分也记上
+      if (sec > 0) setUsageAll(u => { const nu = addUsage(u[pid] ?? {}, dayStr(), sec); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
+    };
   }, [playing, pid]);
 
   const setSettings = (s: Settings) => { setSettingsState(s); S.saveSettings(s); };
-  const setProfiles = (ps: Profile[]) => { setProfilesState(ps); S.saveProfiles(ps); };
+  const setProfiles = (ps: Profile[]) => {
+    for (const old of profiles) if (!ps.some(x => x.id === old.id)) void deleteProfileData(old.id, S.profileKeys(old.id));   // P1-2：删档案连数据一起清
+    setProfilesState(ps); S.saveProfiles(ps);
+  };
   const setUsage = (id: string, u: Usage) => { setUsageAll(x => ({ ...x, [id]: u })); S.saveUsage(id, u); };
 
   async function pickProfile(pp: Profile) {
@@ -117,21 +176,27 @@ export default function App() {
     const chapter = chapters.find(c => c.subject === level.chapter)!;
     const byKey = bank!.byKey;
     const pool = level.pool.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
-    const fallback = chapter.levels.flatMap(l => l.pool).map(k => byKey.get(k)!).filter(Boolean);
-    const due = wrong.filter(e => isDue(e) && e.subject === level.chapter).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
+    // 补题和错题复习都只取「同一章（册别+章/单元）」的题，绝不跨章（试玩报告 #1：集合关卡混入余弦定理）
+    const sameUnit = levelsOfUnit(chapter.levels, level).flatMap(l => l.pool);
+    const fallback = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
+    const unitKeys = new Set(sameUnit);
+    const due = wrong.filter(e => isDue(e) && unitKeys.has(e.qkey)).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
     const target = skills[level.chapter]?.level ?? 2;
     const n = cfg.questions[level.kind];
-    const qs = selectQuestions({ pool, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 });
+    const qs = spreadTemplates(selectQuestions({ pool, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool);
     const extra = selectQuestions({ pool: fallback, fallback: [], n: n * 2, target, kind: level.kind });
     masteredThisLevel.current = 0;
     setScreen({ s: 'battle', level, qs, extra, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;
+    const played = progress.plays[level.id]?.day === today ? progress.plays[level.id].count : 0;
+    // 防刷（D3）：同关当天第 3 次起不再新增星星（历史最高保留）
     const stars = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived);
+    const gain = played >= 2 ? 0 : stars;
     const mastered = masteredThisLevel.current;
     setProgress(pr => {
-      const nx = { ...pr, stars: { ...pr.stars, [level.id]: Math.max(pr.stars[level.id] ?? 0, stars) }, masteredStars: pr.masteredStars + mastered,
+      const nx = { ...pr, stars: { ...pr.stars, [level.id]: Math.max(pr.stars[level.id] ?? 0, gain) }, masteredStars: pr.masteredStars + mastered,
         plays: { ...pr.plays, [level.id]: { day: today, count: (pr.plays[level.id]?.day === today ? pr.plays[level.id].count : 0) + 1 } } };
       S.saveProgress(p.id, nx); return nx;
     });
@@ -144,24 +209,34 @@ export default function App() {
   const theme = cfg && !['profiles', 'gate', 'parent', 'loading'].includes(screen.s) ? 'theme-' + cfg.theme : '';
   return (
     <div className={`app ${theme}`} onPointerDown={unlockAudio}>
-      {portrait && <div className="portrait-tip">横过来玩更舒服哦 ↻</div>}
+      {portrait && !tipGone && <div className="portrait-tip" onAnimationEnd={() => setTipGone(true)}>横过来玩更舒服哦 ↻</div>}
+      {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
+      {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
+      {updateReady && ['profiles', 'map'].includes(screen.s) && <button className="sys-bar" data-testid="update-ready" onClick={() => updateReady()}>✨ 有新版本，点这里更新（不会丢进度）</button>}
       {screen.s === 'loading' && <div className="center-screen"><h1 className="title">⚔️ 知识勇者</h1><p className="sub">正在加载题库… {loadPct}%</p></div>}
-      {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })} onAdd={p => { setProfiles([...profiles, p]); void pickProfile(p); }} />}
-      {screen.s === 'gate' && <ParentGate settings={settings} onSetPin={h => setSettings({ ...settings, pinHash: h })} onOk={() => setScreen({ s: 'parent' })} onCancel={() => setScreen({ s: 'profiles' })} />}
+      {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
+        canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
+        onAdd={p => { setProfiles([...profiles, p]); setScreen({ s: 'profiles' }); }} />}
+      {screen.s === 'gate' && <ParentGate settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
+        onSetPin={(h, hint) => setSettings({ ...settings, pinHash: h || undefined, pinHint: hint ?? settings.pinHint })}
+        onOk={() => setScreen(screen.next === 'add' ? { s: 'profiles', adding: true } : { s: 'parent' })} onCancel={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'parent' && bank && <ParentSettings settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
-        usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} onClose={() => setScreen({ s: 'profiles' })} />}
-      {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'profiles' })}
-        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id } : x)); setScreen({ s: 'map' }); }} />}
+        usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => { const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); }} onClose={() => setScreen({ s: 'profiles' })} />}
+      {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} subjects={chapters.map(c => c.subject)} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'profiles' })}
+        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setTimeout(() => startLevel(then), 0); }} />}
       {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} progress={progress} wrong={wrong} remaining={myRemaining} c={char}
         chapterIdx={chapterIdx} setChapterIdx={setChapterIdx} onLevel={startLevel} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }}
         onWrongBook={() => setScreen({ s: 'wrongbook' })} onChar={() => setScreen({ s: 'char' })}
         onReview={() => startReview(wrong.filter(e => isDue(e)).sort((a, b) => a.due.localeCompare(b.due)).slice(0, 10).map(e => e.qkey))} />}
-      {screen.s === 'battle' && cfg && char && (cfg.battle === 'kinder'
-        ? <KinderBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
+      {screen.s === 'battle' && cfg && char && p && needTutorial && (cfg.battle === 'kinder'
+        ? <KinderTutorial c={char} onDone={finishTutorial} />
+        : <StdTutorial cfg={cfg} onDone={finishTutorial} />)}
+      {screen.s === 'battle' && cfg && char && !needTutorial && (cfg.battle === 'kinder'
+        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
-            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total}
+            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} actionNoLimit={settings.actionNoLimit} />)}
+      {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} />}

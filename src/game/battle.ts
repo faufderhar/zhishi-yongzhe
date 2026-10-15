@@ -91,23 +91,24 @@ export function outOfQuestions(s: BattleState): 'win' | 'lose' {
 }
 
 /* ---------- 幼儿园温和模式（不会失败） ---------- */
-export interface KinderState { hearts: number; lit: number; attempt: 0 | 1; removed: string[]; stars: number; done: boolean }
-export const newKinder = (hearts: number): KinderState => ({ hearts, lit: 0, attempt: 0, removed: [], stars: 0, done: false });
+export interface KinderState { hearts: number; lit: number; attempt: 0 | 1; removed: string[]; stars: number; done: boolean; first: number; retry: number; demo: number }
+export const newKinder = (hearts: number): KinderState => ({ hearts, lit: 0, attempt: 0, removed: [], stars: 0, done: false, first: 0, retry: 0, demo: 0 });
 export type KinderOutcome = 'correct' | 'retry' | 'demo';
 /**
- * 规则（GDD §2.3/§4.7）：
- *  - 答对 → correct：点亮 1 颗爱心 + 1 星，进入下一题
- *  - 第 1 次答错 → retry：去掉 1 个错误选项（至少保留 2 个选项），同题再答；不演示答案、不给星
- *  - 第 2 次答错 → demo：演示正确答案，照样点亮爱心 + 给星，进入下一题
- * wrongKeys = 当前仍显示的错误选项 key。
+ * 策划确认单 D1：
+ *  - 第 1 次点错 → retry：去掉「孩子刚点的那个」选项，同题再答；若去掉后只剩正确项 → 直接 demo
+ *  - 第 2 次点对 → correct（计「再试答对」）；第 2 次又错 → demo（计「看演示学会」）
+ *  - 每完成 1 题点亮 1 颗爱心；demo 是否给⭐由 demoReward 决定（默认给）
+ * wrongVisible = 当前仍显示的错误选项 key。
  */
-export function kinderAnswer(prev: KinderState, correct: boolean, wrongKeys: string[], rnd = Math.random): [KinderState, KinderOutcome] {
+export function kinderAnswer(prev: KinderState, correct: boolean, pickedKey: string, wrongVisible: string[], demoReward = true): [KinderState, KinderOutcome] {
   if (prev.done) return [prev, 'correct'];
   if (!correct && prev.attempt === 0) {
-    const cand = wrongKeys.filter(k => !prev.removed.includes(k));
-    const removed = cand.length >= 2 ? [...prev.removed, cand[Math.floor(rnd() * cand.length)]] : prev.removed.slice();
-    return [{ ...prev, attempt: 1, removed }, 'retry'];
+    const removed = [...prev.removed, pickedKey];
+    if (wrongVisible.some(k => k !== pickedKey)) return [{ ...prev, attempt: 1, removed }, 'retry'];
   }
   const lit = Math.min(prev.hearts, prev.lit + 1);
-  return [{ ...prev, lit, stars: prev.stars + 1, attempt: 0, removed: [], done: lit >= prev.hearts }, correct ? 'correct' : 'demo'];
+  const kind: 'first' | 'retry' | 'demo' = correct ? (prev.attempt === 0 ? 'first' : 'retry') : 'demo';
+  const star = correct || demoReward ? 1 : 0;
+  return [{ ...prev, lit, stars: prev.stars + star, attempt: 0, removed: [], done: lit >= prev.hearts, [kind]: prev[kind] + 1 }, correct ? 'correct' : 'demo'];
 }

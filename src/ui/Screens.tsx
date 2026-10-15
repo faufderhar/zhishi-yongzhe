@@ -1,10 +1,10 @@
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, type Character } from '../game/characters';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, starOf, type Chapter, type Level } from '../game/levels';
+import { isUnlocked, starOf, STAR_RULES, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
@@ -37,8 +37,23 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
     </Modal>
   );
 }
-export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd }: { profiles: Profile[]; remaining: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void; onAdd: (p: Profile) => void }) {
-  const [adding, setAdding] = useState(false);
+/** 安装引导（GDD §9.5 / 技术QA P2-8）：iPad 非主屏幕模式显示「分享 → 添加到主屏幕」；安卓显示〔安装到主屏幕〕 */
+let deferredPrompt: { prompt: () => void } | null = null;
+if (typeof window !== 'undefined') window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e as unknown as { prompt: () => void }; });
+function InstallGuide() {
+  const [hide, setHide] = useState(() => !!localStorage.getItem('zy.installHide'));
+  const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as unknown as { standalone?: boolean }).standalone;
+  const ios = /iPad|iPhone/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (standalone || hide || (!ios && !deferredPrompt)) return null;
+  const close = () => { localStorage.setItem('zy.installHide', '1'); setHide(true); };
+  return <div className="install-guide" data-testid="install-guide">
+    {ios ? <><span className="share-arrow" aria-hidden>⬆</span> 点 Safari 顶部的 <b>分享</b> 按钮 → <b>添加到主屏幕</b>，像 App 一样全屏玩</>
+      : <button className="btn" onClick={() => { deferredPrompt?.prompt(); close(); }}>📲 安装到主屏幕</button>}
+    <button className="chip" onClick={close} aria-label="关闭">✕</button>
+  </div>;
+}
+export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, onAddRequest, onAddClose, adding, canAdd }: { profiles: Profile[]; remaining: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void;
+  onAdd: (p: Profile) => void; onAddRequest: () => void; onAddClose: () => void; adding: boolean; canAdd: boolean }) {
   return (
     <div className="center-screen">
       <h1 className="title">⚔️ 知识勇者</h1>
@@ -48,28 +63,33 @@ export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd }: 
           <button key={p.id} className="profile-card" data-testid={'profile-' + p.id} onClick={() => onPick(p)}>
             <span className="big-emoji">{p.avatar}</span><span>{p.name}</span>
             <small>{GRADE_LABEL[p.grade]}</small>
-            <small className={remaining[p.id] === 0 ? 'warn' : ''}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}</small>
+            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}</small>
           </button>
         ))}
-        <button className="profile-card add-card" data-testid="add-child" onClick={() => setAdding(true)}>
-          <span className="big-emoji">➕</span><span>添加孩子</span><small>小班 · 1-6年级 · 初一 · 高一</small></button>
+        {canAdd && <button className="profile-card add-card" data-testid="add-child" onClick={onAddRequest}>
+          <span className="big-emoji">➕</span><span>添加孩子</span><small>需要家长密码</small></button>}
       </div>
-      {adding && <AddChild onClose={() => setAdding(false)} onAdd={p => { setAdding(false); onAdd(p); }} />}
-      <button className="parent-btn" data-testid="parent" onClick={onParent}>🔒 家长</button>
+      {adding && <AddChild onClose={onAddClose} onAdd={onAdd} />}
+      <InstallGuide />
+      <button className="parent-btn icon-only" data-testid="parent" aria-label="家长" title="家长" onClick={onParent}>🔒</button>
     </div>
   );
 }
 
-export function CharSelect({ cfg, current, onPick, onBack }: { cfg: BandConfig; current?: string; onPick: (c: Character) => void; onBack: () => void }) {
+export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: BandConfig; current?: string; subjects?: string[]; onPick: (c: Character) => void; onBack: () => void }) {
+  void subjects;   // 按年级筛选角色：策划确认单未覆盖，保持原样
   const list = cfg.chars === 'scifi' ? SCIFI : PUPS;
+  // D10：点卡片只是选中，点〔就选它〕才保存；〔返回〕不改动
+  const [sel, setSel] = useState<string | undefined>(current);
+  const chosen = list.find(c => c.id === sel);
   return (
     <div className="center-screen">
       <button className="back" onClick={onBack} aria-label="返回">←</button>
       <h2>{cfg.band === 'K' ? '选一只小狗伙伴' : cfg.band === 'H' ? '选择研究员' : '选择你的勇者'}</h2>
       <div className="row gap24 wrap">
         {list.map(c => (
-          <button key={c.id} className={`char-card ${c.id === current ? 'last' : ''}`} data-testid={'char-' + c.id}
-            onClick={() => { if (cfg.band === 'K' || cfg.band === 'G1') speak(c.name + '，出发！'); onPick(c); }}>
+          <button key={c.id} className={`char-card ${c.id === sel ? 'sel' : ''} ${c.id === current ? 'last' : ''}`} data-testid={'char-' + c.id} aria-pressed={c.id === sel}
+            onClick={() => { setSel(c.id); if (cfg.band === 'K' || cfg.band === 'G1') speak(c.name); }}>
             <Sprite className="char-img" c={c} />
             <b>{c.name}</b>
             {cfg.band !== 'K' && <span className="tag">主修 {c.major}</span>}
@@ -77,6 +97,7 @@ export function CharSelect({ cfg, current, onPick, onBack }: { cfg: BandConfig; 
           </button>
         ))}
       </div>
+      <button className="btn big" data-testid="char-confirm" disabled={!chosen} onClick={() => { if (!chosen) return; if (cfg.band === 'K' || cfg.band === 'G1') speak(chosen.name + '，出发！'); onPick(chosen); }}>就选它{chosen ? `：${chosen.name}` : ''}</button>
     </div>
   );
 }
@@ -90,6 +111,14 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   const ch = chapters[Math.min(chapterIdx, chapters.length - 1)];
   const totalStars = Object.values(progress.stars).reduce((a, b) => a + b, 0) + progress.masteredStars;
   const due = wrong.filter(e => isDue(e)).length;
+  // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
+  const [tip, setTip] = useState<string>(); const [shake, setShake] = useState<string>();
+  const lp = useRef(0);
+  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t); window.setTimeout(() => setTip(x => x === t ? undefined : x), 2500); };
+  useEffect(() => {
+    const k = 'zy.bossTip.' + p.id;
+    if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say('这里有厉害的大怪兽！', cfg.band === 'K'); }
+  }, [ch?.subject]);
   const timeUp = remaining <= 0;
   return (
     <div className="map">
@@ -120,23 +149,34 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
             const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
             return (<Fragment key={l.id}>
               {head && <div className="unit-head" data-testid="unit-head"><small>{l.volume}</small> {l.unit}</div>}
-              <button key={l.id} className={`level ${l.kind} ${open ? '' : 'locked'} ${s ? 'done' : ''}`} disabled={!open || timeUp}
-                data-testid={`level-${i + 1}`} onClick={() => onLevel(l)}>
+              <button key={l.id} className={`level ${l.kind} ${open ? '' : 'locked'} ${s ? 'done' : ''} ${shake === l.id ? 'nudge' : ''}`} aria-disabled={!open || timeUp}
+                data-testid={`level-${i + 1}`} data-locked={open ? '0' : '1'}
+                onPointerDown={() => { lp.current = window.setTimeout(() => { lp.current = -1; say(l.name, false); }, 550); }}
+                onPointerUp={() => { if (lp.current > 0) clearTimeout(lp.current); }} onPointerLeave={() => { if (lp.current > 0) clearTimeout(lp.current); }}
+                onContextMenu={e => e.preventDefault()}
+                onClick={() => {
+                  if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
+                  if (timeUp) return;
+                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); say('先通过前一关就能打开哦', cfg.band === 'K'); return; }
+                  onLevel(l);
+                }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
-                <span className="lv-name">{KIND_LABEL[l.kind] ? `${KIND_LABEL[l.kind]}` : l.name}</span>
+                {l.kind === 'normal' ? <span className="lv-name" title={l.name}>{l.name}</span>
+                  : <span className={`kind-tag ${l.kind}`}>{l.kind === 'elite' ? '精英挑战' : '章节 Boss'}</span>}
                 <Stars n={s} />
               </button></Fragment>
             );
           })}
         </div>
       </div>}
+      {tip && <div className="map-tip" data-testid="map-tip" role="status">{tip}</div>}
       {timeUp && <div className="timeup-bar">今天的时间用完啦，明天再来！（家长可在设置里加时间）</div>}
     </div>
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, onAgain, onNext, onMap }: {
-  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean;
+export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, onAgain, onNext, onMap, kinder }: {
+  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; kinder?: { first: number; retry: number; demo: number };
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
   const acc = total ? Math.round(correct / total * 100) : 0;
@@ -145,13 +185,15 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
       {cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
+        <KinderSub k={kinder} total={total} />
       </> : <>
         <div className="big-emoji xl">{win ? '🏆' : '💫'}</div>
         <h1>{win ? '胜利！' : '这次差一点'}</h1>
         {!win && <p>失败也能拿一半经验，错题已放进错题本，下次再来！</p>}
       </>}
       <Stars n={stars} size={72} />
-      <p className="sub" data-testid="result-stats">{cfg.band === 'H' ? `正确 ${correct}/${total} · 正确率 ${acc}%` : `答对 ${correct} / ${total} 题`}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>
+      <p className="star-rules" data-testid="star-rules">{STAR_RULES}</p>
+      {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{cfg.band === 'H' ? `正确 ${correct}/${total} · 正确率 ${acc}%` : `答对 ${correct} / ${total} 题`}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！</p>}
       <div className="row gap24">
         {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}
@@ -160,6 +202,22 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
       </div>
     </div>
   );
+}
+
+/** D2：小班结算副标题（自动朗读）与三类明细（只显示 >0 的类别，不出现分数） */
+export function kinderSubtitle(k: { first: number } | undefined, total: number) {
+  const f = k?.first ?? 0;
+  return f === 0 ? '每道题都认真学会啦！下次试试第一次就答对哦' : f / Math.max(1, total) < 0.6 ? '越来越棒啦！' : '太厉害啦！';
+}
+function KinderSub({ k, total }: { k?: { first: number }; total: number }) {
+  const t = kinderSubtitle(k, total);
+  useEffect(() => { const id = setTimeout(() => speak(t), 1500); return () => clearTimeout(id); }, [t]);
+  return <p className="ksub" data-testid="kinder-sub">{t}</p>;
+}
+function KinderLines({ k }: { k?: { first: number; retry: number; demo: number } }) {
+  if (!k) return null;
+  const rows: [number, string][] = [[k.first, '🌟 自己答对'], [k.retry, '💪 再试一次答对'], [k.demo, '👀 看演示学会']];
+  return <div className="klines" data-testid="result-stats">{rows.filter(([n]) => n > 0).map(([n, l]) => <div key={l}>{l} {n} 题</div>)}</div>;
 }
 
 /* ---------------- 错题本 ---------------- */

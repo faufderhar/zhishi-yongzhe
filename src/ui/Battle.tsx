@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, isCorrect, judge, kinderChoices, ttsText, type Question, type Option } from '../game/questions';
@@ -6,11 +7,11 @@ import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newK
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
-import { speak } from '../tts';
-import { answerFeedback } from '../feedback';
+import { speak, hasVoice } from '../tts';
+import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
 import { loadCharAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
-import { appReduceMotion, setAppReduceMotion } from '../fx/motion';
+import { appReduceMotion, setAppReduceMotion, sleep } from '../fx/motion';
 
 /** 挂载演出导演（Canvas 粒子层 + 各单位节点） */
 function useDirector(gentle: boolean, c: Character, scale: number, hs = false) {
@@ -42,7 +43,7 @@ function useDirector(gentle: boolean, c: Character, scale: number, hs = false) {
   return { stage, shake, hero, monster, flash, canvas, dir, alive };
 }
 
-export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[] }
+export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps {
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -58,18 +59,40 @@ function PauseOverlay({ onResume, onQuit }: { onResume: () => void; onQuit: () =
     <Modal>
       <h2>⏸ 暂停中</h2>
       <p className="sub">计时已停止</p>
-      <div className="col gap16">
-        <button className="btn" data-testid="resume" onClick={onResume}>▶ 继续</button>
-        <ReduceToggle />
-        {!confirm ? <button className="btn ghost" data-testid="quit" onClick={() => setConfirm(true)}>退出本关</button>
-          : <button className="btn danger" data-testid="quit-confirm" onClick={onQuit}>确定退出？（本关不记星）</button>}
-      </div>
+      {!confirm ? <div className="row gap24 pause-btns">
+        <button className="btn xl-btn" data-testid="resume" onClick={onResume}>▶ 继续玩</button>
+        <button className="btn ghost xl-btn" data-testid="quit" onClick={() => setConfirm(true)}>回地图</button>
+      </div> : <><p className="pause-q">现在回地图吗？这一关要重新开始哦</p><div className="row gap24 pause-btns">
+        <button className="btn xl-btn" data-testid="resume" onClick={() => { setConfirm(false); onResume(); }}>继续玩</button>
+        <button className="btn ghost xl-btn" data-testid="quit-confirm" onClick={onQuit}>回地图</button></div></>}
+      <ReduceToggle />
     </Modal>
   );
 }
 export function ReduceToggle() {
   const [on, setOn] = useState(appReduceMotion());
   return <label className="toggle-line"><input type="checkbox" data-testid="reduce-motion" checked={on} onChange={e => { setAppReduceMotion(e.target.checked); setOn(e.target.checked); }} /> 减少动画（不晃屏、不冲刺）</label>;
+}
+/** 按时间戳计算的倒计时（rAF 驱动，暂停时冻结），返回剩余毫秒；key 变化时重置 */
+export function useCountdown(active: boolean, paused: boolean, totalMs: number, key: unknown, onDone: () => void) {
+  const [left, setLeft] = useState(totalMs);
+  const st = useRef({ remain: totalMs, since: 0, done: false });
+  const cb = useRef(onDone); cb.current = onDone;
+  useEffect(() => { st.current = { remain: totalMs, since: 0, done: false }; setLeft(totalMs); }, [key, totalMs]);
+  useEffect(() => {
+    if (!active || paused) return;
+    st.current.since = performance.now();
+    let raf = 0;
+    const tick = (t: number) => {
+      const r = Math.max(0, st.current.remain - (t - st.current.since));
+      setLeft(r);
+      if (r <= 0) { if (!st.current.done) { st.current.done = true; cb.current(); } return; }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => { cancelAnimationFrame(raf); st.current.remain = Math.max(0, st.current.remain - (performance.now() - st.current.since)); };
+  }, [active, paused, key]);
+  return left;
 }
 function usePauseOnHide(setPaused: (b: boolean) => void) {
   useEffect(() => {
@@ -78,89 +101,168 @@ function usePauseOnHide(setPaused: (b: boolean) => void) {
   }, [setPaused]);
 }
 
+
+/** 战斗中保持亮屏（技术QA P3-6a）；不支持时静默 */
+function useWakeLock() {
+  useEffect(() => {
+    let lock: { release: () => Promise<void> } | null = null; let dead = false;
+    const req = async () => { try { const wl = (navigator as unknown as { wakeLock?: { request: (t: string) => Promise<{ release: () => Promise<void> }> } }).wakeLock; if (wl && document.visibilityState === 'visible') { lock = await wl.request('screen'); if (dead) void lock.release(); } } catch { /* */ } };
+    void req(); const f = () => { if (document.visibilityState === 'visible') void req(); };
+    document.addEventListener('visibilitychange', f);
+    return () => { dead = true; document.removeEventListener('visibilitychange', f); void lock?.release().catch(() => {}); };
+  }, []);
+}
+/** 暂停超过 5 分钟自动回地图（策划 T-P2-3）；时长到点后的宽限结束时强制结算（T-P2-2） */
+function usePauseTimeout(paused: boolean, onQuit: () => void) {
+  useEffect(() => { if (!paused) return; const t = setTimeout(onQuit, 5 * 60e3); return () => clearTimeout(t); }, [paused]);
+}
+export const FORCE_END = 'zy-force-end';
+function useForceEnd(f: () => void) {
+  const r = useRef(f); r.current = f;
+  useEffect(() => { const h = () => r.current(); window.addEventListener(FORCE_END, h); return () => window.removeEventListener(FORCE_END, h); }, []);
+}
+
 /* ---------------- 幼儿园（不会失败） ---------------- */
 const PRAISE = ['真棒！', '太厉害了！', '答对啦！', '你好聪明！', '小乌云笑啦！'];
 const KCOLORS = ['#cfe3ff', '#d5f0c4', '#fff0b3'];
 function speakStem(q: Question) { const t = ttsText(q); if (t) speak(t); }
 
-export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit }: BattleProps) {
+/** 题干拆分：连续 emoji 作为「可数的物品」放大显示（较真家长 J-1：题干里的 🍎 不能当普通文字小字显示） */
+const EMO = /(\p{Extended_Pictographic}(?:\uFE0F|\u200D\p{Extended_Pictographic}|\p{Emoji_Modifier})*)/u;
+export function splitStem(t: string): { text: string; items: string[] }[] {
+  const out: { text: string; items: string[] }[] = [];
+  for (const part of t.split(EMO)) {
+    if (!part) continue;
+    if (EMO.test(part) && part.match(EMO)![0] === part) { const last = out[out.length - 1]; if (last && !last.text) last.items.push(part); else out.push({ text: '', items: [part] }); }
+    else if (/^\s+$/.test(part) && out.length && !out[out.length - 1].text) continue;
+    else out.push({ text: part, items: [] });
+  }
+  return out;
+}
+function KStem({ q }: { q: Question }) {
+  const segs = splitStem(q.question);
+  const [lit, setLit] = useState(0);
+  useEffect(() => setLit(0), [q.key]);
+  const counting = /数一数|有几/.test(q.question);
+  let n = 0;
+  return <div className="kq">{segs.map((sg, i) => sg.text ? <span key={i}>{sg.text}</span> :
+    <div key={i} className={`kitems ${sg.items.length > 5 ? 'two' : ''}`} data-testid="kitems" data-count={sg.items.length}>
+      {sg.items.map((e, j) => { const k = ++n; return <button key={j} className={`kitem ${counting && k <= lit ? 'on' : ''}`} aria-label={e}
+        onClick={() => { if (!counting) return; const v = Math.max(lit, k); setLit(v); speak(String(v)); }}>{e}</button>; })}
+    </div>)}</div>;
+}
+
+export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean }) {
   const hearts = Math.min(questions.length, cfg.questions[kind]);
   const [idx, setIdx] = useState(0);
   const [ks, setKs] = useState(newKinder(hearts));
-  const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo'>('');
+  const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo' | 'ok'>('');
+  const [justLit, setJustLit] = useState(-1);
+  const [tilt, setTilt] = useState(false);
   const [paused, setPaused] = useState(false);
   usePauseOnHide(setPaused);
+  useEffect(() => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = paused; return () => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = false; }; }, [paused]);
   const lock = useRef(false);
   const D = useDirector(true, c, 0.95);
   const ksRef = useRef(ks); ksRef.current = ks;
-  const firstTry = useRef(0), wrong = useRef<string[]>([]);
+  const wrong = useRef<string[]>([]);
+  const down = useRef<string | null>(null);
+  useWakeLock(); usePauseTimeout(paused, onQuit);
+  useForceEnd(() => { const k = ksRef.current; onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
   useEffect(() => { if (q && cfg.autoTTS) speakStem(q); }, [q, cfg.autoTTS]);
   if (!q) return null;
-  const visible = choices.filter(ch => !ks.removed.includes(ch.key));
+  const T = DESIGN.kinder;
   const answer = (ch: Option) => {
-    if (lock.current || paused) return;
+    if (lock.current || paused || ksRef.current.removed.includes(ch.key)) return;
     lock.current = true;
     const cur = ksRef.current;
     const ok = isCorrect(q, ch.key);
-    if (cur.attempt === 0) { onAnswer(q, ok, ch.key); if (ok) firstTry.current++; else wrong.current.push(q.key); }
+    if (cur.attempt === 0) { onAnswer(q, ok, ch.key); if (!ok) wrong.current.push(q.key); }
     const wrongVisible = choices.filter(x => !q.answer.includes(x.key) && !cur.removed.includes(x.key)).map(x => x.key);
-    const [ns, r] = kinderAnswer(cur, ok, wrongVisible);
-    answerFeedback(ok);
+    const [ns, r] = kinderAnswer(cur, ok, ch.key, wrongVisible, demoReward);
+    if (ok) answerFeedback(true); else softBump();
     if (r === 'retry') {
-      setKs(ns); D.dir.current?.kinderRetry(); speak('再想想哦');
-      setTimeout(() => { setFx(''); lock.current = false; }, 900);
+      setKs(ns); setTilt(true); D.dir.current?.kinderRetry(); speak('再想想哦');
+      setTimeout(() => { setTilt(false); lock.current = false; }, T.retryUnlockMs);
       return;
     }
-    if (r === 'demo') { setFx('demo'); speak('看，是这个哦！'); }   // 不朗读选项内容
-    else { setFx('star'); D.dir.current?.kinderCorrect(); speak(PRAISE[Math.floor(Math.random() * PRAISE.length)]); }
-    setKs({ ...ns, removed: cur.removed });
+    if (r === 'demo') {
+      setFx('demo'); setTilt(true);
+      const right = choices.find(x => q.answer.includes(x.key));
+      speak(`看，是${right?.text || '这个'}哦！`);
+    } else { setFx('ok'); D.dir.current?.kinderCorrect(); speak(PRAISE[Math.floor(Math.random() * PRAISE.length)]); }
+    setKs({ ...ns, removed: r === 'demo' ? choices.filter(x => !q.answer.includes(x.key)).map(x => x.key) : cur.removed });
+    setTimeout(() => setJustLit(ns.lit - 1), r === 'demo' ? 1800 : 600);
     setTimeout(async () => {
-      setFx('');
+      setFx(''); setTilt(false);
       if (ns.done || idx + 1 >= questions.length) {
         speak('小乌云变成你的好朋友啦！');
         await D.dir.current?.kinderFinale();
         if (!D.alive.current) return;
-        onEnd({ win: true, correct: firstTry.current, total: idx + 1, revived: false, wrongKeys: wrong.current }); return;
+        onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo } }); return;
       }
-      setKs(ns); setIdx(i => i + 1); lock.current = false;
-    }, r === 'demo' ? 2000 : 1400);
+      setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false;
+    }, r === 'demo' ? T.demoMs : T.correctMs);
   };
   return (
     <div className="kbattle">
       <div className="ktop">
         <div className="row gap16 kleft">
-          <button className="pause-btn" aria-label="暂停" data-testid="pause" onClick={() => setPaused(true)}>⏸</button>
+          <HoldButton className="pause-btn" label="暂停（按住）" testid="pause" ms={2000} onDone={() => setPaused(true)}>⏸</HoldButton>
           <div className="kstars">⭐ {ks.stars}</div>
         </div>
         <div className="kbubble">
-          <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q)}>🔊</button>
-          <div className="kq">{q.question}</div>
+          {hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q)}>🔊</button>}
+          <KStem q={q} />
         </div>
-        <div className="hearts" data-testid="hearts">{Array.from({ length: ks.hearts }, (_, i) => <span key={i}>{i < ks.lit ? '💖' : '🤍'}</span>)}</div>
+        <div className="hearts" data-testid="hearts" aria-live="polite"><span className="hearts-label">开心值</span>{Array.from({ length: ks.hearts }, (_, i) => <span key={i} className={i === justLit ? 'pop' : ''}>{i < ks.lit || i === justLit ? '💖' : '🤍'}</span>)}</div>
       </div>
       <div className="kstage" ref={D.stage}>
         <div className="fx-shake" ref={D.shake}>
           <div className="unit-wrap kpup-wrap" ref={D.hero}><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
-          <div className="unit-wrap kmon-wrap" ref={D.monster}><div className="breathe slow">
+          <div className="unit-wrap kmon-wrap" ref={D.monster}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
             <img className={`kmon ${ks.lit >= 2 ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" draggable={false} />
             <img className="kmon white-flash" ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div></div>
         </div>
         <canvas className="fx-canvas" ref={D.canvas} />
       </div>
       <div className="kopts" data-testid="kopts">
-        {visible.map(ch => (
-          <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }}
-            className={`kopt ${fx === 'demo' && q.answer.includes(ch.key) ? 'reveal' : ''} ${fx === 'demo' && !q.answer.includes(ch.key) ? 'dim' : ''}`}
-            data-testid={'opt-' + ch.key} data-correct={q.answer.includes(ch.key) ? '1' : '0'} onClick={() => answer(ch)}>
-            {ch.image ? <img src={ch.image} alt="" /> : <span className={`kopt-text ${[...ch.text].length <= 3 ? 'short' : ''}`}>{ch.text}</span>}
-          </button>
-        ))}
+        {choices.map(ch => {
+          const gone = ks.removed.includes(ch.key), right = q.answer.includes(ch.key);
+          return (
+            <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }} aria-pressed={fx === 'ok' && right} disabled={gone} aria-hidden={gone}
+              className={`kopt ${gone ? 'gone' : ''} ${fx === 'demo' && right ? 'reveal' : ''} ${fx === 'ok' && right ? 'okmark' : ''}`}
+              data-testid={'opt-' + ch.key} data-correct={right ? '1' : '0'}
+              onPointerDown={() => { down.current = ch.key; }}
+              onPointerUp={() => { if (down.current === ch.key) answer(ch); down.current = null; }}
+              onPointerCancel={() => { down.current = null; }}
+              onClick={e => { if (e.detail === 0) answer(ch); /* 键盘/读屏 */ }}>
+              {ch.image ? <img className="kopt-img" src={ch.image} alt="" /> : <KOptFace text={ch.text} />}
+            </button>
+          );
+        })}
       </div>
       {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={onQuit} />}
     </div>
   );
+}
+/** 小班选项（策划 X-6）：上方 emoji 区 70%，下方文字 30%，不重叠 */
+function KOptFace({ text }: { text: string }) {
+  const segs = text.split(EMO).filter(Boolean);
+  const emo = segs.filter(x => EMO.test(x)).join(''), rest = segs.filter(x => !EMO.test(x)).join('').trim();
+  if (emo && rest) return <span className="kface"><span className="kface-emo">{emo}</span><span className={`kface-txt ${[...rest].length > 4 ? 'small' : ''}`}>{rest}</span></span>;
+  return <span className={`kopt-text ${[...text].length <= 3 ? 'short' : ''}`}>{text}</span>;
+}
+/** 长按按钮（小班暂停防误触，X-10）：按住时圆环进度 */
+export function HoldButton({ ms, onDone, children, className, label, testid }: { ms: number; onDone: () => void; children: ReactNode; className?: string; label: string; testid?: string }) {
+  const [p, setP] = useState(0); const t = useRef<number>(0); const st = useRef(0);
+  const stop = () => { cancelAnimationFrame(t.current); setP(0); };
+  const tick = () => { const v = Math.min(1, (performance.now() - st.current) / ms); setP(v); if (v >= 1) { stop(); onDone(); } else t.current = requestAnimationFrame(tick); };
+  return <button className={`${className ?? ''} hold`} aria-label={label} data-testid={testid} style={{ ['--p' as string]: p }}
+    onPointerDown={() => { st.current = performance.now(); t.current = requestAnimationFrame(tick); }} onPointerUp={stop} onPointerLeave={stop} onPointerCancel={stop}
+    onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onDone(); }}>{children}</button>;
 }
 
 /** 角色图：WebP 优先，PNG 兜底（旧 Safari） */
@@ -170,7 +272,7 @@ export function Sprite({ c, className }: { c: Character; className?: string }) {
 
 /* ---------------- 小学 / 初一 / 高一 ---------------- */
 type Phase = 'question' | 'action' | 'feedback' | 'revive-ask' | 'revive-q' | 'anim';
-export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
+export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, actionNoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps & { actionNoLimit?: boolean }) {
   const mode = cfg.stats;
   const mon = MONSTERS[mode][kind];
   const [queue, setQueue] = useState<Question[]>(questions);
@@ -187,12 +289,15 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [picked, setPicked] = useState<string>();
   const [flagged, setFlagged] = useState(false);
   const stats = useRef({ correct: 0, total: 0, wrong: [] as string[] });
+  const bsRef = useRef(bs); bsRef.current = bs;
+  useWakeLock(); usePauseTimeout(paused, onQuit);
+  useForceEnd(() => { const st = stats.current; onEnd({ win: outOfQuestions(bsRef.current) === 'win', correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); });
   // 复活挑战（GDD §4.4）：答对 2 道本关错题
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number } | null>(null);
   const q: Question | undefined = phase === 'revive-q' && rv ? rv.list[rv.i] : queue[idx];
   const limit = q ? timeLimitFor(q, cfg.band, { g1NoLimit }) : 0;
   const [timeLeft, setTimeLeft] = useState(limit);
-  const [actLeft, setActLeft] = useState(AUTO_ATTACK_SECONDS);
+  const [actKey, setActKey] = useState(0);
   const intent = intentOf(bs.turn);
   const D = useDirector(false, c, 0.75, mode === 'hs');
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp, c: bs.combo });   // 血条按命中时刻扣减
@@ -205,25 +310,25 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     if (timeLeft <= 0) { submit(''); return; }
     const t = setTimeout(() => setTimeLeft(x => x - 1), 1000); return () => clearTimeout(t);
   }, [phase, timeLeft, paused, limit]);
-  useEffect(() => {
-    if (phase !== 'action' || paused) return;
-    if (actLeft <= 0) { act('attack'); return; }
-    const t = setTimeout(() => setActLeft(x => x - 1), 1000); return () => clearTimeout(t);
-  }, [phase, actLeft, paused]);
+  // D6：行动选择窗口（3–6 年级/初中 8 秒，高中 6 秒），超时默认攻击；家长可设不限时
+  const actTotal = actionNoLimit ? 0 : (DESIGN.actionSeconds[cfg.band] ?? AUTO_ATTACK_SECONDS) * 1000;
+  const actMs = useCountdown(phase === 'action' && actTotal > 0, paused, actTotal || 1, actKey, () => act('attack'));
+  const actLeft = Math.ceil(actMs / 1000);
 
   if (!q) return null;
   const finish = async (s: BattleState) => {
     if (ending) return; setEnding(true);
     const win = s.over === 'win' || (!s.over && outOfQuestions(s) === 'win') || (!cfg.canFail);
     setPhase('anim');
-    await (win ? D.dir.current?.victory() : D.dir.current?.defeat());
+    // 胜负演出最多 1.2s，之后直接进结算（试玩报告 #8）
+    await Promise.race([win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(1200)]);
     if (!D.alive.current) return;
     onEnd({ win, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
   };
   /** 先播演出，命中瞬间扣血条，演完再进入反馈 */
   async function play(ns: BattleState, show: () => Promise<void> | undefined) {
     setPhase('anim');
-    try { await show(); } catch { /* 动画失败不影响流程 */ }
+    try { await Promise.race([show(), sleep(3000)]); } catch { /* 动画失败或卡住都不影响流程 */ }
     if (!D.alive.current) return;
     setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setBs(ns);
   }
@@ -251,12 +356,12 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       const [ns, r] = resolveCorrect(bs, c, 'attack', q.subject, q.difficulty, 0.5);
       const qq = q;
       void play(ns, () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: r.dealt, crit: false, dodge: false, onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })) }))
-        .then(() => { setFb({ ok: true, text: '漏选了，半伤害', dealt: r.dealt, taken: 0 }); setPhase('feedback'); setCanNext(true); });
+        .then(() => { if (ns.over === 'win') { void finish(ns); return; } setFb({ ok: true, text: '漏选了，半伤害', dealt: r.dealt, taken: 0 }); setPhase('feedback'); setCanNext(true); });
       return;
     }
     if (ok) {
       if (cfg.battle === 'simple') { act(autoAction(bs), true); return; }
-      setActLeft(AUTO_ATTACK_SECONDS); setPhase('action'); return;
+      setActKey(k => k + 1); setPhase('action'); return;
     }
     const [ns, r] = resolveWrong(bs, c);
     setCanNext(false);
@@ -271,7 +376,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     const crit = a === 'attack' && ns.combo >= 3;   // 3 连击起的攻击算「暴击」演出（数值仍按 battle.ts）
     setCanNext(true);
     void play(ns, () => D.dir.current?.playerAttack({ subject: q.subject, major: c.major, dealt: r.dealt, crit, dodge: a === 'dodge', healed: r.healed, taken: r.taken,
-      onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })), onCounter: () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })) })).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => setPhase('feedback'));
+      onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })), onCounter: () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })) })).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => { if (ns.over === 'win') void finish(ns); else setPhase('feedback'); });
   }
   function next() {
     const s = bs;
@@ -329,7 +434,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="qtext" data-ans={import.meta.env.DEV || (window as unknown as { __zyTest?: boolean }).__zyTest ? q.answer[0] : undefined}><Tex text={q.question} /></div>
         {asking && q.type === '多选' && (
           <div className="opts">
-            {q.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} data-testid={'opt-' + ch.key}
+            {q.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} aria-pressed={multi.includes(ch.key)} data-testid={'opt-' + ch.key}
               onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{multi.includes(ch.key) ? '✔' : ch.key}</i><Tex text={ch.text} /></button>)}
             <button className="next multi-ok" disabled={!multi.length} data-testid="ok" onClick={() => submit(multi.join(''))}>确定（多选）</button>
           </div>
@@ -347,10 +452,10 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         {asking && q.type === '填空' && <Keypad key={q.key} letters={letters} sci={cfg.band === 'H'} value={input} onChange={setInput} onOk={() => submit(input)} />}
         {phase === 'action' && (
           <div className="actions">
-            <div className="countbar" key={idx}><div style={{ animationDuration: AUTO_ATTACK_SECONDS + 's', animationPlayState: paused ? 'paused' : 'running' }} /></div>
-            <p className="good">✔ 正确！选择行动（{actLeft}s 后自动攻击）</p>
+            {actTotal > 0 && <div className="countbar smooth"><div style={{ transform: `scaleX(${actMs / actTotal})` }} /></div>}
+            <p className="good">✔ 正确！选择行动{actTotal > 0 ? `（${actLeft}s 后自动攻击）` : ''}</p>
             <div className="row gap16 grow">
-              <button className="act atk" data-testid="act-attack" onClick={() => act('attack')}>⚔<br />攻击</button>
+              <button className="act atk" data-testid="act-attack" onClick={() => act('attack')}>{actTotal > 0 && <svg className="ring" viewBox="0 0 36 36" aria-hidden><circle cx="18" cy="18" r="16" pathLength="1" style={{ strokeDasharray: `${actMs / actTotal} 1` }} /></svg>}⚔<br />攻击</button>
               <button className="act dodge" data-testid="act-dodge" onClick={() => act('dodge')}>🛡<br />闪避</button>
             </div>
           </div>
@@ -363,7 +468,6 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
               {picked && <p>你的答案：{q.type === '选择' || q.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={q.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(q)} /></b></p>
               {q.explanation && <p className="expl">💡 <Tex text={q.explanation} /></p>}
-              {q.textbook_note && <p className="tbnote">📘 {q.textbook}：{q.textbook_note}</p>}
             </>}
             <div className="row gap16 fb-btns">
               {!fb.ok && onFlag && <button className="flag" disabled={flagged} onClick={() => { onFlag(q); setFlagged(true); }}>{flagged ? '已告诉家长' : '⚠ 我觉得这题有错'}</button>}

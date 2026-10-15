@@ -10,7 +10,7 @@ const base = { id: 'x', status: 'AI初审通过', subject: '数学', grade: 7, t
   options: [{ text: '1' }, { text: '2' }, { text: '3' }, { text: '4' }], answer: 'B', explanation: '', difficulty: 2, tags: [] };
 
 describe('内置题库（v5/v6）', () => {
-  const EXPECT: Record<string, number> = { K1: 246, 1: 516, 2: 193, 3: 315, 4: 308, 5: 305, 6: 306, 7: 563, 10: 799 };   // v7
+  const EXPECT: Record<string, number> = { K1: 246, 1: 505, 2: 193, 3: 315, 4: 308, 5: 305, 6: 306, 7: 563, 10: 799 };   // v8
   for (const g of Object.keys(EXPECT)) {
     it(`${g}：全部通过校验，可玩 ${EXPECT[g]} 题，年级来自文件/字段`, () => {
       const b = loadBank(pub(g), `bank_${g}.json`);
@@ -21,9 +21,9 @@ describe('内置题库（v5/v6）', () => {
       expect(b.warnings.filter(w => w.errors[0].includes('game_ready'))).toEqual([]);
     });
   }
-  it('小学 1–6 年级可玩合计 1943', () => {
+  it('小学 1–6 年级可玩合计 1932', () => {
     const t = ['1', '2', '3', '4', '5', '6'].reduce((a, g) => a + loadBank(pub(g), `bank_${g}.json`).counts.playable, 0);
-    expect(t).toBe(1943);
+    expect(t).toBe(1932);
   });
   it('跨文件唯一键不冲突（科学题 K3-xxx 与幼儿园 K1 区分）', () => {
     const keys = new Set<string>(); let n = 0;

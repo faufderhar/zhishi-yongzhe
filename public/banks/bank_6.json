@@ -4944,7 +4944,7 @@
    "subject": "语文",
    "grade": 6,
    "textbook": "统编版",
-   "unit": "六下·文言文 学弈复习",
+   "unit": "六下·文言文 学弈",
    "type": "选择",
    "question": "学弈的道理和下面哪句最接近？",
    "options": [
@@ -5531,12 +5531,13 @@
     }
    ],
    "answer": "B",
-   "explanation": "六下选读/阅读中的名篇，写时间一去不回。",
+   "explanation": "《匆匆》是朱自清写的，写时间一去不回。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -12771,7 +12772,7 @@
    "volume": "六年级上册",
    "unit": "六上·文言文 曹冲称象",
    "question": "《曹冲称象》中，“称物以载之”的意思是？",
-   "explanation": "把东西装上船直到水痕到刻痕处，称这些东西即可。2026秋新版六上第七单元。",
+   "explanation": "把东西装上船，直到水痕到刻痕处，再称这些东西就行了。",
    "difficulty": 3,
    "knowledge_point": "曹冲称象",
    "type": "选择",

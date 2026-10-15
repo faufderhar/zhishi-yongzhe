@@ -45,3 +45,21 @@ export function selectQuestions(opts: {
   }
   return out;
 }
+
+/** 策划 J-10：同一关内同一 template（无则按第一个知识点 tag）最多 2 道，且尽量不相邻；
+    候选不够时放宽（保证题数）。candidates 为同小节的其余题，用来替换超额的题。 */
+export function spreadTemplates<T extends { key: string; tags: string[]; template?: string }>(qs: T[], candidates: T[] = []): T[] {
+  const tk = (q: T) => q.template || q.tags[0] || q.key;
+  const cnt = new Map<string, number>(); const keep: T[] = []; const over: T[] = [];
+  for (const q of qs) { const n = cnt.get(tk(q)) ?? 0; if (n < 2) { keep.push(q); cnt.set(tk(q), n + 1); } else over.push(q); }
+  for (const c of candidates) {
+    if (keep.length >= qs.length) break;
+    if (keep.some(k => k.key === c.key)) continue;
+    const n = cnt.get(tk(c)) ?? 0; if (n < 2) { keep.push(c); cnt.set(tk(c), n + 1); }
+  }
+  for (const o of over) if (keep.length < qs.length) keep.push(o);
+  // 不相邻：贪心挑与上一题模板不同的
+  const out: T[] = []; const rest = keep.slice();
+  while (rest.length) { const i = rest.findIndex(q => !out.length || tk(q) !== tk(out[out.length - 1])); out.push(rest.splice(i < 0 ? 0 : i, 1)[0]); }
+  return out;
+}
