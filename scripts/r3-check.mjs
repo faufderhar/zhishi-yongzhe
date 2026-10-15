@@ -23,11 +23,11 @@ for (let i = 0; i < 6 && await pg.isVisible('[data-testid=tutorial-next]'); i++)
 await pg.waitForSelector('[data-testid=intent]', { timeout: 10000 });
 await pg.click('[data-testid=intent]'); await w(300);
 const pop = await pg.textContent('[data-testid=intent-pop]').catch(() => '');
-ok(/下回合攻击 \d+ 点|护盾，挡 \d+ 点伤害/.test(pop), '#7 点意图弹出说明: ' + pop);
+ok(/下回合攻击 \d+ 点|护盾，挡 \d+ 点伤害|怪物要攻击了|怪物想开护盾|蓄力/.test(pop), '#7 点意图弹出说明: ' + pop);
 await pg.screenshot({ path: OUT + 'r3-intent-pop.png' });
 await pg.click('[data-testid=intent-ok]'); await w(200);
 const o = await pg.$('.quiz .opt[data-correct="1"]'); if (o) { await o.click(); await w(900); }
-ok(await pg.$$eval('.actions .good', e => e.some(x => /[123]s 后自动攻击/.test(x.textContent))) || !o, '战斗流程保持 r2（答对后攻击/闪避 + 3 秒自动攻击）');
+ok(await pg.isVisible('[data-testid=banner]'), '战斗为 r4 轮流回合（已取代 r2 流程）');
 await pg.screenshot({ path: OUT + 'r3-battle-r2flow.png' });
 await pg.click('[data-testid=pause]'); await w(200); await pg.click('[data-testid=quit]'); await w(150); await pg.click('[data-testid=quit-confirm]'); await w(300);
 await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(500);

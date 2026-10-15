@@ -44,14 +44,20 @@ export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void
   );
 }
 
-export function StdTutorial({ cfg, onDone }: { cfg: BandConfig; onDone: () => void }) {
-  const cards = [
+/** D5 / D6 规格 §10：轮流回合版引导；onlyCard3 = 老档案补弹第 3 张 */
+export function StdTutorial({ cfg, onDone, onlyCard3 }: { cfg: BandConfig; onDone: () => void; onlyCard3?: boolean }) {
+  const rounds = cfg.battle === 'full';
+  const card3 = !rounds ? '答对后会自动帮你出招'
+    : cfg.band === 'G2' || cfg.band === 'G3' ? '⚔ 我方回合答对就攻击，答错会被反击（有机会闪开）；🛡 对方回合答对就能闪避！'
+    : '⚔ 我方回合答对就攻击，答错会被反击（有机会闪开）；🛡 对方回合答对就能闪避，答得快还能攒专注！';
+  const all = [
     { t: '答对题目就能出手攻击怪物', at: 'q' },
-    { t: '怪物头上的图标是它下一步要做什么：⚔ 攻击 / ⚡ 蓄力 / 🛡 护盾', at: 'm' },
-    { t: cfg.band === 'G1' ? '答对后会自动帮你出招' : '答对后选〔攻击〕或〔闪避〕：怪物要攻击时选闪避更安全', at: 'a' },
+    { t: rounds ? '怪物头上的图标是它下一步要做什么：⚔ 攻击 / ⚡ 蓄力 / 🛡 护盾，点一下能看说明' : '怪物头上的图标是它下一步要做什么：⚔ 攻击 / ⚡ 蓄力 / 🛡 护盾', at: 'm' },
+    { t: card3, at: 'a' },
     { t: '血条空了也别怕，答对 2 道错题就能复活', at: 'h' },
-    ...(cfg.band === 'H' ? [{ t: '每回合挑一张题卡，重击伤害高但答错受伤也多', at: 'q' }] : []),
+    ...(cfg.band === 'H' ? [{ t: '我方回合挑一张题卡，重击伤害高但答错挨打也多；押『确定』答错了就闪不开哦', at: 'q' }] : []),
   ];
+  const cards = onlyCard3 ? [all[2]] : all;
   const [i, setI] = useState(0);
   useEffect(() => { if (cfg.autoTTS) speak(cards[i].t); }, [i]);
   return (

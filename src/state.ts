@@ -4,12 +4,12 @@ import type { GradeKey } from './game/questions';
 import { bandConfig } from './game/grades';
 import type { TimeLimit, Usage } from './game/playtime';
 import type { Skills } from './game/adaptive';
-export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean;
+export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean; hsWager?: boolean;
   pinHint?: { q: string; a: string };            // 找回问题（答案存哈希）
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
   tutorialReplay?: Record<string, boolean> }
-export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean }
+export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean }
 export interface Progress { stars: Record<string, number>; plays: Record<string, { day: string; count: number }>; masteredStars: number; xp: number }
 export const DEFAULT_SETTINGS: Settings = { includePending: false, g1NoLimit: false };
 export const AVATARS = ['🧒', '👧', '👦', '🧑‍🎓', '🧑‍🔬', '🐱', '🐶', '🐰', '🦊', '🐼', '🦁', '🐯'];
@@ -46,7 +46,7 @@ export function repairProfile(x: unknown): Profile | null {
   return { id: x.id, name: typeof x.name === 'string' && x.name ? x.name.slice(0, 16) : '小勇者', avatar: typeof x.avatar === 'string' && x.avatar ? x.avatar : '🧒', grade: grade as GradeKey,
     volumes: Array.isArray(x.volumes) ? x.volumes.filter(v => typeof v === 'string') : null,
     limit: { weekday: Number.isFinite(lim.weekday) ? Number(lim.weekday) : def.weekday, weekend: Number.isFinite(lim.weekend) ? Number(lim.weekend) : def.weekend },
-    charId: typeof x.charId === 'string' ? x.charId : undefined, ...(x.tutorialDone === true ? { tutorialDone: true } : {}) };
+    charId: typeof x.charId === 'string' ? x.charId : undefined, ...(x.tutorialDone === true ? { tutorialDone: true } : {}), ...(x.tutorialV036 === true ? { tutorialV036: true } : {}) };
 }
 export const loadSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await guarded<Partial<Settings>>('settings', x => isObj(x) ? x as Partial<Settings> : null, () => ({}))) });
 export const saveSettings = (s: Settings) => setKV('settings', s);

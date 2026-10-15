@@ -18,6 +18,7 @@ import { recordAnswer, wrongOf, putWrong, delWrong, answersOf } from './db';
 import * as S from './state';
 import type { Profile, Progress, Settings } from './state';
 import { KinderTutorial, StdTutorial } from './ui/Tutorial';
+import { RoundBattle } from './ui/RoundBattle';
 import { KinderBattle, StdBattle, FORCE_END, type BattleResult } from './ui/Battle';
 import { ProfileSelect, CharSelect, MapScreen, ResultScreen, WrongBookScreen, ReviewSession } from './ui/Screens';
 import { ParentGate, ParentSettings } from './ui/Parent';
@@ -99,15 +100,18 @@ export default function App() {
     const t = setTimeout(() => { void prefetchAll(undefined, kinds).catch(() => {}); }, 8000);
     return () => clearTimeout(t);
   }, [profiles.map(x => x.grade).join()]);
-  const needTutorial = !!p && (!p.tutorialDone || !!settings.tutorialReplay?.[p.id]);
+  const replay = !!p && (!p.tutorialDone || !!settings.tutorialReplay?.[p.id]);
+  // 老档案（看过旧引导）第一次进轮流回合战斗：只补弹第 3 张卡一次（规格 §10）
+  const onlyCard3 = !!p && !replay && cfg?.battle === 'full' && !p.tutorialV036;
+  const needTutorial = replay || onlyCard3;
   const finishTutorial = () => {
     if (!p) return;
-    setProfiles(profiles.map(x => x.id === p.id ? { ...x, tutorialDone: true } : x));
+    setProfiles(profiles.map(x => x.id === p.id ? { ...x, tutorialDone: true, ...(cfg?.battle === 'full' ? { tutorialV036: true } : {}) } : x));
     if (settings.tutorialReplay?.[p.id]) { const r = { ...settings.tutorialReplay }; delete r[p.id]; setSettings({ ...settings, tutorialReplay: r }); }
   };
   const overTime = myRemaining <= 0 && screen.s === 'battle';
   useEffect(() => { if (!overTime) return; const t = setTimeout(() => window.dispatchEvent(new Event(FORCE_END)), 3 * 60e3); return () => clearTimeout(t); }, [overTime]);
-  const char: Character | undefined = p && cfg ? (cfg.chars === 'scifi' ? SCIFI : PUPS).find(c => c.id === p.charId) : undefined;
+  const char: Character | undefined = p && cfg ? [...PUPS, ...SCIFI].find(c => c.id === p.charId) : undefined;
 
   // 计时：进入孩子档案后（地图/选角色/战斗/结算/错题本/复习）且页面可见时都计；幼儿园短关卡以前只计战斗，几乎为 0（试玩报告 #10）
   const playing = !!pid && ['battle', 'review', 'map', 'result', 'char', 'wrongbook'].includes(screen.s);
@@ -184,7 +188,7 @@ export default function App() {
     const target = skills[level.chapter]?.level ?? 2;
     const n = cfg.questions[level.kind];
     const qs = spreadTemplates(selectQuestions({ pool, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool);
-    const extra = selectQuestions({ pool: fallback, fallback: [], n: n * 2, target, kind: level.kind });
+    const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind });
     masteredThisLevel.current = 0;
     setScreen({ s: 'battle', level, qs, extra, nonce: Date.now() });
   }
@@ -192,7 +196,7 @@ export default function App() {
     if (!p) return;
     const played = progress.plays[level.id]?.day === today ? progress.plays[level.id].count : 0;
     // 防刷（D3）：同关当天第 3 次起不再新增星星（历史最高保留）
-    const stars = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived);
+    const stars = Math.min(r.retreat ? 1 : 3, starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived));   // 回合上限撤退：算通关，最多 ★（规格 §8）
     const gain = played >= 2 ? 0 : stars;
     const mastered = masteredThisLevel.current;
     setProgress(pr => {
@@ -230,13 +234,17 @@ export default function App() {
         onReview={() => startReview(wrong.filter(e => isDue(e)).sort((a, b) => a.due.localeCompare(b.due)).slice(0, 10).map(e => e.qkey))} />}
       {screen.s === 'battle' && cfg && char && p && needTutorial && (cfg.battle === 'kinder'
         ? <KinderTutorial c={char} onDone={finishTutorial} />
-        : <StdTutorial cfg={cfg} onDone={finishTutorial} />)}
+        : <StdTutorial cfg={cfg} onDone={finishTutorial} onlyCard3={onlyCard3} />)}
       {screen.s === 'battle' && cfg && char && !needTutorial && (cfg.battle === 'kinder'
         ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} />
+        : cfg.battle === 'full'
+        ? <RoundBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
+            wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
+            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder}
+      {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} />}

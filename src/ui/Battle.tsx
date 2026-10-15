@@ -14,7 +14,7 @@ import { loadCharAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
 import { appReduceMotion, setAppReduceMotion, sleep } from '../fx/motion';
 
 /** 挂载演出导演（Canvas 粒子层 + 各单位节点） */
-function useDirector(gentle: boolean, c: Character, scale: number, hs = false) {
+export function useDirector(gentle: boolean, c: Character, scale: number, hs = false) {
   const stage = useRef<HTMLDivElement>(null), shake = useRef<HTMLDivElement>(null), hero = useRef<HTMLDivElement>(null);
   const monster = useRef<HTMLDivElement>(null), flash = useRef<HTMLImageElement>(null), canvas = useRef<HTMLCanvasElement>(null);
   const dir = useRef<Director | null>(null);
@@ -43,7 +43,7 @@ function useDirector(gentle: boolean, c: Character, scale: number, hs = false) {
   return { stage, shake, hero, monster, flash, canvas, dir, alive };
 }
 
-export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; retreat?: boolean; turns?: number; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps {
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -53,7 +53,7 @@ export interface BattleProps {
 }
 
 /** 暂停层：所有年级都有；退出需二次确认 */
-function PauseOverlay({ onResume, onQuit }: { onResume: () => void; onQuit: () => void }) {
+export function PauseOverlay({ onResume, onQuit }: { onResume: () => void; onQuit: () => void }) {
   const [confirm, setConfirm] = useState(false);
   return (
     <Modal>
@@ -94,7 +94,7 @@ export function useCountdown(active: boolean, paused: boolean, totalMs: number, 
   }, [active, paused, key]);
   return left;
 }
-function usePauseOnHide(setPaused: (b: boolean) => void) {
+export function usePauseOnHide(setPaused: (b: boolean) => void) {
   useEffect(() => {
     const f = () => { if (document.visibilityState === 'hidden') setPaused(true); };
     document.addEventListener('visibilitychange', f); return () => document.removeEventListener('visibilitychange', f);
@@ -103,7 +103,7 @@ function usePauseOnHide(setPaused: (b: boolean) => void) {
 
 
 /** 战斗中保持亮屏（技术QA P3-6a）；不支持时静默 */
-function useWakeLock() {
+export function useWakeLock() {
   useEffect(() => {
     let lock: { release: () => Promise<void> } | null = null; let dead = false;
     const req = async () => { try { const wl = (navigator as unknown as { wakeLock?: { request: (t: string) => Promise<{ release: () => Promise<void> }> } }).wakeLock; if (wl && document.visibilityState === 'visible') { lock = await wl.request('screen'); if (dead) void lock.release(); } } catch { /* */ } };
@@ -113,11 +113,11 @@ function useWakeLock() {
   }, []);
 }
 /** 暂停超过 5 分钟自动回地图（策划 T-P2-3）；时长到点后的宽限结束时强制结算（T-P2-2） */
-function usePauseTimeout(paused: boolean, onQuit: () => void) {
+export function usePauseTimeout(paused: boolean, onQuit: () => void) {
   useEffect(() => { if (!paused) return; const t = setTimeout(onQuit, 5 * 60e3); return () => clearTimeout(t); }, [paused]);
 }
 export const FORCE_END = 'zy-force-end';
-function useForceEnd(f: () => void) {
+export function useForceEnd(f: () => void) {
   const r = useRef(f); r.current = f;
   useEffect(() => { const h = () => r.current(); window.addEventListener(FORCE_END, h); return () => window.removeEventListener(FORCE_END, h); }, []);
 }

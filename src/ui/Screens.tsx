@@ -88,7 +88,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
     <div className="center-screen">
       <button className="back" onClick={onBack} aria-label="返回">←</button>
       <h2>{cfg.band === 'K' ? '选一只小狗伙伴' : cfg.band === 'H' ? '选择研究员' : '选择你的勇者'}</h2>
-      <div className="row gap24 wrap">
+      <div className="row gap24 wrap char-list" data-testid="charlist">
         {list.map(c => (
           <button key={c.id} className={`char-card ${c.id === sel ? 'sel' : ''} ${c.id === current ? 'last' : ''}`} data-testid={'char-' + c.id} aria-pressed={c.id === sel}
             onClick={() => { setSel(c.id); if (cfg.band === 'K' || cfg.band === 'G1') speak(c.name); }}>
@@ -178,8 +178,8 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, onAgain, onNext, onMap, kinder }: {
-  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; kinder?: { first: number; retry: number; demo: number };
+export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, onAgain, onNext, onMap, kinder, retreat, turns }: {
+  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
   const acc = total ? Math.round(correct / total * 100) : 0;
@@ -191,12 +191,13 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         <KinderSub k={kinder} total={total} />
       </> : <>
         <div className="big-emoji xl">{win ? '🏆' : '💫'}</div>
-        <h1>{win ? '胜利！' : '这次差一点'}</h1>
+        <h1>{retreat ? '怪物撤退了！' : win ? '胜利！' : '这次差一点'}</h1>
+        {retreat && <p data-testid="retreat">到了回合上限，怪物逃走了：算通关，但最多 ★。下次试试更快打倒它！</p>}
         {!win && <p>失败也能拿一半经验，错题已放进错题本，下次再来！</p>}
       </>}
       <Stars n={stars} size={72} />
       <p className="star-rules" data-testid="star-rules">{STAR_RULES}</p>
-      {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{cfg.band === 'H' ? `正确 ${correct}/${total} · 正确率 ${acc}%` : `答对 ${correct} / ${total} 题`}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
+      {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{cfg.band === 'H' ? `正确 ${correct}/${total} · 正确率 ${acc}%` : `答对 ${correct} / ${total} 题`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！</p>}
       <div className="row gap24">
         {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}
