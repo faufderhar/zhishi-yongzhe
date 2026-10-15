@@ -99,8 +99,8 @@ const right = await pg.$('[data-testid^=opt-][data-correct="1"]');
 if (right) { await right.tap(); } else { const ans = await pg.getAttribute('[data-ans]', 'data-ans'); for (const ch of ans) await pg.tap(`[data-key="${ch}"]`); await pg.tap('[data-testid=ok]'); }
 await W(pg, 900);
 const at = await pg.textContent('.actions .good').catch(() => '');
-ok(/[78]s 后自动攻击/.test(at), 'D6 初一行动窗口 8 秒: ' + at);
-await pg.screenshot({ path: OUT + 'd6-action-8s.png' });
+ok(/[123]s 后自动攻击/.test(at), 'D6 已取消：保持原 3 秒流程: ' + at);
+await pg.screenshot({ path: OUT + 'd6-unchanged-3s.png' });
 await pg.tap('[data-testid=pause]'); await W(pg, 200); await pg.screenshot({ path: OUT + 'x10-pause.png' });
 await pg.tap('[data-testid=quit]'); await W(pg, 150); await pg.tap('[data-testid=quit-confirm]'); await W(pg, 300);
 

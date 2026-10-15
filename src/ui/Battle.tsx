@@ -272,7 +272,7 @@ export function Sprite({ c, className }: { c: Character; className?: string }) {
 
 /* ---------------- 小学 / 初一 / 高一 ---------------- */
 type Phase = 'question' | 'action' | 'feedback' | 'revive-ask' | 'revive-q' | 'anim';
-export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, actionNoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps & { actionNoLimit?: boolean }) {
+export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
   const mode = cfg.stats;
   const mon = MONSTERS[mode][kind];
   const [queue, setQueue] = useState<Question[]>(questions);
@@ -310,8 +310,8 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, ac
     if (timeLeft <= 0) { submit(''); return; }
     const t = setTimeout(() => setTimeLeft(x => x - 1), 1000); return () => clearTimeout(t);
   }, [phase, timeLeft, paused, limit]);
-  // D6：行动选择窗口（3–6 年级/初中 8 秒，高中 6 秒），超时默认攻击；家长可设不限时
-  const actTotal = actionNoLimit ? 0 : (DESIGN.actionSeconds[cfg.band] ?? AUTO_ATTACK_SECONDS) * 1000;
+  // D6 已取消（待策划新方案）：保持原流程，答对后 AUTO_ATTACK_SECONDS 秒自动攻击
+  const actTotal = AUTO_ATTACK_SECONDS * 1000;
   const actMs = useCountdown(phase === 'action' && actTotal > 0, paused, actTotal || 1, actKey, () => act('attack'));
   const actLeft = Math.ceil(actMs / 1000);
 
@@ -455,7 +455,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, ac
             {actTotal > 0 && <div className="countbar smooth"><div style={{ transform: `scaleX(${actMs / actTotal})` }} /></div>}
             <p className="good">✔ 正确！选择行动{actTotal > 0 ? `（${actLeft}s 后自动攻击）` : ''}</p>
             <div className="row gap16 grow">
-              <button className="act atk" data-testid="act-attack" onClick={() => act('attack')}>{actTotal > 0 && <svg className="ring" viewBox="0 0 36 36" aria-hidden><circle cx="18" cy="18" r="16" pathLength="1" style={{ strokeDasharray: `${actMs / actTotal} 1` }} /></svg>}⚔<br />攻击</button>
+              <button className="act atk" data-testid="act-attack" onClick={() => act('attack')}>⚔<br />攻击</button>
               <button className="act dodge" data-testid="act-dodge" onClick={() => act('dodge')}>🛡<br />闪避</button>
             </div>
           </div>

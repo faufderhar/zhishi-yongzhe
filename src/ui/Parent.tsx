@@ -229,7 +229,6 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
         <label className="toggle"><input type="checkbox" data-testid="toggle-pending" checked={settings.includePending} onChange={e => setSettings({ ...settings, includePending: e.target.checked })} />
           也出「待审核 / 需家长确认」的题（停用的题永远不出）</label>
         <label className="toggle"><input type="checkbox" checked={settings.g1NoLimit} onChange={e => setSettings({ ...settings, g1NoLimit: e.target.checked })} /> 1–2 年级不限时</label>
-        <label className="toggle"><input type="checkbox" data-testid="toggle-action-nolimit" checked={!!settings.actionNoLimit} onChange={e => setSettings({ ...settings, actionNoLimit: e.target.checked })} /> 答对后「攻击/闪避」不限时（默认：3–6 年级/初中 8 秒、高中 6 秒后自动攻击）</label>
         <label className="toggle"><input type="checkbox" data-testid="toggle-demo-reward" checked={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} onChange={e => setSettings({ ...settings, kinderDemoReward: e.target.checked })} /> 小班看演示学会的题也给⭐（不算「自己答对」）</label>
         <label className="toggle"><input type="checkbox" checked={settings.sfx ?? true} onChange={e => setSettings({ ...settings, sfx: e.target.checked })} /> 音效</label>
         <label className="toggle"><input type="checkbox" checked={settings.tts ?? true} onChange={e => setSettings({ ...settings, tts: e.target.checked })} /> 朗读</label>

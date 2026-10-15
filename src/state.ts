@@ -7,7 +7,6 @@ import type { Skills } from './game/adaptive';
 export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean;
   pinHint?: { q: string; a: string };            // 找回问题（答案存哈希）
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4
-  actionNoLimit?: boolean;                        // D6：行动选择不限时
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
   tutorialReplay?: Record<string, boolean> }
 export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean }
