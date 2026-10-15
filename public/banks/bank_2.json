@@ -1794,7 +1794,7 @@
   },
   {
    "id": "Y2-001",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -1830,8 +1830,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -1839,7 +1838,7 @@
   },
   {
    "id": "Y2-002",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -1848,6 +1847,11 @@
    "question": "小蝌蚪先认错了谁？",
    "tts_text": "小蝌蚪先认错了谁？",
    "options": [
+    {
+     "text": "青蛙",
+     "image": "",
+     "audio": ""
+    },
     {
      "text": "鲤鱼",
      "image": "",
@@ -1862,21 +1866,16 @@
      "text": "乌龟",
      "image": "",
      "audio": ""
-    },
-    {
-     "text": "青蛙",
-     "image": "",
-     "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "鲤鱼告诉他们妈妈长着四条腿。",
+   "answer": "D",
+   "explanation": "小蝌蚪先问鲤鱼阿姨，后来看见乌龟以为是妈妈，追上去叫妈妈。",
    "difficulty": 2,
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -1884,7 +1883,7 @@
   },
   {
    "id": "Y2-003",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -1920,8 +1919,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -1929,7 +1927,7 @@
   },
   {
    "id": "Y2-004",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -1965,8 +1963,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -1974,7 +1971,7 @@
   },
   {
    "id": "Y2-005",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2010,8 +2007,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2019,7 +2015,7 @@
   },
   {
    "id": "Y2-006",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2055,7 +2051,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留；按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《曹冲称象》已从统编二上修订版删去（2026秋改为六上文言文），停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -2064,7 +2060,7 @@
   },
   {
    "id": "Y2-007",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2100,7 +2096,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留；按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《玲玲的画》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -2109,7 +2105,7 @@
   },
   {
    "id": "Y2-008",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2145,7 +2141,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《一封信》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -2154,7 +2150,7 @@
   },
   {
    "id": "Y2-009",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2190,7 +2186,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《妈妈睡了》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -2375,7 +2371,7 @@
   },
   {
    "id": "Y2-014",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2411,8 +2407,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2420,7 +2415,7 @@
   },
   {
    "id": "Y2-015",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2456,8 +2451,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2465,7 +2459,7 @@
   },
   {
    "id": "Y2-016",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2501,8 +2495,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2510,7 +2503,7 @@
   },
   {
    "id": "Y2-017",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2546,8 +2539,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2555,7 +2547,7 @@
   },
   {
    "id": "Y2-018",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2591,8 +2583,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2600,7 +2591,7 @@
   },
   {
    "id": "Y2-019",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2636,8 +2627,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2645,7 +2635,7 @@
   },
   {
    "id": "Y2-020",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2681,8 +2671,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2690,7 +2679,7 @@
   },
   {
    "id": "Y2-021",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2726,8 +2715,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2735,7 +2723,7 @@
   },
   {
    "id": "Y2-022",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2771,8 +2759,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2780,7 +2767,7 @@
   },
   {
    "id": "Y2-023",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2816,7 +2803,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留",
+   "review_note": "《夜宿山寺》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -2825,7 +2812,7 @@
   },
   {
    "id": "Y2-024",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2861,8 +2848,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2870,7 +2856,7 @@
   },
   {
    "id": "Y2-025",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2906,8 +2892,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2915,44 +2900,44 @@
   },
   {
    "id": "Y2-026",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
    "unit": "二上·纸船和风筝",
    "type": "选择",
-   "question": "松鼠和小熊吵架后，是谁先和好？",
-   "tts_text": "松鼠和小熊吵架后，是谁先和好？",
+   "question": "《纸船和风筝》这个故事告诉我们？",
+   "tts_text": "《纸船和风筝》这个故事告诉我们？",
    "options": [
     {
-     "text": "没有和好",
+     "text": "朋友闹了矛盾要主动和好，友谊很珍贵",
      "image": "",
      "audio": ""
     },
     {
-     "text": "松鼠放了纸船，小熊也放了风筝",
+     "text": "吵架后就不要再理对方",
      "image": "",
      "audio": ""
     },
     {
-     "text": "他们搬家了",
+     "text": "松鼠和小熊再也不见面了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有大人劝",
+     "text": "纸船比风筝好玩",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "道歉和原谅。",
+   "answer": "A",
+   "explanation": "松鼠和小熊用纸船和风筝重新和好。",
    "difficulty": 2,
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -2960,7 +2945,7 @@
   },
   {
    "id": "Y2-027",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -2996,7 +2981,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《风娃娃》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -3225,7 +3210,7 @@
   },
   {
    "id": "Y2-033",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3261,8 +3246,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3270,7 +3254,7 @@
   },
   {
    "id": "Y2-034",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3306,8 +3290,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3315,7 +3298,7 @@
   },
   {
    "id": "Y2-035",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3351,8 +3334,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3360,22 +3342,27 @@
   },
   {
    "id": "Y2-036",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
    "unit": "二下·一匹出色的马",
    "type": "选择",
-   "question": "妈妈给了“我”什么当马？",
-   "tts_text": "妈妈给了我什么当马？",
+   "question": "《一匹出色的马》里，“出色的马”其实是什么？",
+   "tts_text": "《一匹出色的马》里，“出色的马”其实是什么？",
    "options": [
     {
-     "text": "一根柳条",
+     "text": "一匹真马",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一匹真马",
+     "text": "一辆自行车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一根长长的柳条",
      "image": "",
      "audio": ""
     },
@@ -3383,21 +3370,16 @@
      "text": "一双鞋",
      "image": "",
      "audio": ""
-    },
-    {
-     "text": "一辆车",
-     "image": "",
-     "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "柳条让孩子忘记了累。",
+   "answer": "C",
+   "explanation": "孩子把柳条当马骑，一路跑回家。",
    "difficulty": 2,
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3405,7 +3387,7 @@
   },
   {
    "id": "Y2-037",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3441,8 +3423,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3450,7 +3431,7 @@
   },
   {
    "id": "Y2-038",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3486,8 +3467,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3495,7 +3475,7 @@
   },
   {
    "id": "Y2-039",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3531,8 +3511,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3540,7 +3519,7 @@
   },
   {
    "id": "Y2-040",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3576,8 +3555,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3585,7 +3563,7 @@
   },
   {
    "id": "Y2-041",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3621,8 +3599,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3630,7 +3607,7 @@
   },
   {
    "id": "Y2-042",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3666,8 +3643,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3675,7 +3651,7 @@
   },
   {
    "id": "Y2-043",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3711,8 +3687,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3720,7 +3695,7 @@
   },
   {
    "id": "Y2-044",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3756,8 +3731,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3765,7 +3739,7 @@
   },
   {
    "id": "Y2-045",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3801,8 +3775,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3810,7 +3783,7 @@
   },
   {
    "id": "Y2-046",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3846,8 +3819,7 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -3987,7 +3959,7 @@
   },
   {
    "id": "Y2-050",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -4023,7 +3995,7 @@
    "source": "AI",
    "volume": "二年级上册",
    "knowledge_point": "语文",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留",
+   "review_note": "《曹冲称象》已从统编二上修订版删去（2026秋改为六上文言文），停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -4332,7 +4304,7 @@
    "source": "AI",
    "volume": "二年级（上下册通用）",
    "knowledge_point": "诗词",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留",
+   "review_note": "《夜宿山寺》已被修订版二上《江雪》《敕勒歌》替换；诗句本身正确，可作课外积累，是否保留由家长决定",
    "game_ready": false,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "tags": [
@@ -7593,6 +7565,231 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "词语"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "《敕勒歌》中“天似穹庐”，把天空比作？",
+   "options": [
+    {
+     "text": "毡帐（蒙古包）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "高山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆盘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大海",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S2-060",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "二年级（上下册通用）",
+   "unit": "《敕勒歌》",
+   "question": "《敕勒歌》中“天似穹庐”，把天空比作？",
+   "explanation": "穹庐：游牧民族居住的圆顶毡帐。",
+   "difficulty": 2,
+   "knowledge_point": "字词",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "字词"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "“风吹草低见牛羊”中“见”的读音和意思是？",
+   "options": [
+    {
+     "text": "读 xiàn，现在",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "读 xiàn，同“现”，露出来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "读 jiàn，看见",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "读 jiàn，见面",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S2-061",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "二年级（上下册通用）",
+   "unit": "《敕勒歌》",
+   "question": "“风吹草低见牛羊”中“见”的读音和意思是？",
+   "explanation": "草被风吹低，露出了牛羊。",
+   "difficulty": 2,
+   "knowledge_point": "字词",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "字词"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "“孤舟蓑笠翁”的下一句是？",
+   "options": [
+    {
+     "text": "独坐敬亭山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "万径人踪灭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "独钓寒江雪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "千山鸟飞绝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S2-062",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "二年级（上下册通用）",
+   "unit": "《江雪》",
+   "question": "“孤舟蓑笠翁”的下一句是？",
+   "explanation": "柳宗元《江雪》。",
+   "difficulty": 1,
+   "knowledge_point": "名句",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "名句"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "《江雪》描写的季节是？",
+   "options": [
+    {
+     "text": "夏天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冬天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S2-063",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "二年级（上下册通用）",
+   "unit": "《江雪》",
+   "question": "《江雪》描写的季节是？",
+   "explanation": "千山鸟飞绝，万径人踪灭，一片冰雪。",
+   "difficulty": 1,
+   "knowledge_point": "内容",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "内容"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "“春种一粒粟”的下一句是？",
+   "options": [
+    {
+     "text": "粒粒皆辛苦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农夫犹饿死",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "四海无闲田",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋收万颗子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S2-064",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "二年级（上下册通用）",
+   "unit": "《悯农（其一）》",
+   "question": "“春种一粒粟”的下一句是？",
+   "explanation": "李绅《悯农》其一。",
+   "difficulty": 1,
+   "knowledge_point": "名句",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "名句"
    ]
   }
  ]

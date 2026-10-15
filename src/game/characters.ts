@@ -32,3 +32,7 @@ export const passive = {
   heal: (c: Character) => c.major === '语文',
   comboGuard: (c: Character) => c.major === '英语',
 };
+
+/** 新科目没有专属角色：按亲缘归到某位角色的招牌技能（演出用，数值加成仍只看 major） */
+export const SUBJECT_AFFINITY: Record<string, string> = { 道德与法治: '语文', 政治: '语文', 历史: '语文', 生物: '化学', 科学: '化学', 地理: '英语', 物理: '数学' };
+export const isSignature = (subject: string, major: string) => subject === major || SUBJECT_AFFINITY[subject] === major;

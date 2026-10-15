@@ -61,6 +61,19 @@ for (const g of ['K1', '1', '2', '3', '4', '5', '6', '7', '10']) {
     if (seen.length >= 2 && seen[seen.length - 1] === seen[0]) fail('连击没有增长');
   }
 }
+  // v7
+  // v7 新科目：初一道法、高一生物/地理/政治
+  for (const [g, subj, tag] of [['7', '道德与法治', 'daofa'], ['10', '生物', 'bio'], ['10', '地理', 'geo'], ['10', '政治', 'zhengzhi']]) {
+    await home(); await pg.click('[data-testid=add-child]'); await w(200); await pg.click(`[data-testid=home-grade-${g}]`); await w(1200);
+    if (await pg.$('[data-testid^=char-]')) { await pg.click('[data-testid^=char-]'); await w(500); }
+    await pg.click(`[data-testid=chapter-${subj}]`); await w(400);
+    await pg.screenshot({ path: `${OUT}v7-map-${tag}.png` });
+    await pg.click('[data-testid=level-1]'); await w(2000);
+    const qt = await pg.textContent('.qtext, .kq').catch(() => '');
+    if (!qt?.trim()) fail(subj + ' 战斗没有题目'); else console.log(`新科目 ${subj}: 「${qt.trim().slice(0, 28)}」`);
+    await pg.screenshot({ path: `${OUT}v7-battle-${tag}.png` });
+  }
+
 // 旧状态：IndexedDB 里只剩幼儿园档案（模拟老版本/误删）→ 首页仍可添加任意年级
 await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const d = r.result; const t = d.transaction('kv', 'readwrite'); const s = t.objectStore('kv');
   const g = s.get('profiles'); g.onsuccess = () => { s.put(g.result.filter(p => p.grade === 'K1').slice(0, 1), 'profiles'); }; t.oncomplete = res; }; }));

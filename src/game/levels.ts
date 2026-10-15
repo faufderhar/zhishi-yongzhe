@@ -3,15 +3,19 @@
    关卡 id 取首题的 grade:id（不含单元文本，单元改名不影响星级）。 */
 import type { Question } from './questions';
 import type { LevelKind } from './grades';
+/** 题库改版后旧关卡 id → 新关卡（按题池重合度生成，见 tools/level_aliases.md）；星级继承 */
+import LEVEL_ALIASES from './levelAliases.json';
+const ALIASES = LEVEL_ALIASES as Record<string, string[]>;
 export interface Level { id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */ }
 export interface Chapter { subject: string; name: string; icon: string; levels: Level[]; volumes: string[]; count: number }
 export const AREA: Record<string, [string, string]> = {
   数学: ['数之城', '🔢'], 语文: ['墨韵山', '🖌️'], 英语: ['星语港', '🔤'], 诗词: ['诗词江湖', '📜'], 历史: ['时光长廊', '⏳'],
   物理: ['力之塔', '🧲'], 化学: ['炼金工坊', '⚗️'], 科学: ['探索森林', '🔬'],
+  道德与法治: ['正义广场', '⚖️'], 生物: ['生命花园', '🧬'], 地理: ['山河地图', '🌏'], 政治: ['理想议事厅', '🏛️'],
   数数: ['数数小路', '🍎'], 颜色形状: ['彩虹花园', '🌈'], 认识动物: ['动物农场', '🐮'], 生活常识: ['温馨小屋', '🏠'], 儿歌古诗: ['儿歌小河', '🎵'],
 };
 export const CHUNK = 8;
-const SUBJECT_ORDER = ['数数', '颜色形状', '认识动物', '生活常识', '儿歌古诗', '数学', '语文', '英语', '诗词', '科学', '历史', '物理', '化学'];
+const SUBJECT_ORDER = ['数数', '颜色形状', '认识动物', '生活常识', '儿歌古诗', '数学', '语文', '英语', '诗词', '科学', '历史', '道德与法治', '地理', '政治', '物理', '化学', '生物'];
 
 export function shortUnit(u?: string) {
   if (!u) return '';
@@ -77,6 +81,7 @@ export function buildChapters(qs: Question[], volumes: string[] | null = null): 
       if (all.length >= 12) levels.push({ id: `${subject}|B|${all[0].key}`, chapter: subject, index: levels.length + 1, kind: 'boss', name: '章节 Boss', pool: all.map(q => q.key), ...meta,
         aliases: g.subs.filter((x, i) => i > 0 && x.qs.length >= 12).map(x => `${subject}|B|${x.qs[0].key}`) });
     }
+    for (const l of levels) if (ALIASES[l.id]) l.aliases = [...(l.aliases ?? []), ...ALIASES[l.id]];
     const [name, icon] = AREA[subject] ?? [subject + '之地', '⭐'];
     return { subject, name, icon, levels, volumes: volOrder, count: list.length };
   });
@@ -113,7 +118,7 @@ export function chapterOf(u?: string): { key: string; title: string } | null {
   for (const sg of body) {
     let m = sg.match(/^专题\s*(\d+)/);
     if (m) return { key: '专题' + m[1], title: sg.replace(/\s*第[一二三四五六七八九十]+单元.*$/, '').trim().slice(0, 18) };
-    m = sg.match(/^第([一二三四五六七八九十\d]+)([章单元]+)/);
+    m = sg.match(/^第([一二三四五六七八九十\d]+)([章单元课]+)/);
     if (m) return { key: '第' + (/\d/.test(m[1]) ? m[1] : String(cnNum(m[1]))) + m[2], title: sg.trim().slice(0, 18) };
     m = sg.match(/\bUnit\s*(\d+)/i);
     if (m) return { key: 'Unit' + m[1], title: sg.replace(/（.*$|\(.*$/, '').trim().slice(0, 24) };

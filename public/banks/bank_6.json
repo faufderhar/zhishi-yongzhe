@@ -795,7 +795,7 @@
   },
   {
    "id": "M6-027",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -830,8 +830,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "扇形统计图",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "扇形统计图"
@@ -839,7 +838,7 @@
   },
   {
    "id": "M6-028",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -854,8 +853,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "扇形统计图",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "扇形统计图"
@@ -863,7 +861,7 @@
   },
   {
    "id": "M6-029",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -878,8 +876,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "百分数",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "百分数"
@@ -887,7 +884,7 @@
   },
   {
    "id": "M6-030",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -904,8 +901,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "圆柱体积",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "圆柱体积"
@@ -913,7 +909,7 @@
   },
   {
    "id": "M6-031",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -928,8 +924,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "圆锥体积",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "圆锥体积"
@@ -937,7 +932,7 @@
   },
   {
    "id": "M6-032",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -972,8 +967,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "圆柱与圆锥",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "圆柱与圆锥"
@@ -981,7 +975,7 @@
   },
   {
    "id": "M6-033",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -998,8 +992,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "圆柱侧面积",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "圆柱侧面积"
@@ -1007,7 +1000,7 @@
   },
   {
    "id": "M6-034",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -1042,8 +1035,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "正比例",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "正比例"
@@ -1051,7 +1043,7 @@
   },
   {
    "id": "M6-035",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -1086,8 +1078,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "反比例",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "反比例"
@@ -1095,7 +1086,7 @@
   },
   {
    "id": "M6-036",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -1130,8 +1121,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "正比例的判断",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "正比例的判断"
@@ -1139,7 +1129,7 @@
   },
   {
    "id": "M6-037",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "数学",
    "grade": 6,
    "textbook": "苏教版2024",
@@ -1155,8 +1145,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "正比例",
-   "review_note": "苏教版六年级下册新版（2027 春）目录未公开，新版六上已含比例/确定位置，本单元归属需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "tags": [
     "正比例"
@@ -2205,7 +2194,7 @@
    "textbook": "译林版（三年级起点）",
    "unit": "6A Unit 8 Then and now",
    "type": "选择",
-   "question": "Ten years ago, there ___ no computers in my grandpa's school.",
+   "question": "Fifty years ago, there ___ no computers in my grandpa's school.",
    "tts_text": "-",
    "options": [
     {
@@ -2236,6 +2225,7 @@
    "volume": "六年级上册",
    "knowledge_point": "Unit 8 Then and now",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2415,7 +2405,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 1 The lion and the mouse",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -2461,7 +2451,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 1 The lion and the mouse",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -2507,7 +2497,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 1 The lion and the mouse",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -2517,7 +2507,7 @@
   },
   {
    "id": "E6-031",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2553,8 +2543,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 2 Good habits",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2563,7 +2552,7 @@
   },
   {
    "id": "E6-032",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2599,8 +2588,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 2 Good habits",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2609,7 +2597,7 @@
   },
   {
    "id": "E6-033",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2645,8 +2633,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 2 Good habits",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2655,7 +2642,7 @@
   },
   {
    "id": "E6-034",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2691,8 +2678,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 3 A healthy diet",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2701,7 +2687,7 @@
   },
   {
    "id": "E6-035",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2737,8 +2723,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 3 A healthy diet",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2747,7 +2732,7 @@
   },
   {
    "id": "E6-036",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2783,8 +2768,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 3 A healthy diet",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2793,7 +2777,7 @@
   },
   {
    "id": "E6-037",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2829,8 +2813,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 4 Road safety",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2839,7 +2822,7 @@
   },
   {
    "id": "E6-038",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2875,8 +2858,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 4 Road safety",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2885,7 +2867,7 @@
   },
   {
    "id": "E6-039",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2921,8 +2903,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 4 Road safety",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2931,7 +2912,7 @@
   },
   {
    "id": "E6-040",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -2967,8 +2948,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 5 A party",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2977,7 +2957,7 @@
   },
   {
    "id": "E6-041",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3013,8 +2993,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 5 A party",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3023,7 +3002,7 @@
   },
   {
    "id": "E6-042",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3059,8 +3038,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 5 A party",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3105,7 +3083,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 6 An interesting country",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -3151,7 +3129,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 6 An interesting country",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -3161,7 +3139,7 @@
   },
   {
    "id": "E6-045",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3197,8 +3175,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 6 An interesting country",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3207,7 +3184,7 @@
   },
   {
    "id": "E6-046",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3243,8 +3220,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 7 Summer holiday plans",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3253,7 +3229,7 @@
   },
   {
    "id": "E6-047",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3289,8 +3265,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 7 Summer holiday plans",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3299,7 +3274,7 @@
   },
   {
    "id": "E6-048",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3335,8 +3310,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 7 Summer holiday plans",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3345,7 +3319,7 @@
   },
   {
    "id": "E6-049",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3381,8 +3355,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 8 Our dreams",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3391,7 +3364,7 @@
   },
   {
    "id": "E6-050",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3427,8 +3400,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 8 Our dreams",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3437,7 +3409,7 @@
   },
   {
    "id": "E6-051",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3473,8 +3445,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 8 Our dreams",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3483,7 +3454,7 @@
   },
   {
    "id": "E6-052",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3519,8 +3490,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 8 Our dreams",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3535,7 +3505,7 @@
    "textbook": "译林版（三年级起点）",
    "unit": "6A Unit 2 Honesty",
    "type": "选择",
-   "question": "He broke the vase, but he ___ sorry to his mum.",
+   "question": "He broke the vase, and he ___ sorry to his mum.",
    "tts_text": "-",
    "options": [
     {
@@ -3566,6 +3536,7 @@
    "volume": "六年级上册",
    "knowledge_point": "Unit 2 Honesty",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3709,7 +3680,7 @@
   },
   {
    "id": "E6-057",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3745,8 +3716,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 3 A healthy diet",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3755,7 +3725,7 @@
   },
   {
    "id": "E6-058",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3791,8 +3761,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 7 Summer holiday plans",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3801,7 +3770,7 @@
   },
   {
    "id": "E6-059",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 6,
    "textbook": "译林版（三年级起点）",
@@ -3837,8 +3806,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 2 Good habits",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3883,7 +3851,7 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "Unit 1 The lion and the mouse",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -4280,7 +4248,7 @@
   },
   {
    "id": "Y6-010",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "语文",
    "grade": 6,
    "textbook": "统编版",
@@ -4315,7 +4283,8 @@
    "source": "AI",
    "volume": "六年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋新版六上第七单元改为“探索发现”，《伯牙鼓琴》《书戴嵩画牛》已移出六上；2027春六下新版目录未公开，是否保留需对照课本",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4323,7 +4292,7 @@
   },
   {
    "id": "Y6-011",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "语文",
    "grade": 6,
    "textbook": "统编版",
@@ -4358,7 +4327,8 @@
    "source": "AI",
    "volume": "六年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋新版六上第七单元改为“探索发现”，《伯牙鼓琴》《书戴嵩画牛》已移出六上；2027春六下新版目录未公开，是否保留需对照课本",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4452,11 +4422,11 @@
   },
   {
    "id": "Y6-014",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "语文",
    "grade": 6,
    "textbook": "统编版",
-   "unit": "六上·文言文学弈",
+   "unit": "六下·文言文 学弈",
    "type": "选择",
    "question": "弈秋教两人下棋，谁学得好？",
    "options": [
@@ -4487,7 +4457,9 @@
    "source": "AI",
    "volume": "六年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "新版六上《文言文二则》为《两小儿辩日》《曹冲称象》，《学弈》在2027春六下新版中的位置未公开，需对照课本",
+   "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4968,7 +4940,7 @@
   },
   {
    "id": "Y6-026",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "语文",
    "grade": 6,
    "textbook": "统编版",
@@ -5003,7 +4975,8 @@
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "新版六上《文言文二则》为《两小儿辩日》《曹冲称象》，《学弈》在2027春六下新版中的位置未公开，需对照课本",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5015,9 +4988,9 @@
    "subject": "语文",
    "grade": 6,
    "textbook": "统编版",
-   "unit": "六下·文言文 两小儿辩日复习",
+   "unit": "六上·文言文 两小儿辩日",
    "type": "选择",
-   "question": "这个故事里孔子的态度是？",
+   "question": "《两小儿辩日》里孔子的态度是？",
    "options": [
     {
      "text": "不听",
@@ -5047,6 +5020,7 @@
    "volume": "六年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -11001,6 +10975,1898 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "词语"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只有颜色变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有物理变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "没有变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "化学变化",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-020",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·物质的变化",
+   "question": "蜡烛燃烧时，既有物理变化又有？",
+   "explanation": "蜡熔化是物理变化，燃烧生成二氧化碳和水是化学变化。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "氧气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二氧化碳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氮气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氢气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-021",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·物质的变化",
+   "question": "小苏打和白醋混合，产生的气体是？",
+   "explanation": "二氧化碳能使燃着的木条熄灭。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "红色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黄色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝色（蓝紫色）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-022",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·物质的变化",
+   "question": "淀粉遇到碘酒会变成？",
+   "explanation": "可以用碘酒检验淀粉。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "蜡烛受热熔化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "牛奶变酸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铁生锈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木柴燃烧",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-023",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·物质的变化",
+   "question": "下面属于物理变化的是？",
+   "explanation": "物理变化没有产生新物质。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "是否变了形状",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "是否有声音",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "是否产生了新物质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "是否发光",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-024",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·物质的变化",
+   "question": "判断化学变化的根本依据是？",
+   "explanation": "发光放热只是伴随现象。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "遗传",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变异",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "进化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "克隆",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-025",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·遗传与变异",
+   "question": "孩子的长相和父母相似，这种现象叫？",
+   "explanation": "种瓜得瓜、种豆得豆。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "遗传",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变异",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "化石",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "繁殖",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-026",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·遗传与变异",
+   "question": "同一棵树上结的果子大小不一样，这是？",
+   "explanation": "亲代与子代、子代个体之间的差异叫变异。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "热传导",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杠杆原理",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光的反射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遗传和变异的原理",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-027",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·遗传与变异",
+   "question": "袁隆平培育的杂交水稻，利用的主要是？",
+   "explanation": "选育优良性状。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "金属矿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰块",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沉积岩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "岩浆岩",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-028",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·化石的奥秘",
+   "question": "化石一般保存在哪种岩石里？",
+   "explanation": "沉积岩一层层形成。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "2.5 亿～6600 万年前",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "100 年前",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一千年前",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一万年前",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-029",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·化石的奥秘",
+   "question": "恐龙生活在距今大约多少年前的中生代？",
+   "explanation": "恐龙在约 6600 万年前灭绝。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "明天的天气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "古代生物和地球的历史",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人的性格",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电脑的用法",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-030",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·化石的奥秘",
+   "question": "化石能帮助我们了解？",
+   "explanation": "化石是研究生物进化的证据。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "银河系",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河外星系",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳系",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "仙女座星系",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-031",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·探索宇宙",
+   "question": "我们所在的星系叫？",
+   "explanation": "太阳系是银河系的一部分。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "地球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "火星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "月球",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-032",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·探索宇宙",
+   "question": "下面哪个天体是恒星？",
+   "explanation": "恒星自己会发光发热。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "重量单位",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "时间单位",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "温度单位",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长度（距离）单位",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-033",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·探索宇宙",
+   "question": "“光年”是什么单位？",
+   "explanation": "光年是光在一年里走过的距离。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "嫦娥一号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "神舟五号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "东方红一号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天宫一号",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-034",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·探索宇宙",
+   "question": "我国第一颗人造地球卫星是？",
+   "explanation": "1970 年发射。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "翟志刚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "聂海胜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "王亚平",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杨利伟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-035",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·探索宇宙",
+   "question": "我国第一位进入太空的航天员是？",
+   "explanation": "2003 年乘神舟五号飞天。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "小熊座",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大熊座",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "猎户座",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天鹅座",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-036",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·探索宇宙",
+   "question": "北斗七星属于哪个星座？",
+   "explanation": "北斗七星是大熊座的一部分。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "霉菌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蚯蚓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乳酸菌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "病毒",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-037",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·微生物",
+   "question": "制作酸奶要用到？",
+   "explanation": "乳酸菌把糖变成乳酸。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "植物的根",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "霉菌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细菌病毒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "盐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-038",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·微生物",
+   "question": "馒头放久了长出的“毛”多半是？",
+   "explanation": "霉菌喜欢温暖潮湿。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "列文虎克",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "伽利略",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爱迪生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "牛顿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-039",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·微生物",
+   "question": "发明了显微镜并最早看到微生物的是？",
+   "explanation": "荷兰的列文虎克。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "增加营养",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "让手更白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "减少病菌进入身体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-040",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·微生物",
+   "question": "饭前便后洗手可以？",
+   "explanation": "预防传染病。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "看不到",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "和实物一样大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "倒立放大的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "正立缩小的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-041",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·显微镜下的世界",
+   "question": "用显微镜观察时，看到的物像是？",
+   "explanation": "显微镜成倒立放大的像。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "骨骼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "器官",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "血液",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-042",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·显微镜下的世界",
+   "question": "生物体结构和功能的基本单位是？",
+   "explanation": "除病毒外，生物都由细胞构成。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞膜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞壁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞核",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞质",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-043",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·显微镜下的世界",
+   "question": "洋葱表皮细胞有，而人体口腔上皮细胞没有的结构是？",
+   "explanation": "植物细胞有细胞壁。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "声能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "动能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "化学能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光能和热能",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-044",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·能量",
+   "question": "电灯发光时，电能主要转化为？",
+   "explanation": "能量可以相互转化。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "太阳能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "化学能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "核能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风能（动能）",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-045",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·能量",
+   "question": "风力发电是把什么能转化为电能？",
+   "explanation": "风吹动风车带动发电机。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "化学能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "声能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光能",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-046",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·能量",
+   "question": "人吃的食物中储存的是？",
+   "explanation": "食物中的化学能维持生命活动。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "化学能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "声能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电能",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-047",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·能量",
+   "question": "太阳能热水器把太阳能转化为？",
+   "explanation": "水被晒热。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "建立自然保护区",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "关进小笼子展览",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "砍伐竹林",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大量捕捉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-048",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·生物的多样性",
+   "question": "大熊猫是我国特有的珍稀动物，保护它最有效的措施是？",
+   "explanation": "就地保护是最有效的措施。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "都不近",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鲸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鲨鱼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一样近",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-049",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·生物的多样性",
+   "question": "把生物分类时，鲸和鲨鱼比较，与人更近的是？",
+   "explanation": "鲸是哺乳动物，人也是。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "物种多样性、遗传多样性和生态系统多样性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有颜色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有植物的数量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有动物的种类",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-050",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·生物的多样性",
+   "question": "生物多样性包括？",
+   "explanation": "三个层次。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水蒸气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氧气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氮气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二氧化碳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-051",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·环境与发展",
+   "question": "温室效应加剧主要是大气中哪种气体增多？",
+   "explanation": "燃烧化石燃料排放大量二氧化碳。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "排放的二氧化碳与吸收的二氧化碳相抵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不再呼吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只用煤发电",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把碳全部挖出来",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-052",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·环境与发展",
+   "question": "“碳中和”指？",
+   "explanation": "植树造林、节能减排。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "空调开到最低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "少开私家车，多步行、骑车或坐公交",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "灯一直开着",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一次性筷子用完就扔",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-053",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·环境与发展",
+   "question": "下面属于低碳生活方式的是？",
+   "explanation": "节能减排。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "飞机",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "潜水艇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雷达",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电话",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-054",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·科技改变生活",
+   "question": "人们模仿蝙蝠回声定位发明了？",
+   "explanation": "这是仿生学。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "火箭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "降落伞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雷达",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "潜水艇",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-055",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·科技改变生活",
+   "question": "人们模仿鱼的鳔沉浮发明了？",
+   "explanation": "潜水艇通过排水和进水改变沉浮。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "贝尔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "瓦特",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诺贝尔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爱迪生",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-056",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·科技改变生活",
+   "question": "发明电话的是？",
+   "explanation": "1876 年贝尔发明电话。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "瓦特",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "牛顿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "莱特兄弟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "贝尔",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-057",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·科技改变生活",
+   "question": "改良蒸汽机、推动工业革命的是？",
+   "explanation": "瓦特改良蒸汽机。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "火药",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地动仪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "印刷术",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "造纸术",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-058",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级下册",
+   "unit": "六下·科技改变生活",
+   "question": "我国古代四大发明不包括？",
+   "explanation": "四大发明：造纸术、印刷术、火药、指南针。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "让车变轻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "使车减速",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "让车发光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "使车加速",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K6-059",
+   "subject": "科学",
+   "grade": 6,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "六年级上册",
+   "unit": "六上·力与运动",
+   "question": "骑自行车刹车时，闸皮与车圈之间的摩擦力能？",
+   "explanation": "摩擦力阻碍相对运动。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "把大象切开来称",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "让大象自己站上秤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "称一称船上装的东西，就知道大象的重量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用大秤直接称大象",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y6-070",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "《曹冲称象》中，“称物以载之”的意思是？",
+   "explanation": "把东西装上船直到水痕到刻痕处，称这些东西即可。2026秋新版六上第七单元。",
+   "difficulty": 3,
+   "knowledge_point": "曹冲称象",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "下雨，好穿上新雨衣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放暑假",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "下雪堆雪人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y6-071",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·盼",
+   "question": "铁凝的《盼》中，“我”盼的是？",
+   "explanation": "小女孩得到新雨衣后天天盼下雨。",
+   "difficulty": 2,
+   "knowledge_point": "盼",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "盼"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "郭沫若",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "艾青",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "闻一多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "臧克家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y6-072",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·有的人——纪念鲁迅有感",
+   "question": "《有的人——纪念鲁迅有感》的作者是？",
+   "explanation": "诗人臧克家为纪念鲁迅逝世十三周年而作。",
+   "difficulty": 2,
+   "knowledge_point": "有的人",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "有的人"
    ]
   }
  ]

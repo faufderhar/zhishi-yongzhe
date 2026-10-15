@@ -1754,7 +1754,7 @@
    "textbook": "译林版（三年级起点）",
    "unit": "5A Unit 1 Good habits",
    "type": "选择",
-   "question": "I go to bed early, ___ I get up early.",
+   "question": "I'm very tired, ___ I go to bed early.",
    "tts_text": "-",
    "options": [
     {
@@ -1763,7 +1763,7 @@
      "audio": ""
     },
     {
-     "text": "or",
+     "text": "so",
      "image": "",
      "audio": ""
     },
@@ -1773,18 +1773,19 @@
      "audio": ""
     },
     {
-     "text": "so",
+     "text": "or",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "D",
-   "explanation": "so 表示结果。",
+   "answer": "B",
+   "explanation": "前因后果用 so。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "Unit 1 Good habits",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -2999,7 +3000,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 1 Cinderella",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -3045,7 +3046,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 1 Cinderella",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -3091,7 +3092,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 1 Cinderella",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
+   "review_note": "考查译林旧版 5B/6B 课文故事细节；新版（2027春）未公开，是否还有这篇故事需对照课本",
    "game_ready": false,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
@@ -3101,7 +3102,7 @@
   },
   {
    "id": "E5-034",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3137,8 +3138,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 2 How do you come to scho",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3147,7 +3147,7 @@
   },
   {
    "id": "E5-035",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3183,8 +3183,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 2 How do you come to scho",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3193,7 +3192,7 @@
   },
   {
    "id": "E5-036",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3229,8 +3228,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 2 How do you come to scho",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3239,7 +3237,7 @@
   },
   {
    "id": "E5-037",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3275,8 +3273,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 2 How do you come to scho",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3285,7 +3282,7 @@
   },
   {
    "id": "E5-038",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3321,8 +3318,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 3 Asking the way",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3331,7 +3327,7 @@
   },
   {
    "id": "E5-039",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3367,8 +3363,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 3 Asking the way",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3377,7 +3372,7 @@
   },
   {
    "id": "E5-040",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3413,8 +3408,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 3 Asking the way",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3423,7 +3417,7 @@
   },
   {
    "id": "E5-041",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3459,8 +3453,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 4 Seeing the doctor",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3469,7 +3462,7 @@
   },
   {
    "id": "E5-042",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3505,8 +3498,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 4 Seeing the doctor",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3515,7 +3507,7 @@
   },
   {
    "id": "E5-043",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3551,8 +3543,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 4 Seeing the doctor",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3561,7 +3552,7 @@
   },
   {
    "id": "E5-044",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3597,8 +3588,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 5 Helping our parents",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3607,7 +3597,7 @@
   },
   {
    "id": "E5-045",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3643,8 +3633,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 5 Helping our parents",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3653,7 +3642,7 @@
   },
   {
    "id": "E5-046",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3689,8 +3678,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 5 Helping our parents",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3699,7 +3687,7 @@
   },
   {
    "id": "E5-047",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3735,8 +3723,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 6 In the kitchen",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3745,7 +3732,7 @@
   },
   {
    "id": "E5-048",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3781,8 +3768,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 6 In the kitchen",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3791,7 +3777,7 @@
   },
   {
    "id": "E5-049",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3827,8 +3813,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 6 In the kitchen",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3837,7 +3822,7 @@
   },
   {
    "id": "E5-050",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3873,8 +3858,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 7 Chinese festivals",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3883,7 +3867,7 @@
   },
   {
    "id": "E5-051",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3919,8 +3903,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 7 Chinese festivals",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3929,7 +3912,7 @@
   },
   {
    "id": "E5-052",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -3965,8 +3948,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 7 Chinese festivals",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -3975,7 +3957,7 @@
   },
   {
    "id": "E5-053",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -4011,8 +3993,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 8 Birthdays",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -4021,7 +4002,7 @@
   },
   {
    "id": "E5-054",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -4057,8 +4038,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 8 Birthdays",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -4067,7 +4047,7 @@
   },
   {
    "id": "E5-055",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -4103,8 +4083,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 8 Birthdays",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -4203,7 +4182,7 @@
   },
   {
    "id": "E5-058",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -4239,8 +4218,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 2 How do you come to scho",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -4249,7 +4227,7 @@
   },
   {
    "id": "E5-059",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -4285,8 +4263,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 3 Asking the way",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -4295,7 +4272,7 @@
   },
   {
    "id": "E5-060",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 5,
    "textbook": "译林版（三年级起点）",
@@ -4331,8 +4308,7 @@
    "source": "AI",
    "volume": "五年级下册",
    "knowledge_point": "Unit 5 Helping our parents",
-   "review_note": "译林 5B/6B 新版（2027 春）目录未公开，暂按旧版单元出题，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "tags": [
     "英语",
@@ -4513,7 +4489,7 @@
   },
   {
    "id": "Y5-005",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 5,
    "textbook": "统编版",
@@ -4548,7 +4524,8 @@
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《搭石》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5072,7 +5049,7 @@
   },
   {
    "id": "Y5-018",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 5,
    "textbook": "统编版",
@@ -5107,7 +5084,8 @@
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《松鼠（新版改为《金字塔》）》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5244,7 +5222,7 @@
   },
   {
    "id": "Y5-022",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 5,
    "textbook": "统编版",
@@ -5279,7 +5257,8 @@
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《长相思（新版第七单元改为《早春呈水部张十八员外》）》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5287,7 +5266,7 @@
   },
   {
    "id": "Y5-023",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 5,
    "textbook": "统编版",
@@ -5322,7 +5301,8 @@
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《四季之美》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5330,7 +5310,7 @@
   },
   {
    "id": "Y5-024",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 5,
    "textbook": "统编版",
@@ -5365,7 +5345,8 @@
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《鸟的天堂》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -10605,6 +10586,2118 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "词语"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "直线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曲线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆圈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "波浪线",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-021",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "光在同一种均匀物质中是沿什么传播的？",
+   "explanation": "小孔成像、影子都说明光沿直线传播。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "没有像",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放大且正立的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "倒立的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "正立的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-022",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "小孔成像中，像是？",
+   "explanation": "光沿直线传播，上下左右都颠倒。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "红光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "多种颜色的光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一种白光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黑光",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-023",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "雨后彩虹说明阳光是由什么组成的？",
+   "explanation": "三棱镜可以把白光分解成七色光。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "反射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吸收",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直线传播",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "折射",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-024",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "把筷子斜插入水中，看起来“折断”了，这是光的？",
+   "explanation": "光从水射入空气时传播方向发生偏折。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "黑色反射更多光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "颜色和冷热无关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白色吸收更多热",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黑色吸收的光和热更多",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-025",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "黑色衣服比白色衣服在阳光下更热，因为？",
+   "explanation": "夏天宜穿浅色衣服。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "观察的范围大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "能把物体放大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "照出的像更清楚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "能聚光点火",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-026",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "汽车后视镜常用凸面镜，是因为它？",
+   "explanation": "凸面镜扩大视野。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "热传导",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热辐射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热对流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热反射",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-027",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·热传递",
+   "question": "用金属勺搅热汤，勺柄也变热，这种传热方式叫？",
+   "explanation": "热沿着物体从热的部分传到冷的部分。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "热对流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热辐射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热传导",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒸发",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-028",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·热传递",
+   "question": "烧水时，壶里的水上下循环流动传热，叫？",
+   "explanation": "液体和气体主要靠对流传热。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "热辐射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热对流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "空气流动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热传导",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-029",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·热传递",
+   "question": "太阳的热传到地球，靠的是？",
+   "explanation": "太空几乎是真空，靠辐射传热。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "杯子很重",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "减少了热量的传递",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "会吸收太阳光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "能自己产生热",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-030",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·热传递",
+   "question": "保温杯能保温，主要是因为它？",
+   "explanation": "真空层能阻隔热传导和对流。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "岩石、土壤、水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地壳、地幔、地核",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地核、地幔、地壳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大气、海洋、陆地",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-031",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的表面和内部",
+   "question": "地球内部从外到内分为？",
+   "explanation": "地壳最薄，地核在最里面。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "石油",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "岩浆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰川",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "泥浆",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-032",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的表面和内部",
+   "question": "火山喷发出的高温熔融物质叫？",
+   "explanation": "岩浆冷却后形成岩浆岩。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "盲目乱动乱爬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "保存体力，用敲击声求救",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不停大声哭喊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "点火柴照明",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-033",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的表面和内部",
+   "question": "地震后如果被困在废墟里，应该？",
+   "explanation": "保存体力，等待救援。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "火山作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "流水的侵蚀作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风的沉积作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰的融化",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-034",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的表面和内部",
+   "question": "流水长期冲刷形成峡谷，属于？",
+   "explanation": "流水能侵蚀、搬运、沉积。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "大脑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "肺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "心脏",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-035",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·人体司令部",
+   "question": "人体的“司令部”是？",
+   "explanation": "大脑指挥全身活动。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "思考",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "消化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "反射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "呼吸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-036",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·人体司令部",
+   "question": "手碰到很烫的东西会立刻缩回，这是？",
+   "explanation": "反射由神经系统完成。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "长时间熬夜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "经常撞头玩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不吃早饭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "骑车戴头盔、保证充足睡眠",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-037",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·人体司令部",
+   "question": "保护大脑，下面做法正确的是？",
+   "explanation": "睡眠和保护头部都很重要。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "自南向北",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自西向东",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自北向南",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自东向西",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-038",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的运动",
+   "question": "地球自转的方向是？",
+   "explanation": "所以太阳东升西落。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "1 个月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 小时",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-039",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的运动",
+   "question": "地球自转一周大约需要？",
+   "explanation": "自转产生昼夜交替。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "1 个月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-040",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的运动",
+   "question": "地球绕太阳公转一周大约需要？",
+   "explanation": "公转和地轴倾斜产生四季。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "北京",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乌鲁木齐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同时看到",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "看不到日出",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-041",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·地球的运动",
+   "question": "北京和乌鲁木齐相比，先看到日出的是？",
+   "explanation": "地球自西向东转，东边先迎来日出。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "模拟实验",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对比实验（控制变量）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "随便试试",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重复实验",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-042",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·生物与环境",
+   "question": "种子发芽实验中，只改变“水”这一个条件，其他条件相同，这叫？",
+   "explanation": "一次只改变一个条件。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "制造更多养料",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "方便攀爬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吸引昆虫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "减少水分蒸发",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-043",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·生物与环境",
+   "question": "沙漠里的仙人掌叶变成刺，主要作用是？",
+   "explanation": "生物适应环境。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "寒冷的环境",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "干旱的环境",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "炎热的环境",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黑暗的环境",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-044",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·生物与环境",
+   "question": "北极熊有厚厚的脂肪和皮毛，是为了适应？",
+   "explanation": "形态结构与环境相适应。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "食物链",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生态系统",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "种群",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-045",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·生物与环境",
+   "question": "一个池塘里的所有生物和它们生活的环境，构成一个？",
+   "explanation": "生物与环境相互作用的整体。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "消费者",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "分解者",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "捕食者",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生产者",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-046",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·生物与环境",
+   "question": "在食物网中，蘑菇等真菌主要扮演？",
+   "explanation": "分解者把动植物遗体分解成无机物。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "费力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "省力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "费距离且费力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-047",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·机械",
+   "question": "用撬棍撬大石头，支点离石头越近越？",
+   "explanation": "阻力臂短、动力臂长，就省力。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "增大摩擦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "省一半力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "省距离",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "改变用力方向",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-048",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·机械",
+   "question": "旗杆顶端的定滑轮的作用是？",
+   "explanation": "定滑轮不省力，但能改变力的方向。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "杠杆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滑轮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "斜面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "轮轴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-049",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·机械",
+   "question": "螺丝钉上的螺纹相当于？",
+   "explanation": "螺纹是绕在圆柱上的斜面。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "动滑轮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "斜面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "定滑轮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "轮轴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-050",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·机械",
+   "question": "自行车的车把属于？",
+   "explanation": "轮大轴小，在轮上用力省力。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "磁性消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "磁性更强",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "会发热爆炸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变成永磁铁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-051",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·电",
+   "question": "电磁铁通电时有磁性，断电后？",
+   "explanation": "这是电磁铁的特点。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "减少线圈圈数",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "增加线圈圈数或增大电流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "断开电路",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "换成塑料芯",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-052",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·电",
+   "question": "增强电磁铁磁性的方法是？",
+   "explanation": "线圈越多、电流越大，磁性越强。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "金星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "火星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水星",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-053",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·宇宙",
+   "question": "太阳系中离太阳最近的行星是？",
+   "explanation": "水、金、地、火、木、土、天王、海王。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "海王星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "土星",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-054",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·宇宙",
+   "question": "太阳系中最大的行星是？",
+   "explanation": "木星体积最大。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "一周",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个月（约 29.5 天）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-055",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·宇宙",
+   "question": "月相变化的周期大约是？",
+   "explanation": "农历每月初一新月，十五前后满月。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "上弦月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "下弦月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "新月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "满月",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-056",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·宇宙",
+   "question": "农历十五前后，我们看到的月相是？",
+   "explanation": "月亮、地球、太阳几乎在一条直线上，月亮在地球外侧。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "米饭在嘴里越嚼越甜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水蒸发",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰融化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "纸被撕碎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-057",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·化学变化",
+   "question": "下面属于化学变化的是？",
+   "explanation": "淀粉被唾液分解成麦芽糖，产生了新物质。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "用砂纸磨掉表面后放在雨中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刷油漆、保持干燥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放在潮湿的地方",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "经常泡在盐水里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-058",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·化学变化",
+   "question": "防止铁制品生锈，可以？",
+   "explanation": "隔绝水和空气。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "大量使用含磷洗衣粉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洗手后不关水龙头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "往河里倒垃圾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "工业废水处理达标后再排放",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-059",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级下册",
+   "unit": "五下·环境",
+   "question": "下面属于保护水资源做法的是？",
+   "explanation": "保护和节约水资源。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "物体会吸光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物体反射的光进入眼睛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "空气会发光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "眼睛会发光",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K5-060",
+   "subject": "科学",
+   "grade": 5,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "五年级上册",
+   "unit": "五上·光与色彩",
+   "question": "我们能看见本身不发光的物体，是因为？",
+   "explanation": "光的反射使我们看见物体。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "垂緌饮清露",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "非是藉秋风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "流响出疏桐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无人信高洁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S5-060",
+   "subject": "诗词",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "五年级（上下册通用）",
+   "unit": "《蝉》",
+   "question": "“居高声自远”的下一句是？",
+   "explanation": "虞世南《蝉》。",
+   "difficulty": 2,
+   "knowledge_point": "名句",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "名句"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "日长篱落无人过",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "村庄儿女各当家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "昼出耘田夜绩麻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "也傍桑阴学种瓜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S5-061",
+   "subject": "诗词",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "五年级（上下册通用）",
+   "unit": "《四时田园杂兴（其三十一）》",
+   "question": "“童孙未解供耕织”的下一句是？",
+   "explanation": "范成大写农村儿童的天真。",
+   "difficulty": 2,
+   "knowledge_point": "名句",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "名句"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "龚自珍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "陆游",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "王安石",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "林则徐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S5-062",
+   "subject": "诗词",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "五年级（上下册通用）",
+   "unit": "《己亥杂诗》",
+   "question": "《己亥杂诗》（九州生气恃风雷）的作者是？",
+   "explanation": "清代龚自珍。",
+   "difficulty": 1,
+   "knowledge_point": "作者",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "作者"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "本来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "元帅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "元旦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第一",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S5-063",
+   "subject": "诗词",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "五年级（上下册通用）",
+   "unit": "《示儿》",
+   "question": "“死去元知万事空”中“元”的意思是？",
+   "explanation": "“元”同“原”，本来。",
+   "difficulty": 3,
+   "knowledge_point": "字词",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "字词"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "身体不好需要休息",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爱美的性格",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "想换一种演出风格",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拒绝为日本侵略者演出的民族气节",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y5-063",
+   "subject": "语文",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "五年级上册",
+   "unit": "五上·梅兰芳蓄须明志",
+   "question": "梅兰芳蓄须明志，表现了他？",
+   "explanation": "抗战期间梅兰芳蓄须罢演。2026秋新版由四上调入五上。",
+   "difficulty": 2,
+   "knowledge_point": "梅兰芳蓄须明志",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "梅兰芳蓄须明志"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "印度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "墨西哥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "希腊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "埃及",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y5-064",
+   "subject": "语文",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "五年级上册",
+   "unit": "五上·金字塔",
+   "question": "金字塔是哪个国家的古代建筑？",
+   "explanation": "2026秋新版五上习作单元以《金字塔》替换《松鼠》。",
+   "difficulty": 1,
+   "knowledge_point": "金字塔",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "金字塔"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "春风又绿江南岸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "绝胜烟柳满皇都",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "草色遥看近却无",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "最是一年春好处",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y5-065",
+   "subject": "语文",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "五年级上册",
+   "unit": "五上·古诗词三首 早春呈水部张十八员外",
+   "question": "“天街小雨润如酥”的下一句是？",
+   "explanation": "韩愈《早春呈水部张十八员外》，2026秋新版五上第七单元。",
+   "difficulty": 2,
+   "knowledge_point": "早春呈水部张十八员外",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "早春呈水部张十八员外"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "火箭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "游隼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "猎豹",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y5-066",
+   "subject": "语文",
+   "grade": 5,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "五年级上册",
+   "unit": "五上·什么比猎豹的速度更快",
+   "question": "课文《什么比猎豹的速度更快》中，速度最快的是？",
+   "explanation": "课文最后说，光的速度是最快的。",
+   "difficulty": 2,
+   "knowledge_point": "什么比猎豹的速度更快",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "什么比猎豹的速度更快"
    ]
   }
  ]

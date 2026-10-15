@@ -32,7 +32,7 @@ await tap('[data-testid=ptab-bank]'); await wait(300); await shot('05-parent-ban
 await pg.setInputFiles('[data-testid=import-file]', '/workspace/questions/题库_6年级.csv'); await pg.waitForSelector('[data-testid=import-preview]', { timeout: 15000 }); await wait(300);
 await shot('06-parent-import-preview');
 const pvText = await pg.textContent('[data-testid=import-preview]');
-if (!/可玩 233/.test(pvText) || !/待家长确认 40/.test(pvText)) fail('导入预览计数不对: ' + pvText.slice(0, 200));
+if (!/可玩 306/.test(pvText) || !/待家长确认 10/.test(pvText)) fail('导入预览计数不对: ' + pvText.slice(0, 200));
 await pg.keyboard.press('Escape'); await pg.click('.modal-back', { position: { x: 5, y: 5 } }); await wait(200);
 await tap('[data-testid=ptab-time]'); await wait(200); await shot('07-parent-time');
 await tap('[data-testid=ptab-backup]'); await wait(200); await shot('08-parent-backup');

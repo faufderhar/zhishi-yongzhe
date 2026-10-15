@@ -1,3 +1,4 @@
+import { canPlay } from '../src/game/questions';
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { loadBank, normalize, type Question } from '../src/game/questions';
@@ -164,5 +165,25 @@ describe('小节合并到章', () => {
     const units = [...new Set(m.levels.map(l => l.unit))];
     expect(units.length).toBeLessThanOrEqual(14);
     expect(units.filter(u => u.startsWith('第2章')).length).toBe(1);
+  });
+});
+
+describe('题库 v7', () => {
+  it('新科目按文件年级归属（D7 道法 ≠ D10 地理；K3 科学 ≠ 幼儿园）', () => {
+    const g7 = pub('7'), g10 = pub('10'), g3 = pub('3');
+    expect(g7.filter(q => q.subject === '道德与法治').every(q => q.grade === '7' && q.id.startsWith('D7-'))).toBe(true);
+    expect(g10.filter(q => q.subject === '地理').every(q => q.grade === '10' && q.id.startsWith('D10-'))).toBe(true);
+    expect(g3.filter(q => q.subject === '科学').every(q => q.grade === '3')).toBe(true);
+    for (const s of ['生物', '地理', '政治']) expect(buildChapters(g10.filter(q => q.subject === s && canPlay(q.status, false))).length).toBe(1);
+  });
+  it('停用永不出现（即使家长打开待审核）', () => {
+    for (const g of ['1', '2', '3', '4', '5', '6', '7', '10']) for (const q of pub(g)) if (q.status === '停用') expect(canPlay(q.status, true)).toBe(false);
+  });
+  it('新单元格式解析为章', () => {
+    expect(chapterOf('七上·第一单元 少年有梦·第一课 开启初中生活')?.key).toBe('第1单元');
+    expect(chapterOf('必修1·第1章 走近细胞·第1节 细胞是生命活动的基本单位')?.key).toBe('第1章');
+    expect(chapterOf('必修第一册·第一章 宇宙中的地球·第一节 地球的宇宙环境')?.key).toBe('第1章');
+    expect(chapterOf('必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.1 原始社会的解体')?.key).toBe('第1课');
+    expect(chapterOf('三上·研究土壤')).toBeNull();
   });
 });

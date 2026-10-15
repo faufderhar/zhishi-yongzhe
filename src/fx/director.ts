@@ -4,6 +4,7 @@ import { ParticleLayer } from './particles';
 import { anim, reducedMotion, sleep } from './motion';
 import { signatureOf, CRIT, HEAL, MONSTER_HIT, CONFETTI, SOFT_STARS, SOFT_CONFETTI } from './presets';
 import { sfx, SKILL_SFX } from './assets';
+import { isSignature } from '../game/characters';
 import { loadFx, playFx, SUBJECT_FX, type SheetPlayer, type CharAnims, type Sheet } from './sheets';
 export interface HeroSheets { player: SheetPlayer; anims: CharAnims; hs: boolean }
 
@@ -58,8 +59,8 @@ export class Director {
   async playerAttack(o: AttackOpts) {
     if (this.sheets) return this.sheetAttack(o);
     const { hero, monster, stage } = this.r;
-    const sig = o.subject === o.major ? signatureOf(o.major) : signatureOf('');
-    const signature = o.subject === o.major;
+    const signature = isSignature(o.subject, o.major);
+    const sig = signature ? signatureOf(o.subject) : signatureOf('');
     const dist = this.distance();
     hero.style.setProperty('--glow', sig.glow);
     if (o.dodge) await this.dodge();
@@ -88,18 +89,18 @@ export class Director {
   /** 美术序列帧版出招（README 时序）：heal_star + 蓄力 0-2 → 3-5 冲刺(tween 补位) → 第 5 帧命中 → 6-9 回位 */
   private async sheetAttack(o: AttackOpts) {
     const { hero, monster, stage } = this.r; const sh = this.sheets!;
-    const signature = o.subject === o.major;
+    const signature = isSignature(o.subject, o.major);
     if (o.dodge) await this.dodge();
     const hc = center(hero, stage), mc = center(monster, stage);
     this.sheetFx('heal_star', hc.x, hc.y + hc.h / 2, 0.6);
-    if (signature) { hero.style.setProperty('--glow', signatureOf(o.major).glow); hero.classList.add('glowing'); sfx(SKILL_SFX[o.major] ?? 'swing'); }
+    if (signature) { hero.style.setProperty('--glow', signatureOf(o.subject).glow); hero.classList.add('glowing'); sfx(SKILL_SFX[o.major] ?? 'swing'); }
     const beam = sh.hs && signature && this.fxCache.get('hs_energy_beam');
     const reach = beam ? 0 : Math.max(0, this.distance() - 64 * sh.player.scale);
     let impact: Promise<void> = Promise.resolve();
     let resolveHit!: () => void; const hitDone = new Promise<void>(r => { resolveHit = r; });
     const doImpact = () => {
       sh.player.freeze(reducedMotion() ? 0 : o.crit ? 120 : 80);
-      impact = this.monsterHit(o.dealt, o.crit, signatureOf(signature ? o.major : '').impact, o.onImpact, signature ? SUBJECT_FX[o.major] : undefined).then(resolveHit);
+      impact = this.monsterHit(o.dealt, o.crit, signatureOf(signature ? o.subject : '').impact, o.onImpact, signature ? SUBJECT_FX[o.major] : undefined).then(resolveHit);
     };
     const hitFrame = sh.anims.attack.meta.hit_frame ?? 5;
     const attackDone = sh.player.play(sh.anims.attack, f => {

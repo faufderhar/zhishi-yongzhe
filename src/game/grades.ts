@@ -33,7 +33,7 @@ export const bandConfig = (g: GradeKey) => BANDS[bandOf(g)];
 /** 可选的档案年级（有题库的年级） */
 export const PROFILE_GRADES: GradeKey[] = ['K1', '1', '2', '3', '4', '5', '6', '7', '10'];
 
-const READING_SUBJECTS = new Set(['语文', '英语', '历史']);
+const READING_SUBJECTS = new Set(['语文', '英语', '历史', '道德与法治', '政治', '地理']);
 export const isReading = (q: Question) => READING_SUBJECTS.has(q.subject) && q.question.replace(/\$[^$]*\$/g, 'x').length >= 40;
 export const isCalc = (q: Question) => ['数学', '物理', '化学', '科学'].includes(q.subject) && (q.type === '填空' || /计算|求|多少|=\s*\?|＝/.test(q.question));
 /**

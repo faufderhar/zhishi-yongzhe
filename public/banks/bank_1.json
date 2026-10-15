@@ -1733,7 +1733,7 @@
   },
   {
    "id": "Y1-001",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -1769,8 +1769,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -1778,7 +1777,7 @@
   },
   {
    "id": "Y1-002",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -1814,8 +1813,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -1823,7 +1821,7 @@
   },
   {
    "id": "Y1-003",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -1859,8 +1857,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -1918,8 +1915,8 @@
    "textbook": "统编版",
    "unit": "一上·识字 天地人",
    "type": "选择",
-   "question": "“你”的反义词是？",
-   "tts_text": "你的反义词是？",
+   "question": "“你”“我”“他”三个字中，说自己的时候用哪个字？",
+   "tts_text": "“你”“我”“他”三个字中，说自己的时候用哪个字？",
    "options": [
     {
      "text": "它",
@@ -1932,23 +1929,24 @@
      "audio": ""
     },
     {
-     "text": "我",
+     "text": "你",
      "image": "",
      "audio": ""
     },
     {
-     "text": "她",
+     "text": "我",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "你和我是相对的。",
+   "answer": "D",
+   "explanation": "说自己用“我”，对面的人用“你”，别人用“他”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -2000,7 +1998,7 @@
   },
   {
    "id": "Y1-007",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2036,8 +2034,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2045,7 +2042,7 @@
   },
   {
    "id": "Y1-008",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2081,8 +2078,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -2090,7 +2086,7 @@
   },
   {
    "id": "Y1-009",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2126,8 +2122,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2135,7 +2130,7 @@
   },
   {
    "id": "Y1-010",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2171,8 +2166,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2180,7 +2174,7 @@
   },
   {
    "id": "Y1-011",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2216,8 +2210,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2225,7 +2218,7 @@
   },
   {
    "id": "Y1-012",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2261,8 +2254,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2270,7 +2262,7 @@
   },
   {
    "id": "Y1-013",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2306,8 +2298,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2315,7 +2306,7 @@
   },
   {
    "id": "Y1-014",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2351,8 +2342,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2360,7 +2350,7 @@
   },
   {
    "id": "Y1-015",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2396,8 +2386,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2405,7 +2394,7 @@
   },
   {
    "id": "Y1-016",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2441,8 +2430,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2450,7 +2438,7 @@
   },
   {
    "id": "Y1-017",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2486,8 +2474,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2495,7 +2482,7 @@
   },
   {
    "id": "Y1-018",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2531,8 +2518,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2540,7 +2526,7 @@
   },
   {
    "id": "Y1-019",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2576,8 +2562,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2585,7 +2570,7 @@
   },
   {
    "id": "Y1-020",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2621,8 +2606,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2630,7 +2614,7 @@
   },
   {
    "id": "Y1-021",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2666,8 +2650,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -2675,7 +2658,7 @@
   },
   {
    "id": "Y1-022",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2711,8 +2694,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2720,7 +2702,7 @@
   },
   {
    "id": "Y1-023",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2756,8 +2738,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2765,27 +2746,27 @@
   },
   {
    "id": "Y1-024",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一下·彩虹",
    "type": "选择",
-   "question": "“我”想把彩虹当什么？",
-   "tts_text": "我想把彩虹当什么？",
+   "question": "《彩虹》：雨停了，天上挂着一座美丽的什么？",
+   "tts_text": "《彩虹》：雨停了，天上挂着一座美丽的什么？",
    "options": [
     {
-     "text": "雨伞",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "滑梯",
-     "image": "",
-     "audio": ""
-    },
-    {
      "text": "秋千",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "房子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "船",
      "image": "",
      "audio": ""
     },
@@ -2795,14 +2776,15 @@
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "课文：我想把彩虹当秋千。",
+   "answer": "D",
+   "explanation": "课文：雨停了，天上挂着一座美丽的桥。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文在统编修订版中已从一年级调到二年级上册，一年级题库停用（二年级题库已有对应题）",
    "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2810,7 +2792,7 @@
   },
   {
    "id": "Y1-025",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2846,8 +2828,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2855,7 +2836,7 @@
   },
   {
    "id": "Y1-026",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2891,8 +2872,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2900,7 +2880,7 @@
   },
   {
    "id": "Y1-027",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2936,8 +2916,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2945,7 +2924,7 @@
   },
   {
    "id": "Y1-028",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -2981,8 +2960,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -2990,7 +2968,7 @@
   },
   {
    "id": "Y1-029",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -3026,8 +3004,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -3035,7 +3012,7 @@
   },
   {
    "id": "Y1-030",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -3071,8 +3048,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -3614,8 +3590,8 @@
    "textbook": "统编版",
    "unit": "一下·静夜思",
    "type": "选择",
-   "question": "这首诗写诗人在想什么？",
-   "tts_text": "这首诗写诗人在想什么？",
+   "question": "《静夜思》这首诗写诗人在想什么？",
+   "tts_text": "《静夜思》这首诗写诗人在想什么？",
    "options": [
     {
      "text": "下雪",
@@ -3645,6 +3621,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -3832,7 +3809,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·古诗二首 赠汪伦",
+   "unit": "一下·日积月累 赠汪伦",
    "type": "选择",
    "question": "“桃花潭水深千尺”的下一句是？",
    "tts_text": "桃花潭水深千尺的下一句是？",
@@ -3865,6 +3842,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -3916,7 +3894,7 @@
   },
   {
    "id": "Y1-050",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -3952,8 +3930,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -3961,7 +3938,7 @@
   },
   {
    "id": "Y1-051",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -3997,8 +3974,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4006,7 +3982,7 @@
   },
   {
    "id": "Y1-052",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4042,8 +4018,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4051,7 +4026,7 @@
   },
   {
    "id": "Y1-053",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4087,8 +4062,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4096,7 +4070,7 @@
   },
   {
    "id": "Y1-054",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4132,8 +4106,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4141,7 +4114,7 @@
   },
   {
    "id": "Y1-055",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4177,8 +4150,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4186,7 +4158,7 @@
   },
   {
    "id": "Y1-056",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4222,8 +4194,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4363,7 +4334,7 @@
   },
   {
    "id": "Y1-060",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4399,8 +4370,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4408,14 +4378,14 @@
   },
   {
    "id": "Y1-061",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·小蜗牛",
    "type": "选择",
-   "question": "小蜗牛爬到哪里看到了草莓？",
-   "tts_text": "小蜗牛爬到哪里看到了草莓？",
+   "question": "《小蜗牛》：春天，蜗牛妈妈让小蜗牛到哪里去玩？",
+   "tts_text": "《小蜗牛》：春天，蜗牛妈妈让小蜗牛到哪里去玩？",
    "options": [
     {
      "text": "草莓地",
@@ -4423,29 +4393,30 @@
      "audio": ""
     },
     {
-     "text": "家里",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "树林",
-     "image": "",
-     "audio": ""
-    },
-    {
      "text": "雪地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小树林",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小河边",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "它爬得很慢，一个季节才到一个地方。",
+   "answer": "C",
+   "explanation": "课文：孩子，到小树林里去玩吧，小树发芽了。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4453,14 +4424,14 @@
   },
   {
    "id": "Y1-062",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·小蜗牛",
    "type": "选择",
-   "question": "这个故事里过了哪些季节？",
-   "tts_text": "这个故事里过了哪些季节？",
+   "question": "《小蜗牛》这个故事里过了哪些季节？",
+   "tts_text": "《小蜗牛》这个故事里过了哪些季节？",
    "options": [
     {
      "text": "只有冬天",
@@ -4489,8 +4460,9 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4498,7 +4470,7 @@
   },
   {
    "id": "Y1-063",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4534,8 +4506,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4543,7 +4514,7 @@
   },
   {
    "id": "Y1-064",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4579,8 +4550,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4588,7 +4558,7 @@
   },
   {
    "id": "Y1-065",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4624,8 +4594,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4633,7 +4602,7 @@
   },
   {
    "id": "Y1-066",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4669,8 +4638,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -4678,7 +4646,7 @@
   },
   {
    "id": "Y1-067",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4714,8 +4682,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -4723,7 +4690,7 @@
   },
   {
    "id": "Y1-068",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4759,8 +4726,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4768,44 +4734,44 @@
   },
   {
    "id": "Y1-069",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·小小的船",
    "type": "选择",
-   "question": "闪闪的星星像什么？",
-   "tts_text": "闪闪的星星像什么？",
+   "question": "《小小的船》：坐在小小的船里，只看见什么？",
+   "tts_text": "《小小的船》：坐在小小的船里，只看见什么？",
    "options": [
     {
-     "text": "雪花",
+     "text": "高高的山",
      "image": "",
      "audio": ""
     },
     {
-     "text": "灯笼",
+     "text": "闪闪的星星蓝蓝的天",
      "image": "",
      "audio": ""
     },
     {
-     "text": "蓝天上的眼睛",
+     "text": "绿绿的草",
      "image": "",
      "audio": ""
     },
     {
-     "text": "小船",
+     "text": "大大的海",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "课文：闪闪的星星蓝蓝的天。",
+   "answer": "B",
+   "explanation": "课文：我在小小的船里坐，只看见闪闪的星星蓝蓝的天。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4813,7 +4779,7 @@
   },
   {
    "id": "Y1-070",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4849,8 +4815,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4858,7 +4823,7 @@
   },
   {
    "id": "Y1-071",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4894,8 +4859,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4903,7 +4867,7 @@
   },
   {
    "id": "Y1-072",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4939,8 +4903,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4948,7 +4911,7 @@
   },
   {
    "id": "Y1-073",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -4984,8 +4947,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -4993,7 +4955,7 @@
   },
   {
    "id": "Y1-074",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5029,8 +4991,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5038,7 +4999,7 @@
   },
   {
    "id": "Y1-075",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5074,8 +5035,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5215,7 +5175,7 @@
   },
   {
    "id": "Y1-079",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5251,8 +5211,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5260,7 +5219,7 @@
   },
   {
    "id": "Y1-080",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5296,8 +5255,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5349,7 +5307,7 @@
   },
   {
    "id": "Y1-082",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5385,8 +5343,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5394,14 +5351,14 @@
   },
   {
    "id": "Y1-083",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一下·怎么都快乐",
    "type": "选择",
-   "question": "课文想说？",
-   "tts_text": "课文想说？",
+   "question": "《怎么都快乐》这篇课文想说？",
+   "tts_text": "《怎么都快乐》这篇课文想说？",
    "options": [
     {
      "text": "人多才快乐",
@@ -5430,8 +5387,8 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5439,7 +5396,7 @@
   },
   {
    "id": "Y1-084",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5475,7 +5432,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -5484,7 +5441,7 @@
   },
   {
    "id": "Y1-085",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5520,8 +5477,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "字谜",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "字谜"
@@ -5529,7 +5485,7 @@
   },
   {
    "id": "Y1-086",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5565,8 +5521,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "字谜",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "字谜"
@@ -5574,7 +5529,7 @@
   },
   {
    "id": "Y1-087",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5610,8 +5565,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5619,7 +5573,7 @@
   },
   {
    "id": "Y1-088",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5655,8 +5609,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5664,7 +5617,7 @@
   },
   {
    "id": "Y1-089",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5690,8 +5643,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5699,14 +5651,14 @@
   },
   {
    "id": "Y1-090",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·雪地里的小画家",
    "type": "选择",
-   "question": "谁没参加？",
-   "tts_text": "谁没参加？",
+   "question": "《雪地里的小画家》里，谁没参加？",
+   "tts_text": "《雪地里的小画家》里，谁没参加？",
    "options": [
     {
      "text": "小马",
@@ -5735,8 +5687,8 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5744,7 +5696,7 @@
   },
   {
    "id": "Y1-091",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5780,8 +5732,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5789,7 +5740,7 @@
   },
   {
    "id": "Y1-092",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5825,8 +5776,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5834,7 +5784,7 @@
   },
   {
    "id": "Y1-093",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5870,8 +5820,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5879,7 +5828,7 @@
   },
   {
    "id": "Y1-094",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -5915,8 +5864,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -5930,9 +5878,19 @@
    "textbook": "统编版",
    "unit": "一上·识字 对韵歌",
    "type": "选择",
-   "question": "“云对雾”的下一句是？",
-   "tts_text": "云对雾的下一句是？",
+   "question": "《对韵歌》：“云对雨”的下一句是？",
+   "tts_text": "《对韵歌》：“云对雨”的下一句是？",
    "options": [
+    {
+     "text": "雪对风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山对水",
+     "image": "",
+     "audio": ""
+    },
     {
      "text": "桃对李",
      "image": "",
@@ -5942,25 +5900,16 @@
      "text": "花对草",
      "image": "",
      "audio": ""
-    },
-    {
-     "text": "鸟对虫",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "雪对霜",
-     "image": "",
-     "audio": ""
     }
    ],
-   "answer": "D",
-   "explanation": "云对雾，雪对霜。",
+   "answer": "A",
+   "explanation": "云对雨，雪对风，花对树，鸟对虫。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -5972,7 +5921,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·和大人一起读",
+   "unit": "一下·语文园地",
    "type": "选择",
    "question": "和大人一起读故事时，应该？",
    "tts_text": "和大人一起读故事时，应该？",
@@ -6005,6 +5954,7 @@
    "volume": "一年级下册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "习惯"
@@ -6056,7 +6006,7 @@
   },
   {
    "id": "Y1-098",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6092,7 +6042,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -6101,7 +6051,7 @@
   },
   {
    "id": "Y1-099",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6137,7 +6087,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -6278,7 +6228,7 @@
   },
   {
    "id": "Y1-103",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6314,8 +6264,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -6415,7 +6364,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 日月水火",
+   "unit": "一上·识字 日月山川",
    "type": "选择",
    "question": "“火”字像什么？",
    "tts_text": "火字像什么？",
@@ -6448,6 +6397,7 @@
    "volume": "一年级上册",
    "knowledge_point": "象形字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "象形字"
@@ -6459,7 +6409,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 日月水火",
+   "unit": "一上·识字 日月山川",
    "type": "选择",
    "question": "“山”字像什么？",
    "tts_text": "山字像什么？",
@@ -6492,6 +6442,7 @@
    "volume": "一年级上册",
    "knowledge_point": "象形字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "象形字"
@@ -6499,7 +6450,7 @@
   },
   {
    "id": "Y1-108",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6535,7 +6486,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -6544,7 +6495,7 @@
   },
   {
    "id": "Y1-109",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6580,7 +6531,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -6721,14 +6672,14 @@
   },
   {
    "id": "Y1-113",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·比一比",
    "type": "选择",
-   "question": "“一个大，一个小，一头黄牛一头猫”里，黄牛比猫？",
-   "tts_text": "一个大，一个小，一头黄牛一头猫里，黄牛比猫？",
+   "question": "“一个大，一个小，一头黄牛一只猫”里，黄牛比猫？",
+   "tts_text": "“一个大，一个小，一头黄牛一只猫”里，黄牛比猫？",
    "options": [
     {
      "text": "小",
@@ -6757,8 +6708,9 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -6766,7 +6718,7 @@
   },
   {
    "id": "Y1-114",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6802,7 +6754,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -6811,7 +6763,7 @@
   },
   {
    "id": "Y1-115",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -6847,8 +6799,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "识字",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -6948,7 +6899,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 口耳目",
+   "unit": "一上·识字 口耳目手足",
    "type": "选择",
    "question": "“耳”字指的是？",
    "tts_text": "耳字指的是？",
@@ -6981,6 +6932,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -6992,7 +6944,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 口耳目",
+   "unit": "一上·识字 口耳目手足",
    "type": "选择",
    "question": "我们用什么看东西？",
    "tts_text": "我们用什么看东西？",
@@ -7025,6 +6977,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -7036,7 +6989,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 口耳目",
+   "unit": "一上·识字 口耳目手足",
    "type": "选择",
    "question": "我们用什么听声音？",
    "tts_text": "我们用什么听声音？",
@@ -7069,6 +7022,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -7076,7 +7030,7 @@
   },
   {
    "id": "Y1-121",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -7112,8 +7066,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -7429,14 +7382,14 @@
   },
   {
    "id": "Y1-129",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·综合复习",
    "type": "选择",
-   "question": "小朋友睡不着是因为？",
-   "tts_text": "小朋友睡不着是因为？",
+   "question": "《明天要远足》里，小朋友睡不着是因为？",
+   "tts_text": "《明天要远足》里，小朋友睡不着是因为？",
    "options": [
     {
      "text": "生病",
@@ -7465,7 +7418,9 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "game_ready": true,
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
+   "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -7473,7 +7428,7 @@
   },
   {
    "id": "Y1-130",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -7509,8 +7464,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -7522,7 +7476,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 对对子",
+   "unit": "一上·识字 对韵歌",
    "type": "选择",
    "question": "“山清对水秀”里，“清”的反义词可以是？",
    "tts_text": "山清对水秀里，清的反义词可以是？",
@@ -7555,6 +7509,7 @@
    "volume": "一年级上册",
    "knowledge_point": "反义词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "反义词"
@@ -7566,7 +7521,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一上·识字 对对子",
+   "unit": "一上·识字 对韵歌",
    "type": "选择",
    "question": "“桃对李”里，桃和李都是？",
    "tts_text": "桃对李里，桃和李都是？",
@@ -7599,6 +7554,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "识字"
@@ -7610,7 +7566,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·古诗三首 春晓",
+   "unit": "一下·日积月累 春晓",
    "type": "选择",
    "question": "《春晓》的作者是？",
    "tts_text": "春晓的作者是？",
@@ -7643,6 +7599,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -7654,7 +7611,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·古诗三首 春晓",
+   "unit": "一下·日积月累 春晓",
    "type": "选择",
    "question": "“春眠不觉晓”的下一句是？",
    "tts_text": "春眠不觉晓的下一句是？",
@@ -7687,6 +7644,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -7698,7 +7656,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·古诗三首 春晓",
+   "unit": "一下·日积月累 春晓",
    "type": "选择",
    "question": "“夜来风雨声”的下一句是？",
    "tts_text": "夜来风雨声的下一句是？",
@@ -7731,6 +7689,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -7826,7 +7785,7 @@
   },
   {
    "id": "Y1-138",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -7862,7 +7821,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文在统编修订版中已从一年级调到二年级上册，一年级题库停用（二年级题库已有对应题）",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -7871,7 +7830,7 @@
   },
   {
    "id": "Y1-139",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -7907,7 +7866,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文在统编修订版中已从一年级调到二年级上册，一年级题库停用（二年级题库已有对应题）",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8004,7 +7963,7 @@
   },
   {
    "id": "Y1-142",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8040,7 +7999,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8053,7 +8012,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·古诗二首 寻隐者不遇",
+   "unit": "一下·日积月累 寻隐者不遇",
    "type": "选择",
    "question": "“松下问童子”的下一句是？",
    "tts_text": "松下问童子的下一句是？",
@@ -8086,6 +8045,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -8097,7 +8057,7 @@
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
-   "unit": "一下·古诗二首 寻隐者不遇",
+   "unit": "一下·日积月累 寻隐者不遇",
    "type": "选择",
    "question": "《寻隐者不遇》的作者是？",
    "tts_text": "寻隐者不遇的作者是？",
@@ -8130,6 +8090,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -8275,37 +8236,38 @@
    "textbook": "统编版",
    "unit": "一下·综合复习",
    "type": "选择",
-   "question": "“广阔的草原”上，课文写了什么？",
-   "tts_text": "广阔的草原上，课文写了什么？",
+   "question": "《我多想去看看》：山里的孩子想去北京看什么？",
+   "tts_text": "《我多想去看看》：山里的孩子想去北京看什么？",
    "options": [
-    {
-     "text": "雪人",
-     "image": "",
-     "audio": ""
-    },
     {
      "text": "大海",
      "image": "",
      "audio": ""
     },
     {
-     "text": "高楼",
+     "text": "天安门广场升国旗",
      "image": "",
      "audio": ""
     },
     {
-     "text": "蒙古包和牛羊",
+     "text": "草原上的蒙古包",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雪山",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "D",
-   "explanation": "遥远的北京之外，还有广阔的草原。",
+   "answer": "B",
+   "explanation": "课文：遥远的北京城，有一座雄伟的天安门，广场上的升旗仪式非常壮观。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8313,14 +8275,14 @@
   },
   {
    "id": "Y1-149",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·综合复习",
    "type": "选择",
-   "question": "瓶子旁边有什么？",
-   "tts_text": "瓶子旁边有什么？",
+   "question": "《乌鸦喝水》里，瓶子旁边有什么？",
+   "tts_text": "《乌鸦喝水》里，瓶子旁边有什么？",
    "options": [
     {
      "text": "小石子",
@@ -8349,8 +8311,8 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8358,7 +8320,7 @@
   },
   {
    "id": "Y1-150",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8394,7 +8356,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8403,7 +8365,7 @@
   },
   {
    "id": "Y1-151",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8439,7 +8401,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8448,7 +8410,7 @@
   },
   {
    "id": "Y1-152",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8484,8 +8446,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8524,12 +8485,13 @@
     }
    ],
    "answer": "C",
-   "explanation": "课文写了红枣棕、鲜肉棕。",
+   "explanation": "课文里写了红枣粽、鲜肉粽等。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8537,7 +8499,7 @@
   },
   {
    "id": "Y1-154",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8573,7 +8535,8 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "game_ready": true,
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8581,7 +8544,7 @@
   },
   {
    "id": "Y1-155",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8617,8 +8580,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8626,7 +8588,7 @@
   },
   {
    "id": "Y1-156",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8662,7 +8624,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8671,7 +8633,7 @@
   },
   {
    "id": "Y1-157",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8707,7 +8669,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8716,7 +8678,7 @@
   },
   {
    "id": "Y1-158",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8752,8 +8714,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -8761,7 +8722,7 @@
   },
   {
    "id": "Y1-159",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -8797,7 +8758,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -8860,7 +8821,17 @@
    "tts_text": "高的反义词是？",
    "options": [
     {
+     "text": "远",
+     "image": "",
+     "audio": ""
+    },
+    {
      "text": "矮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宽",
      "image": "",
      "audio": ""
     },
@@ -8868,25 +8839,16 @@
      "text": "长",
      "image": "",
      "audio": ""
-    },
-    {
-     "text": "远",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "低山",
-     "image": "",
-     "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "高对矮（或低）。",
+   "answer": "B",
+   "explanation": "高对矮（也可以说高对低）。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "反义词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "反义词"
@@ -9032,8 +8994,8 @@
    "textbook": "统编版",
    "unit": "一下·综合复习",
    "type": "选择",
-   "question": "这首诗写的时间是？",
-   "tts_text": "这首诗写的时间是？",
+   "question": "《静夜思》写的时间是？",
+   "tts_text": "《静夜思》写的时间是？",
    "options": [
     {
      "text": "中午",
@@ -9063,6 +9025,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -9070,7 +9033,7 @@
   },
   {
    "id": "Y1-166",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -9106,8 +9069,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "修辞",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "修辞"
@@ -9165,8 +9127,8 @@
    "textbook": "统编版",
    "unit": "一下·综合复习",
    "type": "选择",
-   "question": "诗人早上醒来最先听到什么？",
-   "tts_text": "诗人早上醒来最先听到什么？",
+   "question": "《春晓》里，诗人早上醒来最先听到什么？",
+   "tts_text": "《春晓》里，诗人早上醒来最先听到什么？",
    "options": [
     {
      "text": "鸟叫声",
@@ -9196,6 +9158,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "古诗"
@@ -9429,8 +9392,8 @@
    "textbook": "统编版",
    "unit": "一上·综合复习",
    "type": "选择",
-   "question": "水升高是因为？",
-   "tts_text": "水升高是因为？",
+   "question": "《乌鸦喝水》里，瓶子里的水升高是因为？",
+   "tts_text": "《乌鸦喝水》里，瓶子里的水升高是因为？",
    "options": [
     {
      "text": "瓶子变小了",
@@ -9460,6 +9423,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9467,7 +9431,7 @@
   },
   {
    "id": "Y1-175",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -9503,8 +9467,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9512,7 +9475,7 @@
   },
   {
    "id": "Y1-176",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -9548,8 +9511,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9557,7 +9519,7 @@
   },
   {
    "id": "Y1-177",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -9593,8 +9555,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9602,44 +9563,44 @@
   },
   {
    "id": "Y1-178",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·综合复习",
    "type": "选择",
-   "question": "秋天成熟的果实在课文里有？",
-   "tts_text": "秋天成熟的果实在课文里有？",
+   "question": "《秋天》：一群大雁往哪里飞？",
+   "tts_text": "《秋天》：一群大雁往哪里飞？",
    "options": [
     {
-     "text": "苹果、葡萄、玉米",
+     "text": "东",
      "image": "",
      "audio": ""
     },
     {
-     "text": "雪花、冰棍",
+     "text": "南",
      "image": "",
      "audio": ""
     },
     {
-     "text": "柳树、荷花",
+     "text": "西",
      "image": "",
      "audio": ""
     },
     {
-     "text": "西瓜、荔枝、椰子",
+     "text": "北",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "秋天果实成熟。",
+   "answer": "B",
+   "explanation": "课文：一群大雁往南飞，一会儿排成个“人”字，一会儿排成个“一”字。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9653,8 +9614,8 @@
    "textbook": "统编版",
    "unit": "一下·综合复习",
    "type": "选择",
-   "question": "最后谁把事情弄清楚了？",
-   "tts_text": "最后谁把事情弄清楚了？",
+   "question": "《咕咚》里，最后谁把事情弄清楚了？",
+   "tts_text": "《咕咚》里，最后谁把事情弄清楚了？",
    "options": [
     {
      "text": "野牛",
@@ -9684,6 +9645,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9735,7 +9697,7 @@
   },
   {
    "id": "Y1-181",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -9771,8 +9733,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9918,8 +9879,8 @@
    "textbook": "统编版",
    "unit": "一下·综合复习",
    "type": "选择",
-   "question": "爸爸让“我”怎样变得勇敢？",
-   "tts_text": "爸爸让我怎样变得勇敢？",
+   "question": "《夜色》里，爸爸让“我”怎样变得勇敢？",
+   "tts_text": "《夜色》里，爸爸让“我”怎样变得勇敢？",
    "options": [
     {
      "text": "晚上一起出去走一走",
@@ -9949,6 +9910,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -9956,7 +9918,7 @@
   },
   {
    "id": "Y1-186",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -9992,7 +9954,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -10001,44 +9963,45 @@
   },
   {
    "id": "Y1-187",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一下·综合复习",
    "type": "选择",
-   "question": "“我”想把什么给爸爸？",
-   "tts_text": "我想把什么给爸爸？",
+   "question": "《彩虹》里的孩子想用彩虹为家人做事，说明他？",
+   "tts_text": "《彩虹》里的孩子想用彩虹为家人做事，说明他？",
    "options": [
     {
-     "text": "月亮",
+     "text": "害怕彩虹",
      "image": "",
      "audio": ""
     },
     {
-     "text": "彩虹当围巾（或秋千）",
+     "text": "不喜欢下雨",
      "image": "",
      "audio": ""
     },
     {
-     "text": "星星",
+     "text": "只想自己玩",
      "image": "",
      "audio": ""
     },
     {
-     "text": "太阳",
+     "text": "关心、爱护家人",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "课文里孩子把彩虹想象成很多东西。",
+   "answer": "D",
+   "explanation": "孩子想着爸爸、妈妈、妹妹，体现对家人的爱。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文在统编修订版中已从一年级调到二年级上册，一年级题库停用（二年级题库已有对应题）",
    "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10046,14 +10009,14 @@
   },
   {
    "id": "Y1-188",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
    "unit": "一上·综合复习",
    "type": "选择",
-   "question": "这首儿童诗写的时间是？",
-   "tts_text": "这首儿童诗写的时间是？",
+   "question": "《明天要远足》写的时间是？",
+   "tts_text": "《明天要远足》写的时间是？",
    "options": [
     {
      "text": "睡觉前的夜里",
@@ -10082,7 +10045,9 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "game_ready": true,
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
+   "game_ready": false,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10090,7 +10055,7 @@
   },
   {
    "id": "Y1-189",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10126,8 +10091,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10135,7 +10099,7 @@
   },
   {
    "id": "Y1-190",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10171,7 +10135,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -10224,7 +10188,7 @@
   },
   {
    "id": "Y1-192",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10260,8 +10224,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10401,7 +10364,7 @@
   },
   {
    "id": "Y1-196",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10437,8 +10400,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10446,7 +10408,7 @@
   },
   {
    "id": "Y1-197",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10482,7 +10444,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -10491,7 +10453,7 @@
   },
   {
    "id": "Y1-198",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10527,8 +10489,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10536,7 +10497,7 @@
   },
   {
    "id": "Y1-199",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10572,7 +10533,8 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "game_ready": true,
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10580,7 +10542,7 @@
   },
   {
    "id": "Y1-200",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10616,7 +10578,8 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "game_ready": true,
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10624,7 +10587,7 @@
   },
   {
    "id": "Y1-201",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10660,8 +10623,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -10801,7 +10763,7 @@
   },
   {
    "id": "Y1-205",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -10837,7 +10799,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -13618,7 +13580,7 @@
   },
   {
    "id": "Y1-269",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -13654,8 +13616,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -13663,7 +13624,7 @@
   },
   {
    "id": "Y1-270",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -13699,8 +13660,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -14158,17 +14118,12 @@
    "tts_text": "吃饭时应该？",
    "options": [
     {
+     "text": "剩很多饭菜",
+     "image": "",
+     "audio": ""
+    },
+    {
      "text": "用手抓",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "剩很多",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "不说话满嘴食物、不浪费",
      "image": "",
      "audio": ""
     },
@@ -14176,15 +14131,21 @@
      "text": "边跑边吃",
      "image": "",
      "audio": ""
+    },
+    {
+     "text": "细嚼慢咽、不浪费粮食",
+     "image": "",
+     "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "文明用餐、光盘。",
+   "answer": "D",
+   "explanation": "文明用餐、光盘行动。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "习惯"
@@ -14896,7 +14857,7 @@
   },
   {
    "id": "Y1-298",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -14932,8 +14893,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -14941,7 +14901,7 @@
   },
   {
    "id": "Y1-299",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -14977,8 +14937,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -15382,7 +15341,7 @@
   },
   {
    "id": "Y1-309",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -15418,7 +15377,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -16097,17 +16056,12 @@
    "tts_text": "下面哪个是整体认读音节？",
    "options": [
     {
-     "text": "zhi",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "zi",
-     "image": "",
-     "audio": ""
-    },
-    {
      "text": "zh",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "zha",
      "image": "",
      "audio": ""
     },
@@ -16115,15 +16069,21 @@
      "text": "z",
      "image": "",
      "audio": ""
+    },
+    {
+     "text": "zhi",
+     "image": "",
+     "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "zhi chi shi ri zi ci si yi wu yu ye yue yuan yin yun 是整体认读。",
+   "answer": "D",
+   "explanation": "整体认读音节：zhi chi shi ri zi ci si yi wu yu ye yue yuan yin yun ying。zha 要拼读，zh、z 是声母。",
    "difficulty": 3,
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "拼音",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "拼音"
@@ -16923,7 +16883,7 @@
   },
   {
    "id": "Y1-344",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -16959,8 +16919,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -17672,7 +17631,7 @@
   },
   {
    "id": "Y1-361",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -17708,8 +17667,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -17717,7 +17675,7 @@
   },
   {
    "id": "Y1-362",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -17753,8 +17711,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -17762,7 +17719,7 @@
   },
   {
    "id": "Y1-363",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -17798,7 +17755,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
+   "review_note": "该课文已从统编修订版一年级（2024秋一上/2025春一下）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -18027,7 +17984,7 @@
   },
   {
    "id": "Y1-369",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -18063,8 +18020,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -18072,7 +18028,7 @@
   },
   {
    "id": "Y1-370",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -18108,8 +18064,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -18777,7 +18732,7 @@
   },
   {
    "id": "Y1-386",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -18813,8 +18768,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -19482,7 +19436,7 @@
   },
   {
    "id": "Y1-402",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -19518,8 +19472,7 @@
    "source": "AI",
    "volume": "一年级上册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -19571,7 +19524,7 @@
   },
   {
    "id": "Y1-404",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -19607,8 +19560,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -19616,7 +19568,7 @@
   },
   {
    "id": "Y1-405",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 1,
    "textbook": "统编版",
@@ -19652,8 +19604,7 @@
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "课文",
-   "review_note": "统编一年级修订版课文篇目有增删（一上课文 14→10 篇），课文细节题需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "课文"
@@ -22869,6 +22820,321 @@
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "tags": [
     "作者"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "我们的国旗叫什么？",
+   "options": [
+    {
+     "text": "彩旗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五星红旗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "八一军旗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红领巾",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-419",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级上册",
+   "unit": "一上·识字 升国旗",
+   "question": "我们的国旗叫什么？",
+   "explanation": "中华人民共和国国旗是五星红旗。",
+   "difficulty": 1,
+   "knowledge_point": "升国旗",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "升国旗"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "《小书包》：下面哪样东西是学习用品，应该放进书包？",
+   "options": [
+    {
+     "text": "零食",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铅笔盒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "玩具枪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遥控车",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-420",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级上册",
+   "unit": "一上·识字 小书包",
+   "question": "《小书包》：下面哪样东西是学习用品，应该放进书包？",
+   "explanation": "书包里装课本、作业本、铅笔盒等学习用品。",
+   "difficulty": 1,
+   "knowledge_point": "小书包",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "小书包"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "《吃水不忘挖井人》里，带领乡亲们挖井的是？",
+   "options": [
+    {
+     "text": "孙中山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雷锋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "周总理",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毛主席",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-421",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级下册",
+   "unit": "一下·吃水不忘挖井人",
+   "question": "《吃水不忘挖井人》里，带领乡亲们挖井的是？",
+   "explanation": "毛主席在江西瑞金沙洲坝带领战士和乡亲们挖了一口井。",
+   "difficulty": 1,
+   "knowledge_point": "吃水不忘挖井人",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "吃水不忘挖井人"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "“吃水不忘挖井人”告诉我们要？",
+   "options": [
+    {
+     "text": "不要喝井水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自己挖井",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "饮水思源，不忘别人的帮助",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "多喝水",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-422",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级下册",
+   "unit": "一下·吃水不忘挖井人",
+   "question": "“吃水不忘挖井人”告诉我们要？",
+   "explanation": "得到好处不忘记帮助过我们的人。",
+   "difficulty": 2,
+   "knowledge_point": "吃水不忘挖井人",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "吃水不忘挖井人"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "《古对今》：“古对今，圆对方，严寒对”什么？",
+   "options": [
+    {
+     "text": "酷暑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰雪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春暖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋凉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-423",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级下册",
+   "unit": "一下·识字 古对今",
+   "question": "《古对今》：“古对今，圆对方，严寒对”什么？",
+   "explanation": "古对今，圆对方，严寒对酷暑，春暖对秋凉。",
+   "difficulty": 2,
+   "knowledge_point": "古对今",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "古对今"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "《操场上》里“打球、拔河、拍皮球”的字都带什么偏旁？",
+   "options": [
+    {
+     "text": "三点水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木字旁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "足字旁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "提手旁（扌）",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-424",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级下册",
+   "unit": "一下·识字 操场上",
+   "question": "《操场上》里“打球、拔河、拍皮球”的字都带什么偏旁？",
+   "explanation": "这些动作都要用手。",
+   "difficulty": 2,
+   "knowledge_point": "操场上",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "操场上"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "tts_text": "下面哪个是用脚的运动？",
+   "options": [
+    {
+     "text": "踢足球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "打球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拔河",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拍皮球",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y1-425",
+   "subject": "语文",
+   "grade": 1,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "一年级下册",
+   "unit": "一下·识字 操场上",
+   "question": "下面哪个是用脚的运动？",
+   "explanation": "“踢”是足字旁。",
+   "difficulty": 1,
+   "knowledge_point": "操场上",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "操场上"
    ]
   }
  ]

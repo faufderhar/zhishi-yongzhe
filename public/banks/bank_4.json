@@ -4401,7 +4401,7 @@
   },
   {
    "id": "Y4-002",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 4,
    "textbook": "统编版",
@@ -4436,7 +4436,8 @@
    "source": "AI",
    "volume": "四年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《走月亮》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4530,7 +4531,7 @@
   },
   {
    "id": "Y4-005",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 4,
    "textbook": "统编版",
@@ -4565,7 +4566,8 @@
    "source": "AI",
    "volume": "四年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《呼风唤雨的世纪》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4573,7 +4575,7 @@
   },
   {
    "id": "Y4-006",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 4,
    "textbook": "统编版",
@@ -4608,7 +4610,8 @@
    "source": "AI",
    "volume": "四年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《蝴蝶的家》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5046,7 +5049,7 @@
   },
   {
    "id": "Y4-017",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 4,
    "textbook": "统编版",
@@ -5081,7 +5084,8 @@
    "source": "AI",
    "volume": "四年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "《梅兰芳蓄须》2026秋起调到五上（《梅兰芳蓄须明志》），四年级题停用，五年级已补题",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5132,7 +5136,7 @@
   },
   {
    "id": "Y4-019",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 4,
    "textbook": "统编版",
@@ -5167,7 +5171,8 @@
    "source": "AI",
    "volume": "四年级上册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "2026秋统编新版上册已删去《西门豹治邺》，停用",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -10667,6 +10672,1986 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "词语"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "蚯蚓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蜈蚣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蜘蛛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蜜蜂",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-021",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·动物大家族",
+   "question": "下面哪种动物属于昆虫？",
+   "explanation": "昆虫身体分头、胸、腹三部分，有六条足。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "4 条",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8 条",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10 条",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6 条",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-022",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·动物大家族",
+   "question": "昆虫有几条足？",
+   "explanation": "蜘蛛有 8 条足，不是昆虫。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "生活在水里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胎生、哺乳、用肺呼吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "会游泳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "身体很大",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-023",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·动物大家族",
+   "question": "鲸是哺乳动物而不是鱼，主要依据是？",
+   "explanation": "鱼用鳃呼吸，大多卵生。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "乌龟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "青蛙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蝙蝠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鲨鱼",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-024",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·动物大家族",
+   "question": "下面哪种动物是爬行动物？",
+   "explanation": "爬行动物体表有鳞或甲，用肺呼吸，多卵生。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "两栖动物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "昆虫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "哺乳动物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鸟类",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-025",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·动物大家族",
+   "question": "蝙蝠属于？",
+   "explanation": "蝙蝠胎生哺乳，不是鸟。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "转动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曲线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "摆动",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-026",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·物体的运动",
+   "question": "物体沿着直线运动叫？",
+   "explanation": "运动形式有直线运动、曲线运动、转动、摆动等。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "滚动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "摆动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跳动",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-027",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·物体的运动",
+   "question": "钟摆的运动属于？",
+   "explanation": "钟摆来回往复运动。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "物体的形状",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "通过的距离",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物体的颜色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物体的重量",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-028",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·物体的运动",
+   "question": "比较物体运动快慢，可以比较相同时间内？",
+   "explanation": "相同时间走得越远越快。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "50 米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "600 米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6 米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "16 米",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-029",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·物体的运动",
+   "question": "小明 10 秒跑了 60 米，他每秒平均跑多少米？",
+   "explanation": "速度 = 路程 ÷ 时间 = 60 ÷ 10 = 6（米/秒）。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "时间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "温度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "力的大小",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-030",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·常见的力",
+   "question": "用弹簧测力计测量的是？",
+   "explanation": "力的单位是牛顿（N）。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "牛顿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "千克",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-031",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·常见的力",
+   "question": "力的单位是？",
+   "explanation": "简称“牛”，符号 N。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "重力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "浮力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "摩擦力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "弹力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-032",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·常见的力",
+   "question": "苹果从树上掉下来，是因为受到？",
+   "explanation": "重力方向竖直向下。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "让鞋更轻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "减小摩擦力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "增大摩擦力，防止滑倒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "好看而已",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-033",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·常见的力",
+   "question": "鞋底有凹凸的花纹是为了？",
+   "explanation": "接触面越粗糙，摩擦力越大。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "磁力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "弹力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "浮力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-034",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·常见的力",
+   "question": "拉开的弹簧松手后会恢复原状，这是因为有？",
+   "explanation": "物体发生弹性形变时产生弹力。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "开关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "温度计",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放大镜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "磁铁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-035",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·简单电路",
+   "question": "一个最简单的电路需要电池、导线、用电器和？",
+   "explanation": "开关控制电路通断。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "铁钉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铝片",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铜线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "塑料尺",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-036",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·简单电路",
+   "question": "下面哪种物体是绝缘体？",
+   "explanation": "不容易导电的物体叫绝缘体。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "变成两个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "熄灭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "更亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不变",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-037",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·简单电路",
+   "question": "两个小灯泡串联，拧下一个，另一个会？",
+   "explanation": "串联电路只有一条通路。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "继续亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "熄灭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一闪一闪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爆炸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-038",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·简单电路",
+   "question": "两个小灯泡并联，拧下一个，另一个会？",
+   "explanation": "并联电路各支路互不影响。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水能导电，容易触电",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水会结冰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "开关会生锈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "手会变脏",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-039",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·简单电路",
+   "question": "用湿手触摸开关很危险，因为？",
+   "explanation": "安全用电：不用湿手碰电器。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "岩浆岩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金属",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变质岩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沉积岩",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-040",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·岩石与矿物",
+   "question": "花岗岩属于？",
+   "explanation": "花岗岩由岩浆冷却形成。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "岩浆岩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "花岗岩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沉积岩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "玄武岩",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-041",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·岩石与矿物",
+   "question": "岩石里常能找到化石的是？",
+   "explanation": "沉积岩一层层沉积，生物遗体被保存。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "滑石",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "石英",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金刚石",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-042",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·岩石与矿物",
+   "question": "用指甲能划出痕迹的矿物是？",
+   "explanation": "滑石硬度很低。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "风化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "燃烧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒸发",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "融化",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-043",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·岩石与矿物",
+   "question": "岩石在风吹、日晒、雨淋下慢慢碎裂，叫？",
+   "explanation": "风化是岩石变成土壤的开始。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "小肠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大肠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "食道",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胃",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-044",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·呼吸与消化",
+   "question": "食物在人体内消化和吸收的主要场所是？",
+   "explanation": "小肠很长，内壁有许多皱襞和绒毛。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "肝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "肺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "心脏",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胃",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-045",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·呼吸与消化",
+   "question": "人体呼吸时，气体交换发生在？",
+   "explanation": "肺泡与血液进行气体交换。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "磨牙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "智齿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "犬齿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "切牙（门牙）",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-046",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·呼吸与消化",
+   "question": "牙齿中用来切断食物的是？",
+   "explanation": "切牙切、犬齿撕、磨牙磨。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "铁不吸热",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铁比木头轻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木头会发光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铁比木头导热快",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-047",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·热",
+   "question": "用手摸放在阳光下的铁勺比木勺烫，说明？",
+   "explanation": "金属是热的良导体。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "温度更高的物体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "空气中消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冷的物体传给热的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "温度低的物体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-048",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·热",
+   "question": "热总是从温度高的物体传到？",
+   "explanation": "热传递的方向。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "43 ℃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "25 ℃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7 ℃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "18 ℃",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-049",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·天气与气候",
+   "question": "天气预报中“气温 18～25 ℃”，最高气温是？",
+   "explanation": "较大的数是最高气温。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "沙漠很多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夏季风从海洋带来大量水汽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冬季风很冷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳不出来",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-050",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·天气与气候",
+   "question": "我国南方夏季多雨的主要原因之一是？",
+   "explanation": "季风影响我国降水。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "被鱼喝掉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "渗进地下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒸发成水蒸气，凝结成云",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直接飞到陆地",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-051",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·水循环",
+   "question": "海洋里的水变成雨落到陆地，要先经过？",
+   "explanation": "水循环：蒸发—凝结—降水—径流。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "用种子繁殖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用茎繁殖（无性繁殖）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用果实繁殖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用花繁殖",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-052",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·植物的繁殖",
+   "question": "用马铃薯的块茎种出新植株，属于？",
+   "explanation": "马铃薯块茎上的芽眼能长出新植株。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "花瓣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "花萼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "花柄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "子房",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-053",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·植物的繁殖",
+   "question": "花中能发育成果实的部分是？",
+   "explanation": "受精后子房发育成果实。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "传粉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "除草",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "施肥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "浇水",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-054",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·植物的繁殖",
+   "question": "蜜蜂在花丛中采蜜，同时帮助植物？",
+   "explanation": "许多植物靠昆虫传粉。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "草→兔→狐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "狐→兔→草",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "阳光→草→兔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "兔→草→狐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-055",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·食物链",
+   "question": "下面正确的食物链是？",
+   "explanation": "食物链从植物开始，箭头指向吃它的动物。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "减少",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "增多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "消失",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-056",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·食物链",
+   "question": "如果大量捕杀青蛙，稻田里的害虫会？",
+   "explanation": "青蛙是害虫的天敌。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "灯会更亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "更省电线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个坏了全部熄灭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "各个电灯可以单独开关",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-057",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·电路",
+   "question": "家里的电灯一般采用并联，好处是？",
+   "explanation": "并联电路各支路独立。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "石油",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳能",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "煤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天然气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-058",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·能源",
+   "question": "下面属于可再生能源的是？",
+   "explanation": "太阳能、风能、水能可以再生。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "用过的纸巾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过期药品",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "旧报纸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "果皮",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-059",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级下册",
+   "unit": "四下·环保",
+   "question": "下面哪种垃圾属于可回收物？",
+   "explanation": "纸、塑料瓶、金属等可回收。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "从下往上看",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "闭一只眼斜着看",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "与液柱顶端相平",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "从上往下看",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K4-060",
+   "subject": "科学",
+   "grade": 4,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "四年级上册",
+   "unit": "四上·热",
+   "question": "温度计的读数时，视线应该？",
+   "explanation": "读数时视线与液面相平。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "莫愁前路无知己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "平明送客楚山孤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "寒雨连江夜入吴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一片冰心在玉壶",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S4-060",
+   "subject": "诗词",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "四年级（上下册通用）",
+   "unit": "《芙蓉楼送辛渐》",
+   "question": "“洛阳亲友如相问”的下一句是？",
+   "explanation": "王昌龄《芙蓉楼送辛渐》。",
+   "difficulty": 2,
+   "knowledge_point": "名句",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "名句"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只留清气满乾坤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "朵朵花开淡墨痕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我家洗砚池头树",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雪却输梅一段香",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "S4-061",
+   "subject": "诗词",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "volume": "四年级（上下册通用）",
+   "unit": "《墨梅》",
+   "question": "“不要人夸好颜色”的下一句是？",
+   "explanation": "王冕《墨梅》，借梅花表达不慕名利。",
+   "difficulty": 2,
+   "knowledge_point": "名句",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "名句"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "八达岭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雁门关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘉峪关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "居庸关",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y4-062",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "四年级上册",
+   "unit": "四上·长城",
+   "question": "《长城》中说，长城从东头的山海关到西头的？",
+   "explanation": "课文：从东头的山海关到西头的嘉峪关，有一万三千多里。",
+   "difficulty": 2,
+   "knowledge_point": "长城",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "长城"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "汉武帝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "康熙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秦始皇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "唐太宗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y4-063",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "四年级上册",
+   "unit": "四上·秦兵马俑",
+   "question": "秦兵马俑是哪位皇帝陵墓的陪葬坑？",
+   "explanation": "秦兵马俑在陕西临潼，被誉为“世界第八大奇迹”。",
+   "difficulty": 2,
+   "knowledge_point": "秦兵马俑",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "秦兵马俑"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "望远镜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雷达",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "照相机",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电灯",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "Y4-064",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "四年级上册",
+   "unit": "四上·夜间飞行的秘密",
+   "question": "人们模仿蝙蝠在夜里探路的方法，发明了？",
+   "explanation": "蝙蝠靠嘴和耳朵配合探路，人们据此发明了雷达。",
+   "difficulty": 2,
+   "knowledge_point": "夜间飞行的秘密",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "夜间飞行的秘密"
    ]
   }
  ]

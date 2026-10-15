@@ -4712,7 +4712,7 @@
   },
   {
    "id": "Y3-001",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -4747,8 +4747,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4756,7 +4755,7 @@
   },
   {
    "id": "Y3-002",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -4791,8 +4790,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4800,7 +4798,7 @@
   },
   {
    "id": "Y3-003",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -4835,8 +4833,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -4973,7 +4970,7 @@
   },
   {
    "id": "Y3-007",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5008,8 +5005,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5017,7 +5013,7 @@
   },
   {
    "id": "Y3-008",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5052,7 +5048,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留；按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《卖火柴的小女孩》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -5061,7 +5057,7 @@
   },
   {
    "id": "Y3-009",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5096,7 +5092,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留；按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《卖火柴的小女孩》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -5105,7 +5101,7 @@
   },
   {
    "id": "Y3-010",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5140,8 +5136,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5149,7 +5144,7 @@
   },
   {
    "id": "Y3-011",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5184,8 +5179,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5193,7 +5187,7 @@
   },
   {
    "id": "Y3-012",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5228,8 +5222,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5366,7 +5359,7 @@
   },
   {
    "id": "Y3-016",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5401,8 +5394,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5410,7 +5402,7 @@
   },
   {
    "id": "Y3-017",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5445,8 +5437,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5454,7 +5445,7 @@
   },
   {
    "id": "Y3-018",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5489,8 +5480,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5498,7 +5488,7 @@
   },
   {
    "id": "Y3-019",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5533,8 +5523,7 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5714,7 +5703,7 @@
   },
   {
    "id": "Y3-024",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5749,8 +5738,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5758,7 +5746,7 @@
   },
   {
    "id": "Y3-025",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5793,8 +5781,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5802,7 +5789,7 @@
   },
   {
    "id": "Y3-026",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5837,8 +5824,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5846,7 +5832,7 @@
   },
   {
    "id": "Y3-027",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5881,7 +5867,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《陶罐和铁罐》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -5890,7 +5876,7 @@
   },
   {
    "id": "Y3-028",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5925,8 +5911,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5934,7 +5919,7 @@
   },
   {
    "id": "Y3-029",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -5969,8 +5954,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -5978,7 +5962,7 @@
   },
   {
    "id": "Y3-030",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -6013,8 +5997,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -6022,7 +6005,7 @@
   },
   {
    "id": "Y3-031",
-   "status": "需家长确认",
+   "status": "停用",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -6057,7 +6040,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
+   "review_note": "《宇宙的另一边》已从统编修订版（2025秋/2026春）删去，停用",
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
@@ -6066,7 +6049,7 @@
   },
   {
    "id": "Y3-032",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -6101,8 +6084,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -6153,7 +6135,7 @@
   },
   {
    "id": "Y3-034",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -6188,8 +6170,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -6197,7 +6178,7 @@
   },
   {
    "id": "Y3-035",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -6232,8 +6213,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -6241,7 +6221,7 @@
   },
   {
    "id": "Y3-036",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "语文",
    "grade": 3,
    "textbook": "统编版",
@@ -6276,8 +6256,7 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
-   "review_note": "按 2017 版统编目录的课文出题，修订版二、三年级有课文增删，需对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "tags": [
     "语文"
@@ -6836,7 +6815,7 @@
    "source": "AI",
    "volume": "三年级（上下册通用）",
    "knowledge_point": "诗词",
-   "review_note": "该篇在统编修订版中已被替换（如《夜宿山寺》→《江雪》、《赠刘景文》→《望洞庭》），可作课外拓展，需家长确认是否保留",
+   "review_note": "《赠刘景文》已从修订版三上删去；诗句本身正确，可作课外积累，是否保留由家长决定",
    "game_ready": false,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "tags": [
@@ -11240,6 +11219,1766 @@
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "tags": [
     "作者"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只有石头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙、黏土、腐殖质、水和空气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有沙子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有水",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-021",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·研究土壤",
+   "question": "土壤里通常含有？",
+   "explanation": "把土壤放进水里搅拌静置，可以看到分层，还会冒出气泡。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "腐殖质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黏土",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙和小石子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-022",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·研究土壤",
+   "question": "把土壤放进水里搅拌后静置，最下层通常是？",
+   "explanation": "颗粒越大越重，沉得越快。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "石子地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙土",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "壤土",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黏土",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-023",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·研究土壤",
+   "question": "下面哪种土壤最适合大多数植物生长？",
+   "explanation": "壤土透水、保水都较好，又含较多腐殖质。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "雨水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "塑料袋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "动植物的遗体腐烂分解",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "岩石熔化",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-024",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·研究土壤",
+   "question": "腐殖质主要来自？",
+   "explanation": "落叶、动物遗体被微生物分解形成腐殖质。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "蚊子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蝴蝶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蚯蚓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "苍蝇",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-025",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·研究土壤",
+   "question": "在土壤中松土、帮助土壤肥沃的小动物是？",
+   "explanation": "蚯蚓钻洞让土壤疏松，粪便还能增加肥力。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "让雨水更浑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "减少水土流失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "增加水土流失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "让土壤变成沙漠",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-026",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·研究土壤",
+   "question": "植树种草可以？",
+   "explanation": "植物的根能抓住土壤。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "牛奶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木块",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "石头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰块",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-027",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·固体和液体",
+   "question": "下面哪种是液体？",
+   "explanation": "液体没有固定形状，会流动。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "变成方块",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "随容器改变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "保持杯子的形状",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-028",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·固体和液体",
+   "question": "把水从杯子倒进盘子，水的形状会？",
+   "explanation": "液体没有固定形状，但体积不变。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "没有体积",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "会自己流动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都能溶于水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "有固定的形状",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-029",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·固体和液体",
+   "question": "下面关于固体的说法正确的是？",
+   "explanation": "固体有一定的形状和体积。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "用磁铁吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用嘴吹",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用水冲",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用火烧",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-030",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·固体和液体",
+   "question": "把沙和铁屑混在一起，最简便的分离方法是？",
+   "explanation": "铁屑能被磁铁吸引，沙不能。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "加更多沙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直接晒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用磁铁吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过滤后把滤液蒸发",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-031",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·固体和液体",
+   "question": "把食盐和沙子分开，可以先加水溶解，再？",
+   "explanation": "食盐溶于水、沙不溶，过滤得到盐水，蒸发后得到盐。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "磁铁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放大镜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "筛子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-032",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·固体和液体",
+   "question": "米和黄豆混在一起，用什么最方便分开？",
+   "explanation": "颗粒大小不同可以用筛子分离。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "结成冰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变成空气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沸腾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "燃烧",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-033",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·水",
+   "question": "水在 0 ℃ 左右会？",
+   "explanation": "水的凝固点约 0 ℃。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "变成水蒸气跑到空气中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "钻进衣服里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "掉到地下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "被太阳吃掉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-034",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·水",
+   "question": "湿衣服晾干，水去了哪里？",
+   "explanation": "这是蒸发。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "暖气漏水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "玻璃自己出水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "室内空气中的水蒸气遇冷凝结",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "窗外的雨",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-035",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·水",
+   "question": "冬天窗户玻璃内侧的小水珠来自？",
+   "explanation": "水蒸气遇冷凝结成小水珠。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "湖泊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "海洋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰箱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河流",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-036",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·水",
+   "question": "地球上的水大部分在？",
+   "explanation": "海洋水约占地球总水量的 97%。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "杯子会漏气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "纸防水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "空气占据空间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水怕纸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-037",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·空气",
+   "question": "把一张纸塞进杯底，杯口朝下竖直压入水中，纸不会湿，说明？",
+   "explanation": "杯中的空气占据了空间，水进不去。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "有臭味的固体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无色、无味、透明的气体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "看得见的烟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红色的液体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-038",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·空气",
+   "question": "空气是？",
+   "explanation": "空气通常看不见、闻不到。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变成水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "收缩下沉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "膨胀、上升",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-039",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·空气",
+   "question": "空气受热后会？",
+   "explanation": "孔明灯就是利用热空气上升。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "泥土",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "空气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-040",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·空气",
+   "question": "皮球、轮胎里充的是？",
+   "explanation": "空气可以被压缩。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "灰尘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氮气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氧气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二氧化碳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-041",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·空气",
+   "question": "人呼吸需要空气中的？",
+   "explanation": "人吸入氧气，呼出较多二氧化碳。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "南风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "东风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北风",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-042",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·天气",
+   "question": "风向标的箭头指向风吹来的方向，箭头指向北，刮的是？",
+   "explanation": "风从哪里吹来就叫什么风。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "气压",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "温度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风速",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "降水量",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-043",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·天气",
+   "question": "雨量器用来测量？",
+   "explanation": "降水量单位是毫米。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "阴天或多云",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "下雪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "晴天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大风",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-044",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·天气",
+   "question": "天气日历上“☁”通常表示？",
+   "explanation": "天气符号要会认。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "放进冰箱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只要阳光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只要泥土",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "适量的水、充足的空气、适宜的温度",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-045",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·植物",
+   "question": "种子发芽一般需要？",
+   "explanation": "许多种子在黑暗中也能发芽。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "吸收水分和固定植物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "制造种子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "开花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "进行光合作用",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-046",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·植物",
+   "question": "植物的根主要的作用是？",
+   "explanation": "根从土壤里吸水和无机盐。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "开花—种子—发芽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结果—发芽—开花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "种子—发芽—幼苗—开花—结果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "幼苗—种子—结果",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-047",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·植物",
+   "question": "凤仙花一生的顺序是？",
+   "explanation": "植物有完整的生命周期。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "养料（淀粉）和氧气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "石头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二氧化碳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "塑料",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-048",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·植物",
+   "question": "叶在阳光下能制造？",
+   "explanation": "这是光合作用。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "蛹—卵—幼虫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "幼虫—卵—蛹",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "卵—幼虫—蛹—成虫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "卵—成虫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-049",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·动物",
+   "question": "蚕的一生要经历？",
+   "explanation": "蚕是完全变态发育。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "青蛙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "兔子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鸡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金鱼",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-050",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·动物",
+   "question": "下面哪种动物是哺乳动物？",
+   "explanation": "哺乳动物胎生、哺乳。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "小鱼，用鳃呼吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蝌蚪，用鳃呼吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蝌蚪，用肺呼吸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小蛇，用皮肤呼吸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-051",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·动物",
+   "question": "青蛙小时候叫什么，用什么呼吸？",
+   "explanation": "蝌蚪生活在水中，用鳃呼吸。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "身体有羽毛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都是胎生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都会飞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都会游泳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-052",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·动物",
+   "question": "鸟类的共同特征是？",
+   "explanation": "鸵鸟、企鹅不会飞，但都有羽毛。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "最长",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不见了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "最短",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "最黑最长",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-053",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·太阳与影子",
+   "question": "一天中，正午时物体的影子？",
+   "explanation": "正午太阳最高，影子最短。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "西边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "东边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "南边",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-054",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·太阳与影子",
+   "question": "早上太阳在东边，影子朝？",
+   "explanation": "影子在物体背光的一侧。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "算盘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "日晷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙漏",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "指南针",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-055",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·太阳与影子",
+   "question": "古人用来按影子计时的工具是？",
+   "explanation": "日晷利用太阳影子的移动计时。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "温度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "颜色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "振动",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-056",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·声音",
+   "question": "声音是由物体的什么产生的？",
+   "explanation": "物体振动产生声音。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "没有空气，声音不能传播",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太冷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太远",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-057",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·声音",
+   "question": "在月球上两名航天员不能直接对话，因为？",
+   "explanation": "声音传播需要介质，真空不能传声。",
+   "difficulty": 3,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "更高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "更响",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "更低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "没有声音",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-058",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·声音",
+   "question": "用力敲鼓，鼓声会？",
+   "explanation": "振动幅度越大，声音越响。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "对着别人耳朵大喊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用尖东西掏耳朵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在噪声中长期工作不戴防护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不长时间戴耳机听很大的声音",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-059",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级下册",
+   "unit": "三下·声音",
+   "question": "保护听力，下面做法正确的是？",
+   "explanation": "噪声会损伤听力。",
+   "difficulty": 1,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "科学"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "铜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "橡胶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "塑料",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "K3-060",
+   "subject": "科学",
+   "grade": 3,
+   "textbook": "苏教版",
+   "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
+   "volume": "三年级上册",
+   "unit": "三上·材料",
+   "question": "下面哪种材料最容易导电？",
+   "explanation": "金属一般是导体。",
+   "difficulty": 2,
+   "knowledge_point": "科学",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "科学"
    ]
   }
  ]

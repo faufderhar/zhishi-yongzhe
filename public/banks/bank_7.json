@@ -5901,7 +5901,7 @@
   },
   {
    "id": "S7-014",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -5935,8 +5935,7 @@
    "difficulty": 4,
    "source": "AI",
    "knowledge_point": "白雪歌",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
@@ -5946,7 +5945,7 @@
   },
   {
    "id": "S7-015",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -5980,8 +5979,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "白雪歌",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "白雪歌",
@@ -5990,7 +5988,7 @@
   },
   {
    "id": "S7-016",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6024,8 +6022,7 @@
    "difficulty": 3,
    "source": "AI",
    "knowledge_point": "春夜洛城闻笛",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "春夜洛城闻笛"
@@ -6033,7 +6030,7 @@
   },
   {
    "id": "S7-017",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6067,8 +6064,7 @@
    "difficulty": 3,
    "source": "AI",
    "knowledge_point": "春夜洛城闻笛",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "春夜洛城闻笛"
@@ -6076,7 +6072,7 @@
   },
   {
    "id": "S7-018",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6110,8 +6106,7 @@
    "difficulty": 3,
    "source": "AI",
    "knowledge_point": "黄鹤楼",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "黄鹤楼"
@@ -6119,7 +6114,7 @@
   },
   {
    "id": "S7-019",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6153,8 +6148,7 @@
    "difficulty": 3,
    "source": "AI",
    "knowledge_point": "黄鹤楼",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "黄鹤楼"
@@ -6162,7 +6156,7 @@
   },
   {
    "id": "S7-020",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6196,8 +6190,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "黄鹤楼",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "黄鹤楼"
@@ -6205,7 +6198,7 @@
   },
   {
    "id": "S7-021",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6239,8 +6232,7 @@
    "difficulty": 1,
    "source": "AI",
    "knowledge_point": "小学复习",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "小学复习"
@@ -6248,7 +6240,7 @@
   },
   {
    "id": "S7-022",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6282,8 +6274,7 @@
    "difficulty": 1,
    "source": "AI",
    "knowledge_point": "小学复习",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "小学复习"
@@ -6291,7 +6282,7 @@
   },
   {
    "id": "S7-023",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6325,8 +6316,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "水调歌头",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "水调歌头",
@@ -6335,7 +6325,7 @@
   },
   {
    "id": "S7-024",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6369,8 +6359,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "饮酒",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "饮酒",
@@ -6379,7 +6368,7 @@
   },
   {
    "id": "S7-025",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6413,8 +6402,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "望岳",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "望岳",
@@ -6423,7 +6411,7 @@
   },
   {
    "id": "S7-026",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6457,8 +6445,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "小学复习",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "小学复习"
@@ -6466,7 +6453,7 @@
   },
   {
    "id": "S7-027",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6500,8 +6487,7 @@
    "difficulty": 2,
    "source": "AI",
    "knowledge_point": "送杜少府",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "送杜少府",
@@ -6531,7 +6517,7 @@
   },
   {
    "id": "S7-029",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6543,8 +6529,7 @@
    "difficulty": 3,
    "source": "AI",
    "knowledge_point": "十一月四日风雨大作",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "十一月四日风雨大作"
@@ -6552,7 +6537,7 @@
   },
   {
    "id": "S7-030",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6586,8 +6571,7 @@
    "difficulty": 4,
    "source": "AI",
    "knowledge_point": "十一月四日风雨大作",
-   "review_note": "非本册课文内容（拓展/复习）",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "tags": [
     "十一月四日风雨大作"
@@ -15517,7 +15501,7 @@
   },
   {
    "id": "E7-069",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -15552,8 +15536,7 @@
    "source": "AI",
    "volume": "七年级上册(7A)",
    "knowledge_point": "健康生活",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "健康生活",
@@ -15782,7 +15765,7 @@
   },
   {
    "id": "E7-075",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -15817,8 +15800,7 @@
    "source": "AI",
    "volume": "七年级上册(7A)",
    "knowledge_point": "服装",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "服装",
@@ -16091,7 +16073,7 @@
   },
   {
    "id": "E7-082",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -16126,8 +16108,7 @@
    "source": "AI",
    "volume": "七年级上册(7A)",
    "knowledge_point": "金钱",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "金钱",
@@ -16532,7 +16513,7 @@
   },
   {
    "id": "E7-092",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -16567,8 +16548,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "家",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "家",
@@ -16841,7 +16821,7 @@
   },
   {
    "id": "E7-099",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -16876,8 +16856,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "社区",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "社区",
@@ -17194,7 +17173,7 @@
   },
   {
    "id": "E7-107",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -17229,8 +17208,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "家乡",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "家乡",
@@ -17415,7 +17393,7 @@
   },
   {
    "id": "E7-112",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -17450,8 +17428,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "民间艺术",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "民间艺术",
@@ -17724,7 +17701,7 @@
   },
   {
    "id": "E7-119",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -17759,8 +17736,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "动物",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "动物",
@@ -17769,7 +17745,7 @@
   },
   {
    "id": "E7-120",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -17804,8 +17780,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "风景",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "风景",
@@ -17902,7 +17877,7 @@
   },
   {
    "id": "E7-123",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -17937,8 +17912,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "风景",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "风景",
@@ -17947,7 +17921,7 @@
   },
   {
    "id": "E7-124",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -17982,8 +17956,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "风景",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "风景",
@@ -18214,7 +18187,7 @@
   },
   {
    "id": "E7-130",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -18249,8 +18222,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "户外",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "户外",
@@ -18303,7 +18275,7 @@
   },
   {
    "id": "E7-132",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -18338,8 +18310,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "奇境",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "奇境",
@@ -18480,7 +18451,7 @@
   },
   {
    "id": "E7-136",
-   "status": "需家长确认",
+   "status": "AI初审通过",
    "subject": "英语",
    "grade": 7,
    "textbook": "译林版2024",
@@ -18515,8 +18486,7 @@
    "source": "AI",
    "volume": "七年级下册(7B)",
    "knowledge_point": "奇境",
-   "review_note": "考查具体词汇/课文细节，未拿到完整译林单元词汇表逐词核对，请对照课本",
-   "game_ready": false,
+   "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "tags": [
     "奇境",
@@ -19228,6 +19198,2580 @@
    "tags": [
     "户外",
     "介词"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "怀念小学，不愿和新同学交往",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只关注学习，从不参加集体活动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遇到困难就退缩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "主动适应，积极结交新同学",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-001",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第一课 开启初中生活",
+   "question": "进入初中，面对新的环境，下面做法恰当的是？",
+   "explanation": "初中生活是新的起点，要主动适应。",
+   "difficulty": 1,
+   "knowledge_point": "开启初中生活",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "开启初中生活"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "什么都不想，走一步看一步",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "了解自己，明确目标",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只定很远的大目标",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "照抄别人的计划",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-002",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第一课 开启初中生活",
+   "question": "规划初中生活，首先要？",
+   "explanation": "规划要从自身实际出发。",
+   "difficulty": 2,
+   "knowledge_point": "规划初中生活",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "规划初中生活"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "依赖父母替自己做作业",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只靠死记硬背",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "改进学习方法，提高学习能力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放弃难的学科",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-003",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第一课 开启初中生活",
+   "question": "初中阶段学习科目增多、难度加大，我们应该？",
+   "explanation": "学会学习。",
+   "difficulty": 1,
+   "knowledge_point": "学习方法",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "学习方法"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只听别人的评价",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只靠自己感觉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自我观察、他人评价",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只看考试分数",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-004",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+   "question": "认识自己的途径包括？",
+   "explanation": "既要自我反思，也要正确对待他人评价。",
+   "difficulty": 2,
+   "knowledge_point": "认识自己",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "认识自己"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "理性分析，有则改之，无则加勉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一概拒绝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "全部接受",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只听表扬的话",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-005",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+   "question": "对待他人的评价，正确的态度是？",
+   "explanation": "既不盲从，也不忽视。",
+   "difficulty": 2,
+   "knowledge_point": "他人评价",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "他人评价"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "要正确看待自己的缺点和不足",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有完美的人才有价值",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "缺点会自己消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人可以不改正缺点",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-006",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+   "question": "“金无足赤，人无完人”告诉我们？",
+   "explanation": "接纳自己，并努力完善自己。",
+   "difficulty": 2,
+   "knowledge_point": "做更好的自己",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "做更好的自己"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "放弃自己的长处",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "和别人比坏处",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只发展兴趣不管学习",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扬长避短，不断完善自我",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-007",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+   "question": "做更好的自己，需要？",
+   "explanation": "发现并发挥自己的优势。",
+   "difficulty": 1,
+   "knowledge_point": "做更好的自己",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "做更好的自己"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "等别人帮自己实现",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把梦想落实到当下的行动中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "梦想越多越好，不必行动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只是空想",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-008",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第三课 梦想始于当下",
+   "question": "实现梦想需要？",
+   "explanation": "梦想需要努力奋斗。",
+   "difficulty": 1,
+   "knowledge_point": "梦想",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "梦想"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "学习点亮生命，为美好人生奠基",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学习会让人失去快乐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学习只为考试",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学习只在学校里进行",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-009",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第三课 梦想始于当下",
+   "question": "学习是中学生的主要任务，学习的意义包括？",
+   "explanation": "学习伴随我们一生。",
+   "difficulty": 2,
+   "knowledge_point": "学习成就梦想",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "学习成就梦想"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "《出师表》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《师说》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《论语》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《少年中国说》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-010",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第三课 梦想始于当下",
+   "question": "“少年强则国强”这句话出自梁启超的？",
+   "explanation": "少年的梦想与中国梦紧密相连。",
+   "difficulty": 2,
+   "knowledge_point": "少年梦与中国梦",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "少年梦与中国梦"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "诚实守信",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "勤俭节约",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孝亲敬长的传统美德",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "见义勇为",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-011",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
+   "question": "“百善孝为先”体现的是中华民族的？",
+   "explanation": "孝敬父母是中华民族传统美德，也是法定义务。",
+   "difficulty": 1,
+   "knowledge_point": "孝亲敬长",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "孝亲敬长"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "顶撞父母",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冷战不说话",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "离家出走",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "换位思考，耐心沟通",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-012",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
+   "question": "与父母发生冲突时，恰当的做法是？",
+   "explanation": "学会与父母沟通。",
+   "difficulty": 1,
+   "knowledge_point": "亲子沟通",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "亲子沟通"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-013",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
+   "question": "孝敬父母不仅是道德要求，也是法定义务。",
+   "explanation": "《中华人民共和国宪法》《民法典》都规定成年子女有赡养扶助父母的义务。",
+   "difficulty": 2,
+   "knowledge_point": "孝亲敬长",
+   "type": "判断",
+   "answer": "对",
+   "game_ready": true,
+   "tags": [
+    "孝亲敬长"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只管学习不做家务",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "分担家务，关心家人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对家人发脾气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "向父母提过分要求",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-014",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
+   "question": "让家更美好，我们中学生可以？",
+   "explanation": "共建和美家庭。",
+   "difficulty": 1,
+   "knowledge_point": "让家更美好",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "让家更美好"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "理解老师的良苦用心，虚心接受",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不理不睬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "当面顶撞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "记恨老师",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-015",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第五课 和谐的师生关系",
+   "question": "对老师的批评，正确的态度是？",
+   "explanation": "老师的批评是为了帮助我们成长。",
+   "difficulty": 1,
+   "knowledge_point": "师生关系",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "师生关系"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "9 月 10 日",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5 月 4 日",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10 月 1 日",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6 月 1 日",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-016",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第五课 和谐的师生关系",
+   "question": "教师节是每年的？",
+   "explanation": "1985 年起设立教师节。",
+   "difficulty": 1,
+   "knowledge_point": "走近老师",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "走近老师"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "互不往来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老师迁就学生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学生完全服从",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "师生相互尊重、平等交流",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-017",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第五课 和谐的师生关系",
+   "question": "“亦师亦友”的师生关系需要？",
+   "explanation": "教学相长。",
+   "difficulty": 2,
+   "knowledge_point": "珍惜师生情谊",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "珍惜师生情谊"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "朋友就要无原则地帮忙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "友谊越多越好，不用选择",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "友谊是一成不变的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "友谊是平等的、双向的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-018",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第六课 友谊之树常青",
+   "question": "友谊的特质包括？",
+   "explanation": "友谊需要双方付出。",
+   "difficulty": 2,
+   "knowledge_point": "友谊的真谛",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "友谊的真谛"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "讲义气，帮他作弊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拒绝，并劝他认真复习",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "从此不再理他",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "告诉全班同学嘲笑他",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-019",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第六课 友谊之树常青",
+   "question": "朋友让你帮忙考试作弊，你应该？",
+   "explanation": "友谊不能没有原则。",
+   "difficulty": 1,
+   "knowledge_point": "交友的智慧",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "交友的智慧"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "网上说的都可以相信",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把家庭住址告诉网友",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "独自去见网友",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不轻易透露个人信息，不随便与网友见面",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-020",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第六课 友谊之树常青",
+   "question": "在网络上交友，下面做法正确的是？",
+   "explanation": "网络交友要谨慎。",
+   "difficulty": 1,
+   "knowledge_point": "网上交友",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "网上交友"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "为集体荣誉主动承担任务",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "损坏班级公物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "集体活动能逃就逃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只顾自己的利益",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-021",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第七课 在集体中成长",
+   "question": "下面最能体现集体主义精神的是？",
+   "explanation": "集体生活成就我。",
+   "difficulty": 1,
+   "knowledge_point": "集体",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "集体"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "个人不重要",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人越多越乱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不需要分工合作",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "集体的力量大于个人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-022",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第七课 在集体中成长",
+   "question": "“众人拾柴火焰高”说明？",
+   "explanation": "团结就是力量。",
+   "difficulty": 1,
+   "knowledge_point": "集体的力量",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "集体的力量"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "不遵守班规",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只提要求不出力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "增强责任意识，遵守集体规则",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "互相指责",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-023",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第七课 在集体中成长",
+   "question": "共建美好集体，需要每个成员？",
+   "explanation": "美好集体需要大家共同努力。",
+   "difficulty": 1,
+   "knowledge_point": "共建美好集体",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "共建美好集体"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "生命不需要珍惜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "每个生命都一样",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生命可以重来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生命是独特的、不可逆的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-024",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第八课 生命可贵",
+   "question": "生命的特点包括？",
+   "explanation": "生命来之不易，又具有独特性。",
+   "difficulty": 2,
+   "knowledge_point": "认识生命",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "认识生命"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只关心自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "珍爱自己的生命，也善待他人的生命",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "漠视他人生命",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "伤害小动物取乐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-025",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第八课 生命可贵",
+   "question": "敬畏生命，要求我们？",
+   "explanation": "生命至上。",
+   "difficulty": 1,
+   "knowledge_point": "敬畏生命",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "敬畏生命"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "珍爱自己的身体和生命",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不能理发",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不能运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不能生病",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-026",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第八课 生命可贵",
+   "question": "“身体发肤，受之父母，不敢毁伤”说明要？",
+   "explanation": "珍爱生命是对父母的孝敬。",
+   "difficulty": 2,
+   "knowledge_point": "珍爱生命",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "珍爱生命"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "躲到床底下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乘电梯逃生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "先收拾贵重物品",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用湿毛巾捂住口鼻，弯腰低姿撤离",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-027",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
+   "question": "发生火灾时，下面做法正确的是？",
+   "explanation": "火灾时浓烟上升，要低姿撤离，不乘电梯。",
+   "difficulty": 1,
+   "knowledge_point": "安全常识",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "安全常识"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "122",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "110",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "119",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "120",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-028",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
+   "question": "火警电话是？",
+   "explanation": "110 报警、120 急救、122 交通事故。",
+   "difficulty": 1,
+   "knowledge_point": "安全常识",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "安全常识"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "马上跟他走",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把家里地址告诉他",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吃他给的零食",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "先联系父母核实，不轻易跟他走",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-029",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
+   "question": "遇到陌生人自称是父母的同事要接你回家，你应该？",
+   "explanation": "增强自我保护意识。",
+   "difficulty": 1,
+   "knowledge_point": "提高防护能力",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "提高防护能力"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "走开不管",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自己跳下水去救",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "手拉手下水救人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大声呼救，寻求成年人帮助并拨打 110/120",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-030",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
+   "question": "发现同学溺水，未成年人正确的做法是？",
+   "explanation": "见义智为，保护好自己。",
+   "difficulty": 2,
+   "knowledge_point": "见义智为",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "见义智为"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "经常熬夜玩游戏",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只吃零食",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不吃早饭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "规律作息，坚持锻炼，合理饮食",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-031",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第十课 保持身心健康",
+   "question": "保持身体健康，下面做法正确的是？",
+   "explanation": "爱护身体。",
+   "difficulty": 1,
+   "knowledge_point": "爱护身体",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "爱护身体"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "向家人、老师倾诉或参加运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "暴饮暴食",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "摔东西发泄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把自己关起来",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-032",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第十课 保持身心健康",
+   "question": "感到压力很大时，合理的调节方法是？",
+   "explanation": "学会调控情绪，滋养心灵。",
+   "difficulty": 1,
+   "knowledge_point": "滋养心灵",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "滋养心灵"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-033",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第十课 保持身心健康",
+   "question": "心理健康和身体健康同样重要。",
+   "explanation": "健康包括身体健康和心理健康。",
+   "difficulty": 1,
+   "knowledge_point": "身心健康",
+   "type": "判断",
+   "answer": "对",
+   "game_ready": true,
+   "tags": [
+    "身心健康"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "前进的方向和动力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "没有任何作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "压力和烦恼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "享受的理由",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-034",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十一课 确立人生目标",
+   "question": "人生目标能给我们？",
+   "explanation": "有目标才有方向。",
+   "difficulty": 1,
+   "knowledge_point": "人生目标",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "人生目标"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "国家和社会的需要",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一时的兴趣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只考虑个人享受",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "别人的看法",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-035",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十一课 确立人生目标",
+   "question": "树立正确的人生目标，要把个人理想与什么结合起来？",
+   "explanation": "个人梦与中国梦相连。",
+   "difficulty": 2,
+   "knowledge_point": "树立正确的人生目标",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "树立正确的人生目标"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "怨天尤人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "逃避现实",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "正视挫折，在逆境中奋起",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一蹶不振",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-036",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十二课 端正人生态度",
+   "question": "面对挫折和逆境，正确的态度是？",
+   "explanation": "逆境可以磨炼意志。",
+   "difficulty": 1,
+   "knowledge_point": "正确对待顺境和逆境",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "正确对待顺境和逆境"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "宝剑天生锋利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "梅花只在冬天开",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "挫折可以磨炼人的意志",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人生应该没有困难",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-037",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十二课 端正人生态度",
+   "question": "“宝剑锋从磨砺出，梅花香自苦寒来”说明？",
+   "explanation": "在磨砺中成长。",
+   "difficulty": 2,
+   "knowledge_point": "逆境",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "逆境"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "不思进取",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "骄傲自满",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "放松要求",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "珍惜顺境，戒骄戒躁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-038",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十二课 端正人生态度",
+   "question": "处于顺境时，我们应该？",
+   "explanation": "顺境也可能让人懈怠。",
+   "difficulty": 2,
+   "knowledge_point": "顺境",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "顺境"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "劳动创造人生价值",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有体力劳动才光荣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不劳动也能获得一切",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "劳动是低人一等的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-039",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十三课 实现人生价值",
+   "question": "“劳动最光荣”说明？",
+   "explanation": "在劳动中创造人生价值。",
+   "difficulty": 1,
+   "knowledge_point": "劳动",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "劳动"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只为赚钱拼命工作",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "张桂梅扎根山区创办女子高中，帮助大批女孩走出大山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "为了出名做慈善作秀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把功劳全记在自己身上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-040",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十三课 实现人生价值",
+   "question": "下面最能体现“在奉献中成就精彩人生”的是？",
+   "explanation": "人生价值在于对社会的贡献。",
+   "difficulty": 2,
+   "knowledge_point": "奉献",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "奉献"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "在奉献中实现人生价值",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "服务别人会吃亏",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只顾自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生命无限",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-041",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十三课 实现人生价值",
+   "question": "雷锋说“人的生命是有限的，可是，为人民服务是无限的”，体现了？",
+   "explanation": "把有限的生命投入到无限的为人民服务之中。",
+   "difficulty": 2,
+   "knowledge_point": "奉献",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "奉献"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "身体停止发育",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "身高、体重迅速增长",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "体重越来越轻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不再需要营养",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-042",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第一课 青春正当时",
+   "question": "青春期身体变化的显著特点之一是？",
+   "explanation": "青春期身体外形、内部器官发生显著变化。",
+   "difficulty": 1,
+   "knowledge_point": "青春期",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "青春期"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "正常的心理矛盾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "心理疾病",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "坏习惯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不孝顺",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-043",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第一课 青春正当时",
+   "question": "青春期心理上常出现“既想独立又依赖父母”，这是？",
+   "explanation": "要正确认识和调节。",
+   "difficulty": 2,
+   "knowledge_point": "青春期心理",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "青春期心理"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "自然、适度，彼此尊重",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘲笑异性同学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过分亲密",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刻意回避，从不说话",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-044",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第一课 青春正当时",
+   "question": "与异性同学交往，恰当的做法是？",
+   "explanation": "男女同学正常交往有利于成长。",
+   "difficulty": 2,
+   "knowledge_point": "异性交往",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "异性交往"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "砸东西出气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "转移注意力、合理宣泄、改变认知",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "压抑不说",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对别人发脾气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-045",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第二课 做情绪情感的主人",
+   "question": "调节情绪的方法包括？",
+   "explanation": "学会调控情绪。",
+   "difficulty": 1,
+   "knowledge_point": "情绪调节",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "情绪调节"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-046",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第二课 做情绪情感的主人",
+   "question": "情绪是可以调节的。",
+   "explanation": "我们可以通过多种方法调节自己的情绪。",
+   "difficulty": 1,
+   "knowledge_point": "情绪",
+   "type": "判断",
+   "answer": "对",
+   "game_ready": true,
+   "tags": [
+    "情绪"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "一时的冲动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "厌恶情绪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爱国主义情感",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "恐惧情绪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-047",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第二课 做情绪情感的主人",
+   "question": "参加升旗仪式时产生的自豪感属于？",
+   "explanation": "美好的情感能使我们的精神世界更加丰富。",
+   "difficulty": 2,
+   "knowledge_point": "情感",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "tags": [
+    "情感"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "嘲笑别人的缺点",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "做错事后感到羞愧并改正",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "以为别人都不如自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "做错事找借口",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-048",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第三课 人贵自尊",
+   "question": "下面属于知耻的表现是？",
+   "explanation": "知耻是自尊的表现。",
+   "difficulty": 2,
+   "knowledge_point": "自尊",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "自尊"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "自信就是看不起别人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自信建立在对自己正确认识的基础上，自负则过高估计自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自负比自信好",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二者没有区别",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-049",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第四课 自信给人力量",
+   "question": "自信与自负的区别是？",
+   "explanation": "自信要适度。",
+   "difficulty": 2,
+   "knowledge_point": "自信",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "自信"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "《论语》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《周易》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《孟子》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《诗经》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-050",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第五课 人生当自强",
+   "question": "“天行健，君子以自强不息”出自？",
+   "explanation": "自强不息是中华民族的精神。",
+   "difficulty": 2,
+   "knowledge_point": "自强",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "自强"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "法治思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尚武思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重商思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "民本思想",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-051",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第六课 传承核心思想理念",
+   "question": "“民惟邦本，本固邦宁”体现的是？",
+   "explanation": "出自《尚书》。",
+   "difficulty": 2,
+   "knowledge_point": "民本",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "tags": [
+    "民本"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "家国情怀，强烈的社会责任感",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个人主义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不关心国家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只顾自己的家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-052",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第六课 传承核心思想理念",
+   "question": "“天下兴亡，匹夫有责”体现了？",
+   "explanation": "顾炎武思想，后人概括为此句。",
+   "difficulty": 2,
+   "knowledge_point": "家国情怀",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "家国情怀"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "推己及人的仁爱精神",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自私自利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "以牙还牙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只为自己着想",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-053",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第七课 弘扬中华人文精神",
+   "question": "“己所不欲，勿施于人”体现的是？",
+   "explanation": "出自《论语》。",
+   "difficulty": 2,
+   "knowledge_point": "仁爱",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "仁爱"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "见义勇为",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诚实守信",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尊老爱幼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "勤俭节约",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-054",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第八课 践行中华传统美德",
+   "question": "“言必信，行必果”强调的美德是？",
+   "explanation": "诚信是立身之本。",
+   "difficulty": 1,
+   "knowledge_point": "诚信",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "诚信"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "民法典",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宪法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刑法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "未成年人保护法",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-055",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第九课 法律为我们护航",
+   "question": "我国的根本大法是？",
+   "explanation": "宪法具有最高法律效力。",
+   "difficulty": 1,
+   "knowledge_point": "宪法",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "宪法"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "朋友保护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "司法保护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个人保护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "单位保护",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-056",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第九课 法律为我们护航",
+   "question": "《未成年人保护法》规定的保护包括家庭、学校、社会、网络、政府和？",
+   "explanation": "六大保护。",
+   "difficulty": 2,
+   "knowledge_point": "未成年人保护",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "未成年人保护"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "社会生活的百科全书",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刑事法律",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "国家的根本大法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "行政法规",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-057",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
+   "question": "《中华人民共和国民法典》被称为？",
+   "explanation": "民法典 2021 年 1 月 1 日起施行。",
+   "difficulty": 2,
+   "knowledge_point": "民法典",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "民法典"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "限制民事行为能力人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不具有任何民事权利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "完全民事行为能力人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无民事行为能力人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-058",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
+   "question": "根据民法典，八周岁以上的未成年人是？",
+   "explanation": "不满八周岁为无民事行为能力人。",
+   "difficulty": 3,
+   "knowledge_point": "民事行为能力",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "民事行为能力"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "道德谴责性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "应受刑罚处罚性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "行政处罚性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "民事赔偿性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-059",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十一课 远离违法犯罪",
+   "question": "犯罪的三个基本特征是严重社会危害性、刑事违法性和？",
+   "explanation": "犯罪是最严重的违法行为。",
+   "difficulty": 3,
+   "knowledge_point": "犯罪",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "tags": [
+    "犯罪"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "冷静克制，通过沟通或请老师调解解决",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "约人打架",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "带刀具防身",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "网上辱骂对方",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "review_changed": "是",
+   "id": "D7-060",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十一课 远离违法犯罪",
+   "question": "同学之间因小事发生争执，正确的做法是？",
+   "explanation": "防微杜渐，远离违法犯罪。",
+   "difficulty": 1,
+   "knowledge_point": "预防违法",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "tags": [
+    "预防违法"
    ]
   }
  ]
