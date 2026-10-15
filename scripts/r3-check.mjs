@@ -33,7 +33,7 @@ await pg.click('[data-testid=pause]'); await w(200); await pg.click('[data-testi
 await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(500);
 await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(300);
 await pg.click('text=稍后', { timeout: 3000 }).catch(() => {}); await w(300); await pg.click('[data-testid=ptab-report]', { timeout: 5000 }); await w(300);
-await pg.click('[data-testid^=report-]:has-text("r3-7")').catch(() => {}); await w(800);
+await pg.locator('.chip', { hasText: 'r3-7' }).click(); await w(800);
 ok(await pg.isVisible('[data-testid=report-wrong]'), '#9 家长页按孩子的学习报告: ' + (await pg.textContent('[data-testid=report]').catch(() => '')).slice(0, 80));
 await pg.screenshot({ path: OUT + 'r3-parent-report.png' });
 ok(!errs.length, '无页面错误 ' + errs.join(' | '));

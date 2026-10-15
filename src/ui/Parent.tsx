@@ -352,7 +352,7 @@ function ReportTab({ profiles, bank }: ParentProps) {
     const u = q ? `${sub} · ${q.unit ?? q.tags?.[0] ?? ''}` : ''; if (u) { const x = units.get(u) ?? { n: 0, ok: 0 }; x.n++; if (r.correct) x.ok++; units.set(u, x); }
   }
   const pct = (a: number, b: number) => b ? Math.round(a / b * 100) + '%' : '—';
-  const weak = [...units].filter(([, x]) => x.n >= 3).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).slice(0, 5);
+  const weak = [...units].filter(([, x]) => x.n >= 3 && x.ok / x.n < 0.8).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).slice(0, 5);
   const w = data?.w ?? []; const today = dayStr();
   return (
     <div className="col gap16" data-testid="report">
