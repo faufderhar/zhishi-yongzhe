@@ -1,0 +1,9453 @@
+{
+ "bank_name": "三兄妹题库-幼儿园小班-第4批（AI初审）",
+ "version": 4,
+ "questions": [
+  {
+   "id": "K-001",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个苹果？🍎",
+   "tts_text": "数一数，有几个苹果？",
+   "options": [
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个苹果，数“1”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-001.webp（苹果×1）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-002",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个苹果？🍎🍎",
+   "tts_text": "数一数，有几个苹果？",
+   "options": [
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "1、2，有两个苹果。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-002.webp（苹果×2）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-003",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几只小鸭？🦆🦆🦆",
+   "tts_text": "数一数，有几只小鸭？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1、2、3，有三只小鸭。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-003.webp（小鸭×3）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-004",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个气球？🎈🎈🎈🎈",
+   "tts_text": "数一数，有几个气球？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "1、2、3、4，有四个气球。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-004.webp（气球×4）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-005",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几颗星星？⭐⭐⭐⭐⭐",
+   "tts_text": "数一数，有几颗星星？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "1、2、3、4、5，有五颗星星。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-005.webp（星星×5）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-006",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几辆小汽车？🚗🚗",
+   "tts_text": "数一数，有几辆小汽车？",
+   "options": [
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1、2，两辆小汽车。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-006.webp（小汽车×2）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-007",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几条小鱼？🐟🐟🐟",
+   "tts_text": "数一数，有几条小鱼？",
+   "options": [
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "1、2、3，三条小鱼。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-007.webp（小鱼×3）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-008",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪个是数字 1？",
+   "tts_text": "哪个是数字 1？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1 像一根小棒。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-009",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪个是数字 2？",
+   "tts_text": "哪个是数字 2？",
+   "options": [
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "2 像一只小鸭子。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-010",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪个是数字 3？",
+   "tts_text": "哪个是数字 3？",
+   "options": [
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "3 像小耳朵。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-011",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的苹果多？",
+   "tts_text": "哪边的苹果多？",
+   "options": [
+    {
+     "text": "🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "三个比一个多。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-011_a.webp（苹果）；B_image images/k/K-011_b.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-012",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的糖果少？",
+   "tts_text": "哪边的糖果少？",
+   "options": [
+    {
+     "text": "🍬🍬🍬🍬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍬",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一个比四个少。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-012_a.webp（糖果）；B_image images/k/K-012_b.webp（糖果）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-013",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "小手有几根手指？✋",
+   "tts_text": "一只小手有几根手指？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一只手有五根手指。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "身体"
+   ]
+  },
+  {
+   "id": "K-014",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "小朋友有几只眼睛？👀",
+   "tts_text": "小朋友有几只眼睛？",
+   "options": [
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "我们有两只眼睛。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "身体"
+   ]
+  },
+  {
+   "id": "K-015",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪个大？",
+   "tts_text": "大象和老鼠，哪个大？",
+   "options": [
+    {
+     "text": "🐘 大象",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐭 老鼠",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "大象很大，老鼠很小。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比大小",
+   "assets_todo": "A_image images/k/K-015_a.webp（大象）；B_image images/k/K-015_b.webp（老鼠）",
+   "game_ready": true,
+   "tags": [
+    "比大小"
+   ]
+  },
+  {
+   "id": "K-016",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪个小？",
+   "tts_text": "蚂蚁和小狗，哪个小？",
+   "options": [
+    {
+     "text": "🐶 小狗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐜 蚂蚁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "蚂蚁很小很小。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比大小",
+   "assets_todo": "A_image images/k/K-016_a.webp（小狗）；B_image images/k/K-016_b.webp（蚂蚁）",
+   "game_ready": true,
+   "tags": [
+    "比大小"
+   ]
+  },
+  {
+   "id": "KC-001",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是红色的？",
+   "tts_text": "哪个是红色的？",
+   "options": [
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "苹果是红色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-001_a.webp（苹果）；B_image images/k/KC-001_b.webp（香蕉）；C_image images/k/KC-001_c.webp（西兰花）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "红色"
+   ]
+  },
+  {
+   "id": "KC-002",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是黄色的？",
+   "tts_text": "哪个是黄色的？",
+   "options": [
+    {
+     "text": "🍇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "香蕉是黄色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-002_a.webp（葡萄）；B_image images/k/KC-002_b.webp（苹果）；C_image images/k/KC-002_c.webp（香蕉）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "黄色"
+   ]
+  },
+  {
+   "id": "KC-003",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是绿色的？",
+   "tts_text": "哪个是绿色的？",
+   "options": [
+    {
+     "text": "🥦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍓",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "西兰花是绿色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-003_a.webp（西兰花）；B_image images/k/KC-003_b.webp（香蕉）；C_image images/k/KC-003_c.webp（草莓）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "绿色"
+   ]
+  },
+  {
+   "id": "KC-004",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是蓝色的？",
+   "tts_text": "哪个是蓝色的？",
+   "options": [
+    {
+     "text": "🟨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这个方块是蓝色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-004_a.webp（🟨）；B_image images/k/KC-004_b.webp（🟥）；C_image images/k/KC-004_c.webp（🟦）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "蓝色"
+   ]
+  },
+  {
+   "id": "KC-005",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "草莓🍓是什么颜色？",
+   "tts_text": "草莓是什么颜色？",
+   "options": [
+    {
+     "text": "黑色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "草莓是红红的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "题干图 images/k/KC-005.webp（草莓×1）",
+   "game_ready": true,
+   "tags": [
+    "颜色"
+   ]
+  },
+  {
+   "id": "KC-006",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "小草是什么颜色？🌱",
+   "tts_text": "小草是什么颜色？",
+   "options": [
+    {
+     "text": "绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黄色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小草绿油油的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "tags": [
+    "颜色"
+   ]
+  },
+  {
+   "id": "KC-007",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "天空是什么颜色？",
+   "tts_text": "天空是什么颜色？",
+   "options": [
+    {
+     "text": "绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "晴天的天空蓝蓝的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "tags": [
+    "颜色"
+   ]
+  },
+  {
+   "id": "KC-008",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是白色的？",
+   "tts_text": "哪个是白色的？",
+   "options": [
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "白白的，像雪一样。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-008_a.webp（⚪）；B_image images/k/KC-008_b.webp（🔴）；C_image images/k/KC-008_c.webp（⚫）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "白色"
+   ]
+  },
+  {
+   "id": "KC-009",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是黑色的？",
+   "tts_text": "哪个是黑色的？",
+   "options": [
+    {
+     "text": "🟡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "黑黑的，像夜晚。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-009_a.webp（🟡）；B_image images/k/KC-009_b.webp（⚪）；C_image images/k/KC-009_c.webp（⚫）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "黑色"
+   ]
+  },
+  {
+   "id": "KC-010",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是圆形？",
+   "tts_text": "哪个是圆形？",
+   "options": [
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "圆圆的，没有角。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-010_a.webp（⚪）；B_image images/k/KC-010_b.webp（🔺）；C_image images/k/KC-010_c.webp（🟦）",
+   "game_ready": true,
+   "tags": [
+    "形状",
+    "圆形"
+   ]
+  },
+  {
+   "id": "KC-011",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是三角形？",
+   "tts_text": "哪个是三角形？",
+   "options": [
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "三角形有三个角。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-011_a.webp（🔺）；B_image images/k/KC-011_b.webp（🟦）；C_image images/k/KC-011_c.webp（⚪）",
+   "game_ready": true,
+   "tags": [
+    "形状",
+    "三角形"
+   ]
+  },
+  {
+   "id": "KC-012",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是正方形？",
+   "tts_text": "哪个是正方形？",
+   "options": [
+    {
+     "text": "🟦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "正方形四条边一样长。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-012_a.webp（🟦）；B_image images/k/KC-012_b.webp（⚪）；C_image images/k/KC-012_c.webp（🔺）",
+   "game_ready": true,
+   "tags": [
+    "形状",
+    "正方形"
+   ]
+  },
+  {
+   "id": "KC-013",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "太阳像什么形状？☀️",
+   "tts_text": "太阳像什么形状？",
+   "options": [
+    {
+     "text": "三角形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "正方形",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "太阳圆圆的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "game_ready": true,
+   "tags": [
+    "形状",
+    "圆形"
+   ]
+  },
+  {
+   "id": "KC-014",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个东西是圆圆的？",
+   "tts_text": "哪个东西是圆圆的？皮球、书、还是冰块？",
+   "options": [
+    {
+     "text": "📕 书",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚽ 皮球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧊 冰块",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "皮球圆圆的，会滚。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-014_a.webp（书）；B_image images/k/KC-014_b.webp（皮球）；C_image images/k/KC-014_c.webp（冰块）",
+   "game_ready": true,
+   "tags": [
+    "形状",
+    "圆形"
+   ]
+  },
+  {
+   "id": "KC-015",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是爱心？",
+   "tts_text": "哪个是爱心？",
+   "options": [
+    {
+     "text": "⭐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "❤️",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "爱心形状。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-015_a.webp（星星）；B_image images/k/KC-015_b.webp（🔺）；C_image images/k/KC-015_c.webp（❤️）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-016",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是星星？",
+   "tts_text": "哪个是星星？",
+   "options": [
+    {
+     "text": "❤️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⭐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "星星有五个角。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-016_a.webp（❤️）；B_image images/k/KC-016_b.webp（星星）；C_image images/k/KC-016_c.webp（⚪）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KD-001",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "哪个是小猫？",
+   "tts_text": "哪个是小猫？",
+   "options": [
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "喵喵叫的是小猫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物",
+   "assets_todo": "A_image images/k/KD-001_a.webp（小猫）；B_image images/k/KD-001_b.webp（小狗）；C_image images/k/KD-001_c.webp（小兔）",
+   "game_ready": true,
+   "tags": [
+    "动物"
+   ]
+  },
+  {
+   "id": "KD-002",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "哪个是小狗？",
+   "tts_text": "哪个是小狗？",
+   "options": [
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "汪汪叫的是小狗。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物",
+   "assets_todo": "A_image images/k/KD-002_a.webp（小猪）；B_image images/k/KD-002_b.webp（小狗）；C_image images/k/KD-002_c.webp（小猫）",
+   "game_ready": true,
+   "tags": [
+    "动物"
+   ]
+  },
+  {
+   "id": "KD-003",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "哪个是小兔子？",
+   "tts_text": "哪个是小兔子？",
+   "options": [
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐭",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "小兔子耳朵长长的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物",
+   "assets_todo": "A_image images/k/KD-003_a.webp（小熊）；B_image images/k/KD-003_b.webp（小兔）；C_image images/k/KD-003_c.webp（🐭）",
+   "game_ready": true,
+   "tags": [
+    "动物"
+   ]
+  },
+  {
+   "id": "KD-004",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "哪个是小鸡？",
+   "tts_text": "哪个是小鸡？",
+   "options": [
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐤",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小鸡叽叽叽。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物",
+   "assets_todo": "A_image images/k/KD-004_a.webp（青蛙）；B_image images/k/KD-004_b.webp（小鱼）；C_image images/k/KD-004_c.webp（小鸡）",
+   "game_ready": true,
+   "tags": [
+    "动物"
+   ]
+  },
+  {
+   "id": "KD-005",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "哪个是大象？",
+   "tts_text": "哪个是大象？",
+   "options": [
+    {
+     "text": "🐘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "大象有长长的鼻子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物",
+   "assets_todo": "A_image images/k/KD-005_a.webp（大象）；B_image images/k/KD-005_b.webp（长颈鹿）；C_image images/k/KD-005_c.webp（小马）",
+   "game_ready": true,
+   "tags": [
+    "动物"
+   ]
+  },
+  {
+   "id": "KD-006",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "“喵喵喵”是谁在叫？",
+   "tts_text": "“喵喵喵”是谁在叫？",
+   "options": [
+    {
+     "text": "🐱 小猫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶 小狗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐮 小牛",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小猫喵喵叫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-006_a.webp（小猫）；B_image images/k/KD-006_b.webp（小狗）；C_image images/k/KD-006_c.webp（小牛）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-007",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "“汪汪汪”是谁在叫？",
+   "tts_text": "“汪汪汪”是谁在叫？",
+   "options": [
+    {
+     "text": "🐶 小狗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱 小猫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐔 公鸡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小狗汪汪叫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-007_a.webp（小狗）；B_image images/k/KD-007_b.webp（小猫）；C_image images/k/KD-007_c.webp（公鸡）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-008",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "“嘎嘎嘎”是谁在叫？",
+   "tts_text": "“嘎嘎嘎”是谁在叫？",
+   "options": [
+    {
+     "text": "🦆 小鸭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐷 小猪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐑 小羊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小鸭嘎嘎叫。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-008_a.webp（小鸭）；B_image images/k/KD-008_b.webp（小猪）；C_image images/k/KD-008_c.webp（小羊）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-009",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "“哞哞哞”是谁在叫？",
+   "tts_text": "“哞哞哞”是谁在叫？",
+   "options": [
+    {
+     "text": "🐮 小牛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱 小猫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸 青蛙",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小牛哞哞叫。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-009_a.webp（小牛）；B_image images/k/KD-009_b.webp（小猫）；C_image images/k/KD-009_c.webp（青蛙）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-010",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "“咩咩咩”是谁在叫？",
+   "tts_text": "“咩咩咩”是谁在叫？",
+   "options": [
+    {
+     "text": "🐑 小羊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐦 小鸟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶 小狗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小羊咩咩叫。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-010_a.webp（小羊）；B_image images/k/KD-010_b.webp（小鸟）；C_image images/k/KD-010_c.webp（小狗）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-011",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小鱼住在哪里？",
+   "tts_text": "小鱼住在哪里？",
+   "options": [
+    {
+     "text": "🔥 火里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌳 树上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "💧 水里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小鱼在水里游。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物生活",
+   "assets_todo": "A_image images/k/KD-011_a.webp（火里）；B_image images/k/KD-011_b.webp（树上）；C_image images/k/KD-011_c.webp（水里）",
+   "game_ready": true,
+   "tags": [
+    "动物生活"
+   ]
+  },
+  {
+   "id": "KD-012",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小鸟会做什么？",
+   "tts_text": "小鸟会做什么？",
+   "options": [
+    {
+     "text": "挖洞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "飞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "游泳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "小鸟有翅膀，会飞。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物本领",
+   "game_ready": true,
+   "tags": [
+    "动物本领"
+   ]
+  },
+  {
+   "id": "KD-013",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小兔子爱吃什么？",
+   "tts_text": "小兔子爱吃什么？",
+   "options": [
+    {
+     "text": "🍖 肉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟 鱼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥕 胡萝卜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小兔子爱吃胡萝卜和青菜。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物食物",
+   "assets_todo": "A_image images/k/KD-013_a.webp（肉）；B_image images/k/KD-013_b.webp（鱼）；C_image images/k/KD-013_c.webp（胡萝卜）",
+   "game_ready": true,
+   "tags": [
+    "动物食物"
+   ]
+  },
+  {
+   "id": "KD-014",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小猫爱吃什么？",
+   "tts_text": "小猫爱吃什么？",
+   "options": [
+    {
+     "text": "🐟 鱼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥕 胡萝卜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌 香蕉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小猫爱吃鱼。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物食物",
+   "assets_todo": "A_image images/k/KD-014_a.webp（鱼）；B_image images/k/KD-014_b.webp（胡萝卜）；C_image images/k/KD-014_c.webp（香蕉）",
+   "game_ready": true,
+   "tags": [
+    "动物食物"
+   ]
+  },
+  {
+   "id": "KD-015",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "猴子爱吃什么？",
+   "tts_text": "猴子爱吃什么？",
+   "options": [
+    {
+     "text": "🍌 香蕉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦴 骨头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌿 草",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小猴子爱吃香蕉。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物食物",
+   "assets_todo": "A_image images/k/KD-015_a.webp（香蕉）；B_image images/k/KD-015_b.webp（骨头）；C_image images/k/KD-015_c.webp（草）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "动物食物"
+   ]
+  },
+  {
+   "id": "KD-016",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "谁的脖子长长的？",
+   "tts_text": "谁的脖子长长的？",
+   "options": [
+    {
+     "text": "🐰 兔子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦒 长颈鹿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐷 小猪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "长颈鹿脖子最长。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物特征",
+   "assets_todo": "A_image images/k/KD-016_a.webp（兔子）；B_image images/k/KD-016_b.webp（长颈鹿）；C_image images/k/KD-016_c.webp（小猪）",
+   "game_ready": true,
+   "tags": [
+    "动物特征"
+   ]
+  },
+  {
+   "id": "KS-001",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "用什么刷牙？",
+   "tts_text": "用什么刷牙？",
+   "options": [
+    {
+     "text": "🪥 牙刷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "✏️ 铅笔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥄 勺子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "早晚用牙刷刷牙。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-001_a.webp（牙刷）；B_image images/k/KS-001_b.webp（铅笔）；C_image images/k/KS-001_c.webp（勺子）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-002",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "下雨了，要用什么？",
+   "tts_text": "下雨了，要用什么？",
+   "options": [
+    {
+     "text": "☂️ 雨伞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚽ 皮球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🕶️ 墨镜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "下雨打伞，不淋湿。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-002_a.webp（雨伞）；B_image images/k/KS-002_b.webp（皮球）；C_image images/k/KS-002_c.webp（墨镜）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-003",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "用什么喝水？",
+   "tts_text": "用什么喝水？",
+   "options": [
+    {
+     "text": "🧢 帽子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥤 杯子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👟 鞋子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "用杯子喝水。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-003_a.webp（帽子）；B_image images/k/KS-003_b.webp（杯子）；C_image images/k/KS-003_c.webp（鞋子）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-004",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "脚上穿什么？",
+   "tts_text": "脚上穿什么？",
+   "options": [
+    {
+     "text": "👟 鞋子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧢 帽子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧤 手套",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "脚上穿鞋子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-004_a.webp（鞋子）；B_image images/k/KS-004_b.webp（帽子）；C_image images/k/KS-004_c.webp（手套）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-005",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "用什么吃饭？",
+   "tts_text": "用什么吃饭？",
+   "options": [
+    {
+     "text": "📕 书",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥄 勺子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪥 牙刷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "用勺子或筷子吃饭。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-005_a.webp（书）；B_image images/k/KS-005_b.webp（勺子）；C_image images/k/KS-005_c.webp（牙刷）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-006",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "天黑了要睡觉，睡在哪里？",
+   "tts_text": "天黑了要睡觉，睡在哪里？",
+   "options": [
+    {
+     "text": "🛏️ 床上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🚗 车里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🛁 浴缸里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "晚上在床上睡觉。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-006_a.webp（床上）；B_image images/k/KS-006_b.webp（车里）；C_image images/k/KS-006_c.webp（浴缸里）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-007",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "哪个可以吃？",
+   "tts_text": "哪个可以吃？",
+   "options": [
+    {
+     "text": "👟 鞋子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎 苹果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧸 小熊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "苹果是水果，可以吃。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "食物",
+   "assets_todo": "A_image images/k/KS-007_a.webp（鞋子）；B_image images/k/KS-007_b.webp（苹果）；C_image images/k/KS-007_c.webp（小熊）",
+   "game_ready": true,
+   "tags": [
+    "食物"
+   ]
+  },
+  {
+   "id": "KS-008",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "哪个是水果？",
+   "tts_text": "哪个是水果？",
+   "options": [
+    {
+     "text": "🍌 香蕉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍞 面包",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥕 胡萝卜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "香蕉是水果，胡萝卜是蔬菜。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "食物",
+   "assets_todo": "A_image images/k/KS-008_a.webp（香蕉）；B_image images/k/KS-008_b.webp（面包）；C_image images/k/KS-008_c.webp（胡萝卜）",
+   "game_ready": true,
+   "tags": [
+    "食物",
+    "水果"
+   ]
+  },
+  {
+   "id": "KS-009",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "吃饭前要做什么？",
+   "tts_text": "吃饭前要做什么？",
+   "options": [
+    {
+     "text": "🛏️ 睡觉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "📺 看电视",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧼 洗手",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "饭前便后要洗手。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "好习惯",
+   "assets_todo": "A_image images/k/KS-009_a.webp（睡觉）；B_image images/k/KS-009_b.webp（看电视）；C_image images/k/KS-009_c.webp（洗手）",
+   "game_ready": true,
+   "tags": [
+    "好习惯"
+   ]
+  },
+  {
+   "id": "KS-010",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "过马路看到红灯🚦，要怎么做？",
+   "tts_text": "过马路看到红灯，要怎么做？",
+   "options": [
+    {
+     "text": "停下来等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "闭上眼睛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "快跑过去",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "红灯停，绿灯行。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "安全",
+   "game_ready": true,
+   "tags": [
+    "安全"
+   ]
+  },
+  {
+   "id": "KS-011",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "冬天冷了，要穿什么？",
+   "tts_text": "冬天冷了，要穿什么？",
+   "options": [
+    {
+     "text": "🩳 短裤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👙 泳衣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧥 厚衣服",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "冬天要穿厚厚的衣服。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "季节",
+   "assets_todo": "A_image images/k/KS-011_a.webp（短裤）；B_image images/k/KS-011_b.webp（泳衣）；C_image images/k/KS-011_c.webp（厚衣服）",
+   "game_ready": true,
+   "tags": [
+    "季节"
+   ]
+  },
+  {
+   "id": "KS-012",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "天上亮亮的、白天出来的是？",
+   "tts_text": "天上亮亮的、白天出来的是？",
+   "options": [
+    {
+     "text": "☀️ 太阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌙 月亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⭐ 星星",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "白天有太阳，晚上有月亮和星星。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "自然",
+   "assets_todo": "A_image images/k/KS-012_a.webp（太阳）；B_image images/k/KS-012_b.webp（月亮）；C_image images/k/KS-012_c.webp（星星）",
+   "game_ready": true,
+   "tags": [
+    "自然"
+   ]
+  },
+  {
+   "id": "KS-013",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "哪个会响“叮铃铃”？",
+   "tts_text": "哪个会响“叮铃铃”？",
+   "options": [
+    {
+     "text": "🧸 小熊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎 苹果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⏰ 闹钟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "闹钟叮铃铃，叫我们起床。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活物品",
+   "assets_todo": "A_image images/k/KS-013_a.webp（小熊）；B_image images/k/KS-013_b.webp（苹果）；C_image images/k/KS-013_c.webp（闹钟）",
+   "game_ready": true,
+   "tags": [
+    "生活物品"
+   ]
+  },
+  {
+   "id": "KS-014",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "我们用什么听声音？",
+   "tts_text": "我们用什么听声音？",
+   "options": [
+    {
+     "text": "👃 鼻子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👄 嘴巴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👂 耳朵",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "耳朵听，眼睛看，鼻子闻。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "身体",
+   "assets_todo": "A_image images/k/KS-014_a.webp（鼻子）；B_image images/k/KS-014_b.webp（嘴巴）；C_image images/k/KS-014_c.webp（耳朵）",
+   "game_ready": true,
+   "tags": [
+    "身体"
+   ]
+  },
+  {
+   "id": "KS-015",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "选择",
+   "question": "我们用什么闻香味？",
+   "tts_text": "我们用什么闻香味？",
+   "options": [
+    {
+     "text": "✋ 手",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👂 耳朵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👃 鼻子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "鼻子闻香味。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "身体",
+   "assets_todo": "A_image images/k/KS-015_a.webp（手）；B_image images/k/KS-015_b.webp（耳朵）；C_image images/k/KS-015_c.webp（鼻子）",
+   "game_ready": true,
+   "tags": [
+    "身体"
+   ]
+  },
+  {
+   "id": "KS-016",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "常见物品",
+   "type": "判断",
+   "question": "玩具玩好了，要自己收起来。",
+   "tts_text": "玩具玩好了，要自己收起来。",
+   "answer": "对",
+   "explanation": "自己的玩具自己收，真能干！",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "好习惯",
+   "game_ready": true,
+   "tags": [
+    "好习惯"
+   ]
+  },
+  {
+   "id": "KG-001",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“小白兔，白又白”，下一句是？",
+   "tts_text": "“小白兔，白又白”，下一句是？",
+   "options": [
+    {
+     "text": "一闪一闪亮晶晶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两只耳朵竖起来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红掌拨清波",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "儿歌《小白兔》。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-001.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌",
+    "小白兔"
+   ]
+  },
+  {
+   "id": "KG-002",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“一闪一闪亮晶晶”，下一句是？",
+   "tts_text": "“一闪一闪亮晶晶”，下一句是？",
+   "options": [
+    {
+     "text": "两只耳朵竖起来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "满天都是小星星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我们都是好朋友",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "儿歌《小星星》。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-002.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌",
+    "小星星"
+   ]
+  },
+  {
+   "id": "KG-003",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“两只老虎，两只老虎”，下一句是？",
+   "tts_text": "“两只老虎，两只老虎”，下一句是？",
+   "options": [
+    {
+     "text": "白又白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "亮晶晶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跑得快，跑得快",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "儿歌《两只老虎》。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-003.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌",
+    "两只老虎"
+   ]
+  },
+  {
+   "id": "KG-004",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“小燕子，穿花衣”，下一句是？",
+   "tts_text": "“小燕子，穿花衣”，下一句是？",
+   "options": [
+    {
+     "text": "两只耳朵竖起来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "年年春天来这里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跑得快",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "儿歌《小燕子》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-004.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌",
+    "小燕子"
+   ]
+  },
+  {
+   "id": "KG-005",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "《小星星》唱的是什么？",
+   "tts_text": "小星星唱的是什么？",
+   "options": [
+    {
+     "text": "⭐ 星星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰 兔子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐯 老虎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一闪一闪的小星星。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "A_image images/k/KG-005_a.webp（星星）；B_image images/k/KG-005_b.webp（兔子）；C_image images/k/KG-005_c.webp（老虎）；question_audio audio/k/KG-005.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌",
+    "小星星"
+   ]
+  },
+  {
+   "id": "KG-006",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“爱吃萝卜爱吃菜”唱的是谁？",
+   "tts_text": "“爱吃萝卜爱吃菜”唱的是谁？",
+   "options": [
+    {
+     "text": "🐰 小白兔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱 小猫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶 小狗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小白兔爱吃萝卜和青菜。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "A_image images/k/KG-006_a.webp（小白兔）；B_image images/k/KG-006_b.webp（小猫）；C_image images/k/KG-006_c.webp（小狗）；question_audio audio/k/KG-006.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌",
+    "小白兔"
+   ]
+  },
+  {
+   "id": "KG-007",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“我爱北京天安门”，下一句是？",
+   "tts_text": "“我爱北京天安门”，下一句是？",
+   "options": [
+    {
+     "text": "一闪一闪亮晶晶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两只耳朵竖起来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天安门上太阳升",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "儿歌《我爱北京天安门》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-007.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌"
+   ]
+  },
+  {
+   "id": "KG-008",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "“鹅，鹅，鹅”，下一句是？",
+   "tts_text": "“鹅，鹅，鹅”，下一句是？",
+   "options": [
+    {
+     "text": "曲项向天歌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "锄禾日当午",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "床前明月光",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "骆宾王《咏鹅》。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-008.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "咏鹅"
+   ]
+  },
+  {
+   "id": "KG-009",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《咏鹅》说的是什么动物？",
+   "tts_text": "咏鹅说的是什么动物？",
+   "options": [
+    {
+     "text": "🐔 小鸡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦢 大白鹅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱 小猫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "白白的大鹅。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "A_image images/k/KG-009_a.webp（小鸡）；B_image images/k/KG-009_b.webp（大白鹅）；C_image images/k/KG-009_c.webp（小猫）；question_audio audio/k/KG-009.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "咏鹅"
+   ]
+  },
+  {
+   "id": "KG-010",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "“白毛浮绿水”，下一句是？",
+   "tts_text": "“白毛浮绿水”，下一句是？",
+   "options": [
+    {
+     "text": "曲项向天歌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红掌拨清波",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疑是地上霜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "白毛浮绿水，红掌拨清波。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-010.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "咏鹅"
+   ]
+  },
+  {
+   "id": "KG-011",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "“床前明月光”，下一句是？",
+   "tts_text": "“床前明月光”，下一句是？",
+   "options": [
+    {
+     "text": "处处闻啼鸟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疑是地上霜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曲项向天歌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "李白《静夜思》。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-011.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "静夜思"
+   ]
+  },
+  {
+   "id": "KG-012",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "“举头望明月”，下一句是？",
+   "tts_text": "“举头望明月”，下一句是？",
+   "options": [
+    {
+     "text": "低头思故乡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红掌拨清波",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汗滴禾下土",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "李白《静夜思》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-012.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "静夜思"
+   ]
+  },
+  {
+   "id": "KG-013",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《静夜思》里，天上有什么？",
+   "tts_text": "静夜思里，天上有什么？",
+   "options": [
+    {
+     "text": "🌈 彩虹",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "☀️ 太阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌙 月亮",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "床前明月光，是月亮。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "A_image images/k/KG-013_a.webp（彩虹）；B_image images/k/KG-013_b.webp（太阳）；C_image images/k/KG-013_c.webp（月亮）；question_audio audio/k/KG-013.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "静夜思"
+   ]
+  },
+  {
+   "id": "KG-014",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "“春眠不觉晓”，下一句是？",
+   "tts_text": "“春眠不觉晓”，下一句是？",
+   "options": [
+    {
+     "text": "低头思故乡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "处处闻啼鸟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曲项向天歌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "孟浩然《春晓》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-014.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "春晓"
+   ]
+  },
+  {
+   "id": "KG-015",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "“锄禾日当午”，下一句是？",
+   "tts_text": "“锄禾日当午”，下一句是？",
+   "options": [
+    {
+     "text": "红掌拨清波",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疑是地上霜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汗滴禾下土",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "李绅《悯农》，要爱惜粮食。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-015.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "悯农"
+   ]
+  },
+  {
+   "id": "KG-016",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“嘿哟嘿哟拔萝卜”，下一句是？",
+   "tts_text": "“嘿哟嘿哟拔萝卜”，下一句是？",
+   "options": [
+    {
+     "text": "两只耳朵竖起来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘿哟嘿哟拔不动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一闪一闪亮晶晶",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "《拔萝卜》：拔萝卜，拔萝卜，嘿哟嘿哟拔萝卜，嘿哟嘿哟拔不动。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-016.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "儿歌",
+    "拔萝卜"
+   ]
+  },
+  {
+   "id": "K-018",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几条小鱼？🐟",
+   "tts_text": "数一数，有几条小鱼？",
+   "options": [
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一，有一条小鱼。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-018.webp（小鱼×1）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-019",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几颗星星？⭐",
+   "tts_text": "数一数，有几颗星星？",
+   "options": [
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一，有一颗星星。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-019.webp（星星×1）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-020",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个气球？🎈",
+   "tts_text": "数一数，有几个气球？",
+   "options": [
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一，有一个气球。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-020.webp（气球×1）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-021",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个气球？🎈🎈",
+   "tts_text": "数一数，有几个气球？",
+   "options": [
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一、二，有二个气球。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-021.webp（气球×2）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-023",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几只小鸡？🐤🐤",
+   "tts_text": "数一数，有几只小鸡？",
+   "options": [
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一、二，有二只小鸡。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-023.webp（小鸡×2）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-024",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个草莓？🍓🍓",
+   "tts_text": "数一数，有几个草莓？",
+   "options": [
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一、二，有二个草莓。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-024.webp（草莓×2）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-025",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个草莓？🍓🍓🍓",
+   "tts_text": "数一数，有几个草莓？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一、二、三，有三个草莓。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-025.webp（草莓×3）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-026",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几朵小花？🌸🌸🌸",
+   "tts_text": "数一数，有几朵小花？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一、二、三，有三朵小花。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-026.webp（小花×3）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-027",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几只瓢虫？🐞🐞🐞",
+   "tts_text": "数一数，有几只瓢虫？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一、二、三，有三只瓢虫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-027.webp（瓢虫×3）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-028",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几块饼干？🍪🍪🍪",
+   "tts_text": "数一数，有几块饼干？",
+   "options": [
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一、二、三，有三块饼干。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-028.webp（饼干×3）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-029",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个苹果？🍎🍎🍎🍎",
+   "tts_text": "数一数，有几个苹果？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一、二、三、四，有四个苹果。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-029.webp（苹果×4）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-030",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几条小鱼？🐟🐟🐟🐟",
+   "tts_text": "数一数，有几条小鱼？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一、二、三、四，有四条小鱼。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-030.webp（小鱼×4）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-031",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几颗星星？⭐⭐⭐⭐",
+   "tts_text": "数一数，有几颗星星？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一、二、三、四，有四颗星星。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-031.webp（星星×4）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-034",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几个气球？🎈🎈🎈🎈🎈",
+   "tts_text": "数一数，有几个气球？",
+   "options": [
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一、二、三、四、五，有五个气球。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-034.webp（气球×5）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-035",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几辆小汽车？🚗🚗🚗🚗🚗",
+   "tts_text": "数一数，有几辆小汽车？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一、二、三、四、五，有五辆小汽车。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-035.webp（小汽车×5）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-036",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "数一数，有几只小鸡？🐤🐤🐤🐤🐤",
+   "tts_text": "数一数，有几只小鸡？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一、二、三、四、五，有五只小鸡。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-036.webp（小鸡×5）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "5以内"
+   ]
+  },
+  {
+   "id": "K-037",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪一组是 1 个？",
+   "tts_text": "哪一组是一个苹果？",
+   "options": [
+    {
+     "text": "🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "数一数，一个苹果。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "A_image images/k/K-037_a.webp（苹果）；B_image images/k/K-037_b.webp（苹果）；C_image images/k/K-037_c.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "按数取物"
+   ]
+  },
+  {
+   "id": "K-038",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪一组是 2 个？",
+   "tts_text": "哪一组是二个苹果？",
+   "options": [
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "数一数，二个苹果。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "A_image images/k/K-038_a.webp（苹果）；B_image images/k/K-038_b.webp（苹果）；C_image images/k/K-038_c.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "按数取物"
+   ]
+  },
+  {
+   "id": "K-039",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪一组是 3 个？",
+   "tts_text": "哪一组是三个苹果？",
+   "options": [
+    {
+     "text": "🍎🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "数一数，三个苹果。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "A_image images/k/K-039_a.webp（苹果）；B_image images/k/K-039_b.webp（苹果）；C_image images/k/K-039_c.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "按数取物"
+   ]
+  },
+  {
+   "id": "K-040",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪一组是 4 个？",
+   "tts_text": "哪一组是四个苹果？",
+   "options": [
+    {
+     "text": "🍎🍎🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "数一数，四个苹果。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "A_image images/k/K-040_a.webp（苹果）；B_image images/k/K-040_b.webp（苹果）；C_image images/k/K-040_c.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "按数取物"
+   ]
+  },
+  {
+   "id": "K-041",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到5",
+   "type": "选择",
+   "question": "哪一组是 5 个？",
+   "tts_text": "哪一组是五个苹果？",
+   "options": [
+    {
+     "text": "🍎🍎🍎🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎🍎🍎🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "数一数，五个苹果。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "A_image images/k/K-041_a.webp（苹果）；B_image images/k/K-041_b.webp（苹果）；C_image images/k/K-041_c.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "按数取物"
+   ]
+  },
+  {
+   "id": "K-042",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几只小鸡？🐤🐤🐤🐤🐤🐤",
+   "tts_text": "数一数，有几只小鸡？",
+   "options": [
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到六。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-042.webp（小鸡×6）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-043",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几只瓢虫？🐞🐞🐞🐞🐞🐞",
+   "tts_text": "数一数，有几只瓢虫？",
+   "options": [
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一个一个点着数，数到六。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-043.webp（瓢虫×6）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-044",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几个草莓？🍓🍓🍓🍓🍓🍓🍓",
+   "tts_text": "数一数，有几个草莓？",
+   "options": [
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到七。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-044.webp（草莓×7）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-045",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几块饼干？🍪🍪🍪🍪🍪🍪🍪",
+   "tts_text": "数一数，有几块饼干？",
+   "options": [
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到七。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-045.webp（饼干×7）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-046",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几朵小花？🌸🌸🌸🌸🌸🌸🌸🌸",
+   "tts_text": "数一数，有几朵小花？",
+   "options": [
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到八。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-046.webp（小花×8）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-047",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几个苹果？🍎🍎🍎🍎🍎🍎🍎🍎",
+   "tts_text": "数一数，有几个苹果？",
+   "options": [
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到八。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-047.webp（苹果×8）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-048",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几只瓢虫？🐞🐞🐞🐞🐞🐞🐞🐞🐞",
+   "tts_text": "数一数，有几只瓢虫？",
+   "options": [
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一个一个点着数，数到九。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-048.webp（瓢虫×9）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-049",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几条小鱼？🐟🐟🐟🐟🐟🐟🐟🐟🐟",
+   "tts_text": "数一数，有几条小鱼？",
+   "options": [
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一个一个点着数，数到九。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-049.webp（小鱼×9）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-050",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几块饼干？🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪",
+   "tts_text": "数一数，有几块饼干？",
+   "options": [
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到十。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-050.webp（饼干×10）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-051",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "数一数，有几颗星星？⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐",
+   "tts_text": "数一数，有几颗星星？",
+   "options": [
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "一个一个点着数，数到十。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "数数",
+   "assets_todo": "题干图 images/k/K-051.webp（星星×10）",
+   "game_ready": true,
+   "tags": [
+    "数数",
+    "10以内"
+   ]
+  },
+  {
+   "id": "K-055",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 4？",
+   "tts_text": "哪个是数字四？",
+   "options": [
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是数字四。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-056",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 5？",
+   "tts_text": "哪个是数字五？",
+   "options": [
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是数字五。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-057",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 6？",
+   "tts_text": "哪个是数字六？",
+   "options": [
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是数字六。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-058",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 7？",
+   "tts_text": "哪个是数字七？",
+   "options": [
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是数字七。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-059",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 8？",
+   "tts_text": "哪个是数字八？",
+   "options": [
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是数字八。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-060",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 9？",
+   "tts_text": "哪个是数字九？",
+   "options": [
+    {
+     "text": "9",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "这是数字九。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-061",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "数到10（少量）",
+   "type": "选择",
+   "question": "哪个是数字 10？",
+   "tts_text": "哪个是数字十？",
+   "options": [
+    {
+     "text": "10",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "这是数字十。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认数字",
+   "game_ready": true,
+   "tags": [
+    "认数字"
+   ]
+  },
+  {
+   "id": "K-062",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的糖果多？",
+   "tts_text": "哪边的糖果多？",
+   "options": [
+    {
+     "text": "🍬🍬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍬🍬🍬🍬",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "四个比二个多。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-062_a.webp（糖果）；B_image images/k/K-062_b.webp（糖果）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-063",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的青蛙多？",
+   "tts_text": "哪边的青蛙多？",
+   "options": [
+    {
+     "text": "🐸🐸🐸🐸🐸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "五个比一个多。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-063_a.webp（青蛙）；B_image images/k/K-063_b.webp（青蛙）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-064",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的星星多？",
+   "tts_text": "哪边的星星多？",
+   "options": [
+    {
+     "text": "🌟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌟🌟🌟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "三个比一个多。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-064_a.webp（🌟）；B_image images/k/K-064_b.webp（🌟🌟🌟）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-065",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的香蕉多？",
+   "tts_text": "哪边的香蕉多？",
+   "options": [
+    {
+     "text": "🍌🍌🍌🍌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "四个比一个多。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-065_a.webp（香蕉）；B_image images/k/K-065_b.webp（香蕉）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-066",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的小鸭多？",
+   "tts_text": "哪边的小鸭多？",
+   "options": [
+    {
+     "text": "🐥🐥🐥🐥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐥🐥",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "四个比二个多。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-066_a.webp（小鸡）；B_image images/k/K-066_b.webp（小鸡）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-067",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的甜甜圈少？",
+   "tts_text": "哪边的甜甜圈少？",
+   "options": [
+    {
+     "text": "🍩🍩🍩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍩",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一个比三个少。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-067_a.webp（甜甜圈）；B_image images/k/K-067_b.webp（甜甜圈）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-068",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的气球少？",
+   "tts_text": "哪边的气球少？",
+   "options": [
+    {
+     "text": "🎈🎈🎈🎈🎈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🎈🎈",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "二个比五个少。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-068_a.webp（气球）；B_image images/k/K-068_b.webp（气球）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-069",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪边的小花少？",
+   "tts_text": "哪边的小花少？",
+   "options": [
+    {
+     "text": "🌸🌸🌸🌸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一个比四个少。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比多少",
+   "assets_todo": "A_image images/k/K-069_a.webp（小花）；B_image images/k/K-069_b.webp（小花）",
+   "game_ready": true,
+   "tags": [
+    "比多少"
+   ]
+  },
+  {
+   "id": "K-070",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪个高？",
+   "tts_text": "哪个高？长颈鹿和小兔。",
+   "options": [
+    {
+     "text": "🦒 长颈鹿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰 小兔",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "长颈鹿脖子长长的，很高。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比大小",
+   "assets_todo": "A_image images/k/K-070_a.webp（长颈鹿）；B_image images/k/K-070_b.webp（小兔）",
+   "game_ready": true,
+   "tags": [
+    "比大小"
+   ]
+  },
+  {
+   "id": "K-071",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪个长？",
+   "tts_text": "哪个长？长长的蛇和短短的毛毛虫。",
+   "options": [
+    {
+     "text": "🐛 毛毛虫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐍 蛇",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "蛇长，毛毛虫短。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比大小",
+   "assets_todo": "A_image images/k/K-071_a.webp（短短的毛毛虫）；B_image images/k/K-071_b.webp（长长的蛇）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "比大小"
+   ]
+  },
+  {
+   "id": "K-072",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪个大？",
+   "tts_text": "哪个大？西瓜和樱桃。",
+   "options": [
+    {
+     "text": "🍒 樱桃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍉 西瓜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "西瓜大，樱桃小。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比大小",
+   "assets_todo": "A_image images/k/K-072_a.webp（樱桃）；B_image images/k/K-072_b.webp（西瓜）",
+   "game_ready": true,
+   "tags": [
+    "比大小"
+   ]
+  },
+  {
+   "id": "K-073",
+   "status": "AI初审通过",
+   "subject": "数数",
+   "grade": "K1",
+   "unit": "比多少",
+   "type": "选择",
+   "question": "哪个小？",
+   "tts_text": "哪个小？小鸡和奶牛。",
+   "options": [
+    {
+     "text": "🐄 奶牛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐣 小鸡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "小鸡比奶牛小。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "比大小",
+   "assets_todo": "A_image images/k/K-073_a.webp（奶牛）；B_image images/k/K-073_b.webp（小鸡）",
+   "game_ready": true,
+   "tags": [
+    "比大小"
+   ]
+  },
+  {
+   "id": "KC-017",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是橙色的？",
+   "tts_text": "哪个是橙色的？",
+   "options": [
+    {
+     "text": "🥦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "橘子是橙色的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-017_a.webp（西兰花）；B_image images/k/KC-017_b.webp（葡萄）；C_image images/k/KC-017_c.webp（橘子）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "橙色"
+   ]
+  },
+  {
+   "id": "KC-018",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是紫色的？",
+   "tts_text": "哪个是紫色的？",
+   "options": [
+    {
+     "text": "🍅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍋",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "葡萄是紫色的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-018_a.webp（西红柿）；B_image images/k/KC-018_b.webp（葡萄）；C_image images/k/KC-018_c.webp（柠檬）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "紫色"
+   ]
+  },
+  {
+   "id": "KC-019",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是红色的？",
+   "tts_text": "哪个是红色的？",
+   "options": [
+    {
+     "text": "🍋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥒",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "西红柿是红色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-019_a.webp（柠檬）；B_image images/k/KC-019_b.webp（西红柿）；C_image images/k/KC-019_c.webp（黄瓜）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "红色"
+   ]
+  },
+  {
+   "id": "KC-020",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是黄色的？",
+   "tts_text": "哪个是黄色的？",
+   "options": [
+    {
+     "text": "🍆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍋",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "柠檬是黄色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-020_a.webp（🍆）；B_image images/k/KC-020_b.webp（🥬）；C_image images/k/KC-020_c.webp（柠檬）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "黄色"
+   ]
+  },
+  {
+   "id": "KC-021",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是绿色的？",
+   "tts_text": "哪个是绿色的？",
+   "options": [
+    {
+     "text": "🍅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥒",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "黄瓜是绿色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-021_a.webp（西红柿）；B_image images/k/KC-021_b.webp（橘子）；C_image images/k/KC-021_c.webp（黄瓜）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "绿色"
+   ]
+  },
+  {
+   "id": "KC-022",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是红色的？",
+   "tts_text": "哪个是红色的？",
+   "options": [
+    {
+     "text": "🚒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🚕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🚙",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "消防车是红色的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-022_a.webp（🚒）；B_image images/k/KC-022_b.webp（🚕）；C_image images/k/KC-022_c.webp（🚙）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "红色"
+   ]
+  },
+  {
+   "id": "KC-023",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是白色的？",
+   "tts_text": "哪个是白色的？",
+   "options": [
+    {
+     "text": "🥛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "☕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "牛奶是白色的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-023_a.webp（🥛）；B_image images/k/KC-023_b.webp（☕）；C_image images/k/KC-023_c.webp（🍫）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "白色"
+   ]
+  },
+  {
+   "id": "KC-024",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "哪个是粉色的？",
+   "tts_text": "哪个是粉色的？",
+   "options": [
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小猪是粉粉的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "A_image images/k/KC-024_a.webp（小猪）；B_image images/k/KC-024_b.webp（青蛙）；C_image images/k/KC-024_c.webp（小熊）",
+   "game_ready": true,
+   "tags": [
+    "颜色",
+    "粉色"
+   ]
+  },
+  {
+   "id": "KC-025",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "香蕉是什么颜色？🍌",
+   "tts_text": "香蕉是什么颜色？",
+   "options": [
+    {
+     "text": "紫色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黄色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "香蕉黄黄的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "题干图 images/k/KC-025.webp（香蕉×1）",
+   "game_ready": true,
+   "tags": [
+    "颜色"
+   ]
+  },
+  {
+   "id": "KC-026",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "雪是什么颜色？❄️",
+   "tts_text": "雪是什么颜色？",
+   "options": [
+    {
+     "text": "红色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "雪白白的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "tags": [
+    "颜色"
+   ]
+  },
+  {
+   "id": "KC-027",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识颜色",
+   "type": "选择",
+   "question": "熊猫身上有哪两种颜色？🐼",
+   "tts_text": "熊猫身上有哪两种颜色？",
+   "options": [
+    {
+     "text": "黑色和白色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝色和绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红色和黄色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "熊猫黑白相间。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "assets_todo": "题干图 images/k/KC-027.webp（熊猫×1）",
+   "game_ready": true,
+   "tags": [
+    "颜色"
+   ]
+  },
+  {
+   "id": "KC-028",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是长方形？",
+   "tts_text": "哪个是长方形？",
+   "options": [
+    {
+     "text": "▭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "长方形有四个角，两条长边两条短边。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-028_a.webp（▭）；B_image images/k/KC-028_b.webp（🔺）；C_image images/k/KC-028_c.webp（⚪）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-029",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是圆形？",
+   "tts_text": "哪个是圆形？",
+   "options": [
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟥",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "圆圆的，没有角。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-029_a.webp（🔺）；B_image images/k/KC-029_b.webp（🟠）；C_image images/k/KC-029_c.webp（🟥）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-030",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "钟表的表面像什么形状？🕐",
+   "tts_text": "钟表的表面像什么形状？",
+   "options": [
+    {
+     "text": "三角形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长方形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆形",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "钟面圆圆的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-031",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个东西像三角形？",
+   "tts_text": "哪个东西像三角形？",
+   "options": [
+    {
+     "text": "🍕 一块披萨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚽ 足球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "📺 电视",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一块披萨尖尖的，像三角形。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-031_a.webp（一块披萨）；B_image images/k/KC-031_b.webp（足球）；C_image images/k/KC-031_c.webp（电视）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-032",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个东西是方方的？",
+   "tts_text": "哪个东西是方方的？",
+   "options": [
+    {
+     "text": "🏀 篮球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥚 鸡蛋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🎁 礼物盒",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "礼物盒方方的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-032_a.webp（篮球）；B_image images/k/KC-032_b.webp（鸡蛋）；C_image images/k/KC-032_c.webp（礼物盒）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-033",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个会滚来滚去？",
+   "tts_text": "哪个会滚来滚去？",
+   "options": [
+    {
+     "text": "🧱 积木",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚽ 皮球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "📦 盒子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "圆圆的皮球会滚。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-033_a.webp（积木）；B_image images/k/KC-033_b.webp（皮球）；C_image images/k/KC-033_c.webp（盒子）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-034",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是红色的圆形？",
+   "tts_text": "哪个是红色的圆形？",
+   "options": [
+    {
+     "text": "🟥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔵",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "红色、圆圆的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-034_a.webp（🟥）；B_image images/k/KC-034_b.webp（🔴）；C_image images/k/KC-034_c.webp（🔵）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KC-035",
+   "status": "AI初审通过",
+   "subject": "颜色形状",
+   "grade": "K1",
+   "unit": "认识形状",
+   "type": "选择",
+   "question": "哪个是黄色的星星？",
+   "tts_text": "哪个是黄色的星星？",
+   "options": [
+    {
+     "text": "⭐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "❤️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔺",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "黄黄的星星。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "形状",
+   "assets_todo": "A_image images/k/KC-035_a.webp（星星）；B_image images/k/KC-035_b.webp（❤️）；C_image images/k/KC-035_c.webp（🔺）",
+   "game_ready": true,
+   "tags": [
+    "形状"
+   ]
+  },
+  {
+   "id": "KD-019",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是小兔？",
+   "tts_text": "哪个是小兔？",
+   "options": [
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是小兔。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-019_a.webp（青蛙）；B_image images/k/KD-019_b.webp（小熊）；C_image images/k/KD-019_c.webp（小兔）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-021",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是老虎？",
+   "tts_text": "哪个是老虎？",
+   "options": [
+    {
+     "text": "🐯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐼",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "这是老虎。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-021_a.webp（老虎）；B_image images/k/KD-021_b.webp（狮子）；C_image images/k/KD-021_c.webp（熊猫）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-022",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是熊猫？",
+   "tts_text": "哪个是熊猫？",
+   "options": [
+    {
+     "text": "🐨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐼",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是熊猫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-022_a.webp（考拉）；B_image images/k/KD-022_b.webp（小熊）；C_image images/k/KD-022_c.webp（熊猫）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-023",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是长颈鹿？",
+   "tts_text": "哪个是长颈鹿？",
+   "options": [
+    {
+     "text": "🦒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐘",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "这是长颈鹿。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-023_a.webp（长颈鹿）；B_image images/k/KD-023_b.webp（小马）；C_image images/k/KD-023_c.webp（大象）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-024",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是猴子？",
+   "tts_text": "哪个是猴子？",
+   "options": [
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐵",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是猴子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-024_a.webp（小猪）；B_image images/k/KD-024_b.webp（小狗）；C_image images/k/KD-024_c.webp（猴子）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-025",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是小鸭？",
+   "tts_text": "哪个是小鸭？",
+   "options": [
+    {
+     "text": "🐔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是小鸭。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-025_a.webp（公鸡）；B_image images/k/KD-025_b.webp（小鸭）；C_image images/k/KD-025_c.webp（小鸟）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-026",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是青蛙？",
+   "tts_text": "哪个是青蛙？",
+   "options": [
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是青蛙。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-026_a.webp（小鱼）；B_image images/k/KD-026_b.webp（乌龟）；C_image images/k/KD-026_c.webp（青蛙）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-027",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是企鹅？",
+   "tts_text": "哪个是企鹅？",
+   "options": [
+    {
+     "text": "🐦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦆",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是企鹅。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-027_a.webp（小鸟）；B_image images/k/KD-027_b.webp（企鹅）；C_image images/k/KD-027_c.webp（小鸭）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-028",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "哪个是蝴蝶？",
+   "tts_text": "哪个是蝴蝶？",
+   "options": [
+    {
+     "text": "🐞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦋",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是蝴蝶。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物识图",
+   "assets_todo": "A_image images/k/KD-028_a.webp（瓢虫）；B_image images/k/KD-028_b.webp（蜜蜂）；C_image images/k/KD-028_c.webp（蝴蝶）",
+   "game_ready": true,
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KD-029",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "谁会“喵喵”叫？",
+   "tts_text": "谁会“喵喵”叫？",
+   "options": [
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小猫喵喵叫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-029_a.webp（小狗）；B_image images/k/KD-029_b.webp（奶牛）；C_image images/k/KD-029_c.webp（小猫）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-030",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "谁会“哞哞”叫？",
+   "tts_text": "谁会“哞哞”叫？",
+   "options": [
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐮",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "奶牛哞哞叫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-030_a.webp（小猪）；B_image images/k/KD-030_b.webp（公鸡）；C_image images/k/KD-030_c.webp（奶牛）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-031",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "谁会“咩咩”叫？",
+   "tts_text": "谁会“咩咩”叫？",
+   "options": [
+    {
+     "text": "🐴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐑",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小羊咩咩叫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-031_a.webp（小马）；B_image images/k/KD-031_b.webp（青蛙）；C_image images/k/KD-031_c.webp（小羊）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-032",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物和叫声",
+   "type": "选择",
+   "question": "谁会“呱呱”叫？",
+   "tts_text": "谁会“呱呱”叫？",
+   "options": [
+    {
+     "text": "🐮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "青蛙呱呱叫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物叫声",
+   "assets_todo": "A_image images/k/KD-032_a.webp（奶牛）；B_image images/k/KD-032_b.webp（青蛙）；C_image images/k/KD-032_c.webp（小猫）",
+   "game_ready": true,
+   "tags": [
+    "动物叫声"
+   ]
+  },
+  {
+   "id": "KD-033",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小鱼住在哪里？🐟",
+   "tts_text": "小鱼住在哪里？",
+   "options": [
+    {
+     "text": "🌳 树上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🏜️ 沙漠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌊 水里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小鱼在水里游。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "题干图 images/k/KD-033.webp（小鱼×1）；A_image images/k/KD-033_a.webp（树上）；B_image images/k/KD-033_b.webp（沙漠）；C_image images/k/KD-033_c.webp（水里）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-034",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小鸟的家在哪里？🐦",
+   "tts_text": "小鸟的家在哪里？",
+   "options": [
+    {
+     "text": "🕳️ 地洞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪺 树上的鸟窝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🌊 水里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "小鸟住在树上的窝里。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "题干图 images/k/KD-034.webp（小鸟×1）；A_image images/k/KD-034_a.webp（地洞）；B_image images/k/KD-034_b.webp（树上的鸟窝）；C_image images/k/KD-034_c.webp（水里）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-035",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小兔爱吃什么？🐰",
+   "tts_text": "小兔爱吃什么？",
+   "options": [
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥕",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小兔爱吃胡萝卜。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "题干图 images/k/KD-035.webp（小兔×1）；A_image images/k/KD-035_a.webp（小鱼）；B_image images/k/KD-035_b.webp（🍖）；C_image images/k/KD-035_c.webp（胡萝卜）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-036",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "小猫爱吃什么？🐱",
+   "tts_text": "小猫爱吃什么？",
+   "options": [
+    {
+     "text": "🥕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "小猫爱吃鱼。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "题干图 images/k/KD-036.webp（小猫×1）；A_image images/k/KD-036_a.webp（胡萝卜）；B_image images/k/KD-036_b.webp（小鱼）；C_image images/k/KD-036_c.webp（香蕉）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-037",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "猴子爱吃什么？🐵",
+   "tts_text": "猴子爱吃什么？",
+   "options": [
+    {
+     "text": "🌽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "猴子爱吃香蕉。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "题干图 images/k/KD-037.webp（猴子×1）；A_image images/k/KD-037_a.webp（🌽）；B_image images/k/KD-037_b.webp（🥩）；C_image images/k/KD-037_c.webp（香蕉）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-038",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "熊猫爱吃什么？🐼",
+   "tts_text": "熊猫爱吃什么？",
+   "options": [
+    {
+     "text": "🍖 肉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🎋 竹子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍕 披萨",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "熊猫爱吃竹子。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "题干图 images/k/KD-038.webp（熊猫×1）；A_image images/k/KD-038_a.webp（肉）；B_image images/k/KD-038_b.webp（竹子）；C_image images/k/KD-038_c.webp（披萨）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-039",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "谁会飞？",
+   "tts_text": "谁会飞？",
+   "options": [
+    {
+     "text": "🐦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "小鸟有翅膀，会飞。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "A_image images/k/KD-039_a.webp（小鸟）；B_image images/k/KD-039_b.webp（小狗）；C_image images/k/KD-039_c.webp（小鱼）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KD-040",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "动物的家和吃的",
+   "type": "选择",
+   "question": "谁会游泳？",
+   "tts_text": "谁会游泳？",
+   "options": [
+    {
+     "text": "🐔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "小鱼会游泳。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "动物习性",
+   "assets_todo": "A_image images/k/KD-040_a.webp（公鸡）；B_image images/k/KD-040_b.webp（小猫）；C_image images/k/KD-040_c.webp（小鱼）",
+   "game_ready": true,
+   "tags": [
+    "动物习性"
+   ]
+  },
+  {
+   "id": "KL-017",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是杯子？",
+   "tts_text": "哪个是杯子？",
+   "options": [
+    {
+     "text": "📚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是杯子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-017_a.webp（📚）；B_image images/k/KL-017_b.webp（🥤）；C_image images/k/KL-017_c.webp（👟）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-018",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是勺子？",
+   "tts_text": "哪个是勺子？",
+   "options": [
+    {
+     "text": "✏️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是勺子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-018_a.webp（✏️）；B_image images/k/KL-018_b.webp（🥄）；C_image images/k/KL-018_c.webp（🧦）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-019",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是牙刷？",
+   "tts_text": "哪个是牙刷？",
+   "options": [
+    {
+     "text": "🧸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚽",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是牙刷。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-019_a.webp（🧸）；B_image images/k/KL-019_b.webp（🪥）；C_image images/k/KL-019_c.webp（⚽）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-020",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是鞋子？",
+   "tts_text": "哪个是鞋子？",
+   "options": [
+    {
+     "text": "🥄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是鞋子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-020_a.webp（🥄）；B_image images/k/KL-020_b.webp（🧢）；C_image images/k/KL-020_c.webp（👟）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-021",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是帽子？",
+   "tts_text": "哪个是帽子？",
+   "options": [
+    {
+     "text": "👟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是帽子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-021_a.webp（👟）；B_image images/k/KL-021_b.webp（🧢）；C_image images/k/KL-021_c.webp（苹果）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-022",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是雨伞？",
+   "tts_text": "哪个是雨伞？",
+   "options": [
+    {
+     "text": "🥛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "☂️",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是雨伞。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-022_a.webp（🥛）；B_image images/k/KL-022_b.webp（🧸）；C_image images/k/KL-022_c.webp（☂️）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-023",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是书？",
+   "tts_text": "哪个是书？",
+   "options": [
+    {
+     "text": "🥤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "📖",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是书。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-023_a.webp（🥤）；B_image images/k/KL-023_b.webp（🧦）；C_image images/k/KL-023_c.webp（📖）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-024",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是床？",
+   "tts_text": "哪个是床？",
+   "options": [
+    {
+     "text": "🚗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🛏️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪑",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是床。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-024_a.webp（小汽车）；B_image images/k/KL-024_b.webp（🛏️）；C_image images/k/KL-024_c.webp（🪑）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-025",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是椅子？",
+   "tts_text": "哪个是椅子？",
+   "options": [
+    {
+     "text": "🛏️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🚪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪑",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是椅子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-025_a.webp（🛏️）；B_image images/k/KL-025_b.webp（🚪）；C_image images/k/KL-025_c.webp（🪑）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-026",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是钥匙？",
+   "tts_text": "哪个是钥匙？",
+   "options": [
+    {
+     "text": "✂️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔑",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是钥匙。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-026_a.webp（✂️）；B_image images/k/KL-026_b.webp（🥄）；C_image images/k/KL-026_c.webp（🔑）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-027",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是袜子？",
+   "tts_text": "哪个是袜子？",
+   "options": [
+    {
+     "text": "📖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是袜子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-027_a.webp（📖）；B_image images/k/KL-027_b.webp（🧢）；C_image images/k/KL-027_c.webp（🧦）",
+   "game_ready": true,
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-028",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "日常物品识图",
+   "type": "选择",
+   "question": "哪个是卫生纸？",
+   "tts_text": "哪个是卫生纸？",
+   "options": [
+    {
+     "text": "🧻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔑",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "这是卫生纸。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "物品识图",
+   "assets_todo": "A_image images/k/KL-028_a.webp（🧻）；B_image images/k/KL-028_b.webp（👟）；C_image images/k/KL-028_c.webp（🔑）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "物品识图"
+   ]
+  },
+  {
+   "id": "KL-029",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "下雨了，出门要带什么？🌧️",
+   "tts_text": "下雨了，出门要带什么？",
+   "options": [
+    {
+     "text": "☂️ 雨伞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪁 风筝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🕶️ 墨镜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "下雨要打伞。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-029_a.webp（雨伞）；B_image images/k/KL-029_b.webp（风筝）；C_image images/k/KL-029_c.webp（墨镜）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-030",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "刷牙要用什么？",
+   "tts_text": "刷牙要用什么？",
+   "options": [
+    {
+     "text": "✏️ 铅笔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥄 勺子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🪥 牙刷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "用牙刷刷牙。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-030_a.webp（铅笔）；B_image images/k/KL-030_b.webp（勺子）；C_image images/k/KL-030_c.webp（牙刷）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-032",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "天冷了要穿什么？❄️",
+   "tts_text": "天冷了要穿什么？",
+   "options": [
+    {
+     "text": "🧥 厚外套",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🩱 泳衣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🩳 短裤",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "冷了穿厚衣服。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-032_a.webp（厚外套）；B_image images/k/KL-032_b.webp（泳衣）；C_image images/k/KL-032_c.webp（短裤）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-033",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "晚上要去哪里睡觉？🌙",
+   "tts_text": "晚上要去哪里睡觉？",
+   "options": [
+    {
+     "text": "🚗 汽车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🛝 滑梯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🛏️ 床上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "晚上在床上睡觉。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-033_a.webp（汽车）；B_image images/k/KL-033_b.webp（滑梯）；C_image images/k/KL-033_c.webp（床上）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-034",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "绿灯亮了，过马路时还要怎么做？",
+   "tts_text": "绿灯亮了，过马路时还要怎么做？",
+   "options": [
+    {
+     "text": "👀 看看左右有没有车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "💃 边走边跳舞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "📱 边走边看手机",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "绿灯也要拉着大人的手，看看左右再走。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-034_a.webp（停下来等）；B_image images/k/KL-034_b.webp（跳舞）；C_image images/k/KL-034_c.webp（快点跑）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-035",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "看书要用什么照亮？",
+   "tts_text": "看书要用什么照亮？",
+   "options": [
+    {
+     "text": "🧦 袜子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "💡 台灯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔑 钥匙",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "开灯看书，保护眼睛。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-035_a.webp（袜子）；B_image images/k/KL-035_b.webp（台灯）；C_image images/k/KL-035_c.webp（钥匙）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-036",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "哪个东西烫，不能摸？",
+   "tts_text": "哪个东西烫，不能摸？",
+   "options": [
+    {
+     "text": "📖 书",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔥 火",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧸 小熊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "火很烫，小朋友不能碰。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-036_a.webp（书）；B_image images/k/KL-036_b.webp（火）；C_image images/k/KL-036_c.webp（小熊）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-037",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "喝水用什么？",
+   "tts_text": "喝水用什么？",
+   "options": [
+    {
+     "text": "🥤 杯子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧢 帽子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👟 鞋子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "用杯子喝水。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-037_a.webp（杯子）；B_image images/k/KL-037_b.webp（帽子）；C_image images/k/KL-037_c.webp（鞋子）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-038",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "哪个是可以吃的？",
+   "tts_text": "哪个是可以吃的？",
+   "options": [
+    {
+     "text": "🧽 海绵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍞 面包",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧱 积木",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "面包可以吃。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-038_a.webp（海绵）；B_image images/k/KL-038_b.webp（面包）；C_image images/k/KL-038_c.webp（积木）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-039",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "玩具玩完了要怎么做？",
+   "tts_text": "玩具玩完了要怎么做？",
+   "options": [
+    {
+     "text": "🗑️ 扔掉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧺 放回筐里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🙈 藏起来",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "玩完玩具要收好。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-039_a.webp（扔掉）；B_image images/k/KL-039_b.webp（放回筐里）；C_image images/k/KL-039_c.webp（藏起来）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KL-040",
+   "status": "AI初审通过",
+   "subject": "生活常识",
+   "grade": "K1",
+   "unit": "用途和生活习惯",
+   "type": "选择",
+   "question": "打喷嚏的时候要用什么挡住？",
+   "tts_text": "打喷嚏的时候要用什么挡住？",
+   "options": [
+    {
+     "text": "🤧 纸巾或胳膊肘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "✋ 什么都不用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧢 帽子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "打喷嚏要捂住，不传染别人。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "生活常识",
+   "assets_todo": "A_image images/k/KL-040_a.webp（纸巾或胳膊肘）；B_image images/k/KL-040_b.webp（什么都不用）；C_image images/k/KL-040_c.webp（帽子）",
+   "game_ready": true,
+   "tags": [
+    "生活常识"
+   ]
+  },
+  {
+   "id": "KE-001",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：cat，是哪一个？",
+   "tts_text": "cat，是哪一个？",
+   "options": [
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "cat 就是小猫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-001_a.webp（小猫）；B_image images/k/KE-001_b.webp（小鱼）；C_image images/k/KE-001_c.webp（小狗）；question_audio audio/k/KE-001.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-002",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：dog，是哪一个？",
+   "tts_text": "dog，是哪一个？",
+   "options": [
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "dog 就是小狗。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-002_a.webp（小狗）；B_image images/k/KE-002_b.webp（小猫）；C_image images/k/KE-002_c.webp（小猪）；question_audio audio/k/KE-002.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-003",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：fish，是哪一个？",
+   "tts_text": "fish，是哪一个？",
+   "options": [
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "fish 就是小鱼。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-003_a.webp（小鱼）；B_image images/k/KE-003_b.webp（小猫）；C_image images/k/KE-003_c.webp（小鸟）；question_audio audio/k/KE-003.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-004",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：bird，是哪一个？",
+   "tts_text": "bird，是哪一个？",
+   "options": [
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "bird 就是小鸟。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-004_a.webp（小狗）；B_image images/k/KE-004_b.webp（小鱼）；C_image images/k/KE-004_c.webp（小鸟）；question_audio audio/k/KE-004.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-005",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：duck，是哪一个？",
+   "tts_text": "duck，是哪一个？",
+   "options": [
+    {
+     "text": "🦆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "duck 就是小鸭。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-005_a.webp（小鸭）；B_image images/k/KE-005_b.webp（公鸡）；C_image images/k/KE-005_c.webp（小猪）；question_audio audio/k/KE-005.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-006",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：pig，是哪一个？",
+   "tts_text": "pig，是哪一个？",
+   "options": [
+    {
+     "text": "🐮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "pig 就是小猪。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-006_a.webp（奶牛）；B_image images/k/KE-006_b.webp（小狗）；C_image images/k/KE-006_c.webp（小猪）；question_audio audio/k/KE-006.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-007",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：rabbit，是哪一个？",
+   "tts_text": "rabbit，是哪一个？",
+   "options": [
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "rabbit 就是小兔。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-007_a.webp（小熊）；B_image images/k/KE-007_b.webp（小兔）；C_image images/k/KE-007_c.webp（青蛙）；question_audio audio/k/KE-007.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-008",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：bear，是哪一个？",
+   "tts_text": "bear，是哪一个？",
+   "options": [
+    {
+     "text": "🐵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐰",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "bear 就是小熊。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-008_a.webp（猴子）；B_image images/k/KE-008_b.webp（小熊）；C_image images/k/KE-008_c.webp（小兔）；question_audio audio/k/KE-008.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-009",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：panda，是哪一个？",
+   "tts_text": "panda，是哪一个？",
+   "options": [
+    {
+     "text": "🐼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐯",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "panda 就是熊猫。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-009_a.webp（熊猫）；B_image images/k/KE-009_b.webp（小熊）；C_image images/k/KE-009_c.webp（老虎）；question_audio audio/k/KE-009.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-010",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·动物",
+   "type": "选择",
+   "question": "听一听：monkey，是哪一个？",
+   "tts_text": "monkey，是哪一个？",
+   "options": [
+    {
+     "text": "🐘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐶",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "monkey 就是猴子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-010_a.webp（大象）；B_image images/k/KE-010_b.webp（猴子）；C_image images/k/KE-010_c.webp（小狗）；question_audio audio/k/KE-010.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "动物"
+   ]
+  },
+  {
+   "id": "KE-011",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：apple，是哪一个？",
+   "tts_text": "apple，是哪一个？",
+   "options": [
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "apple 就是苹果。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-011_a.webp（苹果）；B_image images/k/KE-011_b.webp（葡萄）；C_image images/k/KE-011_c.webp（香蕉）；question_audio audio/k/KE-011.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-012",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：banana，是哪一个？",
+   "tts_text": "banana，是哪一个？",
+   "options": [
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "banana 就是香蕉。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-012_a.webp（香蕉）；B_image images/k/KE-012_b.webp（草莓）；C_image images/k/KE-012_c.webp（苹果）；question_audio audio/k/KE-012.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-013",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：orange，是哪一个？",
+   "tts_text": "orange，是哪一个？",
+   "options": [
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "orange 就是橙子。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-013_a.webp（苹果）；B_image images/k/KE-013_b.webp（西瓜）；C_image images/k/KE-013_c.webp（橘子）；question_audio audio/k/KE-013.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-014",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：grape，是哪一个？",
+   "tts_text": "grape，是哪一个？",
+   "options": [
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍇",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "grape 就是葡萄。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-014_a.webp（香蕉）；B_image images/k/KE-014_b.webp（樱桃）；C_image images/k/KE-014_c.webp（葡萄）；question_audio audio/k/KE-014.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-015",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：water，是哪一个？",
+   "tts_text": "water，是哪一个？",
+   "options": [
+    {
+     "text": "💧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "water 就是水。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-015_a.webp（💧）；B_image images/k/KE-015_b.webp（🥛）；C_image images/k/KE-015_c.webp（🍞）；question_audio audio/k/KE-015.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-016",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：milk，是哪一个？",
+   "tts_text": "milk，是哪一个？",
+   "options": [
+    {
+     "text": "💧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍰",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "milk 就是牛奶。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-016_a.webp（💧）；B_image images/k/KE-016_b.webp（🥛）；C_image images/k/KE-016_c.webp（🍰）；question_audio audio/k/KE-016.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-017",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：egg，是哪一个？",
+   "tts_text": "egg，是哪一个？",
+   "options": [
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥚",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "egg 就是鸡蛋。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-017_a.webp（苹果）；B_image images/k/KE-017_b.webp（🍞）；C_image images/k/KE-017_c.webp（🥚）；question_audio audio/k/KE-017.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-018",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "听一听：cake，是哪一个？",
+   "tts_text": "cake，是哪一个？",
+   "options": [
+    {
+     "text": "🍰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "cake 就是蛋糕。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-018_a.webp（🍰）；B_image images/k/KE-018_b.webp（🥚）；C_image images/k/KE-018_c.webp（香蕉）；question_audio audio/k/KE-018.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-019",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "听一听：red，是哪个颜色？",
+   "tts_text": "red，是哪个颜色？",
+   "options": [
+    {
+     "text": "🔵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟢",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "red 是红色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-019_a.webp（🔵）；B_image images/k/KE-019_b.webp（🔴）；C_image images/k/KE-019_c.webp（🟢）；question_audio audio/k/KE-019.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-020",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "听一听：blue，是哪个颜色？",
+   "tts_text": "blue，是哪个颜色？",
+   "options": [
+    {
+     "text": "🔵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "blue 是蓝色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-020_a.webp（🔵）；B_image images/k/KE-020_b.webp（🟡）；C_image images/k/KE-020_c.webp（🔴）；question_audio audio/k/KE-020.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-021",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "听一听：yellow，是哪个颜色？",
+   "tts_text": "yellow，是哪个颜色？",
+   "options": [
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟢",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "yellow 是黄色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-021_a.webp（🔴）；B_image images/k/KE-021_b.webp（🟡）；C_image images/k/KE-021_c.webp（🟢）；question_audio audio/k/KE-021.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-022",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "听一听：green，是哪个颜色？",
+   "tts_text": "green，是哪个颜色？",
+   "options": [
+    {
+     "text": "🔵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟢",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "green 是绿色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-022_a.webp（🔵）；B_image images/k/KE-022_b.webp（🟡）；C_image images/k/KE-022_c.webp（🟢）；question_audio audio/k/KE-022.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-023",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "听一听：white，是哪个颜色？",
+   "tts_text": "white，是哪个颜色？",
+   "options": [
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "white 是白色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-023_a.webp（⚪）；B_image images/k/KE-023_b.webp（🔴）；C_image images/k/KE-023_c.webp（⚫）；question_audio audio/k/KE-023.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-024",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "听一听：black，是哪个颜色？",
+   "tts_text": "black，是哪个颜色？",
+   "options": [
+    {
+     "text": "⚫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "black 是黑色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-024_a.webp（⚫）；B_image images/k/KE-024_b.webp（🟡）；C_image images/k/KE-024_c.webp（⚪）；question_audio audio/k/KE-024.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-025",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：eye，是哪一个？",
+   "tts_text": "eye，是哪一个？",
+   "options": [
+    {
+     "text": "👁️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👃",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "eye 就是眼睛。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-025_a.webp（👁️）；B_image images/k/KE-025_b.webp（👂）；C_image images/k/KE-025_c.webp（👃）；question_audio audio/k/KE-025.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-026",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：ear，是哪一个？",
+   "tts_text": "ear，是哪一个？",
+   "options": [
+    {
+     "text": "👁️",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "✋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👂",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "ear 就是耳朵。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-026_a.webp（👁️）；B_image images/k/KE-026_b.webp（✋）；C_image images/k/KE-026_c.webp（👂）；question_audio audio/k/KE-026.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-027",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：nose，是哪一个？",
+   "tts_text": "nose，是哪一个？",
+   "options": [
+    {
+     "text": "🦶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👂",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "nose 就是鼻子。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-027_a.webp（🦶）；B_image images/k/KE-027_b.webp（👃）；C_image images/k/KE-027_c.webp（👂）；question_audio audio/k/KE-027.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-028",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：hand，是哪一个？",
+   "tts_text": "hand，是哪一个？",
+   "options": [
+    {
+     "text": "👃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "✋",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "hand 就是手。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-028_a.webp（👃）；B_image images/k/KE-028_b.webp（🦶）；C_image images/k/KE-028_c.webp（✋）；question_audio audio/k/KE-028.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-029",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：mouth，是哪一个？",
+   "tts_text": "mouth，是哪一个？",
+   "options": [
+    {
+     "text": "✋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👁️",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "mouth 就是嘴巴。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-029_a.webp（✋）；B_image images/k/KE-029_b.webp（👄）；C_image images/k/KE-029_c.webp（👁️）；question_audio audio/k/KE-029.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-030",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：one，是哪一个？",
+   "tts_text": "one，是哪一个？",
+   "options": [
+    {
+     "text": "3️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1️⃣",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "one 就是一。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-030_a.webp（3️⃣）；B_image images/k/KE-030_b.webp（2️⃣）；C_image images/k/KE-030_c.webp（1️⃣）；question_audio audio/k/KE-030.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-031",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：two，是哪一个？",
+   "tts_text": "two，是哪一个？",
+   "options": [
+    {
+     "text": "3️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1️⃣",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "two 就是二。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-031_a.webp（3️⃣）；B_image images/k/KE-031_b.webp（2️⃣）；C_image images/k/KE-031_c.webp（1️⃣）；question_audio audio/k/KE-031.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-032",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "听一听：three，是哪一个？",
+   "tts_text": "three，是哪一个？",
+   "options": [
+    {
+     "text": "3️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1️⃣",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "three 就是三。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语单词",
+   "assets_todo": "A_image images/k/KE-032_a.webp（3️⃣）；B_image images/k/KE-032_b.webp（5️⃣）；C_image images/k/KE-032_c.webp（1️⃣）；question_audio audio/k/KE-032.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-033",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "别人说 Hello，小朋友可以说什么？",
+   "tts_text": "别人说 Hello，小朋友可以说什么？",
+   "options": [
+    {
+     "text": "Hello!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Sorry!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Goodbye!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "Hello 是“你好”，回答 Hello。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "question_audio audio/k/KE-033.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-034",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "要走的时候说什么？👋",
+   "tts_text": "要走的时候说什么？",
+   "options": [
+    {
+     "text": "Thank you!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Goodbye!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Hello!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "Goodbye 是“再见”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "question_audio audio/k/KE-034.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-035",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "别人送你礼物🎁，要说什么？",
+   "tts_text": "别人送你礼物，要说什么？",
+   "options": [
+    {
+     "text": "Thank you!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Sorry!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Goodbye!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "Thank you 是“谢谢”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "question_audio audio/k/KE-035.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-036",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "早上见到老师说什么？🌅",
+   "tts_text": "早上见到老师说什么？",
+   "options": [
+    {
+     "text": "Good night!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Good morning!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Goodbye!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "Good morning 是“早上好”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "question_audio audio/k/KE-036.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-037",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "晚上睡觉前说什么？🌙",
+   "tts_text": "晚上睡觉前说什么？",
+   "options": [
+    {
+     "text": "Hello!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Good night!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Good morning!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "Good night 是“晚安”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "question_audio audio/k/KE-037.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-038",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "不小心碰到小朋友，要说什么？",
+   "tts_text": "不小心碰到小朋友，要说什么？",
+   "options": [
+    {
+     "text": "Hello!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Goodbye!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Sorry!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "Sorry 是“对不起”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "question_audio audio/k/KE-038.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-039",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "听一听：Mom，是谁？",
+   "tts_text": "听一听：Mom，是谁？",
+   "options": [
+    {
+     "text": "👩 妈妈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👨 爸爸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👶 宝宝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "Mom 是妈妈。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "A_image images/k/KE-039_a.webp（妈妈）；B_image images/k/KE-039_b.webp（爸爸）；C_image images/k/KE-039_c.webp（宝宝）；question_audio audio/k/KE-039.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-040",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "听一听：Dad，是谁？",
+   "tts_text": "听一听：Dad，是谁？",
+   "options": [
+    {
+     "text": "👩 妈妈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👵 奶奶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👨 爸爸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "Dad 是爸爸。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "英语",
+   "assets_todo": "A_image images/k/KE-040_a.webp（妈妈）；B_image images/k/KE-040_b.webp（奶奶）；C_image images/k/KE-040_c.webp（爸爸）；question_audio audio/k/KE-040.m4a（英文单词发音，可用 TTS 代替）",
+   "game_ready": true,
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KG-017",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《咏鹅》：“曲项向天歌”，下一句是？",
+   "tts_text": "曲项向天歌，下一句是什么呀？",
+   "options": [
+    {
+     "text": "处处闻啼鸟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白毛浮绿水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "低头思故乡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "骆宾王《咏鹅》：曲项向天歌，白毛浮绿水。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-017.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "古诗",
+    "咏鹅"
+   ]
+  },
+  {
+   "id": "KG-018",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《咏鹅》里，大白鹅的脚掌是什么颜色？",
+   "tts_text": "咏鹅里，大白鹅的脚掌是什么颜色？",
+   "options": [
+    {
+     "text": "🟥 红色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟩 绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⬛ 黑色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“红掌拨清波”，鹅的脚掌是红色的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-018.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "古诗",
+    "咏鹅"
+   ]
+  },
+  {
+   "id": "KG-019",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《春晓》：“处处闻啼鸟”，下一句是？",
+   "tts_text": "处处闻啼鸟，下一句是什么呀？",
+   "options": [
+    {
+     "text": "汗滴禾下土",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "低头思故乡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夜来风雨声",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "孟浩然《春晓》：处处闻啼鸟，夜来风雨声。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-019.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "古诗",
+    "春晓"
+   ]
+  },
+  {
+   "id": "KG-020",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《春晓》：“夜来风雨声”，下一句是？",
+   "tts_text": "夜来风雨声，下一句是什么呀？",
+   "options": [
+    {
+     "text": "床前明月光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "远看山有色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "花落知多少",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "孟浩然《春晓》：夜来风雨声，花落知多少。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-020.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "春晓"
+   ]
+  },
+  {
+   "id": "KG-021",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《静夜思》：“疑是地上霜”，下一句是？",
+   "tts_text": "疑是地上霜，下一句是什么呀？",
+   "options": [
+    {
+     "text": "花落知多少",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "举头望明月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红掌拨清波",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "李白《静夜思》：疑是地上霜，举头望明月。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-021.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "古诗",
+    "静夜思"
+   ]
+  },
+  {
+   "id": "KG-022",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《静夜思》里的人，心里在想什么？",
+   "tts_text": "静夜思里的人，心里在想什么？",
+   "options": [
+    {
+     "text": "🏠 想家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍬 想吃糖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🧸 想玩具",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“低头思故乡”，他在想家。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-022.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "古诗",
+    "静夜思"
+   ]
+  },
+  {
+   "id": "KG-023",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《悯农（其二）》：“汗滴禾下土”，下一句是？",
+   "tts_text": "汗滴禾下土，下一句是什么呀？",
+   "options": [
+    {
+     "text": "曲项向天歌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "谁知盘中餐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疑是地上霜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "李绅《悯农（其二）》：汗滴禾下土，谁知盘中餐。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-023.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "review_changed": "是",
+   "tags": [
+    "古诗",
+    "悯农（其二）"
+   ]
+  },
+  {
+   "id": "KG-024",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《悯农（其二）》：“谁知盘中餐”，下一句是？",
+   "tts_text": "谁知盘中餐，下一句是什么呀？",
+   "options": [
+    {
+     "text": "远看山有色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "江南可采莲",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "粒粒皆辛苦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "李绅《悯农（其二）》：谁知盘中餐，粒粒皆辛苦。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-024.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "悯农（其二）"
+   ]
+  },
+  {
+   "id": "KG-025",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《画》：“远看山有色”，下一句是？",
+   "tts_text": "远看山有色，下一句是什么呀？",
+   "options": [
+    {
+     "text": "花落知多少",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "近听水无声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "粒粒皆辛苦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "佚名（传）《画》：远看山有色，近听水无声。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-025.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "画"
+   ]
+  },
+  {
+   "id": "KG-026",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《画》：“春去花还在”，下一句是？",
+   "tts_text": "春去花还在，下一句是什么呀？",
+   "options": [
+    {
+     "text": "莲叶何田田",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曲项向天歌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人来鸟不惊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "佚名（传）《画》：春去花还在，人来鸟不惊。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-026.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "画"
+   ]
+  },
+  {
+   "id": "KG-027",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《江南》：“江南可采莲”，下一句是？",
+   "tts_text": "江南可采莲，下一句是什么呀？",
+   "options": [
+    {
+     "text": "夜来风雨声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "莲叶何田田",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "谁知盘中餐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "汉乐府《江南》：江南可采莲，莲叶何田田。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-027.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "江南"
+   ]
+  },
+  {
+   "id": "KG-028",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "古诗",
+   "type": "选择",
+   "question": "《江南》：“鱼戏莲叶间”，下一句是？",
+   "tts_text": "鱼戏莲叶间，下一句是什么呀？",
+   "options": [
+    {
+     "text": "锄禾日当午",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春眠不觉晓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鱼戏莲叶东",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "汉乐府《江南》：鱼戏莲叶间，鱼戏莲叶东。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "古诗",
+   "assets_todo": "question_audio audio/k/KG-028.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "古诗",
+    "江南"
+   ]
+  },
+  {
+   "id": "KG-032",
+   "status": "需家长确认",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“我有一个好爸爸”，下一句是？",
+   "tts_text": "“我有一个好爸爸”，下一句是？",
+   "options": [
+    {
+     "text": "哥哥哥哥好哥哥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爸爸爸爸好爸爸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "妈妈妈妈好妈妈",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "《好爸爸坏爸爸》常见唱法：我有一个好爸爸，爸爸爸爸好爸爸。（版本较多，家长按自家唱法核对）",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "review_note": "儿歌有多种唱法，请按家里的唱法确认",
+   "assets_todo": "question_audio audio/k/KG-032.m4a（家长朗读/唱）",
+   "game_ready": false,
+   "tags": [
+    "儿歌"
+   ]
+  },
+  {
+   "id": "KG-033",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“拔萝卜，拔萝卜”，下一句是？",
+   "tts_text": "“拔萝卜，拔萝卜”，下一句是？",
+   "options": [
+    {
+     "text": "两只老虎跑得快",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一闪一闪亮晶晶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘿哟嘿哟拔萝卜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "《拔萝卜》：拔萝卜，拔萝卜，嘿哟嘿哟拔萝卜。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "assets_todo": "question_audio audio/k/KG-033.m4a（家长朗读/唱）",
+   "game_ready": true,
+   "tags": [
+    "儿歌"
+   ]
+  },
+  {
+   "id": "KG-035",
+   "status": "需家长确认",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "《两只老虎》里的老虎，一只没有什么？",
+   "tts_text": "两只老虎里的老虎，一只没有什么？",
+   "options": [
+    {
+     "text": "耳朵（或眼睛）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘴巴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "腿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "常见唱法：一只没有耳朵，一只没有尾巴（也有唱“眼睛”的版本）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "review_note": "儿歌有多种唱法，请按家里的唱法确认",
+   "assets_todo": "question_audio audio/k/KG-035.m4a（家长朗读/唱）",
+   "game_ready": false,
+   "tags": [
+    "儿歌"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+offline/
+*.zip
+.env*
+*.pem
+*.key
+.DS_Store

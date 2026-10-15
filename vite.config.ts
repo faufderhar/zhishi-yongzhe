@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+export default defineConfig({
+  base: '/zhishi-yongzhe/',
+  plugins: [react(), VitePWA({
+    registerType: 'autoUpdate', includeAssets: ['apple-touch-icon.png', 'icon.svg'],
+    manifest: { name: '知识勇者', short_name: '知识勇者', display: 'standalone', orientation: 'landscape', background_color: '#1d2340', theme_color: '#2b3a78', start_url: '/zhishi-yongzhe/', scope: '/zhishi-yongzhe/', id: '/zhishi-yongzhe/',
+      icons: [
+        { src: 'icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: 'icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      ] },
+    workbox: { globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}'], maximumFileSizeToCacheInBytes: 4 * 1024 * 1024 },
+  })],
+  test: { environment: 'node' },
+  preview: { host: true, port: 4173, strictPort: true, allowedHosts: true },
+  server: { host: true, allowedHosts: true },
+} as any);
