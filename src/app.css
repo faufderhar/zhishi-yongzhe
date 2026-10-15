@@ -203,7 +203,6 @@ img.unit.boss{height:min(300px,34vh)}
 .track .ghost{background:#fff;opacity:.75;transition:transform .55s cubic-bezier(.3,0,.3,1) .45s}
 .mhp .track .ghost{background:#ffd27a}
 .track .fill{transition:transform .28s ease-out}
-.anim-wait{font-size:22px;opacity:.75;text-align:center;padding:24px}
 .toggle-line{display:flex;align-items:center;gap:10px;font-size:20px;justify-content:center}.toggle-line input{width:26px;height:26px}
 /* 减少动画：系统偏好或应用设置 */
 .reduce-motion .breathe,.reduce-motion .unit-wrap.glowing::before{animation:none}
@@ -359,3 +358,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .hearts-label{white-space:nowrap;writing-mode:horizontal-tb}
 .levels .level{min-height:160px}
 .kstars{white-space:nowrap}.kind-tag{font-size:20px;padding:2px 14px}
+/* r3：意图说明 / 推荐角色 / 学习报告 */
+.intent{cursor:pointer;border:none;background:rgba(255,255,255,.8);border-radius:10px;padding:4px 10px;font-size:18px}
+.intent-long{font-size:26px;font-weight:700}
+.tag.rec{background:#ffd54a;color:#5a3d00}
+.report-table{border-collapse:collapse}.report-table td,.report-table th{border:1px solid #ccd;padding:4px 10px}

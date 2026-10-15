@@ -283,6 +283,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [fb, setFb] = useState<{ ok: boolean; text: string; dealt?: number; taken?: number }>();
   const [canNext, setCanNext] = useState(true);
   const [paused, setPaused] = useState(false);
+  const [intentPop, setIntentPop] = useState(false);   // 报告 #7：点意图看说明
   usePauseOnHide(setPaused);
   const [input, setInput] = useState('');
   const [multi, setMulti] = useState<string[]>([]);
@@ -413,7 +414,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="mon-info">
           <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}{mon.name}</b>
           <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />
-          <span className="intent">{intent === 'attack' ? `⚔ 意图：攻击 ${bs.monsterAtk}` : `🛡 意图：护盾 ${bs.shieldAmt}`}{bs.monsterShield > 0 && ` · 护盾 ${bs.monsterShield}`}</span>
+          <button className="intent" data-testid="intent" aria-label="怪物意图说明" onClick={() => setIntentPop(true)}>{intent === 'attack' ? `⚔ 意图：攻击 ${bs.monsterAtk}` : `🛡 意图：护盾 ${bs.shieldAmt}`}{bs.monsterShield > 0 && ` · 护盾 ${bs.monsterShield}`} ⓘ</button>
         </div>
         <div className="stage" ref={D.stage}>
           <div className="fx-shake" ref={D.shake}>
@@ -489,6 +490,10 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
           </div>
         )}
       </div>
+      {intentPop && <Modal onClose={() => setIntentPop(false)}><h2>怪物意图</h2>
+        <p className="intent-long" data-testid="intent-pop">{intent === 'attack' ? `下回合攻击 ${bs.monsterAtk} 点` : `护盾，挡 ${bs.shieldAmt} 点伤害`}</p>
+        <p className="hint">⚔ 攻击：数字是它这回合打你的伤害 · 🛡 护盾：先挡掉你的一部分伤害</p>
+        <button className="btn" data-testid="intent-ok" onClick={() => setIntentPop(false)}>知道了</button></Modal>}
       {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={onQuit} />}
     </div>
   );

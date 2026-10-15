@@ -77,8 +77,10 @@ export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, on
 }
 
 export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: BandConfig; current?: string; subjects?: string[]; onPick: (c: Character) => void; onBack: () => void }) {
-  void subjects;   // 按年级筛选角色：策划确认单未覆盖，保持原样
-  const list = cfg.chars === 'scifi' ? SCIFI : PUPS;
+  // 报告 #13：全部角色可选；本年级风格且主修科目在本年级题库里的标「推荐」，排在前面
+  const own = cfg.chars === 'scifi' ? SCIFI : PUPS;
+  const rec = (c: Character) => own.includes(c) && (!subjects?.length || subjects.some(s => s.includes(c.major)));
+  const list = cfg.band === 'K' ? own : [...own.filter(rec), ...own.filter(c => !rec(c)), ...(cfg.chars === 'scifi' ? PUPS : SCIFI)];
   // D10：点卡片只是选中，点〔就选它〕才保存；〔返回〕不改动
   const [sel, setSel] = useState<string | undefined>(current);
   const chosen = list.find(c => c.id === sel);
@@ -92,6 +94,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
             onClick={() => { setSel(c.id); if (cfg.band === 'K' || cfg.band === 'G1') speak(c.name); }}>
             <Sprite className="char-img" c={c} />
             <b>{c.name}</b>
+            {cfg.band !== 'K' && rec(c) && <span className="tag rec" data-testid="rec">⭐ 推荐</span>}
             {cfg.band !== 'K' && <span className="tag">主修 {c.major}</span>}
             {cfg.band !== 'K' && <small>{c.desc}</small>}
           </button>

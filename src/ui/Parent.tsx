@@ -15,7 +15,8 @@ import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
 import { exportAll, importAll, putImported, clearImported, validateBackup } from '../db';
-import { setKV, getKV } from '../db';
+import { setKV, getKV, answersOf, wrongOf, type AnswerRecord } from '../db';
+import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
@@ -82,7 +83,7 @@ function download(name: string, text: string, type = 'application/json') {
   a.download = name; document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
-type Tab = 'profiles' | 'bank' | 'time' | 'backup' | 'pin';
+type Tab = 'report' | 'profiles' | 'bank' | 'time' | 'backup' | 'pin';
 export interface ParentProps {
   settings: Settings; setSettings: (s: Settings) => void;
   profiles: Profile[]; setProfiles: (p: Profile[]) => void;
@@ -94,7 +95,7 @@ export interface ParentProps {
 }
 export function ParentSettings(props: ParentProps) {
   const [tab, setTab] = useState<Tab>(props.initialTab ?? 'profiles');
-  const tabs: [Tab, string][] = [['profiles', '👪 孩子档案'], ['bank', '📚 题库'], ['time', '⏳ 时长'], ['backup', '💾 备份/恢复'], ['pin', '🔑 密码']];
+  const tabs: [Tab, string][] = [['profiles', '👪 孩子档案'], ['report', '📊 学习报告'], ['bank', '📚 题库'], ['time', '⏳ 时长'], ['backup', '💾 备份/恢复'], ['pin', '🔑 密码']];
   return (
     <div className="parent">
       <div className="map-top">
@@ -105,6 +106,7 @@ export function ParentSettings(props: ParentProps) {
       <ParentAlerts goBackup={() => setTab('backup')} />
       <div className="parent-body">
         {tab === 'profiles' && <ProfilesTab {...props} />}
+        {tab === 'report' && <ReportTab {...props} />}
         {tab === 'bank' && <BankTab {...props} />}
         {tab === 'time' && <TimeTab {...props} />}
         {tab === 'backup' && <BackupTab />}
@@ -334,3 +336,36 @@ function PinTab({ settings, setSettings }: ParentProps) {
   }} />;
 }
 
+
+/** 报告 #9：每个孩子的学习报告（复用答题记录 + 错题本；月度汇总后续再做） */
+function ReportTab({ profiles, bank }: ParentProps) {
+  const [pid, setPid] = useState(profiles[0]?.id);
+  const [data, setData] = useState<{ a: AnswerRecord[]; w: WrongEntry[] }>();
+  useEffect(() => { if (!pid) return; setData(undefined); void Promise.all([answersOf(pid), wrongOf(pid)]).then(([a, w]) => setData({ a, w })); }, [pid]);
+  if (!profiles.length) return <p>还没有孩子档案。</p>;
+  const since = Date.now() - 7 * 864e5;
+  const by = new Map<string, { n: number; ok: number; n7: number; ok7: number }>();
+  const units = new Map<string, { n: number; ok: number }>();
+  for (const r of data?.a ?? []) {
+    const q = bank.byKey.get(r.questionId); const sub = r.subject ?? q?.subject ?? '其他';
+    const e = by.get(sub) ?? { n: 0, ok: 0, n7: 0, ok7: 0 }; e.n++; if (r.correct) e.ok++; if (r.at >= since) { e.n7++; if (r.correct) e.ok7++; } by.set(sub, e);
+    const u = q ? `${sub} · ${q.unit ?? q.tags?.[0] ?? ''}` : ''; if (u) { const x = units.get(u) ?? { n: 0, ok: 0 }; x.n++; if (r.correct) x.ok++; units.set(u, x); }
+  }
+  const pct = (a: number, b: number) => b ? Math.round(a / b * 100) + '%' : '—';
+  const weak = [...units].filter(([, x]) => x.n >= 3).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).slice(0, 5);
+  const w = data?.w ?? []; const today = dayStr();
+  return (
+    <div className="col gap16" data-testid="report">
+      <div className="row gap16 wrap">{profiles.map(p => <button key={p.id} className={`chip ${p.id === pid ? 'on' : ''}`} data-testid={'report-' + p.id} onClick={() => setPid(p.id)}>{p.avatar} {p.name}</button>)}</div>
+      {!data ? <p>加载中…</p> : <>
+        <p>累计答题 {data.a.length} 题 · 正确率 {pct(data.a.filter(r => r.correct).length, data.a.length)} · 近 7 天 {data.a.filter(r => r.at >= since).length} 题</p>
+        <table className="report-table"><thead><tr><th>科目</th><th>答题</th><th>正确率</th><th>近 7 天正确率</th></tr></thead>
+          <tbody>{[...by].map(([s, e]) => <tr key={s}><td>{s}</td><td>{e.n}</td><td>{pct(e.ok, e.n)}</td><td>{pct(e.ok7, e.n7)}</td></tr>)}</tbody></table>
+        {weak.length > 0 && <><h3>需要加强（至少 3 题）</h3><ul>{weak.map(([u, x]) => <li key={u}>{u}：{pct(x.ok, x.n)}（{x.n} 题）</li>)}</ul></>}
+        <h3>错题本</h3>
+        <p data-testid="report-wrong">共 {w.length} 题 · 今天待复习 {w.filter(e => e.due <= today).length} · 已掌握中（第 3 盒）{w.filter(e => e.box === 3).length}</p>
+        <p className="hint">月度汇总后续版本提供。</p>
+      </>}
+    </div>
+  );
+}

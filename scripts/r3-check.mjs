@@ -1,0 +1,40 @@
+// r3 回归（D6 暂停，战斗保持 r2）：#7 意图说明、#9 学习报告、#13 全角色+推荐。URL=... OUT=screenshots/live/ node scripts/r3-check.mjs
+import { chromium } from 'playwright';
+const URL = process.env.URL || 'http://localhost:4180/';
+const OUT = process.env.OUT || 'screenshots/r3/';
+const b = await chromium.launch();
+let bad = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
+const pg = await (await b.newContext({ viewport: { width: 1180, height: 820 } })).newPage(); const errs = [];
+pg.on('pageerror', e => errs.push(String(e)));
+await pg.addInitScript(() => { window.__zyTest = true; });
+const w = ms => pg.waitForTimeout(ms);
+const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
+await pg.goto(URL); await pg.waitForSelector('[data-testid=add-child]', { timeout: 30000 }); await w(600);
+await pg.click('[data-testid=add-child]'); await w(300);
+await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await w(300);
+await pg.fill('[data-testid=add-name]', 'r3-7'); await pg.click('[data-testid=home-grade-7]'); await w(500);
+await pg.click('text=r3-7'); await w(1200);
+const n = await pg.$$eval('[data-testid^=char-]', e => e.length);
+ok(n > 5 && await pg.isVisible('[data-testid=rec]'), `#13 初一全部角色可选（${n} 个）且标「推荐」`);
+await pg.screenshot({ path: OUT + 'r3-char-7.png' });
+await pg.click('[data-testid^=char-]'); await pg.click('[data-testid=char-confirm]'); await w(600);
+await pg.click('[data-testid=level-1]'); await w(600);
+for (let i = 0; i < 6 && await pg.isVisible('[data-testid=tutorial-next]'); i++) { await pg.click('[data-testid=tutorial-next]'); await w(150); }
+await pg.waitForSelector('[data-testid=intent]', { timeout: 10000 });
+await pg.click('[data-testid=intent]'); await w(300);
+const pop = await pg.textContent('[data-testid=intent-pop]').catch(() => '');
+ok(/下回合攻击 \d+ 点|护盾，挡 \d+ 点伤害/.test(pop), '#7 点意图弹出说明: ' + pop);
+await pg.screenshot({ path: OUT + 'r3-intent-pop.png' });
+await pg.click('[data-testid=intent-ok]'); await w(200);
+const o = await pg.$('.quiz .opt[data-correct="1"]'); if (o) { await o.click(); await w(900); }
+ok(await pg.$$eval('.actions .good', e => e.some(x => /[123]s 后自动攻击/.test(x.textContent))) || !o, '战斗流程保持 r2（答对后攻击/闪避 + 3 秒自动攻击）');
+await pg.screenshot({ path: OUT + 'r3-battle-r2flow.png' });
+await pg.click('[data-testid=pause]'); await w(200); await pg.click('[data-testid=quit]'); await w(150); await pg.click('[data-testid=quit-confirm]'); await w(300);
+await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(500);
+await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(300);
+await pg.click('text=稍后', { timeout: 3000 }).catch(() => {}); await w(300); await pg.click('[data-testid=ptab-report]', { timeout: 5000 }); await w(300);
+await pg.click('[data-testid^=report-]:has-text("r3-7")').catch(() => {}); await w(800);
+ok(await pg.isVisible('[data-testid=report-wrong]'), '#9 家长页按孩子的学习报告: ' + (await pg.textContent('[data-testid=report]').catch(() => '')).slice(0, 80));
+await pg.screenshot({ path: OUT + 'r3-parent-report.png' });
+ok(!errs.length, '无页面错误 ' + errs.join(' | '));
+await b.close(); console.log(bad ? `${bad} FAIL` : 'ALL PASS'); process.exit(bad ? 1 : 0);
