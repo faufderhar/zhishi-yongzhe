@@ -1,16 +1,15 @@
-/* 章节/关卡生成（GDD §7.1）：每个科目一个章节；按「册别 volume」顺序 + 源文件顺序，每 8 题 1 个普通关；
-   关卡序列按 [普通,普通,普通,精英,普通,Boss] 循环。精英关题池=前 3 个普通关，Boss 关题池=自上个 Boss 以来所有普通关。
-   不按 unit 文本分组（单元名会变）：unit 只用于册内排序和显示关卡名；关卡 id 取首题的 grade:id。 */
+/* 章节/关卡生成（GDD §7.1）：每个科目一个章节（地图区域），区域内按「册别 volume + 教材单元 unit」分组；
+   每单元每 8 题 1 个普通关，每 3 个普通关后 1 个精英关，单元 ≥12 题时以单元 Boss 收尾。
+   关卡 id 取首题的 grade:id（不含单元文本，单元改名不影响星级）。 */
 import type { Question } from './questions';
 import type { LevelKind } from './grades';
-export interface Level { id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string }
+export interface Level { id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string }
 export interface Chapter { subject: string; name: string; icon: string; levels: Level[]; volumes: string[]; count: number }
 export const AREA: Record<string, [string, string]> = {
   数学: ['数之城', '🔢'], 语文: ['墨韵山', '🖌️'], 英语: ['星语港', '🔤'], 诗词: ['诗词江湖', '📜'], 历史: ['时光长廊', '⏳'],
   物理: ['力之塔', '🧲'], 化学: ['炼金工坊', '⚗️'], 科学: ['探索森林', '🔬'],
   数数: ['数数小路', '🍎'], 颜色形状: ['彩虹花园', '🌈'], 认识动物: ['动物农场', '🐮'], 生活常识: ['温馨小屋', '🏠'], 儿歌古诗: ['儿歌小河', '🎵'],
 };
-const PATTERN: LevelKind[] = ['normal', 'normal', 'normal', 'elite', 'normal', 'boss'];
 export const CHUNK = 8;
 const SUBJECT_ORDER = ['数数', '颜色形状', '认识动物', '生活常识', '儿歌古诗', '数学', '语文', '英语', '诗词', '科学', '历史', '物理', '化学'];
 
@@ -35,24 +34,35 @@ export function buildChapters(qs: Question[], volumes: string[] | null = null): 
     volOrder.sort((a, b) => volRank(a) - volRank(b));
     // 册别为主键；册内按单元文本排序（只用于排序，不用于分组/命名 id），再按源顺序
     list.sort((a, b) => volOrder.indexOf(a.volume) - volOrder.indexOf(b.volume) || unitKey(a.unit).localeCompare(unitKey(b.unit)) || a.order - b.order);
-    const chunks: Question[][] = [];
-    for (let i = 0; i < list.length; i += CHUNK) chunks.push(list.slice(i, i + CHUNK));
-    // 最后一块太少（<4）并入前一块
-    if (chunks.length > 1 && chunks[chunks.length - 1].length < 4) chunks[chunks.length - 2].push(...chunks.pop()!);
+    // 按「册别 + 单元」分组成教材单元；太小（<4 题）的单元并入同册前一个单元
+    const groups: { volume: string; units: string[]; qs: Question[] }[] = [];
+    for (const q of list) {
+      const last = groups[groups.length - 1];
+      if (last && last.volume === q.volume && last.units[last.units.length - 1] === (q.unit ?? '')) last.qs.push(q);
+      else groups.push({ volume: q.volume, units: [q.unit ?? ''], qs: [q] });
+    }
+    for (let i = groups.length - 1; i > 0; i--) if (groups[i].qs.length < 4 && groups[i - 1].volume === groups[i].volume) {
+      groups[i - 1].qs.push(...groups[i].qs); groups[i - 1].units.push(...groups[i].units); groups.splice(i, 1);
+    }
+    if (groups.length > 1 && groups[0].qs.length < 4 && groups[1].volume === groups[0].volume) { groups[1].qs.unshift(...groups[0].qs); groups[1].units.unshift(...groups[0].units); groups.shift(); }
+    // 每个单元：每 8 题一个普通关；每 3 个普通关后加精英关；单元题 ≥ 12 时以 Boss 关收尾
     const levels: Level[] = [];
-    let ci = 0, slot = 0, sinceBoss: Question[][] = [], recent: Question[][] = [];
-    while (ci < chunks.length) {
-      const kind = PATTERN[slot % PATTERN.length]; slot++;
-      if (kind === 'normal') {
-        const c = chunks[ci++]; sinceBoss.push(c); recent.push(c); if (recent.length > 3) recent.shift();
-        levels.push({ id: `${subject}|N|${c[0].key}`, chapter: subject, index: levels.length + 1, kind, name: shortUnit(c[0].unit) || c[0].volume, pool: c.map(q => q.key), volume: c[0].volume });
-      } else if (kind === 'elite') {
-        const pool = recent.flat();
-        levels.push({ id: `${subject}|E|${pool[0].key}`, chapter: subject, index: levels.length + 1, kind, name: '精英挑战', pool: pool.map(q => q.key), volume: pool[0].volume });
-      } else {
-        const pool = sinceBoss.flat(); sinceBoss = [];
-        levels.push({ id: `${subject}|B|${pool[0].key}`, chapter: subject, index: levels.length + 1, kind, name: 'Boss 战', pool: pool.map(q => q.key), volume: pool[0].volume });
-      }
+    for (const g of groups) {
+      const unitTitle = shortUnit(g.units[0]) || g.volume;
+      const chunks: Question[][] = [];
+      for (let i = 0; i < g.qs.length; i += CHUNK) chunks.push(g.qs.slice(i, i + CHUNK));
+      if (chunks.length > 1 && chunks[chunks.length - 1].length < 4) chunks[chunks.length - 2].push(...chunks.pop()!);
+      let recent: Question[][] = [];
+      const meta = { volume: g.volume, unit: unitTitle };
+      chunks.forEach((c, k) => {
+        recent.push(c);
+        levels.push({ id: `${subject}|N|${c[0].key}`, chapter: subject, index: levels.length + 1, kind: 'normal', name: chunks.length > 1 ? `${unitTitle} ${k + 1}` : unitTitle, pool: c.map(q => q.key), ...meta });
+        if (recent.length === 3 && k < chunks.length - 1) {
+          const pool = recent.flat(); recent = [];
+          levels.push({ id: `${subject}|E|${pool[0].key}`, chapter: subject, index: levels.length + 1, kind: 'elite', name: '精英挑战', pool: pool.map(q => q.key), ...meta });
+        }
+      });
+      if (g.qs.length >= 12) levels.push({ id: `${subject}|B|${g.qs[0].key}`, chapter: subject, index: levels.length + 1, kind: 'boss', name: '单元 Boss', pool: g.qs.map(q => q.key), ...meta });
     }
     const [name, icon] = AREA[subject] ?? [subject + '之地', '⭐'];
     return { subject, name, icon, levels, volumes: volOrder, count: list.length };
@@ -73,9 +83,10 @@ export function starsFor(win: boolean, accuracy: number, revived: boolean): numb
   if (accuracy >= 0.8) return revived ? 2 : 3;
   return 1;
 }
-/** 解锁：每章第 1 关开放；前一关 ≥1 星解锁下一关 */
+/** 解锁：每个教材单元的第 1 关开放（孩子可从正在学的单元开始）；单元内前一关 ≥1 星解锁下一关 */
 export function isUnlocked(levels: Level[], i: number, stars: Record<string, number>) {
-  return i === 0 || (stars[levels[i - 1].id] ?? 0) > 0;
+  const p = levels[i - 1];
+  return i === 0 || p.unit !== levels[i].unit || p.volume !== levels[i].volume || (stars[levels[i - 1].id] ?? 0) > 0;
 }
 
 const CN: Record<string, number> = { 零: 0, 一: 1, 二: 2, 两: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 };

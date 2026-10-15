@@ -15,7 +15,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
     <div className="keypad-wrap">
       <div className="input-box" data-testid="input">{value.replace(/e/g, '×10^') || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
       <div className={`keypad ${letters ? 'alpha' : 'num'}`}>
-        {keys.map(k => <button key={k} onClick={() => onChange(value + k)}>{k === 'e' ? '×10ⁿ' : k}</button>)}
+        {keys.map(k => <button key={k} data-key={k} onClick={() => onChange(value + k)}>{k === 'e' ? '×10ⁿ' : k}</button>)}
         {letters && <button onClick={() => onChange(value + ' ')}>空格</button>}
         <button className="del" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
         <button className="ok" data-testid="ok" onClick={onOk} disabled={!value.trim()}>确定</button>

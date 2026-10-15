@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
@@ -6,12 +6,39 @@ import { PUPS, SCIFI, type Character } from '../game/characters';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
-import type { Profile, Progress } from '../state';
+import { newProfile, AVATARS, type Profile, type Progress } from '../state';
+import { Modal } from './common';
+import type { GradeKey } from '../game/questions';
 import { isDue, type WrongEntry } from '../game/wrongbook';
 import { speak } from '../tts';
 import { answerFeedback } from '../feedback';
 
-export function ProfileSelect({ profiles, remaining, onPick, onParent }: { profiles: Profile[]; remaining: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void }) {
+/** 首页年级列表：可玩 + 即将开放（灰） */
+export const HOME_GRADES: { g: GradeKey; open: boolean }[] = [
+  ...(['K1', '1', '2', '3', '4', '5', '6', '7'] as GradeKey[]).map(g => ({ g, open: true })),
+  { g: '8' as GradeKey, open: false }, { g: '9' as GradeKey, open: false }, { g: '10' as GradeKey, open: true }, { g: '11' as GradeKey, open: false }, { g: '12' as GradeKey, open: false },
+];
+const DEFAULT_AVATAR: Record<string, string> = { K1: '🐰', 1: '🐣', 2: '🐥', 3: '🦊', 4: '🐼', 5: '🦁', 6: '🐯', 7: '🧑‍🎓', 10: '🧑‍🔬' };
+function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: () => void }) {
+  const [name, setName] = useState('');
+  return (
+    <Modal onClose={onClose}>
+      <h2>添加孩子 · 选年级</h2>
+      <input className="name-input" data-testid="add-name" placeholder="名字（可不填）" value={name} maxLength={8} onChange={e => setName(e.target.value)} />
+      <div className="grade-grid" data-testid="grade-list">
+        {HOME_GRADES.map(({ g, open }) => (
+          <button key={g} className="grade-btn" disabled={!open} data-testid={'home-grade-' + g}
+            onClick={() => onAdd(newProfile(name.trim() || GRADE_LABEL[g] + '同学', g, DEFAULT_AVATAR[g] ?? AVATARS[0]))}>
+            {GRADE_LABEL[g]}{!open && <small>即将开放</small>}
+          </button>))}
+      </div>
+      <p className="hint">之后可在「家长」里改名字、头像和每日时长。</p>
+      <button className="btn ghost" onClick={onClose}>取消</button>
+    </Modal>
+  );
+}
+export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd }: { profiles: Profile[]; remaining: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void; onAdd: (p: Profile) => void }) {
+  const [adding, setAdding] = useState(false);
   return (
     <div className="center-screen">
       <h1 className="title">⚔️ 知识勇者</h1>
@@ -24,7 +51,10 @@ export function ProfileSelect({ profiles, remaining, onPick, onParent }: { profi
             <small className={remaining[p.id] === 0 ? 'warn' : ''}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}</small>
           </button>
         ))}
+        <button className="profile-card add-card" data-testid="add-child" onClick={() => setAdding(true)}>
+          <span className="big-emoji">➕</span><span>添加孩子</span><small>小班 · 1-6年级 · 初一 · 高一</small></button>
       </div>
+      {adding && <AddChild onClose={() => setAdding(false)} onAdd={p => { setAdding(false); onAdd(p); }} />}
       <button className="parent-btn" data-testid="parent" onClick={onParent}>🔒 家长</button>
     </div>
   );
@@ -86,13 +116,16 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
           {ch.levels.map((l, i) => {
             const open = isUnlocked(ch.levels, i, progress.stars);
             const s = progress.stars[l.id] ?? 0;
-            return (
+            const prev = ch.levels[i - 1];
+            const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
+            return (<Fragment key={l.id}>
+              {head && <div className="unit-head" data-testid="unit-head"><small>{l.volume}</small> {l.unit}</div>}
               <button key={l.id} className={`level ${l.kind} ${open ? '' : 'locked'} ${s ? 'done' : ''}`} disabled={!open || timeUp}
                 data-testid={`level-${i + 1}`} onClick={() => onLevel(l)}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 <span className="lv-name">{KIND_LABEL[l.kind] ? `${KIND_LABEL[l.kind]}` : l.name}</span>
                 <Stars n={s} />
-              </button>
+              </button></Fragment>
             );
           })}
         </div>

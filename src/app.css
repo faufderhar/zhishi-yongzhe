@@ -217,3 +217,17 @@ img.unit.boss{height:min(300px,34vh)}
 .fx-sprite{position:absolute;z-index:6;pointer-events:none;mix-blend-mode:screen}
 @supports (mix-blend-mode:plus-lighter){.fx-sprite{mix-blend-mode:plus-lighter}}
 .afterimage.sheet-box{position:absolute}
+.add-card{border:3px dashed #fff8;background:rgba(255,255,255,.08)}
+.grade-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0}
+.grade-btn{min-height:64px;border-radius:16px;font-size:20px;background:#3c4f9c;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.grade-btn:disabled{opacity:.4;background:#555}.grade-btn small{font-size:12px}
+.name-input{font-size:22px;padding:10px 16px;border-radius:12px;border:0;width:min(360px,80%)}
+.unit-head{grid-column:1/-1;width:100%;flex-basis:100%;font-size:18px;font-weight:700;padding:10px 4px 2px;border-bottom:1px solid #fff3;opacity:.95}
+.unit-head small{font-weight:400;opacity:.7;margin-right:6px}
+/* v1.2：战斗区加宽，主角与怪物拉开距离（冲刺可见） */
+.battle.std{grid-template-columns:56% 44%}
+.battle.hs{grid-template-columns:52% 48%}
+.arena .stage{height:300px}
+.arena .fx-shake{justify-content:space-between;padding:0 4%}
+.arena .mon-wrap{margin-right:2%}
+@media (orientation:portrait){.battle.std,.battle.hs{grid-template-columns:1fr}}

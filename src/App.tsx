@@ -146,7 +146,7 @@ export default function App() {
     <div className={`app ${theme}`} onPointerDown={unlockAudio}>
       {portrait && <div className="portrait-tip">横过来玩更舒服哦 ↻</div>}
       {screen.s === 'loading' && <div className="center-screen"><h1 className="title">⚔️ 知识勇者</h1><p className="sub">正在加载题库… {loadPct}%</p></div>}
-      {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })} />}
+      {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })} onAdd={p => { setProfiles([...profiles, p]); void pickProfile(p); }} />}
       {screen.s === 'gate' && <ParentGate settings={settings} onSetPin={h => setSettings({ ...settings, pinHash: h })} onOk={() => setScreen({ s: 'parent' })} onCancel={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'parent' && bank && <ParentSettings settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
         usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} onClose={() => setScreen({ s: 'profiles' })} />}

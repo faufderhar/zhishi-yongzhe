@@ -31,14 +31,20 @@ describe('年级段', () => {
 describe('章节与关卡', () => {
   const qs = pub('3');
   const ch = buildChapters(qs.filter(q => q.status === 'AI初审通过'));
-  it('每个科目一章；每 8 题一个普通关；按 N N N E N B 循环', () => {
+  it('每个科目一章；按 册别+单元 分组；单元内每 ≤8 题一关，单元 Boss 题池=整个单元', () => {
     expect(ch.map(c => c.subject)).toEqual(['数学', '语文', '英语', '诗词', '科学']);
     const m = ch[0];
-    expect(m.levels.slice(0, 6).map(l => l.kind)).toEqual(['normal', 'normal', 'normal', 'elite', 'normal', 'boss']);
-    expect(m.levels[0].pool.length).toBe(CHUNK);
-    const normals = m.levels.filter(l => l.kind === 'normal').flatMap(l => l.pool);
-    expect(new Set(normals).size).toBe(m.count);
-    expect(m.levels[5].pool.length).toBe(4 * CHUNK);
+    const normals = m.levels.filter(l => l.kind === 'normal');
+    expect(new Set(normals.flatMap(l => l.pool)).size).toBe(m.count);
+    for (const l of normals) expect(l.pool.length).toBeLessThanOrEqual(CHUNK + 3);
+    // 普通关不跨单元
+    const byKey = new Map(qs.map(q => [q.key, q]));
+    for (const l of normals) expect(new Set(l.pool.map(k => byKey.get(k)!.volume)).size).toBe(1);
+    for (const b of m.levels.filter(l => l.kind === 'boss')) {
+      const unitNormals = m.levels.filter(l => l.kind === 'normal' && l.unit === b.unit && l.volume === b.volume).flatMap(l => l.pool);
+      expect(new Set(b.pool)).toEqual(new Set(unitNormals));
+    }
+    expect(new Set(m.levels.map(l => l.unit)).size).toBeGreaterThan(3);
   });
   it('按 volume 排序（上册在前），按已学册别过滤', () => {
     const m = ch[0];
@@ -54,7 +60,11 @@ describe('章节与关卡', () => {
     expect(starsFor(false, 1, false)).toBe(0); expect(starsFor(true, 0.5, false)).toBe(1);
     expect(starsFor(true, 0.8, true)).toBe(2); expect(starsFor(true, 0.8, false)).toBe(3);
     const L = ch[0].levels;
-    expect(isUnlocked(L, 0, {})).toBe(true); expect(isUnlocked(L, 1, {})).toBe(false); expect(isUnlocked(L, 1, { [L[0].id]: 1 })).toBe(true);
+    expect(isUnlocked(L, 0, {})).toBe(true);
+    const j = L.findIndex((l, i) => i > 0 && l.unit === L[i - 1].unit && l.volume === L[i - 1].volume);
+    expect(isUnlocked(L, j, {})).toBe(false); expect(isUnlocked(L, j, { [L[j - 1].id]: 1 })).toBe(true);
+    const u = L.findIndex((l, i) => i > 0 && l.unit !== L[i - 1].unit);   // 每单元首关开放
+    expect(isUnlocked(L, u, {})).toBe(true);
   });
 });
 

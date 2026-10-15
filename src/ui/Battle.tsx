@@ -195,7 +195,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [actLeft, setActLeft] = useState(AUTO_ATTACK_SECONDS);
   const intent = intentOf(bs.turn);
   const D = useDirector(false, c, 0.75, mode === 'hs');
-  const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp });   // 血条按命中时刻扣减
+  const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp, c: bs.combo });   // 血条按命中时刻扣减
   const [ending, setEnding] = useState(false);
 
   useEffect(() => { setTimeLeft(limit); }, [q?.key, phase === 'question' || phase === 'revive-q']);
@@ -225,7 +225,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     setPhase('anim');
     try { await show(); } catch { /* 动画失败不影响流程 */ }
     if (!D.alive.current) return;
-    setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns);
+    setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setBs(ns);
   }
 
   function submit(val: string) {
@@ -235,7 +235,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       answerFeedback(ok);
       const right = rv.right + (ok ? 1 : 0);
       setPicked(val);
-      if (right >= 2) { const ns = revive(bs); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setPhase('feedback'); return; }
+      if (right >= 2) { const ns = revive(bs); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setPhase('feedback'); return; }
       if (rv.i + 1 >= rv.list.length || (rv.list.length - rv.i - 1) < 2 - right) { setRv(null); finish(bs); return; }
       setRv({ ...rv, i: rv.i + 1, right }); setInput(''); setMulti([]); setTimeLeft(limit);
       return;
@@ -250,7 +250,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     if (g === 'partial') {   // 多选漏选：半伤害、不受击、自动攻击
       const [ns, r] = resolveCorrect(bs, c, 'attack', q.subject, q.difficulty, 0.5);
       const qq = q;
-      void play(ns, () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: r.dealt, crit: false, dodge: false, onImpact: () => setView(v => ({ ...v, m: ns.monsterHp })) }))
+      void play(ns, () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: r.dealt, crit: false, dodge: false, onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })) }))
         .then(() => { setFb({ ok: true, text: '漏选了，半伤害', dealt: r.dealt, taken: 0 }); setPhase('feedback'); setCanNext(true); });
       return;
     }
@@ -260,7 +260,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     }
     const [ns, r] = resolveWrong(bs, c);
     setCanNext(false);
-    void play(ns, () => D.dir.current?.monsterAttack(r.taken, () => setView(v => ({ ...v, p: ns.playerHp })))).then(() => {
+    void play(ns, () => D.dir.current?.monsterAttack(r.taken, () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })))).then(() => {
       setFb({ ok: false, text: val === '' ? '⏰ 超时了' : '答错了', taken: r.taken }); setPhase('feedback');
       setTimeout(() => setCanNext(true), 1200);   // 解析至少停留一会儿
     });   // 解析至少停留一会儿
@@ -271,7 +271,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     const crit = a === 'attack' && ns.combo >= 3;   // 3 连击起的攻击算「暴击」演出（数值仍按 battle.ts）
     setCanNext(true);
     void play(ns, () => D.dir.current?.playerAttack({ subject: q.subject, major: c.major, dealt: r.dealt, crit, dodge: a === 'dodge', healed: r.healed, taken: r.taken,
-      onImpact: () => setView(v => ({ ...v, m: ns.monsterHp })), onCounter: () => setView(v => ({ ...v, p: ns.playerHp })) })).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => setPhase('feedback'));
+      onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })), onCounter: () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })) })).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => setPhase('feedback'));
   }
   function next() {
     const s = bs;
@@ -297,7 +297,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       <div className="hud">
         <Bar label="❤" v={view.p} max={bs.playerMax} cls="hp" />
         {limit ? <span className={`timer ${asking && timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {asking ? timeLeft : '—'}s</span> : <span>⏱ 不限时</span>}
-        <span>连击 x{bs.combo}</span>
+        <span data-testid="combo">连击 x{view.c}</span>
         {cfg.battle === 'full' && <span>专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(2 - bs.focus)}</span>}
         <span className="grow" />
         <span className="lvl-title">{title}</span>
@@ -326,7 +326,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="qmeta">{q.subject} · {q.type} · 难度{q.difficulty}
           {q.status !== '已通过' && q.status !== 'AI初审通过' && <span className="pending">{q.status}</span>}
           {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
-        <div className="qtext"><Tex text={q.question} /></div>
+        <div className="qtext" data-ans={import.meta.env.DEV || (window as unknown as { __zyTest?: boolean }).__zyTest ? q.answer[0] : undefined}><Tex text={q.question} /></div>
         {asking && q.type === '多选' && (
           <div className="opts">
             {q.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} data-testid={'opt-' + ch.key}
