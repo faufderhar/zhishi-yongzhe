@@ -1,0 +1,18 @@
+{
+  "image": "english_letter_missile_sheet.webp",
+  "frame_width": 384,
+  "frame_height": 384,
+  "frame_count": 14,
+  "columns": 4,
+  "rows": 4,
+  "fps": 20,
+  "loop": false,
+  "anchor": {
+    "x": 340,
+    "y": 192,
+    "note": "pixels in frame; 脚底中心/特效作用点"
+  },
+  "webp_quality": 80,
+  "blend": "additive 推荐（也可 normal，已预乘发光）",
+  "peak_frame": 7
+}

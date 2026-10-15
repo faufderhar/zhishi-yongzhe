@@ -172,3 +172,48 @@ img.unit.boss{height:min(300px,34vh)}
 .pin-keys{display:grid;grid-template-columns:repeat(3,96px);gap:14px}
 .pin-keys button{height:80px;border-radius:18px;background:#fff2;font-size:32px}.pin-keys .ok{background:#4cd964;color:#123;font-size:22px}
 @media (orientation:portrait){.map-body{grid-template-columns:1fr;grid-template-rows:auto 1fr}.chapters{flex-direction:row;overflow-x:auto}.chapter{min-width:220px}}
+
+/* ================= 战斗演出 v1.1 ================= */
+.stage,.kstage{isolation:isolate}
+.fx-shake{position:relative;display:flex;justify-content:space-around;align-items:center;width:100%;height:100%;will-change:transform}
+.kstage .fx-shake{justify-content:space-between;align-items:flex-end}
+.unit-wrap{position:relative;display:inline-block;will-change:transform}
+.unit-wrap.glowing::before{content:'';position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(circle,var(--glow,#fff) 0%,transparent 65%);opacity:.75;animation:glowPulse .35s ease-in-out infinite alternate;pointer-events:none;z-index:-1}
+@keyframes glowPulse{from{opacity:.4;transform:scale(.9)}to{opacity:.85;transform:scale(1.08)}}
+.breathe{transform-origin:50% 100%;animation:breathe 2.4s ease-in-out infinite}
+.breathe.slow{animation-duration:3.1s;animation-delay:-.8s}
+@keyframes breathe{0%,100%{transform:translateY(0) scale(1,1)}50%{transform:translateY(-3px) scale(1.015,1.03)}}
+.mon-wrap .breathe{animation-name:monFloat}
+@keyframes monFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.white-flash{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:contain;filter:brightness(0) invert(1);opacity:0;pointer-events:none}
+.kmon.white-flash{display:none}
+.unit-wrap.hurt::after{content:'';position:absolute;inset:0;background:radial-gradient(circle,#ff3b3b88,transparent 70%);animation:flashA .35s forwards;pointer-events:none}
+.afterimage{position:absolute;pointer-events:none;opacity:0;object-fit:contain;filter:saturate(0) brightness(1.6) drop-shadow(0 0 6px #7fd4ff)}
+.fx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.fnum{position:absolute;z-index:6;pointer-events:none;font-weight:900;font-size:40px;white-space:nowrap;transform:translate(-50%,0);color:#ffe066;
+  -webkit-text-stroke:2px #5a2a00;text-shadow:0 3px 0 #5a2a00,0 0 12px #000a;font-family:system-ui,'PingFang SC',sans-serif}
+.fnum-crit{font-size:56px;color:#ff5a3c;-webkit-text-stroke:2px #fff3;text-shadow:0 3px 0 #6b0000,0 0 18px #ffb000}
+.fnum-heal{color:#7dffa0;-webkit-text-stroke:2px #0b4d1f;text-shadow:0 3px 0 #0b4d1f}
+.fnum-hurt{color:#ff6b6b;-webkit-text-stroke:2px #4d0000;text-shadow:0 3px 0 #4d0000}
+.fnum-miss{font-size:30px;color:#bfe9ff;-webkit-text-stroke:1px #123}
+.fnum-soft{font-size:38px;color:#ffb3c7;-webkit-text-stroke:0;text-shadow:0 2px 0 #fff,0 0 10px #fff}
+.stage.defeated{transition:opacity .8s}.stage.defeated .mon-wrap{opacity:.9}
+.track{position:relative}
+.track .fill,.track .ghost{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:left}
+.track .ghost{background:#fff;opacity:.75;transition:transform .55s cubic-bezier(.3,0,.3,1) .45s}
+.mhp .track .ghost{background:#ffd27a}
+.track .fill{transition:transform .28s ease-out}
+.anim-wait{font-size:22px;opacity:.75;text-align:center;padding:24px}
+.toggle-line{display:flex;align-items:center;gap:10px;font-size:20px;justify-content:center}.toggle-line input{width:26px;height:26px}
+/* 减少动画：系统偏好或应用设置 */
+.reduce-motion .breathe,.reduce-motion .unit-wrap.glowing::before{animation:none}
+.reduce-motion .track .ghost{transition:none}
+@media (prefers-reduced-motion:reduce){.breathe,.unit-wrap.glowing::before{animation:none}.track .ghost{transition:none}}
+/* 美术序列帧 */
+.sheet-box{position:relative;overflow:hidden;display:block;will-change:transform}
+.sheet-box img{position:absolute;left:0;top:0;max-width:none;will-change:transform;pointer-events:none}
+.breathe.has-sheet{animation:none}.has-sheet>picture,.has-sheet>img{display:none}
+.kpup-wrap .sheet-box{filter:drop-shadow(0 10px 6px #0003)}
+.fx-sprite{position:absolute;z-index:6;pointer-events:none;mix-blend-mode:screen}
+@supports (mix-blend-mode:plus-lighter){.fx-sprite{mix-blend-mode:plus-lighter}}
+.afterimage.sheet-box{position:absolute}

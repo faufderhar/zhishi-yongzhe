@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 export function Bar({ label, v, max, cls }: { label: string; v: number; max: number; cls: string }) {
-  return <span className={`bar ${cls}`}>{label}<span className="track"><span className="fill" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /></span>{v}/{max}</span>;
+  return <span className={`bar ${cls}`}>{label}<span className="track"><span className="ghost" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /><span className="fill" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /></span>{v}/{max}</span>;
 }
 export function Stars({ n, max = 3, size }: { n: number; max?: number; size?: number }) {
   return <span className="stars" style={size ? { fontSize: size } : undefined}>{Array.from({ length: max }, (_, i) => <span key={i} className={i < n ? 'on' : 'off'}>★</span>)}</span>;

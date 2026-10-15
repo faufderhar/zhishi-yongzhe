@@ -1,0 +1,16 @@
+{
+  "image": "idle_sheet.webp",
+  "frame_width": 384,
+  "frame_height": 320,
+  "frame_count": 8,
+  "columns": 4,
+  "rows": 2,
+  "fps": 10,
+  "loop": true,
+  "anchor": {
+    "x": 150,
+    "y": 304,
+    "note": "pixels in frame; 脚底中心/特效作用点"
+  },
+  "webp_quality": 80
+}

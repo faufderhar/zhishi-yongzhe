@@ -11,7 +11,10 @@ export default defineConfig({
         { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
         { src: 'icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
       ] },
-    workbox: { globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}'], maximumFileSizeToCacheInBytes: 4 * 1024 * 1024 },
+    workbox: { globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}'], maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+      // 序列帧约 4.3MB：不进预缓存，战斗时懒加载并运行时缓存（家长页可一键预下载供离线）
+      globIgnores: ['anim/**', 'fx/**'],
+      runtimeCaching: [{ urlPattern: /\/(anim|fx)\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-anim', expiration: { maxEntries: 120 } } }] },
   })],
   test: { environment: 'node' },
   preview: { host: true, port: 4173, strictPort: true, allowedHosts: true },

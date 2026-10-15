@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
+import { loadFxManifests } from './fx/assets';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, type Question } from './game/questions';
 import { bandConfig } from './game/grades';
@@ -41,6 +42,7 @@ export default function App() {
   const masteredThisLevel = useRef(0);
 
   const reloadBank = useCallback(async () => { setBank(await loadAllBanks((d, t) => setLoadPct(Math.round(d / t * 100)))); }, []);
+  useEffect(() => { void loadFxManifests(); }, []);
   useEffect(() => {
     (async () => {
       const [st, ps, fl] = await Promise.all([S.loadSettings(), S.loadProfiles(), S.loadFlags()]);

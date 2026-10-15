@@ -30,6 +30,7 @@ export function speak(text: string, lang = 'zh-CN') {
   setTimeout(() => synth.resume(), 250);
 }
 let sfxCtx: AudioContext | null = null;
+export const audioCtx = () => sfxCtx;
 export function beep(good: boolean) {
   if (!sfxCtx) return;
   const o = sfxCtx.createOscillator(), g = sfxCtx.createGain();

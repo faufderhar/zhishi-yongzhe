@@ -1,0 +1,18 @@
+{
+  "image": "hit_spark_light_sheet.webp",
+  "frame_width": 256,
+  "frame_height": 256,
+  "frame_count": 12,
+  "columns": 4,
+  "rows": 3,
+  "fps": 24,
+  "loop": false,
+  "anchor": {
+    "x": 128,
+    "y": 128,
+    "note": "pixels in frame; 脚底中心/特效作用点"
+  },
+  "webp_quality": 80,
+  "blend": "additive 推荐（也可 normal，已预乘发光）",
+  "peak_frame": 6
+}

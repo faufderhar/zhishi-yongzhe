@@ -1,6 +1,6 @@
 // 截图 + 端到端检查：node scripts/shots.mjs（需先 npx vite preview --port 4173）
 import { chromium } from 'playwright';
-const URL = process.env.URL || 'http://localhost:4173/';
+const URL = process.env.URL || 'http://localhost:4173/zhishi-yongzhe/';
 const OUT = 'screenshots/';
 const b = await chromium.launch();
 const ctx = await b.newContext({ viewport: { width: 1180, height: 820 }, hasTouch: true });
@@ -54,11 +54,14 @@ async function answer(right) {
 }
 async function playLevel({ wrongFirst = 1, shotPrefix, maxQ = 14 } = {}) {
   let n = 0, shotWrong = false, shotAct = false;
-  while (n++ < maxQ) {
+  while (n++ < maxQ * 3) {
+    await pg.waitForSelector('[data-testid=anim]', { state: 'detached', timeout: 8000 }).catch(() => {});   // 等演出播完
     if (await pg.$('[data-testid=to-map]')) return true;
     if (await pg.$('[data-testid=revive-no]')) { await tap('[data-testid=revive-no]'); await wait(300); continue; }
     if (await pg.$('[data-testid=next]')) { await pg.waitForSelector('[data-testid=next]:not([disabled])'); await tap('[data-testid=next]'); await wait(300); continue; }
+    if (await pg.$('[data-testid=anim]')) continue;
     await answer(n > wrongFirst);
+    await pg.waitForSelector('[data-testid=anim]', { state: 'detached', timeout: 8000 }).catch(() => {});
     if (await pg.$('[data-testid=act-attack]')) { if (shotPrefix && !shotAct) { await shot(shotPrefix + '-action'); shotAct = true; } await tap('[data-testid=act-attack]'); await wait(300); }
     if (shotPrefix && !shotWrong && await pg.$('.feedback.bad')) { await shot(shotPrefix + '-wrong'); shotWrong = true; }
   }
