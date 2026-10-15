@@ -4,7 +4,7 @@ import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, type Character } from '../game/characters';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, type Chapter, type Level } from '../game/levels';
+import { isUnlocked, starOf, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
@@ -107,7 +107,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
       <div className="map-body">
         <div className="chapters">
           {chapters.map((x, i) => {
-            const got = x.levels.reduce((a, l) => a + (progress.stars[l.id] ?? 0), 0);
+            const got = x.levels.reduce((a, l) => a + starOf(l, progress.stars), 0);
             return <button key={x.subject} className={`chapter ${i === chapterIdx ? 'on' : ''}`} data-testid={'chapter-' + x.subject} onClick={() => setChapterIdx(i)}>
               <span className="ch-icon">{x.icon}</span><span><b>{x.name}</b><small>{x.subject} · {x.count} 题 · ★{got}/{x.levels.length * 3}</small></span></button>;
           })}
@@ -115,7 +115,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
         <div className="levels" data-testid="levels">
           {ch.levels.map((l, i) => {
             const open = isUnlocked(ch.levels, i, progress.stars);
-            const s = progress.stars[l.id] ?? 0;
+            const s = starOf(l, progress.stars);
             const prev = ch.levels[i - 1];
             const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
             return (<Fragment key={l.id}>

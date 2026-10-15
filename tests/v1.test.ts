@@ -145,3 +145,24 @@ describe('单元排序', () => {
     expect(unitKey('2.10') > unitKey('2.9')).toBe(true);
   });
 });
+
+import { chapterOf } from '../src/game/levels';
+describe('小节合并到章', () => {
+  it('解析章/单元号', () => {
+    expect(chapterOf('七上·第2章 有理数·2.2 数轴')?.key).toBe('第2章');
+    expect(chapterOf('七上·第2章 有理数·2.4 有理数的加法')?.key).toBe('第2章');
+    expect(chapterOf('必修一·第三章 相互作用——力·2 摩擦力')?.key).toBe('第3章');
+    expect(chapterOf('必修上·第七单元·14.2 荷塘月色')?.key).toBe('第7单元');
+    expect(chapterOf('7A Unit 3 Welcome to our school!')?.key).toBe('Unit3');
+    expect(chapterOf('必修一·专题3 从海水中获得的化学物质·第二单元 金属钠')?.key).toBe('专题3');
+    expect(chapterOf('2.4 有理数')?.key).toBe('第2章');
+    expect(chapterOf('三上·大青树下的小学')).toBeNull();
+  });
+  it('初一数学按章合并；普通关仍按小节切分（id 不变）', () => {
+    const qs = pub('7').filter(q => q.subject === '数学');
+    const m = buildChapters(qs)[0];
+    const units = [...new Set(m.levels.map(l => l.unit))];
+    expect(units.length).toBeLessThanOrEqual(14);
+    expect(units.filter(u => u.startsWith('第2章')).length).toBe(1);
+  });
+});
