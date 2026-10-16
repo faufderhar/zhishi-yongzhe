@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-v24（AI初审）",
- "version": "v24",
+ "bank_name": "三兄妹题库-高一-v25（AI初审）",
+ "version": "v25",
  "questions": [
   {
    "id": "Y10-001",
@@ -73345,6 +73345,6659 @@
    "change_tag": "新增",
    "tags": [
     "打点计时器"
+   ]
+  },
+  {
+   "id": "M10-507",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·第2章 常用逻辑用语·2.1 命题、定理、定义",
+   "type": "选择",
+   "question": "命题“若 $x>1$，则 $x>0$”是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "假命题",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无法判断真假",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "真命题",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不是命题",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "大于 1 的数一定大于 0。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "命题、定理、定义",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "T5e0849",
+   "change_tag": "新增",
+   "tags": [
+    "命题真假"
+   ]
+  },
+  {
+   "id": "M10-508",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第9章 平面向量·9.1 向量概念",
+   "type": "选择",
+   "question": "在平行四边形 $ABCD$ 中，与 $\\overrightarrow{AB}$ 相等的向量是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$\\overrightarrow{CD}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\overrightarrow{BA}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\overrightarrow{AD}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\overrightarrow{DC}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "$AB$ 与 $DC$ 平行且相等，方向相同。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "向量概念",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "Te7cc53",
+   "change_tag": "新增",
+   "tags": [
+    "向量概念"
+   ]
+  },
+  {
+   "id": "M10-509",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第10章 三角恒等变换·10.1 两角和与差的三角函数",
+   "type": "填空",
+   "question": "$\\cos75^\\circ\\cos15^\\circ-\\sin75^\\circ\\sin15^\\circ$ 的值是多少？",
+   "tts_text": "-",
+   "answer": [
+    "0"
+   ],
+   "explanation": "原式 $=\\cos(75^\\circ+15^\\circ)=\\cos90^\\circ=0$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "两角和与差的三角函数",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "Tfd959d",
+   "change_tag": "新增",
+   "tags": [
+    "两角和正弦"
+   ]
+  },
+  {
+   "id": "M10-510",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第13章 立体几何初步·13.1 基本立体图形",
+   "type": "填空",
+   "question": "一个棱柱共有 15 条棱，它有多少个顶点？",
+   "answer": [
+    "10"
+   ],
+   "explanation": "$n$ 棱柱有 $3n$ 条棱，$n=5$，五棱柱有 10 个顶点。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "基本立体图形",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "T99c076",
+   "change_tag": "新增",
+   "tags": [
+    "棱柱"
+   ]
+  },
+  {
+   "id": "M10-511",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第14章 统计·14.2 抽样",
+   "type": "填空",
+   "question": "某校有男生 300 人、女生 200 人，用分层抽样抽取 50 人，应抽取女生多少人？",
+   "answer": [
+    "20"
+   ],
+   "explanation": "$50\\times\\dfrac{200}{500}=20$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "抽样",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "Te3a130",
+   "change_tag": "新增",
+   "tags": [
+    "分层抽样"
+   ]
+  },
+  {
+   "id": "M10-512",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第14章 统计·14.1 获取数据的基本途径及相关概念",
+   "type": "选择",
+   "question": "为了解某市高一学生的睡眠时间，从中抽取 500 名学生进行调查。下列说法正确的是？",
+   "options": [
+    {
+     "text": "该市全体高一学生是总体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "这 500 名学生是样本",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "这 500 名学生的睡眠时间是一个样本",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "样本容量是 500 名",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "考察对象是“睡眠时间”；样本容量没有单位。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "获取数据的基本途径及相关概念",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "Te33ed1",
+   "change_tag": "新增",
+   "tags": [
+    "调查方式"
+   ]
+  },
+  {
+   "id": "M10-513",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第14章 统计·14.3 统计图表",
+   "type": "填空",
+   "question": "某组数据的频数是 12，样本容量是 60，该组的频率是多少？",
+   "answer": [
+    "0.2"
+   ],
+   "explanation": "频率 = 频数 ÷ 样本容量 = 12÷60=0.2。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "统计图表",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "T4d86ec",
+   "change_tag": "新增",
+   "tags": [
+    "统计图表"
+   ]
+  },
+  {
+   "id": "M10-514",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第14章 统计·14.3 统计图表",
+   "type": "选择",
+   "question": "要直观比较两个班各分数段人数的多少，最合适的统计图是？",
+   "options": [
+    {
+     "text": "折线统计图",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "条形统计图",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扇形统计图",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "散点图",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "条形图便于比较各类数量的多少。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "统计图表",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "T68b7d6",
+   "change_tag": "新增",
+   "tags": [
+    "统计图表"
+   ]
+  },
+  {
+   "id": "M10-515",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第14章 统计·14.3 统计图表",
+   "type": "填空",
+   "question": "频率分布直方图中组距为 10，五组小矩形的高依次为 0.01、0.02、0.03、$a$、0.01，则 $a$ 等于多少？",
+   "tts_text": "-",
+   "answer": [
+    "0.03"
+   ],
+   "explanation": "各组频率之和为 1：$(0.01+0.02+0.03+a+0.01)\\times10=1$，得 $a=0.03$。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "统计图表",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "Tab8a2e",
+   "change_tag": "新增",
+   "tags": [
+    "统计图表"
+   ]
+  },
+  {
+   "id": "M10-516",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修二·第15章 概率·15.1 随机事件和样本空间",
+   "type": "填空",
+   "question": "袋中有红、黄、蓝三个球，依次不放回地摸出两个，记录先后颜色（考虑顺序），样本空间中有几个样本点？",
+   "answer": [
+    "6"
+   ],
+   "explanation": "第一个有 3 种，第二个有 2 种：3×2=6。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第二册",
+   "knowledge_point": "随机事件和样本空间",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
+   "template": "T863b21",
+   "change_tag": "新增",
+   "tags": [
+    "样本空间"
+   ]
+  },
+  {
+   "id": "P10-312",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第一章 运动的描述·1 质点 参考系",
+   "type": "选择",
+   "question": "研究下列问题时，可以把火车看成质点的是？",
+   "options": [
+    {
+     "text": "研究火车进站时某节车门停靠的位置",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "计算火车从北京到上海的运行时间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "研究火车车轮的转动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "计算火车通过一座短桥所用的时间",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "只有远距离运行时火车的大小、形状可以忽略。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "质点 参考系",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "Taaf3a0",
+   "change_tag": "新增",
+   "tags": [
+    "质点"
+   ]
+  },
+  {
+   "id": "P10-313",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第一章 运动的描述·1 质点 参考系",
+   "type": "选择",
+   "question": "“月亮在白莲花般的云朵里穿行”，描述月亮运动所选的参考系是？",
+   "options": [
+    {
+     "text": "月亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "云朵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "相对云朵，月亮在“穿行”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "质点 参考系",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T35c6bb",
+   "change_tag": "新增",
+   "tags": [
+    "质点"
+   ]
+  },
+  {
+   "id": "P10-314",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第三章 相互作用——力·5 共点力的平衡",
+   "type": "填空",
+   "question": "重 10 N 的物体放在水平桌面上，用 3 N 的水平力推它，物体仍然静止，此时物体受到的静摩擦力大小是多少 N？",
+   "answer": [
+    "3"
+   ],
+   "explanation": "物体平衡，水平方向静摩擦力与推力大小相等。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "共点力的平衡",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "Tf21ffa",
+   "change_tag": "新增",
+   "tags": [
+    "共点力平衡",
+    "斜面"
+   ]
+  },
+  {
+   "id": "Y10-118",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第六单元·劝学",
+   "type": "选择",
+   "question": "《劝学》“君子博学而日参省乎己”中“参”的意思是？",
+   "options": [
+    {
+     "text": "参观",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "参加",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "参考",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "检验、检查",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“参”是检验，“省”是省察。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "劝学",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T7beefe",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "劝学"
+   ]
+  },
+  {
+   "id": "Y10-119",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第六单元·师说",
+   "type": "选择",
+   "question": "《师说》中“句读之不知，惑之不解，或师焉，或不焉”，作者对这种做法的评价是？",
+   "options": [
+    {
+     "text": "耻学于师",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小学而大遗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圣人无常师",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "君子不齿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：小学而大遗，吾未见其明也。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "师说",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Te8adc2",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "师说"
+   ]
+  },
+  {
+   "id": "Y10-120",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第六单元·师说",
+   "type": "选择",
+   "question": "《师说》“巫医乐师百工之人，不耻相师”中“不耻相师”的意思是？",
+   "options": [
+    {
+     "text": "不以互相学习为耻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不以老师为耻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "耻于互相学习",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不尊敬老师",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“耻”是意动用法，以……为耻。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "师说",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Ta093c9",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "师说"
+   ]
+  },
+  {
+   "id": "Y10-121",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第六单元·师说",
+   "type": "选择",
+   "question": "《师说》引用孔子“三人行，则必有我师”，是为了说明？",
+   "options": [
+    {
+     "text": "孔子学识渊博",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老师必须比学生年长",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学习只能向孔子学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圣人无常师，应向一切有学问的人学习",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "前文写“圣人无常师。孔子师郯子、苌弘、师襄、老聃”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "师说",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T49cbaa",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "师说"
+   ]
+  },
+  {
+   "id": "Y10-122",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·赤壁赋",
+   "type": "选择",
+   "question": "《赤壁赋》“壬戌之秋，七月既望”中“既望”指的是？",
+   "options": [
+    {
+     "text": "农历每月十五日",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农历每月十六日",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农历每月初一",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农历每月最后一天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“望”是农历十五，“既望”是十六。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "赤壁赋",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T966679",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "赤壁赋"
+   ]
+  },
+  {
+   "id": "Y10-123",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·赤壁赋",
+   "type": "选择",
+   "question": "《赤壁赋》“纵一苇之所如”中“一苇”指的是？",
+   "options": [
+    {
+     "text": "小船",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一片树叶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一根芦苇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一支船桨",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "用“一苇”比喻小船。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "赤壁赋",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tb0cf7f",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "赤壁赋"
+   ]
+  },
+  {
+   "id": "Y10-124",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·赤壁赋",
+   "type": "选择",
+   "question": "《赤壁赋》中苏子以“水”与“月”为喻，主要阐发的是？",
+   "options": [
+    {
+     "text": "人生短暂应及时行乐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "赤壁之战的经过",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变与不变的道理，借以劝慰客人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "月亮的阴晴圆缺",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "赤壁赋",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T38ef30",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "赤壁赋"
+   ]
+  },
+  {
+   "id": "Y10-125",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第五单元 整本书阅读《乡土中国》",
+   "type": "选择",
+   "question": "《乡土中国》中，费孝通认为“长老统治”所依靠的权力是？",
+   "options": [
+    {
+     "text": "同意权力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "横暴权力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "时势权力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "教化性的权力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "长老统治建立在教化性权力的基础上。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第五单元 整本书阅读《乡土中国》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T52448e",
+   "change_tag": "新增",
+   "tags": [
+    "整本书阅读"
+   ]
+  },
+  {
+   "id": "Y10-126",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第五单元 整本书阅读《乡土中国》",
+   "type": "选择",
+   "question": "《乡土中国》认为乡土社会的人们“不流动”，主要原因是？",
+   "options": [
+    {
+     "text": "政府禁止迁移",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "交通不便",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人口太少",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "以农为生，世代定居，人和土地黏在一起",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“直接靠农业来谋生的人是黏着在土地上的”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第五单元 整本书阅读《乡土中国》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tb3df62",
+   "change_tag": "新增",
+   "tags": [
+    "整本书阅读"
+   ]
+  },
+  {
+   "id": "Y10-127",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "拓展·必修下 整本书阅读《红楼梦》",
+   "type": "选择",
+   "question": "《红楼梦》中与贾宝玉有“金玉良缘”之说的人物是？",
+   "options": [
+    {
+     "text": "薛宝钗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "林黛玉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "史湘云",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "妙玉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "宝钗有金锁，宝玉有通灵宝玉。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修下册",
+   "knowledge_point": "必修下 整本书阅读《红楼梦》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tf0a6ff",
+   "change_tag": "新增",
+   "tags": [
+    "整本书阅读",
+    "红楼梦"
+   ]
+  },
+  {
+   "id": "Y10-128",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·14.2 荷塘月色",
+   "type": "选择",
+   "question": "《荷塘月色》中，作者因“这几天心里颇不宁静”，在什么时候去看荷塘？",
+   "options": [
+    {
+     "text": "中午",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "清晨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夜晚，月光下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "傍晚雨后",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "作者在满月的夜晚独自去荷塘。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "荷塘月色",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T87a413",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y10-129",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·14.1 故都的秋",
+   "type": "选择",
+   "question": "《故都的秋》中，作者看到扫街后落蕊上“一条条扫帚的丝纹”，产生的感受是？",
+   "options": [
+    {
+     "text": "细腻、清闲，又有点儿落寞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杂乱肮脏",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热闹欢快",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "紧张忙碌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "原文：觉得细腻，又觉得清闲，潜意识下并且还觉得有点儿落寞。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "故都的秋",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T152b61",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y10-130",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·15 我与地坛（节选）",
+   "type": "选择",
+   "question": "《我与地坛》中写母亲在园中焦急寻找儿子却不让儿子知道，主要表现了？",
+   "options": [
+    {
+     "text": "母亲对地坛的喜爱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "母亲对儿子深沉、隐忍的爱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "母亲喜欢在园中散步",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "母亲对儿子的不满",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "母亲担心儿子又尊重儿子，把焦虑藏在心里。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "我与地坛（节选）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T232b47",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y10-131",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第八单元 词语积累与语言运用",
+   "type": "选择",
+   "question": "下列成语中，没有错别字的是？",
+   "options": [
+    {
+     "text": "自抱自弃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "谈笑风声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一股作气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "走投无路",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "应为“一鼓作气”“自暴自弃”“谈笑风生”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第八单元 词语积累与语言运用",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T543349",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
+   ]
+  },
+  {
+   "id": "Y10-132",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第八单元 词语积累与语言运用",
+   "type": "选择",
+   "question": "对成语“不刊之论”的解释，正确的是？",
+   "options": [
+    {
+     "text": "错误的观点",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不能改动或磨灭的言论，形容言论正确",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不能刊登的言论",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不值一提的话",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“刊”指削除（古代削去竹简上的错字）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第八单元 词语积累与语言运用",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tb972ff",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
+   ]
+  },
+  {
+   "id": "Y10-133",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "拓展（课外·毛泽东诗词）",
+   "type": "选择",
+   "question": "“雄关漫道真如铁，而今迈步从头越”中的“雄关”指的是？",
+   "options": [
+    {
+     "text": "娄山关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山海关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘉峪关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雁门关",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "出自《忆秦娥·娄山关》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "毛泽东诗词）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tdffd12",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "拓展"
+   ]
+  },
+  {
+   "id": "Y10-134",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "拓展（课外·毛泽东诗词）",
+   "type": "选择",
+   "question": "“江山如此多娇，引无数英雄竞折腰”出自？",
+   "options": [
+    {
+     "text": "《沁园春·雪》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《七律·长征》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《忆秦娥·娄山关》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《沁园春·长沙》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "出自毛泽东《沁园春·雪》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "毛泽东诗词）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T49edd6",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "拓展"
+   ]
+  },
+  {
+   "id": "Y10-135",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第一单元·现代诗歌与小说",
+   "type": "选择",
+   "question": "《哦，香雪》中，台儿沟的姑娘们每天最盼望的是？",
+   "options": [
+    {
+     "text": "火车在台儿沟停留的一分钟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "去城里上学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "看一场电影",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "火车停留的一分钟让她们接触外面的世界。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "现代诗歌与小说",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T816254",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y10-136",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第一单元·现代诗歌与小说",
+   "type": "选择",
+   "question": "郭沫若《立在地球边上放号》选自诗集？",
+   "options": [
+    {
+     "text": "《死水》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《红烛》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《繁星》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《女神》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "《红烛》《死水》是闻一多的诗集，《繁星》是冰心的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "现代诗歌与小说",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T208f06",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y10-137",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第二单元 劳动光荣",
+   "type": "选择",
+   "question": "《喜看稻菽千重浪》中，袁隆平的主要成就是？",
+   "options": [
+    {
+     "text": "培育杂交水稻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "研制“两弹一星”",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "培育转基因小麦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "发现青蒿素",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "袁隆平被称为“杂交水稻之父”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第二单元 劳动光荣",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T38b9fc",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "劳动"
+   ]
+  },
+  {
+   "id": "Y10-138",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第二单元 劳动光荣",
+   "type": "选择",
+   "question": "《芣苢》“采采芣苢，薄言掇之”中“掇”的意思是？",
+   "options": [
+    {
+     "text": "种植",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "捆扎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拾取",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扔掉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“掇”是拾取。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第二单元 劳动光荣",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T8737eb",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "劳动"
+   ]
+  },
+  {
+   "id": "Y10-139",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第二单元 劳动光荣",
+   "type": "选择",
+   "question": "杨万里《插秧歌》“笠是兜鍪蓑是甲”运用的修辞手法是？",
+   "options": [
+    {
+     "text": "对偶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夸张",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "排比",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "比喻",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "把斗笠比作头盔，蓑衣比作铠甲。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第二单元 劳动光荣",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ebb59",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "劳动"
+   ]
+  },
+  {
+   "id": "Y10-140",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·16.2 登泰山记",
+   "type": "选择",
+   "question": "《登泰山记》“泰山之阳，汶水西流；其阴，济水东流”中“阳”“阴”分别指？",
+   "options": [
+    {
+     "text": "山的南面、山的北面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山的北面、山的南面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳、月亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "东面、西面",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "山南为阳，山北为阴。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "登泰山记",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T4aeec6",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "登泰山记"
+   ]
+  },
+  {
+   "id": "Y10-141",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·第七单元·16.2 登泰山记",
+   "type": "选择",
+   "question": "姚鼐与朱孝纯登泰山是在哪个季节？",
+   "options": [
+    {
+     "text": "夏季",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春季",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋季",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冬季",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "文中写“乾隆三十九年十二月”，且有“苍山负雪”的雪景。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "登泰山记",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T5a63d9",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "登泰山记"
+   ]
+  },
+  {
+   "id": "E10-053",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 10,
+   "textbook": "译林版2020",
+   "unit": "初高衔接·语法复习",
+   "type": "选择",
+   "question": "The teacher told us that light ____ faster than sound.",
+   "options": [
+    {
+     "text": "travels",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "had travelled",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "has travelled",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "travelled",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "宾语从句表示客观真理，用一般现在时。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "语法复习",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
+   "template": "T99e038",
+   "change_tag": "新增",
+   "tags": [
+    "时态",
+    "现在完成时"
+   ]
+  },
+  {
+   "id": "E10-054",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 10,
+   "textbook": "译林版2020",
+   "unit": "拓展（非谓语/名词性从句等，必修二、三）",
+   "type": "选择",
+   "question": "The boy ____ under the tree is my brother.",
+   "options": [
+    {
+     "text": "stood",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "standing",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "to stand",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "stands",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "现在分词短语作后置定语，表示主动、正在进行。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "拓展复习（不分册）",
+   "knowledge_point": "拓展（非谓语/名词性从句等，必修二、三）",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
+   "template": "Te00320",
+   "change_tag": "新增",
+   "tags": [
+    "非谓语"
+   ]
+  },
+  {
+   "id": "E10-055",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 10,
+   "textbook": "译林版2020",
+   "unit": "拓展（非谓语/名词性从句等，必修二、三）",
+   "type": "选择",
+   "question": "This is the house ____ my grandfather built twenty years ago.",
+   "options": [
+    {
+     "text": "what",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "when",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "that",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "where",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "先行词 house 在从句中作 built 的宾语，用 that/which。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "拓展复习（不分册）",
+   "knowledge_point": "拓展（非谓语/名词性从句等，必修二、三）",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
+   "template": "Tf6adda",
+   "change_tag": "新增",
+   "tags": [
+    "非谓语"
+   ]
+  },
+  {
+   "id": "E10-056",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 10,
+   "textbook": "译林版2020",
+   "unit": "必修一 Unit 2 Let's talk teens",
+   "type": "选择",
+   "question": "It's normal for teenagers to have ____ with their parents.",
+   "options": [
+    {
+     "text": "disagreements",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "disagree",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "agreeable",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "agreeing",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "have 后接名词，disagreement 意为“分歧”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "必修一 Unit 2 Let's talk teens",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
+   "template": "Tba9367",
+   "change_tag": "新增",
+   "tags": [
+    "习语"
+   ]
+  },
+  {
+   "id": "H10-157",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统",
+   "type": "选择",
+   "question": "秦朝郡县制下，郡县的长官由谁任免？",
+   "options": [
+    {
+     "text": "地方豪强",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "皇帝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "世袭贵族",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诸侯",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "郡县长官由皇帝直接任免，不得世袭。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第一单元 从中华文明起源到秦汉大一统",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tf44681",
+   "change_tag": "新增",
+   "tags": [
+    "中外历史纲要",
+    "远古"
+   ]
+  },
+  {
+   "id": "H10-158",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统",
+   "type": "选择",
+   "question": "汉武帝时张骞出使西域，其重要意义是？",
+   "options": [
+    {
+     "text": "开辟了丝绸之路，加强了中原与西域的联系",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "灭亡了匈奴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "设立了西域都护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一了西域",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "西域都护是汉宣帝时设立的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第一单元 从中华文明起源到秦汉大一统",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T342e6f",
+   "change_tag": "新增",
+   "tags": [
+    "中外历史纲要",
+    "远古"
+   ]
+  },
+  {
+   "id": "H10-159",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统",
+   "type": "选择",
+   "question": "“书同文，车同轨”是哪位皇帝推行的措施？",
+   "options": [
+    {
+     "text": "周武王",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉武帝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秦始皇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "隋文帝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "秦始皇统一后统一文字和车轨。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第一单元 从中华文明起源到秦汉大一统",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tb72d55",
+   "change_tag": "新增",
+   "tags": [
+    "中外历史纲要",
+    "远古"
+   ]
+  },
+  {
+   "id": "H10-160",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+   "type": "选择",
+   "question": "隋朝开凿的大运河，以洛阳为中心，北达？",
+   "options": [
+    {
+     "text": "涿郡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长安",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "余杭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扬州",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "大运河北达涿郡，南至余杭。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T65ca33",
+   "change_tag": "新增",
+   "tags": [
+    "三国"
+   ]
+  },
+  {
+   "id": "H10-161",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+   "type": "选择",
+   "question": "唐太宗时以敢于直言进谏著称的大臣是？",
+   "options": [
+    {
+     "text": "魏征",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "狄仁杰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "姚崇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "张居正",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "魏征多次直谏，被唐太宗比作“镜子”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T42be45",
+   "change_tag": "新增",
+   "tags": [
+    "三国"
+   ]
+  },
+  {
+   "id": "H10-162",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第三单元 辽宋夏金多民族政权的并立与元朝的统一",
+   "type": "选择",
+   "question": "反映南宋时期经济重心南移完成的谚语是？",
+   "options": [
+    {
+     "text": "苏湖熟，天下足",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天下粮仓在关中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "湖广熟，天下足",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扬一益二",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“扬一益二”是唐朝的说法，“湖广熟，天下足”出现于明朝。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第三单元 辽宋夏金多民族政权的并立与元朝的统一",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T89909d",
+   "change_tag": "新增",
+   "tags": [
+    "宋",
+    "中央集权"
+   ]
+  },
+  {
+   "id": "H10-163",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第四单元 明清中国版图的奠定与面临的挑战",
+   "type": "选择",
+   "question": "明朝内阁的性质是？",
+   "options": [
+    {
+     "text": "最高行政机构",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地方行政机构",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "皇帝的咨询机构，不是法定的中枢机构",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "取代了皇权",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "内阁只有票拟权，决策权在皇帝。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第四单元 明清中国版图的奠定与面临的挑战",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T5a557c",
+   "change_tag": "新增",
+   "tags": [
+    "明",
+    "君主专制"
+   ]
+  },
+  {
+   "id": "H10-164",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·两次鸦片战争",
+   "type": "选择",
+   "question": "中英《南京条约》签订于哪一年？",
+   "options": [
+    {
+     "text": "1856 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1860 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1842 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1840 年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1840 年鸦片战争爆发，1842 年签订《南京条约》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "两次鸦片战争",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T2ef026",
+   "change_tag": "新增",
+   "tags": [
+    "近代",
+    "鸦片战争"
+   ]
+  },
+  {
+   "id": "H10-165",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·国家出路的探索与列强侵略的加剧",
+   "type": "选择",
+   "question": "中日甲午战争后，清政府被迫签订的条约是？",
+   "options": [
+    {
+     "text": "《辛丑条约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《北京条约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《马关条约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《南京条约》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1895 年签订《马关条约》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "国家出路的探索与列强侵略的加剧",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tc23df2",
+   "change_tag": "新增",
+   "tags": [
+    "近代",
+    "甲午战争"
+   ]
+  },
+  {
+   "id": "H10-166",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·国家出路的探索与列强侵略的加剧",
+   "type": "选择",
+   "question": "戊戌变法失败后，逃亡海外的维新派代表人物是？",
+   "options": [
+    {
+     "text": "孙中山、黄兴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "李鸿章、张之洞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "谭嗣同、林旭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "康有为、梁启超",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "谭嗣同等“戊戌六君子”被杀害。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "国家出路的探索与列强侵略的加剧",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tf2547e",
+   "change_tag": "新增",
+   "tags": [
+    "近代",
+    "甲午战争"
+   ]
+  },
+  {
+   "id": "H10-167",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·国家出路的探索与列强侵略的加剧",
+   "type": "选择",
+   "question": "《辛丑条约》规定清政府严禁人民参加反帝活动，这说明？",
+   "options": [
+    {
+     "text": "清政府实力增强",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中国主权更加完整",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "清政府成为“洋人的朝廷”",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "列强放弃侵华",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "清政府已完全成为列强统治中国的工具。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "国家出路的探索与列强侵略的加剧",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T925d91",
+   "change_tag": "新增",
+   "tags": [
+    "近代",
+    "甲午战争"
+   ]
+  },
+  {
+   "id": "H10-168",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第六单元 辛亥革命与中华民国的建立·辛亥革命",
+   "type": "选择",
+   "question": "1912 年元旦，孙中山在哪里宣誓就任中华民国临时大总统？",
+   "options": [
+    {
+     "text": "武昌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "广州",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "南京",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北京",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "中华民国临时政府在南京成立。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "辛亥革命",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3f66a6",
+   "change_tag": "新增",
+   "tags": [
+    "近代",
+    "辛亥革命"
+   ]
+  },
+  {
+   "id": "H10-169",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第七单元 中国共产党成立与新民主主义革命兴起·五四运动与中国共产党的诞生",
+   "type": "选择",
+   "question": "新文化运动提倡民主和科学，其中“民主”被称为？",
+   "options": [
+    {
+     "text": "德先生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孔先生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "马先生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "赛先生",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "民主（Democracy）称“德先生”，科学（Science）称“赛先生”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "运动与中国共产党的诞生",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T12ba6f",
+   "change_tag": "新增",
+   "tags": [
+    "新民主主义革命"
+   ]
+  },
+  {
+   "id": "H10-170",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第八单元 中华民族的抗日战争和人民解放战争·从局部抗战到全面抗战",
+   "type": "选择",
+   "question": "1931 年日本发动的、侵占中国东北的事变是？",
+   "options": [
+    {
+     "text": "一·二八事变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "华北事变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "七七事变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "九一八事变",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "九一八事变标志中国局部抗战开始。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "从局部抗战到全面抗战",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tf41cb8",
+   "change_tag": "新增",
+   "tags": [
+    "抗日战争"
+   ]
+  },
+  {
+   "id": "H10-171",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第九单元 中华人民共和国成立和社会主义革命与建设·中华人民共和国成立和向社会主义的过渡",
+   "type": "选择",
+   "question": "1949 年 9 月中国人民政治协商会议通过的、起临时宪法作用的文件是？",
+   "options": [
+    {
+     "text": "《中国人民政治协商会议共同纲领》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《中华民国临时约法》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《论人民民主专政》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《中华人民共和国宪法》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "第一部宪法 1954 年才颁布。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "中华人民共和国成立和向社会主义的过渡",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T15cb1f",
+   "change_tag": "新增",
+   "tags": [
+    "新中国"
+   ]
+  },
+  {
+   "id": "H10-172",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第十单元 改革开放与社会主义现代化建设新时期·中国特色社会主义道路的开辟与发展",
+   "type": "选择",
+   "question": "农村实行家庭联产承包责任制，主要调动了谁的生产积极性？",
+   "options": [
+    {
+     "text": "知识分子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个体商人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "工人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农民",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "农民获得生产经营自主权。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "中国特色社会主义道路的开辟与发展",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tc84acd",
+   "change_tag": "新增",
+   "tags": [
+    "改革开放"
+   ]
+  },
+  {
+   "id": "H10-173",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "拓展·纲要下",
+   "type": "选择",
+   "question": "欧洲文艺复兴最早兴起于？",
+   "options": [
+    {
+     "text": "法国",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "意大利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "英国",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "德国",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "14 世纪文艺复兴最早兴起于意大利。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修下册",
+   "knowledge_point": "纲要下",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T613300",
+   "change_tag": "新增",
+   "tags": [
+    "世界史",
+    "英国"
+   ]
+  },
+  {
+   "id": "H10-174",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第1课 中华文明的起源与早期国家",
+   "type": "选择",
+   "question": "据文献记载，我国历史上第一个王朝是？",
+   "options": [
+    {
+     "text": "夏朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秦朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "周朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "商朝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "约公元前 2070 年，禹建立夏朝。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第1课 中华文明的起源与早期国家",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T8eb756",
+   "change_tag": "新增",
+   "tags": [
+    "新石器时代"
+   ]
+  },
+  {
+   "id": "H10-175",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第1课 中华文明的起源与早期国家",
+   "type": "选择",
+   "question": "商朝后期的都城是？",
+   "options": [
+    {
+     "text": "镐京",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洛邑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "咸阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "殷（今河南安阳）",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "盘庚迁殷，安阳殷墟出土大量甲骨文。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第1课 中华文明的起源与早期国家",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T1a83f7",
+   "change_tag": "新增",
+   "tags": [
+    "新石器时代"
+   ]
+  },
+  {
+   "id": "H10-176",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第1课 中华文明的起源与早期国家",
+   "type": "选择",
+   "question": "下列遗址中，位于长江流域的新石器时代遗址是？",
+   "options": [
+    {
+     "text": "大汶口遗址",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红山文化遗址",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "半坡遗址",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河姆渡遗址",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "河姆渡在浙江余姚；半坡在黄河流域，大汶口在山东，红山在辽河流域。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第1课 中华文明的起源与早期国家",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Te5f770",
+   "change_tag": "新增",
+   "tags": [
+    "新石器时代"
+   ]
+  },
+  {
+   "id": "H10-177",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第2课 诸侯纷争与变法运动",
+   "type": "选择",
+   "question": "春秋时期铁农具和牛耕的使用，反映了？",
+   "options": [
+    {
+     "text": "分封制更加巩固",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "商业活动消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会生产力显著提高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生产关系倒退",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "铁犁牛耕推动了社会变革。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第2课 诸侯纷争与变法运动",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T491957",
+   "change_tag": "新增",
+   "tags": [
+    "春秋战国",
+    "社会变革"
+   ]
+  },
+  {
+   "id": "H10-178",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第3课 秦统一多民族封建国家的建立",
+   "type": "选择",
+   "question": "秦朝为抵御匈奴，派哪位将军北击匈奴？",
+   "options": [
+    {
+     "text": "蒙恬",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "霍去病",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "卫青",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "李广",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "卫青、霍去病、李广都是西汉将领。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第3课 秦统一多民族封建国家的建立",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T863212",
+   "change_tag": "新增",
+   "tags": [
+    "秦",
+    "皇帝制度"
+   ]
+  },
+  {
+   "id": "H10-179",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "type": "选择",
+   "question": "西汉“文景之治”出现在哪两位皇帝统治时期？",
+   "options": [
+    {
+     "text": "汉武帝、汉昭帝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉文帝、汉景帝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉光武帝、汉明帝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉高祖、汉惠帝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "文帝、景帝推行休养生息，出现“文景之治”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Td4ca67",
+   "change_tag": "新增",
+   "tags": [
+    "西汉",
+    "黄老"
+   ]
+  },
+  {
+   "id": "H10-180",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "type": "选择",
+   "question": "东汉末年爆发的大规模农民起义是？",
+   "options": [
+    {
+     "text": "黄巾起义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "绿林起义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "陈胜吴广起义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "赤眉起义",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "绿林、赤眉起义发生在西汉末年。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T667532",
+   "change_tag": "新增",
+   "tags": [
+    "西汉",
+    "黄老"
+   ]
+  },
+  {
+   "id": "H10-181",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "type": "选择",
+   "question": "西汉时期丝绸之路的起点是？",
+   "options": [
+    {
+     "text": "洛阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "敦煌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "咸阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长安",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "西汉都城长安是丝绸之路的起点。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T2cae54",
+   "change_tag": "新增",
+   "tags": [
+    "西汉",
+    "黄老"
+   ]
+  },
+  {
+   "id": "H10-182",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第5课 三国两晋南北朝的政权更迭与民族交融",
+   "type": "选择",
+   "question": "三国时期，蜀国的建立者是？",
+   "options": [
+    {
+     "text": "司马炎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刘备",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曹丕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孙权",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "曹丕建魏，刘备建蜀，孙权建吴。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第5课 三国两晋南北朝的政权更迭与民族交融",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tc8b63d",
+   "change_tag": "新增",
+   "tags": [
+    "魏晋",
+    "西晋"
+   ]
+  },
+  {
+   "id": "H10-183",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第5课 三国两晋南北朝的政权更迭与民族交融",
+   "type": "选择",
+   "question": "西晋灭亡后，北方进入哪一时期？",
+   "options": [
+    {
+     "text": "十六国时期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "战国时期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "隋朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五代十国",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "西晋灭亡后，南方是东晋，北方先后出现多个政权，史称“十六国”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第5课 三国两晋南北朝的政权更迭与民族交融",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T8d9478",
+   "change_tag": "新增",
+   "tags": [
+    "魏晋",
+    "西晋"
+   ]
+  },
+  {
+   "id": "H10-184",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第5课 三国两晋南北朝的政权更迭与民族交融",
+   "type": "选择",
+   "question": "北魏孝文帝把都城迁到了？",
+   "options": [
+    {
+     "text": "平城",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "建康",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洛阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长安",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "孝文帝从平城迁都洛阳。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第5课 三国两晋南北朝的政权更迭与民族交融",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Td3cf56",
+   "change_tag": "新增",
+   "tags": [
+    "魏晋",
+    "西晋"
+   ]
+  },
+  {
+   "id": "H10-185",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第6课 从隋唐盛世到五代十国",
+   "type": "选择",
+   "question": "唐朝时，远嫁吐蕃赞普松赞干布的是？",
+   "options": [
+    {
+     "text": "太平公主",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "王昭君",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金城公主",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "文成公主",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "金城公主嫁给的是赤德祖赞。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第6课 从隋唐盛世到五代十国",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T144ba1",
+   "change_tag": "新增",
+   "tags": [
+    "隋唐",
+    "大运河"
+   ]
+  },
+  {
+   "id": "H10-186",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第6课 从隋唐盛世到五代十国",
+   "type": "选择",
+   "question": "“安史之乱”爆发于哪位皇帝统治时期？",
+   "options": [
+    {
+     "text": "唐玄宗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "唐太宗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "武则天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "唐高宗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "755 年唐玄宗天宝年间爆发安史之乱。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第6课 从隋唐盛世到五代十国",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T7412d9",
+   "change_tag": "新增",
+   "tags": [
+    "隋唐",
+    "大运河"
+   ]
+  },
+  {
+   "id": "H10-187",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第6课 从隋唐盛世到五代十国",
+   "type": "选择",
+   "question": "唐朝灭亡后，中原地区先后出现的五个王朝统称为？",
+   "options": [
+    {
+     "text": "南朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "六朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "十国",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "后梁、后唐、后晋、后汉、后周合称五代。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第6课 从隋唐盛世到五代十国",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Td4bc2b",
+   "change_tag": "新增",
+   "tags": [
+    "隋唐",
+    "大运河"
+   ]
+  },
+  {
+   "id": "H10-188",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一、二单元综合",
+   "type": "选择",
+   "question": "我国第一个统一的中央集权封建王朝定都于？",
+   "options": [
+    {
+     "text": "咸阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洛阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "南京",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长安",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "秦朝定都咸阳。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第一、二单元综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tf0cde8",
+   "change_tag": "新增",
+   "tags": [
+    "朝代顺序"
+   ]
+  },
+  {
+   "id": "H10-189",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一、二单元综合",
+   "type": "选择",
+   "question": "丝绸之路的开通和大运河的开凿，分别发生在？",
+   "options": [
+    {
+     "text": "秦朝、唐朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "唐朝、元朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉朝、隋朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉朝、唐朝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "张骞通西域在西汉，大运河开凿在隋朝。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第一、二单元综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T0133e4",
+   "change_tag": "新增",
+   "tags": [
+    "朝代顺序"
+   ]
+  },
+  {
+   "id": "H10-190",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一、二单元综合",
+   "type": "选择",
+   "question": "下列政权中，由少数民族建立并统一北方的是？",
+   "options": [
+    {
+     "text": "西晋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "东晋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北魏",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "隋朝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "北魏由鲜卑族拓跋部建立，统一了北方。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "第一、二单元综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tfeaf11",
+   "change_tag": "新增",
+   "tags": [
+    "朝代顺序"
+   ]
+  },
+  {
+   "id": "S10-054",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "拓展（选择性必修古诗文）",
+   "type": "选择",
+   "question": "“蜀道之难，难于上青天”出自哪位诗人的作品？",
+   "options": [
+    {
+     "text": "王维",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白居易",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "李白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杜甫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "出自李白《蜀道难》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "拓展复习（不分册）",
+   "knowledge_point": "拓展（选择性必修古诗文）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T35e1e0",
+   "change_tag": "新增",
+   "tags": [
+    "蜀道难"
+   ]
+  },
+  {
+   "id": "S10-055",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "拓展（选择性必修古诗文）",
+   "type": "选择",
+   "question": "“长太息以掩涕兮，哀民生之多艰”出自屈原的？",
+   "options": [
+    {
+     "text": "《九歌》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《离骚》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《涉江》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《天问》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "出自《离骚》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "拓展复习（不分册）",
+   "knowledge_point": "拓展（选择性必修古诗文）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tbe95c9",
+   "change_tag": "新增",
+   "tags": [
+    "蜀道难"
+   ]
+  },
+  {
+   "id": "S10-056",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·古诗词诵读",
+   "type": "选择",
+   "question": "“金风玉露一相逢，便胜却人间无数”出自？",
+   "options": [
+    {
+     "text": "柳永《雨霖铃》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "李煜《虞美人》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "苏轼《水调歌头》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秦观《鹊桥仙》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "出自秦观《鹊桥仙·纤云弄巧》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "古诗词诵读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T00e7a6",
+   "change_tag": "新增",
+   "tags": [
+    "静女"
+   ]
+  },
+  {
+   "id": "S10-057",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "必修上·古诗词诵读",
+   "type": "选择",
+   "question": "李煜《虞美人》“问君能有几多愁？恰似一江春水向东流”运用的修辞手法是？",
+   "options": [
+    {
+     "text": "对偶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "比喻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夸张",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拟人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "以一江春水比喻愁绪之多、之长。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修上册",
+   "knowledge_point": "古诗词诵读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T2204e9",
+   "change_tag": "新增",
+   "tags": [
+    "静女"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "群落层次",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "种群层次",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个体层次",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "组织层次",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-170",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第1章 走近细胞·第1节 细胞是生命活动的基本单位",
+   "question": "一个草履虫在生命系统的结构层次中，既属于细胞层次，又属于？",
+   "explanation": "草履虫是单细胞生物，一个细胞就是一个个体。",
+   "difficulty": 2,
+   "knowledge_point": "第1节 细胞是生命活动的基本单位",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T0e8f2b",
+   "change_tag": "新增",
+   "tags": [
+    "细胞学说"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "真核生物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "病毒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "植物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "原核生物",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-171",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第1章 走近细胞·第2节 细胞的多样性和统一性",
+   "question": "乳酸菌属于？",
+   "explanation": "乳酸菌是细菌，没有以核膜为界限的细胞核。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 细胞的多样性和统一性",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Tf6ef12",
+   "change_tag": "新增",
+   "tags": [
+    "原核与真核"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "核酸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蛋白质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "糖类",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "脂肪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-172",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第2章 组成细胞的分子·第1节 细胞中的元素和化合物",
+   "question": "活细胞中含量最多的有机化合物是？",
+   "explanation": "含量最多的化合物是水，最多的有机物是蛋白质。",
+   "difficulty": 2,
+   "knowledge_point": "第1节 细胞中的元素和化合物",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T69f89e",
+   "change_tag": "新增",
+   "tags": [
+    "元素"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "自由水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结合水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无机盐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蛋白质",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-173",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第2章 组成细胞的分子·第2节 细胞中的无机物",
+   "question": "种子晒干的过程中，主要失去的是？",
+   "explanation": "晒干失去的是自由水；种子烘烤时才会失去结合水。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 细胞中的无机物",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T2d56ad",
+   "change_tag": "新增",
+   "tags": [
+    "水"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "贫血",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "佝偻病",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "抽搐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "肌无力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-174",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第2章 组成细胞的分子·第2节 细胞中的无机物",
+   "question": "哺乳动物血液中钙离子含量太高，会出现？",
+   "explanation": "钙离子过低会抽搐，过高会肌无力。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 细胞中的无机物",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T96664d",
+   "change_tag": "新增",
+   "tags": [
+    "水"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "脂肪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胆固醇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "性激素",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "维生素 D",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-175",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第2章 组成细胞的分子·第3节 细胞中的糖类和脂质",
+   "question": "既是构成动物细胞膜的重要成分，又参与人体血液中脂质运输的是？",
+   "explanation": "胆固醇属于固醇类。",
+   "difficulty": 2,
+   "knowledge_point": "第3节 细胞中的糖类和脂质",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tceda0c",
+   "change_tag": "新增",
+   "tags": [
+    "糖类"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "非必需氨基酸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "必需氨基酸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "R 基",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "肽链",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-176",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第2章 组成细胞的分子·第4节 蛋白质是生命活动的主要承担者",
+   "question": "人体细胞不能合成、必须从外界环境中获取的氨基酸叫做？",
+   "explanation": "人体必需氨基酸有 8 种（婴儿 9 种）。",
+   "difficulty": 2,
+   "knowledge_point": "第4节 蛋白质是生命活动的主要承担者",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Te2da53",
+   "change_tag": "新增",
+   "tags": [
+    "蛋白质"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "2 种",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5 种",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4 种",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 种",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-177",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第2章 组成细胞的分子·第5节 核酸是遗传信息的携带者",
+   "question": "豌豆叶肉细胞的核酸中，含有的五碳糖有几种？",
+   "explanation": "含 DNA 和 RNA，有脱氧核糖和核糖 2 种五碳糖。",
+   "difficulty": 2,
+   "knowledge_point": "第5节 核酸是遗传信息的携带者",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Tc3b17b",
+   "change_tag": "新增",
+   "tags": [
+    "核酸"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "精子和卵细胞直接接触识别",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "高等植物细胞之间通过胞间连丝相互连接",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞膜上磷脂分子的运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "激素经血液运输作用于靶细胞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-178",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第3章 细胞的基本结构·第1节 细胞膜的结构和功能",
+   "question": "下列不属于细胞间信息交流方式的是？",
+   "explanation": "磷脂分子运动体现膜的流动性，不是信息交流。",
+   "difficulty": 2,
+   "knowledge_point": "第1节 细胞膜的结构和功能",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T17c803",
+   "change_tag": "新增",
+   "tags": [
+    "细胞膜"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "叶绿体和液泡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "线粒体和高尔基体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "核糖体和内质网",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中心体和溶酶体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-179",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第3章 细胞的基本结构·第2节 细胞器之间的分工合作",
+   "question": "植物细胞中含有色素的细胞器是？",
+   "explanation": "叶绿体含光合色素，液泡含花青素等。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 细胞器之间的分工合作",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T35d9f1",
+   "change_tag": "新增",
+   "tags": [
+    "细胞器"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "核膜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "核仁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "核孔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "染色质",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-180",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第3章 细胞的基本结构·第3节 细胞核的结构和功能",
+   "question": "细胞核中容易被碱性染料染成深色的物质是？",
+   "explanation": "染色质主要由 DNA 和蛋白质组成，易被碱性染料染色。",
+   "difficulty": 2,
+   "knowledge_point": "第3节 细胞核的结构和功能",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T595624",
+   "change_tag": "新增",
+   "tags": [
+    "细胞核"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "需要转运蛋白，不消耗能量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "需要消耗能量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "逆浓度梯度运输",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不需要转运蛋白",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-181",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第4章 细胞的物质输入和输出·第1节 被动运输",
+   "question": "关于协助扩散，下列说法正确的是？",
+   "explanation": "协助扩散顺浓度梯度，借助转运蛋白，不耗能。",
+   "difficulty": 2,
+   "knowledge_point": "第1节 被动运输",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T9fe034",
+   "change_tag": "新增",
+   "tags": [
+    "渗透作用"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "浓度差作为动力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞壁参与",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "消耗能量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "载体蛋白逆浓度运输小分子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-182",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第4章 细胞的物质输入和输出·第2节 主动运输与胞吞、胞吐",
+   "question": "胞吞和胞吐过程需要？",
+   "explanation": "胞吞、胞吐需要消耗细胞呼吸提供的能量。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 主动运输与胞吞、胞吐",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T027f18",
+   "change_tag": "新增",
+   "tags": [
+    "主动运输"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "酶能为反应提供能量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "酶不参与反应",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "酶能增加反应物的量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "酶降低活化能的作用更显著",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-183",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第1节 降低化学反应活化能的酶",
+   "question": "与无机催化剂相比，酶的催化效率更高，原因是？",
+   "explanation": "酶的高效性源于更显著地降低活化能。",
+   "difficulty": 2,
+   "knowledge_point": "第1节 降低化学反应活化能的酶",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T0cd34a",
+   "change_tag": "新增",
+   "tags": [
+    "酶"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞的差异性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生物界的多样性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞内 ATP 含量很多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生物界的统一性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-184",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第2节 细胞的能量“货币”ATP",
+   "question": "ATP 与 ADP 相互转化的能量供应机制在所有生物的细胞内都是一样的，这体现了？",
+   "explanation": "这一机制是生物界的共性。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 细胞的能量“货币”ATP",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T37813b",
+   "change_tag": "新增",
+   "tags": [
+    "ATP"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "第一阶段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "三个阶段一样多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第三阶段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第二阶段",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-185",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第3节 细胞呼吸的原理和应用",
+   "question": "有氧呼吸的三个阶段中，释放能量最多的是？",
+   "explanation": "第三阶段 [H] 与氧结合生成水，释放大量能量。",
+   "difficulty": 2,
+   "knowledge_point": "第3节 细胞呼吸的原理和应用",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T93e942",
+   "change_tag": "新增",
+   "tags": [
+    "有氧呼吸"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "ATP 和 NADPH",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "糖类和 O₂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "O₂ 和 ADP",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "CO₂ 和 H₂O",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-186",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第4节 光合作用与能量转化",
+   "question": "光反应为暗反应提供的物质是？",
+   "explanation": "暗反应中 C₃ 的还原需要 ATP 和 NADPH。",
+   "difficulty": 2,
+   "knowledge_point": "第4节 光合作用与能量转化",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T6f33eb",
+   "change_tag": "新增",
+   "tags": [
+    "光合作用"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "降低了大棚温度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "微生物分解农家肥产生 CO₂，增强光合作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农家肥直接为植物提供有机物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "减少了光照",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-187",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第4节 光合作用与能量转化",
+   "question": "温室大棚中适当增施农家肥可以提高作物产量，主要原因是？",
+   "explanation": "植物不能直接吸收有机物；分解产生的 CO₂ 和无机盐被利用。",
+   "difficulty": 2,
+   "knowledge_point": "第4节 光合作用与能量转化",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T03f9fd",
+   "change_tag": "新增",
+   "tags": [
+    "光合作用"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "中期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "间期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "后期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "前期",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-188",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第6章 细胞的生命历程·第1节 细胞的增殖",
+   "question": "有丝分裂过程中，DNA 复制发生在？",
+   "explanation": "分裂间期完成 DNA 复制和有关蛋白质合成。",
+   "difficulty": 2,
+   "knowledge_point": "第1节 细胞的增殖",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T8ee585",
+   "change_tag": "新增",
+   "tags": [
+    "有丝分裂"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞分化使细胞趋向专门化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞分化导致细胞中的遗传物质发生改变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞分化是基因选择性表达的结果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞分化发生在生物体的整个生命进程中",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-189",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第6章 细胞的生命历程·第2节 细胞的分化",
+   "question": "下列关于细胞分化的说法，错误的是？",
+   "explanation": "分化时遗传物质不变。",
+   "difficulty": 2,
+   "knowledge_point": "第2节 细胞的分化",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tdfccc2",
+   "change_tag": "新增",
+   "tags": [
+    "细胞分化"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "通透性改变，物质运输功能降低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物质运输功能增强",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "通透性不变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "完全失去通透性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-190",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修1·第6章 细胞的生命历程·第3节 细胞的衰老和死亡",
+   "question": "细胞衰老时，细胞膜通透性的变化是？",
+   "explanation": "衰老细胞膜通透性改变，运输功能下降。",
+   "difficulty": 2,
+   "knowledge_point": "第3节 细胞的衰老和死亡",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T499357",
+   "change_tag": "新增",
+   "tags": [
+    "细胞凋亡"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "海王星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "土星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木星",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-147",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第一节 地球的宇宙环境",
+   "question": "太阳系八大行星中，体积和质量都最大的是？",
+   "explanation": "木星是太阳系最大的行星。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 地球的宇宙环境",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T550d7f",
+   "change_tag": "新增",
+   "tags": [
+    "天体系统"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "5 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "100 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "11 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-148",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第二节 太阳对地球的影响",
+   "question": "太阳活动的周期大约是？",
+   "explanation": "太阳黑子数的变化周期约为 11 年。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 太阳对地球的影响",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T29a3e3",
+   "change_tag": "新增",
+   "tags": [
+    "太阳辐射"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "中生代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "新生代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "古生代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太古宙",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-149",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第三节 地球的历史",
+   "question": "被子植物在地球历史上高度繁盛的时期是？",
+   "explanation": "古生代后期蕨类繁盛，中生代裸子植物繁盛，新生代被子植物繁盛。",
+   "difficulty": 2,
+   "knowledge_point": "第三节 地球的历史",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tdffde4",
+   "change_tag": "新增",
+   "tags": [
+    "地质年代"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "两种波都可以",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两种波都不能通过液体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "纵波",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "横波",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-150",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第四节 地球的圈层结构",
+   "question": "地震波中，能在固体、液体、气体中传播的是？",
+   "explanation": "横波只能在固体中传播。",
+   "difficulty": 2,
+   "knowledge_point": "第四节 地球的圈层结构",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T597e08",
+   "change_tag": "新增",
+   "tags": [
+    "内部圈层"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "一样厚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "厚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无法比较",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "薄",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-151",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第四节 地球的圈层结构",
+   "question": "地壳厚度不均，大陆部分比大洋部分？",
+   "explanation": "大陆地壳较厚，大洋地壳较薄。",
+   "difficulty": 2,
+   "knowledge_point": "第四节 地球的圈层结构",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T6a61c7",
+   "change_tag": "新增",
+   "tags": [
+    "内部圈层"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "软流层",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地核",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地幔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "岩石圈的上部",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-152",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第四节 地球的圈层结构",
+   "question": "生物圈占有大气圈的底部、水圈的全部和？",
+   "explanation": "生物圈渗透于其他圈层之中。",
+   "difficulty": 2,
+   "knowledge_point": "第四节 地球的圈层结构",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T42eb74",
+   "change_tag": "新增",
+   "tags": [
+    "内部圈层"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水汽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二氧化碳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "臭氧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氮气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-153",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第二章 地球上的大气·第一节 大气的组成和垂直分层",
+   "question": "大气中能吸收紫外线、被称为“地球生命保护伞”的成分是？",
+   "explanation": "臭氧大量吸收太阳紫外线。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 大气的组成和垂直分层",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Te263c3",
+   "change_tag": "新增",
+   "tags": [
+    "大气组成"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "大气逆辐射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大气对太阳辐射的反射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地面辐射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳辐射",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-154",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第二章 地球上的大气·第二节 大气受热过程和大气运动",
+   "question": "大气对地面的保温作用主要通过什么实现？",
+   "explanation": "大气逆辐射把热量还给地面。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 大气受热过程和大气运动",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Tc71093",
+   "change_tag": "新增",
+   "tags": [
+    "大气受热过程"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "气压不变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "高气压",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "先高后低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "低气压",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-155",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第二章 地球上的大气·第二节 大气受热过程和大气运动",
+   "question": "热力环流中，近地面受热的地区形成？",
+   "explanation": "受热空气膨胀上升，近地面形成低压。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 大气受热过程和大气运动",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Tf71dac",
+   "change_tag": "新增",
+   "tags": [
+    "大气受热过程"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水汽输送和地表径流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "下渗和蒸腾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "植物蒸腾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒸发和降水",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-156",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第一节 水循环",
+   "question": "海陆间循环中，把海洋和陆地联系起来的主要环节是？",
+   "explanation": "海洋水汽输送到陆地上空，陆地水通过径流回到海洋。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 水循环",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T1cac92",
+   "change_tag": "新增",
+   "tags": [
+    "水循环"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "太阳辐射",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "盐度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洋流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "海水深度",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-157",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第二节 海水的性质",
+   "question": "影响海水表层温度的最主要因素是？",
+   "explanation": "表层水温由低纬向高纬递减，主要受太阳辐射影响。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 海水的性质",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T17663e",
+   "change_tag": "新增",
+   "tags": [
+    "海水盐度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "升高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "降低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "先升后降",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-158",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第二节 海水的性质",
+   "question": "夏季河流汛期，河口附近海域的表层盐度一般会？",
+   "explanation": "大量淡水注入，稀释海水。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 海水的性质",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Te1a745",
+   "change_tag": "新增",
+   "tags": [
+    "海水盐度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "影响海洋污染物的扩散",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "影响沿岸气候",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "形成潮汐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "影响海洋生物分布",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-159",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第三节 海水的运动",
+   "question": "下列不属于洋流对地理环境影响的是？",
+   "explanation": "潮汐由月球和太阳的引力引起。",
+   "difficulty": 2,
+   "knowledge_point": "第三节 海水的运动",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T697e27",
+   "change_tag": "新增",
+   "tags": [
+    "海水运动"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "流水溶蚀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风力侵蚀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "海浪侵蚀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冰川侵蚀",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-160",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第四章 地貌·第一节 常见地貌类型",
+   "question": "喀斯特地貌主要是由什么作用形成的？",
+   "explanation": "可溶性岩石（石灰岩）被流水溶蚀形成喀斯特地貌。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 常见地貌类型",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T4db2a0",
+   "change_tag": "新增",
+   "tags": [
+    "喀斯特地貌"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "山脊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山谷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "陡崖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鞍部",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-161",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第四章 地貌·第二节 地貌的观察",
+   "question": "在等高线地形图上，两个山顶之间相对低洼的部位叫做？",
+   "explanation": "鞍部位于两山顶之间。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 地貌的观察",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T5275e0",
+   "change_tag": "新增",
+   "tags": [
+    "等高线"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "蒙古高原",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西伯利亚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "撒哈拉沙漠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "亚马孙河流域",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-162",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第五章 植被与土壤·第一节 植被",
+   "question": "热带雨林的主要分布区之一是？",
+   "explanation": "亚马孙河流域是世界上面积最大的热带雨林区。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 植被",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Tc2cd61",
+   "change_tag": "新增",
+   "tags": [
+    "植被类型"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "四季常绿、叶片宽阔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "根系发达，叶片退化或变成刺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "植株高大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "叶片宽大",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-163",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第五章 植被与土壤·第一节 植被",
+   "question": "荒漠植被中植物普遍具有的特征是？",
+   "explanation": "适应干旱环境，减少蒸腾、增加吸水。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 植被",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tead26f",
+   "change_tag": "新增",
+   "tags": [
+    "植被类型"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "地形",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "时间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "成土母质",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-164",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第五章 植被与土壤·第二节 土壤",
+   "question": "在土壤形成过程中，最活跃的因素是？",
+   "explanation": "生物是土壤有机质的来源，是最活跃的因素。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 土壤",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T8b6980",
+   "change_tag": "新增",
+   "tags": [
+    "土壤组成"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "陡坡开荒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "植树种草，修筑梯田",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大量砍伐森林",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过度放牧",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-165",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第五章 植被与土壤·第二节 土壤",
+   "question": "保护土壤、防止水土流失，下列措施合理的是？",
+   "explanation": "植被和梯田能减缓地表径流。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 土壤",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T4e28d1",
+   "change_tag": "新增",
+   "tags": [
+    "土壤组成"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "寒潮只影响南方",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "寒潮不会带来降温",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "寒潮来临时常伴有大风、剧烈降温，可能出现霜冻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "寒潮主要出现在夏季",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-166",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第一节 气象灾害",
+   "question": "关于寒潮，下列说法正确的是？",
+   "explanation": "寒潮多发生在秋末、冬季和初春。",
+   "difficulty": 2,
+   "knowledge_point": "第一节 气象灾害",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T8f7baf",
+   "change_tag": "新增",
+   "tags": [
+    "气象灾害"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "一次地震有多个震级",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "震级越小，破坏越大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "震级越大，地震释放的能量越多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地震只发生在海洋中",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-167",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第二节 地质灾害",
+   "question": "关于地震震级，下列说法正确的是？",
+   "explanation": "一次地震只有一个震级，可以有多个烈度。",
+   "difficulty": 2,
+   "knowledge_point": "第二节 地质灾害",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T75fd62",
+   "change_tag": "新增",
+   "tags": [
+    "地震避险"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "监测预警，编制应急预案",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "救治伤员",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "发放救灾物资",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "灾后重建",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-168",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第三节 防灾减灾",
+   "question": "下列属于防灾减灾中“灾前预防”环节的是？",
+   "explanation": "后三项属于灾中救援和灾后恢复。",
+   "difficulty": 2,
+   "knowledge_point": "第三节 防灾减灾",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Tbe22c9",
+   "change_tag": "新增",
+   "tags": [
+    "防灾减灾"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "北斗卫星导航",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "手机通信",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天气预报",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遥感（RS）",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-169",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第四节 地理信息技术在防灾减灾中的应用",
+   "question": "森林火灾发生后，要及时获取大范围火场影像，主要用到的技术是？",
+   "explanation": "遥感能快速获取大范围地表影像。",
+   "difficulty": 2,
+   "knowledge_point": "第四节 地理信息技术在防灾减灾中的应用",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Te2632c",
+   "change_tag": "新增",
+   "tags": [
+    "地理信息技术"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "拍摄地面影像",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "监测台风路径",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "评估受灾人口数量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "确定救援人员位置",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-170",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第四节 地理信息技术在防灾减灾中的应用",
+   "question": "利用地理信息系统（GIS）把人口分布图与洪水淹没图叠加，可以？",
+   "explanation": "GIS 擅长空间数据的叠加分析。",
+   "difficulty": 2,
+   "knowledge_point": "第四节 地理信息技术在防灾减灾中的应用",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T175890",
+   "change_tag": "新增",
+   "tags": [
+    "地理信息技术"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "地主阶级和农民阶级的矛盾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "资产阶级和无产阶级的矛盾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "奴隶主阶级和奴隶阶级的矛盾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "原始部落之间的矛盾",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-135",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.1 原始社会的解体和阶级社会的演进",
+   "question": "奴隶社会的基本矛盾体现为？",
+   "explanation": "奴隶社会中两大对立阶级是奴隶主和奴隶。",
+   "difficulty": 2,
+   "knowledge_point": "原始社会的解体和阶级社会的演进",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Td8a12d",
+   "change_tag": "新增",
+   "tags": [
+    "原始社会"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "奴隶主阶级和奴隶阶级",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "贵族和平民",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "资产阶级和无产阶级",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地主阶级和农民阶级",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-136",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.1 原始社会的解体和阶级社会的演进",
+   "question": "封建社会中两大对立阶级是？",
+   "explanation": "封建社会的主要矛盾是地主阶级与农民阶级的矛盾。",
+   "difficulty": 2,
+   "knowledge_point": "原始社会的解体和阶级社会的演进",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T4928fc",
+   "change_tag": "新增",
+   "tags": [
+    "原始社会"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "进步",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "偶然",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "倒退",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "停滞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-137",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.1 原始社会的解体和阶级社会的演进",
+   "question": "资本主义社会代替封建社会，是历史的？",
+   "explanation": "资本主义生产方式极大地推动了生产力发展。",
+   "difficulty": 2,
+   "knowledge_point": "原始社会的解体和阶级社会的演进",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Tf370e6",
+   "change_tag": "新增",
+   "tags": [
+    "原始社会"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "1848 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1871 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1917 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1789 年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-138",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.2 科学社会主义的理论与实践",
+   "question": "人类历史上第一次建立无产阶级政权的伟大尝试——巴黎公社，发生于？",
+   "explanation": "1848 年《共产党宣言》发表，1917 年十月革命。",
+   "difficulty": 2,
+   "knowledge_point": "科学社会主义的理论与实践",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tee9760",
+   "change_tag": "新增",
+   "tags": [
+    "科学社会主义"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "农民阶级",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "民族资产阶级",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "帝国主义、封建主义和官僚资本主义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小资产阶级",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-139",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第二课 只有社会主义才能救中国·2.1 新民主主义革命的胜利",
+   "question": "新民主主义革命的对象是？",
+   "explanation": "新民主主义革命反对“三座大山”。",
+   "difficulty": 2,
+   "knowledge_point": "新民主主义革命的胜利",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Td3b329",
+   "change_tag": "新增",
+   "tags": [
+    "近代主要矛盾"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "自愿互利、典型示范、国家帮助",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "和平赎买",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "强制没收",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按需分配",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-140",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第二课 只有社会主义才能救中国·2.2 社会主义制度在中国的确立",
+   "question": "我国对农业的社会主义改造遵循的原则是？",
+   "explanation": "和平赎买是针对资本主义工商业的。",
+   "difficulty": 2,
+   "knowledge_point": "社会主义制度在中国的确立",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Tb52f44",
+   "change_tag": "新增",
+   "tags": [
+    "三大改造"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "周恩来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "邓小平",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刘少奇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毛泽东",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-141",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第三课 只有中国特色社会主义才能发展中国·3.1 伟大的改革开放",
+   "question": "我国改革开放的总设计师是？",
+   "explanation": "邓小平是改革开放和社会主义现代化建设的总设计师。",
+   "difficulty": 2,
+   "knowledge_point": "伟大的改革开放",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tc9cd45",
+   "change_tag": "新增",
+   "tags": [
+    "改革开放"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "新民主主义理论",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毛泽东思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "马克思主义基本原理",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "习近平新时代中国特色社会主义思想",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-142",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第三课 只有中国特色社会主义才能发展中国·3.2 中国特色社会主义的创立、发展和完善",
+   "question": "中国特色社会主义理论体系包括邓小平理论、“三个代表”重要思想、科学发展观和？",
+   "explanation": "毛泽东思想不属于中国特色社会主义理论体系。",
+   "difficulty": 2,
+   "knowledge_point": "中国特色社会主义的创立、发展和完善",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Teee405",
+   "change_tag": "新增",
+   "tags": [
+    "中国特色社会主义"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "不平衡不充分的发展",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人民日益增长的美好生活需要",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "落后的社会生产",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人民日益增长的物质文化需要",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-143",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第四课 只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴·4.1 中国特色社会主义进入新时代",
+   "question": "新时代我国社会主要矛盾中，“需要”的一方是？",
+   "explanation": "“物质文化需要”是新时代以前的表述。",
+   "difficulty": 2,
+   "knowledge_point": "中国特色社会主义进入新时代",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T10b7b5",
+   "change_tag": "新增",
+   "tags": [
+    "主要矛盾"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "党的十七大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "党的十九大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "党的十八大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "党的二十大",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-144",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第四课 只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴·4.1 中国特色社会主义进入新时代",
+   "question": "习近平新时代中国特色社会主义思想在哪次党的全国代表大会上被确立为党的指导思想？",
+   "explanation": "2017 年党的十九大确立。",
+   "difficulty": 2,
+   "knowledge_point": "中国特色社会主义进入新时代",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Te40db8",
+   "change_tag": "新增",
+   "tags": [
+    "主要矛盾"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "少数人的梦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "别国的梦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人民的梦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个人的梦",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-145",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第一册",
+   "unit": "必修1·第四课 只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴·4.2 实现中华民族伟大复兴的中国梦",
+   "question": "中国梦归根到底是？",
+   "explanation": "中国梦必须紧紧依靠人民来实现。",
+   "difficulty": 2,
+   "knowledge_point": "实现中华民族伟大复兴的中国梦",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Ta23c23",
+   "change_tag": "新增",
+   "tags": [
+    "中国梦"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "个体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "国有经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "外资经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "集体经济",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-146",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第一课 我国的生产资料所有制·1.1 公有制为主体 多种所有制经济共同发展",
+   "question": "城乡居民开办的个体工商户属于？",
+   "explanation": "个体经济属于非公有制经济。",
+   "difficulty": 2,
+   "knowledge_point": "公有制为主体 多种所有制经济共同发展",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T352612",
+   "change_tag": "新增",
+   "tags": [
+    "基本经济制度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "数量上占绝对优势",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "利润最高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "控制力上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在所有行业都占最大比重",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-147",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第一课 我国的生产资料所有制·1.1 公有制为主体 多种所有制经济共同发展",
+   "question": "国有经济的主导作用主要体现在？",
+   "explanation": "国有经济控制国民经济命脉。",
+   "difficulty": 2,
+   "knowledge_point": "公有制为主体 多种所有制经济共同发展",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Td9e4be",
+   "change_tag": "新增",
+   "tags": [
+    "基本经济制度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "非公有制经济是国民经济的主导力量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "非公有制经济属于公有制经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "非公有制经济在稳定增长、促进创新、增加就业等方面有重要作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "非公有制经济控制国民经济命脉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-148",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第一课 我国的生产资料所有制·1.2 坚持“两个毫不动摇”",
+   "question": "国家鼓励、支持和引导非公有制经济发展，主要原因是？",
+   "explanation": "主导力量、控制命脉的是国有经济。",
+   "difficulty": 2,
+   "knowledge_point": "坚持“两个毫不动摇”",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T69b0a2",
+   "change_tag": "新增",
+   "tags": [
+    "两个毫不动摇"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "道德",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "法律",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "市场调节",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "政府调控",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-149",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.1 使市场在资源配置中起决定性作用",
+   "question": "经济生活中常说的“看不见的手”指的是？",
+   "explanation": "市场通过价格、供求、竞争机制自发调节。",
+   "difficulty": 2,
+   "knowledge_point": "使市场在资源配置中起决定性作用",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T253d5a",
+   "change_tag": "新增",
+   "tags": [
+    "市场作用"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "法律手段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "行政手段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "货币政策",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "财政政策",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-150",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.2 更好发挥政府作用",
+   "question": "中国人民银行调整利率来调节经济，属于？",
+   "explanation": "利率、存款准备金率是货币政策工具。",
+   "difficulty": 2,
+   "knowledge_point": "更好发挥政府作用",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tf25dfa",
+   "change_tag": "新增",
+   "tags": [
+    "宏观调控"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "市场调节",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "财政政策",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "法律手段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "货币政策",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-151",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.2 更好发挥政府作用",
+   "question": "政府加大对基础设施建设的投资，属于？",
+   "explanation": "财政支出属于财政政策。",
+   "difficulty": 2,
+   "knowledge_point": "更好发挥政府作用",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tdd9aa3",
+   "change_tag": "新增",
+   "tags": [
+    "宏观调控"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "否定市场作用的表现",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "计划经济的特征",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "发挥社会主义市场经济体制优势的内在要求",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "政府包办一切的体现",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-152",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.2 更好发挥政府作用",
+   "question": "科学的宏观调控、有效的政府治理，是？",
+   "explanation": "政府和市场要更好结合。",
+   "difficulty": 2,
+   "knowledge_point": "更好发挥政府作用",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Ta3e651",
+   "change_tag": "新增",
+   "tags": [
+    "宏观调控"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "共享",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "创新",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "协调",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-153",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第三课 我国的经济发展·3.1 坚持新发展理念",
+   "question": "“大众创业、万众创新”主要体现了哪一发展理念？",
+   "explanation": "创新是引领发展的第一动力。",
+   "difficulty": 2,
+   "knowledge_point": "坚持新发展理念",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T2bf77f",
+   "change_tag": "新增",
+   "tags": [
+    "新发展理念"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "产业兴旺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生态宜居",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生活富裕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "城市优先",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-154",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第三课 我国的经济发展·3.2 建设现代化经济体系",
+   "question": "乡村振兴战略的总要求不包括？",
+   "explanation": "总要求是产业兴旺、生态宜居、乡风文明、治理有效、生活富裕。",
+   "difficulty": 2,
+   "knowledge_point": "建设现代化经济体系",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T7ec6ce",
+   "change_tag": "新增",
+   "tags": [
+    "新发展格局"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只发展天津",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疏解北京非首都功能，推动区域协调发展",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "限制河北发展",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扩大北京城市规模",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-155",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第三课 我国的经济发展·3.2 建设现代化经济体系",
+   "question": "实施京津冀协同发展战略，主要目的是？",
+   "explanation": "属于区域协调发展战略。",
+   "difficulty": 2,
+   "knowledge_point": "建设现代化经济体系",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T53d815",
+   "change_tag": "新增",
+   "tags": [
+    "新发展格局"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "放弃实体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "限制科技创新",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "推动制造业向数字化、智能化转型",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大力发展高耗能产业",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-156",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第三课 我国的经济发展·3.2 建设现代化经济体系",
+   "question": "建设现代化经济体系，下列做法正确的是？",
+   "explanation": "推动高质量发展需要产业升级。",
+   "difficulty": 2,
+   "knowledge_point": "建设现代化经济体系",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Ta6aad9",
+   "change_tag": "新增",
+   "tags": [
+    "新发展格局"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "平均分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按需分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按生产要素分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按劳分配",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-157",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.1 我国的个人收入分配",
+   "question": "我国分配制度中，居于主体地位的是？",
+   "explanation": "按劳分配为主体、多种分配方式并存。",
+   "difficulty": 2,
+   "knowledge_point": "我国的个人收入分配",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Tfea285",
+   "change_tag": "新增",
+   "tags": [
+    "分配制度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "按劳分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按资本要素分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第三次分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按土地要素分配",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-158",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.1 我国的个人收入分配",
+   "question": "工人在国有企业工作获得的工资属于？",
+   "explanation": "在公有制经济中劳动取得的工资是按劳分配。",
+   "difficulty": 2,
+   "knowledge_point": "我国的个人收入分配",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Td9ab63",
+   "change_tag": "新增",
+   "tags": [
+    "分配制度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "第三次分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按劳分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按生产要素分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会保障",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-159",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.1 我国的个人收入分配",
+   "question": "个人出租房屋获得的租金属于？",
+   "explanation": "租金是凭土地、房屋等生产要素获得的收入。",
+   "difficulty": 2,
+   "knowledge_point": "我国的个人收入分配",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tdfdfbc",
+   "change_tag": "新增",
+   "tags": [
+    "分配制度"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "社会优抚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会福利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会保险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会救助",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-160",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修第二册",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.2 我国的社会保障",
+   "question": "政府对遭遇自然灾害的困难群众给予生活救助，属于社会保障体系中的？",
+   "explanation": "社会救助帮助遭遇困难的社会成员。",
+   "difficulty": 2,
+   "knowledge_point": "我国的社会保障",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Tf3a776",
+   "change_tag": "新增",
+   "tags": [
+    "社会保障"
    ]
   }
  ]

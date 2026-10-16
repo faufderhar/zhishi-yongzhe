@@ -10,7 +10,7 @@ const base = { id: 'x', status: 'AI初审通过', subject: '数学', grade: 7, t
   options: [{ text: '1' }, { text: '2' }, { text: '3' }, { text: '4' }], answer: 'B', explanation: '', difficulty: 2, tags: [] };
 
 describe('内置题库（v5/v6）', () => {
-  const EXPECT: Record<string, number> = { K1: 246, 1: 676, 2: 435, 3: 646, 4: 668, 5: 639, 6: 655, 7: 1151, 10: 1897 };   // v24
+  const EXPECT: Record<string, number> = { K1: 246, 1: 676, 2: 435, 3: 646, 4: 668, 5: 639, 6: 655, 7: 1221, 10: 2047 };   // v25
   for (const g of Object.keys(EXPECT)) {
     it(`${g}：全部通过校验，可玩 ${EXPECT[g]} 题，年级来自文件/字段`, () => {
       const b = loadBank(pub(g), `bank_${g}.json`);

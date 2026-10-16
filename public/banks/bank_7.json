@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初一-v24（AI初审）",
- "version": "v24",
+ "bank_name": "三兄妹题库-初一-v25（AI初审）",
+ "version": "v25",
  "questions": [
   {
    "id": "M7-001",
@@ -45011,6 +45011,3057 @@
    "change_tag": "新增",
    "tags": [
     "字形"
+   ]
+  },
+  {
+   "id": "M7-549",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第1章 数学与我们同行·1.1 生活 观察",
+   "type": "填空",
+   "question": "观察数列 $3,7,11,15,\\ldots$，第 8 个数是多少？",
+   "tts_text": "-",
+   "answer": [
+    "31"
+   ],
+   "explanation": "每次增加 4，第 $n$ 个数是 $4n-1$，第 8 个数是 31。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "生活 观察",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T28c822",
+   "change_tag": "新增",
+   "tags": [
+    "找规律",
+    "数学与生活"
+   ]
+  },
+  {
+   "id": "M7-550",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第1章 数学与我们同行·1.1 生活 观察",
+   "type": "填空",
+   "question": "用小棒摆五边形：1 个五边形用 5 根，2 个五边形连成一排（相邻两个共用一条边）用 9 根，3 个用 13 根……照这样摆 10 个五边形，要用多少根小棒？",
+   "answer": [
+    "41"
+   ],
+   "explanation": "每多摆一个五边形多用 4 根：5+4×9=41（根）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "生活 观察",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T48f92c",
+   "change_tag": "新增",
+   "tags": [
+    "找规律",
+    "数学与生活"
+   ]
+  },
+  {
+   "id": "M7-551",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第4章 一元一次方程·4.3 用一元一次方程解决问题",
+   "type": "填空",
+   "question": "学生乘车春游，若每辆车坐 40 人，有 10 人没有座位；若每辆车坐 45 人，还空出 15 个座位。一共有几辆车？",
+   "answer": [
+    "5"
+   ],
+   "explanation": "设有 $x$ 辆车：$40x+10=45x-15$，解得 $x=5$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "用一元一次方程解决问题",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Te7ade2",
+   "change_tag": "新增",
+   "tags": [
+    "一元一次方程应用"
+   ]
+  },
+  {
+   "id": "M7-552",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第1章 数学与我们同行·1.2 活动 思考",
+   "type": "填空",
+   "question": "有 3 件不同的上衣和 2 条不同的裤子，一件上衣配一条裤子，一共有几种不同的穿法？",
+   "answer": [
+    "6"
+   ],
+   "explanation": "每件上衣都能配 2 条裤子：3×2=6（种）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "活动 思考",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T8acba0",
+   "change_tag": "新增",
+   "tags": [
+    "活动思考",
+    "分类计数"
+   ]
+  },
+  {
+   "id": "M7-553",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第1章 数学与我们同行·1.2 活动 思考",
+   "type": "填空",
+   "question": "用 0、1、2 三个数字组成没有重复数字的三位数，一共可以组成几个？",
+   "answer": [
+    "4"
+   ],
+   "explanation": "百位不能是 0：102、120、201、210，共 4 个。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "活动 思考",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T296728",
+   "change_tag": "新增",
+   "tags": [
+    "活动思考",
+    "分类计数"
+   ]
+  },
+  {
+   "id": "M7-554",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第1章 数学与我们同行·1.3 交流 表达",
+   "type": "选择",
+   "question": "“$a$ 的 3 倍与 $b$ 的差”用式子表示为？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$3a-b$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a-3b$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3b-a$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3(a-b)$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "先算 $a$ 的 3 倍，再减去 $b$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "交流 表达",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Tf0055a",
+   "change_tag": "新增",
+   "tags": [
+    "用字母表达"
+   ]
+  },
+  {
+   "id": "M7-555",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第5章 走进几何世界·5.1 观察 抽象",
+   "type": "填空",
+   "question": "一个六棱柱一共有多少个面？",
+   "answer": [
+    "8"
+   ],
+   "explanation": "6 个侧面加上、下 2 个底面，共 8 个面。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "观察 抽象",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T2c2f01",
+   "change_tag": "新增",
+   "tags": [
+    "立体图形"
+   ]
+  },
+  {
+   "id": "M7-556",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第5章 走进几何世界·5.2 运动 想象",
+   "type": "选择",
+   "question": "“打开折扇，形成一个扇面”说明了？",
+   "options": [
+    {
+     "text": "面与面相交得到线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "线动成面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "点动成线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "面动成体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "扇骨（线）运动形成扇面（面）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "运动 想象",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T945a64",
+   "change_tag": "新增",
+   "tags": [
+    "点线面体"
+   ]
+  },
+  {
+   "id": "M7-557",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第5章 走进几何世界·5.3 转化 表达",
+   "type": "选择",
+   "question": "一个立体图形从正面看、从左面看都是长方形，从上面看是圆，这个立体图形是？",
+   "options": [
+    {
+     "text": "圆锥",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆柱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长方体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "竖放的圆柱从正面、左面看是长方形，从上面看是圆。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "转化 表达",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Te7e811",
+   "change_tag": "新增",
+   "tags": [
+    "展开图"
+   ]
+  },
+  {
+   "id": "M7-558",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第10章 二元一次方程组·10.2 二元一次方程组的概念",
+   "type": "选择",
+   "question": "下列各组数中，是方程组 $\\begin{cases}x+y=3\\\\2x-y=0\\end{cases}$ 的解的是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$\\begin{cases}x=3\\\\y=0\\end{cases}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\begin{cases}x=0\\\\y=3\\end{cases}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\begin{cases}x=1\\\\y=2\\end{cases}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\begin{cases}x=2\\\\y=1\\end{cases}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "代入检验：$1+2=3$，$2\\times1-2=0$，两个方程都满足。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "二元一次方程组的概念",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T2eb22d",
+   "change_tag": "新增",
+   "tags": [
+    "方程组的解"
+   ]
+  },
+  {
+   "id": "M7-559",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第11章 一元一次不等式·11.2 一元一次不等式的概念",
+   "type": "选择",
+   "question": "下列各数中，是不等式 $3x-2>4$ 的解的是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$0$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "$3x-2>4$ 即 $x>2$，只有 3 满足；$x=2$ 时 $3\\times2-2=4$，不大于 4。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "一元一次不等式的概念",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Tc5cf89",
+   "change_tag": "新增",
+   "tags": [
+    "一元一次不等式"
+   ]
+  },
+  {
+   "id": "M7-560",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第12章 定义 命题 证明·12.1 定义",
+   "type": "选择",
+   "question": "“两条直线相交成直角时，这两条直线互相垂直”是？",
+   "options": [
+    {
+     "text": "定理",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "基本事实",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "假命题",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "定义",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "这句话规定了“互相垂直”的含义，是定义。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "定义",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Tbeb3c1",
+   "change_tag": "新增",
+   "tags": [
+    "定义"
+   ]
+  },
+  {
+   "id": "M7-561",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第12章 定义 命题 证明·12.2 命题",
+   "type": "选择",
+   "question": "命题“如果两个角都是直角，那么这两个角相等”的结论是？",
+   "options": [
+    {
+     "text": "这两个角是对顶角",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "这两个角相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "这两个角互补",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两个角都是直角",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“如果”后面是条件，“那么”后面是结论。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "命题",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T3c81cb",
+   "change_tag": "新增",
+   "tags": [
+    "命题"
+   ]
+  },
+  {
+   "id": "M7-562",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第12章 定义 命题 证明·12.3 证明",
+   "type": "选择",
+   "question": "要说明命题“一个数的平方一定大于这个数”是假命题，可以举的反例是？",
+   "options": [
+    {
+     "text": "$1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "$1^2=1$，并不大于 1；而 $2^2>2$、$(-1)^2>-1$、$3^2>3$ 都不能作反例。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "证明",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T979b0c",
+   "change_tag": "新增",
+   "tags": [
+    "反例"
+   ]
+  },
+  {
+   "id": "M7-563",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第12章 定义 命题 证明·12.3 证明",
+   "type": "选择",
+   "question": "由 $a\\parallel b$，$b\\parallel c$ 推出 $a\\parallel c$，依据是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "两点确定一条直线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同位角相等，两直线平行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "平行于同一条直线的两条直线平行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对顶角相等",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "这是平行线的传递性。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "证明",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Ta04f9e",
+   "change_tag": "新增",
+   "tags": [
+    "反例"
+   ]
+  },
+  {
+   "id": "M7-564",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第12章 定义 命题 证明·12.4 定理",
+   "type": "选择",
+   "question": "下列属于基本事实（不需要证明）的是？",
+   "options": [
+    {
+     "text": "对顶角相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两点之间，线段最短",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "三角形的内角和等于 180°",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同角的补角相等",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "后三项都是经过证明的定理。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "定理",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "Tcb8e57",
+   "change_tag": "新增",
+   "tags": [
+    "三角形内角和"
+   ]
+  },
+  {
+   "id": "Y7-095",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元·1 春",
+   "type": "选择",
+   "question": "《春》中“春天像健壮的青年，有铁一般的胳膊和腰脚，领着我们上前去”，主要赞美了春天的？",
+   "options": [
+    {
+     "text": "温柔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "新生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "力量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "美丽",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "三个比喻分别写春天的新、美、力，这一句写力。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "春",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T719cdf",
+   "change_tag": "新增",
+   "tags": [
+    "字音"
+   ]
+  },
+  {
+   "id": "Y7-096",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元·1 春",
+   "type": "选择",
+   "question": "《春》按“盼春—绘春—赞春”的思路行文，下列属于“绘春”部分的是？",
+   "options": [
+    {
+     "text": "作者朱自清的简介",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "开头“盼望着，盼望着”",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结尾的三个比喻句",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春草、春花、春风、春雨、迎春五幅图",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "中间部分描绘五幅春景图。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "春",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T5e651c",
+   "change_tag": "新增",
+   "tags": [
+    "字音"
+   ]
+  },
+  {
+   "id": "Y7-097",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第二单元·7 散文诗二首",
+   "type": "选择",
+   "question": "《金色花》中孩子想象自己变成金色花，和妈妈“捉迷藏”，主要表达了？",
+   "options": [
+    {
+     "text": "对宗教的崇拜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孩子想离开母亲",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孩子对母亲的依恋和爱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对大自然的赞美",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "孩子天真的想象中处处有妈妈。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "散文诗二首",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tc6541b",
+   "change_tag": "新增",
+   "tags": [
+    "字音"
+   ]
+  },
+  {
+   "id": "Y7-098",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第二单元·7 散文诗二首",
+   "type": "选择",
+   "question": "冰心《荷叶·母亲》中“母亲啊！你是荷叶，我是红莲”一句，表达了？",
+   "options": [
+    {
+     "text": "对母爱的赞美和感激",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对童年游戏的怀念",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对雨天的厌恶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对荷花的喜爱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "用荷叶护红莲比喻母亲庇护子女。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "散文诗二首",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T232d3b",
+   "change_tag": "新增",
+   "tags": [
+    "字音"
+   ]
+  },
+  {
+   "id": "Y7-099",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·基础积累（字词·病句）",
+   "type": "选择",
+   "question": "下列词语中，没有错别字的一组是？",
+   "options": [
+    {
+     "text": "应接不暇　花团锦簇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "应接不瑕　花团锦簇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "应接不遐　花团锦簇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "应接不暇　花团锦族",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“应接不暇”的“暇”指空闲；“花团锦簇”的“簇”指聚集。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "病句）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T9260d0",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
+   ]
+  },
+  {
+   "id": "Y7-100",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·基础积累（字词·病句）",
+   "type": "选择",
+   "question": "下列句子中，表达通顺、没有语病的是？",
+   "options": [
+    {
+     "text": "同学们认真听取了老师的意见",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我们要养成良好的学习习惯和方法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "通过这次活动，使我们增长了见识",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "他的写作水平明显改进了",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "第二项缺主语；第三项“养成……方法”搭配不当；第四项“水平”与“改进”搭配不当。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "病句）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T9afec2",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
+   ]
+  },
+  {
+   "id": "Y7-101",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·基础积累（字词·病句）",
+   "type": "选择",
+   "question": "“各抒己见”的意思是？",
+   "options": [
+    {
+     "text": "各人只顾自己的事",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "各自充分发表自己的意见",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "各自坚持自己的意见，不肯让步",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大家意见完全一致",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“抒”是表达、发表。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "病句）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T511185",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
+   ]
+  },
+  {
+   "id": "Y7-102",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·基础积累（字词·病句）",
+   "type": "选择",
+   "question": "下列句子中，标点符号使用正确的是？",
+   "options": [
+    {
+     "text": "我喜欢读书、看报、和画画。",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "他问我明天来不来？",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我不知道他去哪儿了？",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "“你明天来吗？”妈妈问。",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "第二、四项是陈述句，句末应用句号；第三项“和”前不能用顿号。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "病句）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tc56865",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
+   ]
+  },
+  {
+   "id": "Y7-103",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元·2 济南的冬天",
+   "type": "选择",
+   "question": "《济南的冬天》中“一圈小山在冬天特别可爱，好像是把济南放在一个小摇篮里”，运用的修辞手法是？",
+   "options": [
+    {
+     "text": "排比",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对偶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夸张",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "比喻",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "把济南四周的小山比作摇篮。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "济南的冬天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T6ce432",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-104",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元·2 济南的冬天",
+   "type": "选择",
+   "question": "《济南的冬天》中“给山们穿上一件带水纹的花衣”，运用的修辞手法是？",
+   "options": [
+    {
+     "text": "拟人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对偶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "排比",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夸张",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "把山当作人来写，“穿上花衣”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "济南的冬天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T84ca74",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-105",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元·2 济南的冬天",
+   "type": "选择",
+   "question": "下列作品中，属于《济南的冬天》作者老舍的是？",
+   "options": [
+    {
+     "text": "《朝花夕拾》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《边城》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《子夜》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《骆驼祥子》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "《朝花夕拾》是鲁迅的，《边城》是沈从文的，《子夜》是茅盾的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "济南的冬天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T06252a",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-106",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第三单元·9 从百草园到三味书屋",
+   "type": "选择",
+   "question": "“我”在百草园里拔何首乌，是因为听说？",
+   "options": [
+    {
+     "text": "何首乌根有像人形的，吃了便可以成仙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长妈妈要用何首乌做菜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "何首乌能卖很多钱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "何首乌可以治病",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "原文：有人说，何首乌根是有像人形的，吃了便可以成仙。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "从百草园到三味书屋",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Td21e98",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-107",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第三单元·9 从百草园到三味书屋",
+   "type": "选择",
+   "question": "三味书屋后面也有一个园，“我们”在那里做的事不包括？",
+   "options": [
+    {
+     "text": "折腊梅花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "捉了苍蝇喂蚂蚁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雪地捕鸟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在地上或桂花树上寻蝉蜕",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "雪地捕鸟是在百草园。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "从百草园到三味书屋",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Tf84204",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-108",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第四单元·16 诫子书",
+   "type": "选择",
+   "question": "《诫子书》中“静以修身，俭以养德”的“俭”意思是？",
+   "options": [
+    {
+     "text": "简单",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "谦虚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "节俭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "勤劳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "用节俭来培养品德。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "诫子书",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T6834bd",
+   "change_tag": "新增",
+   "tags": [
+    "默写",
+    "诫子书"
+   ]
+  },
+  {
+   "id": "Y7-109",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第四单元·16 诫子书",
+   "type": "选择",
+   "question": "《诫子书》是诸葛亮写给谁的？",
+   "options": [
+    {
+     "text": "他的侄子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "他的儿子诸葛瞻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刘备",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "他的学生",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这是诸葛亮晚年写给八岁儿子诸葛瞻的家书。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "诫子书",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T22e666",
+   "change_tag": "新增",
+   "tags": [
+    "默写",
+    "诫子书"
+   ]
+  },
+  {
+   "id": "Y7-110",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第二单元·5 秋天的怀念",
+   "type": "选择",
+   "question": "《秋天的怀念》中，“我”当时不知道母亲病得很重，主要是因为？",
+   "options": [
+    {
+     "text": "母亲长期不在家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "母亲的病是突然发生的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "“我”一直住在医院",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "母亲隐瞒病情，一心照顾“我”",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "原文写母亲常常肝疼得整宿整宿睡不了觉，“我”那时不知道她的病已经到了那步田地。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "秋天的怀念",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T4cc2b0",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-111",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第二单元·6 散步",
+   "type": "选择",
+   "question": "《散步》中“这南方初春的田野，大块小块的新绿随意地铺着”一段景物描写，作用不包括？",
+   "options": [
+    {
+     "text": "烘托一家人和睦温馨的氛围",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "暗示生命的希望",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "交代散步的原因",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "表现春天的勃勃生机",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "散步的原因在前文已交代（母亲身体不好，要多走走）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "散步",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T6c70ee",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识"
+   ]
+  },
+  {
+   "id": "Y7-112",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元·3 雨的四季",
+   "type": "选择",
+   "question": "《雨的四季》中，作者描写春天的雨时，认为它是？",
+   "options": [
+    {
+     "text": "美丽的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自然、平静的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热烈而又粗犷的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "端庄而又沉思的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "春天的雨美丽，夏雨热烈粗犷，秋雨端庄沉思，冬雨自然平静。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "雨的四季",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Teb5908",
+   "change_tag": "新增",
+   "tags": [
+    "文学常识",
+    "雨的四季"
+   ]
+  },
+  {
+   "id": "E7-190",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7A Unit 7 Be wise with money",
+   "type": "选择",
+   "question": "I want to buy a new bike, so I need to ____ some money every month.",
+   "options": [
+    {
+     "text": "pay",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "cost",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "save",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "spend",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "想买新自行车，所以要每月存钱。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "A Unit 7 Be wise with money",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "T906261",
+   "change_tag": "新增",
+   "tags": [
+    "购物",
+    "be动词"
+   ]
+  },
+  {
+   "id": "E7-191",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7A Unit 7 Be wise with money",
+   "type": "选择",
+   "question": "This T-shirt is only 30 yuan. It's very ____.",
+   "options": [
+    {
+     "text": "rich",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "dear",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "expensive",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "cheap",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "only 30 yuan 说明很便宜。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "A Unit 7 Be wise with money",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "Ta9bc24",
+   "change_tag": "新增",
+   "tags": [
+    "购物",
+    "be动词"
+   ]
+  },
+  {
+   "id": "E7-192",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 2 Neighbourhood",
+   "type": "选择",
+   "question": "My neighbour is a doctor. He is always ready ____ others.",
+   "options": [
+    {
+     "text": "helping",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "help",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "to help",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "helped",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "be ready to do sth. 乐于做某事。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 2 Neighbourhood",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "Tfa6062",
+   "change_tag": "新增",
+   "tags": [
+    "社区",
+    "词汇语法"
+   ]
+  },
+  {
+   "id": "E7-193",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 3 My hometown",
+   "type": "选择",
+   "question": "— Where do you come from? — I come ____ Nanjing.",
+   "options": [
+    {
+     "text": "in",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "at",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "to",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "from",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "come from 来自。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 3 My hometown",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "Teeeb36",
+   "change_tag": "新增",
+   "tags": [
+    "家乡",
+    "比较级"
+   ]
+  },
+  {
+   "id": "E7-194",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 3 My hometown",
+   "type": "选择",
+   "question": "My hometown has changed a lot. It's ____ now than it was ten years ago.",
+   "options": [
+    {
+     "text": "cleanest",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "more clean",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "clean",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "cleaner",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "有 than，用比较级 cleaner。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 3 My hometown",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "T4541c0",
+   "change_tag": "新增",
+   "tags": [
+    "家乡",
+    "比较级"
+   ]
+  },
+  {
+   "id": "E7-195",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 4 Chinese folk art",
+   "type": "选择",
+   "question": "Many people like Chinese paper cutting ____ it is beautiful and has a long history.",
+   "options": [
+    {
+     "text": "but",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "because",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "or",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "so",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "后半句说明喜欢的原因。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 4 Chinese folk art",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "T88251b",
+   "change_tag": "新增",
+   "tags": [
+    "民间艺术",
+    "词汇语法"
+   ]
+  },
+  {
+   "id": "E7-196",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 6 Beautiful landscapes",
+   "type": "选择",
+   "question": "The Li River is one of the most beautiful ____ in China.",
+   "options": [
+    {
+     "text": "river",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "rivers",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "the river",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "a river",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "one of the + 最高级 + 名词复数。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 6 Beautiful landscapes",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "T3b036d",
+   "change_tag": "新增",
+   "tags": [
+    "风景",
+    "词汇语法"
+   ]
+  },
+  {
+   "id": "E7-197",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 7 Outdoor fun",
+   "type": "选择",
+   "question": "It's a fine day. Let's go ____ in the park.",
+   "options": [
+    {
+     "text": "for a walk",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "to walking",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "walked",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "walk",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "go for a walk 去散步。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 7 Outdoor fun",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "T0f5657",
+   "change_tag": "新增",
+   "tags": [
+    "户外",
+    "词汇语法"
+   ]
+  },
+  {
+   "id": "E7-198",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 7,
+   "textbook": "译林版2024",
+   "unit": "7B Unit 8 Wonderland",
+   "type": "选择",
+   "question": "Alice ____ very surprised when she saw the talking rabbit.",
+   "options": [
+    {
+     "text": "were",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "be",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "is",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "was",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "过去发生的事，主语 Alice 是单数，用 was。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "B Unit 8 Wonderland",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
+   "template": "Tb3d5c6",
+   "change_tag": "新增",
+   "tags": [
+    "奇境",
+    "词汇语法"
+   ]
+  },
+  {
+   "id": "S7-058",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "小学复习",
+   "type": "选择",
+   "question": "“两个黄鹂鸣翠柳，一行白鹭上青天”出自？",
+   "options": [
+    {
+     "text": "李白《望庐山瀑布》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "王维《鹿柴》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杜甫《绝句》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孟浩然《春晓》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "出自杜甫《绝句》（两个黄鹂鸣翠柳）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "拓展复习（不分册）",
+   "knowledge_point": "小学复习",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "Ta8ee71",
+   "change_tag": "新增",
+   "tags": [
+    "小学复习"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "课余活动更丰富",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学习科目增多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不再需要老师的指导",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学习难度加大",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-215",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第一课 开启初中生活",
+   "question": "与小学相比，初中生活的变化中，下列说法不正确的是？",
+   "explanation": "初中生仍然需要老师的指导和帮助。",
+   "difficulty": 2,
+   "knowledge_point": "第一课 开启初中生活",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tf765fc",
+   "change_tag": "新增",
+   "tags": [
+    "开启初中生活"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "要正确认识自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "要勤奋学习",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "要多交朋友",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "要尊敬长辈",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-216",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+   "question": "“人贵有自知之明”强调的是？",
+   "explanation": "“自知之明”指正确认识自己的能力。",
+   "difficulty": 2,
+   "knowledge_point": "第二课 正确认识自我",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T7b0533",
+   "change_tag": "新增",
+   "tags": [
+    "认识自己"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "梦想越大越好",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只需关注个人成绩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "少年的梦想要与国家的前途命运紧密相连",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "国家强大与个人无关",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-217",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第三课 梦想始于当下",
+   "question": "“少年强则国强”启示我们？",
+   "explanation": "少年的成长关系国家的未来。",
+   "difficulty": 2,
+   "knowledge_point": "第三课 梦想始于当下",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tfd9e81",
+   "change_tag": "新增",
+   "tags": [
+    "梦想"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "孝敬父母等长大以后再做",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "家是我们成长的摇篮，是身心栖息的港湾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "家庭成员之间不需要沟通",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "家只是一个居住的场所",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-218",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
+   "question": "下列关于“家”的说法，正确的是？",
+   "explanation": "家给我们生活的依靠和精神的寄托；孝敬父母从现在做起。",
+   "difficulty": 2,
+   "knowledge_point": "第四课 幸福和睦的家庭",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tb8dfa6",
+   "change_tag": "新增",
+   "tags": [
+    "孝亲敬长"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "给老师送贵重礼物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "认真学习，用进步回报老师",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "课堂上随意插话",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只在教师节向老师问好",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-219",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第五课 和谐的师生关系",
+   "question": "学生向老师表达感谢，下列做法恰当的是？",
+   "explanation": "尊重老师最好的方式是努力学习。",
+   "difficulty": 2,
+   "knowledge_point": "第五课 和谐的师生关系",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T93ef8f",
+   "change_tag": "新增",
+   "tags": [
+    "师生关系"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只交成绩好的朋友",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "互相利用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无原则地迁就",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诚实守信",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-220",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第六课 友谊之树常青",
+   "question": "“与朋友交，言而有信”体现了交友要？",
+   "explanation": "出自《论语》，强调对朋友讲信用。",
+   "difficulty": 2,
+   "knowledge_point": "第六课 友谊之树常青",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T728f93",
+   "change_tag": "新增",
+   "tags": [
+    "友谊的真谛"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "集体主义精神",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "享乐主义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拜金主义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个人主义",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-221",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第七课 在集体中成长",
+   "question": "“我为人人，人人为我”体现的是？",
+   "explanation": "个人为集体付出，集体也为个人提供帮助。",
+   "difficulty": 2,
+   "knowledge_point": "第七课 在集体中成长",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T4890b9",
+   "change_tag": "新增",
+   "tags": [
+    "集体"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "不可逆性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "可再生性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "可替代性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "永恒性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-222",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第八课 生命可贵",
+   "question": "“生命只有一次”说明生命具有？",
+   "explanation": "生命一旦失去就不可挽回，要珍爱生命。",
+   "difficulty": 2,
+   "knowledge_point": "第八课 生命可贵",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Tbdf223",
+   "change_tag": "新增",
+   "tags": [
+    "认识生命"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "在机动车道上追逐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "双手离把骑车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遵守交通信号，靠右侧行驶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "闯红灯抢时间",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-223",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
+   "question": "骑自行车上学，下列做法符合交通安全要求的是？",
+   "explanation": "遵守交通规则是守护生命安全的基本要求。",
+   "difficulty": 2,
+   "knowledge_point": "第九课 守护生命安全",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Ta05dca",
+   "change_tag": "新增",
+   "tags": [
+    "安全常识"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "学习方法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "交友方式",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "心理调节方法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "健康的生活方式",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-224",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第十课 保持身心健康",
+   "question": "青少年每天保证足够的睡眠，这属于？",
+   "explanation": "规律作息、睡眠充足是健康生活方式的一部分。",
+   "difficulty": 2,
+   "knowledge_point": "第十课 保持身心健康",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T47301c",
+   "change_tag": "新增",
+   "tags": [
+    "爱护身体"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "考虑社会需要",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "听取父母和老师的建议",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "盲目跟风，别人做什么自己就做什么",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结合自身实际",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-225",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十一课 确立人生目标",
+   "question": "确立人生目标时，下列做法不恰当的是？",
+   "explanation": "人生目标要从自身实际出发。",
+   "difficulty": 2,
+   "knowledge_point": "第十一课 确立人生目标",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T9a7573",
+   "change_tag": "新增",
+   "tags": [
+    "人生目标"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "成功不需要经历失败",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不怕失败所以不必努力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "要从失败中吸取教训，继续前进",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "失败之后一定会成功",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-226",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十二课 端正人生态度",
+   "question": "“失败是成功之母”启示我们？",
+   "explanation": "正确对待失败，总结经验。",
+   "difficulty": 2,
+   "knowledge_point": "第十二课 端正人生态度",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tf74a7c",
+   "change_tag": "新增",
+   "tags": [
+    "正确对待顺境和逆境"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "人生价值与劳动无关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只有高收入的工作才有价值",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "平凡岗位同样能创造人生价值",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "平凡的工作没有意义",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-227",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第四单元 追求美好人生·第十三课 实现人生价值",
+   "question": "快递员、环卫工人在平凡岗位上辛勤工作，这说明？",
+   "explanation": "人生价值在于对社会的贡献，与岗位高低无关。",
+   "difficulty": 2,
+   "knowledge_point": "第十三课 实现人生价值",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tcc4b40",
+   "change_tag": "新增",
+   "tags": [
+    "劳动"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "正确认识，坦然接受身体变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "嘲笑他人的变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "为身体变化感到羞耻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刻意掩饰身体变化",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-228",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第一课 青春正当时",
+   "question": "青春期男女生身体发育出现差异，对此正确的态度是？",
+   "explanation": "青春期身体变化是正常的生理现象。",
+   "difficulty": 2,
+   "knowledge_point": "第一课 青春正当时",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T73d426",
+   "change_tag": "新增",
+   "tags": [
+    "青春期"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "嫉妒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "美好的情感",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冲动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "消极情绪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-229",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第二课 做情绪情感的主人",
+   "question": "读到英雄的感人事迹而热泪盈眶，这体现的是？",
+   "explanation": "美好的情感能丰富我们的人生。",
+   "difficulty": 2,
+   "knowledge_point": "第二课 做情绪情感的主人",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T7a0b2a",
+   "change_tag": "新增",
+   "tags": [
+    "情绪调节"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "只要自己优秀就行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不需要尊重他人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尊重他人，才能赢得他人的尊重",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尊重别人会降低自己",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-230",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第三课 人贵自尊",
+   "question": "“敬人者，人恒敬之”说明？",
+   "explanation": "出自《孟子》。",
+   "difficulty": 2,
+   "knowledge_point": "第三课 人贵自尊",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tc37ca6",
+   "change_tag": "新增",
+   "tags": [
+    "自尊"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "虚荣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自信",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自卑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自负",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-231",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第四课 自信给人力量",
+   "question": "小明比赛失利后说“这次没发挥好，下次我能行”，这体现了？",
+   "explanation": "相信自己的能力，积极面对失败。",
+   "difficulty": 2,
+   "knowledge_point": "第四课 自信给人力量",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T058a8b",
+   "change_tag": "新增",
+   "tags": [
+    "自信"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "勇于挑战自我",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "克服困难坚持学习",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遇到挫折不气馁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "依赖别人替自己完成作业",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-232",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第五课 人生当自强",
+   "question": "下列表现不属于自强的是？",
+   "explanation": "依赖他人与自强精神相反。",
+   "difficulty": 2,
+   "knowledge_point": "第五课 人生当自强",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T190ca1",
+   "change_tag": "新增",
+   "tags": [
+    "自强"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "重民本",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "讲仁爱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "崇正义",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尚和合",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-233",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第六课 传承核心思想理念",
+   "question": "“见利思义”“义以为上”体现的核心思想理念是？",
+   "explanation": "强调把道义放在首位。",
+   "difficulty": 2,
+   "knowledge_point": "第六课 传承核心思想理念",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "Tac5cdf",
+   "change_tag": "新增",
+   "tags": [
+    "民本"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "享乐思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "家国情怀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "竞争意识",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个人主义",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-234",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第七课 弘扬中华人文精神",
+   "question": "“修身、齐家、治国、平天下”体现了中华人文精神中的？",
+   "explanation": "把个人修养与家庭、国家联系在一起。",
+   "difficulty": 2,
+   "knowledge_point": "第七课 弘扬中华人文精神",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T043694",
+   "change_tag": "新增",
+   "tags": [
+    "仁爱"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "敬爱兄长",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孝顺父母",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "勤俭节约",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诚实守信",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-235",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第三单元 传承中华优秀传统文化·第八课 践行中华传统美德",
+   "question": "“孝悌”中的“悌”指的是？",
+   "explanation": "“孝”指孝顺父母，“悌”指敬爱兄长。",
+   "difficulty": 2,
+   "knowledge_point": "第八课 践行中华传统美德",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "Td8a6aa",
+   "change_tag": "新增",
+   "tags": [
+    "诚信"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "随意性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自愿性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "临时性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "普遍约束力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-236",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第九课 法律为我们护航",
+   "question": "法律对全体社会成员都具有约束力，这体现了法律具有？",
+   "explanation": "法律由国家制定，对全体社会成员具有普遍约束力。",
+   "difficulty": 2,
+   "knowledge_point": "第九课 法律为我们护航",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T3c68bd",
+   "change_tag": "新增",
+   "tags": [
+    "宪法"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "肖像权",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "继承权",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "债权",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "财产所有权",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-237",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
+   "question": "下列属于民法典规定的人格权的是？",
+   "explanation": "人格权包括生命权、身体权、健康权、姓名权、肖像权、名誉权、荣誉权、隐私权等。",
+   "difficulty": 2,
+   "knowledge_point": "第十课 走近民法典",
+   "type": "选择",
+   "answer": "A",
+   "game_ready": true,
+   "template": "T688276",
+   "change_tag": "新增",
+   "tags": [
+    "民法典"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "无民事行为能力人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "完全民事行为能力人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "限制民事行为能力人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "没有民事权利的人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-238",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
+   "question": "根据民法典，16 周岁以上的未成年人，以自己的劳动收入为主要生活来源的，视为？",
+   "explanation": "这是民法典的规定。",
+   "difficulty": 2,
+   "knowledge_point": "第十课 走近民法典",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T9bcf06",
+   "change_tag": "新增",
+   "tags": [
+    "民法典"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "贩卖毒品",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "故意杀人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "抢劫银行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在公共场所打架，情节较轻",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-239",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十一课 远离违法犯罪",
+   "question": "下列行为中，属于一般违法行为的是？",
+   "explanation": "情节较轻的打架违反治安管理处罚法，属于一般违法；其余是犯罪。",
+   "difficulty": 2,
+   "knowledge_point": "第十一课 远离违法犯罪",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Te74340",
+   "change_tag": "新增",
+   "tags": [
+    "犯罪"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "偶尔小偷小摸没关系",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杜绝不良行为，防微杜渐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只要不犯罪就行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跟着朋友一起逃学",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-240",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十一课 远离违法犯罪",
+   "question": "未成年人预防违法犯罪，首先要？",
+   "explanation": "不良行为如不及时纠正，可能发展为违法犯罪。",
+   "difficulty": 2,
+   "knowledge_point": "第十一课 远离违法犯罪",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tf70eb9",
+   "change_tag": "新增",
+   "tags": [
+    "犯罪"
    ]
   }
  ]
