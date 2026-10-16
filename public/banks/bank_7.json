@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初一-第4批（AI初审）",
- "version": 4,
+ "bank_name": "三兄妹题库-初一-v18（AI初审）",
+ "version": "v18",
  "questions": [
   {
    "id": "M7-001",
@@ -32200,6 +32200,1387 @@
    "tags": [
     "数学",
     "12.4"
+   ]
+  },
+  {
+   "id": "M7-340",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第2章 有理数·2.1 正数与负数",
+   "type": "多选",
+   "question": "下列各数中，是负数的有（多选）",
+   "options": [
+    {
+     "text": "$0$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$+2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-0.5$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "小于 0 的数是负数；0 既不是正数也不是负数。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "正数与负数",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "正数与负数",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-341",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第2章 有理数·2.2 数轴",
+   "type": "多选",
+   "question": "数轴上到原点的距离等于 3 的点表示的数是（多选）",
+   "options": [
+    {
+     "text": "$-3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$6$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$0$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AC",
+   "explanation": "原点两侧各有一个点到原点距离为 3。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "数轴",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "数轴",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-342",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第2章 有理数·2.3 绝对值与相反数",
+   "type": "多选",
+   "question": "关于绝对值与相反数，下列说法正确的是（多选）",
+   "options": [
+    {
+     "text": "互为相反数的两个数绝对值相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "0 的相反数是 0",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "绝对值相等的两个数一定相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "负数的绝对值是它本身",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "$|a|=|-a|$；绝对值相等的两数可能互为相反数；负数的绝对值是它的相反数。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "绝对值与相反数",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "绝对值与相反数",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-343",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第2章 有理数·2.4 有理数的加法与减法",
+   "type": "多选",
+   "question": "下列有理数加减法计算正确的是（多选）",
+   "options": [
+    {
+     "text": "$(-3)+5=2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-4)+(-6)=10$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$0-5=5$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-2-(-7)=5$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "$(-4)+(-6)=-10$，$0-5=-5$。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "有理数的加法与减法",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "有理数的加法与减法",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-344",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第2章 有理数·2.6 有理数的乘方",
+   "type": "多选",
+   "question": "下列各式的结果是正数的有（多选）",
+   "options": [
+    {
+     "text": "$-2^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-2)^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-1)^4$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$(-3)^3$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "$(-2)^2=4$，$(-1)^4=1$；$-2^2=-4$，$(-3)^3=-27$。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "有理数的乘方",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "有理数的乘方",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-345",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第3章 代数式·3.2 代数式的概念",
+   "type": "多选",
+   "question": "下列式子中，是代数式的有（多选）",
+   "options": [
+    {
+     "text": "$3x^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a+b$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a>b$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x+1=2$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "含等号或不等号的式子不是代数式。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "代数式的概念",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "代数式的概念",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-346",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第3章 代数式·3.3 整式的加减",
+   "type": "多选",
+   "question": "下列各组中，是同类项的有（多选）",
+   "options": [
+    {
+     "text": "$5$ 与 $-2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3a^2b$ 与 $-a^2b$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a$ 与 $a^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2xy^2$ 与 $2x^2y$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "同类项要求所含字母相同、相同字母的指数也相同；几个常数项也是同类项。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "整式的加减",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "整式的加减",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-347",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第4章 一元一次方程·4.2 一元一次方程及其解法",
+   "type": "多选",
+   "question": "下列方程中，是一元一次方程的有（多选）",
+   "options": [
+    {
+     "text": "$x+y=3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x^2=4$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$2x-1=5$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\dfrac{x}{3}=4$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "只含一个未知数、未知数的次数是 1 的整式方程是一元一次方程。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "一元一次方程及其解法",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "一元一次方程及其解法",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-348",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第6章 平面图形的初步认识·6.1 直线、射线、线段",
+   "type": "多选",
+   "question": "关于直线、射线、线段，下列说法正确的是（多选）",
+   "options": [
+    {
+     "text": "两点确定一条直线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直线比射线长",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "射线 AB 与射线 BA 是同一条射线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两点之间，线段最短",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "射线 AB 与 BA 端点和方向都不同；直线和射线都无限延伸，不能比较长短。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "直线、射线、线段",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "直线、射线、线段",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-349",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七上·第6章 平面图形的初步认识·6.4 平行线",
+   "type": "多选",
+   "question": "下列条件中，能判定两条直线平行的有（多选）",
+   "options": [
+    {
+     "text": "同位角相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对顶角相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同旁内角相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "内错角相等",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "同位角相等或内错角相等，两直线平行；同旁内角应是互补。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "平行线",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "平行线",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-350",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第7章 幂的运算·7.1 同底数幂的乘法",
+   "type": "多选",
+   "question": "下列同底数幂的乘法计算正确的是（多选）",
+   "options": [
+    {
+     "text": "$a^2\\cdot a^3=a^5$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a^2+a^2=a^4$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a^3\\cdot a^3=a^9$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x\\cdot x^4=x^5$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "同底数幂相乘，底数不变、指数相加：$a^3\\cdot a^3=a^6$；$a^2+a^2=2a^2$。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "同底数幂的乘法",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "同底数幂的乘法",
+    "多选"
+   ]
+  },
+  {
+   "id": "M7-351",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 7,
+   "textbook": "苏科版2024",
+   "unit": "七下·第11章 一元一次不等式·11.1 不等式",
+   "type": "多选",
+   "question": "若 $a>b$，则下列不等式一定成立的有（多选）",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$a^2>b^2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3a>3b$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$a+2>b+2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$-a<-b$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BCD",
+   "explanation": "不等式两边同乘负数要变号；$a^2>b^2$ 不一定成立，如 $a=1$，$b=-2$。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级下册",
+   "knowledge_point": "不等式",
+   "game_ready": true,
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
+   "template": "T4c6779",
+   "change_tag": "新增",
+   "tags": [
+    "不等式",
+    "多选"
+   ]
+  },
+  {
+   "id": "H7-051",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元 史前时期：原始社会与中华文明的起源",
+   "type": "多选",
+   "question": "下列属于我国境内远古人类的有（多选）",
+   "options": [
+    {
+     "text": "山顶洞人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北京人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "元谋人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尼安德特人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "元谋人、北京人、山顶洞人都生活在我国境内；尼安德特人化石主要发现于欧洲和西亚。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "第一单元 史前时期：原始社会与中华文明的起源",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 史前时期：原始社会与中华文明的起源",
+    "多选"
+   ]
+  },
+  {
+   "id": "H7-052",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第一单元 史前时期：原始社会与中华文明的起源",
+   "type": "多选",
+   "question": "河姆渡居民和半坡居民的相同点有（多选）",
+   "options": [
+    {
+     "text": "都会制作陶器",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都过着定居生活",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都住干栏式房屋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都主要种植水稻",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "河姆渡种水稻、住干栏式房屋；半坡种粟、住半地穴式房屋。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "第一单元 史前时期：原始社会与中华文明的起源",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 史前时期：原始社会与中华文明的起源",
+    "多选"
+   ]
+  },
+  {
+   "id": "H7-053",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第二单元 夏商周时期：奴隶制王朝的更替和向封建社会的过渡",
+   "type": "多选",
+   "question": "商鞅变法的内容有（多选）",
+   "options": [
+    {
+     "text": "奖励耕战",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "推行县制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一文字",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行分封制",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "分封制是西周制度，统一文字是秦始皇的措施。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "第二单元 夏商周时期：奴隶制王朝的更替和向封建社会的过渡",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 夏商周时期：奴隶制王朝的更替和向封建社会的过渡",
+    "多选"
+   ]
+  },
+  {
+   "id": "H7-054",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第二单元 夏商周时期：奴隶制王朝的更替和向封建社会的过渡",
+   "type": "多选",
+   "question": "下列思想家与学派对应正确的有（多选）",
+   "options": [
+    {
+     "text": "墨子——兵家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "韩非——法家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老子——道家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孔子——儒家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BCD",
+   "explanation": "墨子是墨家创始人，兵家代表是孙武。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "第二单元 夏商周时期：奴隶制王朝的更替和向封建社会的过渡",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 夏商周时期：奴隶制王朝的更替和向封建社会的过渡",
+    "多选"
+   ]
+  },
+  {
+   "id": "H7-055",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第三单元 秦汉时期：统一多民族封建国家的建立和巩固",
+   "type": "多选",
+   "question": "秦始皇巩固统一的措施有（多选）",
+   "options": [
+    {
+     "text": "修筑长城",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一文字",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行推恩令",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一货币和度量衡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABD",
+   "explanation": "推恩令是汉武帝的措施。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "第三单元 秦汉时期：统一多民族封建国家的建立和巩固",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 秦汉时期：统一多民族封建国家的建立和巩固",
+    "多选"
+   ]
+  },
+  {
+   "id": "H7-056",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·第三单元 秦汉时期：统一多民族封建国家的建立和巩固",
+   "type": "多选",
+   "question": "汉武帝巩固大一统的措施有（多选）",
+   "options": [
+    {
+     "text": "焚书坑儒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一度量衡",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行推恩令",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "罢黜百家，尊崇儒术",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "焚书坑儒、统一度量衡都是秦始皇的做法。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "第三单元 秦汉时期：统一多民族封建国家的建立和巩固",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 秦汉时期：统一多民族封建国家的建立和巩固",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "主动适应新环境",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沉迷手机逃避新生活",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拒绝和同学交往",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "主动结交新朋友",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-145",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第一课 开启初中生活",
+   "question": "进入初中，下列做法恰当的有（多选）",
+   "explanation": "积极面对初中生活的变化，主动适应、主动交往。",
+   "difficulty": 3,
+   "knowledge_point": "开启初中生活",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "开启初中生活",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "通过他人的评价认识自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只看自己的缺点",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只听别人的评价",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "通过自我观察认识自己",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-146",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+   "question": "认识自己的正确途径有（多选）",
+   "explanation": "要全面、客观地认识自己，对他人评价要理性分析。",
+   "difficulty": 3,
+   "knowledge_point": "正确认识自我",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "正确认识自我",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "主动分担家务",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "关心父母的身体健康",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只向父母要零花钱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "顶撞父母",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-147",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
+   "question": "下列属于孝亲敬长的做法有（多选）",
+   "explanation": "孝亲敬长要落实在日常行动中。",
+   "difficulty": 3,
+   "knowledge_point": "幸福和睦的家庭",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "幸福和睦的家庭",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "朋友做错事也要替他隐瞒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "真正的朋友会坦诚指出我们的错误",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "友谊需要用心呵护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "友谊一旦建立就永远不变",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-148",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第二单元 成长的时空·第六课 友谊之树常青",
+   "question": "关于友谊，下列说法正确的有（多选）",
+   "explanation": "友谊不是无原则的，友谊会变化，需要呵护。",
+   "difficulty": 3,
+   "knowledge_point": "友谊之树常青",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "友谊之树常青",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "生命是不可逆的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生命来之不易",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "生命可以重来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "每个人的生命都是独特的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-149",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第八课 生命可贵",
+   "question": "下列关于生命的说法正确的有（多选）",
+   "explanation": "生命只有一次，不可逆、不可重来。",
+   "difficulty": 3,
+   "knowledge_point": "生命可贵",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "生命可贵",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "弯腰低姿沿安全通道撤离",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乘坐电梯逃生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "用湿毛巾捂住口鼻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "返回屋内取贵重物品",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-150",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级上册",
+   "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
+   "question": "发生火灾时，正确的做法有（多选）",
+   "explanation": "火灾时不能乘电梯，也不能贪恋财物。",
+   "difficulty": 3,
+   "knowledge_point": "守护生命安全",
+   "type": "多选",
+   "answer": "AC",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "守护生命安全",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "摔东西发泄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "合理宣泄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "改变认知评价",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "转移注意力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-151",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第一单元 珍惜青春时光·第二课 做情绪情感的主人",
+   "question": "下列属于调控情绪的合理方法有（多选）",
+   "explanation": "摔东西会伤害他人和自己，不是合理宣泄。",
+   "difficulty": 3,
+   "knowledge_point": "做情绪情感的主人",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "做情绪情感的主人",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "不嘲笑他人的缺点",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "偷看他人日记",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "给同学起侮辱性的绰号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "礼貌待人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-152",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第三课 人贵自尊",
+   "question": "下列做法体现尊重他人的有（多选）",
+   "explanation": "起侮辱性绰号、偷看日记都侵犯他人人格尊严和隐私。",
+   "difficulty": 3,
+   "knowledge_point": "人贵自尊",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "人贵自尊",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "正视困难和挫折",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "事事依赖他人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遇到困难就退缩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "树立远大志向",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-153",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第二单元 焕发青春活力·第五课 人生当自强",
+   "question": "下列做法有助于自强的有（多选）",
+   "explanation": "自强需要立志、勇于面对困难。",
+   "difficulty": 3,
+   "knowledge_point": "人生当自强",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "人生当自强",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "家庭保护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "司法保护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "学校保护",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宗族保护",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-154",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第九课 法律为我们护航",
+   "question": "我国《未成年人保护法》规定的保护包括（多选）",
+   "explanation": "未成年人保护法规定家庭、学校、社会、网络、政府、司法六大保护。",
+   "difficulty": 3,
+   "knowledge_point": "法律为我们护航",
+   "type": "多选",
+   "answer": "ABC",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "法律为我们护航",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "人格权",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "选举权",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "立法权",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物权",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-155",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
+   "question": "下列属于民法典规定的民事权利的有（多选）",
+   "explanation": "选举权是宪法规定的政治权利，立法权是国家权力，都不是民事权利。",
+   "difficulty": 3,
+   "knowledge_point": "走近民法典",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "走近民法典",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "违法行为包括民事违法、行政违法和刑事违法",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一般违法行为不会受到处罚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "未成年人违法不承担任何责任",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "犯罪是最严重的违法行为",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D7-156",
+   "subject": "道德与法治",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "七年级下册",
+   "unit": "七下·第四单元 生活在法治社会·第十一课 远离违法犯罪",
+   "question": "关于违法与犯罪，下列说法正确的有（多选）",
+   "explanation": "一般违法也要承担相应法律责任；未成年人达到相应年龄也要承担法律责任。",
+   "difficulty": 3,
+   "knowledge_point": "远离违法犯罪",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T370b9b",
+   "change_tag": "新增",
+   "tags": [
+    "远离违法犯罪",
+    "多选"
    ]
   }
  ]

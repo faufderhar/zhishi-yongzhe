@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-第4批（AI初审）",
- "version": 4,
+ "bank_name": "三兄妹题库-高一-v18（AI初审）",
+ "version": "v18",
  "questions": [
   {
    "id": "Y10-001",
@@ -7323,7 +7323,7 @@
    "textbook": "人教版2019",
    "unit": "必修一·第二章 匀变速直线运动的研究·3 匀变速直线运动的位移与时间的关系",
    "type": "填空",
-   "question": "上题中（$T=1\\,\\mathrm s$，位移 $3\\,\\mathrm m$、$5\\,\\mathrm m$），两段的分界时刻速度为多少 $\\mathrm{m/s}$？",
+   "question": "匀变速直线运动中，连续相等时间 $T=1\\,\\mathrm s$ 内的位移分别为 $3\\,\\mathrm m$ 和 $5\\,\\mathrm m$，两段时间分界时刻的速度为多少 $\\mathrm{m/s}$？",
    "tts_text": "-",
    "answer": [
     "4"
@@ -7334,9 +7334,10 @@
    "volume": "必修第一册",
    "knowledge_point": "中间时刻速度",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "template": "Tac2ee9",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "中间时刻速度"
    ]
@@ -7400,7 +7401,7 @@
    "textbook": "人教版2019",
    "unit": "必修一·第二章 匀变速直线运动的研究·3 匀变速直线运动的位移与时间的关系",
    "type": "填空",
-   "question": "接上题，两车最远距离为多少 m？",
+   "question": "甲车以 $10\\,\\mathrm{m/s}$ 匀速行驶，经过静止的乙车时，乙车以 $2\\,\\mathrm{m/s^2}$ 由静止匀加速追赶。追上之前两车的最远距离为多少 m？",
    "answer": [
     "25"
    ],
@@ -7410,9 +7411,10 @@
    "volume": "必修第一册",
    "knowledge_point": "追及相遇",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "template": "T920e72",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "追及相遇"
    ]
@@ -7425,7 +7427,7 @@
    "textbook": "人教版2019",
    "unit": "必修一·第二章 匀变速直线运动的研究·3 匀变速直线运动的位移与时间的关系",
    "type": "填空",
-   "question": "接上题，乙车追上甲车需要多少 s？",
+   "question": "甲车以 $10\\,\\mathrm{m/s}$ 匀速行驶，经过静止的乙车时，乙车以 $2\\,\\mathrm{m/s^2}$ 由静止匀加速追赶。乙车从启动到追上甲车需要多少 s？",
    "answer": [
     "10"
    ],
@@ -7435,9 +7437,10 @@
    "volume": "必修第一册",
    "knowledge_point": "追及相遇",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "template": "Td59ea1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "追及相遇"
    ]
@@ -18618,7 +18621,7 @@
    "textbook": "人教版2019",
    "unit": "必修一·第四章 运动和力的关系·6 超重和失重",
    "type": "填空",
-   "question": "同上（$60\\,\\mathrm{kg}$），若电梯以 $1\\,\\mathrm{m/s^2}$ 加速下降，压力为多少 $\\mathrm{N}$？",
+   "question": "质量 $60\\,\\mathrm{kg}$ 的人站在以 $1\\,\\mathrm{m/s^2}$ 加速下降的电梯里（$g=10\\,\\mathrm{m/s^2}$），对地板压力为多少 $\\mathrm{N}$？",
    "tts_text": "-",
    "answer": [
     "540"
@@ -18632,7 +18635,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "template": "Te5106e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "失重"
    ]
@@ -19728,7 +19731,7 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第1章 集合·1.3 交集、并集",
    "type": "填空",
-   "question": "同上，$A\\cup B$ 中有几个元素？（$A=\\{1,2,5,9\\}$，$B=\\{3,5,7,9\\}$）",
+   "question": "已知 $A=\\{1,2,5,9\\}$，$B=\\{3,5,7,9\\}$，$A\\cup B$ 中有几个元素？",
    "tts_text": "-",
    "answer": [
     "6"
@@ -19739,9 +19742,10 @@
    "volume": "必修第一册",
    "knowledge_point": "并集",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "T06f16b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "并集"
    ]
@@ -19780,7 +19784,7 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第1章 集合·1.3 交集、并集",
    "type": "填空",
-   "question": "同上，$A\\cup B$ 中有几个元素？（$A=\\{1,2,3,7\\}$，$B=\\{2,3,7,8\\}$）",
+   "question": "已知 $A=\\{1,2,3,7\\}$，$B=\\{2,3,7,8\\}$，$A\\cup B$ 中有几个元素？",
    "tts_text": "-",
    "answer": [
     "5"
@@ -19791,9 +19795,10 @@
    "volume": "必修第一册",
    "knowledge_point": "并集",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "T06f16b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "并集"
    ]
@@ -19832,7 +19837,7 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第1章 集合·1.3 交集、并集",
    "type": "填空",
-   "question": "同上，$A\\cup B$ 中有几个元素？（$A=\\{4,6,7,8\\}$，$B=\\{2,4,5,8\\}$）",
+   "question": "已知 $A=\\{4,6,7,8\\}$，$B=\\{2,4,5,8\\}$，$A\\cup B$ 中有几个元素？",
    "tts_text": "-",
    "answer": [
     "6"
@@ -19843,9 +19848,10 @@
    "volume": "必修第一册",
    "knowledge_point": "并集",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "T06f16b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "并集"
    ]
@@ -19884,7 +19890,7 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第1章 集合·1.3 交集、并集",
    "type": "填空",
-   "question": "同上，$A\\cup B$ 中有几个元素？（$A=\\{1,3,7,9\\}$，$B=\\{2,3,5,8\\}$）",
+   "question": "已知 $A=\\{1,3,7,9\\}$，$B=\\{2,3,5,8\\}$，$A\\cup B$ 中有几个元素？",
    "tts_text": "-",
    "answer": [
     "7"
@@ -19895,9 +19901,10 @@
    "volume": "必修第一册",
    "knowledge_point": "并集",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "T06f16b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "并集"
    ]
@@ -48336,6 +48343,5528 @@
    "tags": [
     "文学常识",
     "拓展"
+   ]
+  },
+  {
+   "id": "C10-151",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题1 物质的分类及计量·第一单元 物质及其反应的分类",
+   "type": "多选",
+   "question": "下列物质属于酸性氧化物的有（多选）",
+   "options": [
+    {
+     "text": "$\\ce{CO}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{SO2}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{CO2}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{CaO}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "$\\ce{CO2}$、$\\ce{SO2}$ 能与碱反应生成盐和水；$\\ce{CaO}$ 是碱性氧化物，$\\ce{CO}$ 是不成盐氧化物。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第一单元 物质及其反应的分类",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 物质及其反应的分类",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-152",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题1 物质的分类及计量·第三单元 物质的分散系",
+   "type": "多选",
+   "question": "下列关于胶体的说法正确的有（多选）",
+   "options": [
+    {
+     "text": "胶体能产生丁达尔效应",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{Fe(OH)3}$ 胶体粒子直径在 1～100 nm 之间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "溶液也能产生丁达尔效应",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胶体是纯净物",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "胶体是混合物；丁达尔效应可区分胶体和溶液。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第三单元 物质的分散系",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 物质的分散系",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-153",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题2 研究物质的基本方法·第一单元 研究物质的实验方法",
+   "type": "多选",
+   "question": "下列分离方法与分离对象对应正确的有（多选）",
+   "options": [
+    {
+     "text": "分液——分离酒精和水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "过滤——除去粗盐水中的泥沙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "萃取——分离沙子和水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒸馏——由自来水制取蒸馏水",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "酒精与水互溶，不能用分液分离；沙子和水用过滤分离。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第一单元 研究物质的实验方法",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 研究物质的实验方法",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-154",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题2 研究物质的基本方法·第二单元 溶液组成的定量研究",
+   "type": "多选",
+   "question": "配制一定物质的量浓度的溶液，需要用到的仪器有（多选）",
+   "options": [
+    {
+     "text": "胶头滴管",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "烧杯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "容量瓶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "分液漏斗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "溶解用烧杯，定容用容量瓶和胶头滴管；分液漏斗用于分液。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第二单元 溶液组成的定量研究",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 溶液组成的定量研究",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-155",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题2 研究物质的基本方法·第三单元 人类对原子结构的认识",
+   "type": "多选",
+   "question": "关于 ${}^{14}_{6}\\mathrm{C}$，下列说法正确的有（多选）",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "质量数为 20",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中子数为 8",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "质子数为 6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "核外电子数为 8",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "质量数 14 = 质子数 6 + 中子数 8；原子中核外电子数 = 质子数 = 6。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第三单元 人类对原子结构的认识",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 人类对原子结构的认识",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-156",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题3 从海水中获得的化学物质·第一单元 氯气及氯的化合物",
+   "type": "多选",
+   "question": "下列关于氯气的说法正确的有（多选）",
+   "options": [
+    {
+     "text": "干燥的氯气能使干燥的有色布条褪色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氯气与铁反应生成 $\\ce{FeCl3}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氯气在氢气中燃烧发出黄色火焰",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氯气是黄绿色、有刺激性气味的气体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "起漂白作用的是 HClO，干燥氯气不能使干燥布条褪色；氢气在氯气中燃烧发出苍白色火焰。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第一单元 氯气及氯的化合物",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 氯气及氯的化合物",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-157",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题3 从海水中获得的化学物质·第二单元 金属钠及钠的化合物",
+   "type": "多选",
+   "question": "钠投入水中，能观察到的现象有（多选）",
+   "options": [
+    {
+     "text": "钠浮在水面上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "钠熔成闪亮的小球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小球在水面上四处游动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "钠沉入水底",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "钠密度比水小、熔点低，与水反应放热并产生气体。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第二单元 金属钠及钠的化合物",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 金属钠及钠的化合物",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-158",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题3 从海水中获得的化学物质·第二单元 金属钠及钠的化合物·离子反应",
+   "type": "多选",
+   "question": "下列各组离子在水溶液中能大量共存的有（多选）",
+   "options": [
+    {
+     "text": "$\\ce{Na+}$、$\\ce{K+}$、$\\ce{Cl-}$、$\\ce{NO3-}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{H+}$、$\\ce{Na+}$、$\\ce{SO4^2-}$、$\\ce{Cl-}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{Ba^2+}$、$\\ce{Na+}$、$\\ce{SO4^2-}$、$\\ce{Cl-}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{H+}$、$\\ce{K+}$、$\\ce{OH-}$、$\\ce{Cl-}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "$\\ce{Ba^2+}$ 与 $\\ce{SO4^2-}$ 生成沉淀，$\\ce{H+}$ 与 $\\ce{OH-}$ 生成水。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "离子反应",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "离子反应",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-159",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题3 从海水中获得的化学物质·第三单元 海洋化学资源的综合应用",
+   "type": "多选",
+   "question": "可以从海水中提取的物质有（多选）",
+   "options": [
+    {
+     "text": "镁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "溴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "食盐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铝土矿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "铝土矿是陆地矿产；海水可晒盐、提镁、提溴、提碘。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第三单元 海洋化学资源的综合应用",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 海洋化学资源的综合应用",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-160",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题4 硫与环境保护·第一单元 含硫化合物的性质",
+   "type": "多选",
+   "question": "下列关于 $\\ce{SO2}$ 的说法正确的有（多选）",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "无色无味",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "难溶于水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "能使品红溶液褪色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "能使酸性高锰酸钾溶液褪色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "$\\ce{SO2}$ 有刺激性气味、易溶于水；使品红褪色体现漂白性，使酸性 $\\ce{KMnO4}$ 褪色体现还原性。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第一单元 含硫化合物的性质",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 含硫化合物的性质",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-161",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题4 硫与环境保护·第二单元 硫及其化合物的相互转化",
+   "type": "多选",
+   "question": "浓硫酸具有的特性有（多选）",
+   "options": [
+    {
+     "text": "挥发性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吸水性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "脱水性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "强氧化性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BCD",
+   "explanation": "浓硫酸是难挥发性酸。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第二单元 硫及其化合物的相互转化",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 硫及其化合物的相互转化",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-162",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题4 硫与环境保护·第三单元 防治二氧化硫对环境的污染",
+   "type": "多选",
+   "question": "下列措施能减少酸雨形成的有（多选）",
+   "options": [
+    {
+     "text": "把工厂烟囱加高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大量燃烧含硫量高的煤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "开发利用清洁能源",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "燃煤脱硫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "加高烟囱不能减少 $\\ce{SO2}$ 排放总量。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第三单元 防治二氧化硫对环境的污染",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 防治二氧化硫对环境的污染",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-163",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题5 微观结构与物质的多样性·第一单元 元素周期律和元素周期表",
+   "type": "多选",
+   "question": "同周期主族元素从左到右，下列变化规律正确的有（多选）",
+   "options": [
+    {
+     "text": "最高正化合价逐渐降低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电子层数逐渐增多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "原子半径逐渐减小",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金属性逐渐减弱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "同周期电子层数相同，最高正价一般逐渐升高。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第一单元 元素周期律和元素周期表",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 元素周期律和元素周期表",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-164",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题5 微观结构与物质的多样性·第二单元 微粒之间的相互作用力",
+   "type": "多选",
+   "question": "下列物质中含有共价键的有（多选）",
+   "options": [
+    {
+     "text": "$\\ce{NaOH}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{NaCl}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{MgO}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{H2O}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "$\\ce{NaOH}$ 中 O—H 是共价键；$\\ce{NaCl}$、$\\ce{MgO}$ 只含离子键。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第二单元 微粒之间的相互作用力",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 微粒之间的相互作用力",
+    "多选"
+   ]
+  },
+  {
+   "id": "C10-165",
+   "status": "AI初审通过",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "unit": "必修一·专题5 微观结构与物质的多样性·第三单元 从微观结构看物质的多样性",
+   "type": "多选",
+   "question": "下列各组互为同素异形体的有（多选）",
+   "options": [
+    {
+     "text": "${}^{12}\\mathrm{C}$ 和 ${}^{14}\\mathrm{C}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金刚石和石墨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{H2O}$ 和 $\\ce{H2O2}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{O2}$ 和 $\\ce{O3}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "同种元素形成的不同单质互为同素异形体；${}^{12}\\mathrm{C}$、${}^{14}\\mathrm{C}$ 互为同位素。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "第三单元 从微观结构看物质的多样性",
+   "game_ready": true,
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 从微观结构看物质的多样性",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "降低温度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "使用合适的催化剂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "升高温度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "增大反应物浓度",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "C10-166",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "volume": "必修第二册",
+   "unit": "必修二·专题6 化学反应与能量变化·第一单元 化学反应速率与反应限度",
+   "question": "下列措施一般能加快化学反应速率的有（多选）",
+   "explanation": "降低温度会减慢反应速率。",
+   "difficulty": 3,
+   "knowledge_point": "第一单元 化学反应速率与反应限度",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 化学反应速率与反应限度",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "碳酸钙高温分解",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "盐酸与氢氧化钠溶液的中和反应",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木炭燃烧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\ce{Ba(OH)2*8H2O}$ 与 $\\ce{NH4Cl}$ 的反应",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "C10-167",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "volume": "必修第二册",
+   "unit": "必修二·专题6 化学反应与能量变化·第二单元 化学反应中的热",
+   "question": "下列反应属于放热反应的有（多选）",
+   "explanation": "$\\ce{Ba(OH)2*8H2O}$ 与 $\\ce{NH4Cl}$ 的反应、碳酸钙分解都是吸热反应。",
+   "difficulty": 3,
+   "knowledge_point": "第二单元 化学反应中的热",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 化学反应中的热",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "铜片上有气泡产生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "锌片是负极",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "锌片质量增加",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电子从铜片经导线流向锌片",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "C10-168",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "volume": "必修第二册",
+   "unit": "必修二·专题6 化学反应与能量变化·第三单元 化学能与电能的转化",
+   "question": "铜、锌、稀硫酸组成的原电池中，下列说法正确的有（多选）",
+   "explanation": "锌失电子作负极、质量减少；电子从锌片经导线流向铜片，$\\ce{H+}$ 在铜片上得电子生成 $\\ce{H2}$。",
+   "difficulty": 3,
+   "knowledge_point": "第三单元 化学能与电能的转化",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 化学能与电能的转化",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "工业合成氨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雷电时 $\\ce{N2}$ 与 $\\ce{O2}$ 反应生成 NO",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "NO 被氧化为 $\\ce{NO2}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氨气与氯化氢反应生成氯化铵",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "C10-169",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "volume": "必修第二册",
+   "unit": "必修二·专题7 氮与社会可持续发展·第一单元 氮的固定",
+   "question": "下列过程属于氮的固定的有（多选）",
+   "explanation": "氮的固定是把游离态的氮转化为化合态的氮。",
+   "difficulty": 3,
+   "knowledge_point": "第一单元 氮的固定",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 氮的固定",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "常温下浓硝酸能使铁、铝钝化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "浓硝酸见光易分解",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "稀硝酸与铜不反应",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "硝酸与金属反应一般生成氢气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "C10-170",
+   "subject": "化学",
+   "grade": 10,
+   "textbook": "苏教版2019",
+   "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
+   "volume": "必修第二册",
+   "unit": "必修二·专题7 氮与社会可持续发展·第二单元 重要的含氮化工原料",
+   "question": "下列关于硝酸的说法正确的有（多选）",
+   "explanation": "稀硝酸与铜反应生成 NO；硝酸有强氧化性，与金属反应一般不生成氢气。",
+   "difficulty": 3,
+   "knowledge_point": "第二单元 重要的含氮化工原料",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T23cd55",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 重要的含氮化工原料",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-178",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第一章 运动的描述·1 质点 参考系",
+   "type": "多选",
+   "question": "下列情况中，研究对象可以看作质点的有（多选）",
+   "options": [
+    {
+     "text": "研究乒乓球的旋转",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "研究地球绕太阳公转的周期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "计算火车从北京开到上海的时间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "研究跳水运动员的空中动作",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "物体的形状、大小对所研究问题影响可忽略时，才能看作质点。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "质点 参考系",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "质点 参考系",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-179",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第一章 运动的描述·2 时间 位移",
+   "type": "多选",
+   "question": "下列表示时刻的有（多选）",
+   "options": [
+    {
+     "text": "第 3 s 末",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第 3 s 内",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "早上 8:00 上课",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "前 3 s 内",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AC",
+   "explanation": "“前 3 s 内”“第 3 s 内”都是一段时间间隔。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "时间 位移",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "时间 位移",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-180",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第一章 运动的描述·3 位置变化快慢的描述——速度",
+   "type": "多选",
+   "question": "下列所说的速度中，指瞬时速度的有（多选）",
+   "options": [
+    {
+     "text": "百米赛跑全程的速度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汽车速度计上显示的速度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "火车从北京到上海的速度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "子弹射出枪口时的速度",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "全程、整段路程的速度是平均速度。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "位置变化快慢的描述——速度",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "位置变化快慢的描述——速度",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-181",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第一章 运动的描述·4 速度变化快慢的描述——加速度",
+   "type": "多选",
+   "question": "关于加速度，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "速度越大，加速度越大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "速度变化越快，加速度越大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "加速度为零时，速度一定为零",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "加速度的方向与速度变化量的方向相同",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "加速度描述速度变化的快慢，与速度大小无关；匀速运动加速度为零但速度不为零。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "速度变化快慢的描述——加速度",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "速度变化快慢的描述——加速度",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-182",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第二章 匀变速直线运动的研究·2 匀变速直线运动的速度与时间的关系",
+   "type": "多选",
+   "question": "关于匀变速直线运动，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "相等时间内速度的变化量相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "速度恒定不变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "加速度恒定不变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "位移随时间均匀增加",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AC",
+   "explanation": "匀变速直线运动加速度不变，速度均匀变化；位移随时间均匀增加的是匀速直线运动。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "匀变速直线运动的速度与时间的关系",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "匀变速直线运动的速度与时间的关系",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-183",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第二章 匀变速直线运动的研究·4 自由落体运动",
+   "type": "多选",
+   "question": "关于自由落体运动，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "自由落体运动是初速度为零的匀加速直线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同一地点，轻重不同的物体自由下落的加速度相同",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只受重力作用的运动一定是自由落体运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重的物体比轻的物体下落得快",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "竖直上抛等运动也只受重力，但初速度不为零，不是自由落体运动。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "自由落体运动",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "自由落体运动",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-184",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第三章 相互作用——力·1 重力与弹力",
+   "type": "多选",
+   "question": "关于重力和弹力，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "弹力的方向与施力物体形变的方向相反",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重力的方向总是竖直向下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物体的重心一定在物体上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两个物体相互接触就一定有弹力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "圆环等物体的重心可能不在物体上；接触且发生弹性形变才有弹力。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "重力与弹力",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "重力与弹力",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-185",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第三章 相互作用——力·2 摩擦力",
+   "type": "多选",
+   "question": "关于摩擦力，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "摩擦力的大小总与压力成正比",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "静摩擦力可以作为动力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滑动摩擦力总是阻碍物体的运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滑动摩擦力的方向与物体相对运动的方向相反",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "滑动摩擦力阻碍的是相对运动，可以是动力；静摩擦力大小与压力无正比关系。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "摩擦力",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "摩擦力",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-186",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第三章 相互作用——力·3 牛顿第三定律",
+   "type": "多选",
+   "question": "关于作用力与反作用力，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "同时产生、同时消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大小相等、方向相反",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "性质相同",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "作用在同一个物体上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "作用力与反作用力分别作用在两个物体上，不能相互抵消。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "牛顿第三定律",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "牛顿第三定律",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-187",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第三章 相互作用——力·4 力的合成和分解",
+   "type": "多选",
+   "question": "大小分别为 3 N 和 4 N 的两个共点力，它们的合力大小可能是（多选）",
+   "options": [
+    {
+     "text": "7 N",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5 N",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8 N",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 N",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABD",
+   "explanation": "合力范围是 $|F_1-F_2|\\le F\\le F_1+F_2$，即 1 N 到 7 N。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "力的合成和分解",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "力的合成和分解",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-188",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第三章 相互作用——力·5 共点力的平衡",
+   "type": "多选",
+   "question": "下列物体处于平衡状态的有（多选）",
+   "options": [
+    {
+     "text": "静止在桌面上的书",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在平直公路上匀速直线行驶的汽车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "竖直上抛到最高点的小球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "做匀速圆周运动的物体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "最高点的小球仍受重力、加速度为 g；匀速圆周运动有向心加速度。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "共点力的平衡",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "共点力的平衡",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-189",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第四章 运动和力的关系·1 牛顿第一定律",
+   "type": "多选",
+   "question": "关于惯性和力，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "惯性的大小只与质量有关",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "力是改变物体运动状态的原因",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物体速度越大，惯性越大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "力是维持物体运动的原因",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "质量是惯性大小的唯一量度；力不是维持运动的原因。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "牛顿第一定律",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "牛顿第一定律",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-190",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第四章 运动和力的关系·4 力学单位制",
+   "type": "多选",
+   "question": "下列单位属于国际单位制基本单位的有（多选）",
+   "options": [
+    {
+     "text": "秒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "千克",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "牛顿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "牛顿是导出单位，$1\\,\\mathrm N=1\\,\\mathrm{kg\\cdot m/s^2}$。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "力学单位制",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "力学单位制",
+    "多选"
+   ]
+  },
+  {
+   "id": "P10-191",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第四章 运动和力的关系·6 超重和失重",
+   "type": "多选",
+   "question": "下列情况中，人处于超重状态的有（多选）",
+   "options": [
+    {
+     "text": "电梯匀速上升",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电梯加速下降",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电梯加速上升",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电梯减速下降",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "加速度向上时超重；加速下降是失重，匀速时既不超重也不失重。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "超重和失重",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "超重和失重",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "曲线运动一定是变速运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "做曲线运动的物体所受合力方向与速度方向不在同一直线上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曲线运动的加速度一定变化",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "速度大小不变的运动一定不是曲线运动",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "P10-192",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "volume": "必修第二册",
+   "unit": "必修二·第五章 抛体运动·1 曲线运动",
+   "question": "物体做曲线运动时，下列判断正确的有（多选）",
+   "explanation": "平抛运动加速度不变；匀速圆周运动速度大小不变但是曲线运动。",
+   "difficulty": 3,
+   "knowledge_point": "曲线运动",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "曲线运动",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "合运动与分运动经历的时间相等",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两个直线运动的合运动一定是直线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "合速度一定大于分速度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "各分运动具有独立性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "P10-193",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "volume": "必修第二册",
+   "unit": "必修二·第五章 抛体运动·2 运动的合成与分解",
+   "question": "关于运动的合成与分解，下列说法正确的有（多选）",
+   "explanation": "合速度可能小于分速度；两个直线运动的合运动可能是曲线运动（如平抛）。",
+   "difficulty": 3,
+   "knowledge_point": "运动的合成与分解",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "运动的合成与分解",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水平方向做匀速直线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "竖直方向做匀速直线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "平抛运动是匀变速曲线运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "下落时间由初速度决定",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "P10-194",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "volume": "必修第二册",
+   "unit": "必修二·第五章 抛体运动·4 抛体运动的规律",
+   "question": "平抛运动具有的特点有（多选）",
+   "explanation": "平抛运动加速度为 g；下落时间 $t=\\sqrt{2h/g}$，只由高度决定。",
+   "difficulty": 3,
+   "knowledge_point": "抛体运动的规律",
+   "type": "多选",
+   "answer": "AC",
+   "game_ready": true,
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "抛体运动的规律",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "角速度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "线速度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "转速",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "周期",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "P10-195",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "volume": "必修第二册",
+   "unit": "必修二·第六章 圆周运动·1 圆周运动",
+   "question": "匀速圆周运动中，保持不变的物理量有（多选）",
+   "explanation": "线速度大小不变但方向时刻改变。",
+   "difficulty": 3,
+   "knowledge_point": "圆周运动",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "圆周运动",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "向心力是按效果命名的力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "向心力是物体额外受到的一种力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "做匀速圆周运动的物体所受合力为零",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "向心力只改变速度的方向",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "P10-196",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "volume": "必修第二册",
+   "unit": "必修二·第六章 圆周运动·2 向心力",
+   "question": "关于向心力，下列说法正确的有（多选）",
+   "explanation": "向心力由其他力或其合力提供；匀速圆周运动合力指向圆心、不为零。",
+   "difficulty": 3,
+   "knowledge_point": "向心力",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "向心力",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "火车转弯处外轨应比内轨低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汽车过拱形桥最高点时对桥面的压力小于重力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洗衣机脱水利用了离心运动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汽车转弯时速度越大越安全",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "P10-197",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "volume": "必修第二册",
+   "unit": "必修二·第六章 圆周运动·4 生活中的圆周运动",
+   "question": "关于生活中的圆周运动，下列说法正确的有（多选）",
+   "explanation": "火车转弯处外轨略高于内轨；转弯速度过大易侧滑。",
+   "difficulty": 3,
+   "knowledge_point": "生活中的圆周运动",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T32bd39",
+   "change_tag": "新增",
+   "tags": [
+    "生活中的圆周运动",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "病毒必须寄生在活细胞中才能繁殖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞是生物体结构和功能的基本单位",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "所有生物都由细胞构成",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "病毒能独立进行新陈代谢",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-115",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第1章 走近细胞·第1节 细胞是生命活动的基本单位",
+   "question": "关于细胞和病毒，下列说法正确的有（多选）",
+   "explanation": "病毒没有细胞结构，不能独立代谢。",
+   "difficulty": 3,
+   "knowledge_point": "细胞是生命活动的基本单位",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞是生命活动的基本单位",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "草履虫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大肠杆菌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝细菌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "酵母菌",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-116",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第1章 走近细胞·第2节 细胞的多样性和统一性",
+   "question": "下列属于原核生物的有（多选）",
+   "explanation": "酵母菌是真菌、草履虫是原生动物，都是真核生物。",
+   "difficulty": 3,
+   "knowledge_point": "细胞的多样性和统一性",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞的多样性和统一性",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "N",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "C",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Ca",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Fe",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-117",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第2章 组成细胞的分子·第1节 细胞中的元素和化合物",
+   "question": "下列属于组成细胞的大量元素的有（多选）",
+   "explanation": "Fe、Mn、Zn、Cu、B、Mo 等是微量元素。",
+   "difficulty": 3,
+   "knowledge_point": "细胞中的元素和化合物",
+   "type": "多选",
+   "answer": "ABC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞中的元素和化合物",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "越冬植物细胞中自由水比例升高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自由水是细胞内良好的溶剂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结合水是细胞结构的重要组成成分",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无机盐在细胞中主要以化合物形式存在",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-118",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第2章 组成细胞的分子·第2节 细胞中的无机物",
+   "question": "下列关于细胞中水和无机盐的说法正确的有（多选）",
+   "explanation": "无机盐主要以离子形式存在；越冬时自由水比例下降、结合水比例升高。",
+   "difficulty": 3,
+   "knowledge_point": "细胞中的无机物",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞中的无机物",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "纤维素",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "淀粉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蔗糖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "糖原",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-119",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第2章 组成细胞的分子·第3节 细胞中的糖类和脂质",
+   "question": "下列属于多糖的有（多选）",
+   "explanation": "蔗糖是二糖。",
+   "difficulty": 3,
+   "knowledge_point": "细胞中的糖类和脂质",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞中的糖类和脂质",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "催化作用（如大多数酶）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "免疫作用（如抗体）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "运输作用（如血红蛋白）",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "储存遗传信息",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-120",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第2章 组成细胞的分子·第4节 蛋白质是生命活动的主要承担者",
+   "question": "下列属于蛋白质功能的有（多选）",
+   "explanation": "储存遗传信息的是核酸。",
+   "difficulty": 3,
+   "knowledge_point": "蛋白质是生命活动的主要承担者",
+   "type": "多选",
+   "answer": "ABC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "蛋白质是生命活动的主要承担者",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "DNA 特有碱基 T，RNA 特有碱基 U",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "DNA 只存在于细胞核中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "RNA 一般是双链结构",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "DNA 含脱氧核糖，RNA 含核糖",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-121",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第2章 组成细胞的分子·第5节 核酸是遗传信息的携带者",
+   "question": "关于 DNA 和 RNA，下列说法正确的有（多选）",
+   "explanation": "DNA 主要在细胞核，线粒体、叶绿体中也有；RNA 一般是单链。",
+   "difficulty": 3,
+   "knowledge_point": "核酸是遗传信息的携带者",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "核酸是遗传信息的携带者",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "是全透性的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "具有一定的流动性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "磷脂分子排列成单层",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "主要由脂质和蛋白质组成",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-122",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第3章 细胞的基本结构·第1节 细胞膜的结构和功能",
+   "question": "关于细胞膜，下列说法正确的有（多选）",
+   "explanation": "细胞膜具有选择透过性；磷脂双分子层构成基本支架。",
+   "difficulty": 3,
+   "knowledge_point": "细胞膜的结构和功能",
+   "type": "多选",
+   "answer": "BD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞膜的结构和功能",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "核糖体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "高尔基体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "线粒体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "叶绿体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-123",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第3章 细胞的基本结构·第2节 细胞器之间的分工合作",
+   "question": "下列细胞器中，具有双层膜结构的有（多选）",
+   "explanation": "核糖体无膜，高尔基体是单层膜。",
+   "difficulty": 3,
+   "knowledge_point": "细胞器之间的分工合作",
+   "type": "多选",
+   "answer": "CD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞器之间的分工合作",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞核是细胞代谢和遗传的控制中心",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "所有细胞都有细胞核",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "DNA 可以通过核孔自由进出细胞核",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞核是遗传信息库",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-124",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第3章 细胞的基本结构·第3节 细胞核的结构和功能",
+   "question": "关于细胞核，下列说法正确的有（多选）",
+   "explanation": "核孔具有选择性，DNA 不能出核；哺乳动物成熟红细胞、原核细胞没有细胞核。",
+   "difficulty": 3,
+   "knowledge_point": "细胞核的结构和功能",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞核的结构和功能",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "变形虫摄取食物颗粒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞逆浓度梯度吸收 $\\mathrm{K^+}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "氧气进入细胞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水分子通过水通道蛋白进入细胞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-125",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第4章 细胞的物质输入和输出·第1节 被动运输",
+   "question": "下列物质进入细胞的方式属于被动运输的有（多选）",
+   "explanation": "摄取食物颗粒是胞吞；逆浓度梯度吸收是主动运输。",
+   "difficulty": 3,
+   "knowledge_point": "被动运输",
+   "type": "多选",
+   "answer": "CD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "被动运输",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "可以逆浓度梯度运输",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "需要消耗能量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "需要载体蛋白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不需要消耗能量",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-126",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第4章 细胞的物质输入和输出·第2节 主动运输与胞吞、胞吐",
+   "question": "主动运输的特点有（多选）",
+   "explanation": "主动运输需要载体蛋白和能量，可逆浓度梯度进行。",
+   "difficulty": 3,
+   "knowledge_point": "主动运输与胞吞、胞吐",
+   "type": "多选",
+   "answer": "ABC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "主动运输与胞吞、胞吐",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "专一性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "作用条件较温和",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "高效性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "酶都是蛋白质",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-127",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第1节 降低化学反应活化能的酶",
+   "question": "酶的特性有（多选）",
+   "explanation": "绝大多数酶是蛋白质，少数是 RNA。",
+   "difficulty": 3,
+   "knowledge_point": "降低化学反应活化能的酶",
+   "type": "多选",
+   "answer": "ABC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "降低化学反应活化能的酶",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "ATP 是细胞生命活动的直接能源物质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "ATP 在细胞中含量很多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "ATP 的结构简式是 A—P～P～P",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "ATP 中的 A 表示腺嘌呤",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-128",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第2节 细胞的能量“货币”ATP",
+   "question": "关于 ATP，下列说法正确的有（多选）",
+   "explanation": "ATP 含量很少但转化迅速；A 表示腺苷。",
+   "difficulty": 3,
+   "knowledge_point": "细胞的能量“货币”ATP",
+   "type": "多选",
+   "answer": "AC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞的能量“货币”ATP",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "全部过程都在线粒体中进行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第三阶段释放的能量最多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "场所是细胞质基质和线粒体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "产物中有酒精",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-129",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第3节 细胞呼吸的原理和应用",
+   "question": "关于有氧呼吸，下列说法正确的有（多选）",
+   "explanation": "第一阶段在细胞质基质；有氧呼吸产物是 $\\mathrm{CO_2}$ 和水。",
+   "difficulty": 3,
+   "knowledge_point": "细胞呼吸的原理和应用",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞呼吸的原理和应用",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "酵母菌无氧呼吸产生酒精和 $\\mathrm{CO_2}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无氧呼吸第二阶段产生大量 ATP",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乳酸菌无氧呼吸产生 $\\mathrm{CO_2}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人体骨骼肌细胞无氧呼吸产生乳酸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-130",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第3节 细胞呼吸的原理和应用",
+   "question": "下列关于无氧呼吸的说法正确的有（多选）",
+   "explanation": "无氧呼吸只在第一阶段释放少量能量；乳酸菌无氧呼吸只产生乳酸。",
+   "difficulty": 3,
+   "knowledge_point": "细胞呼吸的原理和应用",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞呼吸的原理和应用",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "暗反应不需要酶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光反应在叶绿体类囊体薄膜上进行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "暗反应在叶绿体基质中进行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光合作用释放的 $\\mathrm{O_2}$ 来自 $\\mathrm{CO_2}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-131",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第5章 细胞的能量供应和利用·第4节 光合作用与能量转化",
+   "question": "关于光合作用，下列说法正确的有（多选）",
+   "explanation": "释放的 $\\mathrm{O_2}$ 来自水；暗反应需要多种酶催化。",
+   "difficulty": 3,
+   "knowledge_point": "光合作用与能量转化",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "光合作用与能量转化",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "后期着丝粒分裂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "末期动物细胞在赤道板位置形成细胞板",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "前期染色体数目加倍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "分裂间期完成 DNA 复制和有关蛋白质的合成",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-132",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第6章 细胞的生命历程·第1节 细胞的增殖",
+   "question": "关于有丝分裂，下列说法正确的有（多选）",
+   "explanation": "染色体数目在后期加倍；细胞板是植物细胞末期的结构。",
+   "difficulty": 3,
+   "knowledge_point": "细胞的增殖",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞的增殖",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞分化使遗传物质发生改变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞分化是基因选择性表达的结果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞分化只发生在胚胎期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞分化一般是不可逆的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-133",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第6章 细胞的生命历程·第2节 细胞的分化",
+   "question": "关于细胞分化，下列说法正确的有（多选）",
+   "explanation": "分化不改变遗传物质，且贯穿生物体整个生命进程。",
+   "difficulty": 3,
+   "knowledge_point": "细胞的分化",
+   "type": "多选",
+   "answer": "BD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞的分化",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "细胞凋亡一定是病理现象",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞凋亡就是细胞坏死",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞凋亡对生物体是有利的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "细胞凋亡是由基因决定的细胞自动结束生命的过程",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "B10-134",
+   "subject": "生物",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+   "volume": "必修1 分子与细胞",
+   "unit": "必修1·第6章 细胞的生命历程·第3节 细胞的衰老和死亡",
+   "question": "关于细胞凋亡，下列说法正确的有（多选）",
+   "explanation": "细胞坏死是不利因素导致的被动死亡，与凋亡不同。",
+   "difficulty": 3,
+   "knowledge_point": "细胞的衰老和死亡",
+   "type": "多选",
+   "answer": "CD",
+   "game_ready": true,
+   "template": "T9ef93e",
+   "change_tag": "新增",
+   "tags": [
+    "细胞的衰老和死亡",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "落到地面上的陨石",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "月球",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "哈雷彗星",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-103",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第一节 地球的宇宙环境",
+   "question": "下列属于天体的有（多选）",
+   "explanation": "陨石落到地面后已不在宇宙空间中运行，不再是天体。",
+   "difficulty": 3,
+   "knowledge_point": "地球的宇宙环境",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "地球的宇宙环境",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "引发地震",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两极地区产生极光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "形成潮汐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "干扰无线电短波通信",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-104",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第二节 太阳对地球的影响",
+   "question": "太阳活动对地球的影响有（多选）",
+   "explanation": "地震由地球内部能量引起，潮汐主要由月球和太阳的引力引起。",
+   "difficulty": 3,
+   "knowledge_point": "太阳对地球的影响",
+   "type": "多选",
+   "answer": "BD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "太阳对地球的影响",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "中生代是爬行动物繁盛的时代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人类出现在古生代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "化石主要保存在岩浆岩中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人类出现在新生代",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-105",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第三节 地球的历史",
+   "question": "关于地球的历史，下列说法正确的有（多选）",
+   "explanation": "化石主要保存在沉积岩中。",
+   "difficulty": 3,
+   "knowledge_point": "地球的历史",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "地球的历史",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水圈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地核",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地幔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地壳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-106",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第一章 宇宙中的地球·第四节 地球的圈层结构",
+   "question": "以地震波为依据划分的地球内部圈层有（多选）",
+   "explanation": "水圈属于地球外部圈层。",
+   "difficulty": 3,
+   "knowledge_point": "地球的圈层结构",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "地球的圈层结构",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "天气现象复杂多变",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大气平稳，有利于高空飞行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "气温随高度增加而降低",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "对流运动显著",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-107",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第二章 地球上的大气·第一节 大气的组成和垂直分层",
+   "question": "对流层的特点有（多选）",
+   "explanation": "有利于高空飞行的是平流层。",
+   "difficulty": 3,
+   "knowledge_point": "大气的组成和垂直分层",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "大气的组成和垂直分层",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "晴朗的夜晚大气逆辐射更强",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大气主要靠直接吸收太阳短波辐射增温",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地面是近地面大气主要的直接热源",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大气逆辐射对地面有保温作用",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-108",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第二章 地球上的大气·第二节 大气受热过程和大气运动",
+   "question": "关于大气受热过程，下列说法正确的有（多选）",
+   "explanation": "大气对太阳短波辐射吸收很少；晴朗夜晚云少，大气逆辐射弱。",
+   "difficulty": 3,
+   "knowledge_point": "大气受热过程和大气运动",
+   "type": "多选",
+   "answer": "CD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "大气受热过程和大气运动",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "近地面受冷处空气上升",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "近地面受热处空气上升，形成低压",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同一地点高空与近地面气压高低相同",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水平方向上空气由高压流向低压",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-109",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第二章 地球上的大气·第二节 大气受热过程和大气运动",
+   "question": "关于热力环流，下列说法正确的有（多选）",
+   "explanation": "受冷处空气下沉；同一地点高空与近地面气压高低相反。",
+   "difficulty": 3,
+   "knowledge_point": "大气受热过程和大气运动",
+   "type": "多选",
+   "answer": "BD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "大气受热过程和大气运动",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "水汽输送",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光合作用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地表径流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒸发",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-110",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第一节 水循环",
+   "question": "下列属于水循环环节的有（多选）",
+   "explanation": "水循环环节包括蒸发、水汽输送、降水、下渗、地表径流、地下径流等。",
+   "difficulty": 3,
+   "knowledge_point": "水循环",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "水循环",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "表层海水温度大致由低纬度向高纬度递减",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河流注入会使附近海域盐度升高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "海水温度随深度增加而升高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "表层海水盐度受降水量和蒸发量影响",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-111",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第二节 海水的性质",
+   "question": "关于海水的温度和盐度，下列说法正确的有（多选）",
+   "explanation": "海水温度一般随深度增加而降低；河流注入会稀释海水、降低盐度。",
+   "difficulty": 3,
+   "knowledge_point": "海水的性质",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "海水的性质",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "蒸发",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洋流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "波浪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "潮汐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-112",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第三章 地球上的水·第三节 海水的运动",
+   "question": "下列属于海水运动形式的有（多选）",
+   "explanation": "蒸发是水循环环节，不是海水运动形式。",
+   "difficulty": 3,
+   "knowledge_point": "海水的运动",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "海水的运动",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "溶洞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "石钟乳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙丘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "峰林",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-113",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第四章 地貌·第一节 常见地貌类型",
+   "question": "下列属于喀斯特地貌的有（多选）",
+   "explanation": "沙丘是风成地貌。",
+   "difficulty": 3,
+   "knowledge_point": "常见地貌类型",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "常见地貌类型",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "沙丘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雅丹地貌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "溶洞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冲积扇",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-114",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第四章 地貌·第一节 常见地貌类型",
+   "question": "下列属于风沙地貌的有（多选）",
+   "explanation": "冲积扇是流水堆积地貌，溶洞是喀斯特地貌。",
+   "difficulty": 3,
+   "knowledge_point": "常见地貌类型",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "常见地貌类型",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "观察地貌一般遵循从宏观到微观的顺序",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "观察地貌不需要关注高度和坡度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "可以借助地形图、遥感影像辅助观察",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地貌只能在野外观察",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-115",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第四章 地貌·第二节 地貌的观察",
+   "question": "关于地貌的观察，下列说法正确的有（多选）",
+   "explanation": "高度、坡度是观察地貌的重要内容。",
+   "difficulty": 3,
+   "knowledge_point": "地貌的观察",
+   "type": "多选",
+   "answer": "AC",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "地貌的观察",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "荒漠植被的根系普遍很浅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "温带落叶阔叶林冬季落叶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "热带雨林的群落结构复杂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "亚寒带针叶林主要分布在热带地区",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-116",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第五章 植被与土壤·第一节 植被",
+   "question": "关于植被，下列说法正确的有（多选）",
+   "explanation": "针叶林分布在亚寒带；荒漠植物根系发达、扎得很深。",
+   "difficulty": 3,
+   "knowledge_point": "植被",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "植被",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "矿物质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "塑料",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "有机质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水分和空气",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-117",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第五章 植被与土壤·第二节 土壤",
+   "question": "土壤的组成物质有（多选）",
+   "explanation": "土壤由矿物质、有机质、水分和空气组成。",
+   "difficulty": 3,
+   "knowledge_point": "土壤",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "土壤",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "暴雨洪涝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "台风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地震",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "干旱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-118",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第一节 气象灾害",
+   "question": "下列属于气象灾害的有（多选）",
+   "explanation": "地震属于地质灾害。",
+   "difficulty": 3,
+   "knowledge_point": "气象灾害",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "气象灾害",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "台风只在冬季出现",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "台风是热带气旋的一种",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "台风常带来狂风、暴雨和风暴潮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "台风主要影响我国西北内陆",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-119",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第一节 气象灾害",
+   "question": "关于台风，下列说法正确的有（多选）",
+   "explanation": "台风主要影响我国东南沿海，多发于夏秋季节。",
+   "difficulty": 3,
+   "knowledge_point": "气象灾害",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "气象灾害",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "地震",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "泥石流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "寒潮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滑坡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-120",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第二节 地质灾害",
+   "question": "下列属于地质灾害的有（多选）",
+   "explanation": "寒潮属于气象灾害。",
+   "difficulty": 3,
+   "knowledge_point": "地质灾害",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "地质灾害",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "在室内就近躲到坚固的桌子下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乘坐电梯逃生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "从高楼跳下逃生",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在室外远离建筑物和电线杆",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-121",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第三节 防灾减灾",
+   "question": "发生地震时，正确的避险做法有（多选）",
+   "explanation": "地震时不能乘电梯，也不能跳楼。",
+   "difficulty": 3,
+   "knowledge_point": "防灾减灾",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "防灾减灾",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "地理信息系统只能显示地图，不能分析",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遥感可以监测洪涝灾害的范围",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遥感技术用来测量地震震级",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北斗卫星导航系统可以为救灾人员定位",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "D10-122",
+   "subject": "地理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+   "volume": "必修第一册",
+   "unit": "必修第一册·第六章 自然灾害·第四节 地理信息技术在防灾减灾中的应用",
+   "question": "关于地理信息技术在防灾减灾中的应用，下列说法正确的有（多选）",
+   "explanation": "GIS 具有空间分析功能；震级由地震台站测定。",
+   "difficulty": 3,
+   "knowledge_point": "地理信息技术在防灾减灾中的应用",
+   "type": "多选",
+   "answer": "BD",
+   "game_ready": true,
+   "template": "Tdcf723",
+   "change_tag": "新增",
+   "tags": [
+    "地理信息技术在防灾减灾中的应用",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "生产资料公有",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "有国家机器",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "共同劳动、平均分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "存在阶级剥削",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-097",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.1 原始社会的解体和阶级社会的演进",
+   "question": "原始社会的特点有（多选）",
+   "explanation": "原始社会没有阶级和国家。",
+   "difficulty": 3,
+   "knowledge_point": "原始社会的解体和阶级社会的演进",
+   "type": "多选",
+   "answer": "AC",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "原始社会的解体和阶级社会的演进",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "不能揭示资本主义的本质和发展规律",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "创立了剩余价值学说",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "找不到实现社会主义的社会力量和正确途径",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "揭露和批判了资本主义的弊端",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-098",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.2 科学社会主义的理论与实践",
+   "question": "空想社会主义的历史局限性有（多选）",
+   "explanation": "批判资本主义是空想社会主义的积极意义；剩余价值学说由马克思创立。",
+   "difficulty": 3,
+   "knowledge_point": "科学社会主义的理论与实践",
+   "type": "多选",
+   "answer": "AC",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "科学社会主义的理论与实践",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "土地改革",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "武装斗争",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一战线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "党的建设",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-099",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第二课 只有社会主义才能救中国·2.1 新民主主义革命的胜利",
+   "question": "中国共产党在新民主主义革命中战胜敌人的“三大法宝”是（多选）",
+   "explanation": "三大法宝是统一战线、武装斗争、党的建设。",
+   "difficulty": 3,
+   "knowledge_point": "新民主主义革命的胜利",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "新民主主义革命的胜利",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "外资企业",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "手工业",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "资本主义工商业",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农业",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-100",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第二课 只有社会主义才能救中国·2.2 社会主义制度在中国的确立",
+   "question": "我国社会主义改造的对象有（多选）",
+   "explanation": "三大改造指对农业、手工业和资本主义工商业的社会主义改造。",
+   "difficulty": 3,
+   "knowledge_point": "社会主义制度在中国的确立",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "社会主义制度在中国的确立",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "改革开放是决定当代中国命运的关键一招",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "改革开放已经完成",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "改革开放改变了社会主义根本制度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "改革开放是坚持和发展中国特色社会主义的必由之路",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-101",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第三课 只有中国特色社会主义才能发展中国·3.1 伟大的改革开放",
+   "question": "关于改革开放，下列说法正确的有（多选）",
+   "explanation": "改革开放是社会主义制度的自我完善和发展，只有进行时、没有完成时。",
+   "difficulty": 3,
+   "knowledge_point": "伟大的改革开放",
+   "type": "多选",
+   "answer": "AD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "伟大的改革开放",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "“三个代表”重要思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毛泽东思想",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "科学发展观",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "邓小平理论",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-102",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第三课 只有中国特色社会主义才能发展中国·3.2 中国特色社会主义的创立、发展和完善",
+   "question": "下列属于中国特色社会主义理论体系的有（多选）",
+   "explanation": "中国特色社会主义理论体系包括邓小平理论、“三个代表”重要思想、科学发展观、习近平新时代中国特色社会主义思想。",
+   "difficulty": 3,
+   "knowledge_point": "中国特色社会主义的创立、发展和完善",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "中国特色社会主义的创立、发展和完善",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "我国社会主义初级阶段已经结束",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "科学社会主义在二十一世纪的中国焕发出强大生机活力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中华民族迎来了从站起来、富起来到强起来的伟大飞跃",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我国已经成为发达国家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-103",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第四课 只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴·4.1 中国特色社会主义进入新时代",
+   "question": "中国特色社会主义进入新时代，意味着（多选）",
+   "explanation": "我国仍处于并将长期处于社会主义初级阶段。",
+   "difficulty": 3,
+   "knowledge_point": "中国特色社会主义进入新时代",
+   "type": "多选",
+   "answer": "BC",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "中国特色社会主义进入新时代",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "人民幸福",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "民族振兴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "国家富强",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个人发财",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-104",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修1 中国特色社会主义",
+   "unit": "必修1·第四课 只有坚持和发展中国特色社会主义才能实现中华民族伟大复兴·4.2 实现中华民族伟大复兴的中国梦",
+   "question": "中国梦的本质是（多选）",
+   "explanation": "中国梦的本质是国家富强、民族振兴、人民幸福。",
+   "difficulty": 3,
+   "knowledge_point": "实现中华民族伟大复兴的中国梦",
+   "type": "多选",
+   "answer": "ABC",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "实现中华民族伟大复兴的中国梦",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "国有经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "个体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "集体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "混合所有制经济中的国有成分和集体成分",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-105",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第一课 我国的生产资料所有制·1.1 公有制为主体 多种所有制经济共同发展",
+   "question": "下列属于公有制经济的有（多选）",
+   "explanation": "个体经济属于非公有制经济。",
+   "difficulty": 3,
+   "knowledge_point": "公有制为主体 多种所有制经济共同发展",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "公有制为主体 多种所有制经济共同发展",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "个体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "集体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "外资经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "私营经济",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-106",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第一课 我国的生产资料所有制·1.1 公有制为主体 多种所有制经济共同发展",
+   "question": "下列属于非公有制经济的有（多选）",
+   "explanation": "集体经济属于公有制经济。",
+   "difficulty": 3,
+   "knowledge_point": "公有制为主体 多种所有制经济共同发展",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "公有制为主体 多种所有制经济共同发展",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "毫不动摇巩固和发展公有制经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毫不动摇鼓励、支持、引导非公有制经济发展",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毫不动摇实行计划经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "毫不动摇坚持私有制为主体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-107",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第一课 我国的生产资料所有制·1.2 坚持“两个毫不动摇”",
+   "question": "“两个毫不动摇”是指（多选）",
+   "explanation": "我国坚持公有制为主体、多种所有制经济共同发展。",
+   "difficulty": 3,
+   "knowledge_point": "坚持“两个毫不动摇”",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "坚持“两个毫不动摇”",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "计划性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "自发性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滞后性",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "盲目性",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-108",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.1 使市场在资源配置中起决定性作用",
+   "question": "市场调节的局限性有（多选）",
+   "explanation": "市场调节存在自发性、盲目性、滞后性等固有弊端。",
+   "difficulty": 3,
+   "knowledge_point": "使市场在资源配置中起决定性作用",
+   "type": "多选",
+   "answer": "BCD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "使市场在资源配置中起决定性作用",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "竞争",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "行政命令",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "价格",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "供求",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-109",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.1 使市场在资源配置中起决定性作用",
+   "question": "市场主要通过哪些机制调节资源配置（多选）",
+   "explanation": "市场通过价格、供求、竞争等机制配置资源；行政命令属于政府手段。",
+   "difficulty": 3,
+   "knowledge_point": "使市场在资源配置中起决定性作用",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "使市场在资源配置中起决定性作用",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "经济手段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宗教手段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "法律手段",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "行政手段",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-110",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第二课 我国的社会主义市场经济体制·2.2 更好发挥政府作用",
+   "question": "国家进行宏观调控的手段有（多选）",
+   "explanation": "国家主要运用经济手段和法律手段，辅之以必要的行政手段。",
+   "difficulty": 3,
+   "knowledge_point": "更好发挥政府作用",
+   "type": "多选",
+   "answer": "ACD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "更好发挥政府作用",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "创新",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "协调",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "竞争",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "共享",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-111",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第三课 我国的经济发展·3.1 坚持新发展理念",
+   "question": "下列属于新发展理念的有（多选）",
+   "explanation": "新发展理念是创新、协调、绿色、开放、共享。",
+   "difficulty": 3,
+   "knowledge_point": "坚持新发展理念",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "坚持新发展理念",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "创新是引领发展的第一动力",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "要坚持创新在我国现代化建设全局中的核心地位",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "创新可以不依靠人才",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "创新就是指科技创新",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-112",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第三课 我国的经济发展·3.1 坚持新发展理念",
+   "question": "关于创新发展，下列说法正确的有（多选）",
+   "explanation": "创新包括理论、制度、科技、文化等各方面创新，人才是创新的第一资源。",
+   "difficulty": 3,
+   "knowledge_point": "坚持新发展理念",
+   "type": "多选",
+   "answer": "AB",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "坚持新发展理念",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "放弃发展实体经济",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "深化供给侧结构性改革",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "坚持粗放型发展方式",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实施乡村振兴战略",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-113",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第三课 我国的经济发展·3.2 建设现代化经济体系",
+   "question": "下列做法有利于建设现代化经济体系的有（多选）",
+   "explanation": "建设现代化经济体系要把着力点放在实体经济上，推动高质量发展。",
+   "difficulty": 3,
+   "knowledge_point": "建设现代化经济体系",
+   "type": "多选",
+   "answer": "BD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "建设现代化经济体系",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "平均分配",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按资分配为主体",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "多种分配方式并存",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按劳分配为主体",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-114",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.1 我国的个人收入分配",
+   "question": "我国现阶段的分配制度是（多选）",
+   "explanation": "我国坚持按劳分配为主体、多种分配方式并存。",
+   "difficulty": 3,
+   "knowledge_point": "我国的个人收入分配",
+   "type": "多选",
+   "answer": "CD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "我国的个人收入分配",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "社会福利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会保险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "商业保险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "社会救助",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-115",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.2 我国的社会保障",
+   "question": "我国社会保障体系包括（多选）",
+   "explanation": "社会保障体系包括社会保险、社会救助、社会福利、社会优抚等，商业保险不属于社会保障。",
+   "difficulty": 3,
+   "knowledge_point": "我国的社会保障",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "我国的社会保障",
+    "多选"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "养老保险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "医疗保险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "财产保险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "失业保险",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Z10-116",
+   "subject": "政治",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "必修2 经济与社会",
+   "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.2 我国的社会保障",
+   "question": "下列属于社会保险的有（多选）",
+   "explanation": "社会保险包括养老、医疗、失业、工伤、生育等保险；财产保险是商业保险。",
+   "difficulty": 3,
+   "knowledge_point": "我国的社会保障",
+   "type": "多选",
+   "answer": "ABD",
+   "game_ready": true,
+   "template": "T0b4338",
+   "change_tag": "新增",
+   "tags": [
+    "我国的社会保障",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-115",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第1课 中华文明的起源与早期国家",
+   "type": "多选",
+   "question": "关于早期国家，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "夏朝的建立者是商汤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西周实行郡县制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "商朝已经出现了甲骨文",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夏朝是我国历史上第一个王朝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "西周实行分封制；夏朝由禹建立，商汤建立商朝。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "中华文明的起源与早期国家",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "中华文明的起源与早期国家",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-116",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第2课 诸侯纷争与变法运动",
+   "type": "多选",
+   "question": "商鞅变法的内容有（多选）",
+   "options": [
+    {
+     "text": "推行县制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "设立刺史",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "奖励军功",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行推恩令",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AC",
+   "explanation": "推恩令、刺史都是汉武帝时期的措施。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "诸侯纷争与变法运动",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "诸侯纷争与变法运动",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-117",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第3课 秦统一多民族封建国家的建立",
+   "type": "多选",
+   "question": "秦朝巩固统一的措施有（多选）",
+   "options": [
+    {
+     "text": "实行行省制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一文字",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在地方推行郡县制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "统一度量衡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BCD",
+   "explanation": "行省制是元朝开始实行的。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "秦统一多民族封建国家的建立",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "秦统一多民族封建国家的建立",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-118",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第4课 西汉与东汉——统一多民族封建国家的巩固",
+   "type": "多选",
+   "question": "汉武帝加强中央集权的措施有（多选）",
+   "options": [
+    {
+     "text": "实行推恩令",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "废除丞相",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "设立行省",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行盐铁官营专卖",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "行省制始于元朝，废丞相是明太祖的措施。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "西汉与东汉——统一多民族封建国家的巩固",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "西汉与东汉——统一多民族封建国家的巩固",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-119",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第5课 三国两晋南北朝的政权更迭与民族交融",
+   "type": "多选",
+   "question": "北魏孝文帝改革的措施有（多选）",
+   "options": [
+    {
+     "text": "改鲜卑姓为汉姓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行三省六部制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "迁都洛阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "设立军机处",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AC",
+   "explanation": "三省六部制隋唐确立，军机处是清朝雍正帝设立的。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "三国两晋南北朝的政权更迭与民族交融",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "三国两晋南北朝的政权更迭与民族交融",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-120",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第6课 从隋唐盛世到五代十国",
+   "type": "多选",
+   "question": "关于隋唐时期的制度，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "唐朝设立了军机处",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大运河由唐太宗下令开凿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "唐朝完善了三省六部制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "隋朝开创了科举制",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "大运河由隋炀帝下令开凿。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "从隋唐盛世到五代十国",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "从隋唐盛世到五代十国",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-121",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统",
+   "type": "多选",
+   "question": "春秋战国时期思想家的主张，对应正确的有（多选）",
+   "options": [
+    {
+     "text": "老子主张“以法治国”",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孔子主张“仁”",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孟子主张“仁政”",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "韩非子主张“兼爱”",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "“兼爱”是墨子的主张，老子主张“无为”。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "第一单元 从中华文明起源到秦汉大一统",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第一单元 从中华文明起源到秦汉大一统",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-122",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+   "type": "多选",
+   "question": "关于唐朝三省六部制，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "门下省负责审核诏令",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尚书省负责执行政令",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "门下省下辖六部",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中书省负责起草诏令",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABD",
+   "explanation": "六部隶属于尚书省。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-123",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第三单元 辽宋夏金多民族政权的并立与元朝的统一",
+   "type": "多选",
+   "question": "元朝的统治措施有（多选）",
+   "options": [
+    {
+     "text": "设置驻藏大臣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "实行行省制度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "设立军机处",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "设宣政院管理西藏地区事务",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "军机处、驻藏大臣都是清朝设立的。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "第三单元 辽宋夏金多民族政权的并立与元朝的统一",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第三单元 辽宋夏金多民族政权的并立与元朝的统一",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-124",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第四单元 明清中国版图的奠定与面临的挑战",
+   "type": "多选",
+   "question": "明清时期加强君主专制的措施有（多选）",
+   "options": [
+    {
+     "text": "清朝雍正帝设立军机处",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉武帝废除丞相",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宋太祖设立军机处",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "明太祖废除丞相",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "军机处设于清朝雍正年间；废丞相的是明太祖。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "第四单元 明清中国版图的奠定与面临的挑战",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "第四单元 明清中国版图的奠定与面临的挑战",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-125",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·两次鸦片战争",
+   "type": "多选",
+   "question": "中英《南京条约》的内容有（多选）",
+   "options": [
+    {
+     "text": "开放广州、厦门、福州、宁波、上海五处为通商口岸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "割香港岛给英国",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "赔款 2100 万银元",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "允许外国公使进驻北京",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "ABC",
+   "explanation": "公使驻京是第二次鸦片战争期间条约的内容。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "两次鸦片战争",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "两次鸦片战争",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-126",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·两次鸦片战争",
+   "type": "多选",
+   "question": "第二次鸦片战争期间发生的事件有（多选）",
+   "options": [
+    {
+     "text": "割让台湾岛给日本",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "英法联军火烧圆明园",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "签订《马关条约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "沙俄割占中国东北大片领土",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "《马关条约》签订于甲午中日战争之后，台湾在该条约中被割让。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "两次鸦片战争",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "两次鸦片战争",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-127",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·国家出路的探索与列强侵略的加剧",
+   "type": "多选",
+   "question": "关于洋务运动，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "主张实行君主立宪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "提出“自强”“求富”的口号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "创办了江南制造总局",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "提出“民族、民权、民生”三民主义",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "君主立宪是维新派的主张，三民主义是孙中山提出的。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "国家出路的探索与列强侵略的加剧",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "国家出路的探索与列强侵略的加剧",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-128",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第六单元 辛亥革命与中华民国的建立·辛亥革命",
+   "type": "多选",
+   "question": "辛亥革命的历史意义有（多选）",
+   "options": [
+    {
+     "text": "改变了中国半殖民地半封建社会的性质",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结束了两千多年的君主专制制度",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "推翻了清王朝的统治",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "完成了反帝反封建的任务",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "辛亥革命没有改变中国社会性质，也没有完成反帝反封建任务。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "辛亥革命",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "辛亥革命",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-129",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第六单元 辛亥革命与中华民国的建立·辛亥革命",
+   "type": "多选",
+   "question": "关于中华民国临时政府，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "定都北京",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孙中山任临时大总统",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1912 年在南京成立",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "袁世凯任首任临时大总统",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BC",
+   "explanation": "临时政府定都南京，孙中山是首任临时大总统。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "辛亥革命",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "辛亥革命",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-130",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第七单元 中国共产党成立与新民主主义革命兴起·五四运动与中国共产党的诞生",
+   "type": "多选",
+   "question": "关于中共一大，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "1921 年在上海召开",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "确立了毛泽东的领导地位",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "制定了民主革命纲领",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "会议最后转移到浙江嘉兴南湖举行",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AD",
+   "explanation": "民主革命纲领由中共二大制定；毛泽东领导地位在遵义会议实际确立。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "五四运动与中国共产党的诞生",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "五四运动与中国共产党的诞生",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-131",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第八单元 中华民族的抗日战争和人民解放战争·从局部抗战到全面抗战",
+   "type": "多选",
+   "question": "关于中国抗日战争的进程，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "九一八事变后，中国局部抗战开始",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "七七事变标志着全民族抗战开始",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西安事变标志着全民族抗战开始",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "卢沟桥事变发生在 1931 年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "AB",
+   "explanation": "卢沟桥事变（七七事变）发生在 1937 年，西安事变发生在 1936 年。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "从局部抗战到全面抗战",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "从局部抗战到全面抗战",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-132",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第八单元 中华民族的抗日战争和人民解放战争·从局部抗战到全面抗战",
+   "type": "多选",
+   "question": "关于抗日战争的胜利，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "彻底推翻了封建统治",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "结束了半殖民地半封建社会",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "为世界反法西斯战争的胜利作出了重大贡献",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "是近代以来中国反抗外敌入侵第一次取得完全胜利的民族解放战争",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "结束半殖民地半封建社会的是新民主主义革命的胜利和新中国的成立。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "从局部抗战到全面抗战",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "从局部抗战到全面抗战",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-133",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第九单元 中华人民共和国成立和社会主义革命与建设·中华人民共和国成立和向社会主义的过渡",
+   "type": "多选",
+   "question": "关于新中国成立初期的史实，下列说法正确的有（多选）",
+   "options": [
+    {
+     "text": "1949 年召开第一届全国人民代表大会",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1956 年三大改造基本完成",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1956 年通过《中国人民政治协商会议共同纲领》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1949 年 10 月 1 日中华人民共和国成立",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "BD",
+   "explanation": "《共同纲领》1949 年通过；第一届全国人大于 1954 年召开。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "中华人民共和国成立和向社会主义的过渡",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "中华人民共和国成立和向社会主义的过渡",
+    "多选"
+   ]
+  },
+  {
+   "id": "H10-134",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 10,
+   "textbook": "统编版2019",
+   "unit": "纲要上·第十单元 改革开放与社会主义现代化建设新时期·中国特色社会主义道路的开辟与发展",
+   "type": "多选",
+   "question": "下列关于我国改革开放时间节点的表述，正确的有（多选）",
+   "options": [
+    {
+     "text": "1992 年开始实行家庭联产承包责任制",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1978 年中国加入世界贸易组织",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1978 年中共十一届三中全会开启改革开放",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1980 年设立深圳等经济特区",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "CD",
+   "explanation": "家庭联产承包责任制始于 1978 年前后的农村改革；中国 2001 年加入世贸组织。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "纲要上",
+   "knowledge_point": "中国特色社会主义道路的开辟与发展",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T3ae2f5",
+   "change_tag": "新增",
+   "tags": [
+    "中国特色社会主义道路的开辟与发展",
+    "多选"
    ]
   }
  ]

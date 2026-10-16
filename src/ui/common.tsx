@@ -11,14 +11,15 @@ export function Modal({ children, onClose }: { children: ReactNode; onClose?: ()
 /** 自带屏幕键盘（GDD §9.4） */
 export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boolean; sci?: boolean; value: string; onChange: (v: string) => void; onOk: () => void }) {
   // 字母键盘：完整 a–z（含 e），不显示 ×10ⁿ；×10ⁿ 只在数字键盘（理科）出现（试玩报告 #1）
-  const keys = 'qwertyuiopasdfghjklzxcvbnm'.split('');
+  // 技术QA R6-2/R6-3：QWERTY 三行（10/9/7）+ ' - 两键，第 4 行空格、退格、确定
+  const rows = ['qwertyuiop', 'asdfghjkl', "zxcvbnm'-"].map(r => r.split(''));
   const vRef = useRef(value); vRef.current = value;
   useEffect(() => {   // 物理键盘也能输入
     const h = (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
       if (e.key === 'Enter') { if (v.trim()) onOk(); }
       else if (e.key === 'Backspace') onChange(v.slice(0, -1));
-      else if (letters ? /^[a-zA-Z ']$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) onChange(v + (letters ? e.key.toLowerCase() : e.key));
+      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) onChange(v + (letters ? e.key.toLowerCase() : e.key));
       else return;
       e.preventDefault();
     };
@@ -28,10 +29,11 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
     <div className="keypad-wrap">
       <div className="input-box" data-testid="input">{(letters ? value : value.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
       {letters ? <div className="keypad alpha">
-        {keys.map(k => <button key={k} data-key={k} onClick={() => onChange(value + k)}>{k}</button>)}
-        <button onClick={() => onChange(value + ' ')}>空格</button>
-        <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
-        <button className="ok" data-testid="ok" onClick={onOk} disabled={!value.trim()}>确定</button>
+        {rows.map((r, i) => <div className="kp-row" key={i}>{r.map(k => <button key={k} data-key={k} className={k === "'" || k === '-' ? 'sym' : ''} onClick={() => onChange(value + k)}>{k}</button>)}</div>)}
+        <div className="kp-row last">
+          <button className="space" data-key="space" onClick={() => onChange(value + ' ')}>空格</button>
+          <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
+          <button className="ok" data-testid="ok" onClick={onOk} disabled={!value.trim()}>确定</button></div>
       </div> : <div className="keypad num3">
         {/* 技术QA P2-4：固定 3×4「7 8 9 / 4 5 6 / 1 2 3 / - 0 .」，退格/分数/确定在右侧一列，横竖屏一致 */}
         <div className="kp-digits">{['7', '8', '9', '4', '5', '6', '1', '2', '3', '-', '0', '.'].map(k => <button key={k} data-key={k} onClick={() => onChange(value + k)}>{k}</button>)}</div>
@@ -68,3 +70,6 @@ export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra
   );
 }
 export function fmtMin(sec: number) { return sec === Infinity ? '不限' : `${Math.ceil(sec / 60)} 分钟`; }
+
+/** 技术QA R4-7：正确答案只放在 JS 里，选项 DOM 不带 data-correct；仅自动化测试（window.__zyTest）时才标出来方便脚本点 */
+export const TEST_DOM = typeof window !== 'undefined' && !!(window as unknown as { __zyTest?: boolean }).__zyTest;

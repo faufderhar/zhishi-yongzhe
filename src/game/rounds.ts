@@ -49,7 +49,7 @@ export function intentLabel(s: RState) {
     case 'heavy': return s.chargeBroken
       ? { icon: '💥', short: `💥 ${A}`, grey: true, down, long: `蓄力被你打断了，重击只剩 ${A} 点。` }
       : { icon: '💥', short: `💥 ${2 * A}`, grey: false, down, long: `重击来了！答对闪开，答错受到 ${2 * A} 点伤害。` };
-    case 'shield': return { icon: '🛡', short: `🛡 ${s.shieldVal}`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错它会挡掉你下一击的 ${s.shieldVal} 点伤害。` };
+    case 'shield': return { icon: '🛡', short: `🛡 要开盾 ${s.shieldVal}`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错它会挡掉你下一击的 ${s.shieldVal} 点伤害。` };
   }
 }
 

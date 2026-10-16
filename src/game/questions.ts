@@ -110,7 +110,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
 
 export interface BankIssue { row: number; id: string; errors: string[] }
 export interface Bank {
-  name: string; version: unknown; grade?: GradeKey; all: Question[]; bad: BankIssue[]; warnings: BankIssue[];
+  name: string; version?: string /* 题库 v18 起是字符串 'v18'，之前是数字 4：统一转字符串 */; grade?: GradeKey; all: Question[]; bad: BankIssue[]; warnings: BankIssue[];
   counts: { playable: number; pendingParent: number; pending: number; disabled: number; total: number };
 }
 /** 文件年级：优先 bank 级 grade 字段，其次文件名（题库_3年级 / 初一 / 高一 / 幼儿园小班 / bank_7） */
@@ -149,7 +149,7 @@ export function loadBank(raw: any, fileName = ''): Bank {
     if (mm) warnings.push({ row: i + 1, id: q?.id, errors: [mm] });
     if (errors.length) bad.push({ row: i + 1, id: q?.id ?? '?', errors }); else all.push(normalize(q, i, ctx));
   });
-  return { name: raw?.bank_name ?? fileName, version: raw?.version, grade: ctx, all, bad, warnings, counts: countStatuses(all) };
+  return { name: raw?.bank_name ?? fileName, version: raw?.version == null ? undefined : String(raw.version), grade: ctx, all, bad, warnings, counts: countStatuses(all) };
 }
 /** 可出现在游戏里的题 */
 export function playable(qs: Question[], includePending: boolean) { return qs.filter(q => canPlay(q.status, includePending)); }
@@ -170,7 +170,8 @@ export function parseNum(s: string): number | null {
   if (/^-?(\d+\.?\d*|\.\d+)(e-?\d+)?$/i.test(t)) return Number(t);
   return null;
 }
-const norm = (s: string) => s.trim().replace(/\s+/g, ' ').replace(/，/g, ',').replace(/[“”]/g, '"').toLowerCase();
+/** 技术QA R6-3：弯撇号 ’‘ʼ′ → '，各种连字符/破折号 ‐‑‒–—− → - */
+const norm = (s: string) => s.replace(/[’‘ʼ′`]/g, "'").replace(/[‐‑‒–—−]/g, '-').trim().replace(/\s+/g, ' ').replace(/，/g, ',').replace(/[“”]/g, '"').toLowerCase();
 
 export type Grade = 'full' | 'partial' | 'wrong';
 /** 判分；多选：全对 full，漏选（无错选）partial，错选 wrong；填空数值（含分数）按数值等价 */

@@ -1,3 +1,4 @@
+import { TEST_DOM } from './common';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
@@ -50,7 +51,9 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
         if (!a || !alive.current || dir.current !== d || !monster.current) return;
         const holder = monster.current.querySelector('.breathe') as HTMLElement | null; if (!holder) return;
         const img = holder.querySelector('img'); const h = img?.getBoundingClientRect().height || 220;
-        const pl = new SheetPlayer(h / 260);
+        // 技术QA R6-2：横屏战斗区窄时怪物序列帧不能伸进右侧答题区/键盘：宽度最多占战斗区 42%
+        const sw = (monster.current.closest('.stage') as HTMLElement | null)?.getBoundingClientRect().width || 1e4;
+        const pl = new SheetPlayer(Math.min(h / 260, sw * 0.42 / a.idle.meta.frame_width));
         pl.box.dataset.testid = 'monster-sheet'; pl.box.dataset.mon = art.id; pl.box.classList.add('mon-sheet');
         holder.classList.add('has-sheet'); holder.appendChild(pl.box);
         d.monSheets = { player: pl, anims: a, hitFrame: art.anims.attack.hit_frame ?? a.attack.meta.hit_frame ?? 5 };
@@ -63,7 +66,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
   return { stage, shake, hero, monster, flash, canvas, dir, alive };
 }
 
-export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps {
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -264,7 +267,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
           return (
             <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }} aria-pressed={fx === 'ok' && right} disabled={gone} aria-hidden={gone}
               className={`kopt ${gone ? 'gone' : ''} ${fx === 'demo' && right ? 'reveal' : ''} ${fx === 'ok' && right ? 'okmark' : ''}`}
-              data-testid={'opt-' + ch.key} data-correct={right ? '1' : '0'}
+              data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (right ? '1' : '0') : undefined}
               onPointerDown={() => { down.current = ch.key; }}
               onPointerUp={() => { if (down.current === ch.key) answer(ch); down.current = null; }}
               onPointerCancel={() => { down.current = null; }}
@@ -378,7 +381,9 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       answerFeedback(ok);
       const right = rv.right + (ok ? 1 : 0);
       setPicked(val);
-      if (right >= 2) { const ns = revive(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setPhase('feedback'); return; }
+      if (right >= 2) { const ns = revive(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setRv(null); setFb(undefined); D.dir.current?.float(D.dir.current.r.hero, '复活！50% 血量', 'heal');   // 学霸报告 #7：复活后直接出新题
+        if (idx + 1 >= queue.length) { if (extraLeft.current.length) { const more = extraLeft.current.splice(0, 3); setQueue(qq => [...qq, ...more]); } else { finish(ns); return; } }
+        setIdx(i => i + 1); setPhase('question'); setInput(''); setMulti([]); setPicked(undefined); return; }
       if (rv.i + 1 >= rv.list.length || (rv.list.length - rv.i - 1) < 2 - right) { setRv(null); finish(bs); return; }
       setRv({ ...rv, i: rv.i + 1, right }); setInput(''); setMulti([]); setTimeLeft(limit);
       return;
@@ -489,7 +494,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
           <div className={`${optCls} ${q.type === '判断' ? 'tf' : ''}`}>
             {choicesOf(q).map(ch => (
               <div key={ch.key} className="opt-wrap">
-                <button className="opt" data-testid={'opt-' + ch.key} data-correct={q.answer.includes(ch.key) ? '1' : '0'} onClick={() => submit(ch.key)}>
+                <button className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (q.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>
                   {q.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button>
                 {cfg.optionSpeaker && q.type === '选择' && !ch.text.includes('$') && <button className="opt-spk" aria-label="读选项" onClick={() => speak(ch.text)}>🔈</button>}
               </div>))}
@@ -539,7 +544,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <p className="intent-long" data-testid="intent-pop">{intent === 'attack' ? `下回合攻击 ${bs.monsterAtk} 点` : `护盾，挡 ${bs.shieldAmt} 点伤害`}</p>
         <p className="hint">⚔ 攻击：数字是它这回合打你的伤害 · 🛡 护盾：先挡掉你的一部分伤害</p>
         <button className="btn" data-testid="intent-ok" onClick={() => setIntentPop(false)}>知道了</button></Modal>}
-      {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={onQuit} />}
+      {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={() => { const st = stats.current; if (!st.total) { onQuit(); return; } onEnd({ win: false, quit: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); }} />}
     </div>
   );
 }

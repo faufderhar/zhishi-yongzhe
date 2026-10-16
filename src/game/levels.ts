@@ -6,7 +6,7 @@ import type { LevelKind } from './grades';
 /** 题库改版后旧关卡 id → 新关卡（按题池重合度生成，见 tools/level_aliases.md）；星级继承 */
 import LEVEL_ALIASES from './levelAliases.json';
 const ALIASES = LEVEL_ALIASES as Record<string, string[]>;
-export interface Level { id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
+export interface Level { id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
 export interface Chapter { subject: string; name: string; icon: string; levels: Level[]; volumes: string[]; count: number }
 export const AREA: Record<string, [string, string]> = {
   数学: ['数之城', '🔢'], 语文: ['墨韵山', '🖌️'], 英语: ['星语港', '🔤'], 诗词: ['诗词江湖', '📜'], 历史: ['时光长廊', '⏳'],
@@ -31,7 +31,23 @@ export function shortUnit(u?: string) {
 
 /** volumes：已学册别（null = 全部）；volumeOrder：册别显示顺序 */
 /** all：含不可玩题的全部题（用来找「可玩题为 0 的语文古诗课」，给它一张指向同名诗词关的卡片） */
-export function buildChapters(qs: Question[], volumes: string[] | null = null, all?: Question[]): Chapter[] { return linkShortChinese(buildChapters0(qs, volumes), zeroCnLessons(qs, volumes, all)); }
+export function buildChapters(qs: Question[], volumes: string[] | null = null, all?: Question[]): Chapter[] { return ensureBoss(linkShortChinese(buildChapters0(qs, volumes), zeroCnLessons(qs, volumes, all))); }
+/** 学霸全解锁报告 #4：单元都不满 12 题的学科（如高一政治、五年级英语、诗词）原来没有 Boss。
+    整个学科一个 Boss 都没有时，每册加一个「本册 Boss」（≥8 题），题池为本册全部题，放在本册最后一关之后（前一关得星解锁） */
+export function ensureBoss(chs: Chapter[]): Chapter[] {
+  for (const ch of chs) {
+    if (ch.levels.some(l => l.kind === 'boss')) continue;
+    const vols = [...new Set(ch.levels.map(l => l.volume))];
+    for (const v of vols) {
+      const ls = ch.levels.filter(l => l.volume === v && !l.redirect); const pool = [...new Set(ls.flatMap(l => l.pool))];
+      if (ls.length < 2 || pool.length < 8) continue;
+      const last = ls[ls.length - 1];
+      ch.levels.splice(ch.levels.indexOf(last) + 1, 0, { id: `${ch.subject}|VB|${pool[0]}`, chapter: ch.subject, index: 0, kind: 'boss', name: '本册 Boss', pool, volume: v, unit: last.unit });
+    }
+    ch.levels.forEach((l, i) => { l.index = i + 1; });
+  }
+  return chs;
+}
 function zeroCnLessons(qs: Question[], volumes: string[] | null, all?: Question[]) {
   if (!all) return [];
   const have = new Set(qs.filter(q => q.subject === '语文').map(q => q.volume + '|' + (q.unit ?? '')));
@@ -84,9 +100,9 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
     for (const g of groups) g.subs = mergeSmallLessons(subject, g.subs);
     for (const g of groups) {
       const meta = { volume: g.volume, unit: g.title };
-      let recent: Question[][] = [];
+      let recent: Question[][] = []; let reserved: Question[] = [];
       const all = g.subs.flatMap(x => x.qs);
-      const normals: { c: Question[]; name: string; sub: number }[] = [];
+      const normals: { c: Question[]; name: string; sub: number; res?: Question[] }[] = [];
       for (const [si, sb] of g.subs.entries()) {
         const chunks: Question[][] = [];
         for (let i = 0; i < sb.qs.length; i += CHUNK) chunks.push(sb.qs.slice(i, i + CHUNK));
@@ -95,15 +111,22 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
         chunks.forEach((c, k) => normals.push({ c, name: chunks.length > 1 ? `${nm} ${k + 1}` : nm, sub: si }));
       }
       // 精英关只取本小节（同一课）的题，不跨课（策划 r6 裁定 2）：同一小节每 3 个普通关后 1 个精英关
-      normals.forEach(({ c, name, sub }, k) => {
-        if (k > 0 && normals[k - 1].sub !== sub) recent = [];
+      // 策划 r7：每组 3 个普通关后的精英关要有「前面普通关没出现过」的题：从组内每个 ≥6 题的普通关末尾留 2 道给精英（普通关 id 用首题，不变）
+      for (let k = 0; k + 2 < normals.length; k++) {
+        const grp = normals.slice(k, k + 3); if (grp.some(x => x.sub !== grp[0].sub)) continue;
+        const first = normals.findIndex(x => x.sub === grp[0].sub); if ((k - first) % 3 !== 0 || k + 2 >= normals.length - 1) continue;
+        for (const x of grp) if (x.c.length >= 6) x.res = x.c.splice(x.c.length - 2, 2);
+      }
+      normals.forEach(({ c, name, sub, res }, k) => {
+        if (k > 0 && normals[k - 1].sub !== sub) { recent = []; reserved = []; }
+        if (res) reserved.push(...res);
         recent.push(c);
         const parts = g.subs[sub].parts;
         levels.push({ id: `${subject}|N|${c[0].key}`, chapter: subject, index: levels.length + 1, kind: 'normal', name, pool: c.map(q => q.key), ...meta,
           ...(parts && k === normals.findIndex(x => x.sub === sub) ? { parts: parts.filter(x => x !== `${subject}|N|${c[0].key}`), aliases: parts.filter(x => x !== `${subject}|N|${c[0].key}`) } : {}) });
         if (recent.length === 3 && k < normals.length - 1) {
-          const pool = recent.flat(); recent = [];
-          levels.push({ id: `${subject}|E|${pool[0].key}`, chapter: subject, index: levels.length + 1, kind: 'elite', name: '精英挑战', pool: pool.map(q => q.key), ...meta });
+          const pool = [...reserved, ...recent.flat()]; const id0 = recent[0][0].key; const fresh = reserved.map(q => q.key); recent = []; reserved = [];
+          levels.push({ id: `${subject}|E|${id0}`, chapter: subject, index: levels.length + 1, kind: 'elite', name: '精英挑战', pool: pool.map(q => q.key), ...meta, ...(fresh.length ? { fresh } : {}) });
         }
       });
       if (all.length >= 12) levels.push({ id: `${subject}|B|${all[0].key}`, chapter: subject, index: levels.length + 1, kind: 'boss', name: '章节 Boss', pool: all.map(q => q.key), ...meta,
@@ -181,8 +204,28 @@ export function levelStars(r: { win: boolean; correct: number; total: number; re
   return r.retreat ? Math.min(1, s) : s;
 }
 /** Boss 选题池（裁定 2）：整章题，优先「还没出过」和「之前答错」的题；不够才重复已答对过的 */
-export function bossPool<T extends { key: string }>(pool: T[], seen: Set<string>, wrong: Set<string>, n: number): T[] {
-  const fresh = pool.filter(q => !seen.has(q.key)), bad = pool.filter(q => seen.has(q.key) && wrong.has(q.key));
+/** 精英关选题（策划 r7）：先出生成时留给精英、且没出现过的题，再出本课其它没出现过的，再出答错过的；不够才重复 */
+export function elitePool<T extends { key: string }>(pool: T[], fresh: string[] = [], seen: Set<string>, wrong: Set<string>, n: number, assigned: Set<string> = new Set()): T[] {
+  const f = new Set(fresh);
+  const a = pool.filter(q => f.has(q.key) && !seen.has(q.key));
+  const b = pool.filter(q => !f.has(q.key) && !seen.has(q.key) && !assigned.has(q.key));
+  const c = pool.filter(q => seen.has(q.key) && wrong.has(q.key));
+  const pref = [...a, ...b, ...c];
+  return pref.length >= n ? pref : [...pref, ...pool.filter(q => !pref.includes(q)).slice(0, n - pref.length)];   // 不够才重复，且只补到够数
+}
+/** 本单元在 level 之前的关卡（按生成顺序）已分到的题 */
+export function assignedBefore(levels: Level[], level: Level): Set<string> {
+  const out = new Set<string>(); for (const l of levels) { if (l.id === level.id) break; if (l.volume === level.volume && l.unit === level.unit) l.pool.forEach(k => out.add(k)); } return out;
+}
+/** 多选题每关最多 2 道（策划 r7，题库加多选题后生效）：多出的换成同池非多选题 */
+export function capMulti<T extends { key: string; type: string }>(qs: T[], pool: T[], cap = 2): T[] {
+  let m = 0; const used = new Set(qs.map(q => q.key)); const spare = pool.filter(q => q.type !== '多选' && !used.has(q.key));
+  const out: T[] = [];
+  for (const q of qs) { if (q.type === '多选' && ++m > cap) { const r = spare.shift(); if (r) out.push(r); continue; } out.push(q); }
+  return out;
+}
+export function bossPool<T extends { key: string }>(pool: T[], seen: Set<string>, wrong: Set<string>, n: number, freshFirst: Set<string> = new Set()): T[] {
+  const fresh = pool.filter(q => !seen.has(q.key)).sort((x, y) => +freshFirst.has(y.key) - +freshFirst.has(x.key)), bad = pool.filter(q => seen.has(q.key) && wrong.has(q.key));
   const pref = [...fresh, ...bad];
   return pref.length >= n ? pref : [...pref, ...pool.filter(q => !pref.includes(q))];
 }

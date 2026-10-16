@@ -64,3 +64,74 @@ describe('题库 v16：可玩题为 0 的语文古诗课', () => {
     }
   });
 });
+import { elitePool, assignedBefore, capMulti } from '../src/game/levels';
+describe('策划 r7：精英 / Boss 选题不抄前面的关', () => {
+  it('所有年级：精英关有生成时预留、前面关卡没分到的题，选题先出这些；高一数学各课不出精英抄题', () => {
+    let n = 0;
+    for (const g of ['K1', '1', '2', '3', '4', '5', '6', '7', '10']) {
+      const all = loadBank(JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8')), 'b.json').all.filter(q => q.status === 'AI初审通过' || q.status === '已通过');
+      const by = new Map(all.map(q => [q.key, q]));
+      for (const ch of buildChapters(all)) for (const e of ch.levels.filter(l => l.kind === 'elite')) {
+        n++; const before = assignedBefore(ch.levels, e);
+        expect(e.fresh?.length ?? 0).toBeGreaterThanOrEqual(4);
+        for (const k of e.fresh!) expect(before.has(k)).toBe(false);
+        const pick = elitePool(e.pool.map(k => by.get(k)!), e.fresh, new Set(), new Set(), 6, before);
+        expect(pick.slice(0, 6).filter(q => !before.has(q.key)).length).toBe(6);
+      }
+    }
+    expect(n).toBeGreaterThan(0);
+  });
+  it('多选题每关最多 2 道', () => {
+    const q = (k: string, t: string) => ({ key: k, type: t });
+    const out = capMulti([q('a', '多选'), q('b', '多选'), q('c', '多选'), q('d', '选择')], [q('e', '选择'), q('c', '多选')]);
+    expect(out.filter(x => x.type === '多选')).toHaveLength(2); expect(out.map(x => x.key)).toContain('e');
+  });
+});
+import { judge } from '../src/game/questions';
+import { newRound, resolveRound } from '../src/game/rounds';
+import { PUPS } from '../src/game/characters';
+import { selectQuestions, spreadTemplates } from '../src/game/adaptive';
+describe('题库 v18：150 道多选题', () => {
+  const raw = (g: string) => JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8'));
+  it('version 字段是字符串 v18，导入转字符串；数字也接受', () => {
+    expect(raw('10').version).toBe('v18');
+    expect(loadBank(raw('10'), 'bank_10.json').version).toBe('v18');
+    expect(loadBank({ ...raw('7'), version: 4 }, 'bank_7.json').version).toBe('4');
+  });
+  it('真题判分：全对 full、漏选 partial、错选 wrong；漏选半伤害', () => {
+    const ms = ['7', '10'].flatMap(g => loadBank(raw(g), `bank_${g}.json`).all).filter(q => q.type === '多选' && (q.status === 'AI初审通过' || q.status === '已通过'));
+    expect(ms.length).toBe(151);
+    const c = PUPS.find(x => x.major === '数学')!;
+    for (const q of ms) {
+      expect(q.options).toHaveLength(4); expect(q.answer.length).toBeGreaterThanOrEqual(2); expect(q.answer.length).toBeLessThanOrEqual(3);
+      expect(judge(q, [...q.answer])).toBe('full');
+      expect(judge(q, q.answer.join(''))).toBe('full');
+      expect(judge(q, [q.answer[0]])).toBe('partial');
+      const bad = ['A', 'B', 'C', 'D'].find(k => !q.answer.includes(k))!;
+      expect(judge(q, [q.answer[0], bad])).toBe('wrong');
+    }
+    const s0 = { ...newRound('j', 'normal'), monsterHp: 999, monsterMax: 999 };
+    const full = resolveRound(s0, c, { correct: true, subject: '历史', difficulty: 2, rng: () => 0.99, noSkill: true })[1].dealt;
+    const half = resolveRound(s0, c, { correct: true, partial: true, subject: '历史', difficulty: 2, rng: () => 0.99, noSkill: true })[1];
+    expect(Math.abs(half.dealt - full / 2)).toBeLessThanOrEqual(1); expect(half.taken).toBe(0);
+  });
+  it('每关最多 2 道多选（真题、全部关卡各抽 20 次）', () => {
+    for (const g of ['7', '10']) {
+      const all = loadBank(raw(g), 'b.json').all.filter(q => q.status === 'AI初审通过' || q.status === '已通过'); const by = new Map(all.map(q => [q.key, q]));
+      for (const ch of buildChapters(all)) for (const l of ch.levels) {
+        const pool = l.pool.map(k => by.get(k)!); if (!pool.some(q => q.type === '多选')) continue;
+        for (let i = 0; i < 20; i++) { const qs = capMulti(spreadTemplates(selectQuestions({ pool, fallback: pool, n: l.kind === 'boss' ? 10 : 9, target: 2, kind: l.kind }), pool), pool); expect(qs.filter(q => q.type === '多选').length).toBeLessThanOrEqual(2); }
+      }
+    }
+  });
+});
+describe('技术QA R6-3：撇号/连字符', () => {
+  const by = (g: string, id: string) => loadBank(JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8')), 'b.json').all.find(q => q.id === id)!;
+  it("E3-078 isn't / E5-089 Mid-Autumn：直撇号、弯撇号、各种横线、大小写都判对", () => {
+    const a = by('3', 'E3-078'), b = by('5', 'E5-089');
+    expect(a.answer[0]).toBe("isn't"); expect(b.answer[0]).toBe('Mid-Autumn');
+    for (const v of ["isn't", 'isn’t', 'isn‘t', "ISN'T"]) expect(judge(a, v)).toBe('full');
+    for (const v of ['mid-autumn', 'Mid–Autumn', 'mid—autumn', 'Mid‑Autumn', 'mid−autumn']) expect(judge(b, v)).toBe('full');
+    expect(judge(a, 'isnt')).toBe('wrong'); expect(judge(b, 'midautumn')).toBe('wrong');
+  });
+});

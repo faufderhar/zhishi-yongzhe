@@ -2,13 +2,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
 import { loadFxManifests } from './fx/assets';
 import { prefetchAll } from './fx/sheets';
+import { cacheForOffline } from './offlineCache';
 import { STORAGE_ERROR, deleteProfileData, compactAnswers } from './db';
 import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
-import { buildChapters, levelStars, bossPool, levelsOfUnit, migrateStars, type Level } from './game/levels';
+import { buildChapters, levelStars, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
@@ -111,9 +112,12 @@ export default function App() {
   useEffect(() => {
     if (!profiles.length || !navigator.onLine) return;
     const kinds = [...new Set(profiles.map(x => bandConfig(x.grade).chars === 'scifi' ? 'hs' : 'pup'))] as ('pup' | 'hs')[];
-    const t = setTimeout(() => { void prefetchAll(undefined, kinds).catch(() => {}); }, 8000);
-    return () => clearTimeout(t);
-  }, [profiles.map(x => x.grade).join()]);
+    // 学科怪物 + 技能特效/图标/音效：按档案年级与学科，空闲时放进运行时缓存（技术QA R6-1）
+    const needs = bank ? [...new Set(profiles.map(x => x.grade))].map(g => ({ grade: g, subjects: [...new Set(questionsOfGrade(bank, g).map(q => q.subject))] })) : [];
+    const t = setTimeout(() => { void prefetchAll(undefined, kinds).catch(() => {}).then(() => cacheForOffline(needs)).catch(() => {}); }, 8000);
+    const on = () => { void cacheForOffline(needs).catch(() => {}); }; window.addEventListener('online', on);
+    return () => { clearTimeout(t); window.removeEventListener('online', on); };
+  }, [profiles.map(x => x.grade).join(), !!bank]);
   const replay = !!p && (!p.tutorialDone || !!settings.tutorialReplay?.[p.id]);
   // 老档案（看过旧引导）第一次进轮流回合战斗：只补弹第 3 张卡一次（规格 §10）
   const onlyCard3 = !!p && !replay && cfg?.battle === 'full' && !p.tutorialV036;
@@ -199,7 +203,7 @@ export default function App() {
     const pool = level.pool.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
     // 补题和错题复习都只取「同一章（册别+章/单元）」的题，绝不跨章（试玩报告 #1：集合关卡混入余弦定理）
     // 裁定 2：普通 / 精英关只用本课（本关题池）的题；Boss 用整章，优先没出过和之前答错的
-    const sameUnit = level.kind === 'boss' ? levelsOfUnit(chapter.levels, level).flatMap(l => l.pool) : level.pool;
+    const sameUnit = level.kind === 'boss' ? [...new Set([...levelsOfUnit(chapter.levels, level).flatMap(l => l.pool), ...level.pool])] : level.pool;
     const wrongKeys = new Set(wrong.map(e => e.qkey));
     const fallback0 = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
     const fallback = level.kind === 'boss' ? bossPool(fallback0, seenKeys, wrongKeys, cfg.questions.boss) : fallback0;
@@ -207,7 +211,13 @@ export default function App() {
     const due = wrong.filter(e => isDue(e) && unitKeys.has(e.qkey)).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
     const target = skills[level.chapter]?.level ?? 2;
     const n = cfg.questions[level.kind];
-    const qs = spreadTemplates(selectQuestions({ pool: level.kind === 'boss' ? bossPool(pool, seenKeys, wrongKeys, n) : pool, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool);
+    // 策划 r7：精英先出本课没出现过的（含生成时已分给前面普通关的题，不只看游玩记录）；Boss 先出整章没出现过/答错的，精英预留题优先
+    const assigned = assignedBefore(chapter.levels, level);
+    const prefPool = level.kind === 'boss' ? bossPool(pool, seenKeys, wrongKeys, n, new Set(levelsOfUnit(chapter.levels, level).flatMap(l => l.fresh ?? [])))
+      : level.kind === 'elite' ? elitePool(pool, level.fresh, seenKeys, wrongKeys, n, assigned) : pool;
+    const strict = prefPool;
+    const qs = capMulti(spreadTemplates(selectQuestions({ pool: strict, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool), pool);
+    { const w = window as unknown as { __zyTest?: boolean; __zyForceQ?: string }; if (w.__zyTest && w.__zyForceQ) { const fq = [...byKey.values()].find(q => q.id === w.__zyForceQ); if (fq) qs.unshift(fq); } }   // 仅自动化测试：指定首题
     // 题少的课（语文课文/古诗词不合并）：关内重复本课题，错题优先（策划 r6）
     if (qs.length < n && pool.length && level.kind === 'normal') { const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
     const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind });
@@ -266,7 +276,7 @@ export default function App() {
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} turns={screen.r.turns}
+      {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} />}

@@ -3,14 +3,14 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { validateQuestion, loadBank, playable, judge, isCorrect, kinderChoices, choicesOf, parseGradeKey, parseNum, ttsText, normalize, gameReadyMismatch, gradeFromFileName, canPlay } from '../src/game/questions';
 import { csvToQuestions, parseCSV, toCSV } from '../src/game/csv';
 
-const SRC = '/workspace/questions/';
+const SRC = process.env.BANK_SRC ?? '/workspace/questions/';   // 题库源目录（源已前进到新版本时指向对应备份）
 const hasSrc = (() => { try { return readdirSync(SRC).length > 0; } catch { return false; } })();
 const pub = (g: string) => JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8'));
 const base = { id: 'x', status: 'AI初审通过', subject: '数学', grade: 7, type: '选择', question: 'q',
   options: [{ text: '1' }, { text: '2' }, { text: '3' }, { text: '4' }], answer: 'B', explanation: '', difficulty: 2, tags: [] };
 
 describe('内置题库（v5/v6）', () => {
-  const EXPECT: Record<string, number> = { K1: 246, 1: 676, 2: 435, 3: 643, 4: 667, 5: 639, 6: 655, 7: 811, 10: 1241 };   // v16
+  const EXPECT: Record<string, number> = { K1: 246, 1: 676, 2: 435, 3: 643, 4: 667, 5: 639, 6: 655, 7: 841, 10: 1361 };   // v18
   for (const g of Object.keys(EXPECT)) {
     it(`${g}：全部通过校验，可玩 ${EXPECT[g]} 题，年级来自文件/字段`, () => {
       const b = loadBank(pub(g), `bank_${g}.json`);

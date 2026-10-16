@@ -1,3 +1,5 @@
+import { TEST_DOM } from './common';
+import { skinFor } from '../game/monsterSkin';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
@@ -165,7 +167,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
-                  : <span className={`kind-tag ${l.kind}`}>{l.kind === 'elite' ? '精英挑战' : '章节 Boss'}</span>}
+                  : <span className={`kind-tag ${l.kind}`} data-testid="kind-tag">{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${skinFor(ch.subject, 'boss')?.name ?? ch.subject}`}</span>}
                 <Stars n={s} />
               </button></Fragment>
             );
@@ -178,8 +180,8 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, onAgain, onNext, onMap, kinder, retreat, turns }: {
-  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
+export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns }: {
+  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
   const acc = total ? Math.round(correct / total * 100) : 0;
@@ -192,9 +194,10 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         <KinderSub k={kinder} total={total} />
       </> : <>
         <div className="big-emoji xl">{win ? '🏆' : '💫'}</div>
-        <h1>{forcedTimeUp ? '⏰ 时间到' : retreat ? '怪物撤退了！' : win ? '胜利！' : '这次差一点'}</h1>
+        <h1>{forcedTimeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? '怪物撤退了！' : win ? '胜利！' : '这次差一点'}</h1>
         {forcedTimeUp && <p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p>}
         {retreat && !forcedTimeUp && <p data-testid="retreat">到了回合上限，怪物逃走了：算通关，但最多 ★。下次试试更快打倒它！</p>}
+        {quit && !forcedTimeUp && <p data-testid="quit">本关未通过，不得星。</p>}
         {!win && !forcedTimeUp && <p>答对的题都算经验，错题已放进错题本，下次再来！</p>}
         {forcedTimeUp && <p className="hint">本关不算通关、不得星；已答对的题照常算经验。</p>}
       </>}
@@ -290,7 +293,7 @@ export function ReviewSession({ questions, onAnswer, onDone }: { questions: Ques
         <div className="qmeta">{q.subject} · {q.type}{tts && <button className="mini" onClick={() => speak(tts, q.subject === '英语' ? 'en' : 'zh-CN')}>🔊</button>}</div>
         <div className="qtext"><Tex text={q.question} /></div>
         {!res && (q.type === '选择' || q.type === '判断') && <div className={`opts ${q.type === '判断' ? 'tf' : ''}`}>{choicesOf(q).map(ch =>
-          <button key={ch.key} className="opt" data-testid={'opt-' + ch.key} data-correct={q.answer.includes(ch.key) ? '1' : '0'} onClick={() => submit(ch.key)}>{q.type === '选择' && <i>{ch.key}</i>}<Tex text={ch.text} /></button>)}</div>}
+          <button key={ch.key} className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (q.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>{q.type === '选择' && <i>{ch.key}</i>}<Tex text={ch.text} /></button>)}</div>}
         {!res && q.type === '多选' && <div className="opts">{q.options.map(ch =>
           <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{ch.key}</i><Tex text={ch.text} /></button>)}
           <button className="next multi-ok" disabled={!multi.length} onClick={() => submit(multi.join(''))}>确定</button></div>}

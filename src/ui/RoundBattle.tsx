@@ -1,3 +1,4 @@
+import { TEST_DOM } from './common';
 /* D6 轮流回合战斗界面（实现规格 v0.3.6）：我方回合 / 对方回合交替，每回合 1 题；小学 3–6、初一、高一 */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
@@ -62,14 +63,16 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     const w = window as unknown as { __zyTest?: boolean; __zyPlaySkill?: (id: string) => Promise<void> | undefined };
     if (w.__zyTest) w.__zyPlaySkill = id => { const k = skillById(id); return k ? D.dir.current?.playSkill(k, { kinder: k.seg === 'K' }) : undefined; };
   }, []);   // 只懒加载本角色本学段的技能素材
-  const P = bs.side === 'P';
+  // 技术QA R6-4：答完到点〔继续〕之前，横幅/题目标签/意图都按「刚答的这一回合」显示；下一回合开始（phase=pre）才切换
+  const [ansSide, setAnsSide] = useState<'P' | 'M' | null>(null);
+  const P = (phase === 'anim' || phase === 'feedback') && ansSide ? ansSide === 'P' : bs.side === 'P';
   const il = intentLabel(bs);
 
   /** 取下一题：对方回合排除多步题；高一对方回合出标准难度（不选卡） */
   // 关内难度回落（裁定 4）：连错 2 题降 1 档，降档后连对 2 题恢复
   const tierRef = useRef<Tier>(newTier(Math.round(questions.reduce((a, q) => a + q.difficulty, 0) / Math.max(1, questions.length)) || 2));
   const [consol, setConsol] = useState(false);
-  const take = (pred: (x: Question) => boolean = () => true) => { const q = pickByTier(pool.current.filter(pred), tierRef.current) ?? pool.current[0]; setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
+  const take = (pred0: (x: Question) => boolean = () => true) => { const pred = (x: Question) => pred0(x) && (x.type !== '多选' || used.current.filter(u => u.type === '多选').length < 2)   /* 策划 r7：每关最多 2 道多选 */; const fq = (window as unknown as { __zyTest?: boolean; __zyForceQ?: string }).__zyTest ? pool.current.find(x => x.id === (window as unknown as { __zyForceQ?: string }).__zyForceQ) : undefined;   /* 仅自动化测试：指定题 */ const q = fq ?? pickByTier(pool.current.filter(pred), tierRef.current) ?? pool.current.find(pred) ?? pool.current[0]; ; setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
   const cards = useMemo(() => {
     if (!hs || phase !== 'cards') return null;
     const rest = pool.current; const base = pickByTier(rest.filter(x => !isMulti(x)), tierRef.current) ?? rest[0]; if (!base) return null;
@@ -122,11 +125,12 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const pickCard = (k: CardKind) => { if (!cards) return; setCard(k); setQ(cards[k]); setConsol(isConsolidating(tierRef.current) && cards[k].difficulty < tierRef.current.base); setPhase(wagerOn ? 'wager' : 'question'); };
 
   function submit(val: string) {
+    if (phase === 'question') setAnsSide(bs.side as 'P' | 'M');
     const qq = cq!;
     if (phase === 'revive-q' && rv) {
       const ok = val !== '' && judge(qq, qq.type === '多选' ? val.split('') : val) === 'full';
       answerFeedback(ok); const right = rv.right + (ok ? 1 : 0), tries = rv.tries + 1; setPicked(val);
-      if (right >= REVIVE.need) { const ns = reviveRound(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setCanNext(true); setPhase('feedback'); return; }
+      if (right >= REVIVE.need) { const ns = reviveRound(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp }); setRv(null); setFb(undefined); D.dir.current?.float(D.dir.current.r.hero, '复活！50% 血量', 'heal'); setPhase('pre'); return; }   // 学霸报告 #7：复活后直接出新题，不再停在刚答错的题上
       if (tries >= REVIVE.tries || REVIVE.tries - tries < REVIVE.need - right) { setRv(null); void finish(bs); return; }
       setRv({ list: rv.list, i: (rv.i + 1) % rv.list.length, right, tries }); setInput(''); setMulti([]);
       return;
@@ -207,14 +211,14 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         <span className="lvl-title">{title}</span>
         <button className="pause-btn" aria-label="暂停" data-testid="pause" onClick={() => setPaused(true)}>⏸</button>
       </div>
-      {!bs.over && phase !== 'revive-ask' && phase !== 'revive-q' && <div key={bs.turn} className={`side-banner ${P ? 'p' : 'm'}`} data-testid="banner">{P ? '⚔ 我方回合：答对就攻击！' : '🛡 对方回合：答对就闪避！'}</div>}
+      {!bs.over && phase !== 'revive-ask' && phase !== 'revive-q' && <div key={P ? 'P' : 'M'} className={`side-banner ${P ? 'p' : 'm'}`} data-testid="banner" data-side={P ? 'P' : 'M'}>{P ? '⚔ 我方回合：答对就攻击！' : '🛡 对方回合：答对就闪避！'}</div>}
       <div className="arena">
         <div className="mon-info">
           <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}<span data-testid="monster-name">{mon.name}</span>{bs.def.phases && ` · 第 ${phaseOf(bs) + 1} 阶段（弱点 ${weakOf(bs)}）`}</b>
           {bs.def.phases ? (() => { const f = bs.def.phases[1].hp, p0 = view.m > f; return <Bar label="" v={p0 ? view.m - f : view.m} max={p0 ? bs.def.phases[0].hp : f} cls="mhp" />; })()   /* 两阶段 Boss：每阶段单独一条血 */
             : <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />}
           <button className={`intent intent-${nextIntent(bs)} ${il.grey ? 'grey' : ''} ${!P && asking ? 'now' : ''}`} data-testid="intent" data-intent={nextIntent(bs)} onClick={() => setIntentPop(true)} aria-label={'怪物意图：' + il.long}>
-            {il.short} ⓘ{bs.shield > 0 && <span data-testid="mshield"> · 护盾 {bs.shield}</span>}</button>
+            {il.short} ⓘ{bs.shield > 0 && <span data-testid="mshield"> · 已有护盾 {bs.shield}</span>}</button>
           {!P && asking && <div className="intent-now" data-testid="intent-now">{il.long}</div>}
         </div>
         <div className="stage" ref={D.stage}>
@@ -257,7 +261,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         </>}
         {asking && cq && cq.type === '多选' && (
           <div className="opts">
-            {cq.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} aria-pressed={multi.includes(ch.key)} data-testid={'opt-' + ch.key} data-correct={cq.answer.includes(ch.key) ? '1' : '0'}
+            {cq.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} aria-pressed={multi.includes(ch.key)} data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (cq.answer.includes(ch.key) ? '1' : '0') : undefined}
               onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{multi.includes(ch.key) ? '✔' : ch.key}</i><Tex text={ch.text} /></button>)}
             <button className="next multi-ok" disabled={!multi.length} data-testid="ok" onClick={() => submit(multi.join(''))}>确定（多选）</button>
           </div>
@@ -265,7 +269,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         {asking && cq && (cq.type === '选择' || cq.type === '判断') && (
           <div className={`opts ${cq.type === '判断' ? 'tf' : ''}`}>
             {choicesOf(cq).map(ch => <div key={ch.key} className="opt-wrap">
-              <button className="opt" data-testid={'opt-' + ch.key} data-correct={cq.answer.includes(ch.key) ? '1' : '0'} onClick={() => submit(ch.key)}>
+              <button className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (cq.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>
                 {cq.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button></div>)}
           </div>
         )}
@@ -303,7 +307,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
       {intentPop && <Modal onClose={() => setIntentPop(false)}><h2>怪物意图</h2><p className="intent-long" data-testid="intent-pop">{il.long}</p>
         <p className="hint">⚔ 攻击 · ⚡ 蓄力（下次重击 ×2）· 💥 重击 · 🛡 护盾</p>
         <button className="btn" data-testid="intent-ok" onClick={() => setIntentPop(false)}>知道了</button></Modal>}
-      {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={onQuit} />}
+      {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={() => { if (!stats.current.total) { onQuit(); return; } onEnd({ ...result(bsRef.current), win: false, retreat: false, quit: true }); }} />}
     </div>
   );
 }

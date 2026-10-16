@@ -1,6 +1,18 @@
 import { ReduceToggle } from './Battle';
 import { prefetchAll } from '../fx/sheets';
 import { useState as useS } from 'react';
+import { offlineStatus, onOffline } from '../offlineCache';
+import { BANK_VER, BANK_RELEASE } from '../bankStore';
+declare const __BUILD__: string;
+/** 离线就绪状态（技术QA R6-1） + 题库/构建版本（R6-5：来自构建信息） */
+export function OfflineReady() {
+  const [s, setS] = useS(offlineStatus());
+  useEffect(() => onOffline(setS), []);
+  const ready = !!s && s.total > 0 && s.done >= s.total && s.failed === 0;
+  return <p className="hint" data-testid="offline-ready" data-ready={ready ? '1' : '0'}>
+    {ready ? '✅ 离线就绪：怪物动画、技能特效和音效都已缓存' : s ? `⏳ 离线素材缓存中 ${s.done}/${s.total}${s.failed ? `（${s.failed} 个暂未下载，联网后自动重试）` : ''}` : '⏳ 联网时会在后台缓存离线素材'}
+    <br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'}</span></p>;
+}
 function PrefetchAnim() {
   const [p, setP] = useS('');
   return <button className="chip" data-testid="prefetch-anim" onClick={() => { setP('0%'); void prefetchAll((d, t) => setP(Math.round(d / t * 100) + '%')).then(() => setP('已完成，可离线使用')); }}>⬇ 预下载战斗动画（约 4.3MB）{p && ' · ' + p}</button>;
@@ -298,7 +310,7 @@ function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock }: Parent
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
           return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒</td><td>{fmtMin(remainingSec(p.limit, u, today))}</td><td>{p.limit.weekday || '不限'} / {p.limit.weekend || '不限'}</td>
             <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => setUsage(p.id, addBonus(u, today, 600))}>＋10 分钟</button></td></tr>; })}</tbody></table>
-      <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；离线使用前点一下即可全部缓存。</p></div>
+      <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /></div>
       <p className="hint">上限在「孩子档案 → 编辑」里改。只在答题/复习时计时，切到后台不计；关卡进行中时间到了会让孩子打完这一关。</p>
     </div>
   );

@@ -456,3 +456,12 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle .keypad.num3 .kp-side .ok{min-height:calc(2 * clamp(44px,5.4dvh,64px))}
   .battle .qtext{font-size:clamp(20px,2.6dvh,28px)}
 }
+
+/* r7 · 技术QA R6-2：QWERTY 字母键盘（10/9/9 + 空格/退格/确定），每行居中，键宽按 10 列算 */
+.keypad.alpha{display:flex !important;flex-direction:column;gap:6px}
+.keypad.alpha .kp-row{display:flex;justify-content:center;gap:6px}
+.keypad.alpha .kp-row button{flex:0 0 calc((100% - 54px) / 10);min-width:0;padding:0;min-height:44px !important;height:clamp(44px,6dvh,58px) !important;font-size:24px}
+.keypad.alpha .kp-row button.sym{background:#fff2;font-weight:700}
+.keypad.alpha .kp-row.last button{flex:1 1 0}.keypad.alpha .kp-row.last .space{flex:3 1 0}.keypad.alpha .kp-row.last .ok{flex:2 1 0}
+/* r7 · 技术QA R4-6：怪物意图、能量环点击区 ≥44×44 */
+.battle .intent,.battle .energy-ring{min-width:44px !important;min-height:44px !important;box-sizing:border-box}

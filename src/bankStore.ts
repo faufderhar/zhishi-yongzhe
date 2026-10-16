@@ -4,6 +4,9 @@ import { importedQuestions } from './db';
 declare const __BANK_VER__: string;
 /** 题库内容哈希（构建时算），用于缓存失效 */
 export const BANK_VER = typeof __BANK_VER__ === 'string' ? __BANK_VER__ : 'dev';
+declare const __BANK_RELEASE__: string;
+/** 题库发布号（public/banks/release.json，如 v16） */
+export const BANK_RELEASE = typeof __BANK_RELEASE__ === 'string' ? __BANK_RELEASE__ : 'dev';
 export const BUILTIN_GRADES: GradeKey[] = ['K1', '1', '2', '3', '4', '5', '6', '7', '10'];
 export interface BankState { byKey: Map<string, Question>; builtin: Record<string, Bank>; importedCount: number; importedInvalid: number }
 export async function loadAllBanks(onProgress?: (done: number, total: number) => void): Promise<BankState> {
