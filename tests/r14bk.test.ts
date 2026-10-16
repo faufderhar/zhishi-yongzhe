@@ -72,3 +72,9 @@ it0('合并：备份里 xp="NaN"、星星坏值 → 用本机值或 0', () => {
   expect(m.get('progress:a')).toMatchObject({ xp: 40, masteredStars: 1, stars: { L1: 2, L2: 3 } });
   expect(m.get('progress:b')).toMatchObject({ xp: 0, masteredStars: 0, stars: { Q: 0 } });
 });
+it0('r15 R141-5：合并时数字夹到上限', () => {
+  const cur = { kv: [['profiles', [{ id: 'a' }]], ['progress:a', { stars: {}, xp: 5, masteredStars: 0 }]] as [string, unknown][], answers: [], wrong: [], bank: [] };
+  const bk = { kv: [['profiles', [{ id: 'a' }]], ['progress:a', { stars: { L: 1e9 }, xp: 1e300, masteredStars: 1e20 }]] as [string, unknown][], answers: [], wrong: [], bank: [] };
+  const m = new Map(mergeBackup(cur as any, bk as any, '2026-10-16').out.kv) as any;
+  expect(m.get('progress:a').xp).toBeLessThanOrEqual(1e7); expect(m.get('progress:a').stars.L).toBe(3); expect(m.get('progress:a').masteredStars).toBeLessThanOrEqual(1e7);
+});

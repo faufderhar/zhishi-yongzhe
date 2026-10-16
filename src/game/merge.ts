@@ -9,7 +9,8 @@ interface Ans { profileId: string; questionId: string; at: number; correct?: boo
 interface Wr { id: string; updatedAt?: number }
 export interface MergeIn { kv: KV; answers: [unknown, Ans][]; wrong: Wr[]; bank: { key: string }[] }
 export interface MergeSummary { profilesAdded: number; levelsUpdated: number; wrongAdded: number; answersAdded: number }
-const num = (x: unknown) => { const n = typeof x === 'number' ? x : NaN; return Number.isFinite(n) && n >= 0 ? n : 0; };   // r14.1 技术QA R14-3："NaN" 等坏值按 0
+export const NUM_MAX = 1e7;   // r15 技术QA R141-5：数字字段夹到合理上限
+const num = (x: unknown, max = NUM_MAX) => { const n = typeof x === 'number' ? x : NaN; return Number.isFinite(n) && n >= 0 ? Math.min(n, max) : 0; };   // r14.1 技术QA R14-3："NaN" 等坏值按 0
 export function mergeBackup(cur: MergeIn, bk: MergeIn, today: string): { out: MergeIn; summary: MergeSummary } {
   const cm = new Map(cur.kv), bm = new Map(bk.kv);
   const cp = (Array.isArray(cm.get('profiles')) ? cm.get('profiles') : []) as { id: string }[];

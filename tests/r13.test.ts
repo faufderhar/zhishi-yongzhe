@@ -137,10 +137,10 @@ describe('r14.1 加时 / 时钟', () => {
     u = ab14(u, '2026-10-16', 600); expect((u as any)['2026-10-16'].bonus).toBe(1200);
     const lim = { weekday: 60, weekend: 60 } as never; expect(rs14(lim, { '2026-10-16': { used: 30 * 60, bonus: 600 } } as never, '2026-10-16', new Date('2026-10-16T10:00:00'))).toBe(40 * 60);
   });
-  it('时钟基准在未来 1 天以上：作废、不上锁；只晚几分钟以上（1 天内）仍上锁', async () => {
+  it('r15 R141-1：关着游戏把时钟调回 2 / 30 / 50 小时都锁（不再把未来 1 天以上的基准当过期作废）', async () => {
     const { checkClock } = await import('../src/state');
     const now = Date.parse('2026-10-16T16:51:00Z');
-    const a = checkClock({ maxSeen: now + 73 * 3600e3, locked: false }, now); expect(a.locked).toBe(false); expect(a.maxSeen).toBe(now);
+    for (const h of [2, 30, 50, 73]) expect(checkClock({ maxSeen: now + h * 3600e3, locked: false }, now).locked).toBe(true);
     const b = checkClock({ maxSeen: now + 3600e3, locked: false }, now); expect(b.locked).toBe(true);
     const c = checkClock({ maxSeen: now - 1000, locked: false }, now); expect(c.locked).toBe(false);
   });

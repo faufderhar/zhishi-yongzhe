@@ -69,6 +69,8 @@ export async function loadLock(key = LK): Promise<LockState> {
   if (!all.length) return { fails: 0, level: 0, until: 0, remain: 0 };
   const now = Date.now();
   const m = all.reduce((m, x) => (lockLeft(x, now) > lockLeft(m, now) || (lockLeft(x, now) === lockLeft(m, now) && x.fails + x.level * 5 > m.fails + m.level * 5) ? x : m));
+  // r15 技术QA R141-6：两份里缺了一份（或不一致）→ 用更严的那份补齐（localStorage 被清掉也锁得住）
+  if (all.length < 2 || JSON.stringify(a) !== JSON.stringify(b)) { try { localStorage.setItem(key, JSON.stringify(m)); } catch { /* */ } void setKV(key, m); }
   return resumeLong({ ...m, remain: lockLeft(m, now) }, now);   // 统一迁移到 remain；长锁补上关闭期间的墙钟流逝
 }
 export async function saveLock(s: LockState, key = LK) { try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s); }

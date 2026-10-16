@@ -267,6 +267,31 @@ if (on('r15retreat')) {
     await ctx.close();
   }
 }
+// r15 技术QA R141-4：手机竖屏英语键盘整块在第一屏、提示气泡不压题干
+if (on('r15kb')) {
+  for (const vp of [{ width: 375, height: 667 }, { width: 414, height: 896 }]) {
+    const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
+    const tab = await pg.$('.chapter:has-text("英语")'); if (tab) { await tab.click(); await w(500); }
+    let found = false;
+    for (let lv = 1; lv <= 6 && !found; lv++) {
+      await pg.click(`[data-testid=level-${lv}]`).catch(() => {}); await w(1000); await tutSkip(pg, w); await skipTut(pg, w);
+      for (let t = 0; t < 12; t++) {
+        if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await w(500); }
+        if (await pg.isVisible('.keypad.alpha')) { found = true; break; }
+        await answer(pg, true).catch(() => {}); await w(900); await next(pg, w); await w(300);
+        if (await pg.isVisible('[data-testid=result-title]')) break;
+      }
+      if (!found) { await pg.goto(URL); await w(1200); await enterMap(pg, w).catch(() => {}); const t2 = await pg.$('.chapter:has-text("英语")'); if (t2) { await t2.click(); await w(400); } }
+    }
+    if (!found) { ok(true, `${vp.width}×${vp.height}：没碰到英语键盘题（跳过）`); await ctx.close(); continue; }
+    await w(300); await pg.screenshot({ path: OUT + `r15-kb-${vp.width}.png` });
+    const all = await inVp(pg, '.keypad.alpha button');
+    ok(all, `${vp.width}×${vp.height}：英语键盘（含空格 / 退格 / 确定）都在第一屏`);
+    const tipCover = await pg.evaluate(() => { const t = document.querySelector('.first-tip'), q = document.querySelector('.qtext'); if (!t || !q) return false; const a = t.getBoundingClientRect(), b = q.getBoundingClientRect(); return a.bottom > b.top && a.top < b.bottom; });
+    ok(!tipCover, `${vp.width}×${vp.height}：提示气泡不压题干`);
+    await ctx.close();
+  }
+}
 // ===== r15 =====
 // 王冠位置：真实截图 + 测量（幼儿园 Boss，答错后仍在、在怪物头顶附近）
 if (on('r15crown')) {

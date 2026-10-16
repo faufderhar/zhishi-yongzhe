@@ -85,10 +85,13 @@ export async function loadProfiles(): Promise<Profile[]> {
   return uniq.length ? uniq : DEFAULT_PROFILES();
 }
 export const saveProfiles = (p: Profile[]) => setKV('profiles', p);
+const starRec = (x: unknown) => Object.fromEntries(Object.entries(numRec(x)).map(([k, v]) => [k, Math.min(3, Math.max(0, v))]));
 const numRec = (x: unknown) => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => Number.isFinite(v))) as Record<string, number> : {};
+/** r15 技术QA R141-5：导入 / 读取时数字夹到 [0, max] */
+const clampN = (v: unknown, max: number) => Number.isFinite(v) ? Math.min(max, Math.max(0, Number(v))) : 0;
 export const loadProgress = (pid: string) => guarded<Progress>('progress:' + pid, x => isObj(x) ? {
-  stars: numRec(x.stars), plays: isObj(x.plays) ? x.plays as Progress['plays'] : {},
-  masteredStars: Number.isFinite(x.masteredStars) ? Number(x.masteredStars) : 0, xp: Number.isFinite(x.xp) ? Number(x.xp) : 0 } : null, emptyProgress);
+  stars: starRec(x.stars), plays: isObj(x.plays) ? x.plays as Progress['plays'] : {},
+  masteredStars: clampN(x.masteredStars, 1e5), xp: clampN(x.xp, 1e7) } : null, emptyProgress);
 export const saveProgress = (pid: string, p: Progress) => setKV('progress:' + pid, p);
 export const loadSkills = (pid: string) => guarded<Skills>('skills:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { level?: number }).level))) as Skills : null, () => ({}));
 export const saveSkills = (pid: string, s: Skills) => setKV('skills:' + pid, s);
@@ -103,7 +106,9 @@ export const saveClock = (c: ClockState) => setKV('clock', c);
 /** r14.1：记下的「见过的最晚时间」比现在还晚 1 天以上——多半是别人把系统时钟调快过（共用设备 / 测试），基准作废、不上锁 */
 export const STALE_AHEAD_MS = 24 * 3600e3;
 export function checkClock(c: ClockState, now: number): ClockState {
-  if (c.maxSeen && c.maxSeen - now > STALE_AHEAD_MS) { console.warn('[zy] 时钟基准在未来，作废', new Date(c.maxSeen).toISOString()); return { maxSeen: now, locked: false, staleReset: c.maxSeen }; }
+  // r15 技术QA R141-1：不再把「基准在未来 1 天以上」当成过期作废——那样关着游戏把时钟调回 50 小时就不锁了。
+  // 误锁的真正来源（休眠、按本地日期字符串判定、旧版本存下的锁）都已去掉；时区变化不影响 epoch 毫秒。基准确实有误时由家长「解除锁定 / 重置计时」重设
+  if (false as boolean) { console.warn('[zy] 时钟基准在未来，作废', new Date(c.maxSeen).toISOString()); return { maxSeen: now, locked: false, staleReset: c.maxSeen }; }
   // r14.2 小萌新：锁定只由「现在的 epoch 毫秒比见过的最大值早 5 分钟以上」决定，每次都重新判定——
   // 以前存下来的 locked:true 会一直沿用（旧版本 / 时区切换造成的锁永远解不开）；时钟调回正确后自动解锁
   if (c.maxSeen && now < c.maxSeen - 5 * 60e3) return { ...c, locked: true, lockedAt: c.locked ? c.lockedAt ?? now : now };

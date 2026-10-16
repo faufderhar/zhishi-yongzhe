@@ -646,3 +646,13 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}}
 .reduce-motion .kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}
 .review-tag{background:#ffb703;color:#222;border-radius:6px;padding:0 6px;margin-right:6px;font-weight:700;font-size:13px}
+/* r15 技术QA R141-4：手机竖屏英语键盘不用滚动；提示气泡放到怪物区顶部、不压题干 */
+@media (orientation:portrait) and (max-width:500px){
+  .keypad.alpha{gap:4px}.keypad.alpha .kp-row{gap:3px}
+  .keypad.alpha .kp-row button{min-height:34px !important;height:clamp(34px,5dvh,44px) !important;font-size:17px;border-radius:8px}
+  .keypad-wrap .input-box{min-height:40px;padding:6px 10px;font-size:18px}
+  .first-tip{top:auto !important;bottom:auto !important;top:56px !important;left:8px !important;right:8px !important;max-width:none !important;transform:none !important;font-size:14px;padding:6px 10px;max-height:22vh;overflow:hidden}
+}
+@media (orientation:portrait) and (max-height:700px) and (max-width:500px){
+  .battle.rounds .arena .stage,.battle .arena .stage{height:120px}
+}

@@ -122,7 +122,7 @@ export default function App() {
       // D8：今天早于时长记录里最大的日期 → 也算时间被调回
       const maxDay = Object.values(us).flatMap(u => Object.keys(u)).sort().pop();
       // r14.1：时长记录里比今天晚 1 天以上的日期 = 别人调快过时钟留下的，作废（删掉、记日志），不上锁；只晚 1 天以内仍按「时间被调回」上锁
-      { const farDay = dayStr(new Date(Date.now() + S.STALE_AHEAD_MS)); for (const p of ps) { const u = us[p.id]; const bad = Object.keys(u).filter(d => d > farDay); if (bad.length) { for (const d of bad) delete u[d]; void S.saveUsage(p.id, u); logErr('stale-usage-day', `${p.id}:${bad.join(',')}`); } } }
+      /* r15 技术QA R141-1：日期往回走不再删「未来」日期的用时记录（以前关着游戏调回 >24 小时会把今天已用时间清掉） */
       if (ck2.staleReset) logErr('stale-clock', new Date(ck2.staleReset).toISOString());
       const maxDay2 = Object.values(us).flatMap(u => Object.keys(u)).sort().pop();
       void maxDay; void maxDay2;   // r14.2 小萌新：不再用本地日期字符串判定调钟——时区从 PT 换成北京时间再换回来，「明天」的记录会让每个档案都被锁
@@ -198,7 +198,7 @@ export default function App() {
   /** r14.1：家长解除时间锁定 = 时间基准重置为现在，并删掉「今天之后」的时长记录（否则刷新后又按「时间被调回」锁上）；reset=true 时再把今天的计时清零 */
   function unlockClock(reset: boolean) {
     const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); const td = dayStr();
-    setUsageAll(all => { const out = { ...all }; for (const [id, u] of Object.entries(all)) { const nu = { ...u }; let ch = false; for (const d of Object.keys(nu)) if (d > addDays(td, 1)) { delete nu[d]; ch = true; } if (reset && nu[td]) { nu[td] = { used: 0, bonus: 0 }; ch = true; } if (ch) { out[id] = nu; void S.saveUsage(id, nu); } } return out; });
+    setUsageAll(all => { const out = { ...all }; for (const [id, u] of Object.entries(all)) { const nu = { ...u }; let ch = false; void addDays; if (reset && nu[td]) { nu[td] = { used: 0, bonus: 0 }; ch = true; } if (ch) { out[id] = nu; void S.saveUsage(id, nu); } } return out; });
     logNav('parent', 'parent', reset ? 'reset-timing' : 'unlock-clock');
   }
   // 到时：允许打完当前关，最多再 3 分钟，之后按已答题结算（策划 T-P2-2）
