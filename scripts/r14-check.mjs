@@ -172,4 +172,21 @@ if (on('clock')) {
   ok(!(await pg.isVisible('[data-testid=clock-lock]')), '刷新后仍不锁');
   await ctx.close();
 }
+// r14.1 策划：旧预设找回问题不再拦家长页，只常驻提示 + 现在更换
+if (on('oldhint')) {
+  const { ctx, pg, w, pinIn } = await session('7', { __zyUnlockAll: true });
+  await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const st = r.result.transaction('kv', 'readwrite').objectStore('kv'); const g = st.get('settings'); g.onsuccess = () => { st.put({ ...g.result, pinHint: { ...(g.result.pinHint ?? {}), q: '孩子的小名是？' } }, 'settings'); }; st.transaction.oncomplete = () => { r.result.close(); res(1); }; }; }));
+  await pg.evaluate(() => { for (const k of Object.keys(localStorage)) if (/vault|pin/i.test(k) && !/Lock/.test(k)) localStorage.removeItem(k); });
+  await pg.reload(); await w(2500);
+  const open = async () => { await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); } };
+  await open();
+  ok(await pg.isVisible('[data-testid=old-hint-prompt]') && /已失效/.test(await pg.textContent('[data-testid=old-hint-prompt]')), '旧问题：家长页常驻「已失效」提示');
+  ok(await pg.isVisible('[data-testid=ptab-time]') && !(await pg.isVisible('[data-testid=old-hint-force]')), '旧问题：家长页其他功能照常（不再拦截）');
+  await pg.click('[data-testid=ptab-time]'); await w(300); ok(await pg.isVisible('[data-testid=reset-timing]'), '旧问题：能进时长页');
+  await pg.click('[data-testid=parent-close]'); await w(500); await pg.reload(); await w(2500); await open();
+  ok(await pg.isVisible('[data-testid=old-hint-prompt]') && await pg.isVisible('[data-testid=ptab-time]'), '刷新后仍是普通家长页 + 提示');
+  await pg.click('[data-testid=old-hint-now]'); await w(300); await pg.click('[data-testid=hint-edit-box] input[type=radio] >> nth=0'); await pg.fill('[data-testid=hint-edit-answer]', 'zz'); await pg.click('[data-testid=hint-edit-ok]'); await w(500);
+  ok(!(await pg.isVisible('[data-testid=old-hint-prompt]')), '换了新问题后提示消失');
+  await ctx.close();
+}
 console.log(bad ? `r14 FAIL ${bad}` : 'r14 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

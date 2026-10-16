@@ -199,15 +199,13 @@ export function ParentSettings(props: ParentProps) {
   }, []);
   const tabs: [Tab, string][] = [['profiles', '👪 孩子档案'], ['report', '📊 学习报告'], ['bank', '📚 题库'], ['time', '⏳ 时长'], ['backup', '💾 备份/恢复'], ['pin', '🔑 密码']];
   const oldHint = !!props.settings.pinHint && OLD_HINT_QUESTIONS.includes(props.settings.pinHint.q);
-  // r14 技术QA：孩子能猜到的旧预设问题（小名 / 宠物 / 生日）已不能用来找回；进家长页前必须先换一个新问题
-  if (oldHint) return <div className="parent"><div className="center-screen"><div className="p-card wide-panel" data-testid="old-hint-force"><b>请先换一个找回问题</b>
-    <p className="hint">你的找回问题（{props.settings.pinHint!.q}）孩子可能知道答案，已经不能用来找回密码。换一个新问题后才能使用家长设置。</p>
-    <HintEdit settings={props.settings} setSettings={props.setSettings} forced />
-    <button className="btn ghost" data-testid="parent-close" onClick={props.onClose}>← 返回</button></div></div></div>;
+  // r14 技术QA：孩子能猜到的旧预设问题（小名 / 宠物 / 生日）已不能用来找回；r14.1 策划：不再拦住家长页，只常驻提示「已失效」+「现在更换」，直到换了新问题
+  const [hintNow, setHintNow] = useState(false);
   return (
     <div className="parent">
       {props.settings.restoredFromAt && <div className="yellow-bar" data-testid="restored-from">✅ 已从{(() => { const d = new Date(props.settings.restoredFromAt!); return isNaN(+d) ? '一份' : `${d.getMonth() + 1}月${d.getDate()}日的`; })()}备份恢复，家长密码已变成备份时的密码。<button className="chip" onClick={() => props.setSettings({ ...props.settings, restoredFromAt: undefined })}>知道了</button></div>}
-      {oldHint && <div className="yellow-bar" data-testid="old-hint-prompt">🔑 你的找回问题（{props.settings.pinHint!.q}）孩子可能知道答案，请到「🔑 密码」里修改找回问题。改之前旧答案仍然有效。<button className="chip" onClick={() => setTab('pin')}>去修改</button></div>}
+      {oldHint && <div className="yellow-bar" data-testid="old-hint-prompt">🔑 你的找回问题已失效，忘记密码时只能用恢复码或备份 <button className="chip" data-testid="old-hint-now" onClick={() => setHintNow(true)}>现在更换</button></div>}
+      {oldHint && hintNow && <HintEdit settings={props.settings} setSettings={s2 => { props.setSettings(s2); setHintNow(false); }} forced />}
       <div className="map-top">
         <button className="back-inline labeled" data-testid="parent-close" onClick={props.onClose} aria-label="退出家长设置">← <small>返回</small></button>
         <h2>家长设置</h2><button className="chip" data-testid="parent-help" aria-label="帮助" onClick={() => setHelp(h => !h)}>❓</button><span className="grow" />
@@ -217,8 +215,9 @@ export function ParentSettings(props: ParentProps) {
       {props.settings.pinResetDoneAt && <div className="yellow-bar" data-testid="pin-reset-notice">🔑 家长密码于 {fmtDay(props.settings.pinResetDoneAt)} 被重设过。如果不是你操作的，请检查孩子的时长和设置。<button className="chip" data-testid="pin-reset-ack" onClick={() => props.setSettings({ ...props.settings, pinResetDoneAt: undefined })}>知道了</button></div>}
       {help && <div className="p-card" data-testid="parent-help-pop"><b>❓ 家长帮助</b><ul className="hint">
         <li><b>清除浏览器数据（历史记录、网站数据、缓存）会把孩子的进度、错题本和设置一起删掉</b>，家长密码也可能跟着丢。请定期在「备份/恢复」里导出备份文件。</li>
-        <li>设置密码时给的 8 位恢复码请抄下或拍照保存：忘记密码时输入恢复码或回答找回问题能马上重设。可以在「🔑 密码」里重新生成恢复码（旧的作废）。</li>
+        <li>设置密码时给的 8 位恢复码请抄下或拍照保存：忘记密码时输入恢复码能马上重设（找回问题要等 72 小时）。可以在「🔑 密码」里重新生成恢复码（旧的作废）。</li>
         <li>忘记密码时：①有恢复码 → 马上重设（新密码和找回问题一起提交后，旧恢复码才作废并发新码）；②记得找回问题答案 → 只能提交 72 小时延时重设申请，到期后再答一次才能设新密码；③密码、找回问题、恢复码都忘了 → 在「备份/恢复」导入以前导出的备份，输入备份时的家长密码或那时的恢复码；④这些都没有 → 只能清除浏览器数据重新开始（进度会清掉）。</li>
+        <li>旧的预设找回问题（小名 / 宠物 / 生日）孩子可能知道答案，已失效：家长页顶部会一直提示，点「现在更换」换个新问题；换之前忘记密码只能用恢复码或备份。</li>
         <li>找回问题、恢复码连续错 5 次会锁 24 小时；导入备份时输错备份密码 / 恢复码也计入同一个锁。锁定和延时只按游戏运行中实际经过的时间算，关掉游戏的时间不计（要让游戏开着才会走），调快平板时间无效。</li>
         <li>iPad「添加到主屏幕」的 App 与 Safari 里的数据是分开的。</li></ul><button className="chip" onClick={() => setHelp(false)}>关闭</button></div>}
       <RecGen prompt settings={props.settings} setSettings={props.setSettings} />
