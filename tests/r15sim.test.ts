@@ -11,17 +11,21 @@ import { PUPS } from '../src/game/characters';
 function mk(seed: number) { return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2 ** 32; }; }
 export const R15: Record<string, { runs: number; asked: number; repeats: number; early: number; earlyClear: number }> = {};
 describe('r15 题出完：每题最多 2 次 + 提前撤退', () => {
-  for (const g of ['3', '4', '5', '6', '7']) it(`${g} 年级`, () => {
+  for (const g of ['3', '4', '5', '6', '7', '10']) it(`${g} 年级`, () => {
     const all = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const qs = playable(all, false); const by = new Map(qs.map(q => [q.key, q]));
     const mode = roundModeOf(bandOf(g as any))!; const R = mk(15); const st = R15[g] = { runs: 0, asked: 0, repeats: 0, early: 0, earlyClear: 0 };
     for (const ch of buildChapters(qs, null, all)) for (const l of ch.levels) {
       if (l.kind === 'boss' || l.redirect) continue;
       const idx = ch.levels.indexOf(l); const own = l.pool.map(k => by.get(k)!).filter(Boolean);
       const adj = ['语文', '诗词'].includes(ch.subject) ? [] : levelsOfUnit(ch.levels, l).filter(x => x.kind === 'normal' && !x.redirect && ch.levels.indexOf(x) < idx).reverse().map(x => x.pool.map(k => by.get(k)!).filter(q => q && !l.pool.includes(q.key)));
+      /* r15.1 规则 C：同小节其他关共用题池（本关先，再同小节其他关），前面小节再后 */
+      const sameL = l.lesson ? ch.levels.filter(x => x.lesson === l.lesson && x.id !== l.id && x.kind !== 'boss' && !x.redirect).flatMap(x => x.pool).filter(k => !l.pool.includes(k)) : [];
+      const resv = [...own, ...[...new Set(sameL)].map(k => by.get(k)!).filter(Boolean)]; const sameSet = new Set(sameL);
+      const adjC = adj.map(g2 => g2.filter(q => !sameSet.has(q.key))).filter(g2 => g2.length);
       for (let run = 0; run < 20; run++) {
         const c = PUPS[run % 5]; let s: RState = newRound(mode, l.kind as 'normal' | 'elite'); let pool = [...own]; let used: typeof own = []; const reps = new Map<string, number>(); const wrong = new Set<string>(); const count = new Map<string, number>(); let cor = 0, ans = 0, early = false;
         while (!s.over) {
-          if (!pool.length) { const r = refill(used, own, adj, wrong, new Set(), reps); pool = r.pool; used = r.used; if (!pool.length) { early = true; break; } }
+          if (!pool.length) { const r = refill(used, resv, adjC, wrong, new Set(), reps); pool = r.pool; used = r.used; if (!pool.length) { early = true; break; } }
           const q = pool.shift()!; used.push(q); count.set(q.key, (count.get(q.key) ?? 0) + 1); ans++;
           const ok = R() < 0.75; if (ok) cor++; else wrong.add(q.key);
           [s] = resolveRound(s, c, { correct: ok, subject: c.major, difficulty: 2, fast: false, rng: R });

@@ -508,8 +508,14 @@ export default function App() {
       const ls = levelsOfUnit(all, level).filter(l => l.kind === 'normal' && l.id !== level.id && !l.redirect);
       const before = ls.filter(l => all.indexOf(l) < idx).reverse() /* r14 策划：只取前面已学的小节，最近的先 */, after = ls.filter(l => all.indexOf(l) > idx);
       void after; return [...before].map(l => l.pool.map(k => byKey.get(k)!).filter(mf)).filter(g => g.length); })();
+    /* r15.1 策划规则 C：同一小节（lesson）的几关共用题池——本关题出完后，先补同小节其他关（没见过 → 以前答错 → 见过），再补前面小节，最后重复。语文课文 / 古诗词同一篇也一样 */
+    const lessonOthers = level.kind === 'boss' || !level.lesson ? [] : [...new Set(chapter.levels.filter(l => l.lesson === level.lesson && l.id !== level.id && l.kind !== 'boss' && !l.redirect).flatMap(l => l.pool))]
+      .filter(k => !lessonKeys.has(k)).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key) && !isBossOnly(q)).sort((a, b) => histRank(a) - histRank(b));
+    const sameLesson = new Set(lessonOthers.map(q => q.key));
+    const reserve1 = [...fallback0, ...lessonOthers.filter(q => !fallback0.some(x => x.key === q.key))];
+    const adj1 = adjGroups.map(g => g.filter(q => !sameLesson.has(q.key))).filter(g => g.length);
     masteredThisLevel.current = 0; setInterrupted(null);
-    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, review: [...dueKeys], reserve: (multiBand(cfg.band) ? fallback0 : fallback0.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adjGroups, nonce: Date.now() });
+    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, review: [...dueKeys], reserve: (multiBand(cfg.band) ? reserve1 : reserve1.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adj1, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;
