@@ -66,6 +66,7 @@ async function capture(pg, id, tag, dur) {
 const S = await session();
 {
   const { pg, w, addChild, tutAll, answer, reqs, errs } = S;
+  await pg.evaluate(() => { window.__zyTestMonHp = 9999; }).catch(() => {}); await pg.addInitScript(() => { window.__zyTestMonHp = 9999; });   // 怪物够厚，才能连续答对 5 次验证保底
   await addChild('7', 'r5初一'); await pg.click('[data-testid=level-1]'); await w(600); await tutAll();
   await pg.waitForSelector('[data-testid=energy]');
   ok(!(await pg.$('[data-testid=skill]')) && !(await pg.$('.skill-btn')), '§6-1 界面没有手动技能按钮');

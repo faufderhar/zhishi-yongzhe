@@ -24,7 +24,9 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const [bs, setBs] = useState<RState>(() => {
     const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail });
     const th = (window as unknown as { __zyTest?: boolean; __zyTestHp?: number }).__zyTest ? (window as unknown as { __zyTestHp?: number }).__zyTestHp : undefined;   // 仅自动化测试
-    return th ? { ...s0, playerHp: th } : s0;
+    const tm = (window as unknown as { __zyTest?: boolean; __zyTestMonHp?: number }).__zyTest ? (window as unknown as { __zyTestMonHp?: number }).__zyTestMonHp : undefined;   // 仅自动化测试：怪物血量
+    const s1 = tm ? { ...s0, monsterHp: tm, monsterMax: tm } : s0;
+    return th ? { ...s1, playerHp: th } : s1;
   });
   const bsRef = useRef(bs); bsRef.current = bs;
   const used = useRef<Question[]>([]);
