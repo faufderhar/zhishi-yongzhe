@@ -146,7 +146,10 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   chapterIdx: number; setChapterIdx: (i: number) => void;
 }) {
   const ch = chapters[Math.min(chapterIdx, chapters.length - 1)];
-  const totalStars = Object.values(progress.stars).reduce((a, b) => a + b, 0) + progress.masteredStars;
+  // r14.2 小萌新：顶部总星 = 各学科卡片上的星之和（和地图显示的同一算法：锁着的关算 0、拆关前留下的旧关卡号不算）；错题掌握星另外显示
+  const shownStars = (ls: Level[]) => ls.reduce((a, l, i) => a + (l.redirect || !isUnlocked(ls, i, progress.stars) ? 0 : starOf(l, progress.stars)), 0);
+  const levelStarsTotal = chapters.reduce((a, x) => a + shownStars(x.levels), 0);
+  const totalStars = levelStarsTotal + progress.masteredStars;
   const due = wrong.filter(e => isDue(e)).length;
   // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
   const [tip, setTip] = useState<string>(); const [shake, setShake] = useState<string>();
@@ -162,7 +165,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
       <div className="map-top">
         <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
         <span className="who" data-testid="map-who">{p.avatar} {p.name} · {(p as { homeGrade?: GradeKey }).homeGrade && (p as { homeGrade?: GradeKey }).homeGrade !== p.grade ? `在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]}</span>
-        <span className="star-total">★ {totalStars}</span>
+        <span className="star-total" data-testid="star-total" title={progress.masteredStars ? `关卡 ${levelStarsTotal} + 错题掌握 ${progress.masteredStars}` : undefined}>★ {levelStarsTotal}{progress.masteredStars ? <small> ＋掌握 {progress.masteredStars}</small> : null}</span>
         <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}{bonusNote(remaining, bonus)}</span>
         <span className="grow" />
         <button className="chip" onClick={onChar} data-testid="change-char">{c ? <Sprite className="chip-img" c={c} /> : '🐶'} 选角色</button>
@@ -173,7 +176,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
       <div className="map-body">
         <div className="chapters">
           {chapters.map((x, i) => {
-            const got = x.levels.reduce((a, l) => a + starOf(l, progress.stars), 0);
+            const got = shownStars(x.levels);
             return <button key={x.subject} className={`chapter ${i === chapterIdx ? 'on' : ''}`} data-testid={'chapter-' + x.subject} onClick={() => setChapterIdx(i)}>
               <span className="ch-icon">{x.icon}</span><span><b>{x.name}</b><small>{x.subject} · {x.count} 题 · ★{got}/{x.levels.length * 3}</small></span></button>;
           })}
@@ -213,7 +216,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, half = 0, capped = false }: { capped?: boolean; prevBest?: number;
+export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { capped?: boolean; prevBest?: number; exhausted?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -229,7 +232,8 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
         <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '怪物溜走了，再来一次吧！') : win ? '胜利！' : '这次差一点'}</h1>
         {(forcedTimeUp || timeUp) && <p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p>}
-        {retreat && !forcedTimeUp && <p data-testid="retreat">{win ? '到了回合上限，怪物逃走了：正确率够四成，算通关，但最多 ★。下次试试更快打倒它！' : '到了回合上限，怪物溜走了：正确率不到四成，这次不算通关、不得星；答对的题照常算经验。'}</p>}
+        {retreat && !forcedTimeUp && exhausted && <p data-testid="retreat-exhausted">这一关的题都出过两次了，怪物提前撤退：{win ? '正确率够四成，算通关，最多 ★。' : '正确率不到四成，这次不算通关、不得星。'}</p>}
+        {retreat && !forcedTimeUp && !exhausted && <p data-testid="retreat">{win ? '到了回合上限，怪物逃走了：正确率够四成，算通关，但最多 ★。下次试试更快打倒它！' : '到了回合上限，怪物溜走了：正确率不到四成，这次不算通关、不得星；答对的题照常算经验。'}</p>}
         {quit && !forcedTimeUp && <p data-testid="quit">本关未通过，不得星。</p>}
         {!win && !forcedTimeUp && <p>答对的题都算经验，错题已放进错题本，下次再来！</p>}
         {forcedTimeUp && <p className="hint">本关不算通关、不得星；已答对的题照常算经验。</p>}

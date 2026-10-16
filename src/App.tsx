@@ -20,8 +20,8 @@ import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, isBossOnly, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
 import { starOf, retreatCleared, buildChapters, levelStars, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
-import { selectQuestions, spreadTemplates, updateSkill, type Skills } from './game/adaptive';
-import { onWrong, onReviewRight, isDue, dayStr, type WrongEntry } from './game/wrongbook';
+import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, updateSkill, type Skills } from './game/adaptive';
+import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
 import { PUPS, SCIFI, type Character } from './game/characters';
 import { unlockAudio } from './tts';
@@ -50,7 +50,7 @@ function writeNav(n: Nav | null) { try { if (n) localStorage.setItem(NAV_KEY, JS
 type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' | 'pick'; pick?: string } | { s: 'parent' }
   | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
-  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; nonce: number }
+  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; review?: string[]; nonce: number }
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
@@ -125,7 +125,7 @@ export default function App() {
       { const farDay = dayStr(new Date(Date.now() + S.STALE_AHEAD_MS)); for (const p of ps) { const u = us[p.id]; const bad = Object.keys(u).filter(d => d > farDay); if (bad.length) { for (const d of bad) delete u[d]; void S.saveUsage(p.id, u); logErr('stale-usage-day', `${p.id}:${bad.join(',')}`); } } }
       if (ck2.staleReset) logErr('stale-clock', new Date(ck2.staleReset).toISOString());
       const maxDay2 = Object.values(us).flatMap(u => Object.keys(u)).sort().pop();
-      void maxDay; if (maxDay2 && dayStr() < maxDay2 && !ck2.locked) ck2 = { ...ck2, locked: true, lockedAt: Date.now() };
+      void maxDay; void maxDay2;   // r14.2 小萌新：不再用本地日期字符串判定调钟——时区从 PT 换成北京时间再换回来，「明天」的记录会让每个档案都被锁
       setClock(ck2); void S.saveClock(ck2);
       // 切回前台时也检查（D8）
       document.addEventListener('visibilitychange', () => { if (document.visibilityState !== 'visible') return; setClock(c => { const n = S.checkClock(c, Date.now()); if (n !== c) void S.saveClock(n); return n; }); });
@@ -198,7 +198,7 @@ export default function App() {
   /** r14.1：家长解除时间锁定 = 时间基准重置为现在，并删掉「今天之后」的时长记录（否则刷新后又按「时间被调回」锁上）；reset=true 时再把今天的计时清零 */
   function unlockClock(reset: boolean) {
     const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); const td = dayStr();
-    setUsageAll(all => { const out = { ...all }; for (const [id, u] of Object.entries(all)) { const nu = { ...u }; let ch = false; for (const d of Object.keys(nu)) if (d > td) { delete nu[d]; ch = true; } if (reset && nu[td]) { nu[td] = { used: 0, bonus: 0 }; ch = true; } if (ch) { out[id] = nu; void S.saveUsage(id, nu); } } return out; });
+    setUsageAll(all => { const out = { ...all }; for (const [id, u] of Object.entries(all)) { const nu = { ...u }; let ch = false; for (const d of Object.keys(nu)) if (d > addDays(td, 1)) { delete nu[d]; ch = true; } if (reset && nu[td]) { nu[td] = { used: 0, bonus: 0 }; ch = true; } if (ch) { out[id] = nu; void S.saveUsage(id, nu); } } return out; });
     logNav('parent', 'parent', reset ? 'reset-timing' : 'unlock-clock');
   }
   // 到时：允许打完当前关，最多再 3 分钟，之后按已答题结算（策划 T-P2-2）
@@ -239,7 +239,9 @@ export default function App() {
   const char: Character | undefined = p && cfg ? [...PUPS, ...SCIFI].find(c => c.id === p.charId) : undefined;
 
   // 计时：进入孩子档案后（地图/选角色/战斗/结算/错题本/复习）且页面可见时都计；幼儿园短关卡以前只计战斗，几乎为 0（试玩报告 #10）
-  const playing = !!pid && ['battle', 'review'].includes(screen.s);   // r14：按家长页说明，只在关卡和复习里计时（以前地图 / 结算页也计，初一在地图上 40→39）
+  // r15 策划：登录了档案的所有界面都计时（含地图，所有年级）；家长页 / 密码页 / 选角色页不计；2 分钟没操作或切到后台暂停
+  const IDLE_MS = 120e3;
+  const playing = !!pid && !['parent', 'gate', 'gate-grade', 'profiles', 'loading'].includes(screen.s);
   // 按时间戳差值累计（技术QA P2-3）：每秒结算一次、暂停/后台不计、单次差值封顶 2 秒；同时做会话内时钟跳变检测
   useEffect(() => {
     if (!playing || !pid) return;
@@ -250,7 +252,7 @@ export default function App() {
       // r14.1 真正的误锁原因：以前「墙钟比单调时钟多走 10 分钟」也算调钟——电脑 / 平板休眠时 performance.now() 停住、Date.now() 照走，醒来就被锁。现在只有墙钟往回走才锁
       if (dw < -60e3 || dw < dp - 10 * 60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
       else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
-      const pausedNow = document.visibilityState !== 'visible' || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
+      const pausedNow = document.visibilityState !== 'visible' || Date.now() - lastInput.current > IDLE_MS || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
       if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; window.dispatchEvent(new Event(FORCE_END)); } }
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
@@ -433,7 +435,8 @@ export default function App() {
     const fallback0 = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key)).sort((a, b) => histRank(a) - histRank(b));
     const fallback = level.kind === 'boss' ? bossPool(fallback0, seenKeys, wrongKeys, cfg.questions.boss) : fallback0;
     const unitKeys = new Set(sameUnit);
-    const due = wrong.filter(e => isDue(e) && unitKeys.has(e.qkey)).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
+    // r15 策划：Boss 关不出复习题
+    const due = level.kind === 'boss' ? [] : wrong.filter(e => isDue(e) && unitKeys.has(e.qkey)).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
     const target = skills[level.chapter]?.level ?? 2;
     const n = cfg.questions[level.kind];
     // 策划 r7：精英先出本课没出现过的（含生成时已分给前面普通关的题，不只看游玩记录）；Boss 先出整章没出现过/答错的，精英预留题优先
@@ -459,7 +462,10 @@ export default function App() {
     const fallbackM = new Set((poolMulti.some(q => !seenKeys.has(q.key)) ? [] : [...poolMulti.filter(q => wrongKeys.has(q.key)), ...poolMulti.filter(q => !wrongKeys.has(q.key))].slice(0, 2)).map(q => q.key));
     const seenMulti = (q: Question) => level.kind === 'normal' && isMultiSel(q) && seenKeys.has(q.key) && !fallbackM.has(q.key);
     if (roundModeOf(cfg.band)) { const seenK = new Set<string>(); const uq = qs.filter(q => !seenK.has(q.key) && !!seenK.add(q.key)); qs.splice(0, qs.length, ...uq); }   // r14 技术QA R13-2：回合制开局题单去重
-    const qs2 = (multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q));
+    const dueKeys = new Set(due.map(q => q.key));
+    // r15 策划：复习题前 2 题不出、之后每 4 题最多 1 道；幼儿园–二年级同一道题不连着出
+    const qs1 = spaceReviews((multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), q => dueKeys.has(q.key));
+    const qs2 = ['K', 'G1'].includes(cfg.band) && new Set(qs1.map(q => q.key)).size > 1 ? noAdjacent(qs1) : qs1;
     const extra2 = (multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q));
     // r12：挑战题 / 重击卡的「更难一档」本小节没有时，放宽到同单元前序小节（只取前面已学的，不取后面的；Boss 已是整单元）
     const lessonKeys = new Set(level.pool);
@@ -472,7 +478,7 @@ export default function App() {
       const before = ls.filter(l => all.indexOf(l) < idx).reverse() /* r14 策划：只取前面已学的小节，最近的先 */, after = ls.filter(l => all.indexOf(l) > idx);
       void after; return [...before].map(l => l.pool.map(k => byKey.get(k)!).filter(mf)).filter(g => g.length); })();
     masteredThisLevel.current = 0; setInterrupted(null);
-    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, reserve: (multiBand(cfg.band) ? fallback0 : fallback0.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adjGroups, nonce: Date.now() });
+    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, review: [...dueKeys], reserve: (multiBand(cfg.band) ? fallback0 : fallback0.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adjGroups, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;
@@ -553,16 +559,16 @@ export default function App() {
         ? <KinderTutorial c={char} onDone={finishTutorial} />
         : <StdTutorial cfg={cfg} onDone={finishTutorial} onlyCard3={onlyCard3} />)}
       {screen.s === 'battle' && cfg && char && !needTutorial && (cfg.battle === 'kinder'
-        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
+        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
-        ? <RoundBattle seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
+        ? <RoundBattle seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => setProfilesState(ps => { const nx = ps.map(x => x.id === pid ? { ...x, tips: { ...x.tips, [k]: true } } : x); S.saveProfiles(nx); return nx; })}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />
-        : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
+        : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen prevBest={screen.prevBest} capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
+      {screen.s === 'result' && cfg && char && <ResultScreen exhausted={!!screen.r.exhausted} prevBest={screen.prevBest} capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} timeUp={myRemaining <= 0} />}

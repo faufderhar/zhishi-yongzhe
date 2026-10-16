@@ -15,6 +15,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
     const S = window.speechSynthesis; if (S) S.speak = u => { window.__said.push(u.text); }; }, init);
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
+  if (opt.clock) await pg.clock.install();
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
   await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', opt.name || 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
@@ -226,6 +227,71 @@ if (on('seedpin')) {
       await pg.click(`.profile-card:has-text("${nm}")`); await w(600);
       ok(await pg.isVisible('[data-testid=pin-ok]'), `切到内置档案「${nm}」要密码${clear ? '（清掉上次玩家记录后）' : ''}`);
       await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(1200); }
+  }
+  await ctx.close();
+}
+// r14.2 小萌新：北京时间玩过 → 换成芝加哥 / 洛杉矶时区再打开，不能出现「平板时间被调回」；旧版本留下的 locked:true 启动时解除
+if (on('tzswitch')) {
+  const { ctx, pg, w } = await session('K1', {}, undefined, { ctx: { timezoneId: 'Asia/Shanghai' } }); await enterMap(pg, w);
+  for (let k = 0; k < 8; k++) { await pg.mouse.click(5, 300); await w(1000); }
+  await pg.evaluate(() => new Promise(r => { const q = indexedDB.open('zhishi-yongzhe'); q.onsuccess = () => { const db = q.result; try { const tx = db.transaction('kv', 'readwrite'); tx.objectStore('kv').put({ maxSeen: Date.now() - 60e3, locked: true, lockedAt: Date.now() - 86400e3 }, 'clock'); tx.oncomplete = () => r(1); tx.onerror = () => r(0); } catch { r(0); } }; q.onerror = () => r(0); }));
+  const st = await ctx.storageState({ indexedDB: true }); await ctx.close();
+  for (const tz of ['America/Chicago', 'America/Los_Angeles']) {
+    const c2 = await b.newContext({ viewport: { width: 1180, height: 820 }, timezoneId: tz, storageState: st }); const p2 = await c2.newPage();
+    await p2.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; });
+    await p2.goto(URL); await p2.waitForSelector('[data-testid^=profile-]'); await p2.waitForTimeout(1500);
+    ok(!(await p2.isVisible('[data-testid=clock-lock]')) && !(await p2.textContent('body')).includes('时间锁定中'), `北京 → ${tz}：没有误锁（旧 locked:true 也解除了）`);
+    await c2.close();
+  }
+}
+// ===== r15 =====
+// 王冠位置：真实截图 + 测量（幼儿园 Boss，答错后仍在、在怪物头顶附近）
+if (on('r15crown')) {
+  const { ctx, pg, w } = await session('K1', { __zyUnlockAll: true }); await enterMap(pg, w);
+  await pg.click('.level.boss >> nth=0'); await w(1500); await tutSkip(pg, w); await skipTut(pg, w); await w(1500);
+  const geo = async () => pg.evaluate(() => { const c = document.querySelector('[data-testid=boss-crown]'); const m = document.querySelector('[data-testid=monster-sheet]') || document.querySelector('[data-testid=kmon]');
+    if (!c || !m) return null; const a = c.getBoundingClientRect(), b = m.getBoundingClientRect(); const vis = getComputedStyle(c).display !== 'none' && a.width > 0; return { vis, cx: a.x + a.width / 2, cb: a.bottom, mx: b.x + b.width / 2, mt: b.top, mh: b.height, mw: b.width }; });
+  const g0 = await geo(); await pg.screenshot({ path: OUT + 'r15-crown-1.png' });
+  ok(g0 && g0.vis && Math.abs(g0.cx - g0.mx) < g0.mw * 0.35 && g0.cb > g0.mt && g0.cb < g0.mt + g0.mh * 0.6, `王冠在怪物头顶（${JSON.stringify(g0)}）`);
+  const bad = await pg.$('.kopt[data-correct="0"]'); if (bad) { await bad.click(); await w(3000); }
+  const g1 = await geo(); await pg.screenshot({ path: OUT + 'r15-crown-2-after-wrong.png' });
+  ok(g1 && g1.vis && Math.abs(g1.cx - g1.mx) < g1.mw * 0.35, `答错 3 秒后王冠还在头顶（${JSON.stringify(g1)}）`);
+  const good = await pg.$('.kopt[data-correct="1"]'); if (good) { await good.click(); await w(2500); }
+  const g2 = await geo(); await pg.screenshot({ path: OUT + 'r15-crown-3-after-right.png' });
+  ok(g2 && g2.vis, `答对后王冠还在（${JSON.stringify(g2)}）`);
+  await ctx.close();
+}
+// 计时：地图上也计；2 分钟没操作暂停；家长页不计
+if (on('r15time')) {
+  const { ctx, pg, w } = await session('7', {}, undefined, { clock: true }); await enterMap(pg, w);
+  const used = () => pg.evaluate(async () => { const r = await window.__zyUsage?.(); return r ?? null; });
+  const rem = async () => (await pg.textContent('body')).match(/今天还能玩 (\d+) 分钟/)?.[1];
+  const r0 = await rem(); await pg.mouse.move(10, 10); await pg.mouse.down(); await pg.mouse.up();
+  for (let k = 0; k < 13; k++) { await pg.clock.runFor(10e3); await pg.mouse.click(5, 300); }
+  await w(500); const r1 = await rem(); ok(r0 && r1 && Number(r1) < Number(r0), `地图上计时（${r0} → ${r1} 分钟）`);
+  await pg.clock.runFor(5 * 60e3); await w(500); const r2 = await rem(); ok(r2 && Number(r1) - Number(r2) <= 2, `2 分钟没操作后暂停（5 分钟不动只少了 ${Number(r1) - Number(r2)} 分钟）`);
+  void used; await ctx.close();
+}
+// 多选保底：同一关连续 5 局，每局都至少出 1 道多选
+if (on('r15multi')) {
+  const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }); await enterMap(pg, w);
+  const tab = await pg.$('.chapter:has-text("历史")'); if (tab) { await tab.click(); await w(500); }
+  for (let run = 1; run <= 5; run++) {
+    await pg.click('[data-testid=level-1]'); await w(1000); await tutSkip(pg, w); await skipTut(pg, w);
+    let multi = 0;
+    for (let t = 0; t < 40 && !(await pg.isVisible('[data-testid=result-title]')); t++) {
+      if (await pg.isVisible('[data-testid=revive-no]')) { await pg.click('[data-testid=revive-no]'); await w(600); continue; }
+      try { await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=chal-normal], [data-testid=next], [data-testid=result-title]', { timeout: 8000 }); } catch { continue; }
+      if (await pg.isVisible('[data-testid=result-title]')) break;
+      if (await pg.isVisible('[data-testid=next]')) { await next(pg, w); continue; }
+      if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 15000 }).catch(() => {}); }
+      if (await pg.isVisible('text=确定（多选）')) multi++;
+      if (t === 0) { const nm = await pg.textContent('.hud').catch(() => ''); console.log('  关卡', nm?.slice(0, 40)); }
+      await answer(pg, true).catch(() => {}); await w(900); await next(pg, w); await w(400);
+      if (await pg.isVisible('text=确定（多选）') && !(await pg.isVisible('[data-testid=next]'))) { /* 还停在多选题 */ }
+    }
+    ok(multi >= 1, `历史第 1 关第 ${run} 局：出了 ${multi} 道多选`);
+    if (await pg.isVisible('[data-testid=result-title]')) { await pg.click('text=回地图').catch(async () => { await pg.click('[data-testid=to-map]').catch(() => {}); }); await w(800); }
   }
   await ctx.close();
 }

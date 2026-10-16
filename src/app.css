@@ -645,3 +645,4 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .kopt.kwiggle{animation:kwiggle3 .95s ease-in-out 1 !important;position:relative;z-index:2}
 @media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}}
 .reduce-motion .kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}
+.review-tag{background:#ffb703;color:#222;border-radius:6px;padding:0 6px;margin-right:6px;font-weight:700;font-size:13px}

@@ -104,8 +104,11 @@ export const saveClock = (c: ClockState) => setKV('clock', c);
 export const STALE_AHEAD_MS = 24 * 3600e3;
 export function checkClock(c: ClockState, now: number): ClockState {
   if (c.maxSeen && c.maxSeen - now > STALE_AHEAD_MS) { console.warn('[zy] 时钟基准在未来，作废', new Date(c.maxSeen).toISOString()); return { maxSeen: now, locked: false, staleReset: c.maxSeen }; }
-  if (c.maxSeen && now < c.maxSeen - 5 * 60e3) return { ...c, locked: true, lockedAt: now };
-  return { ...c, maxSeen: Math.max(c.maxSeen, now) };
+  // r14.2 小萌新：锁定只由「现在的 epoch 毫秒比见过的最大值早 5 分钟以上」决定，每次都重新判定——
+  // 以前存下来的 locked:true 会一直沿用（旧版本 / 时区切换造成的锁永远解不开）；时钟调回正确后自动解锁
+  if (c.maxSeen && now < c.maxSeen - 5 * 60e3) return { ...c, locked: true, lockedAt: c.locked ? c.lockedAt ?? now : now };
+  if (c.locked) console.warn('[zy] 旧的时间锁定没有真实的时钟回拨支撑，解除');
+  return { maxSeen: Math.max(c.maxSeen || 0, now), locked: false };
 }
 /** 删档案时一并清理的 KV 键 */
 export const profileKeys = (pid: string) => ['progress:' + pid, 'skills:' + pid, 'usage:' + pid, 'rollup:' + pid];

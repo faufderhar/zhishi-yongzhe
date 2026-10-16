@@ -31,14 +31,18 @@ export function unseen<T extends Q>(xs: T[], used: T[]): T[] {
 
 /** r13 技术QA R12-3 / 策划：本关题池出完时补题。先本关备用（Boss 为整单元）里本局没出过的；再同单元相邻小节（按传入顺序，前面的先），
     一次补一个小节；都出完才重复：只放回 1 道（错题优先、较早出的优先），其余仍算本局出过。 */
+/** r15：一局里同一道题最多出现几次 */
+export const REPEAT_CAP = 2;
 export function refill<T extends Q>(used: T[], reserve: T[], adj: T[][], wrong: Set<string> = new Set(), noRepeat: Set<string> = new Set(), reps: Map<string, number> = new Map()): { pool: T[]; used: T[]; kind: 'reserve' | 'adj' | 'repeat' | 'none' } {
   const fresh = unseen(reserve, used); if (fresh.length) return { pool: fresh, used, kind: 'reserve' };
   const g = adj.map(x => unseen(x, used)).find(x => x.length); if (g) return { pool: g, used, kind: 'adj' };
   if (!used.length) return { pool: [], used, kind: 'none' };
   // r14：本局作为挑战题出过的不再拿来重复（以前错题优先会把挑战题又当闪避题出）
   // r14.1 技术QA R14-1：以前错题优先 + 重复后又排回队尾——唯一的那道错题会被一遍遍重复（一题出 4 次）。现在先挑重复次数最少的，再错题优先，再最早出的
-  const last = used[used.length - 1]; const cand0 = used.filter(x => !noRepeat.has(x.key)); const cand = cand0.length > 1 ? cand0.filter(x => x !== last) : cand0;   // 不连续出同一道
-  const rep = [...cand].sort((a, b) => (reps.get(a.key) ?? 0) - (reps.get(b.key) ?? 0) || +wrong.has(b.key) - +wrong.has(a.key) || used.indexOf(a) - used.indexOf(b))[0];
+  // r15 策划：重复时每道题一局最多出 2 次（首次 + 1 次重复）；以前答错的先重复；都出满 2 次 → kind 'none'（怪物提前撤退）
+  const last = used[used.length - 1]; const cand0 = used.filter(x => !noRepeat.has(x.key) && (reps.get(x.key) ?? 0) < REPEAT_CAP - 1);
+  const cand = cand0.length > 1 ? cand0.filter(x => x !== last) : cand0;   // 尽量不连续出同一道
+  const rep = [...cand].sort((a, b) => +wrong.has(b.key) - +wrong.has(a.key) || used.indexOf(a) - used.indexOf(b))[0];
   if (rep) reps.set(rep.key, (reps.get(rep.key) ?? 0) + 1);
   if (!rep) return { pool: [], used, kind: 'none' };
   return { pool: [rep], used: used.filter(x => x !== rep), kind: 'repeat' };

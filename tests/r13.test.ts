@@ -146,13 +146,14 @@ describe('r14.1 加时 / 时钟', () => {
   });
 });
 describe('r14.1 R14-1：题出完后的重复轮换', () => {
-  it('唯一的错题不会被一遍遍重复；不连续出同一道', () => {
+  it('r15：每道题一局最多 2 次、错题先重复；都满 2 次 → none（撤退）', () => {
     const qs = 'abcdef'.split('').map(k => ({ key: k, difficulty: 2, question: 'q' + k })) as any[];
     let used = [...qs]; const reps = new Map<string, number>(); const seq: string[] = [];
-    for (let i = 0; i < 12; i++) { const r = rf14(used, [], [], new Set(['c']), new Set(), reps); const q = r.pool[0]; seq.push(q.key); used = [...r.used, q]; }
-    const cnt = seq.reduce((m, k) => ({ ...m, [k]: (m[k] ?? 0) + 1 }), {} as Record<string, number>);
-    expect(Math.max(...Object.values(cnt))).toBeLessThanOrEqual(2); for (let i = 1; i < seq.length; i++) expect(seq[i]).not.toBe(seq[i - 1]);
+    for (let i = 0; i < 6; i++) { const r = rf14(used, [], [], new Set(['c']), new Set(), reps); expect(r.kind).toBe('repeat'); const q = r.pool[0]; seq.push(q.key); used = [...r.used, q]; }
+    expect(seq[0]).toBe('c'); expect(new Set(seq).size).toBe(6);
+    expect(rf14(used, [], [], new Set(['c']), new Set(), reps).kind).toBe('none');
   });
+
 });
 it('r14.1：答对后连错计数归零（错-对-错 不降档）', () => {
   let t = { base: 2, tier: 2, right: 0, wrong: 0 } as any; t = nt14(t, false); t = nt14(t, true); t = nt14(t, false); expect(t.tier).toBe(2);

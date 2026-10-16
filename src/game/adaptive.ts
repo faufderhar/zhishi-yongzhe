@@ -64,3 +64,27 @@ export function spreadTemplates<T extends { key: string; tags: string[]; templat
   while (rest.length) { const i = rest.findIndex(q => !out.length || tk(q) !== tk(out[out.length - 1])); out.push(rest.splice(i < 0 ? 0 : i, 1)[0]); }
   return out;
 }
+
+/** r15 策划：错题复习——前 2 题不出；之后穿插，每 4 题最多 1 道（多出的复习题这局不出） */
+export function spaceReviews<T>(list: T[], isRev: (x: T) => boolean): T[] {
+  const non = list.filter(x => !isRev(x)), rev = list.filter(isRev), out: T[] = [];
+  let next = 2;
+  while (non.length || rev.length) {
+    if (rev.length && out.length >= next) { out.push(rev.shift()!); next = out.length + 3; }
+    else if (non.length) out.push(non.shift()!);
+    else break;
+  }
+  return out;
+}
+/** r15 回合制取题闸门：现在能不能出复习题（已出 shown 道，最近一道复习题在第 lastRev 道，-1 = 还没出过） */
+export const reviewAllowed = (shown: number, lastRev: number) => shown >= 2 && (lastRev < 0 || shown - lastRev >= 4);
+/** r15 策划（幼儿园–二年级）：允许重复，但同一道题不连着出（中间至少隔 1 道）；只有 1 道题的关除外 */
+export function noAdjacent<T extends { key: string }>(list: T[]): T[] {
+  const a = [...list];
+  for (let i = 1; i < a.length; i++) if (a[i].key === a[i - 1].key) {
+    const j = a.findIndex((x, k) => k > i && x.key !== a[i - 1].key && (k + 1 >= a.length || a[k + 1].key !== a[i].key) && a[k - 1].key !== a[i].key);
+    if (j > 0) [a[i], a[j]] = [a[j], a[i]];
+    else { const k = a.findIndex((x, m) => m < i - 1 && x.key !== a[i].key && (m === 0 || a[m - 1].key !== a[i].key) && a[m + 1].key !== a[i].key); if (k >= 0) { const [x] = a.splice(i, 1); a.splice(k + 1, 0, x); } }
+  }
+  return a;
+}

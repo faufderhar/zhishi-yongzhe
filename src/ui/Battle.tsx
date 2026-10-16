@@ -70,8 +70,8 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
   return { stage, shake, hero, monster, flash, canvas, dir, alive, monState };
 }
 
-export interface BattleResult { half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
-export interface BattleProps {
+export interface BattleResult { exhausted?: boolean /* r15：题出完（每题 2 次）提前撤退 */; half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleProps { review?: string[] /* r15：错题复习题的 key（卡片显示「复习」） */;
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
   g1NoLimit?: boolean;
@@ -349,7 +349,7 @@ export function Sprite({ c, className }: { c: Character; className?: string }) {
 
 /* ---------------- 小学 / 初一 / 高一 ---------------- */
 type Phase = 'question' | 'action' | 'feedback' | 'revive-ask' | 'revive-q' | 'anim';
-export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
+export function StdBattle({ cfg, c, kind, title, questions, extra, review, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
   const skRoll = useRef<SkillRoll>(newRoll());
   const skSeg = segOf(cfg.band);
   useEffect(() => { preloadSkillArt(skillsFor(skSeg, c.major)); }, [c.major, skSeg]);
@@ -525,7 +525,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       </div>
       <div className="quiz">
         {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}）</div>}
-        <div className="qmeta">{q.subject} · {q.type} · 难度{q.difficulty}
+        <div className="qmeta">{review?.includes(q.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{q.subject} · {q.type} · 难度{q.difficulty}
           {q.status !== '已通过' && q.status !== 'AI初审通过' && <span className="pending">{q.status}</span>}
           {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
         <div className="qtext" data-ans={import.meta.env.DEV || (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest) ? q.answer[0] : undefined}><Tex text={q.question} /></div>

@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "vitest run",
+    "test": "vitest run && TZ=Asia/Shanghai vitest run tests/tz.test.ts && TZ=America/Chicago vitest run tests/tz.test.ts",
     "shots": "node scripts/shots.mjs",
     "build:test": "ZY_TEST=1 vite build --outDir dist-test",
     "preview:test": "python3 -m http.server 4183 -d dist-test"
