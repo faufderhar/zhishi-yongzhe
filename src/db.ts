@@ -134,8 +134,12 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
   const viaBackup = !!o.backupSecret && !o.trusted; lastImportPath = viaBackup ? 'backup' : 'current';
   if (viaBackup) { if (!(await backupSecretOk(data, o.backupSecret!))) throw new BackupSecretError(); cur = { ...cur, vault: null, pinResetDoneAt: undefined }; }
   else if (cur.vault && !o.trusted && !(o.pin && await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError(o.pin ? '家长密码不对，没有恢复' : undefined);
-  const m = mergePin(clean.kv as [string, unknown][], cur, backupVault(data, clean.kv as [string, unknown][])); clean.kv = m.kv;
-  if (viaBackup) clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => k === 'settings' && v && typeof v === 'object' ? [k, { ...(v as object), restoredFromAt: data.exportedAt ?? 'unknown' }] : [k, v]);
+  /* r15.1（总管确认 R10-2）：覆盖恢复 = 换成备份里的家长密码和恢复码（4 处副本都写备份的）；只保留本机今天已玩的时长和时钟基准。
+     备份里没有密码时保留本机密码（避免恢复后没有密码）。撤销恢复（trusted 快照）照旧。 */
+  const bv = backupVault(data, clean.kv as [string, unknown][]);
+  if (!o.trusted && bv) cur = { ...cur, vault: null, pinReset: undefined, pinResetDoneAt: undefined };
+  const m = mergePin(clean.kv as [string, unknown][], cur, bv); clean.kv = m.kv;
+  if (!o.trusted && bv) clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => k === 'settings' && v && typeof v === 'object' ? [k, { ...(v as object), restoredFromAt: data.exportedAt ?? 'unknown' }] : [k, v]);
   // r14.1：覆盖恢复也保留本机「今天已玩」的时长（和合并一致），防止用旧备份把今天的用时清零
   if (!o.trusted) { const td = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; })();
     const curKv = new Map<string, unknown>(); { const d0 = await db(); const ks = await d0.getAllKeys('kv'); const vs = await d0.getAll('kv'); ks.forEach((k, i) => curKv.set(String(k), vs[i])); }

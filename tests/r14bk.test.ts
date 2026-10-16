@@ -22,12 +22,13 @@ for (const secret of ['2468', 'NTJZG9PT', 'ntjz-g9pt']) it(`导出 → 改密码
   const v = (await currentPin()).vault!;
   expect(await verifyPin('2468', v.pinHash)).toBe(true);   // 走备份验证 → 密码变成备份里的
 });
-it('当前密码正确 → 恢复后仍用现在的密码', async () => {
+it('r15.1：当前密码正确验证 → 覆盖恢复后换成备份里的密码（1357 不再对）', async () => {
   await importAll(file(), { trusted: true });
   const st = await getKV<Record<string, unknown>>('settings');
   const h = await makePinHash('1357'); await setKV('settings', { ...st, pinHash: h }); localStorage.clear();
   await importAll(file(), { pin: '1357' });
-  expect(await verifyPin('1357', (await currentPin()).vault!.pinHash)).toBe(true);
+  expect(await verifyPin('1357', (await currentPin()).vault!.pinHash)).toBe(false);
+  expect(await verifyPin('2468', (await currentPin()).vault!.pinHash)).toBe(true);
 });
 import { mergeBackup } from '../src/game/merge';
 import { mergeAll } from '../src/db';

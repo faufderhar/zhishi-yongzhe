@@ -211,7 +211,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         </div>
       </div>}
       {tip && <div className="map-tip" data-testid="map-tip" role="status">{tip}</div>}
-      {timeUp && <div className="timeup-bar">今天的时间用完啦，明天再来！（家长可在设置里加时间）</div>}
+      {timeUp && <div className="timeup-bar" data-testid="timeup-bar">今天的时间用完啦。<br />明天 0:00 重新计时。<br /><small>（家长可在设置里加时间）</small></div>}
     </div>
   );
 }
@@ -247,7 +247,7 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
       {best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>
       {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
-      {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！</p>}
+      {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！明天 0:00 重新计时。</p>}
       <div className="row gap24">
         {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}
         {!timeUp && onNext && <button className="btn" data-testid="next-level" onClick={onNext}>下一关 ▶</button>}
@@ -290,7 +290,7 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview , timeUp = fals
         <button className="chip hot" data-testid="wb-review-due" disabled={timeUp || !due.length} onClick={() => onReview(due.slice(0, 10).map(e => e.qkey))}>🔁 复习到期 {Math.min(due.length, 10)}</button>
         <button className="chip" data-testid="wb-review-all" disabled={timeUp || !list.length} onClick={() => onReview(list.slice(0, 10).map(e => e.qkey))}>✍ 练习这些 {Math.min(list.length, 10)}</button>
       </div>
-      {timeUp && <div className="sys-bar warn-bar static" data-testid="wb-timeup">⏰ 今天的时间用完啦，错题本可以看，但不能练习和复习了，明天再来！（家长可在设置里加时间）</div>}
+      {timeUp && <div className="sys-bar warn-bar static" data-testid="wb-timeup">⏰ 今天的时间用完啦：错题本可以看，但不能练习和复习。<br />明天 0:00 重新计时。（家长可在设置里加时间）</div>}
       {boxInfo && <p className="p-card hint" data-testid="wb-box-pop">📦 「第 N 盒」是间隔复习的盒子：答错的题放进第 1 盒，隔 1 天复习；复习答对就升一盒，隔的天数变长（第 2 盒隔 {INTERVAL[2]} 天，第 3 盒隔 {INTERVAL[3]} 天）；第 3 盒再答对就算掌握，从错题本移走。复习答错会回到第 1 盒。</p>}
       <div className="row gap16 wrap wb-tabs">
         {['全部', ...subjects].map(s => <button key={s} className={`chip ${s === sub ? 'on' : ''}`} onClick={() => setSub(s)}>{s}</button>)}

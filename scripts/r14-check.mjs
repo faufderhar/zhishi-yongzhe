@@ -287,6 +287,35 @@ if (on('r15misc')) {
   await ctx.close();
 }
 
+if (on('r151')) {
+  // r15.1 较真家长：密码页不直接弹键盘；家长页「忘记密码 → 申请重设」真的创建申请（横条 + 取消）；恢复码确认不出卡片
+  for (const vp of [{ width: 1180, height: 820 }, { width: 375, height: 667 }]) {
+    const { ctx, pg, w, pinIn } = await session('7', {}, vp); await enterMap(pg, w);
+    await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
+    await pg.click('[data-testid=ptab-pin]'); await w(300);
+    ok(!(await pg.isVisible('[data-testid=pin-ok]')) && await pg.isVisible('[data-testid=pintab-change]'), `${vp.width}：点「🔑 密码」不直接出数字键盘`);
+    await pg.click('[data-testid=pintab-change]'); await w(200); ok(await pg.isVisible('[data-testid=pin-ok]'), `${vp.width}：点「修改家长密码」才出键盘`);
+    await pg.click('[data-testid=pintab-close]'); await w(200); ok(!(await pg.isVisible('[data-testid=pin-ok]')), `${vp.width}：键盘有关闭按钮`);
+    // 恢复码打回确认的排版
+    await pg.click('[data-testid=recgen]'); await w(300); if (await pg.isVisible('[data-testid=recgen-pin]')) { await pg.fill('[data-testid=recgen-pin]', '2468'); await w(500); await pg.click('[data-testid=recgen-confirm]'); await w(500); }
+    const lay = await pg.evaluate(() => { const c = document.querySelector('[data-testid=recgen-code]')?.getBoundingClientRect(); const els = [...document.querySelectorAll('[data-testid=rec-typeback] input, [data-testid=rec-typeback] button')]; if (!c || !els.length) return 'missing'; const bad = els.filter(e => { const r = e.getBoundingClientRect(); return r.left < c.left - 0.5 || r.right > c.right + 0.5 || e.scrollWidth > e.clientWidth + 1; }).map(e => e.textContent || e.tagName); return bad.join(',') || 'ok'; });
+    await pg.screenshot({ path: OUT + `r151-rec-${vp.width}.png` });
+    ok(lay === 'ok', `${vp.width}：恢复码确认的输入框和按钮都在卡片里、文字不被截（${lay}）`);
+    ok(/确认已抄好/.test(await pg.textContent('[data-testid=rec-type-ok]')), `${vp.width}：按钮文字完整「确认已抄好」`);
+    await pg.click('[data-testid=recgen-done]'); await w(300);
+    if (vp.width === 1180) {
+      await pg.click('[data-testid=pintab-forgot]'); await w(400);
+      await pg.click('[data-testid=reset-request]'); await w(800);
+      ok(await pg.isVisible('[data-testid=reset-pending]') || await pg.isVisible('[data-testid=pin-reset-pending]'), '「申请重设密码」后出现等待中的提示');
+      const st = await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get('settings'); g.onsuccess = () => { r.result.close(); res(!!g.result?.pinReset); }; }; }));
+      ok(st, '申请真的写进了设置（pinReset）');
+      ok(await pg.isVisible('[data-testid=pin-reset-cancel]'), '顶部横条有「取消」');
+      await pg.click('[data-testid=pin-reset-cancel]'); await w(600); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '点「取消」后申请撤销');
+    }
+    await ctx.close();
+  }
+}
+
 if (on('r15retreat')) {
   for (const [grade, want] of [['3', 'retreat-exhausted'], ['7', 'retreat']]) {
     const { ctx, pg, w } = await session(grade, { __zyUnlockAll: true }); await enterMap(pg, w);
@@ -346,7 +375,7 @@ if (on('r15lock')) {
   const pin2 = async p => { for (const d of p) await p2.click(`[data-testid=pin-${d}]`); await p2.click('[data-testid=pin-ok]'); await p2.waitForTimeout(300); };
   await p2.click('[data-testid=parent]'); await p2.waitForTimeout(300); await pin2('2468'); await p2.waitForTimeout(600);
   if (await p2.isVisible('.modal >> text=稍后')) await p2.click('.modal >> text=稍后');
-  await p2.click('[data-testid=ptab-pin]'); await p2.waitForTimeout(300); await pin2('2468'); await pin2('1357'); await pin2('1357'); await p2.waitForTimeout(500);
+  await p2.click('[data-testid=ptab-pin]'); await p2.waitForTimeout(300); await p2.click('[data-testid=pintab-change]'); await p2.waitForTimeout(200); await pin2('2468'); await pin2('1357'); await pin2('1357'); await p2.waitForTimeout(500);
   ok((await p2.textContent('body')).includes('密码已修改'), '第二个标签页：密码改成 1357');
   await p2.waitForTimeout(36000);   // 第一个标签页的申请计时器跑过一轮
   await p2.goto(URL); await p2.waitForSelector('[data-testid^=profile-]'); await p2.waitForTimeout(1500);

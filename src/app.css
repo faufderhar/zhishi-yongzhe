@@ -673,3 +673,11 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle.rounds .qmeta{font-size:12px;margin:2px 0}
   .battle .quiz [data-testid=tier-now]{display:none}
 }
+
+/* r15.1 较真家长：恢复码打回确认在卡片内排版（平板 / 手机） */
+.rec-typeback{width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:stretch;gap:8px;min-width:0}
+.rec-typeback .name-input{width:100%;max-width:100%;box-sizing:border-box;margin:0}
+.rec-typeback .row{flex-wrap:wrap;justify-content:center}
+.rec-typeback .btn{white-space:nowrap;flex:0 0 auto;min-width:max-content}
+.pintab-pad{position:relative}.pintab-pad [data-testid=pintab-close]{display:block;margin:0 auto 8px}
+.restore-list li{margin:2px 0}
