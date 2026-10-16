@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useRef, useEffect, useState, type ReactNode } from 'react';
 export function Bar({ label, v, max, cls }: { label: string; v: number; max: number; cls: string }) {
   return <span className={`bar ${cls}`} aria-live="polite" aria-label={`${cls === "hp" ? "我的血量" : "怪物血量"} ${v}/${max}`}>{label}<span className="track"><span className="ghost" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /><span className="fill" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /></span>{v}/{max}</span>;
 }
@@ -10,10 +10,23 @@ export function Modal({ children, onClose }: { children: ReactNode; onClose?: ()
 }
 /** 自带屏幕键盘（GDD §9.4） */
 export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boolean; sci?: boolean; value: string; onChange: (v: string) => void; onOk: () => void }) {
-  const keys = letters ? 'qwertyuiopasdfghjklzxcvbnm'.split('') : ['7', '8', '9', '4', '5', '6', '1', '2', '3', '-', '0', '.', '/', ...(sci ? ['e'] : [])];
+  // 字母键盘：完整 a–z（含 e），不显示 ×10ⁿ；×10ⁿ 只在数字键盘（理科）出现（试玩报告 #1）
+  const keys = 'qwertyuiopasdfghjklzxcvbnm'.split('');
+  const vRef = useRef(value); vRef.current = value;
+  useEffect(() => {   // 物理键盘也能输入
+    const h = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
+      if (e.key === 'Enter') { if (v.trim()) onOk(); }
+      else if (e.key === 'Backspace') onChange(v.slice(0, -1));
+      else if (letters ? /^[a-zA-Z ']$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) onChange(v + (letters ? e.key.toLowerCase() : e.key));
+      else return;
+      e.preventDefault();
+    };
+    window.addEventListener('keydown', h); return () => window.removeEventListener('keydown', h);
+  }, [letters, onOk, onChange]);
   return (
     <div className="keypad-wrap">
-      <div className="input-box" data-testid="input">{value.replace(/e/g, '×10^') || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
+      <div className="input-box" data-testid="input">{(letters ? value : value.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
       {letters ? <div className="keypad alpha">
         {keys.map(k => <button key={k} data-key={k} onClick={() => onChange(value + k)}>{k}</button>)}
         <button onClick={() => onChange(value + ' ')}>空格</button>
@@ -25,7 +38,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
         <div className="kp-side">
           <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
           <button data-key="/" onClick={() => onChange(value + '/')}>/</button>
-          {sci && <button data-key="e" onClick={() => onChange(value + 'e')}>×10ⁿ</button>}
+          {sci && !letters && <button data-key="e" onClick={() => onChange(value + 'e')}>×10ⁿ</button>}
           <button className="ok" data-testid="ok" onClick={onOk} disabled={!value.trim()}>确定</button>
         </div>
       </div>}

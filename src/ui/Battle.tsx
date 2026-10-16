@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
+import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
+import { skinFor, softFor } from '../game/monsterSkin';
 import { roll as rollSkill, newRoll, segOf, skillsFor, type SkillRoll } from '../game/skills';
 import { preloadSkillArt } from '../fx/skillFx';
 import { choicesOf, correctText, isCorrect, judge, kinderChoices, ttsText, type Question, type Option } from '../game/questions';
@@ -12,11 +14,12 @@ import { MONSTER_IMG, type Character } from '../game/characters';
 import { speak, hasVoice } from '../tts';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
-import { loadCharAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
+import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
+import type { MonSkin } from '../game/monsterSkin';
 import { appReduceMotion, setAppReduceMotion, sleep } from '../fx/motion';
 
 /** 挂载演出导演（Canvas 粒子层 + 各单位节点） */
-export function useDirector(gentle: boolean, c: Character, scale: number, hs = false) {
+export function useDirector(gentle: boolean, c: Character, scale: number, hs = false, mon?: { skin: MonSkin | null; soft: boolean }) {
   const stage = useRef<HTMLDivElement>(null), shake = useRef<HTMLDivElement>(null), hero = useRef<HTMLDivElement>(null);
   const monster = useRef<HTMLDivElement>(null), flash = useRef<HTMLImageElement>(null), canvas = useRef<HTMLCanvasElement>(null);
   const dir = useRef<Director | null>(null);
@@ -39,13 +42,28 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
         void pl.play(a.idle);
       });
     }
+    // 学科怪物序列帧（懒加载；失败保留静态立绘 + 程序动画）
+    const art = mon?.skin?.art;
+    if (d && art && !(window as unknown as { __zyNoArt?: boolean }).__zyNoArt) {
+      const names = Object.fromEntries((['idle', 'attack', 'hit', 'defeat'] as const).map(k => [k, mon!.soft ? art.anims[k].soft : art.anims[k].json])) as Record<'idle' | 'attack' | 'hit' | 'defeat', string>;
+      void loadMonsterAnims(art.dir, names).then(a => {
+        if (!a || !alive.current || dir.current !== d || !monster.current) return;
+        const holder = monster.current.querySelector('.breathe') as HTMLElement | null; if (!holder) return;
+        const img = holder.querySelector('img'); const h = img?.getBoundingClientRect().height || 220;
+        const pl = new SheetPlayer(h / 260);
+        pl.box.dataset.testid = 'monster-sheet'; pl.box.dataset.mon = art.id; pl.box.classList.add('mon-sheet');
+        holder.classList.add('has-sheet'); holder.appendChild(pl.box);
+        d.monSheets = { player: pl, anims: a, hitFrame: art.anims.attack.hit_frame ?? a.attack.meta.hit_frame ?? 5 };
+        void pl.play(a.idle);
+      });
+    }
     const onR = () => dir.current?.resize(); window.addEventListener('resize', onR);
-    return () => { alive.current = false; window.removeEventListener('resize', onR); dir.current?.sheets?.player.stop(); dir.current?.sheets?.player.box.remove(); dir.current?.destroy(); dir.current = null; };
-  }, [gentle, c.id]);
+    return () => { alive.current = false; window.removeEventListener('resize', onR); dir.current?.sheets?.player.stop(); dir.current?.sheets?.player.box.remove(); dir.current?.monSheets?.player.stop(); dir.current?.monSheets?.player.box.remove(); dir.current?.destroy(); dir.current = null; };
+  }, [gentle, c.id, mon?.skin?.id, mon?.soft]);
   return { stage, shake, hero, monster, flash, canvas, dir, alive };
 }
 
-export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; retreat?: boolean; turns?: number; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps {
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -115,7 +133,9 @@ export function useWakeLock() {
   }, []);
 }
 /** 暂停超过 5 分钟自动回地图（策划 T-P2-3）；时长到点后的宽限结束时强制结算（T-P2-2） */
+/** 暂停：5 分钟无操作回地图；同时把暂停状态同步给 App 的计时器（暂停期间不计时，技术QA R4-2） */
 export function usePauseTimeout(paused: boolean, onQuit: () => void) {
+  useEffect(() => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = paused; return () => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = false; }; }, [paused]);
   useEffect(() => { if (!paused) return; const t = setTimeout(onQuit, 5 * 60e3); return () => clearTimeout(t); }, [paused]);
 }
 export const FORCE_END = 'zy-force-end';
@@ -147,7 +167,8 @@ function KStem({ q }: { q: Question }) {
   useEffect(() => setLit(0), [q.key]);
   const counting = /数一数|有几/.test(q.question);
   let n = 0;
-  return <div className="kq">{segs.map((sg, i) => sg.text ? <span key={i}>{sg.text}</span> :
+  if (q.visual) return <div className="kq">{segs.filter(sg => sg.text).map((sg, i) => <span key={i}>{sg.text}</span>)}<CountVisual v={q.visual} />{q.question_image && <QImage image={q.question_image} cls="q-img" fallback={null} />}</div>;
+  return <div className="kq">{q.question_image && <QImage image={q.question_image} cls="q-img" fallback={null} />}{segs.map((sg, i) => sg.text ? <span key={i}>{sg.text}</span> :
     <div key={i} className={`kitems ${sg.items.length > 5 ? 'two' : ''}`} data-testid="kitems" data-count={sg.items.length}>
       {sg.items.map((e, j) => { const k = ++n; return <button key={j} className={`kitem ${counting && k <= lit ? 'on' : ''}`} aria-label={e}
         onClick={() => { if (!counting) return; const v = Math.max(lit, k); setLit(v); speak(String(v)); }}>{e}</button>; })}
@@ -166,14 +187,13 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const [tilt, setTilt] = useState(false);
   const [paused, setPaused] = useState(false);
   usePauseOnHide(setPaused);
-  useEffect(() => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = paused; return () => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = false; }; }, [paused]);
   const lock = useRef(false);
   const D = useDirector(true, c, 0.95);
   const ksRef = useRef(ks); ksRef.current = ks;
   const wrong = useRef<string[]>([]);
   const down = useRef<string | null>(null);
   useWakeLock(); usePauseTimeout(paused, onQuit);
-  useForceEnd(() => { const k = ksRef.current; onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
+  useForceEnd(() => { const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
   useEffect(() => { if (q && cfg.autoTTS) speakStem(q); }, [q, cfg.autoTTS]);
@@ -249,7 +269,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
               onPointerUp={() => { if (down.current === ch.key) answer(ch); down.current = null; }}
               onPointerCancel={() => { down.current = null; }}
               onClick={e => { if (e.detail === 0) answer(ch); /* 键盘/读屏 */ }}>
-              {ch.image ? <img className="kopt-img" src={ch.image} alt="" /> : <KOptFace text={ch.text} />}
+              <QImage image={ch.image} cls="kopt-img" fallback={<KOptFace text={ch.text} />} />
             </button>
           );
         })}
@@ -287,7 +307,9 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const skSeg = segOf(cfg.band);
   useEffect(() => { preloadSkillArt(skillsFor(skSeg, c.major)); }, [c.major, skSeg]);
   const mode = cfg.stats;
-  const mon = MONSTERS[mode][kind];
+  const mon0 = MONSTERS[mode][kind];
+  const skin = skinFor(questions[0]?.subject, kind);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   const [queue, setQueue] = useState<Question[]>(questions);
   const extraLeft = useRef(extra.filter(q => !questions.some(x => x.key === q.key)).slice(0, Math.ceil(questions.length * EXTRA_QUESTION_FACTOR)));
   const [idx, setIdx] = useState(0);
@@ -305,7 +327,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const stats = useRef({ correct: 0, total: 0, wrong: [] as string[] });
   const bsRef = useRef(bs); bsRef.current = bs;
   useWakeLock(); usePauseTimeout(paused, onQuit);
-  useForceEnd(() => { const st = stats.current; onEnd({ win: outOfQuestions(bsRef.current) === 'win', correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); });
+  useForceEnd(() => { const st = stats.current; onEnd({ win: false, timeUp: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); });
   // 复活挑战（GDD §4.4）：答对 2 道本关错题
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number } | null>(null);
   const q: Question | undefined = phase === 'revive-q' && rv ? rv.list[rv.i] : queue[idx];
@@ -313,7 +335,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [timeLeft, setTimeLeft] = useState(limit);
   const [actKey, setActKey] = useState(0);
   const intent = intentOf(bs.turn);
-  const D = useDirector(false, c, 0.75, mode === 'hs');
+  const D = useDirector(false, c, 0.75, mode === 'hs', { skin, soft: softFor(cfg.band) });
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp, c: bs.combo });   // 血条按命中时刻扣减
   const [ending, setEnding] = useState(false);
 
@@ -409,7 +431,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     setIdx(i => i + 1); setPhase('question'); setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
   }
   const isEn = q.subject === '英语';
-  const letters = q.answer.some(a => /[a-z]/i.test(a));
+  const letters = q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a));
   const tts = ttsText(q);
   const asking = phase === 'question' || phase === 'revive-q';
   const optCls = cfg.band === 'G1' ? 'opts big' : 'opts';
@@ -427,7 +449,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       </div>
       <div className="arena">
         <div className="mon-info">
-          <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}{mon.name}</b>
+          <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}<span data-testid="monster-name">{mon.name}</span></b>
           <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />
           <button className="intent" data-testid="intent" aria-label="怪物意图说明" onClick={() => setIntentPop(true)}>{intent === 'attack' ? `⚔ 意图：攻击 ${bs.monsterAtk}` : `🛡 意图：护盾 ${bs.shieldAmt}`}{bs.monsterShield > 0 && ` · 护盾 ${bs.monsterShield}`} ⓘ</button>
         </div>
@@ -435,7 +457,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
           <div className="fx-shake" ref={D.shake}>
             <div className="unit-wrap hero-wrap" ref={D.hero}><div className="breathe"><Sprite className="unit hero" c={c} /></div></div>
             <div className={`unit-wrap mon-wrap ${kind}`} ref={D.monster}><div className="breathe slow">
-              <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} draggable={false} />
+              <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} data-testid="monster-img" draggable={false} />
               <img className={`unit monster ${kind} white-flash`} ref={D.flash} src={MONSTER_IMG[mon.img]} alt="" aria-hidden draggable={false} /></div></div>
           </div>
           <canvas className="fx-canvas" ref={D.canvas} />
@@ -460,7 +482,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
             {choicesOf(q).map(ch => (
               <div key={ch.key} className="opt-wrap">
                 <button className="opt" data-testid={'opt-' + ch.key} data-correct={q.answer.includes(ch.key) ? '1' : '0'} onClick={() => submit(ch.key)}>
-                  {q.type === '选择' && <i>{ch.key}</i>}{ch.image ? <img src={ch.image} alt="" className="opt-img" /> : <Tex text={ch.text} />}</button>
+                  {q.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button>
                 {cfg.optionSpeaker && q.type === '选择' && !ch.text.includes('$') && <button className="opt-spk" aria-label="读选项" onClick={() => speak(ch.text)}>🔈</button>}
               </div>))}
           </div>

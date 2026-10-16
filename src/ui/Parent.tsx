@@ -15,12 +15,13 @@ import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
 import { exportAll, importAll, putImported, clearImported, validateBackup } from '../db';
-import { setKV, getKV, answersOf, wrongOf, type AnswerRecord } from '../db';
+import { exportQuestion } from '../game/questions';
+import { setKV, getKV, answersOf, wrongOf, rollupOf, rollupAdd, type AnswerRecord, type Rollup } from '../db';
 import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
-import { makePinHash, verifyPin, loadLock, saveLock, nextLock, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
 import type { Skills } from '../game/adaptive';
 
 /** 家长密码门（D9 锁定 / X-13 首次设置需提示问题 / P2-1 密码丢失不当首次） */
@@ -32,8 +33,16 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
   const [mode, setMode] = useState<'pin' | 'hint' | 'forgot' | 'lost'>('pin');
   const [hq, setHq] = useState(HINT_QUESTIONS[0]); const [ha, setHa] = useState('');
   const [pend, setPend] = useState<string>();
-  useEffect(() => { void loadLock().then(setLock); void (!settings.pinHash && pinWasSet().then(w => w && setMode('lost'))); const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
-  const left = Math.max(0, Math.ceil((lock.until - Math.max(now, Date.now())) / 1000));
+  useEffect(() => {
+    void loadLock().then(setLock); void (!settings.pinHash && pinWasSet().then(w => w && setMode('lost')));
+    let last = performance.now();
+    const t = setInterval(() => {   // 只按单调时钟扣锁定时间（技术QA R4-4）
+      const p = performance.now(), dt = p - last; last = p; setNow(Date.now());
+      setLock(l => { if (!lockLeft(l)) return l; const n = tickLock(l, dt, Date.now()); void saveLock(n); return n; });
+    }, 1000);
+    return () => clearInterval(t);
+  }, []);
+  const left = Math.ceil(lockLeft(lock, now) / 1000);
   const locked = left > 0;
   const lockMsg = locked ? `密码错太多次了，请 ${Math.floor(left / 60)} 分 ${left % 60} 秒后再试` : undefined;
   const note = async (ok: boolean) => { const n = nextLock(lock, ok, Date.now()); setLock(n); await saveLock(n); return n; };
@@ -55,7 +64,7 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
       {(lockMsg || err) && <p className="warn">{lockMsg ?? err}</p>}
       <div className="row gap16"><button className="btn" disabled={locked || !ha} onClick={async () => {
         const ok = await verifyPin(normAnswer(ha), settings.pinHint!.a); const n = await note(ok);
-        if (ok) { setMode('pin'); setFirst(undefined); setErr(undefined); onSetPin(''); } else setErr(n.until > Date.now() ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
+        if (ok) { setMode('pin'); setFirst(undefined); setErr(undefined); onSetPin(''); } else setErr(lockLeft(n) > 0 ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
       }}>确定</button><button className="btn ghost" onClick={() => setMode('pin')}>返回</button></div></div></div>);
   if (!settings.pinHash) return (
     <div className="center-screen">{sub}
@@ -73,7 +82,7 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
       if (locked) return;
       const ok = await verifyPin(p, settings.pinHash); const n = await note(ok);
       if (ok) { if (!settings.pinHash!.startsWith('s2:') && crypto?.subtle) onSetPin(await makePinHash(p), settings.pinHint); onOk(); }
-      else setErr(n.until > Date.now() ? undefined : `密码不对，还可以试 ${5 - n.fails} 次`);
+      else setErr(lockLeft(n) > 0 ? undefined : `密码不对，还可以试 ${5 - n.fails} 次`);
     }} /></div>;
 }
 
@@ -148,7 +157,7 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
             <span className="big-emoji">{p.avatar}</span>
             <b>{p.name}</b><small>{GRADE_LABEL[p.grade]} · {p.volumes ? `已学 ${p.volumes.length} 册` : '全部册别'}</small>
             <small>每日 上学日 {p.limit.weekday || '不限'} / 周末 {p.limit.weekend || '不限'} 分钟</small>
-            {skills[p.id] && <small>难度：{Object.entries(skills[p.id]).map(([s, v]) => `${s}${v.level}`).join(' · ')}</small>}
+            {skills[p.id] && <small>难度：{Object.entries(skills[p.id]).map(([s, v]) => `${s}${v.level}`).join(' · ') || '还没开始答题'}</small>}
             <div className="row gap16"><button className="chip" data-testid={'edit-' + p.id} onClick={() => setEdit(p)}>编辑</button>
               <button className="chip" data-testid={'del-' + p.id} onClick={() => setDelId(p.id)}>删除</button></div>
           </div>
@@ -157,7 +166,7 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
       </div>
       {delId && (() => { const dp = profiles.find(x => x.id === delId); return dp && <Modal onClose={() => setDelId(undefined)}>
         <h2>删除{dp.name}的档案吗？</h2><p>进度、错题和记录都会删掉，不能恢复。</p>
-        <div className="row gap16"><button className="btn ghost" onClick={() => setDelId(undefined)}>取消</button>
+        <div className="row gap16"><button className="btn cancel-btn" data-testid="del-cancel" onClick={() => setDelId(undefined)}>取消，不删除</button>
           <HoldButton className="btn danger" label="长按 1.5 秒删除" testid="del-confirm" ms={1500} onDone={() => { setProfiles(profiles.filter(x => x.id !== delId)); setDelId(undefined); }}>长按删除</HoldButton></div>
       </Modal>; })()}
       {edit && <ProfileEditor p={edit} bank={bank} onSave={save} onCancel={() => setEdit(null)} />}
@@ -218,10 +227,10 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
   };
   const exportGrade = (g: string, fmt: 'json' | 'csv') => {
     const qs = questionsOfGrade(bank, g as GradeKey);
-    if (fmt === 'json') download(`题库导出_${GRADE_LABEL[g]}.json`, JSON.stringify({ bank_name: `导出-${GRADE_LABEL[g]}`, version: 'export', questions: qs.map(({ key, gradeNum, order, ...q }) => ({ ...q, options: q.options.map(o => ({ text: o.text, image: o.image, audio: o.audio })), answer: q.type === '填空' ? q.answer : q.answer.join('') })) }, null, 1));
+    if (fmt === 'json') download(`题库导出_${GRADE_LABEL[g]}.json`, JSON.stringify({ bank_name: `导出-${GRADE_LABEL[g]}`, version: 'export', questions: qs.map(exportQuestion) }, null, 1));
     else {
-      const head = ['id', 'status', 'subject', 'grade', 'textbook', 'unit', 'volume', 'type', 'question', 'tts_text', 'A', 'B', 'C', 'D', 'E', 'F', 'answer', 'tolerance', 'explanation', 'difficulty', 'tag', 'time', 'source', 'review_note'];
-      download(`题库导出_${GRADE_LABEL[g]}.csv`, toCSV(head, qs.map(q => ({ ...q, ...Object.fromEntries(q.options.map(o => [o.key, o.text])), answer: q.type === '填空' ? q.answer.join('|') : q.answer.join(''), tag: q.tags.join('|') }))), 'text/csv');
+      const head = ['id', 'status', 'subject', 'grade', 'textbook', 'unit', 'volume', 'type', 'question', 'tts_text', 'A', 'B', 'C', 'D', 'E', 'F', 'answer', 'tolerance', 'explanation', 'difficulty', 'tag', 'time', 'source', 'template', 'visual'];
+      download(`题库导出_${GRADE_LABEL[g]}.csv`, toCSV(head, qs.map(q => ({ ...q, ...Object.fromEntries(q.options.map(o => [o.key, o.text])), answer: q.type === '填空' ? q.answer.join('|') : q.answer.join(''), tag: q.tags.join('|'), visual: q.visual ? JSON.stringify(q.visual) : '' }))), 'text/csv');
     }
   };
   const flagged = Object.entries(flags).sort((a, b) => b[1] - a[1]).slice(0, 10);
@@ -341,8 +350,8 @@ function PinTab({ settings, setSettings }: ParentProps) {
 /** 报告 #9：每个孩子的学习报告（复用答题记录 + 错题本；月度汇总后续再做） */
 function ReportTab({ profiles, bank }: ParentProps) {
   const [pid, setPid] = useState(profiles[0]?.id);
-  const [data, setData] = useState<{ a: AnswerRecord[]; w: WrongEntry[] }>();
-  useEffect(() => { if (!pid) return; setData(undefined); void Promise.all([answersOf(pid), wrongOf(pid)]).then(([a, w]) => setData({ a, w })); }, [pid]);
+  const [data, setData] = useState<{ a: AnswerRecord[]; w: WrongEntry[]; ru: Rollup }>();
+  useEffect(() => { if (!pid) return; setData(undefined); void Promise.all([answersOf(pid), wrongOf(pid), rollupOf(pid)]).then(([a, w, ru]) => setData({ a, w, ru })); }, [pid]);
   if (!profiles.length) return <p>还没有孩子档案。</p>;
   const since = Date.now() - 7 * 864e5;
   const by = new Map<string, { n: number; ok: number; n7: number; ok7: number }>();
@@ -365,7 +374,11 @@ function ReportTab({ profiles, bank }: ParentProps) {
         {weak.length > 0 && <><h3>需要加强（至少 3 题）</h3><ul>{weak.map(([u, x]) => <li key={u}>{u}：{pct(x.ok, x.n)}（{x.n} 题）</li>)}</ul></>}
         <h3>错题本</h3>
         <p data-testid="report-wrong">共 {w.length} 题 · 今天待复习 {w.filter(e => e.due <= today).length} · 已掌握中（第 3 盒）{w.filter(e => e.box === 3).length}</p>
-        <p className="hint">月度汇总后续版本提供。</p>
+        <h3>月度汇总</h3>
+        {(() => { const m = rollupAdd(data.ru, data.a, r => bank.byKey.get(r.questionId)?.subject ?? '其他'); const ms = Object.keys(m).sort().reverse();
+          return ms.length ? <table className="report-table" data-testid="report-monthly"><thead><tr><th>月份</th><th>科目</th><th>答题</th><th>正确率</th></tr></thead>
+            <tbody>{ms.flatMap(mo => Object.entries(m[mo]).map(([sub, e]) => <tr key={mo + sub}><td>{mo}</td><td>{sub}</td><td>{e.n}</td><td>{pct(e.ok, e.n)}</td></tr>))}</tbody></table> : <p>暂无</p>; })()}
+        <p className="hint">答题明细保留 180 天，更早的按月份×科目汇总保存。</p>
       </>}
     </div>
   );

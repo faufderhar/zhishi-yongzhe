@@ -36,6 +36,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-001.webp（苹果×1）",
    "game_ready": true,
+   "visual": {
+    "item": "🍎",
+    "emoji": "🍎",
+    "count": 1,
+    "label": "苹果"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -75,6 +82,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-002.webp（苹果×2）",
    "game_ready": true,
+   "visual": {
+    "item": "🍎",
+    "emoji": "🍎",
+    "count": 2,
+    "label": "苹果"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -114,6 +128,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-003.webp（小鸭×3）",
    "game_ready": true,
+   "visual": {
+    "item": "🦆",
+    "emoji": "🦆",
+    "count": 3,
+    "label": "小鸭"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -153,6 +174,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-004.webp（气球×4）",
    "game_ready": true,
+   "visual": {
+    "item": "🎈",
+    "emoji": "🎈",
+    "count": 4,
+    "label": "气球"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -192,6 +220,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-005.webp（星星×5）",
    "game_ready": true,
+   "visual": {
+    "item": "⭐",
+    "emoji": "⭐",
+    "count": 5,
+    "label": "星星"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -231,6 +266,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-006.webp（小汽车×2）",
    "game_ready": true,
+   "visual": {
+    "item": "🚗",
+    "emoji": "🚗",
+    "count": 2,
+    "label": "小汽车"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -270,6 +312,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-007.webp（小鱼×3）",
    "game_ready": true,
+   "visual": {
+    "item": "🐟",
+    "emoji": "🐟",
+    "count": 3,
+    "label": "小鱼"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -308,6 +357,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -345,6 +395,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -382,6 +433,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -415,6 +467,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-011_a.webp（苹果）；B_image images/k/K-011_b.webp（苹果）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -448,6 +501,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-012_a.webp（糖果）；B_image images/k/K-012_b.webp（糖果）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -485,6 +539,7 @@
    "volume": "小班",
    "knowledge_point": "数数",
    "game_ready": true,
+   "template": "T09c8f0",
    "tags": [
     "数数",
     "身体"
@@ -523,6 +578,7 @@
    "volume": "小班",
    "knowledge_point": "数数",
    "game_ready": true,
+   "template": "T7cd605",
    "tags": [
     "数数",
     "身体"
@@ -557,6 +613,7 @@
    "knowledge_point": "比大小",
    "assets_todo": "A_image images/k/K-015_a.webp（大象）；B_image images/k/K-015_b.webp（老鼠）",
    "game_ready": true,
+   "template": "T0c89f4",
    "tags": [
     "比大小"
    ]
@@ -590,6 +647,7 @@
    "knowledge_point": "比大小",
    "assets_todo": "A_image images/k/K-016_a.webp（小狗）；B_image images/k/K-016_b.webp（蚂蚁）",
    "game_ready": true,
+   "template": "T0c89f4",
    "tags": [
     "比大小"
    ]
@@ -628,6 +686,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-001_a.webp（苹果）；B_image images/k/KC-001_b.webp（香蕉）；C_image images/k/KC-001_c.webp（西兰花）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "红色"
@@ -667,6 +726,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-002_a.webp（葡萄）；B_image images/k/KC-002_b.webp（苹果）；C_image images/k/KC-002_c.webp（香蕉）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "黄色"
@@ -706,6 +766,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-003_a.webp（西兰花）；B_image images/k/KC-003_b.webp（香蕉）；C_image images/k/KC-003_c.webp（草莓）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "绿色"
@@ -723,17 +784,17 @@
    "options": [
     {
      "text": "🟨",
-     "image": "",
+     "image": "image:shape_square?color=yellow",
      "audio": ""
     },
     {
      "text": "🟥",
-     "image": "",
+     "image": "image:shape_square?color=red",
      "audio": ""
     },
     {
      "text": "🟦",
-     "image": "",
+     "image": "image:shape_square?color=blue",
      "audio": ""
     }
    ],
@@ -745,6 +806,8 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-004_a.webp（🟨）；B_image images/k/KC-004_b.webp（🟥）；C_image images/k/KC-004_c.webp（🟦）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "蓝色"
@@ -784,6 +847,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "题干图 images/k/KC-005.webp（草莓×1）",
    "game_ready": true,
+   "template": "T55a832",
    "tags": [
     "颜色"
    ]
@@ -821,6 +885,7 @@
    "volume": "小班",
    "knowledge_point": "颜色",
    "game_ready": true,
+   "template": "Tebf330",
    "tags": [
     "颜色"
    ]
@@ -858,6 +923,7 @@
    "volume": "小班",
    "knowledge_point": "颜色",
    "game_ready": true,
+   "template": "T612c23",
    "tags": [
     "颜色"
    ]
@@ -874,17 +940,17 @@
    "options": [
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     },
     {
      "text": "🔴",
-     "image": "",
+     "image": "image:shape_circle?color=red",
      "audio": ""
     },
     {
      "text": "⚫",
-     "image": "",
+     "image": "image:shape_circle?color=black",
      "audio": ""
     }
    ],
@@ -896,6 +962,8 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-008_a.webp（⚪）；B_image images/k/KC-008_b.webp（🔴）；C_image images/k/KC-008_c.webp（⚫）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "白色"
@@ -913,17 +981,17 @@
    "options": [
     {
      "text": "🟡",
-     "image": "",
+     "image": "image:shape_circle?color=yellow",
      "audio": ""
     },
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     },
     {
      "text": "⚫",
-     "image": "",
+     "image": "image:shape_circle?color=black",
      "audio": ""
     }
    ],
@@ -935,6 +1003,8 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-009_a.webp（🟡）；B_image images/k/KC-009_b.webp（⚪）；C_image images/k/KC-009_c.webp（⚫）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "黑色"
@@ -952,17 +1022,17 @@
    "options": [
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     },
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     },
     {
      "text": "🟦",
-     "image": "",
+     "image": "image:shape_square?color=blue",
      "audio": ""
     }
    ],
@@ -974,6 +1044,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-010_a.webp（⚪）；B_image images/k/KC-010_b.webp（🔺）；C_image images/k/KC-010_c.webp（🟦）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tf2ed3f",
    "tags": [
     "形状",
     "圆形"
@@ -991,17 +1063,17 @@
    "options": [
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     },
     {
      "text": "🟦",
-     "image": "",
+     "image": "image:shape_square?color=blue",
      "audio": ""
     },
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     }
    ],
@@ -1013,6 +1085,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-011_a.webp（🔺）；B_image images/k/KC-011_b.webp（🟦）；C_image images/k/KC-011_c.webp（⚪）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tad7ba4",
    "tags": [
     "形状",
     "三角形"
@@ -1030,17 +1104,17 @@
    "options": [
     {
      "text": "🟦",
-     "image": "",
+     "image": "image:shape_square?color=blue",
      "audio": ""
     },
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     },
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     }
    ],
@@ -1052,6 +1126,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-012_a.webp（🟦）；B_image images/k/KC-012_b.webp（⚪）；C_image images/k/KC-012_c.webp（🔺）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tf70cae",
    "tags": [
     "形状",
     "正方形"
@@ -1065,6 +1141,7 @@
    "unit": "认识形状",
    "type": "选择",
    "question": "太阳像什么形状？☀️",
+   "question_image": "images/k/shapes/KC-013_stem_sun.webp",
    "tts_text": "太阳像什么形状？",
    "options": [
     {
@@ -1090,6 +1167,8 @@
    "volume": "小班",
    "knowledge_point": "形状",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Ta7fe07",
    "tags": [
     "形状",
     "圆形"
@@ -1107,17 +1186,17 @@
    "options": [
     {
      "text": "📕 书",
-     "image": "",
+     "image": "images/k/objects/obj_book.webp",
      "audio": ""
     },
     {
      "text": "⚽ 皮球",
-     "image": "",
+     "image": "images/k/objects/obj_ball.webp",
      "audio": ""
     },
     {
      "text": "🧊 冰块",
-     "image": "",
+     "image": "images/k/objects/obj_ice.webp",
      "audio": ""
     }
    ],
@@ -1129,6 +1208,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-014_a.webp（书）；B_image images/k/KC-014_b.webp（皮球）；C_image images/k/KC-014_c.webp（冰块）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T6c0759",
    "tags": [
     "形状",
     "圆形"
@@ -1146,17 +1227,17 @@
    "options": [
     {
      "text": "⭐",
-     "image": "",
+     "image": "image:shape_star?color=yellow",
      "audio": ""
     },
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     },
     {
      "text": "❤️",
-     "image": "",
+     "image": "image:shape_heart?color=red",
      "audio": ""
     }
    ],
@@ -1168,6 +1249,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-015_a.webp（星星）；B_image images/k/KC-015_b.webp（🔺）；C_image images/k/KC-015_c.webp（❤️）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Td797e0",
    "tags": [
     "形状"
    ]
@@ -1184,17 +1267,17 @@
    "options": [
     {
      "text": "❤️",
-     "image": "",
+     "image": "image:shape_heart?color=red",
      "audio": ""
     },
     {
      "text": "⭐",
-     "image": "",
+     "image": "image:shape_star?color=yellow",
      "audio": ""
     },
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     }
    ],
@@ -1206,6 +1289,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-016_a.webp（❤️）；B_image images/k/KC-016_b.webp（星星）；C_image images/k/KC-016_c.webp（⚪）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T47d14c",
    "tags": [
     "形状"
    ]
@@ -1244,6 +1329,7 @@
    "knowledge_point": "动物",
    "assets_todo": "A_image images/k/KD-001_a.webp（小猫）；B_image images/k/KD-001_b.webp（小狗）；C_image images/k/KD-001_c.webp（小兔）",
    "game_ready": true,
+   "template": "T49edb4",
    "tags": [
     "动物"
    ]
@@ -1282,6 +1368,7 @@
    "knowledge_point": "动物",
    "assets_todo": "A_image images/k/KD-002_a.webp（小猪）；B_image images/k/KD-002_b.webp（小狗）；C_image images/k/KD-002_c.webp（小猫）",
    "game_ready": true,
+   "template": "T85a253",
    "tags": [
     "动物"
    ]
@@ -1320,6 +1407,7 @@
    "knowledge_point": "动物",
    "assets_todo": "A_image images/k/KD-003_a.webp（小熊）；B_image images/k/KD-003_b.webp（小兔）；C_image images/k/KD-003_c.webp（🐭）",
    "game_ready": true,
+   "template": "T979911",
    "tags": [
     "动物"
    ]
@@ -1358,6 +1446,7 @@
    "knowledge_point": "动物",
    "assets_todo": "A_image images/k/KD-004_a.webp（青蛙）；B_image images/k/KD-004_b.webp（小鱼）；C_image images/k/KD-004_c.webp（小鸡）",
    "game_ready": true,
+   "template": "T393b87",
    "tags": [
     "动物"
    ]
@@ -1396,6 +1485,7 @@
    "knowledge_point": "动物",
    "assets_todo": "A_image images/k/KD-005_a.webp（大象）；B_image images/k/KD-005_b.webp（长颈鹿）；C_image images/k/KD-005_c.webp（小马）",
    "game_ready": true,
+   "template": "T2e44bd",
    "tags": [
     "动物"
    ]
@@ -1434,6 +1524,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-006_a.webp（小猫）；B_image images/k/KD-006_b.webp（小狗）；C_image images/k/KD-006_c.webp（小牛）",
    "game_ready": true,
+   "template": "T6d4158",
    "tags": [
     "动物叫声"
    ]
@@ -1472,6 +1563,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-007_a.webp（小狗）；B_image images/k/KD-007_b.webp（小猫）；C_image images/k/KD-007_c.webp（公鸡）",
    "game_ready": true,
+   "template": "T6d4158",
    "tags": [
     "动物叫声"
    ]
@@ -1510,6 +1602,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-008_a.webp（小鸭）；B_image images/k/KD-008_b.webp（小猪）；C_image images/k/KD-008_c.webp（小羊）",
    "game_ready": true,
+   "template": "T6d4158",
    "tags": [
     "动物叫声"
    ]
@@ -1548,6 +1641,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-009_a.webp（小牛）；B_image images/k/KD-009_b.webp（小猫）；C_image images/k/KD-009_c.webp（青蛙）",
    "game_ready": true,
+   "template": "T6d4158",
    "tags": [
     "动物叫声"
    ]
@@ -1586,6 +1680,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-010_a.webp（小羊）；B_image images/k/KD-010_b.webp（小鸟）；C_image images/k/KD-010_c.webp（小狗）",
    "game_ready": true,
+   "template": "T6d4158",
    "tags": [
     "动物叫声"
    ]
@@ -1624,6 +1719,7 @@
    "knowledge_point": "动物生活",
    "assets_todo": "A_image images/k/KD-011_a.webp（火里）；B_image images/k/KD-011_b.webp（树上）；C_image images/k/KD-011_c.webp（水里）",
    "game_ready": true,
+   "template": "Td4b8be",
    "tags": [
     "动物生活"
    ]
@@ -1661,6 +1757,7 @@
    "volume": "小班",
    "knowledge_point": "动物本领",
    "game_ready": true,
+   "template": "Td44842",
    "tags": [
     "动物本领"
    ]
@@ -1699,6 +1796,7 @@
    "knowledge_point": "动物食物",
    "assets_todo": "A_image images/k/KD-013_a.webp（肉）；B_image images/k/KD-013_b.webp（鱼）；C_image images/k/KD-013_c.webp（胡萝卜）",
    "game_ready": true,
+   "template": "T7ffa57",
    "tags": [
     "动物食物"
    ]
@@ -1737,6 +1835,7 @@
    "knowledge_point": "动物食物",
    "assets_todo": "A_image images/k/KD-014_a.webp（鱼）；B_image images/k/KD-014_b.webp（胡萝卜）；C_image images/k/KD-014_c.webp（香蕉）",
    "game_ready": true,
+   "template": "Ta6fc53",
    "tags": [
     "动物食物"
    ]
@@ -1776,6 +1875,7 @@
    "assets_todo": "A_image images/k/KD-015_a.webp（香蕉）；B_image images/k/KD-015_b.webp（骨头）；C_image images/k/KD-015_c.webp（草）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Ta4755e",
    "tags": [
     "动物食物"
    ]
@@ -1814,6 +1914,7 @@
    "knowledge_point": "动物特征",
    "assets_todo": "A_image images/k/KD-016_a.webp（兔子）；B_image images/k/KD-016_b.webp（长颈鹿）；C_image images/k/KD-016_c.webp（小猪）",
    "game_ready": true,
+   "template": "Tadefdc",
    "tags": [
     "动物特征"
    ]
@@ -1852,6 +1953,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-001_a.webp（牙刷）；B_image images/k/KS-001_b.webp（铅笔）；C_image images/k/KS-001_c.webp（勺子）",
    "game_ready": true,
+   "template": "T37ad5e",
    "tags": [
     "生活物品"
    ]
@@ -1890,6 +1992,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-002_a.webp（雨伞）；B_image images/k/KS-002_b.webp（皮球）；C_image images/k/KS-002_c.webp（墨镜）",
    "game_ready": true,
+   "template": "T99e9a1",
    "tags": [
     "生活物品"
    ]
@@ -1928,6 +2031,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-003_a.webp（帽子）；B_image images/k/KS-003_b.webp（杯子）；C_image images/k/KS-003_c.webp（鞋子）",
    "game_ready": true,
+   "template": "Tad6e0b",
    "tags": [
     "生活物品"
    ]
@@ -1966,6 +2070,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-004_a.webp（鞋子）；B_image images/k/KS-004_b.webp（帽子）；C_image images/k/KS-004_c.webp（手套）",
    "game_ready": true,
+   "template": "Teaa6ca",
    "tags": [
     "生活物品"
    ]
@@ -2004,6 +2109,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-005_a.webp（书）；B_image images/k/KS-005_b.webp（勺子）；C_image images/k/KS-005_c.webp（牙刷）",
    "game_ready": true,
+   "template": "T089f5b",
    "tags": [
     "生活物品"
    ]
@@ -2042,6 +2148,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-006_a.webp（床上）；B_image images/k/KS-006_b.webp（车里）；C_image images/k/KS-006_c.webp（浴缸里）",
    "game_ready": true,
+   "template": "Tff616d",
    "tags": [
     "生活物品"
    ]
@@ -2080,6 +2187,7 @@
    "knowledge_point": "食物",
    "assets_todo": "A_image images/k/KS-007_a.webp（鞋子）；B_image images/k/KS-007_b.webp（苹果）；C_image images/k/KS-007_c.webp（小熊）",
    "game_ready": true,
+   "template": "T115af0",
    "tags": [
     "食物"
    ]
@@ -2118,6 +2226,7 @@
    "knowledge_point": "食物",
    "assets_todo": "A_image images/k/KS-008_a.webp（香蕉）；B_image images/k/KS-008_b.webp（面包）；C_image images/k/KS-008_c.webp（胡萝卜）",
    "game_ready": true,
+   "template": "T19da4d",
    "tags": [
     "食物",
     "水果"
@@ -2157,6 +2266,7 @@
    "knowledge_point": "好习惯",
    "assets_todo": "A_image images/k/KS-009_a.webp（睡觉）；B_image images/k/KS-009_b.webp（看电视）；C_image images/k/KS-009_c.webp（洗手）",
    "game_ready": true,
+   "template": "T50c05f",
    "tags": [
     "好习惯"
    ]
@@ -2194,6 +2304,7 @@
    "volume": "小班",
    "knowledge_point": "安全",
    "game_ready": true,
+   "template": "Tb0a700",
    "tags": [
     "安全"
    ]
@@ -2232,6 +2343,7 @@
    "knowledge_point": "季节",
    "assets_todo": "A_image images/k/KS-011_a.webp（短裤）；B_image images/k/KS-011_b.webp（泳衣）；C_image images/k/KS-011_c.webp（厚衣服）",
    "game_ready": true,
+   "template": "Tf3299c",
    "tags": [
     "季节"
    ]
@@ -2270,6 +2382,7 @@
    "knowledge_point": "自然",
    "assets_todo": "A_image images/k/KS-012_a.webp（太阳）；B_image images/k/KS-012_b.webp（月亮）；C_image images/k/KS-012_c.webp（星星）",
    "game_ready": true,
+   "template": "T2265f4",
    "tags": [
     "自然"
    ]
@@ -2308,6 +2421,7 @@
    "knowledge_point": "生活物品",
    "assets_todo": "A_image images/k/KS-013_a.webp（小熊）；B_image images/k/KS-013_b.webp（苹果）；C_image images/k/KS-013_c.webp（闹钟）",
    "game_ready": true,
+   "template": "T18c32a",
    "tags": [
     "生活物品"
    ]
@@ -2346,6 +2460,7 @@
    "knowledge_point": "身体",
    "assets_todo": "A_image images/k/KS-014_a.webp（鼻子）；B_image images/k/KS-014_b.webp（嘴巴）；C_image images/k/KS-014_c.webp（耳朵）",
    "game_ready": true,
+   "template": "T936657",
    "tags": [
     "身体"
    ]
@@ -2384,6 +2499,7 @@
    "knowledge_point": "身体",
    "assets_todo": "A_image images/k/KS-015_a.webp（手）；B_image images/k/KS-015_b.webp（耳朵）；C_image images/k/KS-015_c.webp（鼻子）",
    "game_ready": true,
+   "template": "Te880b1",
    "tags": [
     "身体"
    ]
@@ -2404,6 +2520,7 @@
    "volume": "小班",
    "knowledge_point": "好习惯",
    "game_ready": true,
+   "template": "T861fd4",
    "tags": [
     "好习惯"
    ]
@@ -2442,6 +2559,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-001.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "儿歌",
     "小白兔"
@@ -2481,6 +2599,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-002.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "儿歌",
     "小星星"
@@ -2520,6 +2639,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-003.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "儿歌",
     "两只老虎"
@@ -2559,6 +2679,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-004.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "儿歌",
     "小燕子"
@@ -2598,6 +2719,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "A_image images/k/KG-005_a.webp（星星）；B_image images/k/KG-005_b.webp（兔子）；C_image images/k/KG-005_c.webp（老虎）；question_audio audio/k/KG-005.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Tc7a147",
    "tags": [
     "儿歌",
     "小星星"
@@ -2637,6 +2759,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "A_image images/k/KG-006_a.webp（小白兔）；B_image images/k/KG-006_b.webp（小猫）；C_image images/k/KG-006_c.webp（小狗）；question_audio audio/k/KG-006.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "T0d6015",
    "tags": [
     "儿歌",
     "小白兔"
@@ -2676,6 +2799,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-007.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "儿歌"
    ]
@@ -2714,6 +2838,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-008.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "咏鹅"
@@ -2753,6 +2878,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "A_image images/k/KG-009_a.webp（小鸡）；B_image images/k/KG-009_b.webp（大白鹅）；C_image images/k/KG-009_c.webp（小猫）；question_audio audio/k/KG-009.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "T8991e8",
    "tags": [
     "古诗",
     "咏鹅"
@@ -2792,6 +2918,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-010.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "咏鹅"
@@ -2831,6 +2958,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-011.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "静夜思"
@@ -2870,6 +2998,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-012.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "静夜思"
@@ -2909,6 +3038,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "A_image images/k/KG-013_a.webp（彩虹）；B_image images/k/KG-013_b.webp（太阳）；C_image images/k/KG-013_c.webp（月亮）；question_audio audio/k/KG-013.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "T583690",
    "tags": [
     "古诗",
     "静夜思"
@@ -2948,6 +3078,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-014.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "春晓"
@@ -2987,6 +3118,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-015.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "悯农"
@@ -3027,6 +3159,7 @@
    "assets_todo": "question_audio audio/k/KG-016.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Teff155",
    "tags": [
     "儿歌",
     "拔萝卜"
@@ -3066,6 +3199,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-018.webp（小鱼×1）",
    "game_ready": true,
+   "visual": {
+    "item": "🐟",
+    "emoji": "🐟",
+    "count": 1,
+    "label": "小鱼"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3105,6 +3245,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-019.webp（星星×1）",
    "game_ready": true,
+   "visual": {
+    "item": "⭐",
+    "emoji": "⭐",
+    "count": 1,
+    "label": "星星"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3144,6 +3291,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-020.webp（气球×1）",
    "game_ready": true,
+   "visual": {
+    "item": "🎈",
+    "emoji": "🎈",
+    "count": 1,
+    "label": "气球"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3183,6 +3337,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-021.webp（气球×2）",
    "game_ready": true,
+   "visual": {
+    "item": "🎈",
+    "emoji": "🎈",
+    "count": 2,
+    "label": "气球"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3222,6 +3383,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-023.webp（小鸡×2）",
    "game_ready": true,
+   "visual": {
+    "item": "🐤",
+    "emoji": "🐤",
+    "count": 2,
+    "label": "小鸡"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3261,6 +3429,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-024.webp（草莓×2）",
    "game_ready": true,
+   "visual": {
+    "item": "🍓",
+    "emoji": "🍓",
+    "count": 2,
+    "label": "草莓"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3300,6 +3475,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-025.webp（草莓×3）",
    "game_ready": true,
+   "visual": {
+    "item": "🍓",
+    "emoji": "🍓",
+    "count": 3,
+    "label": "草莓"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3339,6 +3521,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-026.webp（小花×3）",
    "game_ready": true,
+   "visual": {
+    "item": "🌸",
+    "emoji": "🌸",
+    "count": 3,
+    "label": "小花"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3378,6 +3567,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-027.webp（瓢虫×3）",
    "game_ready": true,
+   "visual": {
+    "item": "🐞",
+    "emoji": "🐞",
+    "count": 3,
+    "label": "瓢虫"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3417,6 +3613,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-028.webp（饼干×3）",
    "game_ready": true,
+   "visual": {
+    "item": "🍪",
+    "emoji": "🍪",
+    "count": 3,
+    "label": "饼干"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3456,6 +3659,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-029.webp（苹果×4）",
    "game_ready": true,
+   "visual": {
+    "item": "🍎",
+    "emoji": "🍎",
+    "count": 4,
+    "label": "苹果"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3495,6 +3705,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-030.webp（小鱼×4）",
    "game_ready": true,
+   "visual": {
+    "item": "🐟",
+    "emoji": "🐟",
+    "count": 4,
+    "label": "小鱼"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3534,6 +3751,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-031.webp（星星×4）",
    "game_ready": true,
+   "visual": {
+    "item": "⭐",
+    "emoji": "⭐",
+    "count": 4,
+    "label": "星星"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3573,6 +3797,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-034.webp（气球×5）",
    "game_ready": true,
+   "visual": {
+    "item": "🎈",
+    "emoji": "🎈",
+    "count": 5,
+    "label": "气球"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3612,6 +3843,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-035.webp（小汽车×5）",
    "game_ready": true,
+   "visual": {
+    "item": "🚗",
+    "emoji": "🚗",
+    "count": 5,
+    "label": "小汽车"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3651,6 +3889,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-036.webp（小鸡×5）",
    "game_ready": true,
+   "visual": {
+    "item": "🐤",
+    "emoji": "🐤",
+    "count": 5,
+    "label": "小鸡"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "5以内"
@@ -3690,6 +3935,7 @@
    "knowledge_point": "数数",
    "assets_todo": "A_image images/k/K-037_a.webp（苹果）；B_image images/k/K-037_b.webp（苹果）；C_image images/k/K-037_c.webp（苹果）",
    "game_ready": true,
+   "template": "T93cf36",
    "tags": [
     "数数",
     "按数取物"
@@ -3729,6 +3975,7 @@
    "knowledge_point": "数数",
    "assets_todo": "A_image images/k/K-038_a.webp（苹果）；B_image images/k/K-038_b.webp（苹果）；C_image images/k/K-038_c.webp（苹果）",
    "game_ready": true,
+   "template": "T93cf36",
    "tags": [
     "数数",
     "按数取物"
@@ -3768,6 +4015,7 @@
    "knowledge_point": "数数",
    "assets_todo": "A_image images/k/K-039_a.webp（苹果）；B_image images/k/K-039_b.webp（苹果）；C_image images/k/K-039_c.webp（苹果）",
    "game_ready": true,
+   "template": "T93cf36",
    "tags": [
     "数数",
     "按数取物"
@@ -3807,6 +4055,7 @@
    "knowledge_point": "数数",
    "assets_todo": "A_image images/k/K-040_a.webp（苹果）；B_image images/k/K-040_b.webp（苹果）；C_image images/k/K-040_c.webp（苹果）",
    "game_ready": true,
+   "template": "T93cf36",
    "tags": [
     "数数",
     "按数取物"
@@ -3846,6 +4095,7 @@
    "knowledge_point": "数数",
    "assets_todo": "A_image images/k/K-041_a.webp（苹果）；B_image images/k/K-041_b.webp（苹果）；C_image images/k/K-041_c.webp（苹果）",
    "game_ready": true,
+   "template": "T93cf36",
    "tags": [
     "数数",
     "按数取物"
@@ -3885,6 +4135,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-042.webp（小鸡×6）",
    "game_ready": true,
+   "visual": {
+    "item": "🐤",
+    "emoji": "🐤",
+    "count": 6,
+    "label": "小鸡"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -3924,6 +4181,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-043.webp（瓢虫×6）",
    "game_ready": true,
+   "visual": {
+    "item": "🐞",
+    "emoji": "🐞",
+    "count": 6,
+    "label": "瓢虫"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -3963,6 +4227,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-044.webp（草莓×7）",
    "game_ready": true,
+   "visual": {
+    "item": "🍓",
+    "emoji": "🍓",
+    "count": 7,
+    "label": "草莓"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4002,6 +4273,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-045.webp（饼干×7）",
    "game_ready": true,
+   "visual": {
+    "item": "🍪",
+    "emoji": "🍪",
+    "count": 7,
+    "label": "饼干"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4041,6 +4319,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-046.webp（小花×8）",
    "game_ready": true,
+   "visual": {
+    "item": "🌸",
+    "emoji": "🌸",
+    "count": 8,
+    "label": "小花"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4080,6 +4365,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-047.webp（苹果×8）",
    "game_ready": true,
+   "visual": {
+    "item": "🍎",
+    "emoji": "🍎",
+    "count": 8,
+    "label": "苹果"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4119,6 +4411,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-048.webp（瓢虫×9）",
    "game_ready": true,
+   "visual": {
+    "item": "🐞",
+    "emoji": "🐞",
+    "count": 9,
+    "label": "瓢虫"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4158,6 +4457,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-049.webp（小鱼×9）",
    "game_ready": true,
+   "visual": {
+    "item": "🐟",
+    "emoji": "🐟",
+    "count": 9,
+    "label": "小鱼"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4197,6 +4503,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-050.webp（饼干×10）",
    "game_ready": true,
+   "visual": {
+    "item": "🍪",
+    "emoji": "🍪",
+    "count": 10,
+    "label": "饼干"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4236,6 +4549,13 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-051.webp（星星×10）",
    "game_ready": true,
+   "visual": {
+    "item": "⭐",
+    "emoji": "⭐",
+    "count": 10,
+    "label": "星星"
+   },
+   "template": "Ta73b83",
    "tags": [
     "数数",
     "10以内"
@@ -4274,6 +4594,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4311,6 +4632,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4348,6 +4670,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4385,6 +4708,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4422,6 +4746,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4459,6 +4784,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4496,6 +4822,7 @@
    "volume": "小班",
    "knowledge_point": "认数字",
    "game_ready": true,
+   "template": "T458fc5",
    "tags": [
     "认数字"
    ]
@@ -4529,6 +4856,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-062_a.webp（糖果）；B_image images/k/K-062_b.webp（糖果）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4562,6 +4890,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-063_a.webp（青蛙）；B_image images/k/K-063_b.webp（青蛙）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4595,6 +4924,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-064_a.webp（🌟）；B_image images/k/K-064_b.webp（🌟🌟🌟）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4628,6 +4958,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-065_a.webp（香蕉）；B_image images/k/K-065_b.webp（香蕉）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4661,6 +4992,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-066_a.webp（小鸡）；B_image images/k/K-066_b.webp（小鸡）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4694,6 +5026,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-067_a.webp（甜甜圈）；B_image images/k/K-067_b.webp（甜甜圈）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4727,6 +5060,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-068_a.webp（气球）；B_image images/k/K-068_b.webp（气球）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4760,6 +5094,7 @@
    "knowledge_point": "比多少",
    "assets_todo": "A_image images/k/K-069_a.webp（小花）；B_image images/k/K-069_b.webp（小花）",
    "game_ready": true,
+   "template": "T47ccc2",
    "tags": [
     "比多少"
    ]
@@ -4793,6 +5128,7 @@
    "knowledge_point": "比大小",
    "assets_todo": "A_image images/k/K-070_a.webp（长颈鹿）；B_image images/k/K-070_b.webp（小兔）",
    "game_ready": true,
+   "template": "T0c89f4",
    "tags": [
     "比大小"
    ]
@@ -4827,6 +5163,7 @@
    "assets_todo": "A_image images/k/K-071_a.webp（短短的毛毛虫）；B_image images/k/K-071_b.webp（长长的蛇）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "T0c89f4",
    "tags": [
     "比大小"
    ]
@@ -4860,6 +5197,7 @@
    "knowledge_point": "比大小",
    "assets_todo": "A_image images/k/K-072_a.webp（樱桃）；B_image images/k/K-072_b.webp（西瓜）",
    "game_ready": true,
+   "template": "T0c89f4",
    "tags": [
     "比大小"
    ]
@@ -4893,6 +5231,7 @@
    "knowledge_point": "比大小",
    "assets_todo": "A_image images/k/K-073_a.webp（奶牛）；B_image images/k/K-073_b.webp（小鸡）",
    "game_ready": true,
+   "template": "T0c89f4",
    "tags": [
     "比大小"
    ]
@@ -4931,6 +5270,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-017_a.webp（西兰花）；B_image images/k/KC-017_b.webp（葡萄）；C_image images/k/KC-017_c.webp（橘子）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "橙色"
@@ -4970,6 +5310,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-018_a.webp（西红柿）；B_image images/k/KC-018_b.webp（葡萄）；C_image images/k/KC-018_c.webp（柠檬）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "紫色"
@@ -5009,6 +5350,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-019_a.webp（柠檬）；B_image images/k/KC-019_b.webp（西红柿）；C_image images/k/KC-019_c.webp（黄瓜）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "红色"
@@ -5048,6 +5390,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-020_a.webp（🍆）；B_image images/k/KC-020_b.webp（🥬）；C_image images/k/KC-020_c.webp（柠檬）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "黄色"
@@ -5087,6 +5430,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-021_a.webp（西红柿）；B_image images/k/KC-021_b.webp（橘子）；C_image images/k/KC-021_c.webp（黄瓜）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "绿色"
@@ -5126,6 +5470,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-022_a.webp（🚒）；B_image images/k/KC-022_b.webp（🚕）；C_image images/k/KC-022_c.webp（🚙）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "红色"
@@ -5165,6 +5510,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-023_a.webp（🥛）；B_image images/k/KC-023_b.webp（☕）；C_image images/k/KC-023_c.webp（🍫）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "白色"
@@ -5204,6 +5550,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "A_image images/k/KC-024_a.webp（小猪）；B_image images/k/KC-024_b.webp（青蛙）；C_image images/k/KC-024_c.webp（小熊）",
    "game_ready": true,
+   "template": "Tc8c6a2",
    "tags": [
     "颜色",
     "粉色"
@@ -5243,6 +5590,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "题干图 images/k/KC-025.webp（香蕉×1）",
    "game_ready": true,
+   "template": "T4c6bee",
    "tags": [
     "颜色"
    ]
@@ -5280,6 +5628,7 @@
    "volume": "小班",
    "knowledge_point": "颜色",
    "game_ready": true,
+   "template": "T1499c4",
    "tags": [
     "颜色"
    ]
@@ -5318,6 +5667,7 @@
    "knowledge_point": "颜色",
    "assets_todo": "题干图 images/k/KC-027.webp（熊猫×1）",
    "game_ready": true,
+   "template": "T2ae026",
    "tags": [
     "颜色"
    ]
@@ -5334,17 +5684,17 @@
    "options": [
     {
      "text": "▭",
-     "image": "",
+     "image": "image:shape_rect?color=blue",
      "audio": ""
     },
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     },
     {
      "text": "⚪",
-     "image": "",
+     "image": "image:shape_circle?color=white",
      "audio": ""
     }
    ],
@@ -5356,6 +5706,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-028_a.webp（▭）；B_image images/k/KC-028_b.webp（🔺）；C_image images/k/KC-028_c.webp（⚪）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T6cdb3c",
    "tags": [
     "形状"
    ]
@@ -5372,17 +5724,17 @@
    "options": [
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     },
     {
      "text": "🟠",
-     "image": "",
+     "image": "image:shape_circle?color=orange",
      "audio": ""
     },
     {
      "text": "🟥",
-     "image": "",
+     "image": "image:shape_square?color=red",
      "audio": ""
     }
    ],
@@ -5394,6 +5746,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-029_a.webp（🔺）；B_image images/k/KC-029_b.webp（🟠）；C_image images/k/KC-029_c.webp（🟥）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tf2ed3f",
    "tags": [
     "形状"
    ]
@@ -5406,6 +5760,7 @@
    "unit": "认识形状",
    "type": "选择",
    "question": "钟表的表面像什么形状？🕐",
+   "question_image": "images/k/shapes/KC-030_stem_clock.webp",
    "tts_text": "钟表的表面像什么形状？",
    "options": [
     {
@@ -5431,6 +5786,8 @@
    "volume": "小班",
    "knowledge_point": "形状",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Tedd7fb",
    "tags": [
     "形状"
    ]
@@ -5447,17 +5804,17 @@
    "options": [
     {
      "text": "🍕 一块披萨",
-     "image": "",
+     "image": "images/k/objects/obj_pizza_slice.webp",
      "audio": ""
     },
     {
      "text": "⚽ 足球",
-     "image": "",
+     "image": "images/k/objects/obj_football.webp",
      "audio": ""
     },
     {
      "text": "📺 电视",
-     "image": "",
+     "image": "images/k/objects/obj_tv.webp",
      "audio": ""
     }
    ],
@@ -5469,6 +5826,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-031_a.webp（一块披萨）；B_image images/k/KC-031_b.webp（足球）；C_image images/k/KC-031_c.webp（电视）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T24a84e",
    "tags": [
     "形状"
    ]
@@ -5485,17 +5844,17 @@
    "options": [
     {
      "text": "🏀 篮球",
-     "image": "",
+     "image": "images/k/objects/obj_basketball.webp",
      "audio": ""
     },
     {
      "text": "🥚 鸡蛋",
-     "image": "",
+     "image": "images/k/objects/obj_egg.webp",
      "audio": ""
     },
     {
      "text": "🎁 礼物盒",
-     "image": "",
+     "image": "images/k/objects/obj_giftbox.webp",
      "audio": ""
     }
    ],
@@ -5507,6 +5866,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-032_a.webp（篮球）；B_image images/k/KC-032_b.webp（鸡蛋）；C_image images/k/KC-032_c.webp（礼物盒）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T6a8d72",
    "tags": [
     "形状"
    ]
@@ -5523,17 +5884,17 @@
    "options": [
     {
      "text": "🧱 积木",
-     "image": "",
+     "image": "images/k/objects/obj_block.webp",
      "audio": ""
     },
     {
      "text": "⚽ 皮球",
-     "image": "",
+     "image": "images/k/objects/obj_ball.webp",
      "audio": ""
     },
     {
      "text": "📦 盒子",
-     "image": "",
+     "image": "images/k/objects/obj_box.webp",
      "audio": ""
     }
    ],
@@ -5545,6 +5906,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-033_a.webp（积木）；B_image images/k/KC-033_b.webp（皮球）；C_image images/k/KC-033_c.webp（盒子）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T20cb7c",
    "tags": [
     "形状"
    ]
@@ -5561,17 +5924,17 @@
    "options": [
     {
      "text": "🟥",
-     "image": "",
+     "image": "image:shape_square?color=red",
      "audio": ""
     },
     {
      "text": "🔴",
-     "image": "",
+     "image": "image:shape_circle?color=red",
      "audio": ""
     },
     {
      "text": "🔵",
-     "image": "",
+     "image": "image:shape_circle?color=blue",
      "audio": ""
     }
    ],
@@ -5583,6 +5946,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-034_a.webp（🟥）；B_image images/k/KC-034_b.webp（🔴）；C_image images/k/KC-034_c.webp（🔵）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "Ta4df65",
    "tags": [
     "形状"
    ]
@@ -5599,17 +5964,17 @@
    "options": [
     {
      "text": "⭐",
-     "image": "",
+     "image": "image:shape_star?color=yellow",
      "audio": ""
     },
     {
      "text": "❤️",
-     "image": "",
+     "image": "image:shape_heart?color=red",
      "audio": ""
     },
     {
      "text": "🔺",
-     "image": "",
+     "image": "image:shape_triangle?color=red",
      "audio": ""
     }
    ],
@@ -5621,6 +5986,8 @@
    "knowledge_point": "形状",
    "assets_todo": "A_image images/k/KC-035_a.webp（星星）；B_image images/k/KC-035_b.webp（❤️）；C_image images/k/KC-035_c.webp（🔺）",
    "game_ready": true,
+   "review_changed": "是",
+   "template": "T597684",
    "tags": [
     "形状"
    ]
@@ -5659,6 +6026,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-019_a.webp（青蛙）；B_image images/k/KD-019_b.webp（小熊）；C_image images/k/KD-019_c.webp（小兔）",
    "game_ready": true,
+   "template": "T9b1df9",
    "tags": [
     "动物识图"
    ]
@@ -5697,6 +6065,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-021_a.webp（老虎）；B_image images/k/KD-021_b.webp（狮子）；C_image images/k/KD-021_c.webp（熊猫）",
    "game_ready": true,
+   "template": "T1c216f",
    "tags": [
     "动物识图"
    ]
@@ -5735,6 +6104,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-022_a.webp（考拉）；B_image images/k/KD-022_b.webp（小熊）；C_image images/k/KD-022_c.webp（熊猫）",
    "game_ready": true,
+   "template": "T2411dd",
    "tags": [
     "动物识图"
    ]
@@ -5773,6 +6143,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-023_a.webp（长颈鹿）；B_image images/k/KD-023_b.webp（小马）；C_image images/k/KD-023_c.webp（大象）",
    "game_ready": true,
+   "template": "Tad7e83",
    "tags": [
     "动物识图"
    ]
@@ -5811,6 +6182,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-024_a.webp（小猪）；B_image images/k/KD-024_b.webp（小狗）；C_image images/k/KD-024_c.webp（猴子）",
    "game_ready": true,
+   "template": "Tff50d9",
    "tags": [
     "动物识图"
    ]
@@ -5849,6 +6221,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-025_a.webp（公鸡）；B_image images/k/KD-025_b.webp（小鸭）；C_image images/k/KD-025_c.webp（小鸟）",
    "game_ready": true,
+   "template": "T9cd00c",
    "tags": [
     "动物识图"
    ]
@@ -5887,6 +6260,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-026_a.webp（小鱼）；B_image images/k/KD-026_b.webp（乌龟）；C_image images/k/KD-026_c.webp（青蛙）",
    "game_ready": true,
+   "template": "T1e46a5",
    "tags": [
     "动物识图"
    ]
@@ -5925,6 +6299,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-027_a.webp（小鸟）；B_image images/k/KD-027_b.webp（企鹅）；C_image images/k/KD-027_c.webp（小鸭）",
    "game_ready": true,
+   "template": "Tb08078",
    "tags": [
     "动物识图"
    ]
@@ -5963,6 +6338,7 @@
    "knowledge_point": "动物识图",
    "assets_todo": "A_image images/k/KD-028_a.webp（瓢虫）；B_image images/k/KD-028_b.webp（蜜蜂）；C_image images/k/KD-028_c.webp（蝴蝶）",
    "game_ready": true,
+   "template": "T579291",
    "tags": [
     "动物识图"
    ]
@@ -6001,6 +6377,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-029_a.webp（小狗）；B_image images/k/KD-029_b.webp（奶牛）；C_image images/k/KD-029_c.webp（小猫）",
    "game_ready": true,
+   "template": "T331c21",
    "tags": [
     "动物叫声"
    ]
@@ -6039,6 +6416,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-030_a.webp（小猪）；B_image images/k/KD-030_b.webp（公鸡）；C_image images/k/KD-030_c.webp（奶牛）",
    "game_ready": true,
+   "template": "T331c21",
    "tags": [
     "动物叫声"
    ]
@@ -6077,6 +6455,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-031_a.webp（小马）；B_image images/k/KD-031_b.webp（青蛙）；C_image images/k/KD-031_c.webp（小羊）",
    "game_ready": true,
+   "template": "T331c21",
    "tags": [
     "动物叫声"
    ]
@@ -6115,6 +6494,7 @@
    "knowledge_point": "动物叫声",
    "assets_todo": "A_image images/k/KD-032_a.webp（奶牛）；B_image images/k/KD-032_b.webp（青蛙）；C_image images/k/KD-032_c.webp（小猫）",
    "game_ready": true,
+   "template": "T331c21",
    "tags": [
     "动物叫声"
    ]
@@ -6153,6 +6533,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "题干图 images/k/KD-033.webp（小鱼×1）；A_image images/k/KD-033_a.webp（树上）；B_image images/k/KD-033_b.webp（沙漠）；C_image images/k/KD-033_c.webp（水里）",
    "game_ready": true,
+   "template": "Td4b8be",
    "tags": [
     "动物习性"
    ]
@@ -6191,6 +6572,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "题干图 images/k/KD-034.webp（小鸟×1）；A_image images/k/KD-034_a.webp（地洞）；B_image images/k/KD-034_b.webp（树上的鸟窝）；C_image images/k/KD-034_c.webp（水里）",
    "game_ready": true,
+   "template": "Ta514ea",
    "tags": [
     "动物习性"
    ]
@@ -6229,6 +6611,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "题干图 images/k/KD-035.webp（小兔×1）；A_image images/k/KD-035_a.webp（小鱼）；B_image images/k/KD-035_b.webp（🍖）；C_image images/k/KD-035_c.webp（胡萝卜）",
    "game_ready": true,
+   "template": "Tba4a25",
    "tags": [
     "动物习性"
    ]
@@ -6267,6 +6650,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "题干图 images/k/KD-036.webp（小猫×1）；A_image images/k/KD-036_a.webp（胡萝卜）；B_image images/k/KD-036_b.webp（小鱼）；C_image images/k/KD-036_c.webp（香蕉）",
    "game_ready": true,
+   "template": "Ta6fc53",
    "tags": [
     "动物习性"
    ]
@@ -6305,6 +6689,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "题干图 images/k/KD-037.webp（猴子×1）；A_image images/k/KD-037_a.webp（🌽）；B_image images/k/KD-037_b.webp（🥩）；C_image images/k/KD-037_c.webp（香蕉）",
    "game_ready": true,
+   "template": "Ta4755e",
    "tags": [
     "动物习性"
    ]
@@ -6343,6 +6728,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "题干图 images/k/KD-038.webp（熊猫×1）；A_image images/k/KD-038_a.webp（肉）；B_image images/k/KD-038_b.webp（竹子）；C_image images/k/KD-038_c.webp（披萨）",
    "game_ready": true,
+   "template": "T250d0e",
    "tags": [
     "动物习性"
    ]
@@ -6381,6 +6767,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "A_image images/k/KD-039_a.webp（小鸟）；B_image images/k/KD-039_b.webp（小狗）；C_image images/k/KD-039_c.webp（小鱼）",
    "game_ready": true,
+   "template": "T3d9271",
    "tags": [
     "动物习性"
    ]
@@ -6419,6 +6806,7 @@
    "knowledge_point": "动物习性",
    "assets_todo": "A_image images/k/KD-040_a.webp（公鸡）；B_image images/k/KD-040_b.webp（小猫）；C_image images/k/KD-040_c.webp（小鱼）",
    "game_ready": true,
+   "template": "T45d592",
    "tags": [
     "动物习性"
    ]
@@ -6457,6 +6845,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-017_a.webp（📚）；B_image images/k/KL-017_b.webp（🥤）；C_image images/k/KL-017_c.webp（👟）",
    "game_ready": true,
+   "template": "T793fac",
    "tags": [
     "物品识图"
    ]
@@ -6495,6 +6884,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-018_a.webp（✏️）；B_image images/k/KL-018_b.webp（🥄）；C_image images/k/KL-018_c.webp（🧦）",
    "game_ready": true,
+   "template": "Td01c8d",
    "tags": [
     "物品识图"
    ]
@@ -6533,6 +6923,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-019_a.webp（🧸）；B_image images/k/KL-019_b.webp（🪥）；C_image images/k/KL-019_c.webp（⚽）",
    "game_ready": true,
+   "template": "Td151e8",
    "tags": [
     "物品识图"
    ]
@@ -6571,6 +6962,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-020_a.webp（🥄）；B_image images/k/KL-020_b.webp（🧢）；C_image images/k/KL-020_c.webp（👟）",
    "game_ready": true,
+   "template": "T1d7516",
    "tags": [
     "物品识图"
    ]
@@ -6609,6 +7001,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-021_a.webp（👟）；B_image images/k/KL-021_b.webp（🧢）；C_image images/k/KL-021_c.webp（苹果）",
    "game_ready": true,
+   "template": "T0e95c8",
    "tags": [
     "物品识图"
    ]
@@ -6647,6 +7040,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-022_a.webp（🥛）；B_image images/k/KL-022_b.webp（🧸）；C_image images/k/KL-022_c.webp（☂️）",
    "game_ready": true,
+   "template": "T98c892",
    "tags": [
     "物品识图"
    ]
@@ -6685,6 +7079,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-023_a.webp（🥤）；B_image images/k/KL-023_b.webp（🧦）；C_image images/k/KL-023_c.webp（📖）",
    "game_ready": true,
+   "template": "Tfcadc7",
    "tags": [
     "物品识图"
    ]
@@ -6723,6 +7118,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-024_a.webp（小汽车）；B_image images/k/KL-024_b.webp（🛏️）；C_image images/k/KL-024_c.webp（🪑）",
    "game_ready": true,
+   "template": "T4f78c1",
    "tags": [
     "物品识图"
    ]
@@ -6761,6 +7157,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-025_a.webp（🛏️）；B_image images/k/KL-025_b.webp（🚪）；C_image images/k/KL-025_c.webp（🪑）",
    "game_ready": true,
+   "template": "T1f47a0",
    "tags": [
     "物品识图"
    ]
@@ -6799,6 +7196,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-026_a.webp（✂️）；B_image images/k/KL-026_b.webp（🥄）；C_image images/k/KL-026_c.webp（🔑）",
    "game_ready": true,
+   "template": "T28ddf8",
    "tags": [
     "物品识图"
    ]
@@ -6837,6 +7235,7 @@
    "knowledge_point": "物品识图",
    "assets_todo": "A_image images/k/KL-027_a.webp（📖）；B_image images/k/KL-027_b.webp（🧢）；C_image images/k/KL-027_c.webp（🧦）",
    "game_ready": true,
+   "template": "Tfeb3ee",
    "tags": [
     "物品识图"
    ]
@@ -6876,6 +7275,7 @@
    "assets_todo": "A_image images/k/KL-028_a.webp（🧻）；B_image images/k/KL-028_b.webp（👟）；C_image images/k/KL-028_c.webp（🔑）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Te79978",
    "tags": [
     "物品识图"
    ]
@@ -6914,6 +7314,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-029_a.webp（雨伞）；B_image images/k/KL-029_b.webp（风筝）；C_image images/k/KL-029_c.webp（墨镜）",
    "game_ready": true,
+   "template": "Tb149ee",
    "tags": [
     "生活常识"
    ]
@@ -6952,6 +7353,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-030_a.webp（铅笔）；B_image images/k/KL-030_b.webp（勺子）；C_image images/k/KL-030_c.webp（牙刷）",
    "game_ready": true,
+   "template": "T031f18",
    "tags": [
     "生活常识"
    ]
@@ -6990,6 +7392,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-032_a.webp（厚外套）；B_image images/k/KL-032_b.webp（泳衣）；C_image images/k/KL-032_c.webp（短裤）",
    "game_ready": true,
+   "template": "T6bef72",
    "tags": [
     "生活常识"
    ]
@@ -7028,6 +7431,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-033_a.webp（汽车）；B_image images/k/KL-033_b.webp（滑梯）；C_image images/k/KL-033_c.webp（床上）",
    "game_ready": true,
+   "template": "Td9ea00",
    "tags": [
     "生活常识"
    ]
@@ -7067,6 +7471,7 @@
    "assets_todo": "A_image images/k/KL-034_a.webp（停下来等）；B_image images/k/KL-034_b.webp（跳舞）；C_image images/k/KL-034_c.webp（快点跑）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "T22a8da",
    "tags": [
     "生活常识"
    ]
@@ -7105,6 +7510,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-035_a.webp（袜子）；B_image images/k/KL-035_b.webp（台灯）；C_image images/k/KL-035_c.webp（钥匙）",
    "game_ready": true,
+   "template": "Tb84ab6",
    "tags": [
     "生活常识"
    ]
@@ -7143,6 +7549,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-036_a.webp（书）；B_image images/k/KL-036_b.webp（火）；C_image images/k/KL-036_c.webp（小熊）",
    "game_ready": true,
+   "template": "T5ee4a4",
    "tags": [
     "生活常识"
    ]
@@ -7181,6 +7588,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-037_a.webp（杯子）；B_image images/k/KL-037_b.webp（帽子）；C_image images/k/KL-037_c.webp（鞋子）",
    "game_ready": true,
+   "template": "T8aa8a4",
    "tags": [
     "生活常识"
    ]
@@ -7219,6 +7627,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-038_a.webp（海绵）；B_image images/k/KL-038_b.webp（面包）；C_image images/k/KL-038_c.webp（积木）",
    "game_ready": true,
+   "template": "T33d2b4",
    "tags": [
     "生活常识"
    ]
@@ -7257,6 +7666,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-039_a.webp（扔掉）；B_image images/k/KL-039_b.webp（放回筐里）；C_image images/k/KL-039_c.webp（藏起来）",
    "game_ready": true,
+   "template": "T028158",
    "tags": [
     "生活常识"
    ]
@@ -7295,6 +7705,7 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-040_a.webp（纸巾或胳膊肘）；B_image images/k/KL-040_b.webp（什么都不用）；C_image images/k/KL-040_c.webp（帽子）",
    "game_ready": true,
+   "template": "Teb84db",
    "tags": [
     "生活常识"
    ]
@@ -7333,6 +7744,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-001_a.webp（小猫）；B_image images/k/KE-001_b.webp（小鱼）；C_image images/k/KE-001_c.webp（小狗）；question_audio audio/k/KE-001.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7372,6 +7784,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-002_a.webp（小狗）；B_image images/k/KE-002_b.webp（小猫）；C_image images/k/KE-002_c.webp（小猪）；question_audio audio/k/KE-002.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7411,6 +7824,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-003_a.webp（小鱼）；B_image images/k/KE-003_b.webp（小猫）；C_image images/k/KE-003_c.webp（小鸟）；question_audio audio/k/KE-003.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7450,6 +7864,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-004_a.webp（小狗）；B_image images/k/KE-004_b.webp（小鱼）；C_image images/k/KE-004_c.webp（小鸟）；question_audio audio/k/KE-004.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7489,6 +7904,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-005_a.webp（小鸭）；B_image images/k/KE-005_b.webp（公鸡）；C_image images/k/KE-005_c.webp（小猪）；question_audio audio/k/KE-005.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7528,6 +7944,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-006_a.webp（奶牛）；B_image images/k/KE-006_b.webp（小狗）；C_image images/k/KE-006_c.webp（小猪）；question_audio audio/k/KE-006.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7567,6 +7984,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-007_a.webp（小熊）；B_image images/k/KE-007_b.webp（小兔）；C_image images/k/KE-007_c.webp（青蛙）；question_audio audio/k/KE-007.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7606,6 +8024,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-008_a.webp（猴子）；B_image images/k/KE-008_b.webp（小熊）；C_image images/k/KE-008_c.webp（小兔）；question_audio audio/k/KE-008.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7645,6 +8064,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-009_a.webp（熊猫）；B_image images/k/KE-009_b.webp（小熊）；C_image images/k/KE-009_c.webp（老虎）；question_audio audio/k/KE-009.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7684,6 +8104,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-010_a.webp（大象）；B_image images/k/KE-010_b.webp（猴子）；C_image images/k/KE-010_c.webp（小狗）；question_audio audio/k/KE-010.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "动物"
@@ -7723,6 +8144,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-011_a.webp（苹果）；B_image images/k/KE-011_b.webp（葡萄）；C_image images/k/KE-011_c.webp（香蕉）；question_audio audio/k/KE-011.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7762,6 +8184,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-012_a.webp（香蕉）；B_image images/k/KE-012_b.webp（草莓）；C_image images/k/KE-012_c.webp（苹果）；question_audio audio/k/KE-012.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7801,6 +8224,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-013_a.webp（苹果）；B_image images/k/KE-013_b.webp（西瓜）；C_image images/k/KE-013_c.webp（橘子）；question_audio audio/k/KE-013.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7840,6 +8264,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-014_a.webp（香蕉）；B_image images/k/KE-014_b.webp（樱桃）；C_image images/k/KE-014_c.webp（葡萄）；question_audio audio/k/KE-014.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7879,6 +8304,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-015_a.webp（💧）；B_image images/k/KE-015_b.webp（🥛）；C_image images/k/KE-015_c.webp（🍞）；question_audio audio/k/KE-015.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7918,6 +8344,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-016_a.webp（💧）；B_image images/k/KE-016_b.webp（🥛）；C_image images/k/KE-016_c.webp（🍰）；question_audio audio/k/KE-016.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7957,6 +8384,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-017_a.webp（苹果）；B_image images/k/KE-017_b.webp（🍞）；C_image images/k/KE-017_c.webp（🥚）；question_audio audio/k/KE-017.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -7996,6 +8424,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-018_a.webp（🍰）；B_image images/k/KE-018_b.webp（🥚）；C_image images/k/KE-018_c.webp（香蕉）；question_audio audio/k/KE-018.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "食物"
@@ -8035,6 +8464,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-019_a.webp（🔵）；B_image images/k/KE-019_b.webp（🔴）；C_image images/k/KE-019_c.webp（🟢）；question_audio audio/k/KE-019.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "T61b765",
    "tags": [
     "英语单词",
     "颜色"
@@ -8074,6 +8504,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-020_a.webp（🔵）；B_image images/k/KE-020_b.webp（🟡）；C_image images/k/KE-020_c.webp（🔴）；question_audio audio/k/KE-020.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "T61b765",
    "tags": [
     "英语单词",
     "颜色"
@@ -8113,6 +8544,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-021_a.webp（🔴）；B_image images/k/KE-021_b.webp（🟡）；C_image images/k/KE-021_c.webp（🟢）；question_audio audio/k/KE-021.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "T61b765",
    "tags": [
     "英语单词",
     "颜色"
@@ -8152,6 +8584,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-022_a.webp（🔵）；B_image images/k/KE-022_b.webp（🟡）；C_image images/k/KE-022_c.webp（🟢）；question_audio audio/k/KE-022.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "T61b765",
    "tags": [
     "英语单词",
     "颜色"
@@ -8191,6 +8624,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-023_a.webp（⚪）；B_image images/k/KE-023_b.webp（🔴）；C_image images/k/KE-023_c.webp（⚫）；question_audio audio/k/KE-023.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "T61b765",
    "tags": [
     "英语单词",
     "颜色"
@@ -8230,6 +8664,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-024_a.webp（⚫）；B_image images/k/KE-024_b.webp（🟡）；C_image images/k/KE-024_c.webp（⚪）；question_audio audio/k/KE-024.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "T61b765",
    "tags": [
     "英语单词",
     "颜色"
@@ -8269,6 +8704,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-025_a.webp（👁️）；B_image images/k/KE-025_b.webp（👂）；C_image images/k/KE-025_c.webp（👃）；question_audio audio/k/KE-025.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8308,6 +8744,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-026_a.webp（👁️）；B_image images/k/KE-026_b.webp（✋）；C_image images/k/KE-026_c.webp（👂）；question_audio audio/k/KE-026.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8347,6 +8784,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-027_a.webp（🦶）；B_image images/k/KE-027_b.webp（👃）；C_image images/k/KE-027_c.webp（👂）；question_audio audio/k/KE-027.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8386,6 +8824,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-028_a.webp（👃）；B_image images/k/KE-028_b.webp（🦶）；C_image images/k/KE-028_c.webp（✋）；question_audio audio/k/KE-028.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8425,6 +8864,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-029_a.webp（✋）；B_image images/k/KE-029_b.webp（👄）；C_image images/k/KE-029_c.webp（👁️）；question_audio audio/k/KE-029.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8464,6 +8904,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-030_a.webp（3️⃣）；B_image images/k/KE-030_b.webp（2️⃣）；C_image images/k/KE-030_c.webp（1️⃣）；question_audio audio/k/KE-030.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8503,6 +8944,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-031_a.webp（3️⃣）；B_image images/k/KE-031_b.webp（2️⃣）；C_image images/k/KE-031_c.webp（1️⃣）；question_audio audio/k/KE-031.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8542,6 +8984,7 @@
    "knowledge_point": "英语单词",
    "assets_todo": "A_image images/k/KE-032_a.webp（3️⃣）；B_image images/k/KE-032_b.webp（5️⃣）；C_image images/k/KE-032_c.webp（1️⃣）；question_audio audio/k/KE-032.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbb3db6",
    "tags": [
     "英语单词",
     "身体数字"
@@ -8581,6 +9024,7 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-033.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "template": "T562cd8",
    "tags": [
     "英语",
     "日常用语"
@@ -8620,6 +9064,7 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-034.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "template": "T60c90b",
    "tags": [
     "英语",
     "日常用语"
@@ -8659,6 +9104,7 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-035.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "template": "T4a0d81",
    "tags": [
     "英语",
     "日常用语"
@@ -8698,6 +9144,7 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-036.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "template": "T064957",
    "tags": [
     "英语",
     "日常用语"
@@ -8737,6 +9184,7 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-037.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "template": "Tbb002b",
    "tags": [
     "英语",
     "日常用语"
@@ -8776,6 +9224,7 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-038.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "template": "Tf0627e",
    "tags": [
     "英语",
     "日常用语"
@@ -8815,6 +9264,7 @@
    "knowledge_point": "英语",
    "assets_todo": "A_image images/k/KE-039_a.webp（妈妈）；B_image images/k/KE-039_b.webp（爸爸）；C_image images/k/KE-039_c.webp（宝宝）；question_audio audio/k/KE-039.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbbfd9f",
    "tags": [
     "英语",
     "日常用语"
@@ -8854,6 +9304,7 @@
    "knowledge_point": "英语",
    "assets_todo": "A_image images/k/KE-040_a.webp（妈妈）；B_image images/k/KE-040_b.webp（奶奶）；C_image images/k/KE-040_c.webp（爸爸）；question_audio audio/k/KE-040.m4a（英文单词发音，可用 TTS 代替）",
    "game_ready": true,
+   "template": "Tbbfd9f",
    "tags": [
     "英语",
     "日常用语"
@@ -8894,6 +9345,7 @@
    "assets_todo": "question_audio audio/k/KG-017.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Teff155",
    "tags": [
     "古诗",
     "咏鹅"
@@ -8934,6 +9386,7 @@
    "assets_todo": "question_audio audio/k/KG-018.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "T6b4e5a",
    "tags": [
     "古诗",
     "咏鹅"
@@ -8974,6 +9427,7 @@
    "assets_todo": "question_audio audio/k/KG-019.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Teff155",
    "tags": [
     "古诗",
     "春晓"
@@ -9013,6 +9467,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-020.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "春晓"
@@ -9053,6 +9508,7 @@
    "assets_todo": "question_audio audio/k/KG-021.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Teff155",
    "tags": [
     "古诗",
     "静夜思"
@@ -9093,6 +9549,7 @@
    "assets_todo": "question_audio audio/k/KG-022.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Tde7f40",
    "tags": [
     "古诗",
     "静夜思"
@@ -9133,6 +9590,7 @@
    "assets_todo": "question_audio audio/k/KG-023.m4a（家长朗读/唱）",
    "game_ready": true,
    "review_changed": "是",
+   "template": "Teff155",
    "tags": [
     "古诗",
     "悯农（其二）"
@@ -9172,6 +9630,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-024.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "悯农（其二）"
@@ -9211,6 +9670,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-025.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "画"
@@ -9250,6 +9710,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-026.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "画"
@@ -9289,6 +9750,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-027.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "江南"
@@ -9328,6 +9790,7 @@
    "knowledge_point": "古诗",
    "assets_todo": "question_audio audio/k/KG-028.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "古诗",
     "江南"
@@ -9369,6 +9832,7 @@
    "assets_todo": "question_audio audio/k/KG-032.m4a（家长朗读/唱）",
    "game_ready": false,
    "review_changed": "是",
+   "template": "Teff155",
    "tags": [
     "儿歌"
    ]
@@ -9407,6 +9871,7 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-033.m4a（家长朗读/唱）",
    "game_ready": true,
+   "template": "Teff155",
    "tags": [
     "儿歌"
    ]
@@ -9447,6 +9912,7 @@
    "assets_todo": "question_audio audio/k/KG-035.m4a（家长朗读/唱）",
    "game_ready": false,
    "review_changed": "是",
+   "template": "T68ede0",
    "tags": [
     "儿歌"
    ]

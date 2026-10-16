@@ -227,7 +227,7 @@ describe('技术修复 & 策划确认单', () => {
     expect(s.until).toBe(300e3);
     for (let i = 0; i < 5; i++) s = nextLock(s, false, 0);
     expect(s.until).toBe(900e3);
-    expect(nextLock(s, true, 0)).toEqual({ fails: 0, level: 0, until: 0 });
+    expect(nextLock(s, true, 0)).toMatchObject({ fails: 0, level: 0, until: 0 });
   });
   it('J-1 数数题：题干 emoji 拆成可数物品，数量与答案一致', () => {
     const k1 = loadBank(JSON.parse(readFileSync(new URL('../public/banks/bank_K1.json', import.meta.url), 'utf8')), 'k').all;
@@ -244,8 +244,8 @@ describe('技术修复 & 策划确认单', () => {
     const lv10 = buildChapters(pub('10').filter(q => q.status !== '停用')).flatMap(c => c.levels).filter(l => l.kind === 'normal');
     const l115 = lv10.find(l => l.pool.includes('10:M10-115'))!;
     expect(l115.name).toContain('余弦定理');
-    const lv7 = buildChapters(pub('7')).flatMap(c => c.levels);
+    const p7 = pub('7'); const by7 = new Map(p7.map(q => [q.key, q])); const lv7 = buildChapters(p7).flatMap(c => c.levels);
     expect(lv7.some(l => l.kind === 'normal' && l.name.includes('数轴'))).toBe(true);
-    expect(lv7.filter(l => l.kind === 'normal').every(l => new Set(l.pool.map(k => pub('7').find(q => q.key === k)!.unit)).size === 1)).toBe(true);
+    expect(lv7.filter(l => l.kind === 'normal' && !l.parts).every(l => new Set(l.pool.map(k => by7.get(k)!.unit)).size === 1)).toBe(true);
   });
 });

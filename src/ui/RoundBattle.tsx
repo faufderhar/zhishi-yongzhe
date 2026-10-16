@@ -1,6 +1,7 @@
 /* D6 轮流回合战斗界面（实现规格 v0.3.6）：我方回合 / 对方回合交替，每回合 1 题；小学 3–6、初一、高一 */
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
+import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
@@ -12,6 +13,8 @@ import { MONSTER_IMG } from '../game/characters';
 import { speak } from '../tts';
 import { answerFeedback } from '../feedback';
 import { sleep } from '../fx/motion';
+import { skinFor, softFor } from '../game/monsterSkin';
+import { newTier, nextTier, pickByTier, isConsolidating, showConsolidateTag, type Tier } from '../game/consolidate';
 import { useDirector, PauseOverlay, Sprite, usePauseOnHide, useWakeLock, usePauseTimeout, useForceEnd, type BattleProps } from './Battle';
 
 type Phase = 'pre' | 'cards' | 'wager' | 'question' | 'anim' | 'feedback' | 'revive-ask' | 'revive-q' | 'retreat';
@@ -19,7 +22,9 @@ const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.
 
 export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false }: BattleProps & { wagerOn?: boolean; lowGrade?: boolean }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
-  const mon = MONSTERS[cfg.stats][kind];
+  const mon0 = MONSTERS[cfg.stats][kind];
+  const skin = skinFor(questions[0]?.subject, kind);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   const pool = useRef<Question[]>([...questions, ...extra.filter(q => !questions.some(x => x.key === q.key))]);
   const [bs, setBs] = useState<RState>(() => {
     const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail });
@@ -44,12 +49,12 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const [flagged, setFlagged] = useState(false);
   const stats = useRef({ correct: 0, total: 0, wrong: [] as string[], wrongQs: [] as Question[] });
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number; tries: number } | null>(null);
-  const D = useDirector(false, c, 0.75, hs);
+  const D = useDirector(false, c, 0.75, hs, { skin, soft: softFor(cfg.band) });
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp });
   const [ending, setEnding] = useState(false);
   useWakeLock(); usePauseTimeout(paused, onQuit);
   const result = (s: RState) => ({ win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
-  useForceEnd(() => { const s = bsRef.current; onEnd({ ...result(s), win: s.monsterHp < s.monsterMax / 2, retreat: true }); });
+  useForceEnd(() => { const s = bsRef.current; onEnd({ ...result(s), win: false, retreat: false, timeUp: true }); });   // 到时强制结算：与回合上限撤退分开（技术QA R4-3）
   const mySkills = useMemo(() => skillsFor(bs.seg, c.major), [bs.seg, c.major]);
   useEffect(() => { preloadSkillArt(mySkills); }, [mySkills]);
   useEffect(() => {   // 仅自动化测试：直接播放任意技能特效（图集 / 护眼逐个检查）
@@ -60,10 +65,13 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const il = intentLabel(bs);
 
   /** 取下一题：对方回合排除多步题；高一对方回合出标准难度（不选卡） */
-  const take = (pred: (x: Question) => boolean = () => true) => pool.current.find(x => pred(x)) ?? pool.current[0];
+  // 关内难度回落（裁定 4）：连错 2 题降 1 档，降档后连对 2 题恢复
+  const tierRef = useRef<Tier>(newTier(Math.round(questions.reduce((a, q) => a + q.difficulty, 0) / Math.max(1, questions.length)) || 2));
+  const [consol, setConsol] = useState(false);
+  const take = (pred: (x: Question) => boolean = () => true) => { const q = pickByTier(pool.current.filter(pred), tierRef.current) ?? pool.current[0]; setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
   const cards = useMemo(() => {
     if (!hs || phase !== 'cards') return null;
-    const rest = pool.current; const base = rest.find(x => !isMulti(x)) ?? rest[0]; if (!base) return null;
+    const rest = pool.current; const base = pickByTier(rest.filter(x => !isMulti(x)), tierRef.current) ?? rest[0]; if (!base) return null;
     const near = (d: number, used: string[]) => rest.filter(x => !used.includes(x.key) && !isMulti(x)).sort((a, b) => Math.abs(a.difficulty - d) - Math.abs(b.difficulty - d))[0];
     const light = near(base.difficulty - 1, [base.key]) ?? base;
     const heavy = rest.find(x => isMulti(x) && x.key !== base.key) ?? near(base.difficulty + 1, [base.key, light.key]) ?? base;
@@ -106,7 +114,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     setPhase('anim');
     try { await Promise.race([show(), sleep(1500)]); } catch { /* 动画失败不影响流程 */ }
   }
-  const pickCard = (k: CardKind) => { if (!cards) return; setCard(k); setQ(cards[k]); setPhase(wagerOn ? 'wager' : 'question'); };
+  const pickCard = (k: CardKind) => { if (!cards) return; setCard(k); setQ(cards[k]); setConsol(isConsolidating(tierRef.current) && cards[k].difficulty < tierRef.current.base); setPhase(wagerOn ? 'wager' : 'question'); };
 
   function submit(val: string) {
     const qq = cq!;
@@ -121,9 +129,11 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     if (phase !== 'question') return;
     const g = val === '' ? 'wrong' : judge(qq, qq.type === '多选' ? val.split('') : val);
     const ok = g !== 'wrong';
-    setPicked(val); answerFeedback(ok); setFlagged(false);
+    setPicked(val); answerFeedback(g === 'full'); setFlagged(false);
     stats.current.total++;
-    if (g === 'full') stats.current.correct++; else { stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); }
+    tierRef.current = nextTier(tierRef.current, g === 'full');
+    if (g === 'full') stats.current.correct++; else if (g === 'partial') { stats.current.correct += 0.5; stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); } else {   // 漏选算 0.5（裁定 1）
+     stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); }
     onAnswer(qq, g === 'full', val);
     pool.current = pool.current.filter(x => x.key !== qq.key); used.current.push(qq);
     const fast = elapsed <= (limit ? limit * PERFECT_FRACTION : PERFECT_NOLIMIT_SEC);
@@ -140,10 +150,11 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     void play(show).then(() => {
       if (!D.alive.current) return;
       setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns);
-      setFb({ ok, o, partial: g === 'partial', text: (ok ? '✔ 正确！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + (g === 'partial' ? '（漏选，半伤害）' : '') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体抵挡 30%）' : '') });
+      const full = g === 'full';   // 漏选不算答对（策划裁定 6）：显示解析，至少停 2 秒
+      setFb({ ok: full, o, partial: g === 'partial', text: (full ? '✔ 正确！' : g === 'partial' ? '◐ 漏选了！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体抵挡 30%）' : '') });
       if (ns.over === 'win') { void finish(ns); return; }
-      setCanNext(ok); setPhase('feedback');
-      if (!ok) setTimeout(() => setCanNext(true), 2000);   // 解析至少停 2 秒（规格 §1）
+      setCanNext(full); setPhase('feedback');
+      if (!full) setTimeout(() => setCanNext(true), 2000);   // 解析至少停 2 秒（规格 §1）
     });
   }
   function next() {
@@ -158,7 +169,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     setPhase('pre');
   }
   const isEn = cq?.subject === '英语';
-  const letters = !!cq?.answer.some(a => /[a-z]/i.test(a));
+  const letters = cq?.subject === '英语' || !!cq?.answer.some(a => /[a-df-z]/i.test(a));   // 英语 / 文字答案用字母键盘；数字里的 e 是科学计数
   const tts = cq ? ttsText(cq) : '';
   const showQ = cq && (asking || phase === 'feedback' || phase === 'anim');
   const left = roundsLeft(bs);
@@ -183,8 +194,9 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
       {!bs.over && phase !== 'revive-ask' && phase !== 'revive-q' && <div key={bs.turn} className={`side-banner ${P ? 'p' : 'm'}`} data-testid="banner">{P ? '⚔ 我方回合：答对就攻击！' : '🛡 对方回合：答对就闪避！'}</div>}
       <div className="arena">
         <div className="mon-info">
-          <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}{mon.name}{bs.def.phases && ` · 第 ${phaseOf(bs) + 1} 阶段（弱点 ${weakOf(bs)}）`}</b>
-          <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />
+          <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}<span data-testid="monster-name">{mon.name}</span>{bs.def.phases && ` · 第 ${phaseOf(bs) + 1} 阶段（弱点 ${weakOf(bs)}）`}</b>
+          {bs.def.phases ? (() => { const f = bs.def.phases[1].hp, p0 = view.m > f; return <Bar label="" v={p0 ? view.m - f : view.m} max={p0 ? bs.def.phases[0].hp : f} cls="mhp" />; })()   /* 两阶段 Boss：每阶段单独一条血 */
+            : <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />}
           <button className={`intent intent-${nextIntent(bs)} ${il.grey ? 'grey' : ''} ${!P && asking ? 'now' : ''}`} data-testid="intent" data-intent={nextIntent(bs)} onClick={() => setIntentPop(true)} aria-label={'怪物意图：' + il.long}>
             {il.short} ⓘ{bs.shield > 0 && <span data-testid="mshield"> · 护盾 {bs.shield}</span>}</button>
           {!P && asking && <div className="intent-now" data-testid="intent-now">{il.long}</div>}
@@ -194,9 +206,10 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
             {bs.guard && <div className="guard-badge" data-testid="guard" title="护体：下一次受伤 ×0.7">🛡️</div>}
             <div className={`unit-wrap hero-wrap ${fb?.o?.dodged || fb?.o?.perfect ? 'sidestep' : ''}`} ref={D.hero}><div className="breathe"><Sprite className="unit hero" c={c} /></div></div>
             <div className={`unit-wrap mon-wrap ${kind} ${phase === 'retreat' ? 'retreating' : ''}`} ref={D.monster}><div className="breathe slow">
-              <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} draggable={false} />
+              <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} data-testid="monster-img" draggable={false} />
               <img className={`unit monster ${kind} white-flash`} ref={D.flash} src={MONSTER_IMG[mon.img]} alt="" aria-hidden draggable={false} /></div></div>
           </div>
+          {fb?.o?.phaseShift && phase === 'feedback' && <div className="perfect-pop phase-pop" data-testid="phase-shift">第二阶段！</div>}
           {fb?.o?.perfect && phase === 'feedback' && <div className="perfect-pop" data-testid="perfect">完美闪避！</div>}
           <canvas className="fx-canvas" ref={D.canvas} />
         </div>
@@ -223,6 +236,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
           <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
+          {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
           <div className="qtext" data-ans={import.meta.env.DEV || (window as unknown as { __zyTest?: boolean }).__zyTest ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
         </>}
         {asking && cq && cq.type === '多选' && (
@@ -236,7 +250,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
           <div className={`opts ${cq.type === '判断' ? 'tf' : ''}`}>
             {choicesOf(cq).map(ch => <div key={ch.key} className="opt-wrap">
               <button className="opt" data-testid={'opt-' + ch.key} data-correct={cq.answer.includes(ch.key) ? '1' : '0'} onClick={() => submit(ch.key)}>
-                {cq.type === '选择' && <i>{ch.key}</i>}{ch.image ? <img src={ch.image} alt="" className="opt-img" /> : <Tex text={ch.text} />}</button></div>)}
+                {cq.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button></div>)}
           </div>
         )}
         {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={() => submit(input)} />}

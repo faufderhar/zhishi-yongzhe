@@ -17,23 +17,35 @@ export async function verifyPin(pin: string, stored?: string): Promise<boolean> 
 export const HINT_QUESTIONS = ['孩子的小名是？', '家里宠物/玩偶的名字是？', '孩子的生日（如 0612）是？'];
 export const normAnswer = (s: string) => s.replace(/\s+/g, '').toLowerCase();
 
-/** 锁定：连续错 5 次 → 60 秒；再 5 次 → 5 分钟；之后每 5 次 → 15 分钟；对一次清零。localStorage + IndexedDB 双份 */
-export interface LockState { fails: number; level: number; until: number }
+/** 锁定：连续错 5 次 → 60 秒；再 5 次 → 5 分钟；之后每 5 次 → 15 分钟；对一次清零。localStorage + IndexedDB 双份。
+    倒计时只按 performance.now()（单调时钟）的实际流逝扣减 remain，调系统时间无效（技术QA R4-4）；
+    关掉 / 刷新期间不扣（无法可信地知道过了多久），重新打开后从剩余时间继续；seenAt 记录最后一次看到的墙钟，用于防回拨（D8）。 */
+export interface LockState { fails: number; level: number; until: number; remain?: number; seenAt?: number }
 const LK = 'zy.pinLock';
 export const LOCK_STEPS = [60e3, 5 * 60e3, 15 * 60e3];
 export function nextLock(s: LockState, ok: boolean, now: number): LockState {
-  if (ok) return { fails: 0, level: 0, until: 0 };
+  if (ok) return { fails: 0, level: 0, until: 0, remain: 0, seenAt: now };
   const fails = s.fails + 1;
   if (fails < 5) return { ...s, fails };
-  return { fails: 0, level: s.level + 1, until: now + LOCK_STEPS[Math.min(s.level, LOCK_STEPS.length - 1)] };
+  const step = LOCK_STEPS[Math.min(s.level, LOCK_STEPS.length - 1)];
+  return { fails: 0, level: s.level + 1, until: now + step, remain: step, seenAt: now };
+}
+/** 剩余锁定毫秒：新格式只看 remain（与系统时间无关）；旧存档（只有 until）按 until - now 迁移 */
+export const lockLeft = (s: LockState, now = Date.now()) => s.remain != null ? Math.max(0, s.remain) : Math.max(0, s.until - now);
+/** 单调时钟流逝 dt 毫秒后的锁定状态（dt 只取 0–2000，防止休眠/卡顿时一次扣太多） */
+export function tickLock(s: LockState, dt: number, now: number): LockState {
+  const r = lockLeft(s, now); if (!r) return s.remain === 0 ? s : { ...s, remain: 0, seenAt: now };
+  return { ...s, remain: Math.max(0, r - Math.min(2000, Math.max(0, dt))), seenAt: Math.max(s.seenAt ?? 0, now) };
 }
 const parse = (x: unknown): LockState | null => x && typeof x === 'object' && Number.isFinite((x as LockState).until) ? x as LockState : null;
 export async function loadLock(): Promise<LockState> {
   let a: LockState | null = null; try { a = parse(JSON.parse(localStorage.getItem(LK) ?? 'null')); } catch { /* */ }
   const b = parse(await getKV(LK));
   const all = [a, b].filter((x): x is LockState => !!x);
-  if (!all.length) return { fails: 0, level: 0, until: 0 };
-  return all.reduce((m, x) => (x.until > m.until || (x.until === m.until && x.fails + x.level * 5 > m.fails + m.level * 5) ? x : m));
+  if (!all.length) return { fails: 0, level: 0, until: 0, remain: 0 };
+  const now = Date.now();
+  const m = all.reduce((m, x) => (lockLeft(x, now) > lockLeft(m, now) || (lockLeft(x, now) === lockLeft(m, now) && x.fails + x.level * 5 > m.fails + m.level * 5) ? x : m));
+  return { ...m, remain: lockLeft(m, now) };   // 统一迁移到 remain
 }
 export async function saveLock(s: LockState) { try { localStorage.setItem(LK, JSON.stringify(s)); } catch { /* */ } await setKV(LK, s); }
 /** 曾经设置过密码的标记（密码数据丢失时不当成「首次使用」，技术QA P2-1） */

@@ -86,10 +86,10 @@ for (; n < 30; n++) {
 }
 await pg.waitForSelector('[data-testid=result-stats]', { timeout: 10000 });
 const rs = await pg.textContent('[data-testid=result-stats]');
-ok(/答对 \d+ \/ \d+ 题 · 共 \d+ 回合/.test(rs), '结算页显示题数与回合数（#3）: ' + rs);
+ok(/答对 [\d.]+ \/ \d+ 题 · 正确率 \d+% · 共 \d+ 回合/.test(rs), '结算页显示题数与回合数（#3）: ' + rs);
 await pg.screenshot({ path: OUT + 'r4-result.png' });
 const beforeRev = answered;
-await pg.evaluate(() => { window.__zyTestHp = 20; });
+await pg.evaluate(() => { window.__zyTestHp = 20; window.__zyTestMonHp = 9999; });
 // 第二次：全错 → 复活 → 之后我方错/对方对 → 撤退
 await pg.click('[data-testid=again]'); await w(1000);
 let revived = false, turnAtDeath = '', warnSeen = false;
@@ -115,7 +115,7 @@ for (let k = 0; k < 40; k++) {
 }
 ok(revived, '血量归零触发复活挑战');
 ok(warnSeen, '剩余 ≤2 回合时回合数变橙色');
-await pg.evaluate(() => { window.__zyTestHp = undefined; });
+await pg.evaluate(() => { window.__zyTestHp = undefined; window.__zyTestMonHp = undefined; });
 const cntJ = answered;
 await pg.waitForSelector('[data-testid=result-stats]', { timeout: 10000 }).catch(() => {});
 const ret = await pg.isVisible('[data-testid=retreat]'); const stars = await pg.$$eval('.stars .on, .star.on', e => e.length).catch(() => -1);

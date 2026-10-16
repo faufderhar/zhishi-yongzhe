@@ -32,6 +32,13 @@ export async function loadCharAnims(charId: string): Promise<CharAnims | null> {
   const [idle, attack, hit] = await Promise.all(['idle', 'attack', 'hit'].map(n => load('anim/' + d, n)));
   return idle && attack && hit ? { idle, attack, hit } : null;
 }
+/** 学科怪物序列帧（idle/attack/hit/defeat；小班/低年级用 *_soft）。按战斗懒加载，不预缓存；缺任一则返回 null（回退静态立绘 + 程序动画） */
+export type MonAnims = { idle: Sheet; attack: Sheet; hit: Sheet; defeat: Sheet };
+export async function loadMonsterAnims(dir: string, names: Record<'idle' | 'attack' | 'hit' | 'defeat', string>): Promise<MonAnims | null> {
+  const ks = ['idle', 'attack', 'hit', 'defeat'] as const;
+  const r = await Promise.all(ks.map(k => load(dir, names[k])));
+  return r.every(Boolean) ? { idle: r[0]!, attack: r[1]!, hit: r[2]!, defeat: r[3]! } : null;
+}
 export const loadFx = (name: string) => load('fx/' + name, name);
 /** 技能序列帧：public/fx/skills/<id>.json + .webp（按战斗懒加载，不预缓存） */
 export const loadSkillSheet = (id: string) => load('fx/skills', id);

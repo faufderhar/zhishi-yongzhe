@@ -4,7 +4,7 @@ import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, type Character } from '../game/characters';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, starOf, STAR_RULES, type Chapter, type Level } from '../game/levels';
+import { isUnlocked, starOf, STAR_RULES, STAR_RULES_K, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
@@ -147,7 +147,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
         <div className="levels" data-testid="levels">
           {ch.levels.map((l, i) => {
             const open = isUnlocked(ch.levels, i, progress.stars);
-            const s = starOf(l, progress.stars);
+            const s = l.redirect ? starOf(chapters.flatMap(c => c.levels).find(x => x.id === l.redirect) ?? l, progress.stars) : starOf(l, progress.stars);
             const prev = ch.levels[i - 1];
             const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
             return (<Fragment key={l.id}>
@@ -164,7 +164,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
                   onLevel(l);
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
-                {l.kind === 'normal' ? <span className="lv-name" title={l.name}>{l.name}</span>
+                {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
                   : <span className={`kind-tag ${l.kind}`}>{l.kind === 'elite' ? '精英挑战' : '章节 Boss'}</span>}
                 <Stars n={s} />
               </button></Fragment>
@@ -178,26 +178,29 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, onAgain, onNext, onMap, kinder, retreat, turns }: {
-  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
+export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, onAgain, onNext, onMap, kinder, retreat, turns }: {
+  cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
   const acc = total ? Math.round(correct / total * 100) : 0;
   return (
     <div className="center-screen">
-      {cfg.band === 'K' ? <>
+      {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl">⏰</div><h1>时间到</h1><p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p></>
+      : cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
         <KinderSub k={kinder} total={total} />
       </> : <>
         <div className="big-emoji xl">{win ? '🏆' : '💫'}</div>
-        <h1>{retreat ? '怪物撤退了！' : win ? '胜利！' : '这次差一点'}</h1>
-        {retreat && <p data-testid="retreat">到了回合上限，怪物逃走了：算通关，但最多 ★。下次试试更快打倒它！</p>}
-        {!win && <p>失败也能拿一半经验，错题已放进错题本，下次再来！</p>}
+        <h1>{forcedTimeUp ? '⏰ 时间到' : retreat ? '怪物撤退了！' : win ? '胜利！' : '这次差一点'}</h1>
+        {forcedTimeUp && <p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p>}
+        {retreat && !forcedTimeUp && <p data-testid="retreat">到了回合上限，怪物逃走了：算通关，但最多 ★。下次试试更快打倒它！</p>}
+        {!win && !forcedTimeUp && <p>答对的题都算经验，错题已放进错题本，下次再来！</p>}
+        {forcedTimeUp && <p className="hint">本关不算通关、不得星；已答对的题照常算经验。</p>}
       </>}
       <Stars n={stars} size={72} />
-      <p className="star-rules" data-testid="star-rules">{STAR_RULES}</p>
-      {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{cfg.band === 'H' ? `正确 ${correct}/${total} · 正确率 ${acc}%` : `答对 ${correct} / ${total} 题`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
+      <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : STAR_RULES}</p>
+      {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{`答对 ${correct} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！</p>}
       <div className="row gap24">
         {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}
@@ -291,7 +294,7 @@ export function ReviewSession({ questions, onAnswer, onDone }: { questions: Ques
         {!res && q.type === '多选' && <div className="opts">{q.options.map(ch =>
           <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{ch.key}</i><Tex text={ch.text} /></button>)}
           <button className="next multi-ok" disabled={!multi.length} onClick={() => submit(multi.join(''))}>确定</button></div>}
-        {!res && q.type === '填空' && <Keypad key={q.key} letters={q.answer.some(a => /[a-z]/i.test(a))} value={input} onChange={setInput} onOk={() => submit(input)} />}
+        {!res && q.type === '填空' && <Keypad key={q.key} letters={q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a))} value={input} onChange={setInput} onOk={() => submit(input)} />}
         {res && <div className={`feedback ${res.ok ? 'ok' : 'bad'}`}>
           <h3>{res.ok ? '✔ 答对了！这题升一个盒子' : '✘ 还没记住，明天再复习'}</h3>
           <p>正确答案：<b><Tex text={correctText(q)} /></b></p>

@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
 import { loadFxManifests } from './fx/assets';
 import { prefetchAll } from './fx/sheets';
-import { STORAGE_ERROR, deleteProfileData } from './db';
+import { STORAGE_ERROR, deleteProfileData, compactAnswers } from './db';
 import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, type Question } from './game/questions';
 import { bandConfig } from './game/grades';
-import { buildChapters, starsFor, levelsOfUnit, type Level } from './game/levels';
+import { buildChapters, levelStars, bossPool, levelsOfUnit, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
@@ -42,6 +42,7 @@ export default function App() {
   const [usage, setUsageAll] = useState<Record<string, Usage>>({});
   const [wrong, setWrong] = useState<WrongEntry[]>([]);
   const [recentRight, setRecentRight] = useState<Set<string>>(new Set());
+  const [seenKeys, setSeenKeys] = useState<Set<string>>(new Set());   // 出过的题（Boss 选题优先没出过的）
   const [flags, setFlags] = useState<Record<string, number>>({});
   const [chapterIdx, setChapterIdx] = useState(0);
   const [portrait, setPortrait] = useState(false);
@@ -60,6 +61,12 @@ export default function App() {
     return () => { window.removeEventListener(STORAGE_ERROR, f); window.removeEventListener('zy-update-ready', u); };
   }, []);
 
+  // 每次启动检查一次：超过 180 天 / 5000 条的答题明细先按 档案×科目×月 汇总再删（技术QA P2-5）
+  const compacted = useRef(false);
+  useEffect(() => {
+    if (!bank || compacted.current || !profiles.length) return; compacted.current = true;
+    for (const pp of profiles) void compactAnswers(pp.id, r => bank.byKey.get(r.questionId)?.subject ?? '其他');
+  }, [bank, profiles]);
   const reloadBank = useCallback(async () => { setBank(await loadAllBanks((d, t) => setLoadPct(Math.round(d / t * 100)))); }, []);
   useEffect(() => { void loadFxManifests(); }, []);
   useEffect(() => {
@@ -87,6 +94,9 @@ export default function App() {
   const cfg = p ? bandConfig(p.grade) : null;
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
   const chapters = useMemo(() => buildChapters(gradeQs, p?.volumes ?? null), [gradeQs, p?.volumes]);
+  // 仅自动化测试：导出关卡 → 题目 unit / 题干，供线上验收检查「诗词关卡里的题都属于这首诗」
+  useEffect(() => { const w = window as unknown as { __zyTest?: boolean; __zyLevels?: unknown }; if (!w.__zyTest || !bank) return;
+    w.__zyLevels = chapters.map(c => ({ subject: c.subject, levels: c.levels.map(l => ({ id: l.id, kind: l.kind, name: l.name, qs: l.pool.map(k => { const q = bank.byKey.get(k); return { unit: q?.unit, question: q?.question }; }) })) })); }, [chapters, bank]);
   const playableKeys = useMemo(() => new Set(gradeQs.map(q => q.key)), [gradeQs]);
   const today = dayStr();
   // 时钟被调回（GDD §8.2）：按「今日已用满」处理，家长在「时长」页解除
@@ -151,6 +161,7 @@ export default function App() {
     setProgress(pr); setSkills(sk); setWrong(wr);
     const cutoff = Date.now() - 3 * 86400e3;
     setRecentRight(new Set(ans.filter(a => a.correct && a.at > cutoff).map(a => a.questionId)));
+    setSeenKeys(new Set(ans.map(a => a.questionId)));
     setScreen(pp.charId ? { s: 'map' } : { s: 'char' });
   }
 
@@ -158,6 +169,7 @@ export default function App() {
   function onAnswer(q: Question, correct: boolean, ans: string, isReview = false) {
     if (!p || !cfg) return;
     recordAnswer({ profileId: p.id, questionId: q.key, correct, at: Date.now(), subject: q.subject });
+    setSeenKeys(s => s.has(q.key) ? s : new Set(s).add(q.key));
     if (!isReview) setSkills(sk => { const nx = { ...sk, [q.subject]: updateSkill(sk[q.subject], correct, cfg) }; S.saveSkills(p.id, nx); setAllSkills(a => ({ ...a, [p.id]: nx })); return nx; });
     const id = `${p.id}|${q.key}`;
     setWrong(list => {
@@ -177,17 +189,23 @@ export default function App() {
     if (!p || !cfg) return;
     if (myRemaining <= 0) return;
     if (!char) { setScreen({ s: 'char', then: level }); return; }
+    if (level.redirect) { const t = chapters.flatMap(c => c.levels).find(l => l.id === level.redirect); if (t) { startLevel(t); return; } }   // 语文题少的古诗课 → 同名诗词关
     const chapter = chapters.find(c => c.subject === level.chapter)!;
     const byKey = bank!.byKey;
     const pool = level.pool.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
     // 补题和错题复习都只取「同一章（册别+章/单元）」的题，绝不跨章（试玩报告 #1：集合关卡混入余弦定理）
-    const sameUnit = levelsOfUnit(chapter.levels, level).flatMap(l => l.pool);
-    const fallback = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
+    // 裁定 2：普通 / 精英关只用本课（本关题池）的题；Boss 用整章，优先没出过和之前答错的
+    const sameUnit = level.kind === 'boss' ? levelsOfUnit(chapter.levels, level).flatMap(l => l.pool) : level.pool;
+    const wrongKeys = new Set(wrong.map(e => e.qkey));
+    const fallback0 = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
+    const fallback = level.kind === 'boss' ? bossPool(fallback0, seenKeys, wrongKeys, cfg.questions.boss) : fallback0;
     const unitKeys = new Set(sameUnit);
     const due = wrong.filter(e => isDue(e) && unitKeys.has(e.qkey)).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
     const target = skills[level.chapter]?.level ?? 2;
     const n = cfg.questions[level.kind];
-    const qs = spreadTemplates(selectQuestions({ pool, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool);
+    const qs = spreadTemplates(selectQuestions({ pool: level.kind === 'boss' ? bossPool(pool, seenKeys, wrongKeys, n) : pool, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool);
+    // 题少的课（语文课文/古诗词不合并）：关内重复本课题，错题优先（策划 r6）
+    if (qs.length < n && pool.length && level.kind === 'normal') { const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
     const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind });
     masteredThisLevel.current = 0;
     setScreen({ s: 'battle', level, qs, extra, nonce: Date.now() });
@@ -196,11 +214,11 @@ export default function App() {
     if (!p) return;
     const played = progress.plays[level.id]?.day === today ? progress.plays[level.id].count : 0;
     // 防刷（D3）：同关当天第 3 次起不再新增星星（历史最高保留）
-    const stars = Math.min(r.retreat ? 1 : 3, starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived));   // 回合上限撤退：算通关，最多 ★（规格 §8）
+    const stars = levelStars(r);   // 裁定 1：撤退最多 ★、时间到 0★；小班 correct = 第一次答对
     const gain = played >= 2 ? 0 : stars;
     const mastered = masteredThisLevel.current;
     setProgress(pr => {
-      const nx = { ...pr, stars: { ...pr.stars, [level.id]: Math.max(pr.stars[level.id] ?? 0, gain) }, masteredStars: pr.masteredStars + mastered,
+      const nx = { ...pr, stars: { ...pr.stars, ...Object.fromEntries([level.id, ...(level.parts ?? [])].map(id => [id, Math.max(pr.stars[id] ?? 0, gain)])) },   // 合并关同时记到各课 id（拆回后不丢星） masteredStars: pr.masteredStars + mastered,
         plays: { ...pr.plays, [level.id]: { day: today, count: (pr.plays[level.id]?.day === today ? pr.plays[level.id].count : 0) + 1 } } };
       S.saveProgress(p.id, nx); return nx;
     });
@@ -245,8 +263,8 @@ export default function App() {
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />)}
       {screen.s === 'result' && cfg && char && <ResultScreen cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} turns={screen.r.turns}
-        newlyMastered={screen.mastered} timeUp={myRemaining <= 0} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
-        onNext={screen.r.win && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
+        newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
+        onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} />}
       {screen.s === 'review' && <ReviewSession key={screen.nonce} questions={screen.qs} onAnswer={(q, ok, a) => onAnswer(q, ok, a, true)}
         onDone={(right, total) => { if (masteredThisLevel.current && p) setProgress(pr => { const nx = { ...pr, masteredStars: pr.masteredStars + masteredThisLevel.current }; S.saveProgress(p.id, nx); return nx; }); setScreen({ s: 'review-done', right, total }); }} />}

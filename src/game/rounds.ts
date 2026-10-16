@@ -64,7 +64,7 @@ export interface RInput {
   simSkillMult?: number;   // 模拟专用：通用技能倍率
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent] }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean }
 
 export function calcD(s: RState, c: Character, i: RInput) {
   const card = CARDS[i.card ?? 'std'];
@@ -76,21 +76,26 @@ export function calcD(s: RState, c: Character, i: RInput) {
 }
 const r1 = (x: number) => Math.max(1, Math.round(x));
 /** 命中：护盾依次抵扣（多段时剩余护盾留给下一段）；pierce 不扣护盾、护盾不变 */
-function hit(s: RState, d: number, pierce = false) {
+function hit(s: RState, d: number, pierce = false, o?: ROut) {
+  if (o?.phaseShift) return 0;   // 本击已打破第一阶段：同一次攻击的后续段不再结算
   const ab = pierce ? 0 : Math.min(s.shield, d);
   if (!pierce) s.shield -= ab;
-  const dealt = d - ab; s.monsterHp = Math.max(0, s.monsterHp - dealt); return dealt;
+  let dealt = d - ab;
+  // 高一 Boss 两阶段（策划裁定 7）：第一阶段溢出伤害不带入第二阶段，第二阶段满 117 开始
+  if (s.def.phases && phaseOf(s) === 0) { const floor = s.def.phases[1].hp; if (s.monsterHp - dealt <= floor) { dealt = s.monsterHp - floor; s.monsterHp = floor; if (o) o.phaseShift = true; s.shield = 0; return dealt; } }
+  s.monsterHp = Math.max(0, s.monsterHp - dealt); return dealt;
 }
 
 /** 结算一个回合（每回合 1 题）。多步题：每小问调一次，传 stepIndex，最后一小问或答错时 endTurn=true */
 export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = true): [RState, ROut] {
   const s: RState = { ...prev }; const rng = i.rng ?? Math.random;
   const o: ROut = { side: s.side, dealt: 0, hits: [], taken: 0, dodged: false, perfect: false, healed: 0, energyGain: 0, skill: null, guardUsed: false, brokeCharge: false, brokeShield: false, gotShield: false, review: false, text: '' };
-  const ok = i.correct;
+  // 多选漏选（策划裁定 6）：不算答对；不判技能 / 完美闪避 / 专注 / 能量，连击不变
+  const part = !!i.partial && i.correct; const ok = i.correct && !part; if (part) o.partial = true;
   if (ok) {
     s.combo++; const g = 1 + (s.combo === 3 ? 1 : 0); o.energyGain = Math.min(ENERGY_CAP, s.energy + g) - s.energy; s.energy += o.energyGain;
     if (PASSIVE.heal(c)) { const h = Math.min(3, s.playerMax - s.playerHp); s.playerHp += h; o.healed = h; }
-  } else if (PASSIVE.comboGuard(c) && !s.comboGuardUsed && s.combo > 0) s.comboGuardUsed = true; else s.combo = 0;
+  } else if (part) { /* 连击、能量不变 */ } else if (PASSIVE.comboGuard(c) && !s.comboGuardUsed && s.combo > 0) s.comboGuardUsed = true; else s.combo = 0;
   // 技能判定：能量 +1 之后；只有答对；多步题只在第一小问
   let sk: SkillDef | null = i.forceSkill ?? null;
   if (ok && !i.noSkill && i.forceSkill === undefined && (i.stepIndex ?? 0) === 0) {
@@ -104,13 +109,16 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   if (s.side === 'P') {
     const card = CARDS[i.card ?? 'std'];
     if (ok) {
-      const base = calcD(s, c, i) * (i.partial ? 0.5 : 1);
+      const base = calcD(s, c, i);
       const e = sk?.effect;
-      if (e === 'A2H') { for (let k = 0; k < 2; k++) { const d = hit(s, r1(base * SKILL.atk.A2H)); o.hits.push(d); o.dealt += d; } }
-      else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(base * m), e === 'A13P'); o.hits.push(d); o.dealt = d; }
+      if (e === 'A2H') { for (let k = 0; k < 2; k++) { const d = hit(s, r1(base * SKILL.atk.A2H), false, o); o.hits.push(d); o.dealt += d; } }
+      else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(base * m), e === 'A13P', o); o.hits.push(d); o.dealt = d; }
       if (e !== 'A13P' && o.hits.length) s.shield = 0;   // 护盾挡完这一击（或多段）后清零，不叠加
       if (e === 'A125C') s.combo++;                        // 连击 +1 在本次伤害计算之后
       o.text = o.dealt ? '⚔ 攻击命中！' : '⚔ 被护盾挡住了';
+    } else if (part) {   // 我方回合漏选：50% 伤害，不反击
+      const d = hit(s, r1(calcD(s, c, i) * 0.5), false, o); o.hits.push(d); o.dealt = d; s.shield = 0;
+      o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
       const dodge = i.wager === 'sure' ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
       if (rng() < dodge) { o.dodged = true; o.text = '运气好闪开了！'; }
@@ -132,13 +140,14 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       else o.text = '闪避成功！';
       if (o.perfect) o.text = '完美闪避！' + o.text.replace('闪避成功！', '');
     } else {
-      const m = i.wager === 'sure' ? WAGER.sureHurt : 1;
+      const m = (i.wager === 'sure' ? WAGER.sureHurt : 1) * (part ? 0.5 : 1);   // 对方回合漏选：按答错结算，受到伤害减半
       if (it === 'atk') { o.taken = takeHurt(s.def.atk, m); o.text = '被攻击了'; }
       else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? s.def.atk : 2 * s.def.atk, m); s.chargeBroken = false; o.text = '💥 被重击了'; }
       else if (it === 'charge') { s.chargeBroken = false; o.text = '⚡ 怪物蓄力成功，下次重击 ×2'; }
       else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾（挡 ${s.shieldVal}）`; }
       else o.text = '💤 怪物在发呆，没有攻击';
       if (i.wager === 'unsure') o.review = true;
+      if (part) o.text = '漏选：' + o.text + (o.taken ? '（伤害减半）' : '');
     }
     // 守护池技能（对方回合答对后生效）
     if (ok && sk) {
@@ -154,6 +163,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   }
   s.playerHp = Math.max(s.noDeath ? 1 : 0, s.playerHp - o.taken);
   // Boss 半血后换循环：从下一个意图开始（控制效果保留到新循环第一个意图）
+  if (o.phaseShift) o.text += ' 第一阶段被打破！进入第二阶段（满血 ' + s.monsterHp + '）';
   if (s.def.half && s.pattern !== s.def.half && s.monsterHp < s.monsterMax / 2) { s.pattern = s.def.half; s.mi = 0; }
   if (endTurn || !ok) {
     s.turn++; s.sk = tickCd(s.sk); if (s.silenced) s.silenced--;

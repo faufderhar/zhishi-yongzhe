@@ -1,12 +1,15 @@
 /* 题库：内置 public/banks/bank_<grade>.json（来自 /workspace/questions 的完整题库），再叠加家长导入（IndexedDB bank 表，相同 grade+id 覆盖） */
 import { loadBank, normalize, validateQuestion, type Bank, type GradeKey, type Question } from './game/questions';
 import { importedQuestions } from './db';
+declare const __BANK_VER__: string;
+/** 题库内容哈希（构建时算），用于缓存失效 */
+export const BANK_VER = typeof __BANK_VER__ === 'string' ? __BANK_VER__ : 'dev';
 export const BUILTIN_GRADES: GradeKey[] = ['K1', '1', '2', '3', '4', '5', '6', '7', '10'];
 export interface BankState { byKey: Map<string, Question>; builtin: Record<string, Bank>; importedCount: number; importedInvalid: number }
 export async function loadAllBanks(onProgress?: (done: number, total: number) => void): Promise<BankState> {
   const builtin: Record<string, Bank> = {}; let done = 0;
   await Promise.all(BUILTIN_GRADES.map(async g => {
-    const url = `${import.meta.env.BASE_URL}banks/bank_${g}.json`;
+    const url = `${import.meta.env.BASE_URL}banks/bank_${g}.json?v=${BANK_VER}`;
     try { const raw = await (await fetch(url)).json(); builtin[g] = loadBank(raw, `bank_${g}.json`); }
     catch (e) { console.warn('题库加载失败', url, e); }
     onProgress?.(++done, BUILTIN_GRADES.length);

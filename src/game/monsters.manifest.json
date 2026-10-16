@@ -1,0 +1,758 @@
+{
+ "mon_math_normal": {
+  "name": "小七",
+  "theme": "number",
+  "tier": "normal",
+  "pool_cn": [
+   "数学"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_math_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_math_elite": {
+  "name": "积木角角兵",
+  "theme": "number",
+  "tier": "elite",
+  "pool_cn": [
+   "数学"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_math_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_math_boss": {
+  "name": "圆周率国王",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "数学"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_math_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_chinese_normal": {
+  "name": "墨团团",
+  "theme": "ink",
+  "tier": "normal",
+  "pool_cn": [
+   "语文",
+   "诗词"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_chinese_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_chinese_elite": {
+  "name": "竹简卫士",
+  "theme": "ink",
+  "tier": "elite",
+  "pool_cn": [
+   "语文",
+   "诗词"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_chinese_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_chinese_boss": {
+  "name": "古籍大学士",
+  "theme": "ink",
+  "tier": "boss",
+  "pool_cn": [
+   "语文",
+   "诗词"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_chinese_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_english_normal": {
+  "name": "字母小 B",
+  "theme": "letter",
+  "tier": "normal",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_english_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_english_elite": {
+  "name": "字母积木塔",
+  "theme": "letter",
+  "tier": "elite",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_english_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_english_boss": {
+  "name": "词典龙",
+  "theme": "letter",
+  "tier": "boss",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_english_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_chem_normal": {
+  "name": "泡泡烧瓶",
+  "theme": "flask",
+  "tier": "normal",
+  "pool_cn": [
+   "科学",
+   "化学"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_chem_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_chem_elite": {
+  "name": "原子滴溜",
+  "theme": "flask",
+  "tier": "elite",
+  "pool_cn": [
+   "科学",
+   "化学"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_chem_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_chem_boss": {
+  "name": "药剂巨瓶",
+  "theme": "flask",
+  "tier": "boss",
+  "pool_cn": [
+   "科学",
+   "化学"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_chem_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_physics_normal": {
+  "name": "齿轮仔",
+  "theme": "gear",
+  "tier": "normal",
+  "pool_cn": [
+   "物理"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_physics_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_physics_elite": {
+  "name": "发条机器人",
+  "theme": "gear",
+  "tier": "elite",
+  "pool_cn": [
+   "物理"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_physics_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_physics_boss": {
+  "name": "齿轮巨像",
+  "theme": "gear",
+  "tier": "boss",
+  "pool_cn": [
+   "物理"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_physics_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_bio_normal": {
+  "name": "小芽芽",
+  "theme": "plant",
+  "tier": "normal",
+  "pool_cn": [
+   "生物"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_bio_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_bio_elite": {
+  "name": "细胞团",
+  "theme": "plant",
+  "tier": "elite",
+  "pool_cn": [
+   "生物"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_bio_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_bio_boss": {
+  "name": "花藤树王",
+  "theme": "plant",
+  "tier": "boss",
+  "pool_cn": [
+   "生物"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_bio_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_histgeo_normal": {
+  "name": "菊石宝宝",
+  "theme": "fossil",
+  "tier": "normal",
+  "pool_cn": [
+   "历史",
+   "地理"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_histgeo_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_histgeo_elite": {
+  "name": "地图迷",
+  "theme": "fossil",
+  "tier": "elite",
+  "pool_cn": [
+   "历史",
+   "地理"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_histgeo_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_histgeo_boss": {
+  "name": "化石地球仪巨人",
+  "theme": "fossil",
+  "tier": "boss",
+  "pool_cn": [
+   "历史",
+   "地理"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_histgeo_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_morality_normal": {
+  "name": "迷雾糯",
+  "theme": "mist",
+  "tier": "normal",
+  "pool_cn": [
+   "道德与法治",
+   "政治"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_morality_normal",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_morality_elite": {
+  "name": "蒙面雾灵",
+  "theme": "mist",
+  "tier": "elite",
+  "pool_cn": [
+   "道德与法治",
+   "政治"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_morality_elite",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ },
+ "mon_morality_boss": {
+  "name": "迷雾王",
+  "theme": "mist",
+  "tier": "boss",
+  "pool_cn": [
+   "道德与法治",
+   "政治"
+  ],
+  "dir": "art/monsters/subjects/anim/mon_morality_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  }
+ }
+}

@@ -7,7 +7,8 @@ import { sfx, SKILL_SFX } from './assets';
 import { isSignature } from '../game/characters';
 import { playSkill as playSkillFx, type PlaySkillOpts } from './skillFx';
 import type { SkillDef } from '../game/skills';
-import { loadFx, playFx, SUBJECT_FX, type SheetPlayer, type CharAnims, type Sheet } from './sheets';
+import { loadFx, playFx, SUBJECT_FX, type SheetPlayer, type CharAnims, type Sheet, type MonAnims } from './sheets';
+export interface MonSheets { player: SheetPlayer; anims: MonAnims; hitFrame: number }
 export interface HeroSheets { player: SheetPlayer; anims: CharAnims; hs: boolean }
 
 export interface Rig { stage: HTMLElement; shake: HTMLElement; hero: HTMLElement; monster: HTMLElement; flash: HTMLElement; canvas: HTMLCanvasElement; heroImg?: HTMLElement }
@@ -57,7 +58,11 @@ export class Director {
     fr.push({ transform: 'translate(0,0)' });
     return anim(this.r.shake, fr, { duration: power > 1 ? 190 : 150, easing: 'linear' });
   }
+  /** 学科怪物序列帧（有则用它的 idle/attack/hit/defeat；hit 自带柔和白闪，不再叠加白闪） */
+  monSheets?: MonSheets;
+  private monIdle() { const m = this.monSheets; if (m) void m.player.play(m.anims.idle); }
   whiteFlash() {
+    if (this.monSheets) { const m = this.monSheets; void m.player.play(m.anims.hit).then(() => this.monIdle()); return Promise.resolve(); }
     return anim(this.r.flash, [{ opacity: 0 }, { opacity: 0.95, offset: 0.15 }, { opacity: 0 }], { duration: 220, easing: 'linear' });
   }
   private distance() { const h = center(this.r.hero, this.r.stage), m = center(this.r.monster, this.r.stage); return Math.max(0, m.x - h.x - (h.w + m.w) * 0.35); }
@@ -170,9 +175,13 @@ export class Director {
     const { hero, monster, stage } = this.r;
     const dist = this.distance();
     sfx('monster_attack');
+    const ms = this.monSheets;
+    // 序列帧：伤害对齐 attack 的 hit_frame（第 5 帧）
+    const atHit = ms ? new Promise<void>(r => { void ms.player.play(ms.anims.attack, f => { if (f >= ms.hitFrame) r(); }).then(() => { r(); this.monIdle(); }); }) : Promise.resolve();
     await anim(monster, [{ transform: 'translate(0,0) scale(1)' }, { transform: 'translate(22px,6px) scale(1.06,.92)' }], { duration: 220, fill: 'forwards' });
     await anim(monster, [{ transform: 'translate(22px,6px) scale(1.06,.92)' }, { transform: `translate(${-dist * 0.8}px,-20px) scale(1.05)`, offset: 0.7 }, { transform: `translate(${-dist}px,0) scale(1)` }],
       { duration: 220, easing: 'cubic-bezier(.5,0,.8,.6)', fill: 'forwards' });
+    await atHit;
     if (taken > 0) {
       sfx('player_hurt');
       const hc = center(hero, stage); this.p.burst(hc.x + hc.w * 0.15, hc.y, MONSTER_HIT);
@@ -192,7 +201,9 @@ export class Director {
     sfx('victory');
     const mc = center(monster, stage);
     this.p.burst(mc.x, mc.y, signatureOf('').impact);
-    await anim(monster, [{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: 'translate(30px,10px) rotate(12deg)', opacity: 0.8, offset: 0.3 }, { transform: 'translate(60px,60px) rotate(30deg) scale(.6)', opacity: 0 }], { duration: 700, fill: 'forwards' });
+    const ms = this.monSheets;
+    if (ms) { await ms.player.play(ms.anims.defeat); ms.player.box.style.visibility = 'hidden'; monster.style.opacity = '0'; }   // defeat 8 帧不循环，播完隐藏
+    else await anim(monster, [{ transform: 'translate(0,0) rotate(0)', opacity: 1 }, { transform: 'translate(30px,10px) rotate(12deg)', opacity: 0.8, offset: 0.3 }, { transform: 'translate(60px,60px) rotate(30deg) scale(.6)', opacity: 0 }], { duration: 700, fill: 'forwards' });
     const hc = center(hero, stage);
     this.p.burst(hc.x, hc.y - 60, CONFETTI, -Math.PI / 2);
     await anim(hero, [{ transform: 'translateY(0) scale(1)' }, { transform: 'translateY(-50px) scale(1.08)', offset: 0.4 }, { transform: 'translateY(0) scale(1)', offset: 0.7 }, { transform: 'translateY(-14px)', offset: 0.85 }, { transform: 'translateY(0)' }], { duration: 800 });

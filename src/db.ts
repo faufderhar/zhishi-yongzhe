@@ -28,17 +28,32 @@ const safeW = async (f: () => Promise<void>): Promise<boolean> => {
 };
 /** 每个档案最多保留最近 ANSWER_CAP 条答题记录（防止无限增长） */
 export const ANSWER_CAP = 5000;
-let answerCount = 0;
-export const recordAnswer = (r: AnswerRecord) => safeW(async () => {
-  const d = await db(); await d.add('answers', r);
-  if (++answerCount % 200 === 0) {
-    const tx = d.transaction('answers', 'readwrite'); const idx = tx.store.index('byProfile');
-    const keys = await idx.getAllKeys(r.profileId); const vals = await idx.getAll(r.profileId);
-    const old = Date.now() - 180 * 864e5;   // 明细只保留最近 180 天（策划 T-P1-4）
-    for (let i = 0; i < keys.length; i++) if (i < keys.length - ANSWER_CAP || (vals[i]?.at ?? 0) < old) await tx.store.delete(keys[i]);
-    await tx.done;
-  }
-});
+export const recordAnswer = (r: AnswerRecord) => safeW(async () => { const d = await db(); await d.add('answers', r); });
+/* ---- 月度汇总（技术QA P1-4 / R4 P2-5）：删除超过 180 天（或超过 ANSWER_CAP 条）的明细前，先按 档案×科目×月 汇总进 kv「rollup:<档案>」。
+   汇总写入与明细删除在同一个事务里，不会重复计数也不会丢。每次启动检查一次（App 加载题库后）。 */
+export type Rollup = Record<string, Record<string, { n: number; ok: number }>>;   // 月份 YYYY-MM → 科目 → 计数
+export const RETAIN_DAYS = 180;
+export const monthOf = (t: number) => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`; };
+/** 纯函数：选出要汇总的明细（超过 180 天，或按时间排序后超出上限的最旧部分） */
+export function pickOld(recs: AnswerRecord[], now: number, cap = ANSWER_CAP): number[] {
+  const order = recs.map((r, i) => i).sort((a, b) => recs[a].at - recs[b].at); const cut = now - RETAIN_DAYS * 864e5; const excess = recs.length - cap;
+  return order.filter((i, k) => recs[i].at < cut || k < excess);
+}
+export function rollupAdd(r0: Rollup, recs: AnswerRecord[], subjectOf: (r: AnswerRecord) => string): Rollup {
+  const r: Rollup = JSON.parse(JSON.stringify(r0 ?? {}));
+  for (const a of recs) { const m = monthOf(a.at), s = a.subject ?? subjectOf(a); const e = ((r[m] ??= {})[s] ??= { n: 0, ok: 0 }); e.n++; if (a.correct) e.ok++; }
+  return r;
+}
+export const rollupOf = (pid: string) => safe<Rollup>(async () => ((await (await db()).get('kv', 'rollup:' + pid)) as Rollup | undefined) ?? {}, {});
+export const compactAnswers = (pid: string, subjectOf: (r: AnswerRecord) => string, now = Date.now()) => safe<number>(async () => {
+  const d = await db(); const tx = d.transaction(['answers', 'kv'], 'readwrite'); const idx = tx.objectStore('answers').index('byProfile');
+  const keys = await idx.getAllKeys(pid); const vals = await idx.getAll(pid);
+  const pick = pickOld(vals, now); if (!pick.length) { await tx.done; return 0; }
+  const prev = ((await tx.objectStore('kv').get('rollup:' + pid)) as Rollup | undefined) ?? {};
+  await tx.objectStore('kv').put(rollupAdd(prev, pick.map(i => vals[i]), subjectOf), 'rollup:' + pid);
+  for (const i of pick) await tx.objectStore('answers').delete(keys[i]);
+  await tx.done; return pick.length;
+}, 0);
 /** 删档案：清理该档案的 kv 前缀、错题和答题记录（技术QA P1-2） */
 export const deleteProfileData = (pid: string, kvKeys: string[]) => safeW(async () => {
   const d = await db(); const tx = d.transaction(['kv', 'wrong', 'answers'], 'readwrite');

@@ -4,12 +4,19 @@ export type Status = '待审核' | 'AI初审通过' | '需家长确认' | '已�
 export const STATUSES: Status[] = ['待审核', 'AI初审通过', '需家长确认', '已通过', '停用'];
 export type GradeKey = 'K1' | 'K2' | 'K3' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export interface Option { key: string; text: string; image?: string; audio?: string }
+/** 数一数配图（v9）：CSV/XLSX 里是 JSON 字符串 */
+export interface Visual { item?: string; emoji?: string; count: number; label?: string }
+export function parseVisual(v: unknown): Visual | undefined {
+  let o: any = v; if (typeof v === 'string') { if (!v.trim()) return undefined; try { o = JSON.parse(v); } catch { return undefined; } }
+  if (!o || typeof o !== 'object' || !(Number(o.count) > 0)) return undefined;
+  return { item: o.item || undefined, emoji: o.emoji || o.item || undefined, count: Number(o.count), label: o.label || undefined };
+}
 export interface Question {
   key: string;            // 全局唯一键 = grade + ':' + id（科学题 id 如 K3-001 与幼儿园 K1 冲突，不能只靠 id）
   id: string; status: Status; subject: string; grade: GradeKey; gradeNum: number;
   textbook?: string; textbook_note?: string; unit?: string; volume: string;
   type: QType; question: string; question_image?: string; question_audio?: string; tts_text?: string;
-  options: Option[]; answer: string[]; template?: string; tolerance?: number; explanation: string; difficulty: number;
+  options: Option[]; answer: string[]; template?: string; visual?: Visual; tolerance?: number; explanation: string; difficulty: number;
   tags: string[]; knowledge_point?: string; time?: number; source?: string; review_note?: string;
   order: number;          // 在源文件中的顺序（章节排序用）
 }
@@ -97,7 +104,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
     tags: Array.isArray(q.tags) ? q.tags : String(q.tags ?? q.tag ?? '').split('|').map(s => s.trim()).filter(Boolean),
     knowledge_point: q.knowledge_point || undefined, time: t > 0 ? t : undefined, source: q.source, review_note: q.review_note || undefined,
     tolerance: q.tolerance === undefined || q.tolerance === '' || q.tolerance === null ? undefined : Number(q.tolerance),
-    explanation: q.explanation ?? '', order, template: q.template ? String(q.template) : undefined,
+    explanation: cleanExplanation(q.explanation ?? ''), order, template: q.template ? String(q.template) : undefined, visual: parseVisual(q.visual),
   };
 }
 
@@ -206,4 +213,20 @@ export function kinderChoices(q: Question, rnd = Math.random): Option[] {
   if (all.length <= 3) return all;
   const right = all.filter(c => q.answer.includes(c.key));
   return shuffle([...right, ...shuffle(all.filter(c => !right.includes(c)), rnd).slice(0, 3 - right.length)], rnd);
+}
+
+/** 家长导出用：去掉程序内部字段和开发注记（textbook_note、review_note 等，试玩报告 #10） */
+export const EXPORT_DROP = ['key', 'gradeNum', 'order', 'textbook_note', 'review_note'] as const;
+export function exportQuestion(q: Question) {
+  const o: Record<string, unknown> = { ...q };
+  for (const k of EXPORT_DROP) delete o[k];
+  return { ...o, options: q.options.map(x => ({ text: x.text, image: x.image, audio: x.audio })), answer: q.type === '填空' ? q.answer : q.answer.join('') };
+}
+
+/** 游戏内显示的解析去掉教材/版本开发注记（「📘 人教版2019：…本题库按…默认…」等，补测报告 #4） */
+export function cleanExplanation(e: string): string {
+  return String(e)
+    .split(/\n+/).filter(l => !/^\s*📘/.test(l)).join('\n')
+    .replace(/[（(]?\s*(?:📘\s*)?(?:统编版|人教版|译林版|苏教版|鲁教版|北师大版)\d{0,4}\s*[:：][^。\n]*?(?:本题库[^。\n]*|默认[^。\n]*)[。]?[)）]?/g, '')
+    .replace(/📘[^\n]*/g, '').trim();
 }

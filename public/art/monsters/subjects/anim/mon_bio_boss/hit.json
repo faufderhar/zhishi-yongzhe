@@ -1,0 +1,22 @@
+{
+  "image": "hit_sheet.webp",
+  "frame_width": 384,
+  "frame_height": 320,
+  "frame_count": 6,
+  "columns": 6,
+  "rows": 1,
+  "fps": 15,
+  "loop": false,
+  "anchor": {
+    "x": 192,
+    "y": 304,
+    "note": "pixels in frame; 脚底中心"
+  },
+  "facing": "left",
+  "webp_quality": 75,
+  "flash_frames": [
+    0,
+    1,
+    2
+  ]
+}

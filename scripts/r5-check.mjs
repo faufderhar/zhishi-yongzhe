@@ -9,7 +9,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); R.push([!!c, m]
 async function session(opts = {}) {
   const ctx = await b.newContext({ viewport: { width: 1024, height: 600 }, ...opts });
   const pg = await ctx.newPage(); const errs = [], reqs = [];
-  pg.on('pageerror', e => errs.push(String(e))); pg.on('request', r => reqs.push(r.url()));
+  pg.on('pageerror', e => errs.push(String(e))); pg.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') console.log('  [console]', m.text().slice(0, 200)); }); pg.on('request', r => reqs.push(r.url()));
   await pg.addInitScript(() => { window.__zyTest = true; window.__fxFps = []; });
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
@@ -149,6 +149,7 @@ for (const [g, nm, pre] of [['K1', 'r5小班', 'k'], ['2', 'r5二年级', 'p12']
   for (let n = 1; n <= 6 && cast < 0; n++) {
     if (g === 'K1') {
       await pg.waitForSelector('[data-testid=kopts]', { timeout: 10000 }).catch(() => {});
+      if (n === 3) await pg.evaluate(() => { Math.random = () => 0; });   // 小班普通关只有 3 题，保底（第 4 次）到不了：第 3 题固定随机数，确保能验收演出
       const q0 = await pg.$eval('[data-testid=kopts]', e => e.innerHTML).catch(() => '');
       const c = await pg.$('[data-testid^=opt-][data-correct="1"]'); if (!c) break; const t0 = Date.now(); await c.click();
       const ban = await pg.waitForSelector('[data-testid=skill-banner]', { timeout: 900 }).catch(() => null);

@@ -80,4 +80,4 @@ export function checkClock(c: ClockState, now: number): ClockState {
   return { ...c, maxSeen: Math.max(c.maxSeen, now) };
 }
 /** 删档案时一并清理的 KV 键 */
-export const profileKeys = (pid: string) => ['progress:' + pid, 'skills:' + pid, 'usage:' + pid];
+export const profileKeys = (pid: string) => ['progress:' + pid, 'skills:' + pid, 'usage:' + pid, 'rollup:' + pid];

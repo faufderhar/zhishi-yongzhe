@@ -1,0 +1,23 @@
+{
+  "image": "attack_soft_sheet.webp",
+  "frame_width": 384,
+  "frame_height": 320,
+  "frame_count": 10,
+  "columns": 5,
+  "rows": 2,
+  "fps": 16,
+  "loop": false,
+  "anchor": {
+    "x": 192,
+    "y": 304,
+    "note": "pixels in frame; 脚底中心"
+  },
+  "facing": "left",
+  "webp_quality": 70,
+  "hit_frame": 5,
+  "events": {
+    "5": "hit"
+  },
+  "soft": true,
+  "max_saturation": 0.55
+}
