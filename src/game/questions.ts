@@ -216,7 +216,7 @@ export function kinderChoices(q: Question, rnd = Math.random): Option[] {
 }
 
 /** 家长导出用：去掉程序内部字段和开发注记（textbook_note、review_note 等，试玩报告 #10） */
-export const EXPORT_DROP = ['key', 'gradeNum', 'order', 'textbook_note', 'review_note'] as const;
+export const EXPORT_DROP = ['key', 'gradeNum', 'order', 'textbook_note', 'review_note', 'change_tag'] as const;
 export function exportQuestion(q: Question) {
   const o: Record<string, unknown> = { ...q };
   for (const k of EXPORT_DROP) delete o[k];

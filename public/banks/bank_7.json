@@ -43,6 +43,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5b3195",
+   "change_tag": "修改",
    "tags": [
     "找规律",
     "数学与生活"
@@ -69,6 +70,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T64d3a8",
+   "change_tag": "修改",
    "tags": [
     "找规律"
    ]
@@ -114,6 +116,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3a9806",
+   "change_tag": "未改",
    "tags": [
     "正数与负数"
    ]
@@ -158,6 +161,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0e5bf6",
+   "change_tag": "未改",
    "tags": [
     "正数与负数"
    ]
@@ -181,6 +185,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T62d39e",
+   "change_tag": "未改",
    "tags": [
     "有理数",
     "概念"
@@ -226,6 +231,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td67182",
+   "change_tag": "未改",
    "tags": [
     "有理数",
     "分类"
@@ -251,6 +257,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Taf7167",
+   "change_tag": "修改",
    "tags": [
     "有理数",
     "分类"
@@ -297,6 +304,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6ab096",
+   "change_tag": "未改",
    "tags": [
     "数轴"
    ]
@@ -322,6 +330,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T37ca99",
+   "change_tag": "未改",
    "tags": [
     "数轴",
     "平移"
@@ -368,6 +377,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T1b25b3",
+   "change_tag": "未改",
    "tags": [
     "数轴",
     "分类讨论"
@@ -414,6 +424,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc3dd6",
+   "change_tag": "未改",
    "tags": [
     "相反数"
    ]
@@ -439,6 +450,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
+   "change_tag": "未改",
    "tags": [
     "绝对值"
    ]
@@ -484,6 +496,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td36ee9",
+   "change_tag": "未改",
    "tags": [
     "绝对值"
    ]
@@ -529,6 +542,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7691d8",
+   "change_tag": "未改",
    "tags": [
     "有理数比较大小"
    ]
@@ -574,6 +588,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5b76d8",
+   "change_tag": "未改",
    "tags": [
     "绝对值",
     "性质"
@@ -600,6 +615,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te641ce",
+   "change_tag": "未改",
    "tags": [
     "绝对值",
     "非负性"
@@ -626,6 +642,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
+   "change_tag": "未改",
    "tags": [
     "有理数加法"
    ]
@@ -652,6 +669,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8c95b2",
+   "change_tag": "修改",
    "tags": [
     "有理数减法"
    ]
@@ -676,6 +694,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T701adf",
+   "change_tag": "修改",
    "tags": [
     "有理数减法"
    ]
@@ -701,6 +720,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
+   "change_tag": "未改",
    "tags": [
     "有理数加法",
     "小数分数"
@@ -727,6 +747,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -752,6 +773,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tce3c32",
+   "change_tag": "未改",
    "tags": [
     "有理数减法",
     "应用"
@@ -778,6 +800,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减",
     "规律"
@@ -804,6 +827,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
+   "change_tag": "未改",
    "tags": [
     "有理数乘法"
    ]
@@ -850,6 +874,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T9e414f",
+   "change_tag": "修改",
    "tags": [
     "有理数除法"
    ]
@@ -876,6 +901,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T12201b",
+   "change_tag": "修改",
    "tags": [
     "有理数乘法"
    ]
@@ -921,6 +947,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2aa902",
+   "change_tag": "未改",
    "tags": [
     "倒数"
    ]
@@ -946,6 +973,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
+   "change_tag": "未改",
    "tags": [
     "有理数乘法",
     "符号"
@@ -972,6 +1000,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T56cc2e",
+   "change_tag": "未改",
    "tags": [
     "乘法分配律"
    ]
@@ -997,6 +1026,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfcad14",
+   "change_tag": "未改",
    "tags": [
     "有理数乘除",
     "运算顺序"
@@ -1043,6 +1073,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3c35e3",
+   "change_tag": "未改",
    "tags": [
     "有理数乘法",
     "符号判断"
@@ -1069,6 +1100,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
+   "change_tag": "未改",
    "tags": [
     "乘方"
    ]
@@ -1115,6 +1147,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T13421b",
+   "change_tag": "修改",
    "tags": [
     "乘方",
     "易错"
@@ -1142,6 +1175,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3673ef",
+   "change_tag": "修改",
    "tags": [
     "乘方",
     "-1的幂"
@@ -1188,6 +1222,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7d32c0",
+   "change_tag": "未改",
    "tags": [
     "科学记数法"
    ]
@@ -1213,6 +1248,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8cb190",
+   "change_tag": "未改",
    "tags": [
     "乘方",
     "分数"
@@ -1239,6 +1275,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
@@ -1285,6 +1322,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8341c6",
+   "change_tag": "修改",
    "tags": [
     "混合运算"
    ]
@@ -1310,6 +1348,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta4cf27",
+   "change_tag": "未改",
    "tags": [
     "混合运算",
     "新定义"
@@ -1356,6 +1395,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6b233e",
+   "change_tag": "修改",
    "tags": [
     "列代数式"
    ]
@@ -1381,6 +1421,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc196d9",
+   "change_tag": "修改",
    "tags": [
     "代数式求值"
    ]
@@ -1426,6 +1467,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T356092",
+   "change_tag": "修改",
    "tags": [
     "单项式"
    ]
@@ -1471,6 +1513,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbcb6b2",
+   "change_tag": "修改",
    "tags": [
     "整式加减",
     "去括号"
@@ -1497,6 +1540,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te641ce",
+   "change_tag": "修改",
    "tags": [
     "代数式求值",
     "整体代入"
@@ -1543,6 +1587,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6cd755",
+   "change_tag": "修改",
    "tags": [
     "同类项"
    ]
@@ -1568,6 +1613,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "修改",
    "tags": [
     "解一元一次方程"
    ]
@@ -1592,6 +1638,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td768eb",
+   "change_tag": "修改",
    "tags": [
     "解一元一次方程",
     "移项"
@@ -1639,6 +1686,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdcadce",
+   "change_tag": "修改",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -1664,6 +1712,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T93d8cd",
+   "change_tag": "修改",
    "tags": [
     "一元一次方程应用"
    ]
@@ -1709,6 +1758,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf68c87",
+   "change_tag": "修改",
    "tags": [
     "余角补角"
    ]
@@ -1731,6 +1781,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tddef9f",
+   "change_tag": "修改",
    "tags": [
     "线段"
    ]
@@ -1775,6 +1826,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T6c6e98",
+   "change_tag": "未改",
    "tags": [
     "字音"
    ]
@@ -1820,6 +1872,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T84311c",
+   "change_tag": "未改",
    "tags": [
     "字音"
    ]
@@ -1864,6 +1917,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T28c436",
+   "change_tag": "未改",
    "tags": [
     "字形"
    ]
@@ -1908,6 +1962,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T28c436",
+   "change_tag": "未改",
    "tags": [
     "字形"
    ]
@@ -1952,6 +2007,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4287cc",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -1996,6 +2052,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T128b09",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -2041,6 +2098,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
+   "change_tag": "修改",
    "tags": [
     "文学常识"
    ]
@@ -2085,6 +2143,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
+   "change_tag": "未改",
    "tags": [
     "文学常识"
    ]
@@ -2129,6 +2188,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2bad44",
+   "change_tag": "未改",
    "tags": [
     "文学常识"
    ]
@@ -2173,6 +2233,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T632baa",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "论语"
@@ -2218,6 +2279,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "论语"
@@ -2263,6 +2325,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "论语"
@@ -2308,6 +2371,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "论语"
@@ -2353,6 +2417,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "未改",
    "tags": [
     "文言词义",
     "论语"
@@ -2364,7 +2429,7 @@
    "subject": "语文",
    "grade": 7,
    "textbook": "统编版2024",
-   "unit": "七上·基础积累（字词·病句）",
+   "unit": "七上·第三单元·12《论语》十二章",
    "type": "选择",
    "question": "“有朋自远方来，不亦乐乎”中“乐”的意思是？",
    "options": [
@@ -2396,8 +2461,10 @@
    "volume": "七年级上册",
    "knowledge_point": "文言词义",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "修改",
    "tags": [
     "文言词义"
    ]
@@ -2442,6 +2509,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tf6c6ee",
+   "change_tag": "未改",
    "tags": [
     "文言词义",
     "世说新语"
@@ -2487,6 +2555,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te75f00",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "世说新语"
@@ -2532,6 +2601,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8a81b6",
+   "change_tag": "未改",
    "tags": [
     "文言理解",
     "咏雪"
@@ -2577,6 +2647,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc1adcf",
+   "change_tag": "未改",
    "tags": [
     "文言理解",
     "咏雪"
@@ -2622,6 +2693,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "诫子书"
@@ -2667,6 +2739,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "诫子书"
@@ -2712,6 +2785,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T817afd",
+   "change_tag": "未改",
    "tags": [
     "修辞"
    ]
@@ -2756,6 +2830,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T39e5bc",
+   "change_tag": "未改",
    "tags": [
     "修辞"
    ]
@@ -2800,6 +2875,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T43dfd1",
+   "change_tag": "未改",
    "tags": [
     "修辞"
    ]
@@ -2823,6 +2899,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tf251d6",
+   "change_tag": "未改",
    "tags": [
     "文学常识"
    ]
@@ -2846,6 +2923,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T5e6f43",
+   "change_tag": "未改",
    "tags": [
     "文学常识"
    ]
@@ -2890,6 +2968,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "诫子书"
@@ -2936,6 +3015,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T89ce49",
+   "change_tag": "未改",
    "tags": [
     "病句"
    ]
@@ -2980,6 +3060,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "论语"
@@ -3025,6 +3106,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "默写",
     "论语"
@@ -3070,6 +3152,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T9672d5",
+   "change_tag": "未改",
    "tags": [
     "日常交际"
    ]
@@ -3114,6 +3197,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7b33bc",
+   "change_tag": "未改",
    "tags": [
     "句型"
    ]
@@ -3159,6 +3243,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T89ef7c",
+   "change_tag": "未改",
    "tags": [
     "颜色",
     "冠词"
@@ -3204,6 +3289,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "冠词"
    ]
@@ -3248,6 +3334,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "be动词"
    ]
@@ -3292,6 +3379,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "be动词"
    ]
@@ -3336,6 +3424,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tbf14fe",
+   "change_tag": "未改",
    "tags": [
     "一般疑问句"
    ]
@@ -3381,6 +3470,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc6049c",
+   "change_tag": "未改",
    "tags": [
     "名词复数"
    ]
@@ -3426,6 +3516,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T434e23",
+   "change_tag": "未改",
    "tags": [
     "介词"
    ]
@@ -3470,6 +3561,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "一般现在时"
    ]
@@ -3514,6 +3606,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tdc5f49",
+   "change_tag": "未改",
    "tags": [
     "一般现在时",
     "助动词"
@@ -3560,6 +3653,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T4eff02",
+   "change_tag": "未改",
    "tags": [
     "句型"
    ]
@@ -3605,6 +3699,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T327457",
+   "change_tag": "未改",
    "tags": [
     "介词",
     "日期"
@@ -3650,6 +3745,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc6049c",
+   "change_tag": "未改",
    "tags": [
     "词汇",
     "月份"
@@ -3667,14 +3763,16 @@
    "answer": [
     "twelve"
    ],
-   "explanation": "twelve 12；twentieth 第二十。",
+   "explanation": "twelve 表示 12。",
    "difficulty": 1,
    "source": "AI",
    "volume": "七年级上册(7A)",
    "knowledge_point": "词汇",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T07e51b",
+   "change_tag": "修改",
    "tags": [
     "词汇",
     "数字"
@@ -3700,6 +3798,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7e7446",
+   "change_tag": "未改",
    "tags": [
     "词汇",
     "序数词"
@@ -3726,6 +3825,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T2a029e",
+   "change_tag": "未改",
    "tags": [
     "名词复数"
    ]
@@ -3751,6 +3851,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T2a029e",
+   "change_tag": "未改",
    "tags": [
     "名词复数"
    ]
@@ -3776,6 +3877,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T2a029e",
+   "change_tag": "未改",
    "tags": [
     "名词复数"
    ]
@@ -3821,6 +3923,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc4aa02",
+   "change_tag": "未改",
    "tags": [
     "购物",
     "be动词"
@@ -3866,6 +3969,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "have/has"
    ]
@@ -3911,6 +4015,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tbdf76d",
+   "change_tag": "未改",
    "tags": [
     "特殊疑问词"
    ]
@@ -3955,6 +4060,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "Let's句型"
    ]
@@ -4000,6 +4106,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "介词"
    ]
@@ -4045,6 +4152,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T4b11df",
+   "change_tag": "未改",
    "tags": [
     "冠词",
     "购物"
@@ -4090,6 +4198,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "be动词"
    ]
@@ -4135,6 +4244,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79fad6",
+   "change_tag": "未改",
    "tags": [
     "特殊疑问词"
    ]
@@ -4180,6 +4290,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "所有格"
    ]
@@ -4206,6 +4317,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T07e51b",
+   "change_tag": "未改",
    "tags": [
     "词汇",
     "星期"
@@ -4251,6 +4363,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "一般现在时",
     "否定"
@@ -4296,6 +4409,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcce6e8",
+   "change_tag": "未改",
    "tags": [
     "远古人类"
    ]
@@ -4340,6 +4454,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T821baf",
+   "change_tag": "未改",
    "tags": [
     "远古人类",
     "北京人"
@@ -4385,6 +4500,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te36460",
+   "change_tag": "未改",
    "tags": [
     "远古人类",
     "北京人"
@@ -4430,6 +4546,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T5dd019",
+   "change_tag": "未改",
    "tags": [
     "原始农耕"
    ]
@@ -4474,6 +4591,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td2dcb1",
+   "change_tag": "未改",
    "tags": [
     "原始农耕",
     "半坡"
@@ -4519,6 +4637,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T3eb1b5",
+   "change_tag": "未改",
    "tags": [
     "传说时代"
    ]
@@ -4563,6 +4682,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4ee9ed",
+   "change_tag": "未改",
    "tags": [
     "夏商周"
    ]
@@ -4607,6 +4727,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T47afd0",
+   "change_tag": "未改",
    "tags": [
     "夏商周",
     "夏"
@@ -4652,6 +4773,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T71be1b",
+   "change_tag": "未改",
    "tags": [
     "夏商周",
     "商"
@@ -4697,6 +4819,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T55a152",
+   "change_tag": "未改",
    "tags": [
     "商",
     "甲骨文"
@@ -4742,6 +4865,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T1c863b",
+   "change_tag": "未改",
    "tags": [
     "商",
     "青铜器"
@@ -4787,6 +4911,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T7bcc8a",
+   "change_tag": "未改",
    "tags": [
     "西周",
     "分封制"
@@ -4832,6 +4957,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb71330",
+   "change_tag": "未改",
    "tags": [
     "西周"
    ]
@@ -4876,6 +5002,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc41063",
+   "change_tag": "未改",
    "tags": [
     "春秋争霸"
    ]
@@ -4920,6 +5047,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb96fb2",
+   "change_tag": "未改",
    "tags": [
     "春秋争霸"
    ]
@@ -4964,6 +5092,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2a41ce",
+   "change_tag": "未改",
    "tags": [
     "战国"
    ]
@@ -5008,6 +5137,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T5319d9",
+   "change_tag": "未改",
    "tags": [
     "战国",
     "商鞅变法"
@@ -5053,6 +5183,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb628cc",
+   "change_tag": "未改",
    "tags": [
     "战国",
     "都江堰"
@@ -5098,6 +5229,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb440f8",
+   "change_tag": "未改",
    "tags": [
     "百家争鸣"
    ]
@@ -5142,6 +5274,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td6e47c",
+   "change_tag": "未改",
    "tags": [
     "百家争鸣"
    ]
@@ -5186,6 +5319,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8a0411",
+   "change_tag": "未改",
    "tags": [
     "百家争鸣"
    ]
@@ -5230,6 +5364,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ted6b86",
+   "change_tag": "未改",
    "tags": [
     "百家争鸣"
    ]
@@ -5274,6 +5409,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T27faf4",
+   "change_tag": "未改",
    "tags": [
     "秦统一"
    ]
@@ -5318,6 +5454,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T950fe3",
+   "change_tag": "未改",
    "tags": [
     "秦",
     "郡县制"
@@ -5363,6 +5500,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td8acde",
+   "change_tag": "未改",
    "tags": [
     "秦",
     "统一文字"
@@ -5408,6 +5546,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T44d368",
+   "change_tag": "未改",
    "tags": [
     "秦末农民起义"
    ]
@@ -5452,6 +5591,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tebd7aa",
+   "change_tag": "未改",
    "tags": [
     "西汉"
    ]
@@ -5496,6 +5636,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T591f48",
+   "change_tag": "未改",
    "tags": [
     "西汉",
     "汉武帝"
@@ -5541,6 +5682,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8431fc",
+   "change_tag": "未改",
    "tags": [
     "丝绸之路"
    ]
@@ -5563,6 +5705,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tab83ee",
+   "change_tag": "未改",
    "tags": [
     "秦汉文化"
    ]
@@ -5607,6 +5750,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "次北固山下"
    ]
@@ -5651,6 +5795,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "次北固山下"
    ]
@@ -5695,6 +5840,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "次北固山下"
    ]
@@ -5739,6 +5885,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "观沧海"
    ]
@@ -5784,6 +5931,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "观沧海"
    ]
@@ -5828,6 +5976,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8ef6dc",
+   "change_tag": "未改",
    "tags": [
     "观沧海"
    ]
@@ -5872,6 +6021,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "闻王昌龄左迁"
    ]
@@ -5916,6 +6066,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T587b02",
+   "change_tag": "未改",
    "tags": [
     "闻王昌龄左迁"
    ]
@@ -5960,6 +6111,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "天净沙秋思"
    ]
@@ -6004,6 +6156,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "天净沙秋思"
    ]
@@ -6048,6 +6201,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T34f091",
+   "change_tag": "未改",
    "tags": [
     "天净沙秋思",
     "文学常识"
@@ -6093,6 +6247,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcb1a8e",
+   "change_tag": "未改",
    "tags": [
     "峨眉山月歌"
    ]
@@ -6137,6 +6292,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "峨眉山月歌"
    ]
@@ -6181,6 +6337,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "白雪歌",
     "拓展"
@@ -6225,6 +6382,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "白雪歌",
     "拓展"
@@ -6269,6 +6427,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "春夜洛城闻笛"
    ]
@@ -6312,6 +6471,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "春夜洛城闻笛"
    ]
@@ -6355,6 +6515,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "黄鹤楼"
    ]
@@ -6398,6 +6559,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "黄鹤楼"
    ]
@@ -6441,6 +6603,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "黄鹤楼"
    ]
@@ -6484,6 +6647,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "小学复习"
    ]
@@ -6527,6 +6691,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "小学复习"
    ]
@@ -6570,6 +6735,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "水调歌头",
     "拓展"
@@ -6614,6 +6780,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "饮酒",
     "拓展"
@@ -6658,6 +6825,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "望岳",
     "拓展"
@@ -6702,6 +6870,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "小学复习"
    ]
@@ -6745,6 +6914,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "送杜少府",
     "拓展"
@@ -6768,13 +6938,14 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta55cde",
+   "change_tag": "未改",
    "tags": [
     "次北固山下"
    ]
   },
   {
    "id": "S7-029",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6786,16 +6957,18 @@
    "difficulty": 3,
    "source": "AI",
    "knowledge_point": "十一月四日风雨大作",
-   "game_ready": true,
+   "review_note": "单元归属存疑：《十一月四日风雨大作》在统编旧版七上第六单元“课外古诗词诵读”中，题库标为“拓展（非七上课文）”；请家长按孩子手上的 2024 新版七上目录确认是否仍在七上",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb65f77",
+   "change_tag": "未改",
    "tags": [
     "十一月四日风雨大作"
    ]
   },
   {
    "id": "S7-030",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "诗词",
    "grade": 7,
    "textbook": "统编版2024",
@@ -6829,9 +7002,11 @@
    "difficulty": 4,
    "source": "AI",
    "knowledge_point": "十一月四日风雨大作",
-   "game_ready": true,
+   "review_note": "同 S7-029：《十一月四日风雨大作（其二）》单元归属需按 2024 新版七上目录确认",
+   "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "十一月四日风雨大作"
    ]
@@ -6876,6 +7051,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tae9c00",
+   "change_tag": "未改",
    "tags": [
     "品析词语",
     "春"
@@ -6921,6 +7097,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb321e9",
+   "change_tag": "未改",
    "tags": [
     "修辞",
     "结构",
@@ -6967,6 +7144,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcc59f4",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "春"
@@ -7012,6 +7190,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td28ee7",
+   "change_tag": "未改",
    "tags": [
     "内容理解",
     "济南的冬天"
@@ -7057,6 +7236,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T280ed2",
+   "change_tag": "未改",
    "tags": [
     "内容理解",
     "济南的冬天"
@@ -7102,6 +7282,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "雨的四季"
@@ -7148,6 +7329,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T084098",
+   "change_tag": "未改",
    "tags": [
     "内容理解",
     "秋天的怀念"
@@ -7194,6 +7376,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tfd95ea",
+   "change_tag": "未改",
    "tags": [
     "内容理解",
     "散步"
@@ -7240,6 +7423,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T55ff34",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "散文诗二首"
@@ -7286,6 +7470,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T540c44",
+   "change_tag": "未改",
    "tags": [
     "修辞",
     "散文诗二首"
@@ -7331,6 +7516,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tceda84",
+   "change_tag": "未改",
    "tags": [
     "文言理解",
     "陈太丘与友期行"
@@ -7376,6 +7562,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "未改",
    "tags": [
     "文言词义",
     "陈太丘与友期行"
@@ -7421,6 +7608,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "未改",
    "tags": [
     "文言词义",
     "陈太丘与友期行"
@@ -7466,6 +7654,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4b1759",
+   "change_tag": "未改",
    "tags": [
     "主旨",
     "陈太丘与友期行"
@@ -7511,6 +7700,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T33d609",
+   "change_tag": "未改",
    "tags": [
     "文言词义",
     "咏雪"
@@ -7556,6 +7746,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc7e2e7",
+   "change_tag": "未改",
    "tags": [
     "文学常识",
     "世说新语"
@@ -7601,6 +7792,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "未改",
    "tags": [
     "文言词义",
     "论语"
@@ -7646,6 +7838,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T86685e",
+   "change_tag": "未改",
    "tags": [
     "文言理解",
     "论语"
@@ -7691,6 +7884,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tef77fa",
+   "change_tag": "未改",
    "tags": [
     "文言理解",
     "论语"
@@ -7736,6 +7930,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tbd7a23",
+   "change_tag": "未改",
    "tags": [
     "文言虚词",
     "论语"
@@ -7781,6 +7976,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T420d21",
+   "change_tag": "未改",
    "tags": [
     "日常交际"
    ]
@@ -7825,6 +8021,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tcc7652",
+   "change_tag": "未改",
    "tags": [
     "一般现在时"
    ]
@@ -7869,6 +8066,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T02d314",
+   "change_tag": "未改",
    "tags": [
     "be动词"
    ]
@@ -7913,6 +8111,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "一般现在时"
    ]
@@ -7957,6 +8156,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "固定搭配"
    ]
@@ -8001,6 +8201,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T6d332e",
+   "change_tag": "未改",
    "tags": [
     "特殊疑问句"
    ]
@@ -8045,6 +8246,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "be动词"
    ]
@@ -8089,6 +8291,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc20077",
+   "change_tag": "未改",
    "tags": [
     "be动词",
     "一般疑问句"
@@ -8134,6 +8337,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "动名词"
    ]
@@ -8178,6 +8382,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc6049c",
+   "change_tag": "未改",
    "tags": [
     "动名词",
     "固定搭配"
@@ -8223,6 +8428,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T50aedb",
+   "change_tag": "未改",
    "tags": [
     "一般现在时",
     "否定"
@@ -8268,6 +8474,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T6889cc",
+   "change_tag": "未改",
    "tags": [
     "一般现在时",
     "一般疑问句"
@@ -8293,6 +8500,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T10156f",
+   "change_tag": "未改",
    "tags": [
     "三单变化"
    ]
@@ -8317,6 +8525,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T10156f",
+   "change_tag": "未改",
    "tags": [
     "三单变化"
    ]
@@ -8341,6 +8550,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T8b61d4",
+   "change_tag": "未改",
    "tags": [
     "词汇"
    ]
@@ -8385,6 +8595,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tbf1aad",
+   "change_tag": "未改",
    "tags": [
     "一般现在时"
    ]
@@ -8430,6 +8641,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "人称代词"
    ]
@@ -8475,6 +8687,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T50aedb",
+   "change_tag": "未改",
    "tags": [
     "物主代词"
    ]
@@ -8520,6 +8733,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T26b77b",
+   "change_tag": "未改",
    "tags": [
     "物主代词"
    ]
@@ -8565,6 +8779,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T79ade0",
+   "change_tag": "未改",
    "tags": [
     "there be"
    ]
@@ -8609,6 +8824,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc51614",
+   "change_tag": "未改",
    "tags": [
     "北京人"
    ]
@@ -8654,6 +8870,7 @@
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T74bdaa",
+   "change_tag": "未改",
    "tags": [
     "山顶洞人"
    ]
@@ -8698,6 +8915,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T33532e",
+   "change_tag": "未改",
    "tags": [
     "史料"
    ]
@@ -8742,6 +8960,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta338cb",
+   "change_tag": "未改",
    "tags": [
     "中华文明起源",
     "良渚"
@@ -8787,6 +9006,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2f141e",
+   "change_tag": "未改",
    "tags": [
     "传说时代",
     "禅让"
@@ -8832,6 +9052,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb768e9",
+   "change_tag": "未改",
    "tags": [
     "传说时代"
    ]
@@ -8876,6 +9097,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td9ac13",
+   "change_tag": "未改",
    "tags": [
     "传说时代"
    ]
@@ -8920,6 +9142,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tde8005",
+   "change_tag": "未改",
    "tags": [
     "中华文明起源"
    ]
@@ -8964,6 +9187,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T6ed795",
+   "change_tag": "未改",
    "tags": [
     "夏朝",
     "世袭制"
@@ -9009,6 +9233,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb08544",
+   "change_tag": "未改",
    "tags": [
     "商朝"
    ]
@@ -9053,6 +9278,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc2e19d",
+   "change_tag": "未改",
    "tags": [
     "西周"
    ]
@@ -9097,6 +9323,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tca6a4f",
+   "change_tag": "未改",
    "tags": [
     "春秋战国",
     "经济"
@@ -9142,6 +9369,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T9e2570",
+   "change_tag": "未改",
    "tags": [
     "战国"
    ]
@@ -9186,6 +9414,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T645aba",
+   "change_tag": "未改",
    "tags": [
     "孔子"
    ]
@@ -9230,6 +9459,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T936bca",
+   "change_tag": "未改",
    "tags": [
     "百家争鸣",
     "孟子"
@@ -9275,6 +9505,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T570410",
+   "change_tag": "未改",
    "tags": [
     "百家争鸣"
    ]
@@ -9319,6 +9550,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc141cd",
+   "change_tag": "未改",
    "tags": [
     "商鞅变法"
    ]
@@ -9363,6 +9595,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb67cda",
+   "change_tag": "未改",
    "tags": [
     "时间线"
    ]
@@ -9407,6 +9640,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T249cd4",
+   "change_tag": "未改",
    "tags": [
     "秦",
     "统一措施"
@@ -9452,6 +9686,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T16cbe2",
+   "change_tag": "未改",
    "tags": [
     "西汉"
    ]
@@ -9496,6 +9731,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcb1a8e",
+   "change_tag": "未改",
    "tags": [
     "观沧海"
    ]
@@ -9540,6 +9776,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8049bd",
+   "change_tag": "未改",
    "tags": [
     "观沧海"
    ]
@@ -9584,6 +9821,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td70656",
+   "change_tag": "未改",
    "tags": [
     "观沧海",
     "词义"
@@ -9629,6 +9867,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcb1a8e",
+   "change_tag": "未改",
    "tags": [
     "次北固山下"
    ]
@@ -9673,6 +9912,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T7f3130",
+   "change_tag": "未改",
    "tags": [
     "次北固山下"
    ]
@@ -9717,6 +9957,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T5f3f33",
+   "change_tag": "未改",
    "tags": [
     "闻王昌龄左迁"
    ]
@@ -9761,6 +10002,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tde3546",
+   "change_tag": "未改",
    "tags": [
     "闻王昌龄左迁"
    ]
@@ -9805,6 +10047,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T177fca",
+   "change_tag": "未改",
    "tags": [
     "天净沙秋思"
    ]
@@ -9841,14 +10084,16 @@
     }
    ],
    "answer": "C",
-   "explanation": "九个名词叠加，意象组合。",
+   "explanation": "“枯藤”“老树”“昏鸦”三个名词性意象直接并列，不用动词连接；前三句共九个意象。",
    "difficulty": 4,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "天净沙秋思",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcca35f",
+   "change_tag": "修改",
    "tags": [
     "天净沙秋思",
     "写法"
@@ -9894,6 +10139,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T261ba3",
+   "change_tag": "未改",
    "tags": [
     "古代诗歌四首"
    ]
@@ -9938,6 +10184,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "江南逢李龟年"
    ]
@@ -9982,6 +10229,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "江南逢李龟年"
    ]
@@ -10026,6 +10274,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "行军九日思长安故园"
    ]
@@ -10070,6 +10319,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "行军九日思长安故园"
    ]
@@ -10114,6 +10364,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0cb76c",
+   "change_tag": "未改",
    "tags": [
     "行军九日思长安故园"
    ]
@@ -10158,6 +10409,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "夜上受降城闻笛"
    ]
@@ -10202,6 +10454,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "夜上受降城闻笛"
    ]
@@ -10246,6 +10499,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T94eea5",
+   "change_tag": "未改",
    "tags": [
     "夜上受降城闻笛"
    ]
@@ -10290,6 +10544,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T455129",
+   "change_tag": "未改",
    "tags": [
     "峨眉山月歌"
    ]
@@ -10334,6 +10589,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T36cbf8",
+   "change_tag": "未改",
    "tags": [
     "峨眉山月歌"
    ]
@@ -10358,6 +10614,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta9347d",
+   "change_tag": "未改",
    "tags": [
     "找规律",
     "观察"
@@ -10384,6 +10641,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tce912a",
+   "change_tag": "修改",
    "tags": [
     "找规律",
     "观察"
@@ -10431,6 +10689,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T947307",
+   "change_tag": "修改",
    "tags": [
     "找规律",
     "观察"
@@ -10456,6 +10715,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T15e4f4",
+   "change_tag": "未改",
    "tags": [
     "活动思考",
     "分类计数"
@@ -10502,6 +10762,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td5bc7b",
+   "change_tag": "未改",
    "tags": [
     "用字母表达"
    ]
@@ -10527,6 +10788,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -10552,6 +10814,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -10577,6 +10840,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -10602,6 +10866,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -10627,6 +10892,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -10652,6 +10918,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数加减混合"
    ]
@@ -10664,7 +10931,7 @@
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.5 有理数的乘法与除法",
    "type": "填空",
-   "question": "计算：$-9\\times3\\div(-2)=$ ?",
+   "question": "计算：$-9\\times3\\div(-2)=$ ?（分数写成 a/b）",
    "tts_text": "-",
    "answer": [
     "27/2"
@@ -10675,8 +10942,10 @@
    "volume": "七年级上册",
    "knowledge_point": "有理数乘除",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "修改",
    "tags": [
     "有理数乘除"
    ]
@@ -10702,6 +10971,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数乘除"
    ]
@@ -10727,6 +10997,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数乘除"
    ]
@@ -10752,6 +11023,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数乘除"
    ]
@@ -10777,6 +11049,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数乘除"
    ]
@@ -10802,6 +11075,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "有理数乘除"
    ]
@@ -10814,7 +11088,7 @@
    "textbook": "苏科版2024",
    "unit": "七上·第2章 有理数·2.5 有理数的乘法与除法",
    "type": "填空",
-   "question": "计算：$\\left(-\\dfrac{5}{6}\\right)\\times\\left(-\\dfrac{3}{10}\\right)=$ ?",
+   "question": "计算：$\\left(-\\dfrac{5}{6}\\right)\\times\\left(-\\dfrac{3}{10}\\right)=$ ?（分数写成 a/b）",
    "tts_text": "-",
    "answer": [
     "1/4"
@@ -10828,6 +11102,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "修改",
    "tags": [
     "有理数乘法",
     "分数"
@@ -10854,6 +11129,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "乘方"
    ]
@@ -10880,6 +11156,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "乘方"
    ]
@@ -10906,6 +11183,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "乘方"
    ]
@@ -10932,6 +11210,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "乘方"
    ]
@@ -10957,6 +11236,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "乘方"
    ]
@@ -10983,6 +11263,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "乘方",
     "易错"
@@ -11009,6 +11290,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T17d130",
+   "change_tag": "未改",
    "tags": [
     "科学记数法"
    ]
@@ -11034,6 +11316,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11060,6 +11343,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11086,6 +11370,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11112,6 +11397,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11138,6 +11424,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11184,6 +11471,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T12395a",
+   "change_tag": "未改",
    "tags": [
     "字母表示数"
    ]
@@ -11228,6 +11516,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2b818d",
+   "change_tag": "未改",
    "tags": [
     "代数式书写"
    ]
@@ -11245,14 +11534,16 @@
    "answer": [
     "3"
    ],
-   "explanation": "代入 $x=2$ 计算得 $3$。",
+   "explanation": "$2\\times2^2-3\\times2+1=8-6+1=3$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "代数式求值",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te63689",
+   "change_tag": "修改",
    "tags": [
     "代数式求值"
    ]
@@ -11299,6 +11590,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T922d5f",
+   "change_tag": "修改",
    "tags": [
     "代数式求值"
    ]
@@ -11325,6 +11617,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb431a3",
+   "change_tag": "修改",
    "tags": [
     "代数式求值"
    ]
@@ -11342,14 +11635,16 @@
    "answer": [
     "6"
    ],
-   "explanation": "代入 $x=-2$ 计算得 $6$。",
+   "explanation": "$-(-2)^3+(-2)=8-2=6$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "代数式求值",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te63689",
+   "change_tag": "修改",
    "tags": [
     "代数式求值"
    ]
@@ -11395,6 +11690,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -11420,6 +11716,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7c5924",
+   "change_tag": "修改",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -11447,6 +11744,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc00155",
+   "change_tag": "修改",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -11493,6 +11791,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -11539,6 +11838,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -11585,6 +11885,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -11631,6 +11932,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "去括号"
@@ -11677,6 +11979,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "去括号"
@@ -11723,6 +12026,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "去括号"
@@ -11769,6 +12073,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
+   "change_tag": "未改",
    "tags": [
     "整式加减",
     "去括号"
@@ -11782,17 +12087,19 @@
    "textbook": "苏科版2024",
    "unit": "七上·第3章 代数式·3.3 整式的加减",
    "type": "判断",
-   "question": "$3x^2y$ 与 $-2yx^2$ 是同类项。",
+   "question": "$2xy^2$ 与 $2x^2y$ 是同类项。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "所含字母相同且相同字母的指数相同。",
+   "answer": "错",
+   "explanation": "相同字母的指数不同（$x$ 与 $x^2$、$y^2$ 与 $y$），不是同类项。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "同类项",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7c5924",
+   "change_tag": "修改",
    "tags": [
     "同类项"
    ]
@@ -11816,6 +12123,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8f6d85",
+   "change_tag": "未改",
    "tags": [
     "等式的性质"
    ]
@@ -11841,6 +12149,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -11887,6 +12196,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf49268",
+   "change_tag": "修改",
    "tags": [
     "解一元一次方程"
    ]
@@ -11911,6 +12221,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfb3c66",
+   "change_tag": "修改",
    "tags": [
     "解一元一次方程"
    ]
@@ -11936,6 +12247,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -11961,6 +12273,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -11986,6 +12299,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -12011,6 +12325,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -12036,6 +12351,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -12061,6 +12377,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -12086,6 +12403,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程"
    ]
@@ -12111,6 +12429,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12137,6 +12456,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12163,6 +12483,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12189,6 +12510,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
+   "change_tag": "未改",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12214,6 +12536,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6ae194",
+   "change_tag": "未改",
    "tags": [
     "一元一次方程应用",
     "打折"
@@ -12239,6 +12562,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T78d091",
+   "change_tag": "未改",
    "tags": [
     "一元一次方程应用",
     "行程"
@@ -12264,6 +12588,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2adf62",
+   "change_tag": "未改",
    "tags": [
     "一元一次方程应用",
     "工程"
@@ -12289,6 +12614,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T51845b",
+   "change_tag": "未改",
    "tags": [
     "一元一次方程应用"
    ]
@@ -12333,6 +12659,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf34615",
+   "change_tag": "未改",
    "tags": [
     "立体图形"
    ]
@@ -12357,6 +12684,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T36a56c",
+   "change_tag": "未改",
    "tags": [
     "立体图形"
    ]
@@ -12401,6 +12729,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf03456",
+   "change_tag": "未改",
    "tags": [
     "展开图"
    ]
@@ -12445,6 +12774,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb7c863",
+   "change_tag": "未改",
    "tags": [
     "点线面体"
    ]
@@ -12489,6 +12819,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf347ff",
+   "change_tag": "未改",
    "tags": [
     "点线面体",
     "旋转"
@@ -12534,6 +12865,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tff2354",
+   "change_tag": "未改",
    "tags": [
     "展开图"
    ]
@@ -12578,6 +12910,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T9e2a67",
+   "change_tag": "未改",
    "tags": [
     "三视图"
    ]
@@ -12622,6 +12955,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T74e4e2",
+   "change_tag": "未改",
    "tags": [
     "直线性质"
    ]
@@ -12648,6 +12982,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T33597b",
+   "change_tag": "未改",
    "tags": [
     "线段中点"
    ]
@@ -12673,6 +13008,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc28a3",
+   "change_tag": "未改",
    "tags": [
     "余角"
    ]
@@ -12719,6 +13055,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb23d9d",
+   "change_tag": "修改",
    "tags": [
     "补角"
    ]
@@ -12745,6 +13082,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta9ae67",
+   "change_tag": "修改",
    "tags": [
     "余角"
    ]
@@ -12770,6 +13108,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8d0894",
+   "change_tag": "未改",
    "tags": [
     "补角"
    ]
@@ -12795,6 +13134,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc28a3",
+   "change_tag": "未改",
    "tags": [
     "余角"
    ]
@@ -12820,6 +13160,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8d0894",
+   "change_tag": "未改",
    "tags": [
     "补角"
    ]
@@ -12845,6 +13186,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2fca39",
+   "change_tag": "未改",
    "tags": [
     "角的度量"
    ]
@@ -12857,18 +13199,20 @@
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.2 角",
    "type": "填空",
-   "question": "钟表 3 点整时，时针与分针的夹角是多少度？",
+   "question": "钟表 4 点整时，时针与分针的夹角是多少度？",
    "answer": [
-    "90"
+    "120"
    ],
-   "explanation": "每大格 $30^\\circ$，$3\\times30^\\circ=90^\\circ$。",
+   "explanation": "每大格 $30^\\circ$，$4\\times30^\\circ=120^\\circ$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
    "knowledge_point": "角",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf04ec8",
+   "change_tag": "修改",
    "tags": [
     "角",
     "钟表"
@@ -12895,6 +13239,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tde382b",
+   "change_tag": "未改",
    "tags": [
     "对顶角"
    ]
@@ -12919,6 +13264,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb0cbab",
+   "change_tag": "修改",
    "tags": [
     "邻补角"
    ]
@@ -12963,6 +13309,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5fe09e",
+   "change_tag": "未改",
    "tags": [
     "垂线"
    ]
@@ -13007,6 +13354,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T82b6f1",
+   "change_tag": "未改",
    "tags": [
     "平行公理"
    ]
@@ -13029,6 +13377,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7bfde8",
+   "change_tag": "未改",
    "tags": [
     "平行线"
    ]
@@ -13053,6 +13402,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8ed457",
+   "change_tag": "未改",
    "tags": [
     "多边形",
     "对角线"
@@ -13099,6 +13449,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T639ad8",
+   "change_tag": "修改",
    "tags": [
     "多边形",
     "对角线"
@@ -13123,6 +13474,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T839ec2",
+   "change_tag": "修改",
    "tags": [
     "多边形",
     "对角线"
@@ -13149,6 +13501,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T740e7b",
+   "change_tag": "未改",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13175,6 +13528,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc9ab98",
+   "change_tag": "修改",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13199,6 +13553,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3e612c",
+   "change_tag": "修改",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13224,6 +13579,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13269,6 +13625,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T31db1a",
+   "change_tag": "未改",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13294,6 +13651,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T740e7b",
+   "change_tag": "未改",
    "tags": [
     "幂的乘方"
    ]
@@ -13340,6 +13698,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6330b1",
+   "change_tag": "修改",
    "tags": [
     "幂的乘方"
    ]
@@ -13385,6 +13744,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc3dd6",
+   "change_tag": "未改",
    "tags": [
     "积的乘方"
    ]
@@ -13410,6 +13770,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "积的乘方",
     "逆用"
@@ -13436,6 +13797,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te0c88b",
+   "change_tag": "未改",
    "tags": [
     "同底数幂除法"
    ]
@@ -13448,7 +13810,7 @@
    "textbook": "苏科版2024",
    "unit": "七下·第7章 幂的运算·7.3 同底数幂的除法",
    "type": "填空",
-   "question": "计算：$2^{-2}=$ ?",
+   "question": "计算：$2^{-2}=$ ?（分数写成 a/b）",
    "tts_text": "-",
    "answer": [
     "1/4"
@@ -13459,8 +13821,10 @@
    "volume": "七年级下册",
    "knowledge_point": "负整数指数幂",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "修改",
    "tags": [
     "负整数指数幂"
    ]
@@ -13486,6 +13850,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "零指数幂"
    ]
@@ -13511,6 +13876,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T740e7b",
+   "change_tag": "未改",
    "tags": [
     "科学记数法",
     "较小数"
@@ -13557,6 +13923,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "单项式乘法"
    ]
@@ -13602,6 +13969,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "单项式乘多项式"
    ]
@@ -13647,6 +14015,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "多项式乘法"
    ]
@@ -13693,6 +14062,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T140644",
+   "change_tag": "修改",
    "tags": [
     "多项式乘法"
    ]
@@ -13719,6 +14089,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te641ce",
+   "change_tag": "修改",
    "tags": [
     "多项式乘法"
    ]
@@ -13764,6 +14135,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "多项式乘法"
    ]
@@ -13809,6 +14181,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "多项式乘法"
    ]
@@ -13854,6 +14227,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "完全平方公式"
    ]
@@ -13899,6 +14273,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "完全平方公式"
    ]
@@ -13944,6 +14319,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td1721f",
+   "change_tag": "未改",
    "tags": [
     "平方差公式"
    ]
@@ -13969,6 +14345,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdab9ad",
+   "change_tag": "未改",
    "tags": [
     "平方差公式",
     "简便运算"
@@ -13995,6 +14372,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdab9ad",
+   "change_tag": "未改",
    "tags": [
     "完全平方公式",
     "简便运算"
@@ -14021,6 +14399,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T73705d",
+   "change_tag": "未改",
    "tags": [
     "完全平方公式",
     "变形"
@@ -14047,6 +14426,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfa674b",
+   "change_tag": "未改",
    "tags": [
     "完全平方式"
    ]
@@ -14069,6 +14449,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T973334",
+   "change_tag": "未改",
    "tags": [
     "平移"
    ]
@@ -14113,6 +14494,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T428df0",
+   "change_tag": "未改",
    "tags": [
     "平移"
    ]
@@ -14157,6 +14539,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2b4935",
+   "change_tag": "未改",
    "tags": [
     "轴对称图形"
    ]
@@ -14181,6 +14564,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc0755b",
+   "change_tag": "未改",
    "tags": [
     "对称轴"
    ]
@@ -14205,6 +14589,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T239d4b",
+   "change_tag": "未改",
    "tags": [
     "旋转对称"
    ]
@@ -14227,6 +14612,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T70ae05",
+   "change_tag": "未改",
    "tags": [
     "旋转"
    ]
@@ -14271,6 +14657,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T4e97d4",
+   "change_tag": "未改",
    "tags": [
     "二元一次方程"
    ]
@@ -14294,6 +14681,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T4b92e7",
+   "change_tag": "未改",
    "tags": [
     "方程组的解"
    ]
@@ -14319,6 +14707,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14366,6 +14755,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8a89c1",
+   "change_tag": "修改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14391,6 +14781,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T4b92e7",
+   "change_tag": "修改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14418,6 +14809,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14445,6 +14837,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14472,6 +14865,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14499,6 +14893,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14525,6 +14920,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14551,6 +14947,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
+   "change_tag": "未改",
    "tags": [
     "三元一次方程组"
    ]
@@ -14575,6 +14972,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3cdf18",
+   "change_tag": "未改",
    "tags": [
     "方程组应用"
    ]
@@ -14600,6 +14998,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdfae70",
+   "change_tag": "未改",
    "tags": [
     "方程组应用"
    ]
@@ -14645,6 +15044,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td0b595",
+   "change_tag": "未改",
    "tags": [
     "列不等式"
    ]
@@ -14689,6 +15089,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T48ecce",
+   "change_tag": "未改",
    "tags": [
     "一元一次不等式"
    ]
@@ -14734,6 +15135,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T95307a",
+   "change_tag": "未改",
    "tags": [
     "解一元一次不等式"
    ]
@@ -14780,6 +15182,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T9fda62",
+   "change_tag": "修改",
    "tags": [
     "解一元一次不等式"
    ]
@@ -14806,6 +15209,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T79e22c",
+   "change_tag": "修改",
    "tags": [
     "解一元一次不等式"
    ]
@@ -14851,6 +15255,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T95307a",
+   "change_tag": "未改",
    "tags": [
     "解一元一次不等式"
    ]
@@ -14896,6 +15301,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T95307a",
+   "change_tag": "未改",
    "tags": [
     "解一元一次不等式"
    ]
@@ -14921,6 +15327,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T436bc8",
+   "change_tag": "未改",
    "tags": [
     "不等式的整数解"
    ]
@@ -14966,6 +15373,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T80401f",
+   "change_tag": "未改",
    "tags": [
     "不等式组"
    ]
@@ -14991,6 +15399,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tde4886",
+   "change_tag": "未改",
    "tags": [
     "不等式组",
     "整数解"
@@ -15016,6 +15425,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T300ed5",
+   "change_tag": "未改",
    "tags": [
     "不等式应用"
    ]
@@ -15060,6 +15470,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T64b638",
+   "change_tag": "未改",
    "tags": [
     "定义"
    ]
@@ -15104,6 +15515,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T826d03",
+   "change_tag": "未改",
    "tags": [
     "命题"
    ]
@@ -15148,6 +15560,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T230977",
+   "change_tag": "未改",
    "tags": [
     "逆命题"
    ]
@@ -15170,6 +15583,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tff3012",
+   "change_tag": "未改",
    "tags": [
     "真假命题"
    ]
@@ -15215,6 +15629,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8e8657",
+   "change_tag": "未改",
    "tags": [
     "反例"
    ]
@@ -15241,6 +15656,7 @@
    "game_ready": false,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T526627",
+   "change_tag": "未改",
    "tags": [
     "三角形内角和"
    ]
@@ -15267,6 +15683,7 @@
    "game_ready": false,
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T85a901",
+   "change_tag": "未改",
    "tags": [
     "三角形外角"
    ]
@@ -15312,6 +15729,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T49f146",
+   "change_tag": "未改",
    "tags": [
     "交际用语",
     "问候"
@@ -15357,6 +15775,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta7dae8",
+   "change_tag": "未改",
    "tags": [
     "be动词"
    ]
@@ -15401,6 +15820,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "enjoy doing"
    ]
@@ -15445,6 +15865,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "like doing",
     "冠词"
@@ -15490,6 +15911,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7c3bdc",
+   "change_tag": "未改",
    "tags": [
     "词汇",
     "hobby"
@@ -15536,6 +15958,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "there be 就近原则"
    ]
@@ -15580,6 +16003,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "介词",
     "on"
@@ -15625,6 +16049,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "词汇",
     "学校场所"
@@ -15671,6 +16096,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "时间介词"
    ]
@@ -15716,6 +16142,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "时间介词"
    ]
@@ -15761,6 +16188,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7dd35c",
+   "change_tag": "未改",
    "tags": [
     "一般现在时",
     "频率"
@@ -15807,6 +16235,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "一般现在时"
    ]
@@ -15852,6 +16281,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc12816",
+   "change_tag": "未改",
    "tags": [
     "易混词"
    ]
@@ -15896,6 +16326,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -15941,6 +16372,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -15986,6 +16418,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T3fd833",
+   "change_tag": "未改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -16031,6 +16464,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -16076,6 +16510,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T5dccb6",
+   "change_tag": "未改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -16121,6 +16556,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -16166,6 +16602,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T193c52",
+   "change_tag": "未改",
    "tags": [
     "健康生活",
     "词汇语法"
@@ -16211,6 +16648,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tad96d3",
+   "change_tag": "未改",
    "tags": [
     "服装",
     "词汇语法"
@@ -16256,6 +16694,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "服装",
     "词汇语法"
@@ -16301,6 +16740,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "服装",
     "词汇语法"
@@ -16346,6 +16786,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T06275c",
+   "change_tag": "未改",
    "tags": [
     "服装",
     "词汇语法"
@@ -16391,6 +16832,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "服装",
     "词汇语法"
@@ -16436,6 +16878,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T5dccb6",
+   "change_tag": "未改",
    "tags": [
     "服装",
     "词汇语法"
@@ -16481,6 +16924,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7d23d7",
+   "change_tag": "未改",
    "tags": [
     "金钱",
     "词汇语法"
@@ -16526,6 +16970,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T4ebeb8",
+   "change_tag": "未改",
    "tags": [
     "金钱",
     "词汇语法"
@@ -16571,6 +17016,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T395b6e",
+   "change_tag": "未改",
    "tags": [
     "金钱",
     "词汇语法"
@@ -16616,6 +17062,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T059247",
+   "change_tag": "未改",
    "tags": [
     "金钱",
     "词汇语法"
@@ -16661,6 +17108,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "金钱",
     "词汇语法"
@@ -16706,6 +17154,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "金钱",
     "词汇语法"
@@ -16751,6 +17200,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T059247",
+   "change_tag": "未改",
    "tags": [
     "节日",
     "词汇语法"
@@ -16796,6 +17246,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "节日",
     "词汇语法"
@@ -16841,6 +17292,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T9cb1f7",
+   "change_tag": "未改",
    "tags": [
     "节日",
     "词汇语法"
@@ -16886,6 +17338,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "节日",
     "词汇语法"
@@ -16931,6 +17384,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T1b69ae",
+   "change_tag": "未改",
    "tags": [
     "节日",
     "词汇语法"
@@ -16976,6 +17430,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "家",
     "词汇语法"
@@ -17021,6 +17476,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T06275c",
+   "change_tag": "未改",
    "tags": [
     "家",
     "词汇语法"
@@ -17066,6 +17522,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T754113",
+   "change_tag": "未改",
    "tags": [
     "家",
     "词汇语法"
@@ -17111,6 +17568,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T3fd833",
+   "change_tag": "未改",
    "tags": [
     "家",
     "词汇语法"
@@ -17156,6 +17614,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "家",
     "词汇语法"
@@ -17201,6 +17660,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tb45bfb",
+   "change_tag": "未改",
    "tags": [
     "家",
     "词汇语法"
@@ -17246,6 +17706,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T1ff432",
+   "change_tag": "未改",
    "tags": [
     "家",
     "词汇语法"
@@ -17291,6 +17752,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T855d97",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17336,6 +17798,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17381,6 +17844,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T25b140",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17426,6 +17890,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17471,6 +17936,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17516,6 +17982,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17561,6 +18028,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc2bd84",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17606,6 +18074,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "家乡",
     "比较级"
@@ -17651,6 +18120,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "家乡",
     "比较级"
@@ -17696,6 +18166,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "家乡",
     "比较级"
@@ -17741,6 +18212,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tf8515e",
+   "change_tag": "未改",
    "tags": [
     "家乡",
     "比较级"
@@ -17786,6 +18258,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "家乡",
     "比较级"
@@ -17831,6 +18304,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tea70e9",
+   "change_tag": "修改",
    "tags": [
     "家乡",
     "比较级"
@@ -17876,6 +18350,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -17921,6 +18396,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -17966,6 +18442,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -18011,6 +18488,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -18056,6 +18534,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -18101,6 +18580,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T06275c",
+   "change_tag": "未改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -18146,6 +18626,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "动物",
     "词汇语法"
@@ -18191,6 +18672,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "动物",
     "词汇语法"
@@ -18236,6 +18718,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "动物",
     "词汇语法"
@@ -18281,6 +18764,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T25b140",
+   "change_tag": "未改",
    "tags": [
     "动物",
     "词汇语法"
@@ -18326,6 +18810,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "动物",
     "词汇语法"
@@ -18371,6 +18856,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tf5cfe6",
+   "change_tag": "修改",
    "tags": [
     "动物",
     "词汇语法"
@@ -18416,6 +18902,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "修改",
    "tags": [
     "风景",
     "词汇语法"
@@ -18461,6 +18948,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T06275c",
+   "change_tag": "未改",
    "tags": [
     "风景",
     "词汇语法"
@@ -18506,6 +18994,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "风景",
     "词汇语法"
@@ -18551,6 +19040,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "修改",
    "tags": [
     "风景",
     "词汇语法"
@@ -18596,6 +19086,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "风景",
     "词汇语法"
@@ -18641,6 +19132,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "风景",
     "词汇语法"
@@ -18686,6 +19178,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "户外",
     "词汇语法"
@@ -18731,6 +19224,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "户外",
     "词汇语法"
@@ -18777,6 +19271,7 @@
    "game_ready": false,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tb6cc17",
+   "change_tag": "未改",
    "tags": [
     "户外",
     "词汇语法"
@@ -18823,6 +19318,7 @@
    "game_ready": false,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "户外",
     "词汇语法"
@@ -18868,6 +19364,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "户外",
     "词汇语法"
@@ -18913,6 +19410,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "户外",
     "词汇语法"
@@ -18958,6 +19456,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "修改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -19003,6 +19502,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -19048,6 +19548,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tf6f28b",
+   "change_tag": "未改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -19093,6 +19594,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tf6f28b",
+   "change_tag": "未改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -19138,6 +19640,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
+   "change_tag": "修改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -19184,6 +19687,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -19229,6 +19733,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tb45bfb",
+   "change_tag": "未改",
    "tags": [
     "自我介绍",
     "词汇语法"
@@ -19274,6 +19779,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "自我介绍",
     "词汇语法"
@@ -19319,6 +19825,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7fe658",
+   "change_tag": "未改",
    "tags": [
     "自我介绍",
     "词汇语法"
@@ -19364,6 +19871,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "自我介绍",
     "词汇语法"
@@ -19409,6 +19917,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "爱好",
     "词汇语法"
@@ -19454,6 +19963,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "爱好",
     "词汇语法"
@@ -19499,6 +20009,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Taee0b3",
+   "change_tag": "未改",
    "tags": [
     "爱好",
     "词汇语法"
@@ -19544,6 +20055,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tad96d3",
+   "change_tag": "未改",
    "tags": [
     "学校",
     "词汇语法"
@@ -19589,6 +20101,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "学校",
     "词汇语法"
@@ -19635,6 +20148,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tc29ee5",
+   "change_tag": "未改",
    "tags": [
     "校园生活",
     "词汇语法"
@@ -19681,6 +20195,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tcacc1d",
+   "change_tag": "未改",
    "tags": [
     "校园生活",
     "词汇语法"
@@ -19726,6 +20241,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "家",
     "介词"
@@ -19771,6 +20287,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "社区",
     "连词"
@@ -19816,6 +20333,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "动物",
     "介词"
@@ -19861,6 +20379,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
+   "change_tag": "未改",
    "tags": [
     "户外",
     "介词"
@@ -19907,6 +20426,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T178622",
+   "change_tag": "新增",
    "tags": [
     "开启初中生活"
    ]
@@ -19952,6 +20472,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T3c0968",
+   "change_tag": "新增",
    "tags": [
     "规划初中生活"
    ]
@@ -19997,6 +20518,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T23522d",
+   "change_tag": "新增",
    "tags": [
     "学习方法"
    ]
@@ -20042,6 +20564,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Te7bdb4",
+   "change_tag": "新增",
    "tags": [
     "认识自己"
    ]
@@ -20087,6 +20610,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tb4ca7c",
+   "change_tag": "新增",
    "tags": [
     "他人评价"
    ]
@@ -20132,6 +20656,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tfb8c7a",
+   "change_tag": "新增",
    "tags": [
     "做更好的自己"
    ]
@@ -20177,6 +20702,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T625535",
+   "change_tag": "新增",
    "tags": [
     "做更好的自己"
    ]
@@ -20222,6 +20748,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T72eeb9",
+   "change_tag": "新增",
    "tags": [
     "梦想"
    ]
@@ -20267,6 +20794,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tdcc1b9",
+   "change_tag": "新增",
    "tags": [
     "学习成就梦想"
    ]
@@ -20312,6 +20840,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T193c8d",
+   "change_tag": "新增",
    "tags": [
     "少年梦与中国梦"
    ]
@@ -20357,6 +20886,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T2b662c",
+   "change_tag": "新增",
    "tags": [
     "孝亲敬长"
    ]
@@ -20402,6 +20932,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T9acea5",
+   "change_tag": "新增",
    "tags": [
     "亲子沟通"
    ]
@@ -20425,6 +20956,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T28a73f",
+   "change_tag": "新增",
    "tags": [
     "孝亲敬长"
    ]
@@ -20470,6 +21002,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T8b2f29",
+   "change_tag": "新增",
    "tags": [
     "让家更美好"
    ]
@@ -20515,6 +21048,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tddd739",
+   "change_tag": "新增",
    "tags": [
     "师生关系"
    ]
@@ -20560,6 +21094,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tcb7d21",
+   "change_tag": "新增",
    "tags": [
     "走近老师"
    ]
@@ -20605,6 +21140,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T8d66e1",
+   "change_tag": "新增",
    "tags": [
     "珍惜师生情谊"
    ]
@@ -20650,6 +21186,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tb4890e",
+   "change_tag": "新增",
    "tags": [
     "友谊的真谛"
    ]
@@ -20695,6 +21232,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T37f224",
+   "change_tag": "新增",
    "tags": [
     "交友的智慧"
    ]
@@ -20740,6 +21278,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tf92aea",
+   "change_tag": "新增",
    "tags": [
     "网上交友"
    ]
@@ -20785,6 +21324,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tc073dd",
+   "change_tag": "新增",
    "tags": [
     "集体"
    ]
@@ -20830,6 +21370,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tbf1a95",
+   "change_tag": "新增",
    "tags": [
     "集体的力量"
    ]
@@ -20875,6 +21416,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T448b2f",
+   "change_tag": "新增",
    "tags": [
     "共建美好集体"
    ]
@@ -20920,6 +21462,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tfec404",
+   "change_tag": "新增",
    "tags": [
     "认识生命"
    ]
@@ -20965,6 +21508,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T841ca8",
+   "change_tag": "新增",
    "tags": [
     "敬畏生命"
    ]
@@ -21010,6 +21554,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Td82ff8",
+   "change_tag": "新增",
    "tags": [
     "珍爱生命"
    ]
@@ -21055,6 +21600,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T61fed4",
+   "change_tag": "新增",
    "tags": [
     "安全常识"
    ]
@@ -21100,6 +21646,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T47e6ec",
+   "change_tag": "新增",
    "tags": [
     "安全常识"
    ]
@@ -21145,6 +21692,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T4aa1ed",
+   "change_tag": "新增",
    "tags": [
     "提高防护能力"
    ]
@@ -21190,6 +21738,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tf22d25",
+   "change_tag": "新增",
    "tags": [
     "见义智为"
    ]
@@ -21235,6 +21784,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T19827c",
+   "change_tag": "新增",
    "tags": [
     "爱护身体"
    ]
@@ -21280,6 +21830,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T961862",
+   "change_tag": "新增",
    "tags": [
     "滋养心灵"
    ]
@@ -21303,6 +21854,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Td214ff",
+   "change_tag": "新增",
    "tags": [
     "身心健康"
    ]
@@ -21348,6 +21900,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tade949",
+   "change_tag": "新增",
    "tags": [
     "人生目标"
    ]
@@ -21393,6 +21946,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Ta61804",
+   "change_tag": "新增",
    "tags": [
     "树立正确的人生目标"
    ]
@@ -21438,6 +21992,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Tce0cb1",
+   "change_tag": "新增",
    "tags": [
     "正确对待顺境和逆境"
    ]
@@ -21483,6 +22038,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Tbf1a95",
+   "change_tag": "新增",
    "tags": [
     "逆境"
    ]
@@ -21528,6 +22084,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tec13a5",
+   "change_tag": "新增",
    "tags": [
     "顺境"
    ]
@@ -21573,6 +22130,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tbf1a95",
+   "change_tag": "新增",
    "tags": [
     "劳动"
    ]
@@ -21618,6 +22176,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Td484b5",
+   "change_tag": "新增",
    "tags": [
     "奉献"
    ]
@@ -21663,6 +22222,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T51601b",
+   "change_tag": "新增",
    "tags": [
     "奉献"
    ]
@@ -21708,6 +22268,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T2ed9f4",
+   "change_tag": "新增",
    "tags": [
     "青春期"
    ]
@@ -21753,6 +22314,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T290d5e",
+   "change_tag": "新增",
    "tags": [
     "青春期心理"
    ]
@@ -21798,6 +22360,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T62c16e",
+   "change_tag": "新增",
    "tags": [
     "异性交往"
    ]
@@ -21843,6 +22406,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T599757",
+   "change_tag": "新增",
    "tags": [
     "情绪调节"
    ]
@@ -21866,6 +22430,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T55f952",
+   "change_tag": "新增",
    "tags": [
     "情绪"
    ]
@@ -21911,6 +22476,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T18bea4",
+   "change_tag": "新增",
    "tags": [
     "情感"
    ]
@@ -21956,6 +22522,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T4e182a",
+   "change_tag": "新增",
    "tags": [
     "自尊"
    ]
@@ -22001,6 +22568,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T1677d4",
+   "change_tag": "新增",
    "tags": [
     "自信"
    ]
@@ -22046,6 +22614,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T5779b2",
+   "change_tag": "新增",
    "tags": [
     "自强"
    ]
@@ -22091,6 +22660,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T79bc23",
+   "change_tag": "新增",
    "tags": [
     "民本"
    ]
@@ -22136,6 +22706,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T9888db",
+   "change_tag": "新增",
    "tags": [
     "家国情怀"
    ]
@@ -22181,6 +22752,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T79bc23",
+   "change_tag": "新增",
    "tags": [
     "仁爱"
    ]
@@ -22226,6 +22798,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Tfef669",
+   "change_tag": "新增",
    "tags": [
     "诚信"
    ]
@@ -22271,6 +22844,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T5ea5dd",
+   "change_tag": "新增",
    "tags": [
     "宪法"
    ]
@@ -22316,6 +22890,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T512bf1",
+   "change_tag": "新增",
    "tags": [
     "未成年人保护"
    ]
@@ -22361,6 +22936,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tf1cef8",
+   "change_tag": "新增",
    "tags": [
     "民法典"
    ]
@@ -22406,6 +22982,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T324dac",
+   "change_tag": "新增",
    "tags": [
     "民事行为能力"
    ]
@@ -22451,6 +23028,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T158829",
+   "change_tag": "新增",
    "tags": [
     "犯罪"
    ]
@@ -22496,6 +23074,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T445058",
+   "change_tag": "新增",
    "tags": [
     "预防违法"
    ]
@@ -22522,6 +23101,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta98355",
+   "change_tag": "新增",
    "tags": [
     "找规律",
     "观察"
@@ -22568,6 +23148,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Taec7fd",
+   "change_tag": "新增",
    "tags": [
     "活动思考",
     "分类计数"
@@ -22594,6 +23175,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T68aa16",
+   "change_tag": "新增",
    "tags": [
     "活动思考",
     "分类计数"
@@ -22641,6 +23223,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0fc0b8",
+   "change_tag": "新增",
    "tags": [
     "用字母表达"
    ]
@@ -22665,6 +23248,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T07c6be",
+   "change_tag": "新增",
    "tags": [
     "用字母表达"
    ]
@@ -22691,6 +23275,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T02b261",
+   "change_tag": "新增",
    "tags": [
     "正数与负数"
    ]
@@ -22737,6 +23322,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T9b79f1",
+   "change_tag": "新增",
    "tags": [
     "字母表示数"
    ]
@@ -22761,6 +23347,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6da522",
+   "change_tag": "新增",
    "tags": [
     "字母表示数"
    ]
@@ -22787,6 +23374,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T076b26",
+   "change_tag": "新增",
    "tags": [
     "等式的性质"
    ]
@@ -22832,6 +23420,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta51e6f",
+   "change_tag": "新增",
    "tags": [
     "等式的性质"
    ]
@@ -22857,6 +23446,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta09d9c",
+   "change_tag": "新增",
    "tags": [
     "一元一次方程应用",
     "打折"
@@ -22903,6 +23493,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfe5682",
+   "change_tag": "新增",
    "tags": [
     "立体图形"
    ]
@@ -22926,6 +23517,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbf448e",
+   "change_tag": "新增",
    "tags": [
     "立体图形"
    ]
@@ -22971,6 +23563,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb7c863",
+   "change_tag": "新增",
    "tags": [
     "点线面体"
    ]
@@ -22994,6 +23587,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta96a5f",
+   "change_tag": "新增",
    "tags": [
     "点线面体"
    ]
@@ -23019,6 +23613,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb53364",
+   "change_tag": "新增",
    "tags": [
     "展开图"
    ]
@@ -23064,6 +23659,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td8fe89",
+   "change_tag": "新增",
    "tags": [
     "展开图"
    ]
@@ -23089,6 +23685,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec1d87",
+   "change_tag": "新增",
    "tags": [
     "直线性质"
    ]
@@ -23113,6 +23710,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T229028",
+   "change_tag": "新增",
    "tags": [
     "直线性质"
    ]
@@ -23139,6 +23737,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2047f4",
+   "change_tag": "新增",
    "tags": [
     "对顶角"
    ]
@@ -23184,6 +23783,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tcfc979",
+   "change_tag": "新增",
    "tags": [
     "对顶角"
    ]
@@ -23229,6 +23829,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td6a956",
+   "change_tag": "新增",
    "tags": [
     "平行公理"
    ]
@@ -23254,6 +23855,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T998d22",
+   "change_tag": "新增",
    "tags": [
     "平行公理"
    ]
@@ -23300,6 +23902,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc8ab1d",
+   "change_tag": "新增",
    "tags": [
     "多边形",
     "对角线"
@@ -23324,6 +23927,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb7e897",
+   "change_tag": "新增",
    "tags": [
     "多边形",
     "对角线"
@@ -23351,6 +23955,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdc39cb",
+   "change_tag": "新增",
    "tags": [
     "二元一次方程"
    ]
@@ -23397,6 +24002,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc57940",
+   "change_tag": "新增",
    "tags": [
     "二元一次方程"
    ]
@@ -23443,6 +24049,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8c4148",
+   "change_tag": "新增",
    "tags": [
     "方程组的解"
    ]
@@ -23466,6 +24073,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7e2215",
+   "change_tag": "新增",
    "tags": [
     "方程组的解"
    ]
@@ -23492,6 +24100,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec2383",
+   "change_tag": "新增",
    "tags": [
     "三元一次方程组"
    ]
@@ -23537,6 +24146,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T865bec",
+   "change_tag": "新增",
    "tags": [
     "三元一次方程组"
    ]
@@ -23562,6 +24172,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T68f5c3",
+   "change_tag": "新增",
    "tags": [
     "方程组应用"
    ]
@@ -23608,6 +24219,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T56f3f6",
+   "change_tag": "新增",
    "tags": [
     "方程组应用"
    ]
@@ -23654,6 +24266,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7a7217",
+   "change_tag": "新增",
    "tags": [
     "列不等式"
    ]
@@ -23678,6 +24291,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2e9c34",
+   "change_tag": "新增",
    "tags": [
     "列不等式"
    ]
@@ -23723,6 +24337,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T227dfe",
+   "change_tag": "新增",
    "tags": [
     "一元一次不等式"
    ]
@@ -23749,6 +24364,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta1b4ed",
+   "change_tag": "新增",
    "tags": [
     "一元一次不等式"
    ]
@@ -23795,6 +24411,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T80401f",
+   "change_tag": "新增",
    "tags": [
     "不等式组"
    ]
@@ -23819,6 +24436,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7dd359",
+   "change_tag": "新增",
    "tags": [
     "不等式组"
    ]
@@ -23844,6 +24462,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te4c45d",
+   "change_tag": "新增",
    "tags": [
     "不等式应用"
    ]
@@ -23869,6 +24488,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbf2c7c",
+   "change_tag": "新增",
    "tags": [
     "不等式应用"
    ]
@@ -23914,6 +24534,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb5c60e",
+   "change_tag": "新增",
    "tags": [
     "定义"
    ]
@@ -23937,6 +24558,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7a4817",
+   "change_tag": "新增",
    "tags": [
     "定义"
    ]
@@ -23983,6 +24605,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T11e14a",
+   "change_tag": "新增",
    "tags": [
     "命题"
    ]
@@ -24006,6 +24629,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0f3c15",
+   "change_tag": "新增",
    "tags": [
     "命题"
    ]
@@ -24051,6 +24675,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td3dc86",
+   "change_tag": "新增",
    "tags": [
     "反例"
    ]
@@ -24075,6 +24700,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbd041d",
+   "change_tag": "新增",
    "tags": [
     "反例"
    ]
@@ -24120,6 +24746,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc677b5",
+   "change_tag": "新增",
    "tags": [
     "三角形内角和"
    ]
@@ -24143,6 +24770,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5f53bd",
+   "change_tag": "新增",
    "tags": [
     "三角形内角和"
    ]
@@ -24169,6 +24797,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T102f7c",
+   "change_tag": "新增",
    "tags": [
     "同底数幂乘法"
    ]
@@ -24215,6 +24844,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc3dd6",
+   "change_tag": "新增",
    "tags": [
     "幂的乘方"
    ]
@@ -24239,6 +24869,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta939dc",
+   "change_tag": "新增",
    "tags": [
     "幂的乘方"
    ]
@@ -24285,6 +24916,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T31db1a",
+   "change_tag": "新增",
    "tags": [
     "同底数幂除法"
    ]
@@ -24309,6 +24941,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf5a6bc",
+   "change_tag": "新增",
    "tags": [
     "同底数幂除法"
    ]
@@ -24333,6 +24966,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T312989",
+   "change_tag": "新增",
    "tags": [
     "单项式乘法"
    ]
@@ -24378,6 +25012,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc1980f",
+   "change_tag": "新增",
    "tags": [
     "单项式乘法"
    ]
@@ -24424,6 +25059,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T31db1a",
+   "change_tag": "新增",
    "tags": [
     "单项式乘多项式"
    ]
@@ -24448,6 +25084,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T312989",
+   "change_tag": "新增",
    "tags": [
     "单项式乘多项式"
    ]
@@ -24494,6 +25131,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T81544e",
+   "change_tag": "新增",
    "tags": [
     "多项式乘法"
    ]
@@ -24539,6 +25177,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tda28cc",
+   "change_tag": "新增",
    "tags": [
     "平移"
    ]
@@ -24562,6 +25201,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T06339a",
+   "change_tag": "新增",
    "tags": [
     "平移"
    ]
@@ -24607,6 +25247,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8e5025",
+   "change_tag": "新增",
    "tags": [
     "轴对称图形"
    ]
@@ -24652,6 +25293,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T367e01",
+   "change_tag": "新增",
    "tags": [
     "轴对称图形"
    ]
@@ -24677,6 +25319,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc78ffe",
+   "change_tag": "新增",
    "tags": [
     "旋转对称"
    ]
@@ -24722,6 +25365,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf71958",
+   "change_tag": "新增",
    "tags": [
     "旋转对称"
    ]
@@ -24745,6 +25389,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "户外",
     "词汇语法"
@@ -24771,6 +25416,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T732563",
+   "change_tag": "新增",
    "tags": [
     "户外",
     "词汇语法"
@@ -24816,6 +25462,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4b927a",
+   "change_tag": "新增",
    "tags": [
     "小学复习"
    ]
@@ -24840,6 +25487,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T179d21",
+   "change_tag": "新增",
    "tags": [
     "小学复习"
    ]
@@ -24884,6 +25532,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tf0b38a",
+   "change_tag": "新增",
    "tags": [
     "小学复习"
    ]
@@ -24928,6 +25577,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T587b02",
+   "change_tag": "新增",
    "tags": [
     "白雪歌",
     "拓展"
@@ -24974,6 +25624,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T1d9777",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25019,6 +25670,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T033822",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25042,6 +25694,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T30a3d7",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25087,6 +25740,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T44c65f",
+   "change_tag": "新增",
    "tags": [
     "文学常识",
     "雨的四季"
@@ -25133,6 +25787,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb84a69",
+   "change_tag": "新增",
    "tags": [
     "文学常识",
     "雨的四季"
@@ -25157,6 +25812,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T58a512",
+   "change_tag": "新增",
    "tags": [
     "文学常识",
     "雨的四季"
@@ -25203,6 +25859,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td32134",
+   "change_tag": "新增",
    "tags": [
     "文学常识",
     "雨的四季"
@@ -25249,6 +25906,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc4e9b9",
+   "change_tag": "新增",
    "tags": [
     "文学常识",
     "雨的四季"
@@ -25295,6 +25953,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tf2490f",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25340,6 +25999,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te0f941",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25363,6 +26023,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0affc7",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25399,7 +26060,7 @@
     }
    ],
    "answer": "D",
-   "explanation": "1928 年出版时改名为《朝花夕拾》。",
+   "explanation": "《朝花夕拾》原名《旧事重提》，1927 年鲁迅编订时改名，1928 年出版。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级上册",
@@ -25408,6 +26069,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2c8da8",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25453,6 +26115,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25498,6 +26161,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T41f6be",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25543,6 +26207,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T9a7f86",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25566,6 +26231,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T1c1d26",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25589,6 +26255,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T7605ac",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25634,6 +26301,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25679,6 +26347,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta2b8a9",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25702,6 +26371,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T28215c",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25747,6 +26417,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T6d88d8",
+   "change_tag": "新增",
    "tags": [
     "文学常识"
    ]
@@ -25792,6 +26463,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
+   "change_tag": "新增",
    "tags": [
     "字音"
    ]
@@ -25815,6 +26487,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T63a373",
+   "change_tag": "新增",
    "tags": [
     "字音"
    ]
@@ -25860,6 +26533,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T342a07",
+   "change_tag": "新增",
    "tags": [
     "字音"
    ]
@@ -25905,6 +26579,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta6c72d",
+   "change_tag": "新增",
    "tags": [
     "默写",
     "诫子书"
@@ -25951,6 +26626,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tcac9ed",
+   "change_tag": "新增",
    "tags": [
     "默写",
     "诫子书"
@@ -25977,6 +26653,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0fae0d",
+   "change_tag": "新增",
    "tags": [
     "默写",
     "诫子书"
@@ -26023,6 +26700,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T1066b0",
+   "change_tag": "新增",
    "tags": [
     "开启初中生活"
    ]
@@ -26046,6 +26724,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T003ea9",
+   "change_tag": "新增",
    "tags": [
     "开启初中生活"
    ]
@@ -26091,6 +26770,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T1e787e",
+   "change_tag": "新增",
    "tags": [
     "开启初中生活"
    ]
@@ -26114,6 +26794,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T50c4bb",
+   "change_tag": "新增",
    "tags": [
     "梦想"
    ]
@@ -26159,6 +26840,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Tf8d026",
+   "change_tag": "新增",
    "tags": [
     "梦想"
    ]
@@ -26204,6 +26886,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T826467",
+   "change_tag": "新增",
    "tags": [
     "梦想"
    ]
@@ -26227,6 +26910,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tbdd117",
+   "change_tag": "新增",
    "tags": [
     "认识自己"
    ]
@@ -26272,6 +26956,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T62db17",
+   "change_tag": "新增",
    "tags": [
     "认识自己"
    ]
@@ -26317,6 +27002,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T11680a",
+   "change_tag": "新增",
    "tags": [
     "安全常识"
    ]
@@ -26340,6 +27026,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T5dd319",
+   "change_tag": "新增",
    "tags": [
     "安全常识"
    ]
@@ -26363,6 +27050,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Td9dfe9",
+   "change_tag": "新增",
    "tags": [
     "认识生命"
    ]
@@ -26408,6 +27096,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Ted1c42",
+   "change_tag": "新增",
    "tags": [
     "认识生命"
    ]
@@ -26453,6 +27142,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T456603",
+   "change_tag": "新增",
    "tags": [
     "认识生命"
    ]
@@ -26476,6 +27166,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T345172",
+   "change_tag": "新增",
    "tags": [
     "爱护身体"
    ]
@@ -26521,6 +27212,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T7edd25",
+   "change_tag": "新增",
    "tags": [
     "爱护身体"
    ]
@@ -26544,6 +27236,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Td50712",
+   "change_tag": "新增",
    "tags": [
     "爱护身体"
    ]
@@ -26589,6 +27282,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tdd0020",
+   "change_tag": "新增",
    "tags": [
     "集体"
    ]
@@ -26612,6 +27306,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T4ef378",
+   "change_tag": "新增",
    "tags": [
     "集体"
    ]
@@ -26635,6 +27330,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tebbe1c",
+   "change_tag": "新增",
    "tags": [
     "集体"
    ]
@@ -26680,6 +27376,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T9c478b",
+   "change_tag": "新增",
    "tags": [
     "师生关系"
    ]
@@ -26703,6 +27400,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T1314fc",
+   "change_tag": "新增",
    "tags": [
     "师生关系"
    ]
@@ -26748,6 +27446,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Te8afe0",
+   "change_tag": "新增",
    "tags": [
     "师生关系"
    ]
@@ -26771,6 +27470,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T9ee04c",
+   "change_tag": "新增",
    "tags": [
     "友谊的真谛"
    ]
@@ -26816,6 +27516,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T2c248d",
+   "change_tag": "新增",
    "tags": [
     "友谊的真谛"
    ]
@@ -26861,6 +27562,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T05e545",
+   "change_tag": "新增",
    "tags": [
     "友谊的真谛"
    ]
@@ -26884,6 +27586,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T6a4982",
+   "change_tag": "新增",
    "tags": [
     "孝亲敬长"
    ]
@@ -26929,6 +27632,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T6e2387",
+   "change_tag": "新增",
    "tags": [
     "孝亲敬长"
    ]
@@ -26952,6 +27656,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T861d25",
+   "change_tag": "新增",
    "tags": [
     "人生目标"
    ]
@@ -26997,6 +27702,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tef5b73",
+   "change_tag": "新增",
    "tags": [
     "人生目标"
    ]
@@ -27020,6 +27726,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T2a1af1",
+   "change_tag": "新增",
    "tags": [
     "人生目标"
    ]
@@ -27065,6 +27772,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T738613",
+   "change_tag": "新增",
    "tags": [
     "人生目标"
    ]
@@ -27088,6 +27796,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Te2d967",
+   "change_tag": "新增",
    "tags": [
     "劳动"
    ]
@@ -27133,6 +27842,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T40b3a8",
+   "change_tag": "新增",
    "tags": [
     "劳动"
    ]
@@ -27178,6 +27888,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tba0742",
+   "change_tag": "新增",
    "tags": [
     "劳动"
    ]
@@ -27201,6 +27912,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T8c61e7",
+   "change_tag": "新增",
    "tags": [
     "正确对待顺境和逆境"
    ]
@@ -27246,6 +27958,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T5350fb",
+   "change_tag": "新增",
    "tags": [
     "正确对待顺境和逆境"
    ]
@@ -27291,6 +28004,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T2fcba7",
+   "change_tag": "新增",
    "tags": [
     "正确对待顺境和逆境"
    ]
@@ -27314,6 +28028,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T220190",
+   "change_tag": "新增",
    "tags": [
     "青春期"
    ]
@@ -27359,6 +28074,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T4ceadd",
+   "change_tag": "新增",
    "tags": [
     "青春期"
    ]
@@ -27404,6 +28120,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T2175a1",
+   "change_tag": "新增",
    "tags": [
     "青春期"
    ]
@@ -27427,6 +28144,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T7bc261",
+   "change_tag": "新增",
    "tags": [
     "情绪调节"
    ]
@@ -27472,6 +28190,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Td25047",
+   "change_tag": "新增",
    "tags": [
     "情绪调节"
    ]
@@ -27517,6 +28236,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tbd1225",
+   "change_tag": "新增",
    "tags": [
     "情绪调节"
    ]
@@ -27562,6 +28282,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T79bc23",
+   "change_tag": "新增",
    "tags": [
     "仁爱"
    ]
@@ -27585,6 +28306,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T0c40ba",
+   "change_tag": "新增",
    "tags": [
     "仁爱"
    ]
@@ -27630,6 +28352,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T2073ff",
+   "change_tag": "新增",
    "tags": [
     "仁爱"
    ]
@@ -27675,6 +28398,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T5779b2",
+   "change_tag": "新增",
    "tags": [
     "仁爱"
    ]
@@ -27720,6 +28444,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T64d329",
+   "change_tag": "新增",
    "tags": [
     "仁爱"
    ]
@@ -27765,6 +28490,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Ta925ba",
+   "change_tag": "新增",
    "tags": [
     "诚信"
    ]
@@ -27788,6 +28514,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T773d7c",
+   "change_tag": "新增",
    "tags": [
     "诚信"
    ]
@@ -27833,6 +28560,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T8f2679",
+   "change_tag": "新增",
    "tags": [
     "诚信"
    ]
@@ -27856,6 +28584,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T6a4062",
+   "change_tag": "新增",
    "tags": [
     "诚信"
    ]
@@ -27901,6 +28630,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Ta925ba",
+   "change_tag": "新增",
    "tags": [
     "诚信"
    ]
@@ -27924,6 +28654,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T0050f0",
+   "change_tag": "新增",
    "tags": [
     "民本"
    ]
@@ -27969,6 +28700,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T79bc23",
+   "change_tag": "新增",
    "tags": [
     "民本"
    ]
@@ -28014,6 +28746,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T383b69",
+   "change_tag": "新增",
    "tags": [
     "民本"
    ]
@@ -28037,6 +28770,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tce84b1",
+   "change_tag": "新增",
    "tags": [
     "民本"
    ]
@@ -28060,6 +28794,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T973a49",
+   "change_tag": "新增",
    "tags": [
     "自尊"
    ]
@@ -28105,6 +28840,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Tfb8c7a",
+   "change_tag": "新增",
    "tags": [
     "自尊"
    ]
@@ -28128,6 +28864,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T1bab4f",
+   "change_tag": "新增",
    "tags": [
     "自尊"
    ]
@@ -28173,6 +28910,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tcdbc37",
+   "change_tag": "新增",
    "tags": [
     "自尊"
    ]
@@ -28218,6 +28956,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tefa6c3",
+   "change_tag": "新增",
    "tags": [
     "自尊"
    ]
@@ -28241,6 +28980,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "Td29343",
+   "change_tag": "新增",
    "tags": [
     "自强"
    ]
@@ -28286,6 +29026,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tb93824",
+   "change_tag": "新增",
    "tags": [
     "自强"
    ]
@@ -28309,6 +29050,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T10c053",
+   "change_tag": "新增",
    "tags": [
     "自强"
    ]
@@ -28354,6 +29096,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T9b706f",
+   "change_tag": "新增",
    "tags": [
     "自强"
    ]
@@ -28399,6 +29142,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T011daf",
+   "change_tag": "新增",
    "tags": [
     "自强"
    ]
@@ -28422,6 +29166,7 @@
    "answer": "错",
    "game_ready": true,
    "template": "T45cb8d",
+   "change_tag": "新增",
    "tags": [
     "自信"
    ]
@@ -28467,6 +29212,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T2006f6",
+   "change_tag": "新增",
    "tags": [
     "自信"
    ]
@@ -28512,6 +29258,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T51193d",
+   "change_tag": "新增",
    "tags": [
     "自信"
    ]
@@ -28557,6 +29304,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Ta5553c",
+   "change_tag": "新增",
    "tags": [
     "自信"
    ]
@@ -28580,6 +29328,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T07fef5",
+   "change_tag": "新增",
    "tags": [
     "自信"
    ]
@@ -28603,6 +29352,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T3eb3fb",
+   "change_tag": "新增",
    "tags": [
     "宪法"
    ]
@@ -28648,6 +29398,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T3b8ec3",
+   "change_tag": "新增",
    "tags": [
     "宪法"
    ]
@@ -28693,6 +29444,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T1f5bcf",
+   "change_tag": "新增",
    "tags": [
     "宪法"
    ]
@@ -28738,6 +29490,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T7874dd",
+   "change_tag": "新增",
    "tags": [
     "宪法"
    ]
@@ -28783,6 +29536,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tfe8a6f",
+   "change_tag": "新增",
    "tags": [
     "犯罪"
    ]
@@ -28806,6 +29560,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tc57597",
+   "change_tag": "新增",
    "tags": [
     "犯罪"
    ]
@@ -28851,6 +29606,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T41439e",
+   "change_tag": "新增",
    "tags": [
     "犯罪"
    ]
@@ -28874,6 +29630,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tba3d18",
+   "change_tag": "新增",
    "tags": [
     "犯罪"
    ]
@@ -28919,6 +29676,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tfd5e2f",
+   "change_tag": "新增",
    "tags": [
     "民法典"
    ]
@@ -28942,6 +29700,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tc66252",
+   "change_tag": "新增",
    "tags": [
     "民法典"
    ]
@@ -28987,6 +29746,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Tf295d6",
+   "change_tag": "新增",
    "tags": [
     "民法典"
    ]
@@ -29010,6 +29770,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Teead97",
+   "change_tag": "新增",
    "tags": [
     "民法典"
    ]
@@ -29055,6 +29816,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T8912a6",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "2.2"
@@ -29082,6 +29844,7 @@
     "4"
    ],
    "template": "Tc3f3b9",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "2.2"
@@ -29106,6 +29869,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T4170e3",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "2.2"
@@ -29152,6 +29916,7 @@
    "type": "选择",
    "answer": "C",
    "template": "T0a0d8e",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "1.2"
@@ -29178,6 +29943,7 @@
     "4"
    ],
    "template": "Td9d064",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "1.2"
@@ -29202,6 +29968,7 @@
    "type": "判断",
    "answer": "错",
    "template": "Tfc4cb6",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "1.2"
@@ -29249,6 +30016,7 @@
    "type": "选择",
    "answer": "D",
    "template": "T73344a",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "1.3"
@@ -29296,6 +30064,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T4d190e",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "1.3"
@@ -29323,6 +30092,7 @@
     "24"
    ],
    "template": "T843911",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "1.3"
@@ -29370,6 +30140,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T1692dc",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "3.1"
@@ -29416,6 +30187,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T74bcf5",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "4.1"
@@ -29440,6 +30212,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T084a70",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "4.1"
@@ -29467,6 +30240,7 @@
     "2"
    ],
    "template": "T542e65",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "4.1"
@@ -29513,6 +30287,7 @@
    "type": "选择",
    "answer": "C",
    "template": "T8ae236",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "5.1"
@@ -29559,6 +30334,7 @@
    "type": "选择",
    "answer": "A",
    "template": "T4cdc44",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "5.2"
@@ -29605,6 +30381,7 @@
    "type": "选择",
    "answer": "D",
    "template": "T608813",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "5.2"
@@ -29631,6 +30408,7 @@
     "6"
    ],
    "template": "T88e52d",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "5.3"
@@ -29677,6 +30455,7 @@
    "type": "选择",
    "answer": "A",
    "template": "T799add",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "5.3"
@@ -29724,6 +30503,7 @@
    "type": "选择",
    "answer": "D",
    "template": "T7a71ba",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "6.1"
@@ -29770,6 +30550,7 @@
    "type": "选择",
    "answer": "C",
    "template": "Teae86e",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "6.3"
@@ -29794,6 +30575,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T45b66e",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "6.4"
@@ -29841,6 +30623,7 @@
    "type": "选择",
    "answer": "C",
    "template": "T938ce7",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "6.4"
@@ -29867,6 +30650,7 @@
     "14"
    ],
    "template": "T373495",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "6.5"
@@ -29914,6 +30698,7 @@
    "type": "选择",
    "answer": "B",
    "template": "Td1721f",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "8.1"
@@ -29941,6 +30726,7 @@
     "-6"
    ],
    "template": "T740e7b",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "8.1"
@@ -29966,6 +30752,7 @@
    "type": "判断",
    "answer": "错",
    "template": "T3e612c",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "8.1"
@@ -30013,6 +30800,7 @@
    "type": "选择",
    "answer": "C",
    "template": "Td1721f",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "8.2"
@@ -30040,6 +30828,7 @@
     "-6"
    ],
    "template": "T740e7b",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "8.2"
@@ -30087,6 +30876,7 @@
    "type": "选择",
    "answer": "D",
    "template": "T260cfe",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "8.2"
@@ -30133,6 +30923,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T1f13b0",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "9.1"
@@ -30159,6 +30950,7 @@
     "5"
    ],
    "template": "T45d409",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "9.1"
@@ -30185,6 +30977,7 @@
     "3"
    ],
    "template": "T2a257c",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "9.2"
@@ -30209,6 +31002,7 @@
    "type": "判断",
    "answer": "对",
    "template": "Tecce70",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "9.2"
@@ -30255,6 +31049,7 @@
    "type": "选择",
    "answer": "D",
    "template": "T0cf05b",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "9.3"
@@ -30279,6 +31074,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T022475",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "9.3"
@@ -30306,6 +31102,7 @@
     "3"
    ],
    "template": "Ta5ce51",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.1"
@@ -30331,6 +31128,7 @@
    "type": "判断",
    "answer": "错",
    "template": "T607d82",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.1"
@@ -30378,6 +31176,7 @@
    "type": "选择",
    "answer": "A",
    "template": "Tf8b4ac",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.1"
@@ -30424,6 +31223,7 @@
    "type": "选择",
    "answer": "A",
    "template": "Td97939",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.2"
@@ -30448,6 +31248,7 @@
    "type": "判断",
    "answer": "对",
    "template": "Td83064",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.2"
@@ -30495,6 +31296,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T56f3f6",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.2"
@@ -30510,18 +31312,19 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "volume": "七年级下册",
    "unit": "七下·第10章 二元一次方程组·10.4 三元一次方程组",
-   "question": "方程组 $\\begin{cases}x+y=5\\\\y+z=7\\\\x+z=6\\end{cases}$ 中，$x+y+z=$ ?",
+   "question": "方程组 $\\begin{cases}x+y=3\\\\y+z=5\\\\x+z=4\\end{cases}$ 中，$x+y+z=$ ?",
    "tts_text": "-",
-   "explanation": "三式相加：$2(x+y+z)=18$。",
+   "explanation": "三式相加：$2(x+y+z)=12$，所以 $x+y+z=6$。",
    "difficulty": 3,
    "knowledge_point": "10.4 三元一次方程组",
    "source": "AI",
    "review_changed": "是",
    "type": "填空",
    "answer": [
-    "9"
+    "6"
    ],
    "template": "Tec2383",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.4"
@@ -30546,6 +31349,7 @@
    "type": "判断",
    "answer": "对",
    "template": "Td04d8a",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.4"
@@ -30573,6 +31377,7 @@
     "3"
    ],
    "template": "Tec2383",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.4"
@@ -30599,6 +31404,7 @@
     "12"
    ],
    "template": "T0b4563",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.5"
@@ -30625,6 +31431,7 @@
     "6"
    ],
    "template": "Tbbcf41",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "10.5"
@@ -30671,6 +31478,7 @@
    "type": "选择",
    "answer": "A",
    "template": "T1ecef6",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.1"
@@ -30696,6 +31504,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T3c6529",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.1"
@@ -30743,6 +31552,7 @@
    "type": "选择",
    "answer": "B",
    "template": "T74ebe9",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.1"
@@ -30768,6 +31578,7 @@
    "type": "判断",
    "answer": "对",
    "template": "Te63760",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.2"
@@ -30793,6 +31604,7 @@
    "type": "判断",
    "answer": "错",
    "template": "Te63760",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.2"
@@ -30820,6 +31632,7 @@
     "2"
    ],
    "template": "Ta1b4ed",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.2"
@@ -30847,6 +31660,7 @@
     "2"
    ],
    "template": "Td1380a",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.4"
@@ -30894,6 +31708,7 @@
    "type": "选择",
    "answer": "A",
    "template": "T80401f",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.4"
@@ -30920,6 +31735,7 @@
     "6"
    ],
    "template": "Ta316ee",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.5"
@@ -30946,6 +31762,7 @@
     "16"
    ],
    "template": "Tfd66a5",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.5"
@@ -30992,6 +31809,7 @@
    "type": "选择",
    "answer": "C",
    "template": "Tfb5b78",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "11.5"
@@ -31016,6 +31834,7 @@
    "type": "判断",
    "answer": "错",
    "template": "T06821b",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.1"
@@ -31062,6 +31881,7 @@
    "type": "选择",
    "answer": "A",
    "template": "Tc677b5",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.1"
@@ -31086,6 +31906,7 @@
    "type": "判断",
    "answer": "对",
    "template": "Tcd3f20",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.1"
@@ -31111,6 +31932,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T481f02",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.2"
@@ -31158,6 +31980,7 @@
    "type": "选择",
    "answer": "D",
    "template": "T891323",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.3"
@@ -31182,6 +32005,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T579737",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.3"
@@ -31228,6 +32052,7 @@
    "type": "选择",
    "answer": "B",
    "template": "Ta6e1b1",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.3"
@@ -31274,6 +32099,7 @@
    "type": "选择",
    "answer": "C",
    "template": "T6f968b",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.4"
@@ -31298,6 +32124,7 @@
    "type": "判断",
    "answer": "对",
    "template": "Tf43be7",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.4"
@@ -31322,6 +32149,7 @@
    "type": "判断",
    "answer": "对",
    "template": "T7bd5e8",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.4"
@@ -31368,6 +32196,7 @@
    "type": "选择",
    "answer": "C",
    "template": "Tc677b5",
+   "change_tag": "新增",
    "tags": [
     "数学",
     "12.4"

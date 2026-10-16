@@ -227,3 +227,16 @@ describe('题库 v14：语文题少的古诗课', () => {
     const q = pub('2')[0]; const e = { qkey: q.key }; const by = new Map(pub('2').map((x: Question) => [x.key, x])); expect(by.get(e.qkey)).toBeTruthy();
   });
 });
+describe('题库 v15：change_tag', () => {
+  it('导入容忍 change_tag，导出去掉；新增但不可玩的题不进游戏', () => {
+    const q = normalize({ id: 'x', status: 'AI初审通过', subject: '数学', grade: 7, type: '填空', question: 'q', answer: ['1'], difficulty: 2, change_tag: '修改' });
+    expect('change_tag' in (exportQuestion(q) as object)).toBe(false);
+    let n = 0;
+    for (const g of ['K1', '1', '2', '3', '4', '5', '6', '7', '10']) {
+      const raw = JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8')).questions as { id: string; change_tag?: string; status: string; game_ready?: boolean }[];
+      const playable = new Set(pub(g).filter((x: Question) => x.status === 'AI初审通过' || x.status === '已通过').map((x: Question) => x.id));
+      for (const r of raw) if (r.game_ready === false) { n++; expect(playable.has(r.id), r.id).toBe(false); }
+    }
+    expect(n).toBeGreaterThanOrEqual(12);
+  });
+});

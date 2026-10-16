@@ -23,6 +23,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
@@ -48,6 +49,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
@@ -73,6 +75,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
@@ -98,6 +101,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
@@ -123,6 +127,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
@@ -148,13 +153,14 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "混合运算"
    ]
   },
   {
    "id": "M3-007",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -189,16 +195,18 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "经过的时间",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T07cc24",
+   "change_tag": "修改",
    "tags": [
     "经过的时间"
    ]
   },
   {
    "id": "M3-008",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -233,9 +241,11 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "时间单位",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T796e1e",
+   "change_tag": "修改",
    "tags": [
     "时间单位"
    ]
@@ -261,6 +271,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -286,6 +297,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -311,6 +323,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -336,6 +349,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -361,6 +375,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -406,13 +421,14 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T6fd735",
+   "change_tag": "未改",
    "tags": [
     "乘法估算"
    ]
   },
   {
    "id": "M3-015",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -447,16 +463,18 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "质量单位",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tc43cff",
+   "change_tag": "修改",
    "tags": [
     "质量单位"
    ]
   },
   {
    "id": "M3-016",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -491,16 +509,18 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "质量单位",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T20daed",
+   "change_tag": "修改",
    "tags": [
     "质量单位"
    ]
   },
   {
    "id": "M3-017",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -515,9 +535,11 @@
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "质量单位换算",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T947737",
+   "change_tag": "修改",
    "tags": [
     "质量单位换算"
    ]
@@ -562,6 +584,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Taf3482",
+   "change_tag": "未改",
    "tags": [
     "数据收集"
    ]
@@ -586,6 +609,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T4095b4",
+   "change_tag": "未改",
    "tags": [
     "数据整理"
    ]
@@ -630,6 +654,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T9fd32f",
+   "change_tag": "未改",
    "tags": [
     "长度单位"
    ]
@@ -674,6 +699,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T99a151",
+   "change_tag": "未改",
    "tags": [
     "长度单位"
    ]
@@ -718,6 +744,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T35d75c",
+   "change_tag": "未改",
    "tags": [
     "长度单位"
    ]
@@ -742,6 +769,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tb9b3e0",
+   "change_tag": "未改",
    "tags": [
     "长度单位换算"
    ]
@@ -786,6 +814,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T1f13b0",
+   "change_tag": "未改",
    "tags": [
     "平移和旋转"
    ]
@@ -830,6 +859,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T0b16ef",
+   "change_tag": "未改",
    "tags": [
     "平移和旋转"
    ]
@@ -874,6 +904,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T114bf2",
+   "change_tag": "未改",
    "tags": [
     "轴对称"
    ]
@@ -899,6 +930,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -924,6 +956,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -949,6 +982,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -974,6 +1008,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -999,6 +1034,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -1024,6 +1060,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -1069,6 +1106,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Taf1b8c",
+   "change_tag": "未改",
    "tags": [
     "商的位数"
    ]
@@ -1093,6 +1131,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T2837ac",
+   "change_tag": "未改",
    "tags": [
     "数量关系"
    ]
@@ -1117,6 +1156,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tfc42bd",
+   "change_tag": "未改",
    "tags": [
     "归一问题"
    ]
@@ -1161,6 +1201,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tb9364b",
+   "change_tag": "未改",
    "tags": [
     "观察物体"
    ]
@@ -1205,6 +1246,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T31c487",
+   "change_tag": "未改",
    "tags": [
     "角的分类"
    ]
@@ -1249,6 +1291,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T7e5288",
+   "change_tag": "未改",
    "tags": [
     "角的分类"
    ]
@@ -1293,13 +1336,14 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tea9bc8",
+   "change_tag": "未改",
    "tags": [
     "角"
    ]
   },
   {
    "id": "M3-040",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -1334,16 +1378,18 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "年月日",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Taab831",
+   "change_tag": "修改",
    "tags": [
     "年月日"
    ]
   },
   {
    "id": "M3-041",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -1378,16 +1424,18 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "年月日",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tf4f1cd",
+   "change_tag": "修改",
    "tags": [
     "年月日"
    ]
   },
   {
    "id": "M3-042",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -1402,9 +1450,11 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "年月日",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tdb2ae5",
+   "change_tag": "修改",
    "tags": [
     "年月日"
    ]
@@ -1429,6 +1479,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tfa6ea9",
+   "change_tag": "未改",
    "tags": [
     "加法数量关系"
    ]
@@ -1454,6 +1505,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两位数乘两位数"
    ]
@@ -1479,6 +1531,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两位数乘两位数"
    ]
@@ -1504,6 +1557,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两位数乘两位数"
    ]
@@ -1529,6 +1583,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两位数乘两位数"
    ]
@@ -1554,13 +1609,14 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两位数乘两位数"
    ]
   },
   {
    "id": "M3-049",
-   "status": "AI初审通过",
+   "status": "需家长确认",
    "subject": "数学",
    "grade": 3,
    "textbook": "苏教版2024",
@@ -1575,9 +1631,11 @@
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "简单的周期",
-   "game_ready": true,
+   "review_note": "单元归属存疑：该题知识点（时间/质量单位/年月日/找规律）与所挂单元名称不一致，请家长按所用教材确认归属",
+   "game_ready": false,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T853f62",
+   "change_tag": "修改",
    "tags": [
     "简单的周期"
    ]
@@ -1622,6 +1680,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T59c3af",
+   "change_tag": "未改",
    "tags": [
     "条形统计图"
    ]
@@ -1666,6 +1725,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T64dd73",
+   "change_tag": "未改",
    "tags": [
     "长方形和正方形的特征"
    ]
@@ -1710,6 +1770,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T153b3c",
+   "change_tag": "未改",
    "tags": [
     "长方形的特征"
    ]
@@ -1754,6 +1815,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T8b0950",
+   "change_tag": "未改",
    "tags": [
     "认识几分之一"
    ]
@@ -1794,6 +1856,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T064a73",
+   "change_tag": "未改",
    "tags": [
     "分数比大小"
    ]
@@ -1819,6 +1882,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tf983c5",
+   "change_tag": "未改",
    "tags": [
     "同分母分数加法"
    ]
@@ -1844,6 +1908,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tf983c5",
+   "change_tag": "未改",
    "tags": [
     "同分母分数加法"
    ]
@@ -1869,6 +1934,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tf983c5",
+   "change_tag": "未改",
    "tags": [
     "同分母分数加法"
    ]
@@ -1894,6 +1960,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T9238bf",
+   "change_tag": "未改",
    "tags": [
     "同分母分数减法"
    ]
@@ -1939,6 +2006,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tcfc019",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 Hello!"
@@ -1985,6 +2053,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1b69ae",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 Hello!"
@@ -2031,6 +2100,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T75ed82",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 Hello!"
@@ -2077,6 +2147,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T4900d8",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 Hello!"
@@ -2123,6 +2194,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T2c5d82",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 What's your name?"
@@ -2169,6 +2241,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T49f146",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 What's your name?"
@@ -2215,6 +2288,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tf6191b",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 What's your name?"
@@ -2261,6 +2335,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tba6e8a",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 Are you Su Hai?"
@@ -2307,6 +2382,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tba6e8a",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 Are you Su Hai?"
@@ -2353,6 +2429,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c2e71",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 Are you Su Hai?"
@@ -2399,6 +2476,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T75ed82",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 Are you Su Hai?"
@@ -2445,6 +2523,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T74d7e5",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 This is my friend"
@@ -2491,6 +2570,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 This is my friend"
@@ -2527,6 +2607,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdb0fc5",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 This is my friend"
@@ -2573,6 +2654,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -2619,6 +2701,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T49f146",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -2665,6 +2748,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -2711,6 +2795,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Te089a1",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -2757,6 +2842,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 Is he your grandpa?"
@@ -2803,6 +2889,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tba6e8a",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 Is he your grandpa?"
@@ -2849,6 +2936,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 Is he your grandpa?"
@@ -2895,6 +2983,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tfbf59a",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Happy Birthday!"
@@ -2941,6 +3030,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdf61cc",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Happy Birthday!"
@@ -2987,6 +3077,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Happy Birthday!"
@@ -3033,6 +3124,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T0cd246",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Happy Birthday!"
@@ -3079,6 +3171,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -3125,6 +3218,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tba6e8a",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -3171,6 +3265,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T48a9b7",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -3217,6 +3312,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -3263,6 +3359,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 School things"
@@ -3309,6 +3406,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 School things"
@@ -3355,6 +3453,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T06ddd4",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 School things"
@@ -3401,6 +3500,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 1 School things"
@@ -3447,6 +3547,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 Clean our classroom"
@@ -3493,6 +3594,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 Clean our classroom"
@@ -3539,6 +3641,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 Clean our classroom"
@@ -3585,6 +3688,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 School rules"
@@ -3631,6 +3735,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T261d06",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 School rules"
@@ -3677,6 +3782,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 3 School rules"
@@ -3723,6 +3829,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 Have fun after class"
@@ -3769,6 +3876,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 Have fun after class"
@@ -3815,6 +3923,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tc69596",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 Have fun after class"
@@ -3861,6 +3970,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 4 Have fun after class"
@@ -3907,6 +4017,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 Fruit"
@@ -3953,6 +4064,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 Fruit"
@@ -3999,6 +4111,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tba6e8a",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 Fruit"
@@ -4045,6 +4158,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 Fruit"
@@ -4091,6 +4205,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -4137,6 +4252,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -4183,6 +4299,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T6f9f0f",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -4229,6 +4346,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -4275,6 +4393,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -4321,6 +4440,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -4367,6 +4487,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Te9ec99",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -4413,6 +4534,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 Colours"
@@ -4459,6 +4581,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T6f9f0f",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 Colours"
@@ -4505,6 +4628,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 Colours"
@@ -4551,6 +4675,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T923ff2",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 Colours"
@@ -4597,6 +4722,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -4643,6 +4769,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -4689,6 +4816,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 2 Clean our classroom"
@@ -4735,6 +4863,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -4781,6 +4910,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -4827,6 +4957,7 @@
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9c5be6",
+   "change_tag": "未改",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -4872,6 +5003,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta85089",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -4916,6 +5048,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbc6fe2",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -4960,6 +5093,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0a9fb5",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -4985,6 +5119,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T62514d",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5008,6 +5143,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2bf919",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5031,6 +5167,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6bedf9",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5075,6 +5212,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfb975e",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5120,6 +5258,7 @@
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te7b98f",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5165,6 +5304,7 @@
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td2de71",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5209,6 +5349,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T22a800",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5253,6 +5394,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T203a3f",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5297,6 +5439,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1edbe5",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5322,6 +5465,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Teb8355",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5366,6 +5510,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -5389,6 +5534,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T77ec01",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5433,6 +5579,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T11b23b",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5477,6 +5624,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb2806f",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5521,6 +5669,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T9cfc72",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5565,6 +5714,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2a863b",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5590,6 +5740,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1afc26",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5634,6 +5785,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -5657,6 +5809,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T00bce0",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5701,6 +5854,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5dc5bf",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -5745,6 +5899,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3e71e7",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5789,6 +5944,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta0e9ba",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5833,6 +5989,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbad358",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5878,6 +6035,7 @@
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2388f6",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5922,6 +6080,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tafe2fd",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5966,6 +6125,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tcb252f",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6010,6 +6170,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T004b0e",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6055,6 +6216,7 @@
    "game_ready": false,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T9d111b",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6099,6 +6261,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0306e2",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6143,6 +6306,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T92334a",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6187,6 +6351,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T142c9e",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6231,6 +6396,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1482bd",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6275,6 +6441,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf714fd",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6319,6 +6486,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc9f97b",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6363,6 +6531,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8770f8",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6407,6 +6576,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1dd484",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6451,6 +6621,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0b4eab",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6495,6 +6666,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0af3b3",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6539,6 +6711,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0afbd1",
+   "change_tag": "未改",
    "tags": [
     "语文"
    ]
@@ -6583,6 +6756,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6627,6 +6801,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6671,6 +6846,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6715,6 +6891,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T587b02",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6759,6 +6936,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T133d4a",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6803,6 +6981,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6849,6 +7028,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -6893,6 +7073,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -6937,6 +7118,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T587b02",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -6981,6 +7163,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7025,6 +7208,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7069,6 +7253,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7113,6 +7298,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7157,6 +7343,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T587b02",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7201,6 +7388,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8b764f",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7245,6 +7433,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T358f5d",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7289,6 +7478,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T86fa21",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7333,6 +7523,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T7a68a4",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7377,6 +7568,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Ta60169",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7421,6 +7613,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "未改",
    "tags": [
     "诗词"
    ]
@@ -7465,6 +7658,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tfd8476",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7509,6 +7703,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tb6fe3b",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7553,6 +7748,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Td25fca",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7597,6 +7793,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T307dd6",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7641,6 +7838,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Ta6e602",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7685,6 +7883,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T441845",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7710,7 +7909,7 @@
      "audio": ""
     },
     {
-     "text": "发电马上完成",
+     "text": "测量气温",
      "image": "",
      "audio": ""
     },
@@ -7727,8 +7926,10 @@
    "volume": "三年级下册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T48cf5c",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7773,6 +7974,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tc8d2dc",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7817,6 +8019,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T0f6c87",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7847,7 +8050,7 @@
      "audio": ""
     },
     {
-     "text": "鳞片马上掉光",
+     "text": "鳞片",
      "image": "",
      "audio": ""
     }
@@ -7859,8 +8062,10 @@
    "volume": "三年级下册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T5859d1",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7905,6 +8110,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T593ad2",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -7935,7 +8141,7 @@
      "audio": ""
     },
     {
-     "text": "钟表只用于气温",
+     "text": "钟表",
      "image": "",
      "audio": ""
     }
@@ -7947,8 +8153,10 @@
    "volume": "三年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tfd0c83",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7974,7 +8182,7 @@
      "audio": ""
     },
     {
-     "text": "地上冒出来就是雨",
+     "text": "从地下冒出来",
      "image": "",
      "audio": ""
     },
@@ -7991,8 +8199,10 @@
    "volume": "三年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T4fb665",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -8037,6 +8247,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T2dfc06",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -8052,7 +8263,17 @@
    "question": "声音沿什么传播？",
    "options": [
     {
-     "text": "只有真空能传声",
+     "text": "真空",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只能靠电线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只能靠光",
      "image": "",
      "audio": ""
     },
@@ -8060,27 +8281,19 @@
      "text": "空气等介质",
      "image": "",
      "audio": ""
-    },
-    {
-     "text": "真空中也一样响",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "不需要介质",
-     "image": "",
-     "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "真空不能传声。",
+   "answer": "D",
+   "explanation": "声音要靠空气、水、固体等介质传播，真空不能传声。",
    "difficulty": 2,
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T3c3bee",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -8125,6 +8338,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T4baa7c",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -8169,6 +8383,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tb3dfbf",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -8213,6 +8428,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T03fc42",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -8257,6 +8473,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T5eea95",
+   "change_tag": "未改",
    "tags": [
     "科学"
    ]
@@ -8282,7 +8499,7 @@
      "audio": ""
     },
     {
-     "text": "用布擦完继续玩药液",
+     "text": "等下课再说",
      "image": "",
      "audio": ""
     },
@@ -8299,8 +8516,10 @@
    "volume": "三年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tccac5b",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -8326,6 +8545,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -8351,6 +8571,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -8376,6 +8597,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -8401,6 +8623,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -8426,6 +8649,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -8451,6 +8675,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数乘一位数"
    ]
@@ -8476,6 +8701,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -8501,6 +8727,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -8526,6 +8753,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -8551,6 +8779,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -8576,6 +8805,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -8601,6 +8831,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T60be33",
+   "change_tag": "未改",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -8625,6 +8856,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T0b49b7",
+   "change_tag": "未改",
    "tags": [
     "长方形周长"
    ]
@@ -8649,6 +8881,7 @@
    "game_ready": true,
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T0b49b7",
+   "change_tag": "未改",
    "tags": [
     "长方形周长"
    ]
@@ -8661,18 +8894,20 @@
    "textbook": "苏教版2024",
    "unit": "三下·五 长方形和正方形",
    "type": "填空",
-   "question": "长 9 厘米、宽 9 厘米的长方形，周长是多少厘米？",
+   "question": "边长 9 厘米的正方形，周长是多少厘米？",
    "answer": [
     "36"
    ],
-   "explanation": "周长 = (长+宽)×2 = (9+9)×2 = 36（厘米）。",
+   "explanation": "正方形周长 = 边长×4 = 9×4 = 36（厘米）。",
    "difficulty": 2,
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "长方形周长",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T0b49b7",
+   "change_tag": "修改",
    "tags": [
     "长方形周长"
    ]
@@ -8717,6 +8952,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -8761,6 +8997,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -8805,6 +9042,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -8849,6 +9087,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -8893,6 +9132,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -8937,6 +9177,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -8981,6 +9222,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -9025,6 +9267,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1ca9fa",
+   "change_tag": "未改",
    "tags": [
     "反义词"
    ]
@@ -9069,6 +9312,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb4773",
+   "change_tag": "未改",
    "tags": [
     "近义词"
    ]
@@ -9113,6 +9357,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb4773",
+   "change_tag": "未改",
    "tags": [
     "近义词"
    ]
@@ -9157,6 +9402,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb4773",
+   "change_tag": "未改",
    "tags": [
     "近义词"
    ]
@@ -9201,6 +9447,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb4773",
+   "change_tag": "未改",
    "tags": [
     "近义词"
    ]
@@ -9245,6 +9492,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb4773",
+   "change_tag": "未改",
    "tags": [
     "近义词"
    ]
@@ -9289,6 +9537,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb4773",
+   "change_tag": "未改",
    "tags": [
     "近义词"
    ]
@@ -9333,6 +9582,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te79d12",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -9377,6 +9627,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td7cc8a",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -9421,6 +9672,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4c5f75",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -9465,6 +9717,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfb6c18",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -9509,6 +9762,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T77a03d",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -9553,6 +9807,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7fbe33",
+   "change_tag": "未改",
    "tags": [
     "成语"
    ]
@@ -9597,6 +9852,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9641,6 +9897,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9685,6 +9942,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9729,6 +9987,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -9773,6 +10032,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9817,6 +10077,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9861,6 +10122,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9905,6 +10167,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9949,6 +10212,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -9993,6 +10257,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10037,6 +10302,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -10081,6 +10347,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10125,6 +10392,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10169,6 +10437,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10213,6 +10482,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -10257,6 +10527,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10301,6 +10572,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10345,6 +10617,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10389,6 +10662,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10433,6 +10707,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10477,6 +10752,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10521,6 +10797,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -10565,6 +10842,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10609,6 +10887,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10653,6 +10932,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10697,6 +10977,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -10741,6 +11022,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10785,6 +11067,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10829,6 +11112,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10873,6 +11157,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10917,6 +11202,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -10961,6 +11247,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11005,6 +11292,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -11049,6 +11337,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11093,6 +11382,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11137,6 +11427,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11181,6 +11472,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -11225,6 +11517,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11269,6 +11562,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11313,6 +11607,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
+   "change_tag": "修改",
    "tags": [
     "上下句"
    ]
@@ -11357,6 +11652,7 @@
    "game_ready": true,
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
+   "change_tag": "修改",
    "tags": [
     "作者"
    ]
@@ -11402,6 +11698,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T489b1d",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11447,6 +11744,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tf4e56a",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11492,6 +11790,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T41875c",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11537,6 +11836,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T3c69bd",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11582,6 +11882,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T2d7575",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11627,6 +11928,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T50b17a",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11672,6 +11974,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Taabcc3",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11717,6 +12020,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T5a0b67",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11762,6 +12066,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tf191fa",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11807,6 +12112,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T5487e2",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11852,6 +12158,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Te90c3b",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11897,6 +12204,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T246fec",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11942,6 +12250,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T565d57",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -11987,6 +12296,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T6fbbf9",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12032,6 +12342,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T230a08",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12077,6 +12388,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Te80670",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12122,6 +12434,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T7e065c",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12167,6 +12480,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Ta23635",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12212,6 +12526,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T08c777",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12257,6 +12572,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tc419b1",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12302,6 +12618,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Te7607e",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12347,6 +12664,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Tbd182f",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12392,6 +12710,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T78f4b3",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12437,6 +12756,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T520e01",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12482,6 +12802,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T8aec50",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12527,6 +12848,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T4f9f2d",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12572,6 +12894,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T1ee966",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12617,6 +12940,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T1fb0fa",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12662,6 +12986,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Tae76c4",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12707,6 +13032,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T2f4378",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12752,6 +13078,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "T0023cf",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12797,6 +13124,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T8d2163",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12842,6 +13170,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "T6478e7",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12887,6 +13216,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T81d53f",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12932,6 +13262,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Tf5de0b",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -12977,6 +13308,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "T61ca84",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -13022,6 +13354,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "Tc74deb",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -13067,6 +13400,7 @@
    "answer": "B",
    "game_ready": true,
    "template": "Tac4f84",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -13112,6 +13446,7 @@
    "answer": "D",
    "game_ready": true,
    "template": "Ta80a3d",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -13157,6 +13492,7 @@
    "answer": "A",
    "game_ready": true,
    "template": "T928645",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -13202,6 +13538,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tb1e003",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13248,6 +13585,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T5f3f33",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13294,6 +13632,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T076ff7",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13320,6 +13659,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -13366,6 +13706,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T5ce4f6",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13392,6 +13733,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -13418,6 +13760,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -13464,6 +13807,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Taabf39",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "作者朝代"
@@ -13510,6 +13854,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "T590c63",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "上一句"
@@ -13556,6 +13901,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Td26b11",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "出处"
@@ -13580,6 +13926,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "T11f67d",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "判断作者"
@@ -13626,6 +13973,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "T01130d",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "作者"
@@ -13672,6 +14020,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Td88fd0",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13698,6 +14047,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -13744,6 +14094,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Ta46492",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "作者朝代"
@@ -13790,6 +14141,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T590c63",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "上一句"
@@ -13836,6 +14188,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Td26b11",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "出处"
@@ -13882,6 +14235,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Ta1a7a1",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13928,6 +14282,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tb222c7",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -13954,6 +14309,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -14000,6 +14356,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T5f3f33",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -14026,6 +14383,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -14072,6 +14430,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T128a15",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "作者朝代"
@@ -14118,6 +14477,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T590c63",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "上一句"
@@ -14164,6 +14524,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Td26b11",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "出处"
@@ -14210,6 +14571,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Td70656",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -14256,6 +14618,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T719b5b",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -14302,6 +14665,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tc2ba12",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -14348,6 +14712,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T5f3f33",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "诗意理解"
@@ -14374,6 +14739,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taaf882",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -14398,6 +14764,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tee043c",
+   "change_tag": "新增",
    "tags": [
     "数量关系"
    ]
@@ -14443,6 +14810,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tc9b6ee",
+   "change_tag": "新增",
    "tags": [
     "数量关系"
    ]
@@ -14468,6 +14836,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T5c4600",
+   "change_tag": "新增",
    "tags": [
     "数量关系"
    ]
@@ -14493,6 +14862,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tc9dacc",
+   "change_tag": "新增",
    "tags": [
     "数量关系"
    ]
@@ -14516,6 +14886,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T62d423",
+   "change_tag": "新增",
    "tags": [
     "数据收集"
    ]
@@ -14561,6 +14932,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T8ded37",
+   "change_tag": "新增",
    "tags": [
     "数据收集"
    ]
@@ -14586,6 +14958,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T84aca4",
+   "change_tag": "新增",
    "tags": [
     "数据收集"
    ]
@@ -14631,6 +15004,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T605343",
+   "change_tag": "新增",
    "tags": [
     "数据收集"
    ]
@@ -14654,6 +15028,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T67fa7f",
+   "change_tag": "新增",
    "tags": [
     "平移和旋转"
    ]
@@ -14679,6 +15054,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T1bf0bc",
+   "change_tag": "新增",
    "tags": [
     "平移和旋转"
    ]
@@ -14702,6 +15078,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T889614",
+   "change_tag": "新增",
    "tags": [
     "平移和旋转"
    ]
@@ -14725,6 +15102,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T5dd9b1",
+   "change_tag": "新增",
    "tags": [
     "观察物体"
    ]
@@ -14770,6 +15148,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T2d5951",
+   "change_tag": "新增",
    "tags": [
     "观察物体"
    ]
@@ -14795,6 +15174,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tb09cd6",
+   "change_tag": "新增",
    "tags": [
     "观察物体"
    ]
@@ -14840,6 +15220,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T1785d7",
+   "change_tag": "新增",
    "tags": [
     "观察物体"
    ]
@@ -14863,6 +15244,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T6d5a67",
+   "change_tag": "新增",
    "tags": [
     "观察物体"
    ]
@@ -14887,6 +15269,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T3e612c",
+   "change_tag": "新增",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -14932,6 +15315,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T4d57fa",
+   "change_tag": "新增",
    "tags": [
     "两、三位数除以一位数"
    ]
@@ -14955,6 +15339,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tdf693a",
+   "change_tag": "新增",
    "tags": [
     "长度单位"
    ]
@@ -14980,6 +15365,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T8c223a",
+   "change_tag": "新增",
    "tags": [
     "长度单位"
    ]
@@ -15003,6 +15389,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T238028",
+   "change_tag": "新增",
    "tags": [
     "角的分类"
    ]
@@ -15028,6 +15415,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T6925bf",
+   "change_tag": "新增",
    "tags": [
     "角的分类"
    ]
@@ -15073,6 +15461,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T45f87f",
+   "change_tag": "新增",
    "tags": [
     "角的分类"
    ]
@@ -15097,6 +15486,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T3e612c",
+   "change_tag": "新增",
    "tags": [
     "两位数乘两位数"
    ]
@@ -15142,6 +15532,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Ta4ec9e",
+   "change_tag": "新增",
    "tags": [
     "两位数乘两位数"
    ]
@@ -15165,6 +15556,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T9ec48b",
+   "change_tag": "新增",
    "tags": [
     "年月日"
    ]
@@ -15190,6 +15582,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T78c718",
+   "change_tag": "新增",
    "tags": [
     "年月日"
    ]
@@ -15213,6 +15606,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T9728c2",
+   "change_tag": "新增",
    "tags": [
     "长方形和正方形的特征"
    ]
@@ -15236,6 +15630,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Td41c11",
+   "change_tag": "新增",
    "tags": [
     "条形统计图"
    ]
@@ -15281,6 +15676,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T53c973",
+   "change_tag": "新增",
    "tags": [
     "条形统计图"
    ]
@@ -15306,6 +15702,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T6d519a",
+   "change_tag": "新增",
    "tags": [
     "条形统计图"
    ]
@@ -15329,6 +15726,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T2ace89",
+   "change_tag": "新增",
    "tags": [
     "条形统计图"
    ]
@@ -15374,6 +15772,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T7f1fab",
+   "change_tag": "新增",
    "tags": [
     "条形统计图"
    ]
@@ -15397,6 +15796,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T0f8943",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 1 Hello!"
@@ -15423,6 +15823,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1597d7",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 1 Hello!"
@@ -15447,6 +15848,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdd3070",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 2 What's your name?"
@@ -15473,6 +15875,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T06f512",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 2 What's your name?"
@@ -15519,6 +15922,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T75ed82",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 2 What's your name?"
@@ -15543,6 +15947,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdd3070",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 3 Are you Su Hai?"
@@ -15569,6 +15974,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Td7a618",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 3 Are you Su Hai?"
@@ -15593,6 +15999,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdd3070",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 4 This is my friend"
@@ -15619,6 +16026,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9d8cd0",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 4 This is my friend"
@@ -15665,6 +16073,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta62aa2",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 4 This is my friend"
@@ -15689,6 +16098,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -15715,6 +16125,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1d4dab",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 5 She's my mother"
@@ -15739,6 +16150,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 6 Is he your grandpa?"
@@ -15765,6 +16177,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Td7a618",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 6 Is he your grandpa?"
@@ -15811,6 +16224,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T49f146",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 6 Is he your grandpa?"
@@ -15835,6 +16249,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdd3070",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 7 Happy Birthday!"
@@ -15861,6 +16276,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T770f1a",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 7 Happy Birthday!"
@@ -15885,6 +16301,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdd3070",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -15911,6 +16328,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T65a7cb",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 8 I can do this for you"
@@ -15935,6 +16353,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 1 School things"
@@ -15961,6 +16380,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Te03c09",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 1 School things"
@@ -15985,6 +16405,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 2 Clean our classroom"
@@ -16011,6 +16432,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Te0535f",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 2 Clean our classroom"
@@ -16035,6 +16457,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdd3070",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 3 School rules"
@@ -16061,6 +16484,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tf6b8bd",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 3 School rules"
@@ -16107,6 +16531,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdba8d0",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 3 School rules"
@@ -16131,6 +16556,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 4 Have fun after class"
@@ -16157,6 +16583,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Te77f9a",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 4 Have fun after class"
@@ -16181,6 +16608,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T3236e1",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 5 Fruit"
@@ -16207,6 +16635,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Td852d9",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 5 Fruit"
@@ -16231,6 +16660,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -16257,6 +16687,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta1a3dc",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 6 On the farm"
@@ -16281,6 +16712,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -16307,6 +16739,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T7614e2",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 7 Animals"
@@ -16331,6 +16764,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb9ce08",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 8 Colours"
@@ -16357,6 +16791,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T2bb866",
+   "change_tag": "新增",
    "tags": [
     "英语",
     "Unit 8 Colours"
@@ -16381,6 +16816,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T2759e2",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16404,6 +16840,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T069aa1",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16449,6 +16886,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tca4581",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16472,6 +16910,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tf71204",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16517,6 +16956,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T667c7c",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16542,6 +16982,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T734621",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16565,6 +17006,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T2526c5",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16610,6 +17052,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tb99df8",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16633,6 +17076,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T08bfa4",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16658,6 +17102,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T72fb98",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16681,6 +17126,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T874ba3",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16726,6 +17172,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T505982",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16751,6 +17198,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T5ea790",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16774,6 +17222,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "T1fd07f",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16797,6 +17246,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T167b26",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16842,6 +17292,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Td0e638",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16867,6 +17318,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T43010d",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16890,6 +17342,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T0acb26",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16913,6 +17366,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T28b17b",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16936,6 +17390,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T991387",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -16981,6 +17436,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T3ad171",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17004,6 +17460,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T30df68",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17049,6 +17506,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T8ea5b3",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17074,6 +17532,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T3673f4",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17097,6 +17556,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Teb6bae",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17142,6 +17602,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T604fb4",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17165,6 +17626,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tf44072",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17190,6 +17652,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T8e7db9",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17235,6 +17698,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T7a5c9e",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17258,6 +17722,7 @@
    "answer": "对",
    "game_ready": true,
    "template": "Td1c89c",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17303,6 +17768,7 @@
    "answer": "C",
    "game_ready": true,
    "template": "Tc467d3",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17328,6 +17794,7 @@
    ],
    "game_ready": true,
    "template": "Tf4b0a6",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17351,6 +17818,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Ta70689",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17396,6 +17864,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tc14eef",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17441,6 +17910,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T89271f",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17464,6 +17934,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tb84f04",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17489,6 +17960,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T84724b",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17512,6 +17984,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T567a75",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17535,6 +18008,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T5c8475",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17580,6 +18054,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T3ce131",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17625,6 +18100,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tfd9444",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17648,6 +18124,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tf76284",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17693,6 +18170,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T09eae9",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17716,6 +18194,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T9ef499",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17761,6 +18240,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T99d8f6",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17784,6 +18264,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T84efae",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17829,6 +18310,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tee255f",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17854,6 +18336,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T1a7d35",
+   "change_tag": "新增",
    "tags": [
     "科学"
    ]
@@ -17877,6 +18360,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf83ed0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -17902,6 +18386,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T44e55a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -17947,6 +18432,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T23fa2e",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -17970,6 +18456,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2af771",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -17995,6 +18482,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td08ee7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18018,6 +18506,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T931724",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18043,6 +18532,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7e01ae",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18088,6 +18578,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6a0054",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18111,6 +18602,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T31db68",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18136,6 +18628,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T06b495",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18159,6 +18652,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tba2075",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18184,6 +18678,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tba1ab3",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18229,6 +18724,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7b3a7b",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18252,6 +18748,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb67eb6",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18277,6 +18774,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T420fe7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18300,6 +18798,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te1fe3e",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18325,6 +18824,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2f5b07",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18370,6 +18870,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T068870",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18395,6 +18896,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2b4db7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18418,6 +18920,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T315db8",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18441,6 +18944,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T71d000",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18466,6 +18970,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf38aa2",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18511,6 +19016,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta6c72d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18536,6 +19042,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3b78e3",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18559,6 +19066,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T9c88df",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18584,6 +19092,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T051c3f",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18629,6 +19138,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf8f7d0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18654,6 +19164,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc34133",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18677,6 +19188,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tabd2f3",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18700,6 +19212,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7883e7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18725,6 +19238,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb20400",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18770,6 +19284,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T820c56",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18795,6 +19310,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf549ee",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18818,6 +19334,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T392381",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18841,6 +19358,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc7b6e5",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18866,6 +19384,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T239cfc",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18911,6 +19430,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4ad8cf",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18934,6 +19454,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T93fc4f",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18959,6 +19480,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T236398",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -18982,6 +19504,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf1b154",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19007,6 +19530,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3de2d6",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19052,6 +19576,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf85936",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19075,6 +19600,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T36c123",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19100,6 +19626,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te4a7c7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19123,6 +19650,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4adfaf",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19148,6 +19676,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1af87a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19193,6 +19722,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tff42fb",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19216,6 +19746,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb8f8e8",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19228,11 +19759,11 @@
    "textbook": "统编版",
    "unit": "三上·大自然的声音",
    "type": "填空",
-   "question": "微风拂过树叶，像轻轻的____。",
+   "question": "《大自然的声音》：微风拂过，便是一首轻柔的____曲。",
    "answer": [
-    "呢喃细语"
+    "抒情"
    ],
-   "explanation": "原文：微风拂过，好像呢喃细语。",
+   "explanation": "课文：微风拂过，便是一首轻柔的抒情曲。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级上册",
@@ -19241,6 +19772,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T187ac0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19264,6 +19796,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T49a670",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19289,6 +19822,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf4efb7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19334,6 +19868,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb68760",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19357,6 +19892,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb2db97",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19382,6 +19918,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td1861d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19405,6 +19942,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T12aecc",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19430,6 +19968,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5df9f0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19475,6 +20014,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tecd416",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19498,6 +20038,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te8a7fb",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19523,6 +20064,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T48cd1d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19546,6 +20088,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T527554",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19571,6 +20114,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T63665f",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19616,6 +20160,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8a275d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19639,6 +20184,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T07c3ce",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19664,6 +20210,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T823bf9",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19687,6 +20234,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T66c8b5",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19712,6 +20260,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T74f8a9",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19757,6 +20306,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T21b2d3",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19780,6 +20330,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbd2f26",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19803,6 +20354,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1c1349",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19826,6 +20378,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4efd50",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19851,6 +20404,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T925010",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19896,6 +20450,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tde1c69",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19919,6 +20474,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf125cd",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19944,6 +20500,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3f9719",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19967,6 +20524,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb3b1b4",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -19992,6 +20550,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T210722",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20037,6 +20596,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3b4203",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20060,6 +20620,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T13e709",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20085,6 +20646,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td52970",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20108,6 +20670,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T30b6c1",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20133,6 +20696,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf4883f",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20178,6 +20742,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T40f22a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20201,6 +20766,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tef475c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20224,6 +20790,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Taf4343",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20247,6 +20814,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1c36c0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20272,6 +20840,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T681bb5",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20317,6 +20886,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfb2fd1",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20340,6 +20910,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T9cc5ef",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20365,6 +20936,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3f4dd5",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20388,6 +20960,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Taefeee",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20413,6 +20986,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te9a34e",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20458,6 +21032,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te39fca",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20481,6 +21056,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7b4bdc",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20506,6 +21082,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb3f3cb",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20529,6 +21106,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T781e55",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20554,6 +21132,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T348b12",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20599,6 +21178,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4f04e8",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20624,6 +21204,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdccb4a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20649,6 +21230,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tae9ecf",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20672,6 +21254,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc7b6e5",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20697,6 +21280,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T9cedf0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20742,6 +21326,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4c5a39",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20767,6 +21352,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tac691c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20779,9 +21365,9 @@
    "textbook": "统编版",
    "unit": "三下·古诗 惠崇春江晚景",
    "type": "判断",
-   "question": "正是河豚欲上时。",
+   "question": "《惠崇春江晚景》的最后一句是“正是河豚欲上时”。",
    "answer": "对",
-   "explanation": "末句：正是河豚欲上时。",
+   "explanation": "苏轼《惠崇春江晚景》末句：正是河豚欲上时。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级下册",
@@ -20790,6 +21376,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te8496c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20813,6 +21400,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf8e048",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20838,6 +21426,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td50745",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20883,6 +21472,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3eea9b",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20908,6 +21498,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T107ae2",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20953,6 +21544,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7e57d5",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20976,6 +21568,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T07cfe6",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -20988,11 +21581,11 @@
    "textbook": "统编版",
    "unit": "三下·古诗三首",
    "type": "填空",
-   "question": "三首诗写的都是____夏的景色。",
+   "question": "三下《古诗三首》写的是春天和初____的景色。",
    "answer": [
-    "春"
+    "夏"
    ],
-   "explanation": "春夏之景。",
+   "explanation": "《绝句》《惠崇春江晚景》写春景，《三衢道中》写初夏。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级下册",
@@ -21001,6 +21594,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1b2841",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21046,6 +21640,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0cfc86",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21069,6 +21664,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7d93d0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21094,6 +21690,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T77e3e6",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21117,6 +21714,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T13a23d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21142,6 +21740,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2dffdd",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21187,6 +21786,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta6c72d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21210,6 +21810,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdc90f7",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21235,6 +21836,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te059df",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21258,6 +21860,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf3e01e",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21283,6 +21886,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3413bb",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21328,6 +21932,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T504e89",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21351,6 +21956,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T361e94",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21376,6 +21982,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta4d32c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21399,6 +22006,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T37fccd",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21424,6 +22032,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td9d672",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21469,6 +22078,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb41408",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21492,6 +22102,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta20cfb",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21517,6 +22128,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb9943c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21540,6 +22152,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb8ce7a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21565,6 +22178,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta8c1dd",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21610,6 +22224,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T45c1aa",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21633,6 +22248,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tcb47aa",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21658,6 +22274,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6e9af0",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21681,6 +22298,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdeb70d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21706,6 +22324,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb54f52",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21751,6 +22370,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3f0604",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21774,6 +22394,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfdc700",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21799,6 +22420,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T34b03c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21822,6 +22444,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T42fca6",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21847,6 +22470,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6cd232",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21892,6 +22516,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T612f57",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21915,6 +22540,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2288bf",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21940,6 +22566,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T07f05e",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21963,6 +22590,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0d205b",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -21988,6 +22616,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8f1f7d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22033,6 +22662,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4197ec",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22056,6 +22686,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T469161",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22079,6 +22710,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T57ebbd",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22102,6 +22734,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3ec1d8",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22127,6 +22760,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T78ce96",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22172,6 +22806,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6905af",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22195,6 +22830,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T645940",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22220,6 +22856,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2ef9c4",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22243,6 +22880,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0a465c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22268,6 +22906,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tab6bf2",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22313,6 +22952,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5062dd",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22336,6 +22976,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T349d5a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22361,6 +23002,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta08f34",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22384,6 +23026,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T12876d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22409,6 +23052,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T342818",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22454,6 +23098,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbd8e8c",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22477,6 +23122,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T85799d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22502,6 +23148,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8aabab",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22525,6 +23172,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1d5e04",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22550,6 +23198,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te0c815",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22595,6 +23244,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T738096",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22618,6 +23268,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T492b7f",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22643,6 +23294,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfba383",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22666,6 +23318,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb14b73",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22691,6 +23344,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T58ae90",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22736,6 +23390,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdccdb2",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22759,6 +23414,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6c150e",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22782,6 +23438,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T54f52a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22805,6 +23462,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T56f53a",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22830,6 +23488,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbc2e13",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22875,6 +23534,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tacf4a8",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22898,6 +23558,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T68b2c8",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22921,6 +23582,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T755d61",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22944,6 +23606,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3baae9",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -22969,6 +23632,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T047a67",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -23014,6 +23678,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta46972",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -23039,6 +23704,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2daa6d",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -23062,6 +23728,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc01d36",
+   "change_tag": "新增",
    "tags": [
     "语文"
    ]
@@ -23085,6 +23752,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "T1d0950",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -23111,6 +23779,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Tc6c2ad",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -23157,6 +23826,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "T21fa4c",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -23203,6 +23873,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Tb58dc5",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
@@ -23227,6 +23898,7 @@
    "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Te13b7d",
+   "change_tag": "新增",
    "tags": [
     "诗词",
     "默写填空"
