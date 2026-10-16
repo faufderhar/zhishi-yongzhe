@@ -290,7 +290,7 @@ if (on('r15misc')) {
 if (on('r151')) {
   // r15.1 较真家长：密码页不直接弹键盘；家长页「忘记密码 → 申请重设」真的创建申请（横条 + 取消）；恢复码确认不出卡片
   for (const vp of [{ width: 1180, height: 820 }, { width: 375, height: 667 }]) {
-    const { ctx, pg, w, pinIn } = await session('7', {}, vp); await enterMap(pg, w);
+    const { ctx, pg, w, pinIn } = await session('7', {}, vp);
     await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
     await pg.click('[data-testid=ptab-pin]'); await w(300);
     ok(!(await pg.isVisible('[data-testid=pin-ok]')) && await pg.isVisible('[data-testid=pintab-change]'), `${vp.width}：点「🔑 密码」不直接出数字键盘`);
