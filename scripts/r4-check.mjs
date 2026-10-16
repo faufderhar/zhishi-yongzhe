@@ -49,7 +49,7 @@ await pg.screenshot({ path: OUT + 'r4-my-turn.png' });
 await pg.click('[data-testid=intent]'); await w(250);
 ok(/怪物要攻击了！对方回合答对就能闪开，答错会受到 12 点伤害/.test(await pg.textContent('[data-testid=intent-pop]')), '意图说明 ⚔ 文案（#7）');
 await pg.screenshot({ path: OUT + 'r4-intent-pop.png' }); await pg.click('[data-testid=intent-ok]'); await w(200);
-await pg.screenshot({ path: '/tmp/dbg.png' }); ok(await pg.isDisabled('[data-testid=skill]', { timeout: 3000 }).catch(() => false), '技能按钮在不能用时置灰（能量 0）');
+ok(!(await pg.$('[data-testid=skill]')) && await pg.isVisible('[data-testid=energy]'), 'v0.3.7：没有手动技能按钮，只有能量环');
 // T1 我方答对
 const mhp0 = await pg.$eval('.mhp', e => e.textContent);
 await answer(true); await afterAnswer();
@@ -107,7 +107,8 @@ for (let k = 0; k < 40; k++) {
   await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=result-stats], [data-testid=revive-yes]', { timeout: 15000 });
   if (await pg.$('[data-testid=result-stats], [data-testid=revive-yes]')) continue;
   const side = await pg.textContent('[data-testid=banner]').catch(() => '');
-  await answer(revived ? /对方/.test(side) : false);
+  const myHp = +((await pg.textContent('.hp').catch(() => '')).match(/(\d+)\//) || [0, 99])[1];
+  await answer(revived ? (/对方/.test(side) || myHp <= 26) : false);   // 复活后：低血时我方回合答对，避免再次阵亡（v0.3.7 起无法靠技能按钮控制）
   await pg.waitForSelector('[data-testid=next], [data-testid=result-stats], [data-testid=revive-yes], [data-testid=retreating]', { timeout: 15000 });
   if (await pg.$('[data-testid=next]')) { await pg.waitForSelector('[data-testid=next]:not([disabled])', { timeout: 5000 }); if (/第 1[01] 回合/.test(await turnText())) { await pg.screenshot({ path: OUT + 'r4-turn-warn.png' }); warnSeen = warnSeen || /warn/.test(await pg.getAttribute('[data-testid=turn]', 'class')); } await pg.click('[data-testid=next]'); await w(400); }
   if (await pg.$('[data-testid=retreating]')) { await pg.screenshot({ path: OUT + 'r4-retreat.png' }); await w(1500); }

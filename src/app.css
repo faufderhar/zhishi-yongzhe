@@ -406,3 +406,18 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .battle.rounds .quiz .qmeta{padding-right:190px}
 @media (max-height:700px){.battle.rounds .keypad button,.battle.rounds .keypad .k{min-height:44px;height:44px;font-size:22px}.battle.rounds .qtext{font-size:22px}.battle.rounds .side-banner{font-size:16px;padding:2px 0}}
 @media (max-height:700px){.battle.rounds .keypad.num3 button,.battle.rounds .keypad.num button{min-height:42px;height:42px;font-size:22px}.battle.rounds .keypad,.battle.rounds .keypad.num3{gap:6px}.battle.rounds .keypad-wrap{gap:6px}}
+/* r5 技能特效（只用 transform / opacity；无 box-shadow / filter 动画） */
+.skill-banner{position:absolute;left:50%;top:6px;z-index:9;pointer-events:none;display:flex;align-items:center;gap:8px;padding:4px 14px 4px 6px;border-radius:999px;background:rgba(20,24,48,.82);color:#fff;font-size:18px;white-space:nowrap}
+.skill-banner .skill-ico{width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-size:28px}
+.skill-fx-glyph{position:absolute;z-index:7;pointer-events:none;font-size:34px;font-weight:800;line-height:1;will-change:transform,opacity}
+.skill-fx-glyph.big{font-size:64px}
+.skill-fx-icon{position:absolute;z-index:7;pointer-events:none;font-size:56px;transform:translate(-50%,-50%)}
+.skill-fx-slash{position:absolute;z-index:7;pointer-events:none;width:220px;height:8px;border-radius:4px;will-change:transform,opacity}
+.skill-fx-ring{position:absolute;z-index:7;pointer-events:none;width:110px;height:110px;border:5px solid;border-radius:50%;will-change:transform,opacity}
+.skill-fx-shield{position:absolute;z-index:7;pointer-events:none;width:170px;height:190px;border:5px solid;border-radius:46% 46% 50% 50%/40% 40% 60% 60%;background:rgba(160,220,255,.16);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+.skill-fx-dot{position:absolute;z-index:7;pointer-events:none;width:12px;height:12px;border-radius:50%}
+.skill-fx-sign{position:absolute;z-index:7;pointer-events:none;font-size:30px;font-weight:900;padding:4px 10px;border-radius:10px;background:rgba(255,255,255,.88);color:#333}
+.energy-ring{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:0}
+.energy-ring svg{width:40px;height:40px}
+.guard-badge{position:absolute;left:8px;top:8px;z-index:5;font-size:26px;background:rgba(77,208,225,.25);border-radius:50%;padding:2px 6px}
+.skill-list{text-align:left;max-height:50vh;overflow:auto}.skill-list li{margin:6px 0}

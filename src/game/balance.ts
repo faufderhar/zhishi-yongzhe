@@ -24,7 +24,7 @@ export const EXTRA_QUESTION_FACTOR = 1;
 
 /* ===== D6 轮流回合（GDD v0.3.6 §4.4 / 实现规格 §3.2），所有数值只在这里改 ===== */
 export type RoundMode = 'p36' | 'j' | 'h';
-export type MIntent = 'atk' | 'charge' | 'heavy' | 'shield';
+export type MIntent = 'atk' | 'charge' | 'heavy' | 'shield' | 'idle';
 export interface RoundMonster { hp: number; atk: number; cap: number; pat: MIntent[]; half?: MIntent[]; phases?: { hp: number; weak: string }[] }
 export interface RoundStats { player: { hp: number; atk: number }; shield: number; dodge: number; perfect: boolean; monsters: Record<LevelKind, RoundMonster> }
 const N: MIntent[] = ['atk', 'atk', 'shield'], E: MIntent[] = ['atk', 'charge', 'heavy'], B: MIntent[] = ['atk', 'atk', 'charge', 'heavy'];
@@ -49,3 +49,14 @@ export const WAGER = { sureOut: 1.2, sureHurt: 1.3, unsureCtr: 0.5 };
 export const HURT_CAP = 2.0;
 export const MULTI_STEP = [1.0, 1.3, 1.6];
 export const REVIVE = { need: 2, tries: 4, hp: 0.5 };
+
+/* ===== 角色技能随机释放（v0.3.7 角色技能规格 §2.1 / 确认单 D13） ===== */
+export const SKILL = {
+  rate: { visual: 0.35, battle: 0.20 },
+  pity: { visual: 3, battle: 4 },            // 连续 N 次答对没触发 → 下一次必触发
+  atk: { A14: 1.4, A2H: 0.7, A13P: 1.3, A125C: 1.25 },
+  guardHurt: 0.7, healPct: 0.05,
+  weight: { guard: 5, heal: 3, control: 2, atk: 1, visual: 1 },
+  particleCap: { K: 30, P12: 40, P36: 40, J: 60, H: 60 },
+  lowFps: 45,
+} as const;

@@ -1,6 +1,6 @@
 /* D6 轮流回合：结算表逐行 + 验收清单中可单测的项（实现规格 v0.3.6） */
 import { describe, it, expect } from 'vitest';
-import { newRound, resolveRound, reviveRound, nextIntent, intentLabel, canUseSkill, skillOf, phaseOf, type RState } from '../src/game/rounds';
+import { newRound, resolveRound, reviveRound, nextIntent, intentLabel, phaseOf, type RState } from '../src/game/rounds';
 import { ROUND, CARDS } from '../src/game/balance';
 import { PUPS, SCIFI } from '../src/game/characters';
 const poet = PUPS.find(c => c.major === '诗词')!, lexi = SCIFI.find(c => c.major === '英语')!, momo = PUPS.find(c => c.major === '语文')!;
@@ -68,7 +68,7 @@ describe('§2 结算表', () => {
   it('连击/能量：两种回合答对都累计，连到 3 额外 +1，上限 5；答错连击清零', () => {
     let s = newRound('j', 'normal'); s = { ...s, monsterHp: 999 };
     const e: number[] = []; for (let k = 0; k < 5; k++) { [s] = P(s, true); e.push(s.energy); }
-    expect(e).toEqual([1, 2, 4, 5, 5]); expect(s.combo).toBe(5); [s] = P(s, false); expect(s.combo).toBe(0);
+    expect(e).toEqual([1, 2, 4, 0, 1]);   // v0.3.7：能量满 5 必触发技能并清零 expect(s.combo).toBe(5); [s] = P(s, false); expect(s.combo).toBe(0);
   });
   it('伤害最少 1', () => { const [, o] = resolveRound({ ...newRound('j', 'normal'), atk: 0.1 }, poet, { correct: true, subject: '数学', difficulty: 1 }); expect(o.dealt).toBe(1); });
 });
@@ -82,24 +82,7 @@ describe('完美闪避与专注', () => {
     expect(P(withIntent('atk', 'h'), true, { wager: 'sure' })[1].perfect).toBe(true);
   });
 });
-describe('技能', () => {
-  it('攻击类只在我方回合、防护类只在对方回合', () => {
-    const s = { ...newRound('h', 'normal'), energy: 5 };
-    expect(canUseSkill(s, skillOf(lexi))).toBe(true); expect(canUseSkill({ ...s, side: 'M' }, skillOf(lexi))).toBe(false);
-    expect(canUseSkill(s, skillOf(momo))).toBe(false); expect(canUseSkill({ ...s, side: 'M' }, skillOf(momo))).toBe(true);
-  });
-  it('Echo 答对 2 次 70%；答错返还一半能量', () => {
-    const s = { ...newRound('h', 'normal'), energy: 5 };
-    const [, o] = resolveRound(s, lexi, { correct: true, subject: '英语', difficulty: 2, skill: true });
-    expect(o.hits).toEqual([22, 22]);   // 26×1.2×0.7 = 21.8
-    const [n2, o2] = resolveRound(s, lexi, { correct: false, subject: '英语', difficulty: 2, skill: true, rng: () => 0.99 });
-    expect(o2.refund).toBe(1); expect(n2.energy).toBe(3);
-  });
-  it('护体：对方回合答错只受 50%', () => {
-    const s = { ...withIntent('atk'), energy: 5 };
-    expect(resolveRound(s, momo, { correct: false, subject: '语文', difficulty: 2, skill: true })[1].taken).toBe(8);
-  });
-});
+// 技能测试见 tests/skills.test.ts（v0.3.7 随机释放）
 describe('Boss 与高一', () => {
   it('Boss 半血后从下一个意图起换循环', () => {
     let s = { ...newRound('j', 'boss'), monsterHp: 70 }; [s] = P(s, true);

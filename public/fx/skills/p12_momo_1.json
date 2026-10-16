@@ -1,0 +1,21 @@
+{
+  "image": "p12_momo_1.webp",
+  "skill_id": "p12_momo_1",
+  "name": "笔画飞镖",
+  "frame_width": 256,
+  "frame_height": 256,
+  "frame_count": 10,
+  "columns": 4,
+  "rows": 3,
+  "fps": 11.1,
+  "loop": false,
+  "duration_s": 0.9,
+  "anchor": {
+    "x": 128,
+    "y": 128,
+    "note": "pixels in frame; 画面中心对准 施法者与目标之间/作用点（左=施法者 右=目标）"
+  },
+  "webp_quality": 80,
+  "blend": "normal",
+  "peak_frame": 4
+}

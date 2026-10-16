@@ -2,7 +2,7 @@
    按战斗懒加载；加载失败或缺文件时返回 null，导演自动退回程序特效。
    播放只改 transform（整张图在 overflow:hidden 的框里平移），帧按行优先。 */
 import { reducedMotion } from './motion';
-export interface SheetMeta { image: string; frame_width: number; frame_height: number; frame_count: number; columns: number; rows: number; fps: number; loop: boolean; anchor: { x: number; y: number }; hit_frame?: number; peak_frame?: number }
+export interface SheetMeta { image: string; blend?: string; duration_s?: number; skill_id?: string; name?: string; frame_width: number; frame_height: number; frame_count: number; columns: number; rows: number; fps: number; loop: boolean; anchor: { x: number; y: number }; hit_frame?: number; peak_frame?: number }
 export interface Sheet { meta: SheetMeta; url: string }
 const B = () => import.meta.env.BASE_URL;
 const cache = new Map<string, Promise<Sheet | null>>();
@@ -33,6 +33,8 @@ export async function loadCharAnims(charId: string): Promise<CharAnims | null> {
   return idle && attack && hit ? { idle, attack, hit } : null;
 }
 export const loadFx = (name: string) => load('fx/' + name, name);
+/** 技能序列帧：public/fx/skills/<id>.json + .webp（按战斗懒加载，不预缓存） */
+export const loadSkillSheet = (id: string) => load('fx/skills', id);
 /** 家长页「预下载动画」：把全部序列帧拉进离线缓存 */
 export async function prefetchAll(onP?: (d: number, t: number) => void, kinds: ('pup' | 'hs')[] = ['pup', 'hs']) {
   const ids = Object.keys(ANIM_DIR).filter(id => kinds.some(k => ANIM_DIR[id].startsWith(k + '_')));
@@ -89,9 +91,10 @@ export class SheetPlayer {
 }
 
 /** 一次性特效：放进 layer，锚点对准 (x,y)，播完删除；additive 混合 */
-export function playFx(layer: HTMLElement, s: Sheet, x: number, y: number, scale = 1, opts: { onFrame?: (i: number) => void; stretchX?: number } = {}) {
+export function playFx(layer: HTMLElement, s: Sheet, x: number, y: number, scale = 1, opts: { onFrame?: (i: number) => void; stretchX?: number; blend?: string } = {}) {
   const p = new SheetPlayer(scale);
   p.box.classList.add('fx-sprite');
+  if (opts.blend) p.box.style.mixBlendMode = opts.blend;
   const m = s.meta;
   Object.assign(p.box.style, { left: `${x - m.anchor.x * scale}px`, top: `${y - m.anchor.y * scale}px`, transformOrigin: `${m.anchor.x * scale}px ${m.anchor.y * scale}px` });
   layer.appendChild(p.box);

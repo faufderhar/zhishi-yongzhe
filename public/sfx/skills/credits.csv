@@ -1,0 +1,101 @@
+file,skill_id,stage,character,skill_name,sfx_brief,source_url,author,license,duration_s,integrated_lufs,true_peak_dbtp
+skills/sfx_skill_k_suansuan_1.mp3,k_suansuan_1,k,算算,数字泡泡,「啵、啵、啵」三声泡泡音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-16.4,-2.3
+skills/kindergarten/sfx_skill_k_suansuan_1.mp3,k_suansuan_1,k,算算,数字泡泡,「啵、啵、啵」三声泡泡音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-22.4,-8.3
+skills/sfx_skill_k_suansuan_2.mp3,k_suansuan_2,k,算算,积木城堡,木块轻碰「咚咚」+ 小号上扬音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.914,-16.4,-5.1
+skills/kindergarten/sfx_skill_k_suansuan_2.mp3,k_suansuan_2,k,算算,积木城堡,木块轻碰「咚咚」+ 小号上扬音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.914,-22.4,-11.1
+skills/sfx_skill_k_suansuan_3.mp3,k_suansuan_3,k,算算,彩虹算珠,算盘珠「嗒嗒嗒」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-16.4,-8.1
+skills/kindergarten/sfx_skill_k_suansuan_3.mp3,k_suansuan_3,k,算算,彩虹算珠,算盘珠「嗒嗒嗒」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-22.4,-14.1
+skills/sfx_skill_k_momo_1.mp3,k_momo_1,k,墨墨,毛笔画小花,毛笔「唰」+ 风铃,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.5,-3.8
+skills/kindergarten/sfx_skill_k_momo_1.mp3,k_momo_1,k,墨墨,毛笔画小花,毛笔「唰」+ 风铃,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-22.5,-9.8
+skills/sfx_skill_k_momo_2.mp3,k_momo_2,k,墨墨,墨点变蝴蝶,轻柔翅膀扑扇声,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.94,-16.5,-4.3
+skills/kindergarten/sfx_skill_k_momo_2.mp3,k_momo_2,k,墨墨,墨点变蝴蝶,轻柔翅膀扑扇声,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.94,-22.4,-10.0
+skills/sfx_skill_k_momo_3.mp3,k_momo_3,k,墨墨,小书本抱抱,翻书声 + 「叮」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-3.5
+skills/kindergarten/sfx_skill_k_momo_3.mp3,k_momo_3,k,墨墨,小书本抱抱,翻书声 + 「叮」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-22.4,-9.5
+skills/sfx_skill_k_abei_1.mp3,k_abei_1,k,阿贝,ABC 气球,气球「噗」+ 轻快木琴,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.5,-6.9
+skills/kindergarten/sfx_skill_k_abei_1.mp3,k_abei_1,k,阿贝,ABC 气球,气球「噗」+ 轻快木琴,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-22.5,-12.9
+skills/sfx_skill_k_abei_2.mp3,k_abei_2,k,阿贝,Hello 挥手,童声「Hello!」（可用家长录音）,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.549,-16.4,-6.0
+skills/kindergarten/sfx_skill_k_abei_2.mp3,k_abei_2,k,阿贝,Hello 挥手,童声「Hello!」（可用家长录音）,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.549,-22.4,-12.0
+skills/sfx_skill_k_abei_3.mp3,k_abei_3,k,阿贝,字母小火车,「呜呜」小火车鸣笛（音量 ≤ -12dB）,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.5,-7.1
+skills/kindergarten/sfx_skill_k_abei_3.mp3,k_abei_3,k,阿贝,字母小火车,「呜呜」小火车鸣笛（音量 ≤ -12dB）,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-22.5,-13.1
+skills/sfx_skill_k_shishi_1.mp3,k_shishi_1,k,诗诗,月亮摇篮,八音盒两小节,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-16.5,-6.2
+skills/kindergarten/sfx_skill_k_shishi_1.mp3,k_shishi_1,k,诗诗,月亮摇篮,八音盒两小节,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-22.5,-12.2
+skills/sfx_skill_k_shishi_2.mp3,k_shishi_2,k,诗诗,花瓣飘飘,风声 + 竖琴刮奏,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-16.4,-5.4
+skills/kindergarten/sfx_skill_k_shishi_2.mp3,k_shishi_2,k,诗诗,花瓣飘飘,风声 + 竖琴刮奏,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-22.4,-11.3
+skills/sfx_skill_k_shishi_3.mp3,k_shishi_3,k,诗诗,小星星亮亮,钢片琴三音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.4,-4.6
+skills/kindergarten/sfx_skill_k_shishi_3.mp3,k_shishi_3,k,诗诗,小星星亮亮,钢片琴三音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-22.4,-10.6
+skills/sfx_skill_k_beibei_1.mp3,k_beibei_1,k,杯杯,七彩泡泡,「啵啵」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-16.4,-2.3
+skills/kindergarten/sfx_skill_k_beibei_1.mp3,k_beibei_1,k,杯杯,七彩泡泡,「啵啵」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-22.4,-8.3
+skills/sfx_skill_k_beibei_2.mp3,k_beibei_2,k,杯杯,小苗长大,「咻~」生长音 + 鸟叫,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.4,-8.8
+skills/kindergarten/sfx_skill_k_beibei_2.mp3,k_beibei_2,k,杯杯,小苗长大,「咻~」生长音 + 鸟叫,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-22.4,-14.8
+skills/sfx_skill_k_beibei_3.mp3,k_beibei_3,k,杯杯,水滴变彩虹,水滴「叮咚」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.4,-5.3
+skills/kindergarten/sfx_skill_k_beibei_3.mp3,k_beibei_3,k,杯杯,水滴变彩虹,水滴「叮咚」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-22.4,-11.3
+skills/sfx_skill_p12_suansuan_1.mp3,p12_suansuan_1,p12,算算,加法小火箭,「咻—啪」轻,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.862,-16.4,-5.1
+skills/sfx_skill_p12_suansuan_2.mp3,p12_suansuan_2,p12,算算,数字积木雨,积木落地「咚咚」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.418,-16.4,-3.0
+skills/sfx_skill_p12_suansuan_3.mp3,p12_suansuan_3,p12,算算,尺子小剑,「唰」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.287,-16.4,-2.0
+skills/sfx_skill_p12_momo_1.mp3,p12_momo_1,p12,墨墨,笔画飞镖,毛笔「唰唰唰」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.679,-16.4,-1.6
+skills/sfx_skill_p12_momo_2.mp3,p12_momo_2,p12,墨墨,汉字小盾,「咚」鼓声,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.549,-16.4,-6.0
+skills/sfx_skill_p12_momo_3.mp3,p12_momo_3,p12,墨墨,识字灯笼,铃铛,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-5.4
+skills/sfx_skill_p12_abei_1.mp3,p12_abei_1,p12,阿贝,单词蝴蝶,竖琴上行,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-16.5,-4.9
+skills/sfx_skill_p12_abei_2.mp3,p12_abei_2,p12,阿贝,Phonics 鼓点,三声小鼓,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.627,-16.4,-2.4
+skills/sfx_skill_p12_abei_3.mp3,p12_abei_3,p12,阿贝,ABC 泡泡盾,泡泡「呜~」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.862,-16.5,-10.2
+skills/sfx_skill_p12_shishi_1.mp3,p12_shishi_1,p12,诗诗,春风吹,风声,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.4,-1.5
+skills/sfx_skill_p12_shishi_2.mp3,p12_shishi_2,p12,诗诗,古诗小船,流水 + 古筝一音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-3.5
+skills/sfx_skill_p12_shishi_3.mp3,p12_shishi_3,p12,诗诗,萤火虫,夏夜虫鸣（短）,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.5,-10.8
+skills/sfx_skill_p12_beibei_1.mp3,p12_beibei_1,p12,杯杯,泡泡弹,「啵啵啵」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-16.4,-2.3
+skills/sfx_skill_p12_beibei_2.mp3,p12_beibei_2,p12,杯杯,种子发芽,生长「咻~」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.5,-8.9
+skills/sfx_skill_p12_beibei_3.mp3,p12_beibei_3,p12,杯杯,小火山,「噗」+ 欢呼,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.758,-16.5,-6.6
+skills/sfx_skill_p36_suansuan_1.mp3,p36_suansuan_1,p36,算算,数字风暴,旋风「呼—」+ 命中「嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.4,-2.4
+skills/sfx_skill_p36_suansuan_2.mp3,p36_suansuan_2,p36,算算,乘法连击,两声「锵锵」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.4,-6.1
+skills/sfx_skill_p36_suansuan_3.mp3,p36_suansuan_3,p36,算算,方程护盾,「嗡」低频护盾音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.4,-7.4
+skills/sfx_skill_p36_momo_1.mp3,p36_momo_1,p36,墨墨,妙笔生花,毛笔「唰」+「嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.4,-2.7
+skills/sfx_skill_p36_momo_2.mp3,p36_momo_2,p36,墨墨,墨韵护体,古筝滑音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-1.7
+skills/sfx_skill_p36_momo_3.mp3,p36_momo_3,p36,墨墨,成语回春,翻卷轴 + 治疗「叮~」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-1.9
+skills/sfx_skill_p36_abei_1.mp3,p36_abei_1,p36,阿贝,Echo 回声,回声「Hey—ey」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-5.3
+skills/sfx_skill_p36_abei_2.mp3,p36_abei_2,p36,阿贝,字母飞镖,「嗖嗖嗖」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.627,-16.4,-4.6
+skills/sfx_skill_p36_abei_3.mp3,p36_abei_3,p36,阿贝,Stop!,刹车「吱」（轻）,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.549,-16.4,-5.7
+skills/sfx_skill_p36_shishi_1.mp3,p36_shishi_1,p36,诗诗,月下吟,长笛一句,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.5,-9.9
+skills/sfx_skill_p36_shishi_2.mp3,p36_shishi_2,p36,诗诗,飞花令,竹笛 + 命中,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.914,-16.4,-10.1
+skills/sfx_skill_p36_shishi_3.mp3,p36_shishi_3,p36,诗诗,春眠不觉晓,哈欠音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.5,-8.2
+skills/sfx_skill_p36_beibei_1.mp3,p36_beibei_1,p36,杯杯,炼金爆裂,玻璃「叮」+ 气泡爆「噗」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-16.4,-6.4
+skills/sfx_skill_p36_beibei_2.mp3,p36_beibei_2,p36,杯杯,酸碱中和,液体「咕噜」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.784,-16.5,-5.4
+skills/sfx_skill_p36_beibei_3.mp3,p36_beibei_3,p36,杯杯,光合作用,鸟鸣 + 治疗音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-16.5,-4.9
+skills/sfx_skill_j1_suansuan_1.mp3,j1_suansuan_1,j1,算算,数字风暴,旋风 + 「嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.4,-1.9
+skills/sfx_skill_j1_suansuan_2.mp3,j1_suansuan_2,j1,算算,数轴突刺,「铮」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.862,-16.5,-4.6
+skills/sfx_skill_j1_suansuan_3.mp3,j1_suansuan_3,j1,算算,坐标锁定,「滴—滴」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.5,-10.7
+skills/sfx_skill_j1_suansuan_4.mp3,j1_suansuan_4,j1,算算,绝对值护盾,护盾「嗡」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.5,-8.1
+skills/sfx_skill_j1_momo_1.mp3,j1_momo_1,j1,墨墨,妙笔生花,「唰」+「嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.4,-2.7
+skills/sfx_skill_j1_momo_2.mp3,j1_momo_2,j1,墨墨,文言飞白,毛笔重扫,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.47,-16.3,-4.9
+skills/sfx_skill_j1_momo_3.mp3,j1_momo_3,j1,墨墨,墨韵护体,古筝滑音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-1.7
+skills/sfx_skill_j1_momo_4.mp3,j1_momo_4,j1,墨墨,成语回春,治疗音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-3.8
+skills/sfx_skill_j1_abei_1.mp3,j1_abei_1,j1,阿贝,Echo 回声,回声,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-5.3
+skills/sfx_skill_j1_abei_2.mp3,j1_abei_2,j1,阿贝,语法连锁,锁链「哗啦」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.862,-16.5,-3.0
+skills/sfx_skill_j1_abei_3.mp3,j1_abei_3,j1,阿贝,Stop!,刹车,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.549,-16.4,-5.8
+skills/sfx_skill_j1_abei_4.mp3,j1_abei_4,j1,阿贝,Word Shield,「嗡」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.5,-8.1
+skills/sfx_skill_j1_shishi_1.mp3,j1_shishi_1,j1,诗诗,飞花令,竹笛,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.914,-16.4,-10.1
+skills/sfx_skill_j1_shishi_2.mp3,j1_shishi_2,j1,诗诗,大江东去,浪涛,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-16.5,-6.6
+skills/sfx_skill_j1_shishi_3.mp3,j1_shishi_3,j1,诗诗,月下吟,长笛,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.4,-9.8
+skills/sfx_skill_j1_shishi_4.mp3,j1_shishi_4,j1,诗诗,春眠不觉晓,哈欠,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.5,-8.4
+skills/sfx_skill_j1_beibei_1.mp3,j1_beibei_1,j1,杯杯,炼金爆裂,「噗」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.366,-16.4,-2.9
+skills/sfx_skill_j1_beibei_2.mp3,j1_beibei_2,j1,杯杯,催化连击,「啵、嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.758,-16.4,-2.0
+skills/sfx_skill_j1_beibei_3.mp3,j1_beibei_3,j1,杯杯,酸碱中和,「咕噜」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.784,-16.4,-5.4
+skills/sfx_skill_j1_beibei_4.mp3,j1_beibei_4,j1,杯杯,光合作用,治疗音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-3.8
+skills/sfx_skill_h1_asuan_1.mp3,h1_asuan_1,h1,阿算,数字风暴,合成器上扫 +「嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-7.7
+skills/sfx_skill_h1_asuan_2.mp3,h1_asuan_2,h1,阿算,函数斩,两声金属斩,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.4,-1.6
+skills/sfx_skill_h1_asuan_3.mp3,h1_asuan_3,h1,阿算,向量偏转,低频「嗡—」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.4,-7.4
+skills/sfx_skill_h1_asuan_4.mp3,h1_asuan_4,h1,阿算,几何壁垒,护盾展开音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.4,-5.2
+skills/sfx_skill_h1_xiaomo_1.mp3,h1_xiaomo_1,h1,小墨,墨韵护体,古筝 + 低鼓,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.862,-16.4,-4.8
+skills/sfx_skill_h1_xiaomo_2.mp3,h1_xiaomo_2,h1,小墨,笔落惊风,重笔「唰」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.47,-16.3,-1.3
+skills/sfx_skill_h1_xiaomo_3.mp3,h1_xiaomo_3,h1,小墨,以文载道,翻书 + 箭雨,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.3,-5.2
+skills/sfx_skill_h1_xiaomo_4.mp3,h1_xiaomo_4,h1,小墨,清心,水滴回响,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.4,-6.8
+skills/sfx_skill_h1_lexi_1.mp3,h1_lexi_1,h1,Lexi,Echo 回声,回声合成器,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-1.5
+skills/sfx_skill_h1_lexi_2.mp3,h1_lexi_2,h1,Lexi,Starlight Lexicon,星光琶音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.149,-16.4,-7.3
+skills/sfx_skill_h1_lexi_3.mp3,h1_lexi_3,h1,Lexi,Mute,「嘘」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.758,-16.2,-5.1
+skills/sfx_skill_h1_lexi_4.mp3,h1_lexi_4,h1,Lexi,Translation Field,治疗合成器,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.019,-16.4,-3.8
+skills/sfx_skill_h1_xiaobai_1.mp3,h1_xiaobai_1,h1,小白,月下吟,长笛,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.097,-16.5,-9.9
+skills/sfx_skill_h1_xiaobai_2.mp3,h1_xiaobai_2,h1,小白,将进酒,浪涛 + 鼓,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.4,-6.3
+skills/sfx_skill_h1_xiaobai_3.mp3,h1_xiaobai_3,h1,小白,青莲剑歌,剑鸣两声,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.81,-16.5,-1.4
+skills/sfx_skill_h1_xiaobai_4.mp3,h1_xiaobai_4,h1,小白,举杯邀月,古琴一音,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),1.071,-16.5,-1.6
+skills/sfx_skill_h1_bola_1.mp3,h1_bola_1,h1,铂拉,炼金爆裂,玻璃 + 爆鸣,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.601,-16.5,-5.2
+skills/sfx_skill_h1_bola_2.mp3,h1_bola_2,h1,铂拉,链式反应,连锁「嗒嗒嗒嘭」,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.888,-16.4,-4.1
+skills/sfx_skill_h1_bola_3.mp3,h1_bola_3,h1,铂拉,惰性气体屏障,低频嗡,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.4,-7.4
+skills/sfx_skill_h1_bola_4.mp3,h1_bola_4,h1,铂拉,催化剂,闪粉沙沙,tools/gen_skill_sfx.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),0.967,-16.4,-5.8

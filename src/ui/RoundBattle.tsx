@@ -3,7 +3,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { newRound, resolveRound, reviveRound, intentLabel, nextIntent, skillOf, canUseSkill, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { skillsFor, skillById } from '../game/skills';
+import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX } from '../game/balance';
 import { timeLimitFor } from '../game/grades';
 import { MONSTER_IMG } from '../game/characters';
@@ -27,7 +29,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const bsRef = useRef(bs); bsRef.current = bs;
   const used = useRef<Question[]>([]);
   const [phase, setPhase] = useState<Phase>('pre');
-  const [skillOn, setSkillOn] = useState(false);
+  const [ringPop, setRingPop] = useState(false);
   const [card, setCard] = useState<CardKind>('std');
   const [wager, setWager] = useState<Wager>(null);
   const [q, setQ] = useState<Question | undefined>();
@@ -46,7 +48,12 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   useWakeLock(); usePauseTimeout(paused, onQuit);
   const result = (s: RState) => ({ win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
   useForceEnd(() => { const s = bsRef.current; onEnd({ ...result(s), win: s.monsterHp < s.monsterMax / 2, retreat: true }); });
-  const sk = skillOf(c);
+  const mySkills = useMemo(() => skillsFor(bs.seg, c.major), [bs.seg, c.major]);
+  useEffect(() => { preloadSkillArt(mySkills); }, [mySkills]);
+  useEffect(() => {   // 仅自动化测试：直接播放任意技能特效（图集 / 护眼逐个检查）
+    const w = window as unknown as { __zyTest?: boolean; __zyPlaySkill?: (id: string) => Promise<void> | undefined };
+    if (w.__zyTest) w.__zyPlaySkill = id => { const k = skillById(id); return k ? D.dir.current?.playSkill(k, { kinder: k.seg === 'K' }) : undefined; };
+  }, []);   // 只懒加载本角色本学段的技能素材
   const P = bs.side === 'P';
   const il = intentLabel(bs);
 
@@ -63,7 +70,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   // 进入每个回合：高一我方先选卡；押注；其他直接出题
   useEffect(() => {
     if (phase !== 'pre' || bs.over) return;
-    setSkillOn(false); setCard('std'); setWager(null); setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
+    setCard('std'); setWager(null); setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
     if (!pool.current.length) {   // 本关题不够撑满回合上限：重复使用已答过的题（错题优先）
       const wk = new Set(stats.current.wrong); pool.current = [...used.current].sort((a, b) => +wk.has(b.key) - +wk.has(a.key)); used.current = [];
       if (!pool.current.length) { void retreat(bs); return; }
@@ -118,15 +125,20 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     onAnswer(qq, g === 'full', val);
     pool.current = pool.current.filter(x => x.key !== qq.key); used.current.push(qq);
     const fast = elapsed <= (limit ? limit * PERFECT_FRACTION : PERFECT_NOLIMIT_SEC);
-    const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs ? wager : null, skill: skillOn });
-    const show = o.side === 'P'
-      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3 || o.skillUsed, dodge: false, healed: o.healed, onImpact: () => setView(v => ({ ...v, m: ns.monsterHp })) })
+    const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs ? wager : null });
+    const k = o.skill;
+    const d = D.dir.current;
+    const show = k && d && o.side === 'P'   // 攻击技能：横幅 + 技能特效替代普攻演出，命中帧结算数字（≤1.5 s）
+      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt, 'crit'); } }); }
+      : k && d ? async () => { await sleep(250); await d.playSkill(k, { maxMs: 1000, onImpact: () => { setView(v => ({ ...v, p: ns.playerHp })); if (o.healed) d.float(d.r.hero, '+' + o.healed, 'heal'); } }); }   // 守护技能：闪避后 ≤1.0 s
+      : o.side === 'P'
+      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => setView(v => ({ ...v, m: ns.monsterHp })) })
         : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500)
       : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500);
     void play(show).then(() => {
       if (!D.alive.current) return;
       setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns);
-      setFb({ ok, o, partial: g === 'partial', text: (ok ? '✔ 正确！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + (g === 'partial' ? '（漏选，半伤害）' : '') + o.text + (o.refund ? `（能量返还 ${o.refund}）` : '') });
+      setFb({ ok, o, partial: g === 'partial', text: (ok ? '✔ 正确！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + (g === 'partial' ? '（漏选，半伤害）' : '') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体抵挡 30%）' : '') });
       if (ns.over === 'win') { void finish(ns); return; }
       setCanNext(ok); setPhase('feedback');
       if (!ok) setTimeout(() => setCanNext(true), 2000);   // 解析至少停 2 秒（规格 §1）
@@ -148,7 +160,6 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const tts = cq ? ttsText(cq) : '';
   const showQ = cq && (asking || phase === 'feedback' || phase === 'anim');
   const left = roundsLeft(bs);
-  const skillUsable = canUseSkill(bs, sk) && (phase === 'cards' || phase === 'wager' || (phase === 'question' && !picked));
   const curTurn = Math.min(bs.turn + (phase === 'feedback' || bs.over ? 0 : 1), bs.cap);
   return (
     <div className={`battle ${cfg.theme} ${cfg.stats} rounds side-${bs.side}`}>
@@ -157,7 +168,10 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         {asking && (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>)}
         <span data-testid="combo">连击 x{bs.combo}</span>
         {bs.perfectOn && <span data-testid="focus">专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(FOCUS_MAX - bs.focus)}</span>}
-        <span className="energy" data-testid="energy" aria-label={`能量 ${bs.energy}/${ENERGY_CAP}`}>⚡{'●'.repeat(bs.energy)}{'○'.repeat(ENERGY_CAP - bs.energy)}</span>
+        <button className="energy-ring" data-testid="energy" aria-label={`能量 ${bs.energy}/${ENERGY_CAP}，点开看技能说明`} onClick={() => setRingPop(true)}>
+          <svg viewBox="0 0 40 40" aria-hidden>{Array.from({ length: ENERGY_CAP }, (_, i) => { const a0 = (i / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 + 0.08, a1 = ((i + 1) / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 - 0.08;
+            return <path key={i} d={`M ${20 + 16 * Math.cos(a0)} ${20 + 16 * Math.sin(a0)} A 16 16 0 0 1 ${20 + 16 * Math.cos(a1)} ${20 + 16 * Math.sin(a1)}`} fill="none" strokeWidth="5" strokeLinecap="round" stroke={i < bs.energy ? '#ffd54a' : 'rgba(255,255,255,.25)'} />; })}
+            <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{bs.energy}/{ENERGY_CAP}</button>
         <span className="grow" />
         <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`}>第 {curTurn} 回合 / {bs.cap}</span>
         <span className="grow" />
@@ -175,6 +189,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         </div>
         <div className="stage" ref={D.stage}>
           <div className="fx-shake" ref={D.shake}>
+            {bs.guard && <div className="guard-badge" data-testid="guard" title="护体：下一次受伤 ×0.7">🛡️</div>}
             <div className={`unit-wrap hero-wrap ${fb?.o?.dodged || fb?.o?.perfect ? 'sidestep' : ''}`} ref={D.hero}><div className="breathe"><Sprite className="unit hero" c={c} /></div></div>
             <div className={`unit-wrap mon-wrap ${kind} ${phase === 'retreat' ? 'retreating' : ''}`} ref={D.monster}><div className="breathe slow">
               <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} draggable={false} />
@@ -186,10 +201,6 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         <div className="hero-name">{c.name}</div>
       </div>
       <div className="quiz">
-        {sk && !bs.over && ['cards', 'wager', 'question'].includes(phase) && (
-          <button className={`skill-btn ${skillOn ? 'on' : ''}`} data-testid="skill" disabled={!skillOn && !skillUsable} aria-pressed={skillOn}
-            onClick={() => setSkillOn(x => !x)} title={sk.desc + (sk.kind === "attack" ? "（攻击类：只能在我方回合用）" : "（防护类：只能在对方回合用）")}>
-            ✨ {sk.name}（{sk.cost}⚡）<small>{sk.desc}</small>{skillOn ? " ✔" : ""}</button>)}
         {phase === 'cards' && cards && (
           <div className="cards" data-testid="cards"><p>选一张题卡</p><div className="row gap16">
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
@@ -207,7 +218,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
         )}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{skillOn && sk ? ` · ✨${sk.name}` : ''}
+          <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           <div className="qtext" data-ans={import.meta.env.DEV || (window as unknown as { __zyTest?: boolean }).__zyTest ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
@@ -252,6 +263,11 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
             </div></div>
         )}
       </div>
+      {ringPop && <Modal onClose={() => setRingPop(false)}><h2>⚡ 能量与技能</h2>
+        <p data-testid="ring-pop">技能会在<b>答对</b>时随机触发：每次答对 20%；能量攒满 5 点必定触发；连续 4 次答对没触发，第 5 次必定触发。触发后能量清零。答错、超时不会触发。</p>
+        <p className="hint">我方回合答对 → 攻击技能；对方回合答对 → 防护 / 恢复 / 控制技能{bs.mode === 'h' ? '（高一有冷却）' : ''}</p>
+        <ul className="skill-list">{mySkills.map(k => <li key={k.id}><img src={skillIconUrl(k.id)} alt="" width={32} height={32} style={{ verticalAlign: 'middle' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} /> {k.icon} <b>{k.name}</b>：{k.effectText}{k.cd ? `（冷却 ${k.cd} 回合${bs.sk.cd[k.id] ? `，还剩 ${bs.sk.cd[k.id]}` : ''}）` : ''}</li>)}</ul>
+        <button className="btn" data-testid="ring-ok" onClick={() => setRingPop(false)}>知道了</button></Modal>}
       {intentPop && <Modal onClose={() => setIntentPop(false)}><h2>怪物意图</h2><p className="intent-long" data-testid="intent-pop">{il.long}</p>
         <p className="hint">⚔ 攻击 · ⚡ 蓄力（下次重击 ×2）· 💥 重击 · 🛡 护盾</p>
         <button className="btn" data-testid="intent-ok" onClick={() => setIntentPop(false)}>知道了</button></Modal>}

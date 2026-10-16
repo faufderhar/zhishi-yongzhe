@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
 import { Bar, Keypad, Modal } from './common';
+import { roll as rollSkill, newRoll, segOf, skillsFor, type SkillRoll } from '../game/skills';
+import { preloadSkillArt } from '../fx/skillFx';
 import { choicesOf, correctText, isCorrect, judge, kinderChoices, ttsText, type Question, type Option } from '../game/questions';
 import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newKinder, kinderAnswer, autoAction, revive, type BattleState, type Action } from '../game/battle';
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
@@ -153,6 +155,9 @@ function KStem({ q }: { q: Question }) {
 }
 
 export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean }) {
+  const skRoll = useRef<SkillRoll>(newRoll()); const lastSkill = useRef('');
+  useEffect(() => { preloadSkillArt(skillsFor('K', c.major)); }, [c.major]);
+  useEffect(() => { (window as unknown as { __zyLastSkill?: () => string }).__zyLastSkill = () => lastSkill.current; }, []);
   const hearts = Math.min(questions.length, cfg.questions[kind]);
   const [idx, setIdx] = useState(0);
   const [ks, setKs] = useState(newKinder(hearts));
@@ -192,7 +197,12 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
       setFx('demo'); setTilt(true);
       const right = choices.find(x => q.answer.includes(x.key));
       speak(`看，是${right?.text || '这个'}哦！`);
-    } else { setFx('ok'); D.dir.current?.kinderCorrect(); speak(PRAISE[Math.floor(Math.random() * PRAISE.length)]); }
+    } else {
+      setFx('ok'); speak(PRAISE[Math.floor(Math.random() * PRAISE.length)]);
+      // 小班技能：35% 触发，连续 3 次没触发第 4 次必触发；纯演出，替换本题「星星攻击」，≤1.0 s（整体仍 1.2 s 内进下一题）
+      const [nr, k] = rollSkill(skRoll.current, { seg: 'K', major: c.major, side: 'P', correct: true, rng: Math.random }); skRoll.current = nr;
+      if (k && D.dir.current) { lastSkill.current = k.id; void D.dir.current.playSkill(k, { kinder: true, maxMs: 1000 }); } else D.dir.current?.kinderCorrect();
+    }
     setKs({ ...ns, removed: r === 'demo' ? choices.filter(x => !q.answer.includes(x.key)).map(x => x.key) : cur.removed });
     setTimeout(() => setJustLit(ns.lit - 1), r === 'demo' ? 1800 : 600);
     setTimeout(async () => {
@@ -273,6 +283,9 @@ export function Sprite({ c, className }: { c: Character; className?: string }) {
 /* ---------------- 小学 / 初一 / 高一 ---------------- */
 type Phase = 'question' | 'action' | 'feedback' | 'revive-ask' | 'revive-q' | 'anim';
 export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
+  const skRoll = useRef<SkillRoll>(newRoll());
+  const skSeg = segOf(cfg.band);
+  useEffect(() => { preloadSkillArt(skillsFor(skSeg, c.major)); }, [c.major, skSeg]);
   const mode = cfg.stats;
   const mon = MONSTERS[mode][kind];
   const [queue, setQueue] = useState<Question[]>(questions);
@@ -376,6 +389,8 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     const [ns, r] = resolveCorrect(bs, c, a, q.subject, q.difficulty);
     const crit = a === 'attack' && ns.combo >= 3;   // 3 连击起的攻击算「暴击」演出（数值仍按 battle.ts）
     setCanNext(true);
+    // 小学 1–2 年级技能：纯演出，附加在自动出招上（≤1.0 s）
+    if (skSeg === 'P12') { const [nr, k] = rollSkill(skRoll.current, { seg: 'P12', major: c.major, side: 'P', correct: true, rng: Math.random }); skRoll.current = nr; if (k) void D.dir.current?.playSkill(k, { maxMs: 1000 }); }
     void play(ns, () => D.dir.current?.playerAttack({ subject: q.subject, major: c.major, dealt: r.dealt, crit, dodge: a === 'dodge', healed: r.healed, taken: r.taken,
       onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })), onCounter: () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })) })).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => { if (ns.over === 'win') void finish(ns); else setPhase('feedback'); });
   }

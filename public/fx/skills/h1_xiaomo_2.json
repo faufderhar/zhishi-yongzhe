@@ -1,0 +1,21 @@
+{
+  "image": "h1_xiaomo_2.webp",
+  "skill_id": "h1_xiaomo_2",
+  "name": "笔落惊风",
+  "frame_width": 320,
+  "frame_height": 320,
+  "frame_count": 12,
+  "columns": 4,
+  "rows": 3,
+  "fps": 10.9,
+  "loop": false,
+  "duration_s": 1.1,
+  "anchor": {
+    "x": 160,
+    "y": 160,
+    "note": "pixels in frame; 画面中心对准 施法者与目标之间/作用点（左=施法者 右=目标）"
+  },
+  "webp_quality": 80,
+  "blend": "normal",
+  "peak_frame": 7
+}

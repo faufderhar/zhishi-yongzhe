@@ -13,8 +13,9 @@ export default defineConfig({
       ] },
     workbox: { globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}'], maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
       // 序列帧约 4.3MB：不进预缓存，战斗时懒加载并运行时缓存（家长页可一键预下载供离线）
-      globIgnores: ['anim/**', 'fx/**'],
-      runtimeCaching: [{ urlPattern: /\/(anim|fx)\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-anim', expiration: { maxEntries: 120 } } }] },
+      globIgnores: ['anim/**', 'fx/**', 'sfx/skills/**'],   // 技能特效 fx/skills/ 与音效 sfx/skills/ 也只运行时缓存
+      runtimeCaching: [{ urlPattern: /\/(anim|fx)\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-anim', expiration: { maxEntries: 320 } } },
+        { urlPattern: /\/sfx\/skills\/.+\.mp3$/, handler: 'CacheFirst', options: { cacheName: 'zy-sfx-skills', expiration: { maxEntries: 110 }, cacheableResponse: { statuses: [200] } } }] },
   })],
   test: { environment: 'node' },
   preview: { host: true, port: 4173, strictPort: true, allowedHosts: true },

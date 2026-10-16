@@ -5,6 +5,8 @@ import { anim, reducedMotion, sleep } from './motion';
 import { signatureOf, CRIT, HEAL, MONSTER_HIT, CONFETTI, SOFT_STARS, SOFT_CONFETTI } from './presets';
 import { sfx, SKILL_SFX } from './assets';
 import { isSignature } from '../game/characters';
+import { playSkill as playSkillFx, type PlaySkillOpts } from './skillFx';
+import type { SkillDef } from '../game/skills';
 import { loadFx, playFx, SUBJECT_FX, type SheetPlayer, type CharAnims, type Sheet } from './sheets';
 export interface HeroSheets { player: SheetPlayer; anims: CharAnims; hs: boolean }
 
@@ -25,6 +27,11 @@ export class Director {
   private idle() { if (this.sheets) void this.sheets.player.play(this.sheets.anims.idle); }
   constructor(r: Rig, gentle = false) { this.r = r; this.gentle = gentle; this.p = new ParticleLayer(r.canvas); }
   destroy() { this.p.destroy(); }
+  /** 角色技能释放（v0.3.7）：横幅 + 美术序列帧 / 程序化特效；小班、小学 1–2 强制温和 */
+  playSkill(k: SkillDef, o: Partial<PlaySkillOpts> = {}) {
+    const gentle = this.gentle || k.seg === 'K' || k.seg === 'P12';
+    return playSkillFx({ stage: this.r.stage, hero: this.r.hero, monster: this.r.monster, p: this.p }, k, { gentle, ...o });
+  }
   resize() { this.p.resize(); }
 
   /** 飘字：伤害数字（暴击更大 + 「暴击」），治疗绿色 */

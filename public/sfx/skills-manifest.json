@@ -1,0 +1,536 @@
+{
+ "version": "v0.3.7",
+ "format": "mp3 mono 44.1kHz 96kbps",
+ "loudness": {
+  "standard": "-16 LUFS, TP<=-1 dBTP",
+  "kindergarten": "standard -6 dB (~-22 LUFS)"
+ },
+ "naming": "sfx_skill_<stage>_<characterId>_<n>.mp3; stage=k|p12|p36|j1|h1, n=该角色在该学段清单中的顺序(1起)",
+ "skills": {
+  "k_suansuan_1": {
+   "stage": "k",
+   "character": "算算",
+   "name": "数字泡泡",
+   "file": "skills/sfx_skill_k_suansuan_1.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_suansuan_1.mp3"
+  },
+  "k_suansuan_2": {
+   "stage": "k",
+   "character": "算算",
+   "name": "积木城堡",
+   "file": "skills/sfx_skill_k_suansuan_2.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_suansuan_2.mp3"
+  },
+  "k_suansuan_3": {
+   "stage": "k",
+   "character": "算算",
+   "name": "彩虹算珠",
+   "file": "skills/sfx_skill_k_suansuan_3.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_suansuan_3.mp3"
+  },
+  "k_momo_1": {
+   "stage": "k",
+   "character": "墨墨",
+   "name": "毛笔画小花",
+   "file": "skills/sfx_skill_k_momo_1.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_momo_1.mp3"
+  },
+  "k_momo_2": {
+   "stage": "k",
+   "character": "墨墨",
+   "name": "墨点变蝴蝶",
+   "file": "skills/sfx_skill_k_momo_2.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_momo_2.mp3"
+  },
+  "k_momo_3": {
+   "stage": "k",
+   "character": "墨墨",
+   "name": "小书本抱抱",
+   "file": "skills/sfx_skill_k_momo_3.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_momo_3.mp3"
+  },
+  "k_abei_1": {
+   "stage": "k",
+   "character": "阿贝",
+   "name": "ABC 气球",
+   "file": "skills/sfx_skill_k_abei_1.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_abei_1.mp3"
+  },
+  "k_abei_2": {
+   "stage": "k",
+   "character": "阿贝",
+   "name": "Hello 挥手",
+   "file": "skills/sfx_skill_k_abei_2.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_abei_2.mp3"
+  },
+  "k_abei_3": {
+   "stage": "k",
+   "character": "阿贝",
+   "name": "字母小火车",
+   "file": "skills/sfx_skill_k_abei_3.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_abei_3.mp3"
+  },
+  "k_shishi_1": {
+   "stage": "k",
+   "character": "诗诗",
+   "name": "月亮摇篮",
+   "file": "skills/sfx_skill_k_shishi_1.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_shishi_1.mp3"
+  },
+  "k_shishi_2": {
+   "stage": "k",
+   "character": "诗诗",
+   "name": "花瓣飘飘",
+   "file": "skills/sfx_skill_k_shishi_2.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_shishi_2.mp3"
+  },
+  "k_shishi_3": {
+   "stage": "k",
+   "character": "诗诗",
+   "name": "小星星亮亮",
+   "file": "skills/sfx_skill_k_shishi_3.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_shishi_3.mp3"
+  },
+  "k_beibei_1": {
+   "stage": "k",
+   "character": "杯杯",
+   "name": "七彩泡泡",
+   "file": "skills/sfx_skill_k_beibei_1.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_beibei_1.mp3"
+  },
+  "k_beibei_2": {
+   "stage": "k",
+   "character": "杯杯",
+   "name": "小苗长大",
+   "file": "skills/sfx_skill_k_beibei_2.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_beibei_2.mp3"
+  },
+  "k_beibei_3": {
+   "stage": "k",
+   "character": "杯杯",
+   "name": "水滴变彩虹",
+   "file": "skills/sfx_skill_k_beibei_3.mp3",
+   "kindergarten": "skills/kindergarten/sfx_skill_k_beibei_3.mp3"
+  },
+  "p12_suansuan_1": {
+   "stage": "p12",
+   "character": "算算",
+   "name": "加法小火箭",
+   "file": "skills/sfx_skill_p12_suansuan_1.mp3"
+  },
+  "p12_suansuan_2": {
+   "stage": "p12",
+   "character": "算算",
+   "name": "数字积木雨",
+   "file": "skills/sfx_skill_p12_suansuan_2.mp3"
+  },
+  "p12_suansuan_3": {
+   "stage": "p12",
+   "character": "算算",
+   "name": "尺子小剑",
+   "file": "skills/sfx_skill_p12_suansuan_3.mp3"
+  },
+  "p12_momo_1": {
+   "stage": "p12",
+   "character": "墨墨",
+   "name": "笔画飞镖",
+   "file": "skills/sfx_skill_p12_momo_1.mp3"
+  },
+  "p12_momo_2": {
+   "stage": "p12",
+   "character": "墨墨",
+   "name": "汉字小盾",
+   "file": "skills/sfx_skill_p12_momo_2.mp3"
+  },
+  "p12_momo_3": {
+   "stage": "p12",
+   "character": "墨墨",
+   "name": "识字灯笼",
+   "file": "skills/sfx_skill_p12_momo_3.mp3"
+  },
+  "p12_abei_1": {
+   "stage": "p12",
+   "character": "阿贝",
+   "name": "单词蝴蝶",
+   "file": "skills/sfx_skill_p12_abei_1.mp3"
+  },
+  "p12_abei_2": {
+   "stage": "p12",
+   "character": "阿贝",
+   "name": "Phonics 鼓点",
+   "file": "skills/sfx_skill_p12_abei_2.mp3"
+  },
+  "p12_abei_3": {
+   "stage": "p12",
+   "character": "阿贝",
+   "name": "ABC 泡泡盾",
+   "file": "skills/sfx_skill_p12_abei_3.mp3"
+  },
+  "p12_shishi_1": {
+   "stage": "p12",
+   "character": "诗诗",
+   "name": "春风吹",
+   "file": "skills/sfx_skill_p12_shishi_1.mp3"
+  },
+  "p12_shishi_2": {
+   "stage": "p12",
+   "character": "诗诗",
+   "name": "古诗小船",
+   "file": "skills/sfx_skill_p12_shishi_2.mp3"
+  },
+  "p12_shishi_3": {
+   "stage": "p12",
+   "character": "诗诗",
+   "name": "萤火虫",
+   "file": "skills/sfx_skill_p12_shishi_3.mp3"
+  },
+  "p12_beibei_1": {
+   "stage": "p12",
+   "character": "杯杯",
+   "name": "泡泡弹",
+   "file": "skills/sfx_skill_p12_beibei_1.mp3"
+  },
+  "p12_beibei_2": {
+   "stage": "p12",
+   "character": "杯杯",
+   "name": "种子发芽",
+   "file": "skills/sfx_skill_p12_beibei_2.mp3"
+  },
+  "p12_beibei_3": {
+   "stage": "p12",
+   "character": "杯杯",
+   "name": "小火山",
+   "file": "skills/sfx_skill_p12_beibei_3.mp3"
+  },
+  "p36_suansuan_1": {
+   "stage": "p36",
+   "character": "算算",
+   "name": "数字风暴",
+   "file": "skills/sfx_skill_p36_suansuan_1.mp3"
+  },
+  "p36_suansuan_2": {
+   "stage": "p36",
+   "character": "算算",
+   "name": "乘法连击",
+   "file": "skills/sfx_skill_p36_suansuan_2.mp3"
+  },
+  "p36_suansuan_3": {
+   "stage": "p36",
+   "character": "算算",
+   "name": "方程护盾",
+   "file": "skills/sfx_skill_p36_suansuan_3.mp3"
+  },
+  "p36_momo_1": {
+   "stage": "p36",
+   "character": "墨墨",
+   "name": "妙笔生花",
+   "file": "skills/sfx_skill_p36_momo_1.mp3"
+  },
+  "p36_momo_2": {
+   "stage": "p36",
+   "character": "墨墨",
+   "name": "墨韵护体",
+   "file": "skills/sfx_skill_p36_momo_2.mp3"
+  },
+  "p36_momo_3": {
+   "stage": "p36",
+   "character": "墨墨",
+   "name": "成语回春",
+   "file": "skills/sfx_skill_p36_momo_3.mp3"
+  },
+  "p36_abei_1": {
+   "stage": "p36",
+   "character": "阿贝",
+   "name": "Echo 回声",
+   "file": "skills/sfx_skill_p36_abei_1.mp3"
+  },
+  "p36_abei_2": {
+   "stage": "p36",
+   "character": "阿贝",
+   "name": "字母飞镖",
+   "file": "skills/sfx_skill_p36_abei_2.mp3"
+  },
+  "p36_abei_3": {
+   "stage": "p36",
+   "character": "阿贝",
+   "name": "Stop!",
+   "file": "skills/sfx_skill_p36_abei_3.mp3"
+  },
+  "p36_shishi_1": {
+   "stage": "p36",
+   "character": "诗诗",
+   "name": "月下吟",
+   "file": "skills/sfx_skill_p36_shishi_1.mp3"
+  },
+  "p36_shishi_2": {
+   "stage": "p36",
+   "character": "诗诗",
+   "name": "飞花令",
+   "file": "skills/sfx_skill_p36_shishi_2.mp3"
+  },
+  "p36_shishi_3": {
+   "stage": "p36",
+   "character": "诗诗",
+   "name": "春眠不觉晓",
+   "file": "skills/sfx_skill_p36_shishi_3.mp3"
+  },
+  "p36_beibei_1": {
+   "stage": "p36",
+   "character": "杯杯",
+   "name": "炼金爆裂",
+   "file": "skills/sfx_skill_p36_beibei_1.mp3"
+  },
+  "p36_beibei_2": {
+   "stage": "p36",
+   "character": "杯杯",
+   "name": "酸碱中和",
+   "file": "skills/sfx_skill_p36_beibei_2.mp3"
+  },
+  "p36_beibei_3": {
+   "stage": "p36",
+   "character": "杯杯",
+   "name": "光合作用",
+   "file": "skills/sfx_skill_p36_beibei_3.mp3"
+  },
+  "j1_suansuan_1": {
+   "stage": "j1",
+   "character": "算算",
+   "name": "数字风暴",
+   "file": "skills/sfx_skill_j1_suansuan_1.mp3"
+  },
+  "j1_suansuan_2": {
+   "stage": "j1",
+   "character": "算算",
+   "name": "数轴突刺",
+   "file": "skills/sfx_skill_j1_suansuan_2.mp3"
+  },
+  "j1_suansuan_3": {
+   "stage": "j1",
+   "character": "算算",
+   "name": "坐标锁定",
+   "file": "skills/sfx_skill_j1_suansuan_3.mp3"
+  },
+  "j1_suansuan_4": {
+   "stage": "j1",
+   "character": "算算",
+   "name": "绝对值护盾",
+   "file": "skills/sfx_skill_j1_suansuan_4.mp3"
+  },
+  "j1_momo_1": {
+   "stage": "j1",
+   "character": "墨墨",
+   "name": "妙笔生花",
+   "file": "skills/sfx_skill_j1_momo_1.mp3"
+  },
+  "j1_momo_2": {
+   "stage": "j1",
+   "character": "墨墨",
+   "name": "文言飞白",
+   "file": "skills/sfx_skill_j1_momo_2.mp3"
+  },
+  "j1_momo_3": {
+   "stage": "j1",
+   "character": "墨墨",
+   "name": "墨韵护体",
+   "file": "skills/sfx_skill_j1_momo_3.mp3"
+  },
+  "j1_momo_4": {
+   "stage": "j1",
+   "character": "墨墨",
+   "name": "成语回春",
+   "file": "skills/sfx_skill_j1_momo_4.mp3"
+  },
+  "j1_abei_1": {
+   "stage": "j1",
+   "character": "阿贝",
+   "name": "Echo 回声",
+   "file": "skills/sfx_skill_j1_abei_1.mp3"
+  },
+  "j1_abei_2": {
+   "stage": "j1",
+   "character": "阿贝",
+   "name": "语法连锁",
+   "file": "skills/sfx_skill_j1_abei_2.mp3"
+  },
+  "j1_abei_3": {
+   "stage": "j1",
+   "character": "阿贝",
+   "name": "Stop!",
+   "file": "skills/sfx_skill_j1_abei_3.mp3"
+  },
+  "j1_abei_4": {
+   "stage": "j1",
+   "character": "阿贝",
+   "name": "Word Shield",
+   "file": "skills/sfx_skill_j1_abei_4.mp3"
+  },
+  "j1_shishi_1": {
+   "stage": "j1",
+   "character": "诗诗",
+   "name": "飞花令",
+   "file": "skills/sfx_skill_j1_shishi_1.mp3"
+  },
+  "j1_shishi_2": {
+   "stage": "j1",
+   "character": "诗诗",
+   "name": "大江东去",
+   "file": "skills/sfx_skill_j1_shishi_2.mp3"
+  },
+  "j1_shishi_3": {
+   "stage": "j1",
+   "character": "诗诗",
+   "name": "月下吟",
+   "file": "skills/sfx_skill_j1_shishi_3.mp3"
+  },
+  "j1_shishi_4": {
+   "stage": "j1",
+   "character": "诗诗",
+   "name": "春眠不觉晓",
+   "file": "skills/sfx_skill_j1_shishi_4.mp3"
+  },
+  "j1_beibei_1": {
+   "stage": "j1",
+   "character": "杯杯",
+   "name": "炼金爆裂",
+   "file": "skills/sfx_skill_j1_beibei_1.mp3"
+  },
+  "j1_beibei_2": {
+   "stage": "j1",
+   "character": "杯杯",
+   "name": "催化连击",
+   "file": "skills/sfx_skill_j1_beibei_2.mp3"
+  },
+  "j1_beibei_3": {
+   "stage": "j1",
+   "character": "杯杯",
+   "name": "酸碱中和",
+   "file": "skills/sfx_skill_j1_beibei_3.mp3"
+  },
+  "j1_beibei_4": {
+   "stage": "j1",
+   "character": "杯杯",
+   "name": "光合作用",
+   "file": "skills/sfx_skill_j1_beibei_4.mp3"
+  },
+  "h1_asuan_1": {
+   "stage": "h1",
+   "character": "阿算",
+   "name": "数字风暴",
+   "file": "skills/sfx_skill_h1_asuan_1.mp3"
+  },
+  "h1_asuan_2": {
+   "stage": "h1",
+   "character": "阿算",
+   "name": "函数斩",
+   "file": "skills/sfx_skill_h1_asuan_2.mp3"
+  },
+  "h1_asuan_3": {
+   "stage": "h1",
+   "character": "阿算",
+   "name": "向量偏转",
+   "file": "skills/sfx_skill_h1_asuan_3.mp3"
+  },
+  "h1_asuan_4": {
+   "stage": "h1",
+   "character": "阿算",
+   "name": "几何壁垒",
+   "file": "skills/sfx_skill_h1_asuan_4.mp3"
+  },
+  "h1_xiaomo_1": {
+   "stage": "h1",
+   "character": "小墨",
+   "name": "墨韵护体",
+   "file": "skills/sfx_skill_h1_xiaomo_1.mp3"
+  },
+  "h1_xiaomo_2": {
+   "stage": "h1",
+   "character": "小墨",
+   "name": "笔落惊风",
+   "file": "skills/sfx_skill_h1_xiaomo_2.mp3"
+  },
+  "h1_xiaomo_3": {
+   "stage": "h1",
+   "character": "小墨",
+   "name": "以文载道",
+   "file": "skills/sfx_skill_h1_xiaomo_3.mp3"
+  },
+  "h1_xiaomo_4": {
+   "stage": "h1",
+   "character": "小墨",
+   "name": "清心",
+   "file": "skills/sfx_skill_h1_xiaomo_4.mp3"
+  },
+  "h1_lexi_1": {
+   "stage": "h1",
+   "character": "Lexi",
+   "name": "Echo 回声",
+   "file": "skills/sfx_skill_h1_lexi_1.mp3"
+  },
+  "h1_lexi_2": {
+   "stage": "h1",
+   "character": "Lexi",
+   "name": "Starlight Lexicon",
+   "file": "skills/sfx_skill_h1_lexi_2.mp3"
+  },
+  "h1_lexi_3": {
+   "stage": "h1",
+   "character": "Lexi",
+   "name": "Mute",
+   "file": "skills/sfx_skill_h1_lexi_3.mp3"
+  },
+  "h1_lexi_4": {
+   "stage": "h1",
+   "character": "Lexi",
+   "name": "Translation Field",
+   "file": "skills/sfx_skill_h1_lexi_4.mp3"
+  },
+  "h1_xiaobai_1": {
+   "stage": "h1",
+   "character": "小白",
+   "name": "月下吟",
+   "file": "skills/sfx_skill_h1_xiaobai_1.mp3"
+  },
+  "h1_xiaobai_2": {
+   "stage": "h1",
+   "character": "小白",
+   "name": "将进酒",
+   "file": "skills/sfx_skill_h1_xiaobai_2.mp3"
+  },
+  "h1_xiaobai_3": {
+   "stage": "h1",
+   "character": "小白",
+   "name": "青莲剑歌",
+   "file": "skills/sfx_skill_h1_xiaobai_3.mp3"
+  },
+  "h1_xiaobai_4": {
+   "stage": "h1",
+   "character": "小白",
+   "name": "举杯邀月",
+   "file": "skills/sfx_skill_h1_xiaobai_4.mp3"
+  },
+  "h1_bola_1": {
+   "stage": "h1",
+   "character": "铂拉",
+   "name": "炼金爆裂",
+   "file": "skills/sfx_skill_h1_bola_1.mp3"
+  },
+  "h1_bola_2": {
+   "stage": "h1",
+   "character": "铂拉",
+   "name": "链式反应",
+   "file": "skills/sfx_skill_h1_bola_2.mp3"
+  },
+  "h1_bola_3": {
+   "stage": "h1",
+   "character": "铂拉",
+   "name": "惰性气体屏障",
+   "file": "skills/sfx_skill_h1_bola_3.mp3"
+  },
+  "h1_bola_4": {
+   "stage": "h1",
+   "character": "铂拉",
+   "name": "催化剂",
+   "file": "skills/sfx_skill_h1_bola_4.mp3"
+  }
+ }
+}
