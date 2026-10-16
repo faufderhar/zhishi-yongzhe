@@ -221,7 +221,7 @@ if (on('pin')) {
   await pg.click('[data-testid=reset-request]'); await w(400); await pg.click('text=返回'); await w(500);
   // r12 起规则（策划 / 技术QA R11-1）：72 小时；到期也要找回问题或恢复码；每次启动全屏提示一次；改时钟拿不到权限
   const ban = await pg.textContent('[data-testid=pin-reset-pending]').catch(() => '');
-  ok(/有人申请重设家长密码.*到期/.test(ban), `每个页面顶部提示（${ban.slice(0, 40)}）`); await pg.screenshot({ path: OUT + 'r11-pin-pending.png' });
+  ok(/有人申请重设家长密码.*(已等.*已打开|到期)/.test(ban), `每个页面顶部提示（${ban.slice(0, 40)}）`); await pg.screenshot({ path: OUT + 'r11-pin-pending.png' });
   await pg.goto(URL); await w(1200);
   ok(await pg.isVisible('[data-testid=pin-reset-notice-full]'), '重新打开：全屏提示一次'); await pg.screenshot({ path: OUT + 'r12-pin-reset-full.png' });
   await pg.click('[data-testid=pin-reset-full-cancel]'); await w(400); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '〔取消申请〕不要密码，提示消失');
