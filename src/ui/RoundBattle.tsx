@@ -102,7 +102,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   // r12（策划）：难一档相对当前自适应难度（tierRef），本小节没有就放宽到同单元前序小节；没有才灰
   const priorQs = useRef<Question[]>(prior ?? []);
   const harder = (base: Question | undefined, exclude: string[] = []) => { if (!base) return undefined;
-    const q = pickHarder({ cur: tierRef.current.tier, lesson: pool.current, prior: priorQs.current, used: [...used.current, base], exclude: [base.key, ...exclude], subject: base.subject, skip: x => !!isMultiSel(x) || !!isMulti(x) })?.q;
+    const q = pickHarder({ cur: tierRef.current.tier, lesson: pool.current, prior: priorQs.current, used: [...used.current, base], exclude: [base.key, ...exclude, ...(reviewAllowed(shownN.current, lastRev.current) ? [] : [...revSet])], subject: base.subject, skip: x => !!isMultiSel(x) || !!isMulti(x) })?.q;   /* r15.1 R15-2：挑战 / 重击也守复习间隔 */
     if (q) return q;
     // r14.1 学霸：更难的新题出完了 → 先用本局答错过的更难题，再用出过的更难题（不是挑战过的），都没有才灰
     const cur = tierRef.current.tier, wr = new Set(stats.current.wrong);
@@ -134,7 +134,11 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     // r15 策划：复习题前 2 题不出，之后每 4 题最多 1 道（只剩复习题时才放宽）
     const dn = (pr: (x: Question) => boolean) => drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk) }).q;
     const revOk = reviewAllowed(shownN.current, lastRev.current);
-    const q = fq ?? (revOk || !revSet.size ? dn(pred) : dn(x => pred(x) && !revSet.has(x.key)) ?? dn(pred));
+    /* r15.1 技术QA R15-2：本关题池里非复习题出完时，先从同单元后备题 / 相邻小节补一道非复习题，实在没有才出复习题（以前直接连出 4 道复习） */
+    const nonRev = (x: Question) => pred(x) && !revSet.has(x.key);
+    let q = fq ?? (revOk || !revSet.size ? dn(pred) : dn(nonRev));
+    if (!q && !revOk && revSet.size) { const add = unseenOf([...(reserve ?? []), ...(adj ?? []).flat()]).filter(x => nonRev(x) && !pool.current.some(y => y.key === x.key) && !isMultiSel(x)); if (add.length) { pool.current = [...pool.current, add[0]]; q = dn(nonRev); } }
+    if (!q) q = dn(pred);
     if (q && isMultiSel(q)) usedMulti.current++;
     setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
   /** r10：题一出现就算出过（不能靠切换刷题） */
@@ -395,7 +399,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
           <div className="feedback bad"><h3>💫 血量归零</h3><p>复活挑战：最多 4 次机会答对 2 道题（本关的新题），回到 50% 血量（每关 1 次，不计回合）。</p>
             <div className="row gap16 fb-btns">
               <button className="btn ghost" data-testid="revive-no" onClick={() => { setEnding(true); onEnd(result(bs)); }}>放弃</button>
-              <button className="btn" data-testid="revive-yes" onClick={() => { setRv({ list: (() => { const f = unseenOf([...pool.current, ...priorQs.current.filter(x => x.difficulty <= tierRef.current.tier), ...(reserve ?? []), ...(adj ?? []).flat()]).filter(x => !isMultiSel(x)).filter((x, i, arr) => arr.findIndex(y => y.key === x.key) === i && !chalKeys.current.has(x.key)).slice(0, REVIVE.tries); f.forEach(reveal);   /* r14 技术QA R13-2：按题号去重，不够 4 道才补本局错题 */
+              <button className="btn" data-testid="revive-yes" onClick={() => { setRv({ list: (() => { const f = unseenOf([...pool.current, ...priorQs.current.filter(x => x.difficulty <= tierRef.current.tier), ...(reserve ?? []), ...(adj ?? []).flat()]).filter(x => !isMultiSel(x)).filter((x, i, arr) => arr.findIndex(y => y.key === x.key) === i && !chalKeys.current.has(x.key)).sort((a, b) => +revSet.has(a.key) - +revSet.has(b.key)).slice(0, REVIVE.tries);   /* r15.1 R15-2：复活题非复习优先 */ f.forEach(reveal);   /* r14 技术QA R13-2：按题号去重，不够 4 道才补本局错题 */
                 const capOk = (x: Question) => (repCount.current.get(x.key) ?? 0) < REPEAT_CAP - 1 && !chalKeys.current.has(x.key) && !isMultiSel(x);   /* r15：复活题重复也受「一局最多 2 次」限制，错题先 */
                 const w0 = [...stats.current.wrongQs, ...used.current].filter((x, i, arr) => arr.findIndex(y => y.key === x.key) === i && !f.some(y => y.key === x.key) && capOk(x));
                 const out = [...f, ...w0].slice(0, REVIVE.tries); out.filter(x => !f.includes(x)).forEach(x => repCount.current.set(x.key, (repCount.current.get(x.key) ?? 0) + 1)); return out; })(), i: 0, right: 0, tries: 0 })   /* r12：复活题也走本局去重（不再复用出过的题） */; setPhase('revive-q'); setInput(''); setMulti([]); setPicked(undefined); }}>挑战复活</button>

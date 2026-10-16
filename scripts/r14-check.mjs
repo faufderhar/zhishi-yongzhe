@@ -339,6 +339,23 @@ if (on('r15retreat')) {
   }
 }
 // r15 技术QA R141-4：手机竖屏英语键盘整块在第一屏、提示气泡不压题干
+if (on('r15kbnum')) {
+  // r15.1 技术QA R15-3：数字键盘最后一排「- 0 .」和确定也在 375×667 第一屏（多看几道题）
+  const vp = { width: 375, height: 667 }; const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
+  const tab = await pg.$('.chapter:has-text("数学")'); if (tab) { await tab.click(); await w(500); }
+  let seen = 0, bads = 0;
+  for (let lv = 1; lv <= 4 && seen < 4; lv++) {
+    await pg.click(`[data-testid=level-${lv}]`).catch(() => {}); await w(1000); await tutSkip(pg, w); await skipTut(pg, w);
+    for (let t = 0; t < 10 && seen < 4; t++) {
+      if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await w(500); }
+      if (await pg.isVisible('.keypad')) { seen++; await w(300); if (!(await inVp(pg, '.keypad button'))) { bads++; await pg.screenshot({ path: OUT + `r151-kbnum-bad-${seen}.png` }); } }
+      await answer(pg, true).catch(() => {}); await w(900); await next(pg, w); await w(300);
+      if (await pg.isVisible('[data-testid=result-title]')) break;
+    }
+    await pg.goto(URL); await w(1200); await enterMap(pg, w).catch(() => {}); const t2 = await pg.$('.chapter:has-text("数学")'); if (t2) { await t2.click(); await w(400); }
+  }
+  ok(seen > 0 && bads === 0, `375×667 数字 / 字母键盘每排都在第一屏（看了 ${seen} 道，超出 ${bads}）`); await ctx.close();
+}
 if (on('r15kb')) {
   for (const vp of [{ width: 375, height: 667 }, { width: 414, height: 896 }]) {
     const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
