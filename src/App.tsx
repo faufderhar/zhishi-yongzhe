@@ -119,7 +119,11 @@ export default function App() {
       for (const p of ps) { us[p.id] = await S.loadUsage(p.id); sk[p.id] = await S.loadSkills(p.id); }
       // D8：今天早于时长记录里最大的日期 → 也算时间被调回
       const maxDay = Object.values(us).flatMap(u => Object.keys(u)).sort().pop();
-      if (maxDay && dayStr() < maxDay && !ck2.locked) ck2 = { ...ck2, locked: true, lockedAt: Date.now() };
+      // r14.1：时长记录里比今天晚 1 天以上的日期 = 别人调快过时钟留下的，作废（删掉、记日志），不上锁；只晚 1 天以内仍按「时间被调回」上锁
+      { const farDay = dayStr(new Date(Date.now() + S.STALE_AHEAD_MS)); for (const p of ps) { const u = us[p.id]; const bad = Object.keys(u).filter(d => d > farDay); if (bad.length) { for (const d of bad) delete u[d]; void S.saveUsage(p.id, u); logErr('stale-usage-day', `${p.id}:${bad.join(',')}`); } } }
+      if (ck2.staleReset) logErr('stale-clock', new Date(ck2.staleReset).toISOString());
+      const maxDay2 = Object.values(us).flatMap(u => Object.keys(u)).sort().pop();
+      void maxDay; if (maxDay2 && dayStr() < maxDay2 && !ck2.locked) ck2 = { ...ck2, locked: true, lockedAt: Date.now() };
       setClock(ck2); void S.saveClock(ck2);
       // 切回前台时也检查（D8）
       document.addEventListener('visibilitychange', () => { if (document.visibilityState !== 'visible') return; setClock(c => { const n = S.checkClock(c, Date.now()); if (n !== c) void S.saveClock(n); return n; }); });
@@ -187,6 +191,12 @@ export default function App() {
   // 时钟被调回（GDD §8.2）：按「今日已用满」处理，家长在「时长」页解除
   const remaining = (id: string) => { if (clock.locked) return 0; const pp = profiles.find(x => x.id === id); if (!pp) return Infinity; const r = remainingSec(S.effLimit(pp), usage[id] ?? {}, today); const sp = __TEST_HOOKS__ ? Number((window as unknown as { __zyTestSpentSec?: number }).__zyTestSpentSec) || 0 : 0; return sp ? Math.max(0, r - sp) : r; };
   const myRemaining = pid ? remaining(pid) : Infinity;
+  /** r14.1：家长解除时间锁定 = 时间基准重置为现在，并删掉「今天之后」的时长记录（否则刷新后又按「时间被调回」锁上）；reset=true 时再把今天的计时清零 */
+  function unlockClock(reset: boolean) {
+    const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); const td = dayStr();
+    setUsageAll(all => { const out = { ...all }; for (const [id, u] of Object.entries(all)) { const nu = { ...u }; let ch = false; for (const d of Object.keys(nu)) if (d > td) { delete nu[d]; ch = true; } if (reset && nu[td]) { nu[td] = { used: 0, bonus: 0 }; ch = true; } if (ch) { out[id] = nu; void S.saveUsage(id, nu); } } return out; });
+    logNav('parent', 'parent', reset ? 'reset-timing' : 'unlock-clock');
+  }
   // 到时：允许打完当前关，最多再 3 分钟，之后按已答题结算（策划 T-P2-2）
   // 首次联网后后台预下载各档案年龄段用到的动画（技术QA P1-6）；失败不影响流程（有程序动效兜底）
   useEffect(() => {
@@ -514,7 +524,7 @@ export default function App() {
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => { if (screen.next === 'pick') { const pp = profiles.find(x => x.id === screen.pick); if (pp) { void pickProfile(pp, true); return; } } setScreen(screen.next === 'add' ? { s: 'profiles', adding: true } : { s: 'parent' }); }} onCancel={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'parent' && bank && <ParentSettings currentPid={lastPid} settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
-        usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => { const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); }} onClose={() => setScreen({ s: 'profiles' })} />}
+        usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => unlockClock(false)} resetTiming={() => unlockClock(true)} remainingOf={remaining} onClose={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} subjects={chapters.map(c => c.subject)} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'grade', stage: stageOf(p.grade) })}
         onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id, charIds: { ...x.charIds, [cfg.chars]: c.id } } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setTimeout(() => startLevel(then), 0); }} />}
       {screen.s === 'stage' && p0 && <StagePick current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onPick={st => setScreen({ s: 'grade', stage: st })} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }} />}

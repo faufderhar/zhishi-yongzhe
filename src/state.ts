@@ -97,10 +97,13 @@ export const saveUsage = (pid: string, u: Usage) => setKV('usage:' + pid, u);
 export const loadFlags = () => guarded<Record<string, number>>('flags', x => isObj(x) ? numRec(x) : null, () => ({}));
 export const saveFlags = (f: Record<string, number>) => setKV('flags', f);
 /** 设备级时钟守卫（GDD §8.2）：记录见过的最大时间戳；发现倒退 > 10 分钟 → 锁定今日（家长密码解除） */
-export interface ClockState { maxSeen: number; locked: boolean; lockedAt?: number }
+export interface ClockState { maxSeen: number; locked: boolean; lockedAt?: number; staleReset?: number }
 export const loadClock = () => guarded<ClockState>('clock', x => isObj(x) && Number.isFinite(x.maxSeen) ? { maxSeen: Number(x.maxSeen), locked: !!x.locked, lockedAt: Number(x.lockedAt) || undefined } : null, () => ({ maxSeen: 0, locked: false }));
 export const saveClock = (c: ClockState) => setKV('clock', c);
+/** r14.1：记下的「见过的最晚时间」比现在还晚 1 天以上——多半是别人把系统时钟调快过（共用设备 / 测试），基准作废、不上锁 */
+export const STALE_AHEAD_MS = 24 * 3600e3;
 export function checkClock(c: ClockState, now: number): ClockState {
+  if (c.maxSeen && c.maxSeen - now > STALE_AHEAD_MS) { console.warn('[zy] 时钟基准在未来，作废', new Date(c.maxSeen).toISOString()); return { maxSeen: now, locked: false, staleReset: c.maxSeen }; }
   if (c.maxSeen && now < c.maxSeen - 5 * 60e3) return { ...c, locked: true, lockedAt: now };
   return { ...c, maxSeen: Math.max(c.maxSeen, now) };
 }

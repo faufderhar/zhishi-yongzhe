@@ -182,7 +182,7 @@ export interface ParentProps {
   bank: BankState; reloadBank: () => Promise<void>;
   usage: Record<string, Usage>; setUsage: (pid: string, u: Usage) => void;
   skills: Record<string, Skills>; flags: Record<string, number>;
-  clockLocked?: boolean; unlockClock?: () => void;
+  clockLocked?: boolean; unlockClock?: () => void; resetTiming?: () => void; remainingOf?: (id: string) => number;
   onClose: () => void; initialTab?: Tab; currentPid?: string;
 }
 /** r10：家长页闲置 5 分钟自动退出，提前 30 秒提示（任何点击 / 输入都重新计时）；表单草稿会保留 */
@@ -415,15 +415,17 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
   );
 }
 
-function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock }: ParentProps) {
+function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock, resetTiming, remainingOf }: ParentProps) {
   const today = dayStr();
   return (
     <div className="col gap16">
       {clockLocked && <div className="p-card wide"><b>⏰ 时间锁定中</b><p className="hint">检测到平板时间被调回，今天按「已用完」处理。确认时间正确后可解除。</p><button className="btn" data-testid="unlock-clock" onClick={unlockClock}>解除时间锁定</button></div>}
       <table className="tbl"><thead><tr><th>孩子</th><th>今日已玩</th><th>今日剩余</th><th>每日上限（上学日/周末）</th><th>临时加时</th></tr></thead>
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
-          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒</td><td>{fmtMin(remainingSec(effLimit(p), u, today))}</td><td>{effLimit(p).weekday || '不限'} / {effLimit(p).weekend || '不限'}</td>
-            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => { const m = limitMinutes(effLimit(p), new Date()); setUsage(p.id, addBonus(u, today, 600, m ? m * 60 : undefined)); }}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? r.used - (m * 60 + r.bonus) : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {Math.ceil(over / 60)} 分钟（关卡收尾时间）；加时从现在算起</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && <> <small data-testid={'bonus-now-' + p.id}>今天已加 {Math.round(r.bonus / 60)} 分钟</small> <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today))}>取消</button></>}</span></td></tr>; })}</tbody></table>
+          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒</td><td data-testid={'left-' + p.id}>{fmtMin(remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today))}{clockLocked ? '（时间锁定中）' : ''}</td><td>{effLimit(p).weekday || '不限'} / {effLimit(p).weekend || '不限'}</td>
+            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => setUsage(p.id, addBonus(u, today, 600))}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? r.used - (m * 60 + r.bonus) : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {Math.ceil(over / 60)} 分钟（关卡收尾时间），加的时间先抵掉超出的部分</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && <> <small data-testid={'bonus-now-' + p.id}>今天已加 {Math.round(r.bonus / 60)} 分钟</small> <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today))}>取消</button></>}</span></td></tr>; })}</tbody></table>
+      {resetTiming && <div className="p-card wide" data-testid="reset-timing-box"><b>计时出错了？</b><p className="hint">把今天所有孩子的已玩时长和临时加时清零，并把时间基准重置为现在（解除时间锁定，删掉「今天之后」的时长记录）。</p>
+        <button className="btn ghost" data-testid="reset-timing" onClick={() => { if (confirm('把今天的计时清零并重置时间基准？')) resetTiming(); }}>重置今天的计时</button></div>}
       <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /></div>
       <p className="hint">上限在「孩子档案 → 编辑」里改。只在关卡（答题）和错题复习里计时，地图、选角色、结算页、家长页都不计，切到后台不计；关卡进行中时间到了会让孩子打完这一关。</p>
     </div>

@@ -147,4 +147,29 @@ if (on('lp')) {
     const t = (await pg.textContent('#root').catch(() => '')).trim(); ok(t.length > 0, `zy.lastPlayer=${v}：不白屏`); }
   await ctx.close();
 }
+// r14.1：别人调快过时钟留下的「未来」基准 / 时长记录不再锁；加时就是加；首页 / 地图和家长页剩余时间一致；家长可重置计时
+if (on('clock')) {
+  const { ctx, pg, w, pinIn } = await session('7', { __zyUnlockAll: true });
+  const put = (k, v) => pg.evaluate(([k, v]) => new Promise((res, rej) => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const tx = r.result.transaction('kv', 'readwrite'); tx.objectStore('kv').put(v, k); tx.oncomplete = () => { r.result.close(); res(1); }; tx.onerror = rej; }; r.onerror = rej; }), [k, v]);
+  const pid = await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get('profiles'); g.onsuccess = () => { r.result.close(); res(g.result.find(p => p.name === 'r9')?.id); }; }; }));
+  const day = o => { const d = new Date(Date.now() + o); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  await put('clock', { maxSeen: Date.now() + 73 * 3600e3, locked: true, lockedAt: Date.now() });
+  await put('usage:' + pid, { [day(0)]: { used: 300, bonus: 0 }, [day(73 * 3600e3)]: { used: 999, bonus: 0 } });
+  await pg.reload(); await w(2500);
+  ok(!(await pg.isVisible('[data-testid=clock-lock]')), '时钟基准在未来 73 小时：不锁（作废并记日志）');
+  const home = await pg.textContent('.profile-card:has-text("r9") .left-time'); ok(!/还能玩 0 分/.test(home), `首页剩余不是 0：${home}`);
+  await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
+  await pg.click('[data-testid=ptab-time]'); await w(300);
+  const left = (await pg.textContent(`[data-testid=left-${pid}]`)).trim(); const m0 = home.match(/(\d+) 分/)?.[1]; ok(m0 && left.includes(m0 + ' 分'), `家长页剩余与首页一致（${left} / ${home}）`);
+  await pg.click(`[data-testid=bonus-${pid}]`); await w(300); ok(/今天已加 10 分钟/.test(await pg.textContent(`[data-testid=bonus-now-${pid}]`)), '＋10 → 今天已加 10 分钟');
+  await pg.click(`[data-testid=bonus-${pid}]`); await w(300); ok(/今天已加 20 分钟/.test(await pg.textContent(`[data-testid=bonus-now-${pid}]`)), '再 ＋10 → 今天已加 20 分钟');
+  pg.once('dialog', d => d.accept()); await pg.click('[data-testid=reset-timing]'); await w(500);
+  ok(!(await pg.isVisible(`[data-testid=bonus-now-${pid}]`)), '重置今天的计时：已加清零');
+  let loads = 0; pg.on('load', () => loads++);
+  await pg.evaluate(() => window.dispatchEvent(new CustomEvent('zy-update-ready', { detail: () => localStorage.setItem('zy.r141reload', '1') }))); await w(3500);
+  ok(loads === 0 && !(await pg.evaluate(() => localStorage.getItem('zy.r141reload'))), '家长页：有新版本也不刷新');
+  await pg.click('[data-testid=parent-close]'); await w(800); await pg.reload(); await w(2500);
+  ok(!(await pg.isVisible('[data-testid=clock-lock]')), '刷新后仍不锁');
+  await ctx.close();
+}
 console.log(bad ? `r14 FAIL ${bad}` : 'r14 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

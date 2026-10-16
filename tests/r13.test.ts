@@ -130,11 +130,18 @@ describe('r14', () => {
   });
 });
 import { addBonus as ab14, remainingSec as rs14 } from '../src/game/playtime';
-describe('r14 加时', () => {
-  it('超出上限后 +20 分钟：剩余变成 20 分钟', () => {
-    const lim = { weekday: 60, weekend: 60 } as never; const d = new Date('2026-10-14T10:00:00');
-    let u = { '2026-10-14': { used: 94 * 60, bonus: 0 } } as never;
-    u = ab14(u, '2026-10-14', 600, 3600); u = ab14(u, '2026-10-14', 600, 3600);
-    expect(rs14(lim, u, '2026-10-14', d)).toBe(1200);
+describe('r14.1 加时 / 时钟', () => {
+  it('＋10 分钟就是加 10 分钟（不再补齐超出部分）', () => {
+    let u = { '2026-10-16': { used: 94 * 60, bonus: 0 } } as never;
+    u = ab14(u, '2026-10-16', 600); expect((u as any)['2026-10-16'].bonus).toBe(600);
+    u = ab14(u, '2026-10-16', 600); expect((u as any)['2026-10-16'].bonus).toBe(1200);
+    const lim = { weekday: 60, weekend: 60 } as never; expect(rs14(lim, { '2026-10-16': { used: 30 * 60, bonus: 600 } } as never, '2026-10-16', new Date('2026-10-16T10:00:00'))).toBe(40 * 60);
+  });
+  it('时钟基准在未来 1 天以上：作废、不上锁；只晚几分钟以上（1 天内）仍上锁', async () => {
+    const { checkClock } = await import('../src/state');
+    const now = Date.parse('2026-10-16T16:51:00Z');
+    const a = checkClock({ maxSeen: now + 73 * 3600e3, locked: false }, now); expect(a.locked).toBe(false); expect(a.maxSeen).toBe(now);
+    const b = checkClock({ maxSeen: now + 3600e3, locked: false }, now); expect(b.locked).toBe(true);
+    const c = checkClock({ maxSeen: now - 1000, locked: false }, now); expect(c.locked).toBe(false);
   });
 });
