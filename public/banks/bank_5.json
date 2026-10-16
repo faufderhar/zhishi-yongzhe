@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-5年级-v29（AI初审）",
- "version": "v29",
+ "bank_name": "三兄妹题库-5年级-v30（AI初审）",
+ "version": "v30",
  "questions": [
   {
    "id": "M5-001",
@@ -34255,7 +34255,7 @@
    "question": "牛郎追织女时，把两个孩子放在什么里面挑着？",
    "options": [
     {
-     "text": "布袋",
+     "text": "书包",
      "image": "",
      "audio": ""
     },
@@ -39362,6 +39362,51 @@
    "change_tag": "新增",
    "tags": [
     "什么比猎豹的速度更快"
+   ]
+  },
+  {
+   "id": "Y5-388",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 5,
+   "textbook": "统编版",
+   "unit": "五上·白鹭",
+   "type": "选择",
+   "question": "《白鹭》中，晴天的清晨，白鹭常孤独地站立在哪里？",
+   "options": [
+    {
+     "text": "石头上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小树的绝顶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "屋檐上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水牛背上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：每每看见它孤独地站立于小树的绝顶。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级上册",
+   "knowledge_point": "白鹭",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T8147cf",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
    ]
   }
  ]
