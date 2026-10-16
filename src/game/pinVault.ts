@@ -34,7 +34,7 @@ export function makeRecoveryCode(rnd: () => number = () => { const a = new Uint3
 }
 export const normCode = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, '');
 /** 延时重设 */
-export interface PendingReset { netReq?: number /* r15 R141-2：申请时的网络时间 */; netLast?: number /* 最近一次的网络时间 */; openTotal?: number /* 等待期间游戏开着的总时长 */; sessionOpen?: number /* 本次打开已开着多久 */; days?: string[]; gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
+export interface PendingReset { netOffline?: boolean /* r15.1：离线提交，起点是本机时间 */; netReq?: number /* r15 R141-2：申请时的网络时间 */; netLast?: number /* 最近一次的网络时间 */; openTotal?: number /* 等待期间游戏开着的总时长 */; sessionOpen?: number /* 本次打开已开着多久 */; days?: string[]; gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
 export const newPending = (now: number): PendingReset => ({ requestedAt: now, effectiveAt: now + RESET_DELAY_MS });
 export const resetDue = (p: PendingReset | undefined, now: number, clockLocked: boolean) => !!p && !clockLocked && now >= p.effectiveAt && now >= p.requestedAt;
 export const fmtWhen = (t: number) => { const d = new Date(t); return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}点`; };
@@ -94,9 +94,19 @@ export function resumePending(p: PendingReset, wallNow: number): PendingReset | 
 /* r15 策划 R141-2（联网规则）：网络时间说了算。网络时间和本机时钟差 > 10 分钟 → 取消；申请时和现在都有网络时间 → 用两者之差算 72 小时 */
 export function netCheck(p: PendingReset, net: number, wallNow: number): PendingReset | 'cancel' {
   if (Math.abs(net - wallNow) > NET_SKEW_MS) return 'cancel';
-  return { ...p, netReq: p.netReq ?? (Math.abs(net - p.requestedAt) < NET_SKEW_MS + 60e3 ? net - (wallNow - p.requestedAt) : undefined), netLast: Math.max(p.netLast ?? 0, net) };
+  const atReq = Math.abs(net - p.requestedAt) < NET_SKEW_MS + 60e3;
+  if (p.netReq === undefined && !atReq) {
+    /* r15.1 技术QA R15-1：离线提交的申请——第一次联网校验：以申请时的本机时间为起点，
+       本机记录的已等时长不能比网络时间算出的还长（关着时把时钟调快），申请时间也不能在网络时间之后 */
+    if (net < p.requestedAt - NET_SKEW_MS) return 'cancel';
+    if ((p.observed ?? 0) > net - p.requestedAt + NET_SKEW_MS) return 'cancel';
+    return { ...p, netReq: p.requestedAt, netOffline: true, netLast: Math.max(p.netLast ?? 0, net) };
+  }
+  if (p.netOffline && (p.observed ?? 0) > net - (p.netReq ?? p.requestedAt) + NET_SKEW_MS) return 'cancel';
+  return { ...p, netReq: p.netReq ?? (atReq ? net - (wallNow - p.requestedAt) : undefined), netLast: Math.max(p.netLast ?? 0, net) };
 }
-export const pendingWaitedMs = (p: PendingReset) => p.netReq && p.netLast ? Math.max(0, p.netLast - p.netReq) : (p.observed ?? 0);
+/* 离线申请：已等 = min(本机记录, 网络时间差)；联网申请：网络时间差；还没联网校验过：本机记录（但不能到期） */
+export const pendingWaitedMs = (p: PendingReset) => p.netReq && p.netLast ? (p.netOffline ? Math.min(p.observed ?? 0, Math.max(0, p.netLast - p.netReq)) : Math.max(0, p.netLast - p.netReq)) : (p.observed ?? 0);
 export const pendingDays = (p: PendingReset) => new Set(p.days ?? [dayOf(p.requestedAt)]).size;
-export const pendingDue = (p: PendingReset | undefined) => !!p && pendingWaitedMs(p) >= RESET_DELAY_MS && pendingDays(p) >= PEND_DAYS && (p.openTotal ?? 0) >= MIN_OPEN_MS;
+export const pendingDue = (p: PendingReset | undefined) => !!p && !!p.netLast /* r15.1：至少一次联网校验 */ && pendingWaitedMs(p) >= RESET_DELAY_MS && pendingDays(p) >= PEND_DAYS && (p.openTotal ?? 0) >= MIN_OPEN_MS;
 export const pendingLeftMs = (p: PendingReset) => Math.max(0, RESET_DELAY_MS - pendingWaitedMs(p));

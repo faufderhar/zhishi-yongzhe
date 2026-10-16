@@ -86,9 +86,26 @@ describe('r12 技术QA R11-1：改系统时间拿不到家长权限', () => {
     expect(resumePending(newPending(t0), t0 - 5 * 3600e3)).toBe('cancel');
   });
   it('r15：到期 = 等满 72 小时 + 至少 3 个不同的日子打开过 + 等待期间累计开着 ≥ 30 分钟；到期也只是「到期」', () => {
-    const base: any = { ...newPending(t0), observed: 80 * 3600e3, days: ['2026-10-16', '2026-10-17', '2026-10-18'] };
+    const base: any = { ...newPending(t0), observed: 80 * 3600e3, netReq: t0, netLast: t0 + 80 * 3600e3, days: ['2026-10-16', '2026-10-17', '2026-10-18'] };
     expect(pendingDue({ ...base, openTotal: 29 * 60e3 })).toBe(false); expect(pendingDue({ ...base, openTotal: 30 * 60e3 })).toBe(true);
     expect(pendingDue({ ...base, openTotal: 3600e3, days: ['2026-10-16', '2026-10-17'] })).toBe(false);
+    expect(pendingDue({ ...base, netReq: undefined, netLast: undefined, openTotal: 3600e3 })).toBe(false);   // r15.1：没联网校验过不能到期
+  });
+  it('r15.1 技术QA R15-1：离线申请 → 每次开 5.5 分钟、关掉把时钟拨快 12 小时 ×6：联网校验时取消，绝不到期', async () => {
+    const { netCheck, tickPending, resumePending, pendingDue: due } = await import('../src/game/pinVault');
+    let p: any = newPending(t0); let wall = t0, real = t0;
+    for (let i = 0; i < 6; i++) {
+      for (let m = 0; m < 11; m++) { wall += 30e3; real += 30e3; const r = tickPending(p, wall); if (r !== 'cancel') p = r; }
+      wall += 12 * 3600e3; real += 60e3; const r2 = resumePending(p, wall); if (r2 !== 'cancel') p = r2;
+    }
+    expect(due({ ...p, openTotal: 3600e3, days: ['a', 'b', 'c'] })).toBe(false);
+    expect(netCheck(p, real, real)).toBe('cancel');   // 本机时间和网络差太多
+    expect(netCheck({ ...p }, real, wall)).toBe('cancel');
+  });
+  it('r15.1：离线申请，真实等了 73 小时后联网 → 按 min(本机, 网络) 到期', async () => {
+    const { netCheck, pendingDue: due } = await import('../src/game/pinVault');
+    const p: any = { ...newPending(t0), observed: 73 * 3600e3, days: ['a', 'b', 'c'], openTotal: 3600e3 };
+    const q: any = netCheck(p, t0 + 74 * 3600e3, t0 + 74 * 3600e3); expect(q).not.toBe('cancel'); expect(due(q)).toBe(true);
   });
   it('r15：联网时网络时间说了算——差 > 10 分钟取消；申请时和现在的网络时间之差算 72 小时（不管本机时钟）', async () => {
     const { netCheck, pendingWaitedMs } = await import('../src/game/pinVault');
