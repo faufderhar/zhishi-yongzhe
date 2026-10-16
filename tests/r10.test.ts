@@ -56,7 +56,7 @@ describe('题库 v19：已学册别迁移', () => {
     const p = repairProfile({ id: 'a', name: 'x', grade: '7', volumes: ['七年级下册(7B)', '七年级下册'] })!; expect(p.volumes).toEqual(['七年级下册']);
   });
   it('迁移后的册别都在 v19 允许取值里', () => {
-    const al = JSON.parse(readFileSync('/workspace/questions/src/volume_allowed.json', 'utf8')) as Record<string, string[]>;
+    const al = JSON.parse(readFileSync('tests/fixtures/volume_allowed.json', 'utf8')) as Record<string, string[]>;
     const all = new Set(Object.values(al).flat());
     for (const v of [...migrateVolumes('7', ['七年级上册(7A)', '七年级下册(7B)', ''])!, ...migrateVolumes('10', ['必修上', '纲要上', '必修1 中国特色社会主义', '必修2 经济与社会', '必修1 分子与细胞', ''])!]) expect(all.has(v)).toBe(true);
   });
