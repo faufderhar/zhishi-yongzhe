@@ -203,7 +203,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
-                  : <span className={`kind-tag ${l.kind}`} data-testid="kind-tag">{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${skinFor(ch.subject, 'boss', cfg.band)?.name ?? ch.subject}`}</span>}
+                  : <span className={`kind-tag ${l.kind}`} data-testid="kind-tag">{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${skinFor(ch.subject, 'boss', cfg.band, l.unit)?.name ?? ch.subject}`}</span>}
                 <Stars n={s} />
               </button></Fragment>
             );

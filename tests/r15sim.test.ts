@@ -87,3 +87,18 @@ describe('r15.1 小萌新：K–2 全部课时，规范化题干不连着出', (
     expect(stemOf({ key: 'a', question: '数一数，有几个气球？🎈🎈' })).toBe(stemOf({ key: 'b', question: '数一数，有几个气球？🎈🎈🎈🎈🎈' }));
   });
 });
+
+describe('r15.1 策划：高一数学 Boss 按章改名换色', () => {
+  it('5 章改名，其他章不变', async () => {
+    const { skinFor } = await import('../src/game/monsterSkin');
+    const n = (u: string) => skinFor('数学', 'boss', 'H', u);
+    expect(n('必修第一册·第4章 指数与对数·第1节 指数')?.name).toBe('对数巨塔主');
+    expect(n('必修第一册·第5章 函数概念与性质')?.name).toBe('奇偶双面王');
+    expect(n('必修第一册·第6章 幂函数、指数函数和对数函数·第2节')?.name).toBe('指对双生龙');
+    expect(n('第7章 三角函数')?.name).toBe('周期轮回将');
+    expect(n('第8章 函数应用')?.name).toBe('零点潜行者');
+    expect(n('第1章 集合')?.name).toBe('函数魔方帝');
+    expect(n('第4章 指数与对数')?.hue).not.toBe(n('第5章 函数概念与性质')?.hue);
+    expect(n('第4章 指数与对数')?.id).toBe(n('第1章 集合')?.id);
+  });
+});

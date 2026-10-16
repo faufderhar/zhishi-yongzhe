@@ -6,7 +6,7 @@ import MANIFEST from './monsters.manifest.json';
 export type MonTheme = 'number' | 'ink' | 'letter' | 'flask' | 'gear' | 'plant' | 'fossil' | 'mist';
 export type MonAnim = 'idle' | 'attack' | 'hit' | 'defeat';
 export interface MonArt { id: string; name: string; theme: MonTheme; tier: LevelKind; pool_cn: string[]; dir: string; anims: Record<MonAnim, { json: string; soft: string; hit_frame?: number | null }> }
-export interface MonSkin { id: string; name: string; img: 'k' | 'j' | 'jb' | 'h' | 'hb'; art: MonArt }
+export interface MonSkin { hue?: number /* r15.1：同美术不同章节 Boss 的主色区分（hue-rotate 度数） */; id: string; name: string; img: 'k' | 'j' | 'jb' | 'h' | 'hb'; art: MonArt }
 const ART = Object.entries(MANIFEST as unknown as Record<string, Omit<MonArt, 'id'>>).map(([id, v]) => ({ id, ...v })) as MonArt[];
 export const THEME_OF: Record<string, MonTheme> = Object.fromEntries(ART.flatMap(a => a.pool_cn.map(s => [s, a.theme])));
 /** 静态回退立绘（序列帧没加载出来时） */
@@ -18,10 +18,17 @@ export const BOSS_NAME: Record<'J' | 'H', Record<MonTheme, string>> = {
   J: { number: '有理数大将', ink: '墨韵书生王', letter: '单词迷宫王', flask: '实验怪博士', gear: '齿轮守卫长', plant: '森林巨木王', fossil: '史册守护者', mist: '迷雾大法官' },
   H: { number: '函数魔方帝', ink: '文言墨龙', letter: '语法巨像', flask: '元素炼金王', gear: '力学钢铁兽', plant: '基因藤蔓女王', fossil: '时空化石巨人', mist: '哲思迷雾王' },
 };
-export function skinFor(subject: string | undefined, kind: LevelKind, band?: string): MonSkin | null {
+/* r15.1 策划：高一数学各章 Boss 原来都叫「函数魔方帝」——按章改名，美术不变、换主色；Boss id、星星不变 */
+const H_MATH_BOSS: [string, string, number][] = [['指数与对数', '对数巨塔主', 40], ['函数概念与性质', '奇偶双面王', 140], ['幂函数、指数函数和对数函数', '指对双生龙', 200], ['三角函数', '周期轮回将', 260], ['函数应用', '零点潜行者', 310]];
+export function hMathBoss(unit: string | undefined): { name: string; hue: number } | undefined {
+  if (!unit) return undefined; const ch = unit.split('·').find(x => /^第\d+章/.test(x))?.replace(/^第\d+章\s*/, '') ?? unit;
+  const m = H_MATH_BOSS.find(([c]) => ch === c); return m ? { name: m[1], hue: m[2] } : undefined;
+}
+export function skinFor(subject: string | undefined, kind: LevelKind, band?: string, unit?: string): MonSkin | null {
   const t = subject ? THEME_OF[subject] : undefined; if (!t) return null;
   const sk0 = SKINS[t][kind]; const bn = kind === 'boss' && (band === 'J' || band === 'H') ? BOSS_NAME[band][t] : undefined;
-  const sk = sk0 && bn ? { ...sk0, name: bn } : sk0;
+  const hb = kind === 'boss' && band === 'H' && t === 'number' ? hMathBoss(unit) : undefined;
+  const sk = sk0 && hb ? { ...sk0, name: hb.name, hue: hb.hue } : sk0 && bn ? { ...sk0, name: bn } : sk0;
   // r8：多个学科共用一个怪物池时，Boss 显示名加学科前缀（如「历史·化石地球仪巨人」/「地理·化石地球仪巨人」）
   if (kind === 'boss' && sk && sharedPool(t)) return { ...sk, name: `${subject}·${sk.name}` };
   return sk;
