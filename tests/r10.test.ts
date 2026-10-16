@@ -60,7 +60,7 @@ describe('题库 v19：已学册别迁移', () => {
     const all = new Set(Object.values(al).flat());
     for (const v of [...migrateVolumes('7', ['七年级上册(7A)', '七年级下册(7B)', ''])!, ...migrateVolumes('10', ['必修上', '纲要上', '必修1 中国特色社会主义', '必修2 经济与社会', '必修1 分子与细胞', ''])!]) expect(all.has(v)).toBe(true);
   });
-  it('题库发布号 v25，可玩 7233', () => { expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v25', playable: 7233 }); });
+  it('题库发布号 v27，可玩 8000', () => { expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v27', playable: 8000 }); });
 });
 describe('技术QA R9-7：负数时长按默认，只有合法的 0 才迁移成不限', () => {
   it('-5 → 默认、不是不限；0 → 不限', () => {
