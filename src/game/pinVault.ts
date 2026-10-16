@@ -77,8 +77,10 @@ export const PEND_GAP_CAP_MS = 12 * 3600e3, PEND_DAYS = 3;
 const dayOf = (t: number) => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 const withDay = (p: PendingReset, t: number): PendingReset => { const ds = new Set(p.days ?? [dayOf(p.requestedAt)]); ds.add(dayOf(t)); return { ...p, days: [...ds].sort().slice(-10) }; };
 export function tickPending(p: PendingReset, dtPerf: number, dtWall: number, wallNow: number): PendingReset | 'cancel' {
-  if (Math.abs(dtWall - dtPerf) > JUMP_MS) return 'cancel';
-  return withDay({ ...p, observed: (p.observed ?? 0) + Math.max(0, Math.min(dtPerf, 60e3)), lastWall: wallNow }, wallNow);
+  if (dtWall < dtPerf - JUMP_MS) return 'cancel';   // r14.1：只有墙钟往回走才取消（休眠时单调时钟停住、墙钟前进不是调钟）
+  // 墙钟比单调时钟多走很多（休眠 / 调快）：和「关闭期间」同一规则，这一段最多算 12 小时
+  const add = dtWall > dtPerf + JUMP_MS ? Math.min(dtWall, PEND_GAP_CAP_MS) : Math.max(0, Math.min(dtPerf, 60e3));
+  return withDay({ ...p, observed: (p.observed ?? 0) + add, lastWall: wallNow }, wallNow);
 }
 export function resumePending(p: PendingReset, wallNow: number): PendingReset | 'cancel' {
   const last = p.lastWall ?? p.requestedAt;

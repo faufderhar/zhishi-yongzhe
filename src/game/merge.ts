@@ -9,6 +9,7 @@ interface Ans { profileId: string; questionId: string; at: number; correct?: boo
 interface Wr { id: string; updatedAt?: number }
 export interface MergeIn { kv: KV; answers: [unknown, Ans][]; wrong: Wr[]; bank: { key: string }[] }
 export interface MergeSummary { profilesAdded: number; levelsUpdated: number; wrongAdded: number; answersAdded: number }
+const num = (x: unknown) => { const n = typeof x === 'number' ? x : NaN; return Number.isFinite(n) && n >= 0 ? n : 0; };   // r14.1 技术QA R14-3："NaN" 等坏值按 0
 export function mergeBackup(cur: MergeIn, bk: MergeIn, today: string): { out: MergeIn; summary: MergeSummary } {
   const cm = new Map(cur.kv), bm = new Map(bk.kv);
   const cp = (Array.isArray(cm.get('profiles')) ? cm.get('profiles') : []) as { id: string }[];
@@ -18,10 +19,10 @@ export function mergeBackup(cur: MergeIn, bk: MergeIn, today: string): { out: Me
   let levelsUpdated = 0;
   for (const p of [...cp, ...added]) {
     const k = 'progress:' + p.id; const a = cm.get(k) as Prog | undefined, b = bm.get(k) as Prog | undefined;
-    if (!b) continue; if (!a) { out.set(k, b); levelsUpdated += Object.values(b.stars ?? {}).filter(v => v > 0).length; continue; }
+    if (!b) continue; if (!a) { const st = Object.fromEntries(Object.entries(b.stars ?? {}).map(([id, v]) => [id, Math.min(3, num(v))])); out.set(k, { ...b, stars: st, xp: num(b.xp), masteredStars: num(b.masteredStars) }); levelsUpdated += Object.values(b.stars ?? {}).filter(v => v > 0).length; continue; }
     const stars = { ...(a.stars ?? {}) };
-    for (const [id, v] of Object.entries(b.stars ?? {})) if (v > (stars[id] ?? 0)) { stars[id] = v; levelsUpdated++; }
-    out.set(k, { ...a, stars, xp: Math.max(a.xp ?? 0, b.xp ?? 0), masteredStars: Math.max(a.masteredStars ?? 0, b.masteredStars ?? 0) });
+    for (const [id, v0] of Object.entries(b.stars ?? {})) { const v = Math.min(3, num(v0)); if (v > num(stars[id])) { stars[id] = v; levelsUpdated++; } }
+    out.set(k, { ...a, stars, xp: Math.max(num(a.xp), num(b.xp)), masteredStars: Math.max(num(a.masteredStars), num(b.masteredStars)) });
   }
   for (const p of added) for (const pre of ['skills:', 'usage:']) {
     const k = pre + p.id; const v = bm.get(k); if (v === undefined || out.has(k)) continue;

@@ -247,7 +247,8 @@ export default function App() {
     const t = setInterval(() => {
       const nowP = performance.now(), nowW = Date.now();
       const dp = nowP - lastPerf, dw = nowW - lastWall; lastPerf = nowP; lastWall = nowW;
-      if (Math.abs(dw - dp) > 10 * 60e3 || dw < -60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
+      // r14.1 真正的误锁原因：以前「墙钟比单调时钟多走 10 分钟」也算调钟——电脑 / 平板休眠时 performance.now() 停住、Date.now() 照走，醒来就被锁。现在只有墙钟往回走才锁
+      if (dw < -60e3 || dw < dp - 10 * 60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
       else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
       const pausedNow = document.visibilityState !== 'visible' || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
       if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; window.dispatchEvent(new Event(FORCE_END)); } }

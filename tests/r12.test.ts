@@ -76,8 +76,9 @@ describe('r12 撤退', () => {
 import { tickPending, resumePending, pendingDue, newPending, GAP_CAP_MS } from '../src/game/pinVault';
 describe('r12 技术QA R11-1：改系统时间拿不到家长权限', () => {
   const t0 = new Date(2026, 9, 16, 9).getTime();
-  it('运行中把时钟往前调 25 小时 → 申请直接取消', () => {
-    const p = newPending(t0); expect(tickPending(p, 30e3, 25 * 3600e3, t0 + 25 * 3600e3)).toBe('cancel');
+  it('r14.1：运行中墙钟前进 25 小时（休眠 / 调快）→ 最多算 12 小时，不取消；往回走才取消', () => {
+    const p = newPending(t0); expect((tickPending(p, 30e3, 25 * 3600e3, t0 + 25 * 3600e3) as any).observed).toBe(12 * 3600e3);
+    expect(tickPending(p, 30e3, -2 * 3600e3, t0 - 2 * 3600e3)).toBe('cancel');
   });
   it('r14.1：每段关闭最多算 12 小时；往回调取消', () => {
     let p: any = resumePending(newPending(t0), t0 + 25 * 3600e3); expect(p.observed).toBe(12 * 3600e3); expect(pendingDue(p)).toBe(false);

@@ -65,3 +65,10 @@ it('覆盖恢复保留本机今天已玩的时长', async () => {
   await importAll(file(), { pin: '1357' });
   expect((await getKV<any>('usage:' + pid))[td]).toEqual({ used: 1234, bonus: 0 });
 });
+it0('合并：备份里 xp="NaN"、星星坏值 → 用本机值或 0', () => {
+  const cur = { kv: [['profiles', [{ id: 'a' }]], ['progress:a', { stars: { L1: 2 }, xp: 40, masteredStars: 1 }]] as [string, unknown][], answers: [], wrong: [], bank: [] };
+  const bk = { kv: [['profiles', [{ id: 'a' }, { id: 'b' }]], ['progress:a', { stars: { L1: 'x', L2: 9 }, xp: 'NaN', masteredStars: null }], ['progress:b', { stars: { Q: 'NaN' }, xp: 'NaN' }]] as [string, unknown][], answers: [], wrong: [], bank: [] };
+  const m = new Map(mergeBackup(cur as any, bk as any, '2026-10-16').out.kv);
+  expect(m.get('progress:a')).toMatchObject({ xp: 40, masteredStars: 1, stars: { L1: 2, L2: 3 } });
+  expect(m.get('progress:b')).toMatchObject({ xp: 0, masteredStars: 0, stars: { Q: 0 } });
+});

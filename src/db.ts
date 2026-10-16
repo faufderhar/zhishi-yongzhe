@@ -142,6 +142,8 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     const keys = new Set([...(clean.kv as [string, unknown][]).map(([k]) => k), ...curKv.keys()].filter(k => k.startsWith('usage:')));
     const kvm = new Map(clean.kv as [string, unknown][]);
     for (const k of keys) { const b = { ...((kvm.get(k) as Record<string, unknown>) ?? {}) }; const c = curKv.get(k) as Record<string, unknown> | undefined; if (c?.[td]) b[td] = c[td]; else delete b[td]; if (kvm.has(k) || c?.[td]) kvm.set(k, b); }
+    // r14.1：时钟基准是设备状态，覆盖恢复也保留本机的（以前会写回备份里旧的 / 锁定的 clock）
+    if (curKv.has('clock')) kvm.set('clock', curKv.get('clock')); else kvm.delete('clock');
     clean.kv = [...kvm.entries()]; }
   const snapshot = await exportAll();
   const d = await db();

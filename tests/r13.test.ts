@@ -33,7 +33,7 @@ describe('r13 技术QA：锁定 / 延时重设防调时钟', () => {
     let p = newPending(1e12); const left0 = pendingLeftMs(p);
     for (let i = 0; i < 120; i++) { const n = tickPending(p, 30e3, 30e3, 1e12 + i * 30e3); if (n === 'cancel') throw 0; p = n; }
     expect(left0 - pendingLeftMs(p)).toBe(3600e3);
-    expect(tickPending(p, 30e3, 30e3 + 86400e3, 2e12)).toBe('cancel');
+    expect(tickPending(p, 30e3, 30e3 - 86400e3, 2e12)).toBe('cancel');   // r14.1：往回走才取消
     expect(pendingLeftMs(resumePending(p, 1e12 + 3600e3 + 86400e3 * 3) as any)).toBe(left0 - 3600e3 - 12 * 3600e3);   // r14.1：每段关闭最多 12 小时
   });
 });
