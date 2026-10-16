@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-v23（AI初审）",
- "version": "v23",
+ "bank_name": "三兄妹题库-高一-v24（AI初审）",
+ "version": "v24",
  "questions": [
   {
    "id": "Y10-001",
@@ -73255,6 +73255,96 @@
    "change_tag": "新增",
    "tags": [
     "氨气"
+   ]
+  },
+  {
+   "id": "P10-310",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第二章 匀变速直线运动的研究·1 实验：探究小车速度随时间变化的规律",
+   "type": "选择",
+   "question": "在“探究小车速度随时间变化的规律”实验中，下列做法必要的是？",
+   "options": [
+    {
+     "text": "必须测出小车的质量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "钩码质量必须远小于小车质量",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "调节滑轮高度，使细线与长木板平行",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "必须平衡摩擦力",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "本实验只研究速度随时间的变化，不需要平衡摩擦力，也不需要满足质量条件或测质量；细线与木板平行可保证拉力方向不变。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "实验：探究小车速度随时间变化的规律",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T81284a",
+   "change_tag": "新增",
+   "tags": [
+    "打点计时器"
+   ]
+  },
+  {
+   "id": "P10-311",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 10,
+   "textbook": "人教版2019",
+   "unit": "必修一·第二章 匀变速直线运动的研究·1 实验：探究小车速度随时间变化的规律",
+   "type": "选择",
+   "question": "该实验中，释放小车前，小车应停在什么位置？",
+   "options": [
+    {
+     "text": "靠近打点计时器的位置",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "靠近滑轮的位置",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "任意位置都可以",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长木板的中央",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "靠近打点计时器释放，能充分利用纸带、打出更多的点。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "必修第一册",
+   "knowledge_point": "实验：探究小车速度随时间变化的规律",
+   "game_ready": true,
+   "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
+   "template": "T02dc3e",
+   "change_tag": "新增",
+   "tags": [
+    "打点计时器"
    ]
   }
  ]

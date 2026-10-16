@@ -149,7 +149,8 @@ export function lethalFast(lethal: boolean, run: (hit: () => void) => Promise<vo
 }
 export function usePauseTimeout(paused: boolean, onQuit: () => void) {
   useEffect(() => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = paused; return () => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = false; }; }, [paused]);
-  useEffect(() => { if (!paused) return; const t = setTimeout(onQuit, 5 * 60e3); return () => clearTimeout(t); }, [paused]);
+  // r13（较真家长 / 学霸）：暂停很久也只保持暂停（暂停期间不计时），不再自动离开关卡——以前 5 分钟后自动回地图 / 结算，孩子看到的是「突然回到首页」
+  void onQuit;
 }
 export const FORCE_END = 'zy-force-end';
 export function useForceEnd(f: () => void) {
@@ -203,7 +204,10 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo' | 'ok'>('');
   const [justLit, setJustLit] = useState(-1);
   const [tilt, setTilt] = useState(false);
-  const [wig, setWig] = useState<string | null>(null);   // r9：点错的卡片轻摇（≤2 Hz，0.5 s）+ 伙伴摇头
+  const [wig, setWig0] = useState<string | null>(null);
+  // r13 小萌新：连续点错同一张卡也要重新摇；上一次的「1 秒后清掉」不能把这一次的摇晃提前切断
+  const wigT = useRef(0);
+  const setWig = (k: string | null) => { clearTimeout(wigT.current); if (k === null) { setWig0(null); return; } setWig0(null); requestAnimationFrame(() => setWig0(k)); wigT.current = window.setTimeout(() => setWig0(null), 1000); };   // r9：点错的卡片轻摇（≤2 Hz，0.5 s）+ 伙伴摇头
   const [paused, setPaused] = useState(false);
   usePauseOnHide(setPaused);
   const lock = useRef(false);
@@ -242,12 +246,11 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
     if (r === 'retry') {
       setKs(ns); setTilt(true); setWig(ch.key); D.dir.current?.kinderRetry(); talk(gentle ? '再试试～' : '嗯～再想想', T.retryUnlockMs);
       if (gentle) { setMonFace('😜'); setTimeout(() => setMonFace(null), 1100); }
-      setTimeout(() => setWig(null), 1000);
       setTimeout(() => { setTilt(false); lock.current = false; setBusy(false); }, T.retryUnlockMs);
       return;
     }
     if (r === 'demo') {
-      setFx('demo'); setTilt(true); setWig(ch.key); setTimeout(() => setWig(null), 1000);
+      setFx('demo'); setTilt(true); setWig(ch.key);
       const right = choices.find(x => q.answer.includes(x.key));
       talk(`我来帮你看看！是${right?.text || '这个'}哦！`, T.demoMs);   // r9/r10：自动给答案前先说明（文字 + 朗读）
       if (gentle) { setMonFace('😜'); setTimeout(() => setMonFace(null), 1100); }

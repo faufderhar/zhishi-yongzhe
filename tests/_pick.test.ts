@@ -4,7 +4,7 @@ import { test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { loadBank, playable, type Question } from '../src/game/questions';
 import { buildChapters, levelsOfUnit, assignedBefore } from '../src/game/levels';
-import { drawNext, normStem } from '../src/game/draw';
+import { drawNext, normStem, refill } from '../src/game/draw';
 import { newTier, nextTier, isConsolidating } from '../src/game/consolidate';
 import { pickWithMulti, isMultiSel } from '../src/game/multi';
 import { pickHarder } from '../src/game/harder';
@@ -20,12 +20,14 @@ test.skipIf(!process.env.PICK_DIRS)('pick impact', () => {
         const keys = l.kind === 'boss' ? [...new Set(levelsOfUnit(ch.levels, l).flatMap(x => x.pool))] : l.pool;
         const ts = new Set<string>(); const pool0 = keys.map(k => by.get(k)).filter((q): q is Question => !!q && !ts.has(normStem(q)) && !!ts.add(normStem(q)));
         const lk = new Set(l.pool); const prior0 = l.kind === 'boss' ? [] : [...assignedBefore(ch.levels, l)].filter(k => !lk.has(k)).map(k => by.get(k)).filter((q): q is Question => !!q && !isBossOnly(q));
+        const ix = ch.levels.indexOf(l); const sib = l.kind === 'boss' || ['语文', '诗词'].includes(ch.subject) ? [] : levelsOfUnit(ch.levels, l).filter(x => x.kind === 'normal' && x.id !== l.id && !x.redirect);
+        const adj0 = [...sib.filter(x => ch.levels.indexOf(x) < ix).reverse(), ...sib.filter(x => ch.levels.indexOf(x) > ix)].map(x => x.pool.map(k => by.get(k)).filter((q): q is Question => !!q && !lk.has(q.key) && !isBossOnly(q))).filter(x => x.length);
         st.levels++; let lvRep = false;
         for (let run = 0; run < 20; run++) {
           let unused = [...pool0], used: Question[] = [], tier = newTier(base), multiUsed = 0;
           for (let turn = 1; turn <= TURNS[l.kind]; turn++) {
             const P = turn % 2 === 1;
-            let recyc = false; if (!unused.length) { unused = used; used = []; recyc = true; }
+            let recyc = false; if (!unused.length) { const r = refill(used, pool0, adj0); unused = r.pool; used = r.used; recyc = r.kind === 'repeat'; }   // r13：先补相邻小节，最后才重复
             const ctx = { band, side: (P ? 'P' : 'M') as 'P' | 'M', turn, used: multiUsed, poolHas: pool0.some(isMultiSel) };
             const r = drawNext(unused, used, { pred: () => true, curated: new Set(), tier, multi: (xs, pk) => pickWithMulti(xs, ctx, pk) });
             const q = r.q!; if (r.repeat || recyc) { st.rep++; lvRep = true; } if (isMultiSel(q)) multiUsed++;

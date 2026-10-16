@@ -1,3 +1,4 @@
+import { logErr, installErrLog } from './navLog';
 import { StrictMode, Component, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
@@ -22,9 +23,10 @@ async function rescue(kind: 'export' | 'restore') {
 class Boundary extends Component<{ children: ReactNode }, { err?: string }> {
   state: { err?: string } = {};
   static getDerivedStateFromError(e: Error) { return { err: String(e?.message ?? e) }; }
+  componentDidCatch(e: Error, info: { componentStack?: string | null }) { logErr('boundary', String(e?.message ?? e), (e?.stack ?? '') + '\n' + (info.componentStack ?? '')); }
   render() {
     if (!this.state.err) return this.props.children;
-    return <div className="center-screen" style={{ padding: 32, textAlign: 'center' }}><h2>游戏遇到一点问题，进度没有丢</h2><p className="hint">{this.state.err}</p>
+    return <div className="center-screen" data-testid="error-boundary" style={{ padding: 32, textAlign: 'center' }}><h2>游戏遇到一点问题，进度没有丢</h2><p className="hint">{this.state.err}</p>
       <div className="row gap16">
         <button className="btn big-sq" onClick={() => location.reload()}>重新加载</button>
         <button className="btn ghost big-sq" onClick={() => void rescue('export')}>导出原始数据</button>
@@ -32,4 +34,5 @@ class Boundary extends Component<{ children: ReactNode }, { err?: string }> {
       </div><p className="hint">后两项需要家长密码。</p></div>;
   }
 }
+installErrLog();
 createRoot(document.getElementById('root')!).render(<StrictMode><Boundary><App /></Boundary></StrictMode>);

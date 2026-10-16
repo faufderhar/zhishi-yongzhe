@@ -38,7 +38,7 @@ ok(await pg.isVisible('[data-testid=pin-ok]'), 'D7 添加孩子先弹家长密�
 await pg.screenshot({ path: OUT + 'd7-add-child-pin.png' });
 await pin(pg, '2468'); await pin(pg, '2468');
 ok(await pg.isVisible('[data-testid=hint-answer]'), 'X-13 首次设置要求找回问题');
-await pg.fill('[data-testid=hint-answer]', '豆豆'); await pg.screenshot({ path: OUT + 'x13-pin-hint.png' }); await pg.tap('[data-testid=hint-ok]'); await W(pg, 400);
+await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', '豆豆'); await pg.screenshot({ path: OUT + 'x13-pin-hint.png' }); await pg.tap('[data-testid=hint-ok]'); await W(pg, 400);
 ok(await pg.isVisible('[data-testid=grade-list]'), 'D7 密码通过后进入年级选择');
 await pg.fill('[data-testid=add-name]', '三年级测试'); await pg.tap('[data-testid=home-grade-3]'); await W(pg, 300);
 ok(await pg.isVisible('text=三年级测试') && await pg.isVisible('[data-testid=add-child]'), 'D7 新建后回到档案页（不自动进游戏）');

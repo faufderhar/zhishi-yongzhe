@@ -37,7 +37,7 @@ button:disabled{opacity:.4}
 .hero-name{font-size:18px;opacity:.8}
 .projectile{position:absolute;left:25%;font-size:60px;animation:fly .6s ease-in forwards}
 @keyframes fly{to{transform:translateX(180px) scale(1.4);opacity:0}}
-.shake{animation:shake .4s}@keyframes shake{25%{transform:translateX(-12px) rotate(-6deg)}75%{transform:translateX(12px) rotate(6deg)}}
+.shake{animation:shake .6s}@keyframes shake{15%{transform:translateX(-18px) rotate(-7deg)}40%{transform:translateX(16px) rotate(6deg)}65%{transform:translateX(-10px) rotate(-3deg)}85%{transform:translateX(6px)}}
 .hit{animation:hit .5s}@keyframes hit{50%{transform:translateX(16px) scale(.9);filter:brightness(2)}}
 .happy{animation:bounce .8s}@keyframes bounce{40%{transform:translateY(-30px) rotate(10deg)}}
 .dmg{position:absolute;font-size:44px;font-weight:900;animation:up 1s forwards}.dmg-m{right:15%;color:#ffd54a}.dmg-p{left:15%;color:#ff6b6b}
@@ -572,8 +572,10 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @keyframes kpop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
 /* 减少动画：点错不摇，改成温和的颜色脉冲（淡橙色描边一闪一闪，≤2 Hz） */
 @keyframes ktint{0%,100%{box-shadow:0 8px 0 #0003}50%{box-shadow:0 0 0 10px #ffb36b99,0 8px 0 #0003}}
-@media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:ktint .5s ease-in-out 2 !important}.kpup-wrap.headshake{animation:none !important}.hearts.smiles .ksmile.pop{animation:none}}
-.reduce-motion .kopt.kwiggle{animation:ktint .5s ease-in-out 2 !important}
+@keyframes kwiggleSoft{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}50%{transform:translateX(12px)}80%{transform:translateX(-6px)}}
+/* r13 小萌新：减少动画时也要看得出点错了——不旋转、不放大，只左右摆 0.6 s，外加橙色光圈 */
+@media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}.kpup-wrap.headshake{animation:none !important}.hearts.smiles .ksmile.pop{animation:none}}
+.reduce-motion .kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}
 .reduce-motion .kpup-wrap.headshake{animation:none !important}
 .chal-none{opacity:.6;font-size:.9em}
 .ios-steps .share-ic{display:inline-flex;align-items:center;gap:4px;color:#0a84ff;vertical-align:middle}
@@ -595,3 +597,5 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r12：等待重设的全屏提示（不闪烁、无动画） */
 .fullscreen-notice { position: fixed; inset: 0; z-index: 1000; background: #1d2440f2; display: flex; align-items: center; justify-content: center; }
 .fullscreen-notice .fs-card { background: #fff; color: #222; border-radius: 20px; padding: 32px 40px; max-width: 640px; text-align: center; }
+/* r13 小萌新：点错的卡片会立刻变灰（dim），摇晃时看起来又短又小——摇晃的 0.6 s 内保持原样，摇完再变灰 */
+.kopt.dim.kwiggle { opacity: 1 !important; filter: none !important; transition: none !important; }

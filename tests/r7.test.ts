@@ -73,10 +73,10 @@ describe('策划 r7：精英 / Boss 选题不抄前面的关', () => {
       const by = new Map(all.map(q => [q.key, q]));
       for (const ch of buildChapters(all)) for (const e of ch.levels.filter(l => l.kind === 'elite')) {
         n++; const before = assignedBefore(ch.levels, e);
-        expect(e.fresh?.length ?? 0).toBeGreaterThanOrEqual(4);
-        for (const k of e.fresh!) expect(before.has(k)).toBe(false);
+        // r13：普通关至少 6 题优先，精英预留可能少于 4 道
+        for (const k of e.fresh ?? []) expect(before.has(k)).toBe(false);
         const pick = elitePool(e.pool.map(k => by.get(k)!), e.fresh, new Set(), new Set(), 6, before);
-        expect(pick.slice(0, 6).filter(q => !before.has(q.key)).length).toBe(6);
+        const nf = Math.min(6, e.pool.filter(k => !before.has(k)).length); expect(pick.slice(0, nf).filter(q => !before.has(q.key)).length).toBe(nf);
       }
     }
     expect(n).toBeGreaterThan(0);
@@ -94,8 +94,8 @@ import { selectQuestions, spreadTemplates } from '../src/game/adaptive';
 describe('题库 v18：150 道多选题', () => {
   const raw = (g: string) => JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8'));
   it('version 字段是字符串 v18，导入转字符串；数字也接受', () => {
-    expect(raw('10').version).toBe('v23');
-    expect(loadBank(raw('10'), 'bank_10.json').version).toBe('v23');
+    expect(raw('10').version).toBe('v24');
+    expect(loadBank(raw('10'), 'bank_10.json').version).toBe('v24');
     expect(loadBank({ ...raw('7'), version: 4 }, 'bank_7.json').version).toBe('4');
   });
   it('真题判分：全对 full、漏选 partial、错选 wrong；漏选半伤害', () => {

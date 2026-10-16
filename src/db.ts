@@ -1,7 +1,7 @@
 /* IndexedDB：kv（设置/档案/进度/时长）、wrong（错题本）、answers（答题记录）、bank（家长导入的题，覆盖内置题） */
 import { openDB, type IDBPDatabase } from 'idb';
 import type { WrongEntry } from './game/wrongbook';
-import { findVault, findRec, writeRec, writeLocal, writeCache, type PinVault } from './game/pinVault';
+import { findVault, findRec, writeRec, writeLocal, writeCache, normCode, type PinVault } from './game/pinVault';
 import { backupVault, mergePin } from './game/backupPin';
 import { verifyPin } from './game/pin';
 export interface AnswerRecord { profileId: string; questionId: string; correct: boolean; at: number; subject?: string }
@@ -116,12 +116,22 @@ export function validateBackup(data: any): { clean: Record<string, unknown[]>; p
   return { clean, preview: { exportedAt: data.exportedAt, profiles: Array.isArray(prof) ? prof.length : 0, kv: clean.kv.length, answers: clean.answers.length, wrong: clean.wrong.length, bank: clean.bank.length, skipped } };
 }
 /** 恢复：先校验，再把当前数据快照存到 localStorage 外的 kv 快照里不现实（会被清空），因此返回当前快照供界面下载；整库在一个事务里写入 */
-export async function importAll(data: any, o: { pin?: string; trusted?: boolean } = {}) {
+export class BackupSecretError extends Error { constructor() { super('备份时的家长密码 / 恢复码不对，没有恢复'); } }
+/** r13 策划：忘了当前密码时，输入「备份时的家长密码」或「备份时的恢复码」也能恢复——恢复后密码变成备份里的密码（错 5 次共用一个 24 小时锁，由界面计） */
+export async function backupSecretOk(data: any, secret: string): Promise<boolean> {
+  const { clean } = validateBackup(data); const bv = backupVault(data, clean.kv as [string, unknown][]); if (!bv || !secret) return false;
+  if (await verifyPin(secret, bv.pinHash)) return true;
+  const c = normCode(secret); return !!bv.recHash && c.length === 8 && await verifyPin(c, bv.recHash);
+}
+export async function importAll(data: any, o: { pin?: string; trusted?: boolean; backupSecret?: string } = {}) {
   const { clean } = validateBackup(data);
   // r12：当前有密码 → 先验证；导入后保留当前密码；没有 → 用备份里的密码。等待中的 24 小时重设不被导入取消
-  const cur = await currentPin();
-  if (cur.vault && !o.trusted && !(o.pin && await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError(o.pin ? '家长密码不对，没有恢复' : undefined);
+  let cur = await currentPin();
+  const viaBackup = !!o.backupSecret && !o.trusted;
+  if (viaBackup) { if (!(await backupSecretOk(data, o.backupSecret!))) throw new BackupSecretError(); cur = { ...cur, vault: null, pinResetDoneAt: undefined }; }
+  else if (cur.vault && !o.trusted && !(o.pin && await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError(o.pin ? '家长密码不对，没有恢复' : undefined);
   const m = mergePin(clean.kv as [string, unknown][], cur, backupVault(data, clean.kv as [string, unknown][])); clean.kv = m.kv;
+  if (viaBackup) clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => k === 'settings' && v && typeof v === 'object' ? [k, { ...(v as object), restoredFromAt: data.exportedAt ?? 'unknown' }] : [k, v]);
   const snapshot = await exportAll();
   const d = await db();
   const tx = d.transaction([...STORES], 'readwrite');

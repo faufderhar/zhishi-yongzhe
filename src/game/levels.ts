@@ -8,7 +8,7 @@ import type { LevelKind } from './grades';
 /** 题库改版后旧关卡 id → 新关卡（按题池重合度生成，见 tools/level_aliases.md）；星级继承 */
 import LEVEL_ALIASES from './levelAliases.json';
 const ALIASES = LEVEL_ALIASES as Record<string, string[]>;
-export interface Level { bossPool?: string[] /* r11：本单元 usage=boss 的题（只在 Boss 关，优先出） */; id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
+export interface Level { lesson?: string /* r13：所属小节（册别|单元原文），重新分关时按「小节 + 第几关」迁移星星 */; ord?: number; bossPool?: string[] /* r11：本单元 usage=boss 的题（只在 Boss 关，优先出） */; id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
 export interface Chapter { subject: string; name: string; icon: string; levels: Level[]; volumes: string[]; count: number }
 export const AREA: Record<string, [string, string]> = {
   数学: ['数之城', '🔢'], 语文: ['墨韵山', '🖌️'], 英语: ['星语港', '🔤'], 诗词: ['诗词江湖', '📜'], 历史: ['时光长廊', '⏳'],
@@ -17,6 +17,17 @@ export const AREA: Record<string, [string, string]> = {
   数数: ['数数小路', '🍎'], 颜色形状: ['彩虹花园', '🌈'], 认识动物: ['动物农场', '🐮'], 生活常识: ['温馨小屋', '🏠'], 儿歌古诗: ['儿歌小河', '🎵'],
 };
 export const CHUNK = 8;
+/** r13 策划：小节分关 = ceil(题数 / 8) 关，题目平均分（12 → 6+6，20 → 7+7+6，13 → 7+6）。
+    旧规则（r12 及以前）：每 8 题一关，最后一段 < 4 题并入前一段——会留下 4–5 题的尾关。旧规则只用来迁移星星。 */
+export function splitLesson<T>(plain: T[], legacy = false): T[][] {
+  if (!plain.length) return [[]];
+  if (legacy) { const ch: T[][] = []; for (let i = 0; i < plain.length; i += CHUNK) ch.push(plain.slice(i, i + CHUNK)); if (ch.length > 1 && ch[ch.length - 1].length < 4) ch[ch.length - 2].push(...ch.pop()!); return ch; }
+  // ceil(n/8) 在 9–11、17 题等情况下会分出 5 题的关，和「≥6 题的小节不出 <6 题的关」冲突：关数再以 floor(n/6) 封顶（至少 1 关）
+  const n = Math.max(1, Math.min(Math.ceil(plain.length / CHUNK), Math.floor(plain.length / 6))), base = Math.floor(plain.length / n), extra = plain.length % n; const out: T[][] = []; let i = 0;
+  for (let k = 0; k < n; k++) { const sz = base + (k < extra ? 1 : 0); out.push(plain.slice(i, i + sz)); i += sz; }
+  return out;
+}
+let LEGACY_SPLIT = false;
 const SUBJECT_ORDER = ['数数', '颜色形状', '认识动物', '生活常识', '儿歌古诗', '数学', '语文', '英语', '诗词', '科学', '历史', '道德与法治', '地理', '政治', '物理', '化学', '生物'];
 
 /** 按「·」分段，但书名号《》里的不算 */
@@ -38,6 +49,11 @@ export function buildChapters(qs0: Question[], volumes: string[] | null = null, 
   const qs = qs0.filter(q => !isBossOnly(q)); const bq = qs0.filter(isBossOnly);
   const build = (qs: Question[]): Chapter[] => ensureBoss(linkShortChinese(buildChapters0(qs, volumes), zeroCnLessons(qs, volumes, all)));
   const chs = build(qs);
+  // r13：分关规则改了（平均分）——旧规则下同一小节第 k 个普通关 / 精英关的 id 记成新关的别名，星星按「小节 + 第几关」继承（只升不降，见 migrateStars / starOf）
+  LEGACY_SPLIT = true; let old: Chapter[] = []; try { old = build(qs); } finally { LEGACY_SPLIT = false; }
+  for (const ch of chs) { const oc = old.find(x => x.subject === ch.subject); if (!oc) continue;
+    const key = (l: Level) => `${l.kind}|${l.lesson}|${l.ord}`; const om = new Map(oc.levels.filter(l => l.lesson != null).map(l => [key(l), l.id]));
+    for (const l of ch.levels) { if (l.lesson == null) continue; const oid = om.get(key(l)); if (oid && oid !== l.id && !(l.aliases ?? []).includes(oid)) l.aliases = [...(l.aliases ?? []), oid]; } }
   if (bq.length) {
     // 单元名按正常建关的方式算：带上 Boss 题再建一次，看它本来会落在哪一关（科目 / 册 / 单元）
     const home = new Map<string, string>(); const bset = new Set(bq.map(q => q.key));
@@ -123,9 +139,7 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
         const chunks: Question[][] = [];
         // r8：多选题属于整个小节：先不参与分段，再加进本小节每个普通关的题池（是否出、出几道由战斗按回合规则定）
         const plain = sb.qs.filter(q => q.type !== '多选');
-        for (let i = 0; i < plain.length; i += CHUNK) chunks.push(plain.slice(i, i + CHUNK));
-        if (!chunks.length) chunks.push([]);
-        if (chunks.length > 1 && chunks[chunks.length - 1].length < 4) chunks[chunks.length - 2].push(...chunks.pop()!);
+        chunks.push(...splitLesson(plain, LEGACY_SPLIT));
         const nm = sb.units.map(u => shortUnit(u) || sb.volume).join(' + ');
         chunks.forEach((c, k) => normals.push({ c, name: chunks.length > 1 ? `${nm} ${k + 1}` : nm, sub: si }));
       }
@@ -134,7 +148,8 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
       for (let k = 0; k + 2 < normals.length; k++) {
         const grp = normals.slice(k, k + 3); if (grp.some(x => x.sub !== grp[0].sub)) continue;
         const first = normals.findIndex(x => x.sub === grp[0].sub); if ((k - first) % 3 !== 0 || k + 2 >= normals.length - 1) continue;
-        for (const x of grp) if (x.c.length >= 6) x.res = x.c.splice(x.c.length - 2, 2);
+        // r13 策划：普通关至少 6 题——每关最多留 2 道给精英，但留完不少于 6 题
+        for (const x of grp) { const r = Math.min(2, x.c.length - 6); if (r > 0) x.res = x.c.splice(x.c.length - r, r); }
       }
       normals.forEach(({ c, name, sub, res }, k) => {
         if (k > 0 && normals[k - 1].sub !== sub) { recent = []; reserved = []; }
@@ -142,11 +157,13 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
         recent.push(c);
         const parts = g.subs[sub].parts;
         const lm = g.subs[sub].qs.filter(q => q.type === '多选'); const c0 = c[0] ?? lm[0];
-        levels.push({ id: `${subject}|N|${c0.key}`, chapter: subject, index: levels.length + 1, kind: 'normal', name, pool: [...c, ...lm].map(q => q.key), ...meta,
+        const lesson = `${g.volume}|${g.subs[sub].units.join('+')}`, ord = normals.slice(0, k).filter(x => x.sub === sub).length;
+        levels.push({ id: `${subject}|N|${c0.key}`, chapter: subject, index: levels.length + 1, kind: 'normal', name, pool: [...c, ...lm].map(q => q.key), ...meta, lesson, ord,
           ...(parts && k === normals.findIndex(x => x.sub === sub) ? { parts: parts.filter(x => x !== `${subject}|N|${c0.key}`), aliases: parts.filter(x => x !== `${subject}|N|${c0.key}`) } : {}) });
         if (recent.length === 3 && k < normals.length - 1) {
           const pool = [...reserved, ...recent.flat()]; const id0 = recent[0][0].key; const fresh = reserved.map(q => q.key); recent = []; reserved = [];
-          levels.push({ id: `${subject}|E|${id0}`, chapter: subject, index: levels.length + 1, kind: 'elite', name: '精英挑战', pool: pool.map(q => q.key), ...meta, ...(fresh.length ? { fresh } : {}) });
+          const eord = levels.filter(x => x.kind === 'elite' && x.lesson === lesson).length;
+          levels.push({ id: `${subject}|E|${id0}`, chapter: subject, index: levels.length + 1, kind: 'elite', name: '精英挑战', pool: pool.map(q => q.key), ...meta, lesson, ord: eord, ...(fresh.length ? { fresh } : {}) });
         }
       });
       if (all.length >= 12) levels.push({ id: `${subject}|B|${all[0].key}`, chapter: subject, index: levels.length + 1, kind: 'boss', name: '章节 Boss', pool: all.map(q => q.key), ...meta,

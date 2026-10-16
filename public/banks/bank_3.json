@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-3年级-v23（AI初审）",
- "version": "v23",
+ "bank_name": "三兄妹题库-3年级-v24（AI初审）",
+ "version": "v24",
  "questions": [
   {
    "id": "M3-001",
@@ -23924,6 +23924,101 @@
    "tags": [
     "诗词",
     "默写填空"
+   ]
+  },
+  {
+   "id": "M3-107",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 3,
+   "textbook": "苏教版2024",
+   "unit": "三下·二 加法数量关系",
+   "type": "填空",
+   "question": "二年级有 36 人，三年级比二年级多 9 人，两个年级一共有多少人？",
+   "answer": [
+    "81"
+   ],
+   "explanation": "先求三年级：36+9=45（人），再求一共：36+45=81（人）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "三年级下册",
+   "knowledge_point": "加法数量关系",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tf77afd",
+   "change_tag": "新增",
+   "tags": [
+    "年月日"
+   ]
+  },
+  {
+   "id": "M3-108",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 3,
+   "textbook": "苏教版2024",
+   "unit": "三下·二 加法数量关系",
+   "type": "填空",
+   "question": "一本故事书 45 元，一本字典比故事书贵 28 元，买这两本书一共要多少元？",
+   "answer": [
+    "118"
+   ],
+   "explanation": "字典：45+28=73（元），一共：45+73=118（元）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "三年级下册",
+   "knowledge_point": "加法数量关系",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T934e1c",
+   "change_tag": "新增",
+   "tags": [
+    "年月日"
+   ]
+  },
+  {
+   "id": "M3-109",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 3,
+   "textbook": "苏教版2024",
+   "unit": "三下·二 加法数量关系",
+   "type": "选择",
+   "question": "图书角有科技书 26 本，故事书比科技书多 15 本。求两种书一共多少本，正确的算式是？",
+   "options": [
+    {
+     "text": "26+(26+15)",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "26+15+15",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "26+26-15",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "26+15",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "先求故事书 26+15=41（本），再加科技书：26+41=67（本）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "三年级下册",
+   "knowledge_point": "加法数量关系",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T7f0d7e",
+   "change_tag": "新增",
+   "tags": [
+    "年月日"
    ]
   }
  ]

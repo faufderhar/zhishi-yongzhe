@@ -15,7 +15,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   return { ctx, pg, w, pinIn };
 }
@@ -183,8 +183,7 @@ if (on('time')) {
 if (on('misc')) {
   const { ctx, pg, w } = await session('5');
   await enterMap(pg, w); await pg.click('[data-testid=level-1]'); await w(800); await tutSkip(pg, w); await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=chal-normal]');
-  await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await w(800);
-  await pg.click('.profile-card:has-text("r9")'); await pg.waitForSelector('[data-testid=level-1], [data-testid=char-confirm]'); if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm])'); await pg.click('[data-testid=char-confirm]'); } await w(800); const it = await pg.textContent('[data-testid=interrupted]').catch(() => '');   // r11：本人地图上提示
+  await pg.reload(); await pg.waitForSelector('[data-testid^=profile-], [data-testid=level-1]'); await w(1500); /* r13：重载后会直接回到地图 */  if (await pg.isVisible('.profile-card')) await pg.click('.profile-card:has-text("r9")'); await pg.waitForSelector('[data-testid=level-1], [data-testid=char-confirm]'); if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm])'); await pg.click('[data-testid=char-confirm]'); } await w(800); const it = await pg.textContent('[data-testid=interrupted]').catch(() => '');   // r11：本人地图上提示
   await pg.goto(URL); await w(800); ok(!/答了 ?0/.test(it) && /没有打完/.test(it) && !/已答的 0/.test(it), `0 题中断提示「${it.trim()}」`);
   await pg.screenshot({ path: OUT + 'r10-interrupted-0.png' });
   let n = 0; pg.on('dialog', d => { n++; d.accept(); });

@@ -16,7 +16,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', opt.name || 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   return { ctx, pg, w, pinIn };
 }
@@ -46,7 +46,7 @@ const skipTut = async (pg, w) => { for (let i = 0; i < 8 && await pg.isVisible('
 import { readFileSync } from 'node:fs';
 if (on('label')) {
   const { ctx, pg, w } = await session('7'); const t = await pg.textContent('[data-testid=version-label]').catch(() => '');
-  ok(/^r12 · 题库v\d+ · /.test(t.trim()), `版本标签（${t.trim()}）`); await ctx.close();
+  ok(/^r1[2-9] · 题库v\d+ · /.test(t.trim()), `版本标签（${t.trim()}）`); await ctx.close();
 }
 if (on('backup')) {
   const { ctx, pg, w, pinIn } = await session('7');

@@ -11,7 +11,7 @@ const w = ms => pg.waitForTimeout(ms);
 const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
 await pg.goto(URL); await pg.waitForSelector('[data-testid=add-child]', { timeout: 30000 }); await w(600);
 await pg.click('[data-testid=add-child]'); await w(300);
-await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
+await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
 await pg.fill('[data-testid=add-name]', 'r3-7'); await pg.click('[data-testid=home-grade-7]'); await w(500);
 await pg.click('text=r3-7'); await w(1200);
 const n = await pg.$$eval('[data-testid^=char-]', e => e.length);

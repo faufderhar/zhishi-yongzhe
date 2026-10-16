@@ -16,7 +16,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', opt.name || 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   return { ctx, pg, w, pinIn };
 }
@@ -105,13 +105,15 @@ if (on('klock')) {
 if (on('resume')) {
   const { ctx, pg, w } = await session('7');
   await enterMap(pg, w); await pg.click('[data-testid=level-1]'); await w(1200); await tutSkip(pg, w); await skipTut(pg, w);
-  await pg.waitForSelector('[data-testid=chal-toggle], [data-testid=chal-none], .quiz', { timeout: 15000 }).catch(() => {}); await pg.reload(); await w(1500);
+  await pg.waitForSelector('[data-testid=chal-toggle], [data-testid=chal-none], .quiz', { timeout: 15000 }).catch(() => {}); await pg.reload(); await w(3000);
+  const t13 = await pg.textContent('[data-testid=interrupted]').catch(() => ''); ok(/没有打完/.test(t13) && /重新开始这一关〕＝/.test(t13), 'r13：战斗中页面被重载 → 直接回到本人的地图并提示「没打完」，写明按钮作用');
+  await pg.goto(URL); await w(2000);   // 重新打开（不是重载）：停在首页
   ok(!(await pg.isVisible('[data-testid=interrupted-home]')) && !(await pg.isVisible('text=上次玩')), '首页不再显示某个孩子的「没打完」');
   await toMapOf(pg, w, '小班宝贝'); ok(!(await pg.isVisible('[data-testid=interrupted]')), '别的孩子的地图上不显示');
   await pg.click('[data-testid=level-1]'); await w(1500); await pg.click('[data-testid=tut-apple]').catch(() => {}); await w(1500);
   ok(!(await pg.isVisible('text=谁来玩')), '小班点练习题：不会跳回「谁来玩？」');
   await pg.goto(URL); await w(1000); await toMapOf(pg, w, 'r9');
-  const t = await pg.textContent('[data-testid=interrupted]').catch(() => ''); ok(/没有打完/.test(t) && /重新开始这一关〕＝/.test(t), `本人进地图才提示，写明按钮作用（${t.slice(0, 60)}…）`);
+  // r13：提示已在重载后自动回到地图时显示过（看过即清），这里不再重复
   await pg.screenshot({ path: OUT + 'r11-interrupted-own.png' }); await ctx.close();
 }
 // 学霸 3：挑战题状态在出选择前定好
@@ -199,7 +201,7 @@ if (on('pin')) {
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; const o = +(sessionStorage.getItem('zyOff') || 0); if (o) { const n = Date.now; Date.now = () => n() + o; } });   // 「关掉过了一天」
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
   await pg.waitForSelector('[data-testid=rec-code]'); const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, '');
   ok(/^[A-HJKMNP-Z2-9]{8}$/.test(code), `设好密码后显示 8 位恢复码（${code}），写明只显示一次`); await pg.screenshot({ path: OUT + 'r11-pin-reccode.png' });
   await pg.click('[data-testid=rec-done]'); await w(300); await pg.fill('[data-testid=add-name]', 'r9'); await pg.click('[data-testid=home-grade-7]'); await w(600);
@@ -236,13 +238,13 @@ if (on('pinrec')) {
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; });
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
   await pg.waitForSelector('[data-testid=rec-code]'); const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await pg.click('[data-testid=rec-done]'); await w(300);
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click('[data-testid=home-grade-7]'); await w(600);
   await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
   await pg.fill('[data-testid=rec-input]', code.toLowerCase().slice(0, 4) + ' ' + code.slice(4)); await pg.click('[data-testid=rec-ok]'); await w(500);
-  ok(await pg.isVisible('text=请爸爸妈妈来设置'), '正确的恢复码（小写、带空格也行）：立即重设，不用等');
-  await pinIn('1357'); await pinIn('1357'); await pg.waitForSelector('[data-testid=hint-answer]'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
+  ok(await pg.isVisible('text=设置新的家长密码'), '正确的恢复码（小写、带空格也行）：立即重设，不用等');
+  await pinIn('1357'); await pinIn('1357'); await pg.waitForSelector('[data-testid=hint-answer]'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
   await pg.waitForSelector('[data-testid=rec-code]'); const c2 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); ok(c2 !== code, '重设后给新的恢复码'); await pg.click('[data-testid=rec-done]'); await w(500);
   ok(await pg.isVisible('[data-testid=parent-close]'), '新密码设好进入家长页'); await ctx.close();
 }

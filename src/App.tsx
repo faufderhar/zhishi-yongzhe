@@ -1,4 +1,4 @@
-import { launchCause } from './swUpdate';
+import { launchCause, markAlive } from './swUpdate';
 import { bonusToday, tickGrace, GRACE_MS } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
 import { tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
@@ -17,7 +17,7 @@ import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, isBossOnly, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
-import { retreatCleared, buildChapters, levelStars, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
+import { starOf, retreatCleared, buildChapters, levelStars, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
@@ -31,6 +31,7 @@ import { RoundBattle } from './ui/RoundBattle';
 import { KinderBattle, StdBattle, FORCE_END, type BattleResult } from './ui/Battle';
 import { ProfileSelect, CharSelect, MapScreen, ResultScreen, WrongBookScreen, ReviewSession } from './ui/Screens';
 import { ParentGate, ParentSettings } from './ui/Parent';
+import { logNav } from './navLog';
 
 type Interrupted = { levelId: string; name: string; pid?: string; upd?: boolean; n?: number; cause?: string };
 type Nav = { pid: string; grade?: GradeKey; s: string; level?: string; name?: string; at: number; bv?: string };
@@ -47,12 +48,20 @@ function writeNav(n: Nav | null) { try { if (n) localStorage.setItem(NAV_KEY, JS
 type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' | 'pick'; pick?: string } | { s: 'parent' }
   | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
-  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; nonce: number }
+  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; nonce: number }
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
+const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新、浏览器重载或崩溃恢复）', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
+const EXIT_TEXT: Record<string, string> = { quit: '刚才在暂停里点了〔回地图〕，还没答题，所以没有结算。', timeup: '今天的游戏时间用完了，关卡已结束。' };
 export default function App() {
-  const [screen, setScreen] = useState<Screen>({ s: 'loading' });
+  const [screen, setScreen0] = useState<Screen>({ s: 'loading' });
+  // r13 学霸：页面跳转日志 zy.navLog（from / to / reason / stack / 时间），只留最近 80 条，用来查「答题中被踢回首页」
+  const screenRef = useRef<Screen>(screen); screenRef.current = screen;
+  const [exitNote, setExitNote] = useState<string>();   // r13：任何「离开关卡 / 回到首页」都在首页 / 地图上写明原因
+  const setScreen = (to: Screen, reason = '') => { const from = screenRef.current.s; logNav(from, to.s, reason || to.s);
+    if ((from === 'battle' || from === 'review') && !['result', 'review-done', 'battle', 'review'].includes(to.s)) setExitNote(EXIT_TEXT[reason] ?? `刚才离开了关卡（${reason || '未知原因'}）`);
+    screenRef.current = to; setScreen0(to); };
   const [loadPct, setLoadPct] = useState(0);
   const [bank, setBank] = useState<BankState | null>(null);
   const [settings, setSettingsState] = useState<Settings>(S.DEFAULT_SETTINGS);
@@ -113,15 +122,18 @@ export default function App() {
       await reloadBank();
       setScreen({ s: 'profiles' });
       // r9：页面被重新加载（新版本刷新、平板清理后台）后回到原来的孩子与地图；战斗中被打断的给出提示，不再静默丢进度
-      const cause0 = launchCause(); if (cause0.kind !== 'navigate') console.info('[zy] 启动原因', cause0);
+      const cause0 = launchCause(); markAlive(); if (cause0.kind !== 'navigate') console.info('[zy] 启动原因', cause0);
       const runs: Record<string, Interrupted> = {};
       for (const x of ps) { const r = readRun(x.id); if (r && Date.now() - r.at < 12 * 3600e3) runs[x.id] = { levelId: r.levelId, name: r.name, pid: x.id, upd: r.bv !== BAL_VER, n: r.n, cause: cause0.kind }; else if (r) writeRun(x.id, null); }
       setInterruptedAll(runs);
+      { const r0 = Object.values(runs)[0];   // 首页不点名（「没打完」详情只给本人，在自己的地图上显示）
+        if (r0) setExitNote(`有一关没有打完就离开了：${CAUSE_TEXT[r0.cause ?? 'navigate']}。点自己的头像进入地图可以看到详情。`); }
       const nav = readNav();
       const pp = nav && ps.find(x => x.id === nav.pid);
       const swReload = (() => { try { const v = sessionStorage.getItem('zy-sw-reload'); sessionStorage.removeItem('zy-sw-reload'); return !!v; } catch { return false; } })();
       if (nav && pp && Date.now() - nav.at < 2 * 3600e3 && nav.s !== 'profiles') {
-        if (swReload) restoreRef.current = { nav, pp };   // 新版本自动刷新：直接回到原来的地图
+        // r13：不只新版本刷新——浏览器回收 / 崩溃重载 / 下拉刷新后（30 分钟内）也直接回到原来的孩子和地图，并在地图上说明原因，不再一声不响停在首页
+        if (swReload || (cause0.kind !== 'navigate' && Date.now() - nav.at < 30 * 60e3) ) restoreRef.current = { nav, pp };
       }
     })();
     const f = () => setPortrait(window.innerHeight > window.innerWidth);
@@ -181,7 +193,7 @@ export default function App() {
   // r12 较真家长：到时前 3 分钟提前提醒（每个孩子每天一次，不闪烁）
   const [warn3, setWarn3] = useState(false); const warned = useRef<string>('');
   useEffect(() => { if (!pid || !Number.isFinite(myRemaining)) return; const k = pid + today; if (myRemaining > 0 && myRemaining <= 180 && warned.current !== k) { warned.current = k; setWarn3(true); } if (myRemaining <= 0) setWarn3(false); }, [myRemaining, pid, today]);
-  useEffect(() => { if (ANSWER_SCREENS.includes(screen.s) && myRemaining <= 0 && !graceOk.current) { setTimeUpNote(true); setScreen({ s: 'map' }); } graceOk.current = false; }, [screen]);
+  useEffect(() => { if (ANSWER_SCREENS.includes(screen.s) && myRemaining <= 0 && !graceOk.current) { setTimeUpNote(true); setScreen({ s: 'map' }, 'timeup'); } graceOk.current = false; }, [screen]);
   const graceOk = useRef(false);
   const overTime = myRemaining <= 0 && ANSWER_SCREENS.includes(screen.s);
   // r11 技术QA R10-1：3 分钟收尾倒计时并进下面的游戏时钟（单调时钟、暂停/后台不走、只有一个计时源），不再用 Date.now + 固定 setTimeout
@@ -235,7 +247,8 @@ export default function App() {
   const pendResumed = useRef(false);
   useEffect(() => {
     if (!settings.pinReset) return;
-    if (!pendResumed.current) { pendResumed.current = true; const st = settingsRef.current; if (st.pinReset) setSettings({ ...st, pinReset: resumePending(st.pinReset, Date.now()) }); return; }
+    // r13 技术QA R12-1：以前第一次执行在这里 return，计时器永远不启动——运行中不累计、时钟跳变也不取消
+    if (!pendResumed.current) { pendResumed.current = true; const st = settingsRef.current; if (st.pinReset) setSettings({ ...st, pinReset: resumePending(st.pinReset, Date.now()) }); }
     let lp = performance.now(), lw = Date.now();
     const f = () => { const st = settingsRef.current; if (!st.pinReset) return; const np = performance.now(), nw = Date.now();
       const r = tickPending(st.pinReset, np - lp, nw - lw, nw); lp = np; lw = nw;
@@ -291,11 +304,23 @@ export default function App() {
     window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop);
   }, []);
   // r9：新版本 SW 已接管——只在安全页面自动刷新，战斗中绝不刷新
-  useEffect(() => { if (updateReady && ['profiles', 'stage', 'grade', 'map'].includes(screen.s) && !restoreRef.current) { try { sessionStorage.setItem('zy-sw-reload', '1'); } catch { /* */ } (updateReady as (sc?: string) => void)(screen.s); } }, [updateReady, screen.s]);
+  // r13 小萌新：只在「安全页面」停稳 2 秒后才刷新——关卡、练习（复习）、结算页、选角色、确认页、加载中都不刷；还有没打完的关卡记录时也不刷
+  const SAFE_RELOAD = ['profiles', 'stage', 'grade', 'map'];
+  useEffect(() => {
+    if (!updateReady || !SAFE_RELOAD.includes(screen.s) || restoreRef.current) return;
+    const t = setTimeout(() => {
+      const sc = screenRef.current.s; if (!SAFE_RELOAD.includes(sc) || restoreRef.current) return;
+      if (pid && readRun(pid) && sc !== 'profiles') return;
+      if (document.querySelector('[data-testid=interrupted]')) return;
+      try { sessionStorage.setItem('zy-sw-reload', '1'); } catch { /* */ } logNav(sc, 'reload', 'sw-update'); (updateReady as (sc?: string) => void)(sc);
+    }, 2000);
+    return () => clearTimeout(t);
+  }, [updateReady, screen.s]);
   // r12（策划）：同一台设备当天换另一个孩子的档案要家长密码（防止换档案躲时长）；家长页可关
   async function pickProfile(pp: Profile, viaPin = false) {
     const lp = (() => { try { return JSON.parse(localStorage.getItem('zy.lastPlayer') ?? 'null') as { pid: string; day: string } | null; } catch { return null; } })();
-    if (!viaPin && settings.pinHash && !settings.switchNoPin && lp && lp.day === today && lp.pid !== pp.id && profiles.some(x => x.id === lp.pid)) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
+    const prevPid = lastPid ?? lp?.pid;   // r13 学霸：每次换档案都要密码（不再只限当天；本次启动内换过的也算），家长页开关可关
+    if (!viaPin && settings.pinHash && !settings.switchNoPin && prevPid && prevPid !== pp.id && profiles.some(x => x.id === prevPid)) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
     try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: pp.id, day: today })); } catch { /* */ }
     setPid(pp.id); setLastPid(pp.id); setChapterIdx(0);
     const [pr, sk, wr, ans] = await Promise.all([S.loadProgress(pp.id), S.loadSkills(pp.id), wrongOf(pp.id), answersOf(pp.id)]);
@@ -311,6 +336,8 @@ export default function App() {
     const p0 = prof ?? profiles.find(x => x.id === pid); if (!p0) return;
     // r9：家长确认在入口处强制（不只靠界面）：非档案年级没经过确认一律先去确认页
     if (needsGate(p0.grade, g) && !gateOk) { setScreen({ s: 'gate-grade', g }); return; }
+    // r13 学霸：同一档案在年级之间来回切换（包括切回档案年级）也要家长密码，除非家长开了「切换不用密码」
+    if (!gateOk && !prof && viewGrade && viewGrade !== g && settings.pinHash && !settings.switchNoPin) { setScreen({ s: 'gate-grade', g }); return; }
     setViewGrade(g); setChapterIdx(0);
     setProfiles(profiles.map(x => x.id === p0.id ? { ...x, lastGrade: g } : x)); try { localStorage.setItem('zy-lastGrade-' + p0.id, g); } catch { /* */ }
     const ch = bandConfig(g).chars === 'scifi' ? SCIFI : PUPS;
@@ -368,16 +395,26 @@ export default function App() {
     const qs = bossOnly.length ? withBossFirst(bossPool(bossOnly, seenKeys, wrongKeys, n), qs0, n) : qs0;
     { const w = window as unknown as { __zyTest?: boolean; __zyForceQ?: string }; if ((__TEST_HOOKS__ && w.__zyTest) && w.__zyForceQ) { const fq = [...byKey.values()].find(q => q.id === w.__zyForceQ); if (fq) qs.unshift(fq); } }   // 仅自动化测试：指定首题
     // 题少的课（语文课文/古诗词不合并）：关内重复本课题，错题优先（策划 r6）
-    if (qs.length < n && pool.length && level.kind === 'normal') { const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
+    // r13 技术QA R12-3：回合制（初一 / 高一 / 小学 full）不再在开局把本课题重复塞满；不够时战斗里先补同单元相邻小节，最后才重复
+    if (cfg.battle !== 'full' && qs.length < n && pool.length && level.kind === 'normal') { const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
     const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind });
     // r8 多选规则：小学/幼儿园一律不出；初一/高一把本关题池里的多选题都放进候选（是否出、出几道由战斗里按回合规则决定，不受难度挑选影响）
-    const qs2 = multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q));
-    const extra2 = multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q));
+    // r13 学霸：同一小节拆成几关（如 2.1-1 / 2.1-2）时多选题两关都在题池里——普通关不再出本机已经出过的多选题（精英 / Boss 仍可出，但排在没见过的后面）
+    const seenMulti = (q: Question) => level.kind === 'normal' && isMultiSel(q) && seenKeys.has(q.key);
+    const qs2 = (multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q));
+    const extra2 = (multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q));
     // r12：挑战题 / 重击卡的「更难一档」本小节没有时，放宽到同单元前序小节（只取前面已学的，不取后面的；Boss 已是整单元）
     const lessonKeys = new Set(level.pool);
     const prior = level.kind === 'boss' ? [] : [...assignedBefore(chapter.levels, level)].filter(k => !lessonKeys.has(k)).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key) && !isBossOnly(q) && (multiBand(cfg.band) || !isMultiSel(q)));
+    // r13 策划：题池用完 → 同单元相邻小节（前面的先），再不够才重复；语文课文 / 古诗词不跨课，只重复
+    const noCross = level.kind === 'boss' || ['语文', '诗词'].includes(chapter.subject);
+    const mf = (q: Question) => q && playableKeys.has(q.key) && !isBossOnly(q) && !lessonKeys.has(q.key) && (multiBand(cfg.band) || !isMultiSel(q)) && !seenMulti(q);
+    const adjGroups: Question[][] = noCross ? [] : (() => { const all = chapter.levels, idx = all.findIndex(l => l.id === level.id);
+      const ls = levelsOfUnit(all, level).filter(l => l.kind === 'normal' && l.id !== level.id && !l.redirect);
+      const before = ls.filter(l => all.indexOf(l) < idx).reverse(), after = ls.filter(l => all.indexOf(l) > idx);
+      return [...before, ...after].map(l => l.pool.map(k => byKey.get(k)!).filter(mf)).filter(g => g.length); })();
     masteredThisLevel.current = 0; setInterrupted(null);
-    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, reserve: multiBand(cfg.band) ? fallback0 : fallback0.filter(q => !isMultiSel(q)), nonce: Date.now() });
+    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, reserve: (multiBand(cfg.band) ? fallback0 : fallback0.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adjGroups, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;
@@ -388,7 +425,9 @@ export default function App() {
     if (myRemaining <= 0 && !r.win && !r.quit) r = { ...r, timeUp: r.timeUp || r.correct === 0 };
     if (r.retreat && !retreatCleared(r)) r = { ...r, win: false };   // r12：撤退 < 40% 不算通关、不得星
     const stars = levelStars(r);   // 裁定 1：撤退最多 ★、时间到 0★；小班 correct = 第一次答对
-    const gain = played >= 2 ? 0 : stars;
+    // r13 小萌新：同关当天第 3 次起不再加星（D3），但这一关还没有星星时照样记上——以前前两次没打赢、第 3 次 1★ 结算页显示 1★，地图却 0★、Boss 不解锁
+    const prevBest = starOf(level, progress.stars);
+    const gain = played >= 2 && prevBest > 0 ? 0 : stars;
     const mastered = masteredThisLevel.current;
     // r12 小萌新：先落盘（星星、进度、清掉「没打完」记录）再显示结算页——结算页停多久、页面被关/刷新都不丢星
     const pr = progress;
@@ -410,6 +449,7 @@ export default function App() {
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
       {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
       {updateReady && ['profiles', 'map'].includes(screen.s) && <button className="sys-bar" data-testid="update-ready" onClick={() => updateReady()}>✨ 有新版本，点这里更新（不会丢进度）</button>}
+      {exitNote && (screen.s === 'profiles' || (screen.s === 'map' && !interrupted)) && <div className="sys-bar warn-bar" data-testid="exit-note" onClick={() => setExitNote(undefined)}>ℹ️ {exitNote}（点此关闭）</div>}
       {interrupted && screen.s === 'map' && interrupted.pid === pid && <div className="sys-bar warn-bar" data-testid="interrupted">上次玩「{interrupted.name}」没有打完：{interrupted.cause === 'discarded' ? '浏览器为了省内存把页面回收了（不是游戏自己退出的）' : interrupted.cause === 'sw' ? '游戏在更新版本时刷新了' : interrupted.cause === 'reload' ? '页面被重新加载了（下拉刷新、浏览器重载或崩溃恢复）' : '答题中途游戏被关掉了（平板把切到后台的游戏关掉）'}。{interrupted.n ? `已答的 ${interrupted.n} 道题记进了学习记录和错题本，` : ''}这一关的星星没有算。点〔重新开始这一关〕＝马上从第 1 题重新打；点〔知道了〕＝关掉这条提示，留在地图。
         <button className="chip" data-testid="interrupted-again" onClick={() => { const l = chapters.flatMap(c => c.levels).find(x => x.id === interrupted.levelId); setInterrupted(null); if (l) startLevel(l); }}>重新开始这一关</button>
         <button className="chip" onClick={() => setInterrupted(null)}>知道了</button></div>}
@@ -429,7 +469,7 @@ export default function App() {
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
         onAdd={p => { setProfiles([...profiles, p]); setScreen({ s: 'profiles' }); }} />}
       {screen.s === 'gate' && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
-        onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
+        onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => { if (screen.next === 'pick') { const pp = profiles.find(x => x.id === screen.pick); if (pp) { void pickProfile(pp, true); return; } } setScreen(screen.next === 'add' ? { s: 'profiles', adding: true } : { s: 'parent' }); }} onCancel={() => setScreen({ s: 'profiles' })} />}
@@ -440,8 +480,8 @@ export default function App() {
       {screen.s === 'stage' && p0 && <StagePick current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onPick={st => setScreen({ s: 'grade', stage: st })} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }} />}
       {screen.s === 'grade' && p0 && <GradePick stage={screen.stage} current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onBack={() => setScreen({ s: 'stage' })}
         onPick={g => enterGrade(g)} />}
-      {screen.s === 'gate-grade' && p0 && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={`去${GRADE_LABEL[screen.g]}需要家长确认（${p0.name}的档案是${GRADE_LABEL[p0.grade]}）`}
-        onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
+      {screen.s === 'gate-grade' && p0 && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.g === p0.grade ? `切换年级需要家长确认（回到${GRADE_LABEL[p0.grade]}）` : `去${GRADE_LABEL[screen.g]}需要家长确认（${p0.name}的档案是${GRADE_LABEL[p0.grade]}）`}
+        onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => enterGrade(screen.g, true)} onCancel={() => setScreen({ s: 'grade', stage: stageOf(screen.g) })} />}
@@ -454,14 +494,14 @@ export default function App() {
         : <StdTutorial cfg={cfg} onDone={finishTutorial} onlyCard3={onlyCard3} />)}
       {screen.s === 'battle' && cfg && char && !needTutorial && (cfg.battle === 'kinder'
         ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
-            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} />
+            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
-        ? <RoundBattle seen={seenKeys} prior={screen.prior} reserve={screen.reserve} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
+        ? <RoundBattle seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => setProfilesState(ps => { const nx = ps.map(x => x.id === pid ? { ...x, tips: { ...x.tips, [k]: true } } : x); S.saveProfiles(nx); return nx; })}
-            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />
+            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
-            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />)}
+            onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />)}
       {screen.s === 'result' && cfg && char && <ResultScreen half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}

@@ -15,7 +15,7 @@ describe('时长限制：所有答题入口', () => {
     for (const s of rendering) expect(answerScreens).toContain(s);
   });
   it('进入答题界面统一检查剩余时间，用完回地图并提示', () => {
-    expect(app).toMatch(/ANSWER_SCREENS\.includes\(screen\.s\) && myRemaining <= 0[^\n]*setScreen\(\{ s: 'map' \}\)/);
+    expect(app).toMatch(/ANSWER_SCREENS\.includes\(screen\.s\) && myRemaining <= 0[^\n]*setScreen\(\{ s: 'map' \}(, 'timeup')?\)/);
   });
   it('错题本 / 今日复习走 startReview，也先检查时间', () => {
     expect(app).toMatch(/const startReview = [^\n]*myRemaining <= 0/);

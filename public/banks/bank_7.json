@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初一-v23（AI初审）",
- "version": "v23",
+ "bank_name": "三兄妹题库-初一-v24（AI初审）",
+ "version": "v24",
  "questions": [
   {
    "id": "M7-001",
@@ -44966,6 +44966,51 @@
    "change_tag": "新增",
    "tags": [
     "犯罪"
+   ]
+  },
+  {
+   "id": "Y7-094",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 7,
+   "textbook": "统编版2024",
+   "unit": "七上·基础积累（字词·病句）",
+   "type": "选择",
+   "question": "下列句子中，成语使用不恰当的是？",
+   "options": [
+    {
+     "text": "他做事总是半途而废，结果一事无成",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "他在会上夸夸其谈，赢得了大家的一致好评",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春天的公园里百花齐放，美不胜收",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "这位老教授德高望重，深受学生爱戴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“夸夸其谈”指浮夸空泛地大发议论，是贬义词，与“赢得好评”矛盾。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "七年级上册",
+   "knowledge_point": "病句）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "template": "T302c3b",
+   "change_tag": "新增",
+   "tags": [
+    "字形"
    ]
   }
  ]

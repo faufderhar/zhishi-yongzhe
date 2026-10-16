@@ -14,8 +14,10 @@ export async function verifyPin(pin: string, stored?: string): Promise<boolean> 
   if (k === 'f1' && h) return hashPin(pin, salt) === h;
   return hashPin(pin) === stored;   // 旧格式
 }
-export const HINT_QUESTIONS = ['孩子的小名是？', '家里宠物/玩偶的名字是？', '孩子的生日（如 0612）是？'];
-export const normAnswer = (s: string) => s.replace(/\s+/g, '').toLowerCase();
+// r13 策划：只给孩子不太可能知道答案的问题；不预选；另可「自己写问题」
+export const HINT_QUESTIONS = ['你初中班主任姓什么？', '你第一台手机的牌子？', '你小学最好的朋友叫什么？', '你第一份工作的公司名？', '你小时候住的街道名？'];
+/** r13 策划：答案不分大小写、空格、全角半角（NFKC）；旧答案由 answerVariants 兼容 */
+export const normAnswer = (s: string) => s.normalize('NFKC').replace(/\s+/g, '').toLowerCase();
 
 /** 锁定：连续错 5 次 → 60 秒；再 5 次 → 5 分钟；之后每 5 次 → 15 分钟；对一次清零。localStorage + IndexedDB 双份。
     倒计时只按 performance.now()（单调时钟）的实际流逝扣减 remain，调系统时间无效（技术QA R4-4）；
@@ -25,6 +27,7 @@ const LK = 'zy.pinLock';
 /** r9：找回问题单独计错、单独锁定（以前和密码共用一个倒计时） */
 export const LK_HINT = 'zy.hintLock';
 export const LK_REC = 'zy.recLock';
+export const LK_IMPORT = 'zy.importLock';   // r13：导入备份时「备份密码 / 恢复码」共用的锁
 /** r12（策划）：找回问题、恢复码各自连错 5 次 → 锁 24 小时。按单调时钟扣（关掉期间：墙钟往前走的部分才算，往回调不算），刷新不清零 */
 export const LONG_LOCK_MS = 24 * 3600e3;
 export function nextLock24(s: LockState, ok: boolean, now: number): LockState {
@@ -34,9 +37,11 @@ export function nextLock24(s: LockState, ok: boolean, now: number): LockState {
   return { fails: 0, level: s.level + 1, until: now + LONG_LOCK_MS, remain: LONG_LOCK_MS, seenAt: now, long: true };
 }
 /** 重新打开时：长锁按「上次看到之后墙钟前进的时间」扣（回拨不扣，前跳最多扣到 until） */
+export const LOCK_GAP_CAP_MS = 8 * 3600e3;
 export function resumeLong(s: LockState, now: number): LockState {
   if (!s.long || !s.remain || !s.seenAt) return s;
-  const gone = now > s.seenAt ? Math.min(now - s.seenAt, Math.max(0, s.until - s.seenAt)) : 0;
+  // r13 技术QA R12-2：关闭期间最多算 8 小时（和延时重设同一规则），关掉 → 调快 24 小时 → 再打开 不能直接解锁
+  const gone = now > s.seenAt ? Math.min(now - s.seenAt, LOCK_GAP_CAP_MS, Math.max(0, s.until - s.seenAt)) : 0;
   return { ...s, remain: Math.max(0, s.remain - gone), seenAt: Math.max(now, s.seenAt) };
 }
 export const LOCK_STEPS = [60e3, 5 * 60e3, 15 * 60e3];

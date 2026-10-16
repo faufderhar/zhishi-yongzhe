@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-4年级-v23（AI初审）",
- "version": "v23",
+ "bank_name": "三兄妹题库-4年级-v24（AI初审）",
+ "version": "v24",
  "questions": [
   {
    "id": "M4-001",
@@ -24723,6 +24723,51 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T55a34e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-240",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·天窗",
+   "type": "选择",
+   "question": "《天窗》中，孩子们从小小的天窗看到“一粒星，一朵云”，会想象到什么？",
+   "options": [
+    {
+     "text": "明天要上的课",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无数闪闪烁烁可爱的星和奇幻的云彩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "屋外的大树和小河",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "妈妈在厨房做饭",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：想象到无数闪闪烁烁可爱的星，无数像山似的，马似的，巨人似的，奇幻的云彩。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "天窗",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tddddb5",
    "change_tag": "新增",
    "tags": [
     "语文"

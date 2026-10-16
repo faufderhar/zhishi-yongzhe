@@ -232,6 +232,7 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         {forcedTimeUp && <p className="hint">本关不算通关、不得星；已答对的题照常算经验。</p>}
       </>}
       <Stars n={stars} size={72} />
+      {best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
       {best !== undefined && best > stars && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>
       {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}

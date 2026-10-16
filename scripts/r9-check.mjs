@@ -17,7 +17,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   return { ctx, pg, w, pinIn };
 }
@@ -124,7 +124,7 @@ if (on('k')) {
   const wrong1 = await pg.$('[data-testid^=opt-][data-correct="0"]'); const wk = await wrong1.getAttribute('data-testid'); await wrong1.click(); await w(120);
   const pupCls = await pg.getAttribute('[data-testid=kpup]', 'class'); const wcls = await pg.getAttribute(`[data-testid=${wk}]`, 'class'); const s3 = await said(pg);
   ok(/headshake/.test(pupCls) && /kwiggle/.test(wcls) && s3.includes('嗯～再想想'), `小班点错：伙伴摇头、卡片轻摇、朗读（${s3}）`);
-  await pg.screenshot({ path: OUT + 'r9-k-wrong-feedback.png' }); await w(900);
+  await pg.screenshot({ path: OUT + 'r9-k-wrong-feedback.png' }); await w(1700);   // r13：摇晃的 0.6 s 内不变灰，摇完再淡出
   const vis = await pg.$eval(`[data-testid=${wk}]`, e => { const c = getComputedStyle(e); return { o: +c.opacity, v: c.visibility }; });
   ok(vis.v === 'visible' && vis.o > 0.3 && vis.o < 0.7, `点错的卡还在、变暗（opacity ${vis.o}）`);
   // 第二次再错 → 自动给答案：「我来帮你看看！」+ 正确项柔和高亮
@@ -182,8 +182,7 @@ if (on('parent')) {
 if (on('resume')) {
   const { ctx, pg, w } = await session('5');
   await enterMap(pg, w); await pg.click('[data-testid=level-1]'); await w(800); await tutSkip(pg, w); await pg.waitForSelector('.quiz .opt, .keypad'); await answer(pg, true); await w(1500);
-  await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await w(800);
-  await pg.click('.profile-card:has-text("r9")'); for (let i = 0; i < 20 && !(await pg.isVisible('[data-testid=level-1]')); i++) { for (const sel of ['[data-testid=stage-pick] .stage-btn.on', '[data-testid=grade-pick] .stage-btn.on', '[data-testid=char-confirm]']) if (await pg.isVisible(sel)) await pg.click(sel).catch(() => {}); await w(400); }   // r11：提示只给本人，进他的地图才显示
+  await pg.reload(); await pg.waitForSelector('[data-testid^=profile-], [data-testid=level-1]'); await w(1500); /* r13：重载后会直接回到地图 */  if (await pg.isVisible('.profile-card')) await pg.click('.profile-card:has-text("r9")'); for (let i = 0; i < 20 && !(await pg.isVisible('[data-testid=level-1]')); i++) { for (const sel of ['[data-testid=stage-pick] .stage-btn.on', '[data-testid=grade-pick] .stage-btn.on', '[data-testid=char-confirm]']) if (await pg.isVisible(sel)) await pg.click(sel).catch(() => {}); await w(400); }   // r11：提示只给本人，进他的地图才显示
   ok(await pg.isVisible('[data-testid=interrupted]'), '战斗中被刷新/关掉：本人地图提示「没打完」，不静默丢');
   await pg.screenshot({ path: OUT + 'r9-interrupted.png' });
   await pg.click('[data-testid=interrupted-again]'); await w(1500);

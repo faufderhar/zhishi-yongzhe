@@ -12,6 +12,7 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
   tutorialReplay?: Record<string, boolean>;
   recPrompted?: boolean                            // r12：升级前设的密码：已提示过生成恢复码
+  restoredFromAt?: string                          // r13：用备份密码 / 恢复码恢复后，家长页提示「已从X月X日的备份恢复」
   switchNoPin?: boolean                            // r12：切换档案不用密码（默认关）
   pinRec?: string                                  // r11：恢复码哈希
   pinReset?: PendingReset                          // r11：等待生效的密码重设（24 小时）

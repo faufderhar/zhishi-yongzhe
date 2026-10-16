@@ -9,13 +9,16 @@ export const UPDATE_READY = 'zy-update-ready';
 export const RELOAD_LOG = 'zy.reloadLog';
 export function logReload(reason: string, screen?: string) { try { const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); a.push({ reason, screen, at: Date.now() }); localStorage.setItem(RELOAD_LOG, JSON.stringify(a.slice(-20))); } catch { /* */ } }
 /** 启动时判断这次加载是怎么来的 */
+export const markAlive = () => { try { sessionStorage.setItem('zy-alive', '1'); } catch { /* */ } };
 export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'navigate'; detail?: string } {
   try {
     const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); const last = a[a.length - 1];
     if ((document as unknown as { wasDiscarded?: boolean }).wasDiscarded) return { kind: 'discarded' };
     const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
     if (last && Date.now() - last.at < 15e3) return { kind: 'sw', detail: last.reason };
-    return { kind: nav?.type === 'reload' ? 'reload' : 'navigate' };
+    // r13：有些环境（SW 接管 / 部分安卓 WebView）拿不到 navigation 条目；同一个标签页里的重载 sessionStorage 还在，用它补判
+    const alive = (() => { try { return sessionStorage.getItem('zy-alive') === '1'; } catch { return false; } })();
+    return { kind: nav?.type === 'reload' || (nav?.type !== 'navigate' && alive) ? 'reload' : 'navigate' };
   } catch { return { kind: 'navigate' }; }
 }
 let pending = false;

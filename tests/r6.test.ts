@@ -80,13 +80,12 @@ describe('裁定 3 怪物池', () => {
   });
 });
 describe('裁定 4 难度回落', () => {
-  it('r12：连错 2 降 1 档（一次 1 档，最低 1），连对 2 升 1 档（最高 5）', () => {
+  it('r12：连错 2 降 1 档（一次 1 档，最低 1），连对 2 升 1 档（r13 上限 min(目标+1,3)）', () => {
     let t = newTier(3); t = nextTier(t, false); expect(isConsolidating(t)).toBe(false);
     t = nextTier(t, false); expect(t.tier).toBe(2); t = nextTier(t, false); expect(t.tier).toBe(2); t = nextTier(t, false); expect(t.tier).toBe(1);
     t = nextTier(t, false); t = nextTier(t, false); expect(t.tier).toBe(1);
     t = nextTier(t, true); expect(t.tier).toBe(1); t = nextTier(t, true); expect(t.tier).toBe(2); t = nextTier(t, true); t = nextTier(t, true); expect(t.tier).toBe(3);
-    t = nextTier(t, true); t = nextTier(t, true); expect(t.tier).toBe(4); expect(isConsolidating(t)).toBe(false);
-    let u = newTier(5); u = nextTier(u, true); u = nextTier(u, true); expect(u.tier).toBe(5);
+    t = nextTier(t, true); t = nextTier(t, true); expect(t.tier).toBe(3); expect(isConsolidating(t)).toBe(false);   // r13：上限 min(目标+1, 3)
   });
   it('降档时取 tier 档，不低于 tier；只在初一/高一显示「巩固题」', () => {
     const t = { base: 3, tier: 2, right: 0, wrong: 0 };

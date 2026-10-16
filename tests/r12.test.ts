@@ -54,7 +54,7 @@ describe('r12 密码找回', () => {
     s = nextLock24(s, false, 1000); expect(s.remain).toBe(LONG_LOCK_MS);
     expect(resumeLong(s, 1000 + 3600e3).remain).toBe(LONG_LOCK_MS - 3600e3);
     expect(resumeLong(s, 0).remain).toBe(LONG_LOCK_MS);
-    expect(resumeLong(s, 1000 + 99 * 3600e3).remain).toBe(0);
+    expect(resumeLong(s, 1000 + 99 * 3600e3).remain).toBe(LONG_LOCK_MS - 8 * 3600e3);   // r13 R12-2：关闭期间最多算 8 小时
   });
   it('迁移：r11 之前设的找回问题答案（r10 格式）仍然认', async () => {
     const r10 = { pinHash: await makePinHash('2468'), pinHint: { q: '孩子的小名是？', a: await makePinHash(normAnswer('测试小名')) } };
@@ -86,5 +86,17 @@ describe('r12 技术QA R11-1：改系统时间拿不到家长权限', () => {
   it('往回调不补时间', () => { const p = resumePending(newPending(t0), t0 - 5 * 3600e3); expect(p.observed ?? 0).toBe(0); });
   it('就算真的到期也只是「到期」，仍要找回问题或恢复码（pendingDue 不会清密码）', () => {
     let p: any = newPending(t0); for (let i = 0; i < 9; i++) p = resumePending(p, (p.lastWall ?? t0) + GAP_CAP_MS); expect(pendingDue(p)).toBe(true);
+  });
+});
+import { newTier, nextTier, tierCap } from '../src/game/consolidate';
+describe('r13 自适应上限 min(目标+1, 3)', () => {
+  const up = (t: any, n: number) => { for (let i = 0; i < n; i++) t = nextTier(t, true); return t; };
+  it('目标 1 → 最高 2；目标 2/3/4 → 最高 3；目标 4 起步就是 3', () => {
+    expect(up(newTier(1), 20).tier).toBe(2); expect(up(newTier(2), 20).tier).toBe(3); expect(up(newTier(3), 20).tier).toBe(3);
+    expect(newTier(4).tier).toBe(3); expect(up(newTier(4), 20).tier).toBe(3); expect(tierCap(4)).toBe(3);
+  });
+  it('下限不变：最低 1', () => { let t: any = newTier(3); for (let i = 0; i < 20; i++) t = nextTier(t, false); expect(t.tier).toBe(1); });
+  it('4 档只能来自挑战 / 重击（当前档 +1）', () => {
+    const t = up(newTier(3), 20); expect(pickHarder({ cur: t.tier, lesson: [Q('a', 3), Q('b', 4)], prior: [], used: [] })!.q.difficulty).toBe(4);
   });
 });
