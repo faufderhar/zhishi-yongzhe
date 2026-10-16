@@ -118,7 +118,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
 
   /** 取下一题：对方回合排除多步题；高一对方回合出标准难度（不选卡） */
   // 关内难度回落（裁定 4）：连错 2 题降 1 档，降档后连对 2 题恢复
-  const chalKeys = useRef(new Set<string>()); const [tierNow, setTierNow] = useState(0);
+  const chalKeys = useRef(new Set<string>()); const repCount = useRef(new Map<string, number>()); const [tierNow, setTierNow] = useState(0);
   const tierTrace = useRef<{ d: number; ok: boolean; extra: boolean; before: number; after: number }[]>([]);
   const tierRef = useRef<Tier>(newTier(Math.round(questions.reduce((a, q) => a + q.difficulty, 0) / Math.max(1, questions.length)) || 2));
   const [consol, setConsol] = useState(false);
@@ -152,7 +152,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     if (!pool.current.length) {   // 本关题不够撑满回合上限：重复使用已答过的题（错题优先）
       // r12 学霸：先补本关（Boss 为整单元）里本局还没出过的题（按题号 + 题干去重）；真的全部出过才重复，并记日志
       // r13 技术QA R12-3 / 策划：本关出完 → 同单元相邻小节（前面的先）→ 都出完才重复 1 道；不再清空「本局出过」
-      const r = refill(used.current, reserve ?? [], adj ?? [], new Set(stats.current.wrong), chalKeys.current); pool.current = r.pool; used.current = r.used;
+      const r = refill(used.current, reserve ?? [], adj ?? [], new Set(stats.current.wrong), chalKeys.current, repCount.current); pool.current = r.pool; used.current = r.used;
       const w = window as unknown as { __zyAdj?: number; __zyRepeats?: number };
       if (r.kind === 'adj') { w.__zyAdj = (w.__zyAdj ?? 0) + 1; console.info('[zy] 本关题池出完，补同单元相邻小节', r.pool.length); }
       if (r.kind === 'repeat') { w.__zyRepeats = (w.__zyRepeats ?? 0) + 1; console.warn('[zy] 本关和相邻小节都出完了，开始重复', used.current.length); }

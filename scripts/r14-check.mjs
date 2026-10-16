@@ -206,4 +206,14 @@ if (on('tabs')) {
   const body = await pg.textContent('body'); ok(!body.includes('游戏在更新版本时刷新了'), '覆盖恢复后的重开不再说「游戏在更新版本时刷新了」');
   await ctx.close();
 }
+// 技术QA R14-2：手机竖屏题目和输入在第一屏
+if (on('phone')) {
+  for (const vp of [{ width: 375, height: 667 }, { width: 414, height: 896 }]) {
+    const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
+    await pg.click('[data-testid=level-1]'); await w(900); await tutSkip(pg, w); await skipTut(pg, w);
+    for (let i = 0; i < 3 && !(await pg.isVisible('.qtext')); i++) { await pg.click('[data-testid=chal-normal]').catch(() => {}); await w(500); }
+    const bb = await (await pg.$('.qtext'))?.boundingBox(); const ib = await (await pg.$(".quiz .qtext + *"))?.boundingBox(); ok(bb && ib && ib.y + 30 <= vp.height, `${vp.width}×${vp.height}：题目和输入在第一屏（输入 y=${Math.round(ib?.y ?? -1)}）（y=${Math.round(bb?.y ?? -1)}）`);
+    await pg.screenshot({ path: OUT + `phone-${vp.width}.png` }); await ctx.close();
+  }
+}
 console.log(bad ? `r14 FAIL ${bad}` : 'r14 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

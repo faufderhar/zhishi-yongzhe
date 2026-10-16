@@ -145,3 +145,12 @@ describe('r14.1 加时 / 时钟', () => {
     const c = checkClock({ maxSeen: now - 1000, locked: false }, now); expect(c.locked).toBe(false);
   });
 });
+describe('r14.1 R14-1：题出完后的重复轮换', () => {
+  it('唯一的错题不会被一遍遍重复；不连续出同一道', () => {
+    const qs = 'abcdef'.split('').map(k => ({ key: k, difficulty: 2, question: 'q' + k })) as any[];
+    let used = [...qs]; const reps = new Map<string, number>(); const seq: string[] = [];
+    for (let i = 0; i < 12; i++) { const r = rf14(used, [], [], new Set(['c']), new Set(), reps); const q = r.pool[0]; seq.push(q.key); used = [...r.used, q]; }
+    const cnt = seq.reduce((m, k) => ({ ...m, [k]: (m[k] ?? 0) + 1 }), {} as Record<string, number>);
+    expect(Math.max(...Object.values(cnt))).toBeLessThanOrEqual(2); for (let i = 1; i < seq.length; i++) expect(seq[i]).not.toBe(seq[i - 1]);
+  });
+});
