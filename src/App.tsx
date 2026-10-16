@@ -496,7 +496,7 @@ export default function App() {
     const dueKeys = new Set(due.map(q => q.key));
     // r15 策划：复习题前 2 题不出、之后每 4 题最多 1 道；幼儿园–二年级同一道题不连着出
     const qs1 = spaceReviews((multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), q => dueKeys.has(q.key));
-    const qs2 = ['K', 'G1'].includes(cfg.band) && new Set(qs1.map(q => q.key)).size > 1 ? noAdjacent(qs1) : qs1;
+    const qs2 = ['K', 'G1', 'G2'].includes(cfg.band) && new Set(qs1.map(q => q.key)).size > 1 ? noAdjacent(qs1) : qs1;
     const extra2 = (multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q));
     // r12：挑战题 / 重击卡的「更难一档」本小节没有时，放宽到同单元前序小节（只取前面已学的，不取后面的；Boss 已是整单元）
     const lessonKeys = new Set(level.pool);

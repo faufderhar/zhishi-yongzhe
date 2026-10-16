@@ -667,7 +667,14 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15 R141-4：矮手机竖屏（如 375×667）——意图长说明收起（点「要开盾 ⓘ」仍可看），战斗区再矮一点，键盘留在第一屏 */
 @media (orientation:portrait) and (max-height:740px){
   .battle.rounds .intent-now{display:none}
-  .battle.rounds{grid-template-rows:auto auto 25% 1fr !important}
+  .battle.rounds{grid-template-rows:auto auto 21% 1fr !important}
+  /* r15.1 技术QA R15-3：最后一排键（z–m / 空格 退格 确定；- 0 . 确定）也在第一屏 */
+  .battle .keypad button,.battle .keypad .k{height:40px !important;min-height:40px !important}
+  .battle .keypad.num3 .kp-side .ok{min-height:80px}
+  .battle .keypad{gap:4px !important}
+  .battle .quiz{padding-top:4px !important;padding-bottom:4px !important}
+  .battle .qtext{font-size:20px;margin:2px 0 !important}
+  .battle .q-img{max-height:14vh}
   .battle.rounds .quiz .speak-btn,.battle.rounds .quiz [aria-label*=朗读]{transform:scale(.8)}
   .battle.rounds .arena .stage{min-height:110px;height:calc(30dvh - 120px) !important}
   .battle.rounds .qmeta{font-size:12px;margin:2px 0}

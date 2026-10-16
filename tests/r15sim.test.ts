@@ -61,3 +61,29 @@ describe('r15 小萌新：K–2 同题干变体也不连着出', () => {
     expect(r.length).toBe(5);
   });
 });
+
+describe('r15.1 小萌新：K–2 全部课时，规范化题干不连着出', () => {
+  it('所有课时随机 30 次', async () => {
+    const fs = await import('node:fs');
+    const { noAdjacent, stemOf } = await import('../src/game/adaptive');
+    let lessons = 0, bad: string[] = [];
+    for (const f of ['bank_K1', 'bank_1', 'bank_2']) {
+      const qs = JSON.parse(fs.readFileSync(`public/banks/${f}.json`, 'utf8')).questions as { id: string; unit: string; question: string }[];
+      const by = new Map<string, { key: string; question: string }[]>();
+      for (const q of qs) { const k = q.unit; by.set(k, [...(by.get(k) ?? []), { key: q.id, question: q.question }]); }
+      for (const [u, list] of by) { lessons++;
+        const cnt = new Map<string, number>(); list.forEach(x => cnt.set(stemOf(x), (cnt.get(stemOf(x)) ?? 0) + 1));
+        for (let r = 0; r < 30; r++) {
+          const n = Math.min(list.length, 8); const pick = [...list].sort(() => Math.random() - .5).slice(0, n);
+          const c2 = new Map<string, number>(); pick.forEach(x => c2.set(stemOf(x), (c2.get(stemOf(x)) ?? 0) + 1));
+          if (Math.max(...c2.values()) > Math.ceil(n / 2)) continue;   // 数学上不可能
+          const o = noAdjacent(pick);
+          for (let i = 1; i < o.length; i++) if (stemOf(o[i]) === stemOf(o[i - 1])) { bad.push(`${f} ${u}: ${o[i].question}`); break; }
+        }
+      }
+    }
+    expect(lessons).toBeGreaterThan(20);
+    expect(bad.slice(0, 5)).toEqual([]);
+    expect(stemOf({ key: 'a', question: '数一数，有几个气球？🎈🎈' })).toBe(stemOf({ key: 'b', question: '数一数，有几个气球？🎈🎈🎈🎈🎈' }));
+  });
+});

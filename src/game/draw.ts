@@ -1,3 +1,4 @@
+import { stemOf } from './adaptive';
 /* r11 学霸：一局内取题（我方 / 对方回合、挑战题、多选保底、难度回落都走这里）。
    1) 一局内不重复：按题号去重，并按题干（去空白/公式符号）去重；只有本关题池全部出过才重复。
    2) 难度回落时：在所有没出过的题里优先 ≤ 当前档（最接近的低档），不再因为「精选题 / 关外没见过」的分组先挑到更难的。
@@ -41,7 +42,7 @@ export function refill<T extends Q>(used: T[], reserve: T[], adj: T[][], wrong: 
   // r14.1 技术QA R14-1：以前错题优先 + 重复后又排回队尾——唯一的那道错题会被一遍遍重复（一题出 4 次）。现在先挑重复次数最少的，再错题优先，再最早出的
   // r15 策划：重复时每道题一局最多出 2 次（首次 + 1 次重复）；以前答错的先重复；都出满 2 次 → kind 'none'（怪物提前撤退）
   const last = used[used.length - 1]; const cand0 = used.filter(x => !noRepeat.has(x.key) && (reps.get(x.key) ?? 0) < REPEAT_CAP - 1);
-  const lastStem = last ? ((last as { question?: string }).question ?? '').trim() || last.key : ''; const cand1 = cand0.filter(x => x !== last && (((x as { question?: string }).question ?? '').trim() || x.key) !== lastStem); const cand = cand1.length ? cand1 : cand0.length > 1 ? cand0.filter(x => x !== last) : cand0;   /* r15：也按题干避开 */   // 尽量不连续出同一道
+  const lastStem = last ? stemOf(last) : ''; const cand1 = cand0.filter(x => x !== last && stemOf(x) !== lastStem); const cand = cand1.length ? cand1 : cand0.length > 1 ? cand0.filter(x => x !== last) : cand0;   /* r15：也按题干避开 */   // 尽量不连续出同一道
   const rep = [...cand].sort((a, b) => +wrong.has(b.key) - +wrong.has(a.key) || used.indexOf(a) - used.indexOf(b))[0];
   if (rep) reps.set(rep.key, (reps.get(rep.key) ?? 0) + 1);
   if (!rep) return { pool: [], used, kind: 'none' };

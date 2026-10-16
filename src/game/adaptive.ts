@@ -80,13 +80,14 @@ export function spaceReviews<T>(list: T[], isRev: (x: T) => boolean): T[] {
 export const reviewAllowed = (shown: number, lastRev: number) => shown >= 2 && (lastRev < 0 || shown - lastRev >= 4);
 /** r15 策划（幼儿园–二年级）：允许重复，但同一道题不连着出（中间至少隔 1 道）；只有 1 道题的关除外 */
 /* r15 小萌新：按题干比（同一题干的不同变体，如「数一数，有几个草莓？」，也不能连着出） */
-export const stemOf = (x: { key: string; question?: string }) => (x.question ?? '').trim() || x.key;
-export function noAdjacent<T extends { key: string; question?: string }>(list: T[]): T[] {
-  /* 贪心重排：尽量保持原顺序；某题干剩余过半时必须先放它，避免最后卡死 */
+/* r15.1：去掉表情（数量变体）、数字、空白和标点后再比 */
+export const stemOf = (x: { key: string; question?: string }) => (x.question ?? '').replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200D}\u{20E3}\p{N}\s\p{P}\p{S}]/gu, '') || x.key;
+export function noAdjacent<T extends { key: string; question?: string }>(list: T[], prev?: T): T[] {
+  /* 贪心重排：尽量保持原顺序；某题干剩余过半时必须先放它，避免最后卡死。prev = 已出的最后一题（续题时用） */
   const rest = [...list]; const out: T[] = [];
   while (rest.length) {
     const cnt = new Map<string, number>(); for (const x of rest) cnt.set(stemOf(x), (cnt.get(stemOf(x)) ?? 0) + 1);
-    const last = out.length ? stemOf(out[out.length - 1]) : undefined;
+    const last = out.length ? stemOf(out[out.length - 1]) : prev ? stemOf(prev) : undefined;
     let must: string | undefined; for (const [k, n] of cnt) if (k !== last && n > (rest.length) / 2) must = k;
     let idx = rest.findIndex(x => must ? stemOf(x) === must : stemOf(x) !== last);
     if (idx < 0) idx = 0;   // 只剩同一题干：没办法

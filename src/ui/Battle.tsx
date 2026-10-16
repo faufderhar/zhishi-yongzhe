@@ -1,3 +1,4 @@
+import { noAdjacent } from '../game/adaptive';
 import { TEST_DOM } from './common';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { DESIGN } from '../game/config';
@@ -428,7 +429,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, review, g1NoL
       const right = rv.right + (ok ? 1 : 0);
       setPicked(val);
       if (right >= 2) { const ns = revive(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setRv(null); setFb(undefined); D.dir.current?.float(D.dir.current.r.hero, '复活！50% 血量', 'heal');   // 学霸报告 #7：复活后直接出新题
-        if (idx + 1 >= queue.length) { if (extraLeft.current.length) { const more = extraLeft.current.splice(0, 3); setQueue(qq => [...qq, ...more]); } else { finish(ns); return; } }
+        if (idx + 1 >= queue.length) { if (extraLeft.current.length) { const more = extraLeft.current.splice(0, 3); setQueue(qq => [...qq, ...noAdjacent(more, qq[qq.length - 1])]);   /* r15.1：续题也不和上一题同题干 */ } else { finish(ns); return; } }
         setIdx(i => i + 1); setPhase('question'); setInput(''); setMulti([]); setPicked(undefined); return; }
       if (rv.i + 1 >= rv.list.length || (rv.list.length - rv.i - 1) < 2 - right) { setRv(null); finish(bs); return; }
       setRv({ ...rv, i: rv.i + 1, right }); setInput(''); setMulti([]); setTimeLeft(limit);
@@ -484,7 +485,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, review, g1NoL
     }
     if (s.over === 'win') { finish(s); return; }
     if (idx + 1 >= queue.length) {
-      if (kind !== 'normal' && extraLeft.current.length) { const more = extraLeft.current.splice(0, 3); setQueue(qq => [...qq, ...more]); }
+      if (kind !== 'normal' && extraLeft.current.length) { const more = extraLeft.current.splice(0, 3); setQueue(qq => [...qq, ...noAdjacent(more, qq[qq.length - 1])]);   /* r15.1：续题也不和上一题同题干 */ }
       else { finish(s); return; }
     }
     setIdx(i => i + 1); setPhase('question'); setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
