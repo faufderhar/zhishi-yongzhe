@@ -28,3 +28,12 @@ describe(`时钟检查（TZ=${process.env.TZ ?? '系统'}）`, () => {
     expect(after - before).toBe(600);
   });
 });
+describe('运行中切换时区（模拟 /etc/localtime 被改成 Asia/Shanghai 再改回）', () => {
+  it('epoch 不变 → 不锁；本地日期键变了也不锁', () => {
+    const old = process.env.TZ; let c = { maxSeen: now, locked: false } as any;
+    for (const tz of ['America/Los_Angeles', 'Asia/Shanghai', 'America/Chicago', 'America/Los_Angeles']) {
+      process.env.TZ = tz; const t = now + 60e3; c = checkClock(c, t); expect(c.locked, tz).toBe(false); void dayStr(new Date(t));
+    }
+    process.env.TZ = old;
+  });
+});

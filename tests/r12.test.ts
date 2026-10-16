@@ -80,19 +80,24 @@ describe('r12 技术QA R11-1：改系统时间拿不到家长权限', () => {
     const p = newPending(t0); expect((tickPending(p, 30e3, 25 * 3600e3, t0 + 25 * 3600e3) as any).observed).toBe(12 * 3600e3);
     expect(tickPending(p, 30e3, -2 * 3600e3, t0 - 2 * 3600e3)).toBe('cancel');
   });
-  it('r14.1：每段关闭最多算 12 小时；往回调取消', () => {
-    let p: any = resumePending(newPending(t0), t0 + 25 * 3600e3); expect(p.observed).toBe(12 * 3600e3); expect(pendingDue(p)).toBe(false);
+  it('r15：关之前那次打开 ≥ 5 分钟，关闭的这段才算（每段最多 12 小时）；往回调取消', () => {
+    expect((resumePending(newPending(t0), t0 + 25 * 3600e3) as any).observed).toBe(0);   // 关之前没开够 5 分钟
+    const p: any = resumePending({ ...newPending(t0), sessionOpen: 5 * 60e3 }, t0 + 25 * 3600e3); expect(p.observed).toBe(12 * 3600e3); expect(p.sessionOpen).toBe(0);
     expect(resumePending(newPending(t0), t0 - 5 * 3600e3)).toBe('cancel');
   });
-  it('r14.1：满 72 小时还要 3 个不同的日子打开过才到期；到期也只是「到期」', () => {
-    let p: any = newPending(t0);
-    for (let i = 0; i < 6; i++) p = resumePending(p, (p.lastWall ?? t0) + 12 * 3600e3);   // 72 小时，但跨了几天？
-    const p2: any = { ...newPending(t0), observed: 80 * 3600e3, days: ['2026-10-16', '2026-10-17'] }; expect(pendingDue(p2)).toBe(false);
-    expect(pendingDue({ ...p2, days: ['2026-10-16', '2026-10-17', '2026-10-18'] })).toBe(true);
-    // 关掉 → 调快 8 小时 → 打开，同一天里反复 10 次：天数不够，不到期
-    let q: any = { ...newPending(Date.parse('2026-10-16T01:00:00')), lastWall: Date.parse('2026-10-16T01:00:00') }; for (let i = 0; i < 10; i++) q = resumePending(q, q.lastWall + 60e3);
-    expect(pendingDue(q)).toBe(false); void p;
+  it('r15：到期 = 等满 72 小时 + 至少 3 个不同的日子打开过 + 等待期间累计开着 ≥ 30 分钟；到期也只是「到期」', () => {
+    const base: any = { ...newPending(t0), observed: 80 * 3600e3, days: ['2026-10-16', '2026-10-17', '2026-10-18'] };
+    expect(pendingDue({ ...base, openTotal: 29 * 60e3 })).toBe(false); expect(pendingDue({ ...base, openTotal: 30 * 60e3 })).toBe(true);
+    expect(pendingDue({ ...base, openTotal: 3600e3, days: ['2026-10-16', '2026-10-17'] })).toBe(false);
   });
+  it('r15：联网时网络时间说了算——差 > 10 分钟取消；申请时和现在的网络时间之差算 72 小时（不管本机时钟）', async () => {
+    const { netCheck, pendingWaitedMs } = await import('../src/game/pinVault');
+    expect(netCheck(newPending(t0), t0 + 11 * 60e3, t0)).toBe('cancel');
+    let p: any = netCheck(newPending(t0), t0 + 1000, t0); expect(p.netReq).toBe(t0 + 1000);
+    p = { ...p, observed: 3600e3 }; p = netCheck(p, t0 + 73 * 3600e3, t0 + 73 * 3600e3 - 5000); expect(pendingWaitedMs(p)).toBeGreaterThanOrEqual(72 * 3600e3);
+    expect(pendingDue({ ...p, days: ['a', 'b', 'c'], openTotal: 31 * 60e3 })).toBe(true);
+  });
+
 });
 import { newTier, nextTier, tierCap } from '../src/game/consolidate';
 describe('r13 自适应上限 min(目标+1, 3)', () => {

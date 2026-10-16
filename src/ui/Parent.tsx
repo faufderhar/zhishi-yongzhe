@@ -48,7 +48,7 @@ import { hintCandidates, answerVariants, readLocal, readCache, makeRecoveryCode,
 import type { Skills } from '../game/adaptive';
 
 /** 家长密码门（D9 锁定 / X-13 首次设置需提示问题 / P2-1 密码丢失不当首次） */
-export function ParentGate({ allHints, settings, onSetPin, onOk, onCancel, purpose, onRestorePin, hasProgress, onRequestReset, initialMode }: { initialMode?: 'forgot' | 'rec'; allHints?: string[]; settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }, rec?: string) => void; onOk: () => void; onCancel: () => void; purpose?: string; onRestorePin?: (h: string, hint?: { q: string; a: string }, rec?: string) => void; hasProgress?: boolean; onRequestReset?: () => void }) {
+export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk, onCancel, purpose, onRestorePin, hasProgress, onRequestReset, initialMode }: { onRecConfirmed?: () => void; initialMode?: 'forgot' | 'rec'; allHints?: string[]; settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }, rec?: string) => void; onOk: () => void; onCancel: () => void; purpose?: string; onRestorePin?: (h: string, hint?: { q: string; a: string }, rec?: string) => void; hasProgress?: boolean; onRequestReset?: () => void }) {
   const [first, setFirst] = useState<string>();
   const [err, setErr] = useState<string>();
   const [lock, setLock] = useState<LockState>({ fails: 0, level: 0, until: 0 });
@@ -105,12 +105,12 @@ export function ParentGate({ allHints, settings, onSetPin, onOk, onCancel, purpo
   // r11：设好密码后生成 8 位恢复码，只显示这一次
   const finishSet = async (pin: string, hint?: { q: string; a: string }) => { const c = makeRecoveryCode(); onSetPin(await makePinHash(pin), hint, await makePinHash(c)); markPinSet(); setCode(c); setMode('code'); };
   const resetBox = <div className="p-card" data-testid="reset-box"><b>没有恢复码？</b><p className="hint">可以申请重设：{RESET_DELAY_MS / 3600e3} 小时后到期。等待期间每个页面顶部都会提示、每次打开游戏会全屏提示一次，任何人都能点〔取消〕。到期后仍要回答找回问题或输入恢复码才能设新密码。时长限制照常生效。</p>
-    {settings.pinReset ? <><p data-testid="reset-pending">{settings.pinReset.ready ? '申请已到期：请回答找回问题或输入恢复码来设新密码。两样都没有，只能导入备份文件或清除浏览器数据（会清掉进度），见 ❓ 说明。' : '已申请：累计满 72 小时、并且在 3 个不同的日子打开过游戏后到期；到期后还要回答找回问题或输入恢复码。'}</p>{settings.pinReset && <p className="big-rule" data-testid="reset-progress">已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}</> : <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设密码（72 小时后到期）</button>}</div>;
+    {settings.pinReset && <details className="reset-rules" data-testid="reset-rules" open><summary>重设规则</summary><ul className="hint"><li>从申请起满 72 小时，并且其中至少有 3 个不同的日子打开过这个游戏。</li><li>游戏开着的时间一共至少 30 分钟。</li><li>关掉游戏的时间也算，但只有上一次打开至少 5 分钟才算，每段最多算 12 小时。</li><li>联网时以网络时间为准；把设备时钟往回调会取消申请。</li><li>想取消：输入正确的家长密码或恢复码。</li></ul></details>}{settings.pinReset ? <><p data-testid="reset-pending">{settings.pinReset.ready ? '申请已到期：请回答找回问题或输入恢复码来设新密码。两样都没有，只能导入备份文件或清除浏览器数据（会清掉进度），见 ❓ 说明。' : '已申请：累计满 72 小时、并且在 3 个不同的日子打开过游戏后到期；到期后还要回答找回问题或输入恢复码。'}</p>{settings.pinReset && <p className="big-rule" data-testid="reset-progress">已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}</> : <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设密码（72 小时后到期）</button>}</div>;
   if (mode === 'code') return (
     <div className="center-screen"><div className="pinpad"><h2>请记下恢复码</h2>
       <p>忘记密码时，用这个恢复码可以马上重设密码。<b>只显示这一次</b>，请抄在纸上或拍照保存，别让孩子看到。</p>
       <div className="rec-code" data-testid="rec-code">{code.slice(0, 4)} {code.slice(4)}</div>
-      <button className="btn" data-testid="rec-done" onClick={() => { setCode(''); onOk(); }}>我记下了</button></div></div>);
+      <RecTypeBack code={code} onConfirmed={() => { onRecConfirmed?.(); setCode(''); onOk(); }} onLater={() => { setCode(''); onOk(); }} /></div></div>);
   if (mode === 'rec') return (
     <div className="center-screen"><div className="pinpad"><h2>用恢复码重设密码</h2><p>输入设置密码时记下的 8 位恢复码（不分大小写）。</p>
       {recBox(false)}<button className="btn ghost" onClick={() => { setRerr(undefined); setMode(settings.pinHash ? 'forgot' : 'lost'); }}>返回</button>{resetBox}</div></div>);
@@ -486,11 +486,12 @@ function UndoRestore() {
 }
 function PinTab({ settings, setSettings }: ParentProps) {
   const [step, setStep] = useState<'old' | 'new' | 'confirm' | 'done'>('old');
+  const latestS = useRef(settings); latestS.current = settings;
   const [n1, setN1] = useState(''); const [err, setErr] = useState<string>();
   const [forgot, setForgot] = useState<'forgot' | 'rec'>();
   const toggles = <div className="p-card"><label className="toggle"><input type="checkbox" data-testid="switch-nopin" checked={!!settings.switchNoPin} onChange={e => setSettings({ ...settings, switchNoPin: e.target.checked })} /> 切换档案 / 切换年级不用密码（默认关：每次换另一个孩子的档案或换年级都要家长密码，防止换档案躲时长）</label></div>;
   // r13 较真家长：家长页「输入旧密码」也能走忘记密码 / 恢复码（同一套流程：新密码和找回问题一起提交）
-  if (forgot) return <ParentGate settings={settings} initialMode={forgot} onSetPin={(h, hint, rec) => { if (h) setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }); }}
+  if (forgot) return <ParentGate settings={settings} initialMode={forgot} onRecConfirmed={() => setSettings({ ...latestS.current, recConfirmed: true })} onSetPin={(h, hint, rec) => { if (h) setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec ? { recConfirmed: false } : {}), ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }); }}
     onOk={() => { setForgot(undefined); setStep('done'); }} onCancel={() => setForgot(undefined)} />;
   if (step === 'done') return <><p className="note">✔ 密码已修改</p>{toggles}<HintEdit settings={settings} setSettings={setSettings} /><RecGen settings={settings} setSettings={setSettings} /></>;
   return <>{toggles}<HintEdit settings={settings} setSettings={setSettings} /><RecGen settings={settings} setSettings={setSettings} />
@@ -519,14 +520,25 @@ function HintEdit({ settings, setSettings, forced }: { settings: Settings; setSe
     <input className="name-input" data-testid="hint-edit-answer" placeholder="答案" value={a} onChange={e => setA(e.target.value)} />
     <div className="row gap16"><button className="btn" data-testid="hint-edit-ok" disabled={!q.trim() || !normAnswer(a)} onClick={async () => { setSettings({ ...settings, pinHint: { q: q.trim(), a: await makePinHash(normAnswer(a)) } }); setOpen(false); setDone(true); }}>保存</button><button className="btn ghost" onClick={() => setOpen(false)}>取消</button></div></div>;
 }
+/** r15 策划 R141-2：显示恢复码后，家长把它打回来确认已抄好（可以「稍后」） */
+function RecTypeBack({ code, onConfirmed, onLater, doneId = 'rec-done' }: { code: string; onConfirmed: () => void; onLater: () => void; doneId?: string }) {
+  const [v, setV] = useState(''); const ok = normCode(v) === code;
+  return <div className="rec-typeback" data-testid="rec-typeback"><p className="hint">抄好后，请把恢复码再输入一遍确认：</p>
+    <input className="name-input" data-testid="rec-type" placeholder="再输入一遍 8 位恢复码" value={v} maxLength={12} onChange={e => setV(e.target.value)} />
+    {v && !ok && normCode(v).length >= 8 && <p className="warn">和上面的不一样，请对照再输一遍</p>}
+    <div className="row gap16"><button className="btn" data-testid="rec-type-ok" disabled={!ok} onClick={onConfirmed}>确认已抄好</button><button className="btn ghost" data-testid={doneId} onClick={onLater}>稍后</button></div></div>;
+}
 /** r12（较真家长）：查看 / 重新生成恢复码（家长页内，已过密码）。旧码只存哈希，看不到原文，只能重新生成（旧的作废） */
 export function RecGen({ settings, setSettings, prompt }: { settings: Settings; setSettings: (s: Settings) => void; prompt?: boolean }) {
-  const [code, setCode] = useState(''); const [ask, setAsk] = useState(false);
-  if (code) return <div className="p-card" data-testid="recgen-code"><b>新的恢复码（只显示这一次）</b><div className="rec-code" data-testid="rec-code">{code.slice(0, 4)} {code.slice(4)}</div><p className="hint">请抄在纸上或拍照保存，别让孩子看到。旧的恢复码已作废。</p><button className="btn" data-testid="recgen-done" onClick={() => setCode('')}>我记下了</button></div>;
-  const gen = async () => { const c = makeRecoveryCode(); setSettings({ ...settings, pinRec: await makePinHash(c), recPrompted: true }); setCode(c); };
+  const [code, setCode] = useState(''); const [ask, setAsk] = useState(false); const [pin, setPin] = useState(''); const [pinOk, setPinOk] = useState(false);
+  useEffect(() => { let dead = false; setPinOk(false); if (pin.length < 4) return; void currentPin().then(async c => { const ok = (!!settings.pinHash && await verifyPin(pin, settings.pinHash)) || (!!c.vault && await verifyPin(pin, c.vault.pinHash)); if (!dead) setPinOk(ok); }); return () => { dead = true; }; }, [pin]);
+  if (code) return <div className="p-card" data-testid="recgen-code"><b>新的恢复码（只显示这一次）</b><div className="rec-code" data-testid="rec-code">{code.slice(0, 4)} {code.slice(4)}</div><p className="hint">请抄在纸上或拍照保存，别让孩子看到。旧的恢复码已作废。</p>
+    <RecTypeBack code={code} doneId="recgen-done" onConfirmed={() => { setSettings({ ...settings, recConfirmed: true }); setCode(''); }} onLater={() => setCode('')} /></div>;
+  const gen = async () => { const c = makeRecoveryCode(); setSettings({ ...settings, pinRec: await makePinHash(c), recPrompted: true, recConfirmed: false }); setCode(c); setPin(''); };
+  const unconfirmed = !!settings.pinRec && !settings.recConfirmed;
   if (prompt) return settings.pinHash && !settings.pinRec && !settings.recPrompted ? <div className="yellow-bar" data-testid="recgen-prompt">🔑 你的家长密码是在有「恢复码」之前设置的。生成一个恢复码，忘记密码时能马上重设。<button className="chip" data-testid="recgen-now" onClick={gen}>现在生成</button><button className="chip" data-testid="recgen-later" onClick={() => setSettings({ ...settings, recPrompted: true })}>以后再说</button></div> : null;
-  return <div className="p-card"><b>恢复码</b><p className="hint">{settings.pinRec ? '已设置恢复码（只存了指纹，原文看不到）。忘了或丢了可以重新生成，旧的会作废。' : '还没有恢复码。'}</p>{ask ? <div className="row gap16" data-testid="recgen-ask"><span className="warn">确定重新生成？旧的恢复码会立刻作废。</span><button className="btn danger" data-testid="recgen-confirm" onClick={() => { setAsk(false); void gen(); }}>确定重新生成</button><button className="btn ghost" data-testid="recgen-cancel" onClick={() => setAsk(false)}>取消</button></div>
-    : <button className="btn ghost" data-testid="recgen" onClick={() => settings.pinRec ? setAsk(true) : void gen()}>{settings.pinRec ? '查看/重新生成恢复码' : '生成恢复码'}</button>}</div>;
+  return <div className="p-card"><b>恢复码</b><p className="hint">{settings.pinRec ? '已设置恢复码（只存了指纹，原文看不到）。忘了或丢了可以重新生成，旧的会作废。' : '还没有恢复码。'}</p>{unconfirmed && !ask && <p className="warn" data-testid="rec-unconfirmed">⚠ 恢复码还没有确认抄好。找不到的话请重新生成一个并抄下来（要先输入现在的家长密码）。</p>}{ask ? <div className="row gap16 wrap" data-testid="recgen-ask"><span className="warn">重新生成：旧的恢复码会立刻作废。请先输入现在的家长密码：</span><input className="name-input" type="password" inputMode="numeric" data-testid="recgen-pin" value={pin} maxLength={6} onChange={e => setPin(e.target.value.replace(/\D/g, ''))} /><button className="btn danger" data-testid="recgen-confirm" disabled={!pinOk} onClick={() => { setAsk(false); void gen(); }}>确定重新生成</button><button className="btn ghost" data-testid="recgen-cancel" onClick={() => setAsk(false)}>取消</button></div>
+    : <button className="btn ghost" data-testid="recgen" onClick={() => settings.pinRec ? setAsk(true) : void gen()}>{settings.pinRec ? '重新生成恢复码' : '生成恢复码'}</button>}</div>;
 }
 
 

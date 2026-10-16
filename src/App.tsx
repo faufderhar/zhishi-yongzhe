@@ -3,7 +3,7 @@ import { claimTab, onTabActive, isActiveTab } from './tabGuard';
 import { launchCause, markAlive, beat, setSafeScreen, logReload } from './swUpdate';
 import { bonusToday, tickGrace, GRACE_MS } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
-import { tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
+import { netCheck, pendingDays, PEND_DAYS, tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
@@ -170,7 +170,7 @@ export default function App() {
     f(); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f);
   }, [reloadBank]);
 
-  const [lastPid, setLastPid] = useState<string>();
+  const [lastPid, setLastPid] = useState<string>(); const addedPid = useRef<string | undefined>(undefined);
   const restoreRef = useRef<{ nav: Nav; pp: Profile } | null>(null);
   const [interruptedAll, setInterruptedAll] = useState<Record<string, Interrupted>>({});
   const interrupted = pid ? interruptedAll[pid] ?? null : null;   // 只给当前孩子
@@ -303,7 +303,18 @@ export default function App() {
       const r = tickPending(st.pinReset, np - lp, nw - lw, nw); lp = np; lw = nw;
       if (r === 'cancel' || clock.locked) { setSettings({ ...st, pinReset: undefined }); setResetCancelled(true); return; }
       setSettings({ ...st, pinReset: { ...r, ready: pendingDue(r), effectiveAt: nw + pendingLeftMs(r) } }); };
-    const t = setInterval(f, 30e3); return () => clearInterval(t); }, [!!settings.pinReset, clock.locked]);
+    // r15 策划 R141-2：联网时读同源、不走缓存 / SW 的响应头 Date 当网络时间；锚点另存一份在 localStorage
+    const NETK = 'zy.pendNet';
+    const net = async () => { if (!navigator.onLine || !isActiveTab()) return; let t = NaN;
+      try { const r = await fetch('version.json?ts=' + Date.now(), { cache: 'no-store' }); if (r.headers.get('x-zy-sw-cache')) return; t = Date.parse(r.headers.get('date') ?? ''); } catch { return; }
+      const st = settingsRef.current; if (!st.pinReset || !Number.isFinite(t)) return;
+      let p0 = st.pinReset; try { const m = JSON.parse(localStorage.getItem(NETK) ?? 'null'); if (m && m.requestedAt === p0.requestedAt) p0 = { ...p0, netReq: p0.netReq ?? m.netReq, netLast: Math.max(p0.netLast ?? 0, m.netLast ?? 0) || undefined }; } catch { /* */ }
+      const r = netCheck(p0, t, Date.now());
+      if (r === 'cancel') { logErr('pend-net-skew', `网络时间 ${new Date(t).toISOString()} 本机 ${new Date().toISOString()}`); setSettings({ ...st, pinReset: undefined }); setResetCancelled(true); return; }
+      try { localStorage.setItem(NETK, JSON.stringify({ requestedAt: r.requestedAt, netReq: r.netReq, netLast: r.netLast })); } catch { /* */ }
+      setSettings({ ...st, pinReset: { ...r, ready: pendingDue(r) } }); };
+    void net(); let k = 0;
+    const t = setInterval(() => { f(); if (++k % 10 === 0) void net(); }, 30e3); return () => clearInterval(t); }, [!!settings.pinReset, clock.locked]);
   const setUsage = (id: string, u: Usage) => { setUsageAll(x => ({ ...x, [id]: u })); S.saveUsage(id, u); };
 
   // r9：记下当前位置（重新加载后恢复）
@@ -381,7 +392,8 @@ export default function App() {
     const stale = () => pickGen.current !== gen || (why === 'restore' && userGen.current !== ug);   // 有更新的选择 / 用户已经点了别的
     const lp = (() => { try { const v = JSON.parse(localStorage.getItem('zy.lastPlayer') ?? 'null'); return v && typeof v === 'object' && typeof v.pid === 'string' ? v as { pid: string; day: string } : null; } catch { return null; } })();   // r14 技术QA R13-5：校验格式
     const prevPid = lastPid ?? lp?.pid;   // r13 学霸：每次换档案都要密码（不再只限当天；本次启动内换过的也算），家长页开关可关
-    if (!viaPin && settings.pinHash && !settings.switchNoPin && profiles.length > 1 && prevPid !== pp.id /* r14.1 学霸：内置档案（kid-k / kid-7 / kid-10）同样要；新浏览器 / 没有上次记录、上次档案已删除也要 */) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
+    if (!viaPin && settings.pinHash && !settings.switchNoPin && profiles.length > 1 && !(addedPid.current === pp.id) /* r15：选今天正在用的同一个档案也要密码（以前 prevPid === pp.id 时跳过）；只有刚添加完的档案第一次进免密 */ /* r14.1 学霸：内置档案（kid-k / kid-7 / kid-10）同样要；新浏览器 / 没有上次记录、上次档案已删除也要 */) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
+    addedPid.current = undefined;
     try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: pp.id, day: today })); } catch { /* */ }
     setPid(pp.id); setLastPid(pp.id); setChapterIdx(0);
     const [pr, sk, wr, ans] = await Promise.all([S.loadProgress(pp.id), S.loadSkills(pp.id), wrongOf(pp.id), answersOf(pp.id)]);
@@ -534,18 +546,18 @@ export default function App() {
       {overTime && <div className="sys-bar warn-bar grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）</div>}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">
-        <h1>有人申请重设家长密码</h1><p>申请时间：{fmtWhen(settings.pinReset.requestedAt)}　{settings.pinReset.ready ? '已到期' : `${fmtWhen(settings.pinReset.effectiveAt)}到期`}</p>
+        <h1>有人申请重设家长密码</h1><details className="reset-rules" data-testid="reset-rules" ><summary>重设规则</summary><ul className="hint"><li>从申请起满 72 小时，并且其中至少有 3 个不同的日子打开过这个游戏。</li><li>游戏开着的时间一共至少 30 分钟。</li><li>关掉游戏的时间也算，但只有上一次打开至少 5 分钟才算，每段最多算 12 小时。</li><li>联网时以网络时间为准；把设备时钟往回调会取消申请。</li><li>想取消：输入正确的家长密码或恢复码。</li></ul></details><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}
         <p className="hint">到期后也要回答找回问题或输入恢复码才能设新密码。不是爸爸妈妈申请的，请点〔取消申请〕。</p>
         <div className="row gap16"><button className="btn danger" data-testid="pin-reset-full-cancel" onClick={() => { setSettings({ ...settings, pinReset: undefined }); setResetNoticeSeen(true); }}>取消申请</button>
           <button className="btn ghost" data-testid="pin-reset-full-ok" onClick={() => setResetNoticeSeen(true)}>知道了</button></div></div></div>}
-      {settings.pinReset && ['profiles', 'map', 'stage', 'grade', 'char', 'wrongbook', 'result', 'review-done', 'parent', 'gate'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="pin-reset-pending">🔑 有人申请重设家长密码（{fmtWhen(settings.pinReset.requestedAt)}申请），{settings.pinReset.ready ? '已到期：需回答找回问题或输入恢复码才能设新密码' : `${fmtWhen(settings.pinReset.effectiveAt)}到期`}。不是爸爸妈妈申请的？<button className="chip" data-testid="pin-reset-cancel" onClick={() => setSettings({ ...settings, pinReset: undefined })}>取消</button></div>}
+      {settings.pinReset && ['profiles', 'map', 'stage', 'grade', 'char', 'wrongbook', 'result', 'review-done', 'parent', 'gate'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="pin-reset-pending">🔑 有人申请重设家长密码：{settings.pinReset.ready ? '已到期（还要回答找回问题或输入恢复码）' : <>已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72）· 已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</>}。不是爸爸妈妈申请的？<button className="chip" data-testid="pin-reset-cancel" onClick={() => setSettings({ ...settings, pinReset: undefined })}>取消</button></div>}
       {warn3 && myRemaining > 0 && myRemaining <= 180 && <div className="sys-bar warn-bar" data-testid="warn3" onClick={() => setWarn3(false)}>⏳ 还有 {Math.ceil(myRemaining / 60)} 分钟就到今天的游戏时间了，准备收尾吧（点此关闭）</div>}
       {timeUpNote && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="timeup-note" onClick={() => setTimeUpNote(false)}>⏰ 今天的时间用完啦，不能再答题了，明天再来！（家长可在设置里加时间）</div>}
       {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} bonus={Object.fromEntries(profiles.map(x => [x.id, bonusToday(usage[x.id], today)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
-        onAdd={p => { setProfiles([...profiles, p]); setLastPid(p.id); try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
+        onAdd={p => { setProfiles([...profiles, p]); setLastPid(p.id); addedPid.current = p.id; try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
       {screen.s === 'gate' && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
-        onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
+        onRecConfirmed={() => setSettings({ ...settingsRef.current, recConfirmed: true })} onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec ? { recConfirmed: false } : {}), ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => { if (screen.next === 'pick') { const pp = profiles.find(x => x.id === screen.pick); if (pp) { void pickProfile(pp, true); return; } } setScreen(screen.next === 'add' ? { s: 'profiles', adding: true } : { s: 'parent' }); }} onCancel={() => setScreen({ s: 'profiles' })} />}
@@ -557,7 +569,7 @@ export default function App() {
       {screen.s === 'grade' && p0 && <GradePick stage={screen.stage} current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onBack={() => setScreen({ s: 'stage' })}
         onPick={g => enterGrade(g)} />}
       {screen.s === 'gate-grade' && p0 && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.g === p0.grade ? `切换年级需要家长确认（回到${GRADE_LABEL[p0.grade]}）` : `去${GRADE_LABEL[screen.g]}需要家长确认（${p0.name}的档案是${GRADE_LABEL[p0.grade]}）`}
-        onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
+        onRecConfirmed={() => setSettings({ ...settingsRef.current, recConfirmed: true })} onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec ? { recConfirmed: false } : {}), ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => enterGrade(screen.g, true)} onCancel={() => setScreen({ s: 'grade', stage: stageOf(screen.g) })} />}

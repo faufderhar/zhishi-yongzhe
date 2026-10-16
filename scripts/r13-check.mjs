@@ -130,7 +130,7 @@ if (on('pin')) {
   ok((await pg.$$eval('[data-testid=hint-edit-box] input[type=radio]', es => es.filter(e => e.checked).length)) === 0, '修改找回问题：不预选问题');
   await pg.click('[data-testid=hint-edit-box] input[type=radio] >> nth=1'); await pg.fill('[data-testid=hint-edit-answer]', 'abc'); await pg.click('[data-testid=hint-edit-ok]'); await w(300);
   ok((await pg.textContent('.parent')).includes('找回问题已修改'), '修改找回问题已保存');
-  await pg.click('[data-testid=recgen]'); await w(300); if (await pg.isVisible('[data-testid=recgen-confirm]')) { await pg.click('[data-testid=recgen-confirm]'); await w(300); } const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await pg.click('[data-testid=recgen-done]');
+  await pg.click('[data-testid=recgen]'); await w(300); if (await pg.isVisible('[data-testid=recgen-confirm]')) { await pg.fill('[data-testid=recgen-pin]', '2468'); await w(400); await pg.click('[data-testid=recgen-confirm]'); await w(300); } const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); ok(await pg.isVisible('[data-testid=rec-typeback]'), 'R141-2 恢复码要求打回确认'); await pg.fill('[data-testid=rec-type]', code.slice(0,3)); ok(await pg.isDisabled('[data-testid=rec-type-ok]'), '输错时确认按钮禁用'); await pg.fill('[data-testid=rec-type]', code.toLowerCase()); await pg.click('[data-testid=rec-type-ok]'); await w(400); ok(!(await pg.isVisible('[data-testid=rec-unconfirmed]')), '确认后不再提醒');
   await pg.click('[data-testid=parent-close]'); await w(400);
   await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
   await pg.fill('[data-testid=rec-input]', code); await pg.click('[data-testid=rec-ok]'); await w(400);

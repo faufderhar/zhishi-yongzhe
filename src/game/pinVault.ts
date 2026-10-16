@@ -34,7 +34,7 @@ export function makeRecoveryCode(rnd: () => number = () => { const a = new Uint3
 }
 export const normCode = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, '');
 /** 延时重设 */
-export interface PendingReset { days?: string[]; gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
+export interface PendingReset { netReq?: number /* r15 R141-2：申请时的网络时间 */; netLast?: number /* 最近一次的网络时间 */; openTotal?: number /* 等待期间游戏开着的总时长 */; sessionOpen?: number /* 本次打开已开着多久 */; days?: string[]; gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
 export const newPending = (now: number): PendingReset => ({ requestedAt: now, effectiveAt: now + RESET_DELAY_MS });
 export const resetDue = (p: PendingReset | undefined, now: number, clockLocked: boolean) => !!p && !clockLocked && now >= p.effectiveAt && now >= p.requestedAt;
 export const fmtWhen = (t: number) => { const d = new Date(t); return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}点`; };
@@ -76,18 +76,27 @@ export const GAP_TOTAL_MS = 24 * 3600e3;
 export const PEND_GAP_CAP_MS = 12 * 3600e3, PEND_DAYS = 3;
 const dayOf = (t: number) => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 const withDay = (p: PendingReset, t: number): PendingReset => { const ds = new Set(p.days ?? [dayOf(p.requestedAt)]); ds.add(dayOf(t)); return { ...p, days: [...ds].sort().slice(-10) }; };
+export const NET_SKEW_MS = 10 * 60e3, MIN_SESSION_MS = 5 * 60e3, MIN_OPEN_MS = 30 * 60e3;
 export function tickPending(p: PendingReset, dtPerf: number, dtWall: number, wallNow: number): PendingReset | 'cancel' {
   if (dtWall < dtPerf - JUMP_MS) return 'cancel';   // r14.1：只有墙钟往回走才取消（休眠时单调时钟停住、墙钟前进不是调钟）
   // 墙钟比单调时钟多走很多（休眠 / 调快）：和「关闭期间」同一规则，这一段最多算 12 小时
-  const add = dtWall > dtPerf + JUMP_MS ? Math.min(dtWall, PEND_GAP_CAP_MS) : Math.max(0, Math.min(dtPerf, 60e3));
-  return withDay({ ...p, observed: (p.observed ?? 0) + add, lastWall: wallNow }, wallNow);
+  const open = Math.max(0, Math.min(dtPerf, 60e3));
+  const add = dtWall > dtPerf + JUMP_MS ? Math.min(dtWall, PEND_GAP_CAP_MS) : open;
+  return withDay({ ...p, observed: (p.observed ?? 0) + add, openTotal: (p.openTotal ?? 0) + open, sessionOpen: (p.sessionOpen ?? 0) + open, lastWall: wallNow }, wallNow);
 }
+/* r15 策划 R141-2（离线规则）：关闭的这段只有在「关之前那次打开累计 ≥ 5 分钟」时才算（每段最多 12 小时）；往回调取消 */
 export function resumePending(p: PendingReset, wallNow: number): PendingReset | 'cancel' {
   const last = p.lastWall ?? p.requestedAt;
   if (wallNow < last - 5 * 60e3) return 'cancel';   // 时钟往回调
-  const gap = Math.min(Math.max(0, wallNow - last), PEND_GAP_CAP_MS); void GAP_CAP_MS; void GAP_TOTAL_MS;
-  return withDay({ ...p, observed: (p.observed ?? 0) + gap, gapUsed: (p.gapUsed ?? 0) + gap, lastWall: Math.max(wallNow, last) }, wallNow);
+  const gap = (p.sessionOpen ?? 0) >= MIN_SESSION_MS ? Math.min(Math.max(0, wallNow - last), PEND_GAP_CAP_MS) : 0; void GAP_CAP_MS; void GAP_TOTAL_MS;
+  return withDay({ ...p, observed: (p.observed ?? 0) + gap, gapUsed: (p.gapUsed ?? 0) + gap, sessionOpen: 0, lastWall: Math.max(wallNow, last) }, wallNow);
 }
+/* r15 策划 R141-2（联网规则）：网络时间说了算。网络时间和本机时钟差 > 10 分钟 → 取消；申请时和现在都有网络时间 → 用两者之差算 72 小时 */
+export function netCheck(p: PendingReset, net: number, wallNow: number): PendingReset | 'cancel' {
+  if (Math.abs(net - wallNow) > NET_SKEW_MS) return 'cancel';
+  return { ...p, netReq: p.netReq ?? (Math.abs(net - p.requestedAt) < NET_SKEW_MS + 60e3 ? net - (wallNow - p.requestedAt) : undefined), netLast: Math.max(p.netLast ?? 0, net) };
+}
+export const pendingWaitedMs = (p: PendingReset) => p.netReq && p.netLast ? Math.max(0, p.netLast - p.netReq) : (p.observed ?? 0);
 export const pendingDays = (p: PendingReset) => new Set(p.days ?? [dayOf(p.requestedAt)]).size;
-export const pendingDue = (p: PendingReset | undefined) => !!p && (p.observed ?? 0) >= RESET_DELAY_MS && pendingDays(p) >= PEND_DAYS;
-export const pendingLeftMs = (p: PendingReset) => Math.max(0, RESET_DELAY_MS - (p.observed ?? 0));
+export const pendingDue = (p: PendingReset | undefined) => !!p && pendingWaitedMs(p) >= RESET_DELAY_MS && pendingDays(p) >= PEND_DAYS && (p.openTotal ?? 0) >= MIN_OPEN_MS;
+export const pendingLeftMs = (p: PendingReset) => Math.max(0, RESET_DELAY_MS - pendingWaitedMs(p));
