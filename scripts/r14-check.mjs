@@ -244,6 +244,29 @@ if (on('tzswitch')) {
     await c2.close();
   }
 }
+// r15 / 学霸：第 14 回合撤退、题出完提前撤退，都必须进结算页（不能直接回地图）
+if (on('r15retreat')) {
+  for (const [grade, want] of [['3', 'retreat-exhausted'], ['7', 'retreat']]) {
+    const { ctx, pg, w } = await session(grade, { __zyUnlockAll: true }); await enterMap(pg, w);
+    await pg.click('[data-testid=level-1]'); await w(1000); await tutSkip(pg, w); await skipTut(pg, w);
+    let sawMap = false;
+    for (let t = 0; t < 60 && !(await pg.isVisible('[data-testid=result-title]')); t++) {
+      if (await pg.isVisible('[data-testid=level-1]')) { sawMap = true; break; }
+      if (await pg.isVisible('[data-testid=revive-no]')) { await pg.click('[data-testid=revive-no]'); await w(600); continue; }
+      try { await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=chal-normal], [data-testid=next], [data-testid=result-title], [data-testid=level-1]', { timeout: 8000 }); } catch { continue; }
+      if (await pg.isVisible('[data-testid=result-title]') || await pg.isVisible('[data-testid=level-1]')) continue;
+      if (await pg.isVisible('[data-testid=next]')) { await next(pg, w); continue; }
+      if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 15000 }).catch(() => {}); }
+      const atk = ((await pg.textContent('.qmeta').catch(() => '')) || '').includes('攻击题');
+      await answer(pg, !atk).catch(() => {}); await w(900); await next(pg, w); await w(300);
+    }
+    await w(2500);
+    const res = await pg.isVisible('[data-testid=result-title]'); await pg.screenshot({ path: OUT + `r15-retreat-${grade}.png` });
+    ok(res && !sawMap, `${grade} 年级撤退后进了结算页（${await pg.isVisible(`[data-testid=${want}]`) ? want : (await pg.textContent('[data-testid=result-title]').catch(() => '无'))}）`);
+    if (grade === '3') ok(await pg.isVisible('[data-testid=retreat-exhausted]'), '3 年级：题都出满 2 次 → 提前撤退的说明');
+    await ctx.close();
+  }
+}
 // ===== r15 =====
 // 王冠位置：真实截图 + 测量（幼儿园 Boss，答错后仍在、在怪物头顶附近）
 if (on('r15crown')) {
