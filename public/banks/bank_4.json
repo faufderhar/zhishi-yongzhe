@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-4年级-v27（AI初审）",
- "version": "v27",
+ "bank_name": "三兄妹题库-4年级-v29（AI初审）",
+ "version": "v29",
  "questions": [
   {
    "id": "M4-001",
@@ -23628,7 +23628,7 @@
    "textbook": "统编版",
    "unit": "四下·琥珀",
    "type": "选择",
-   "question": "琥珀大约是多少年前形成的？",
+   "question": "课文《琥珀》说，这个故事大约发生在多少年以前？",
    "options": [
     {
      "text": "一百年前",
@@ -23646,13 +23646,13 @@
      "audio": ""
     },
     {
-     "text": "约一万年前",
+     "text": "几千万年前",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "D",
-   "explanation": "课文：大约一万年以前。",
+   "explanation": "原文：这个故事发生在很久很久以前，约莫算来，总有几千万年了。（“一万年”是部编本以前旧版课文的说法）",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级下册",
@@ -41546,6 +41546,771 @@
    "change_tag": "新增",
    "tags": [
     "语文"
+   ]
+  },
+  {
+   "id": "Y4-364",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四上·一个豆荚里的五粒豆",
+   "type": "选择",
+   "question": "说自己“将直接飞进太阳里去”的豌豆，最后落到了哪里？",
+   "options": [
+    {
+     "text": "水沟里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鸽子的嘴里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小女孩的窗台上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "原文：那本来想飞进太阳里去的豌豆，却落到了水沟里。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级上册",
+   "knowledge_point": "个豆荚里的五粒豆",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T9b874a",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-365",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四上·一个豆荚里的五粒豆",
+   "type": "选择",
+   "question": "小女孩面前盛开的豌豆花是什么颜色的？",
+   "options": [
+    {
+     "text": "黄色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "粉红色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "紫色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：她面前是一朵盛开的、粉红色的豌豆花。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级上册",
+   "knowledge_point": "个豆荚里的五粒豆",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te586fb",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-366",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四上·普罗米修斯",
+   "type": "选择",
+   "question": "悄悄劝普罗米修斯向宙斯承认错误、归还火种的是？",
+   "options": [
+    {
+     "text": "太阳神阿波罗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "火神赫淮斯托斯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大力神赫拉克勒斯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "众神的领袖宙斯",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：火神赫淮斯托斯很敬佩普罗米修斯，悄悄对他说……",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级上册",
+   "knowledge_point": "普罗米修斯",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T49d32f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-367",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四上·爬天都峰",
+   "type": "选择",
+   "question": "爬上峰顶后，爸爸在哪里给“我”和老爷爷照了一张相？",
+   "options": [
+    {
+     "text": "云彩上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铁链旁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鲫鱼背前",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山脚下",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "原文：在鲫鱼背前，爸爸给我和爷爷照了一张相，留作纪念。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级上册",
+   "knowledge_point": "爬天都峰",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T5da43d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-368",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四上·为中华之崛起而读书",
+   "type": "选择",
+   "question": "周恩来在修身课上回答“为中华之崛起而读书”时，就读于哪所学校？",
+   "options": [
+    {
+     "text": "沈阳东关模范学校",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "江苏淮安小学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "南开中学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北京大学",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "原文：修身课上，沈阳东关模范学校的魏校长向学生们提出了一个严肃的问题。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级上册",
+   "knowledge_point": "为中华之崛起而读书",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Td61de7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-369",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四上·为中华之崛起而读书",
+   "type": "选择",
+   "question": "周恩来十二岁那年离开的家乡是？",
+   "options": [
+    {
+     "text": "浙江绍兴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "湖南韶山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "四川广安",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "江苏淮安",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "原文：他离开家乡江苏淮安，随回家探亲的伯父来到了东北沈阳。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级上册",
+   "knowledge_point": "为中华之崛起而读书",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc70175",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-370",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·天窗",
+   "type": "选择",
+   "question": "下雨或冬天关起木板窗后，乡下的屋子里黑得像什么？",
+   "options": [
+    {
+     "text": "墨水一样",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地洞里似的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山洞一样",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夜空一样",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：屋子里就黑得像地洞里似的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "天窗",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tfd8d83",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-371",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·琥珀",
+   "type": "选择",
+   "question": "课文中，“成千上万只绿翅膀的苍蝇和八只脚的蜘蛛来了又去了”，这句话说明了什么？",
+   "options": [
+    {
+     "text": "时间过去了很久很久",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "苍蝇和蜘蛛很多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "森林里很热闹",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小虫跑出来了",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "原文：几万年，几十万年，几百万年，时间一转眼就过去了。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "琥珀",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te600d4",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-372",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·琥珀",
+   "type": "选择",
+   "question": "琥珀里两只小虫的腿四周显出什么，能让我们想象它们当时的挣扎？",
+   "options": [
+    {
+     "text": "一条条裂缝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "许多金色的光点",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "好几圈黑色的圆环",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一些小水珠",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "原文：它们的腿的四周显出好几圈黑色的圆环。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "琥珀",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc75f52",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-373",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·文言文 囊萤夜读",
+   "type": "选择",
+   "question": "“家贫不常得油”中“得”的意思是？",
+   "options": [
+    {
+     "text": "得意",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "得到",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "得分",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "必须",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "家里穷，不能经常得到灯油。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "文言文 囊萤夜读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T35d7ab",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "超声波",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铃声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无线电波",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "光线",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y4-374",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "四年级上册",
+   "unit": "四上·夜间飞行的秘密",
+   "question": "科学家给飞机装上雷达，雷达通过天线发出什么？",
+   "explanation": "原文：雷达通过天线发出无线电波。",
+   "difficulty": 2,
+   "knowledge_point": "夜间飞行的秘密",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T35b89e",
+   "change_tag": "新增",
+   "tags": [
+    "夜间飞行的秘密"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "消失不见",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变成光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "穿过障碍物",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "反射回来",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y4-375",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "四年级上册",
+   "unit": "四上·夜间飞行的秘密",
+   "question": "超声波遇到障碍物会怎样？",
+   "explanation": "原文：超声波像波浪一样向前推进，遇到障碍物就反射回来。",
+   "difficulty": 2,
+   "knowledge_point": "夜间飞行的秘密",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T6f109e",
+   "change_tag": "新增",
+   "tags": [
+    "夜间飞行的秘密"
+   ]
+  },
+  {
+   "id": "Y4-376",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·黄继光",
+   "type": "选择",
+   "question": "黄继光所在的营接到命令，要在黎明之前夺下的是哪个高地？",
+   "options": [
+    {
+     "text": "391 高地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "537.7 高地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "597.9 高地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "上甘岭主峰",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "原文：要在黎明之前夺下被敌人占领的597.9高地。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "黄继光",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T43fae3",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-377",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·黄继光",
+   "type": "选择",
+   "question": "黄继光堵住枪口后，战士们喊着什么冲了上去？",
+   "options": [
+    {
+     "text": "快去救黄继光！",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冲啊！为黄继光报仇！",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "同志们，撤退！",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我们胜利了！",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：“冲啊！为黄继光报仇！”喊声惊天动地。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "黄继光",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb75f2f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-378",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·乡下人家",
+   "type": "选择",
+   "question": "乡下人家总爱在屋前搭一瓜架，种的是？",
+   "options": [
+    {
+     "text": "葡萄或葫芦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "南瓜或丝瓜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冬瓜或苦瓜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西瓜或黄瓜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "原文：乡下人家总爱在屋前搭一瓜架，或种南瓜，或种丝瓜。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "乡下人家",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T67ac71",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y4-379",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "unit": "四下·绿",
+   "type": "选择",
+   "question": "和《绿》编在同一个现代诗单元，写一棵树的诗是？",
+   "options": [
+    {
+     "text": "《白鹅》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《母鸡》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《白桦》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《猫》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "四下第三单元：短诗三首、绿、白桦、在天晴了的时候。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "四年级下册",
+   "knowledge_point": "绿",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb3c864",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "六万多个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "六十多个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "六千多个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "六百多个",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y4-380",
+   "subject": "语文",
+   "grade": 4,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "四年级上册",
+   "unit": "四上·秦兵马俑",
+   "question": "课文说，一号坑里的兵马俑大约有多少个？",
+   "explanation": "原文：坑里的兵马俑也最多，有六千多个。",
+   "difficulty": 2,
+   "knowledge_point": "秦兵马俑",
+   "type": "选择",
+   "answer": "C",
+   "game_ready": true,
+   "template": "T424dc0",
+   "change_tag": "新增",
+   "tags": [
+    "秦兵马俑"
    ]
   }
  ]

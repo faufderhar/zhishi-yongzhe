@@ -14,3 +14,11 @@ for (const g of ['7', '10']) it.skipIf(!existsSync(`/tmp/v24/bank_${g}.json`))(`
   console.log(`V25 ${g}: 旧关 ${oldN} → 新关 ${newIds.length}；没有对应的新关 ${lost}；有星却锁着 ${locked}`);
   expect(locked).toBe(0); expect(lost / oldN).toBeLessThan(0.02);
 });
+it('v29：需家长确认的 Y5-169 默认不出（打开「显示待审核题」才出），「五上·白鹭」9 题照常成关', () => {
+  const all = loadBank(JSON.parse(readFileSync('public/banks/bank_5.json', 'utf8')), '').all;
+  const q = all.find(x => x.id === 'Y5-169')!; expect(q.status).toBe('需家长确认');
+  expect(playable(all, false).some(x => x.id === 'Y5-169')).toBe(false);
+  expect(playable(all, true).some(x => x.id === 'Y5-169')).toBe(true);
+  const lv = buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.lesson?.includes('白鹭') && !l.redirect && l.kind !== 'boss');
+  expect(lv.length).toBeGreaterThan(0); expect(lv.reduce((a, l) => a + l.pool.length, 0)).toBeGreaterThanOrEqual(9);
+});
