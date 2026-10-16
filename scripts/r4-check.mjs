@@ -98,11 +98,12 @@ for (let k = 0; k < 40; k++) {
   if (await pg.$('[data-testid=revive-yes]')) {
     turnAtDeath = await turnText(); await pg.screenshot({ path: OUT + 'r4-revive.png' });
     await pg.click('[data-testid=revive-yes]'); await w(300);
-    for (let t = 0; t < 4 && !(await pg.$('[data-testid=next], [data-testid=result-stats]')); t++) { await answer(true); await w(400); }
+    for (let t = 0; t < 4 && await pg.isVisible('.revive-banner') && !(await pg.$('[data-testid=result-stats]')); t++) { await answer(true); await w(1500); if (await pg.isVisible('[data-testid=next]:not([disabled])') && await pg.isVisible('.revive-banner')) await pg.click('[data-testid=next]'); }   // r7：复活成功后直接出新题（学霸报告 #7）
     if (await pg.$('[data-testid=result-stats]')) { ok(false, '复活题未能答对（题型无法自动作答）'); break; }
     const t2 = await turnText(); const hp = await pg.$eval('.hp', e => e.textContent);
-    ok(t2 === turnAtDeath && /50/.test(hp), `复活：不计回合（${turnAtDeath}→${t2}），回到 50%（${hp.trim()}）`);
-    revived = true; await pg.click('[data-testid=next]'); await w(400); continue;
+    const nOf = t => +(t.match(/第 (\d+) 回合/) || [0, -9])[1];   // r7：复活后直接进下一回合的新题，复活挑战本身不占回合
+    ok(nOf(t2) === nOf(turnAtDeath) + 1 && /50/.test(hp), `复活：复活题不计回合（${turnAtDeath}→新题 ${t2}），回到 50%（${hp.trim()}）`);
+    revived = true; await w(400); continue;
   }
   await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=result-stats], [data-testid=revive-yes]', { timeout: 15000 });
   if (await pg.$('[data-testid=result-stats], [data-testid=revive-yes]')) continue;
