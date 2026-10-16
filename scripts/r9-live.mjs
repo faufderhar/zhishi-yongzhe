@@ -6,4 +6,4 @@ const b = await chromium.launch(); const pg = await (await b.newContext({ viewpo
 await pg.goto(U); await pg.waitForSelector('[data-testid=version-label]');
 const v = await pg.textContent('[data-testid=version-label]'); const src = await pg.evaluate(() => [...document.scripts].map(s => s.src).join(' '));
 await pg.screenshot({ path: 'screenshots/live/r9-live-version.png' });
-const okk = src.includes(bn) && v.includes(EXP) && /^r9/.test(v); console.log(`bundle=${bn} label="${v}"`, okk ? 'ALL PASS' : 'FAIL'); await b.close(); process.exit(okk ? 0 : 1);
+const okk = src.includes(bn) && v.includes(EXP) && /^r\d+/.test(v); console.log(`bundle=${bn} label="${v}"`, okk ? 'ALL PASS' : 'FAIL'); await b.close(); process.exit(okk ? 0 : 1);

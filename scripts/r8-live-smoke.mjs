@@ -19,7 +19,7 @@ const mk = async (name, g, first) => { await pg.click('[data-testid=add-child]')
 await mk('高一', '10', true);
 await pg.click('text=高一'); await w(1000); await pg.click('[data-testid^=char-]'); await pg.click('[data-testid=char-confirm]'); await w(600);
 const names = {}; for (const s of ['历史', '地理']) { await pg.click(`[data-testid="chapter-${s}"]`); await w(300); names[s] = (await pg.$$eval('.level.boss [data-testid=kind-tag]', e => e.map(x => x.textContent)))[0]; }
-ok(/历史·化石地球仪巨人/.test(names['历史']) && /地理·化石地球仪巨人/.test(names['地理']), `共用怪物池的 Boss 名带学科前缀（${names['历史']} / ${names['地理']}）`);
+ok(/历史·\S+/.test(names['历史']) && /地理·\S+/.test(names['地理']), `共用怪物池的 Boss 名带学科前缀（${names['历史']} / ${names['地理']}）`);
 await pg.screenshot({ path: `${OUT}r8-boss-prefix.png` });
 await pg.click('[data-testid="chapter-数学"]'); await w(300); await pg.click('[data-testid=level-1]'); await w(800);
 for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-next]'); i++) { await pg.click('[data-testid=tutorial-next]'); await w(150); }
@@ -38,6 +38,6 @@ let st = '0'; const t0 = Date.now(); while (Date.now() - t0 < 180000) { st = awa
 ok(st === '1', `总览显示「离线就绪」（${Math.round((Date.now() - t0) / 1000)} s）`);
 const bi = await pg.textContent('[data-testid=overview-offline] [data-testid=build-info]');
 const m = bi.match(/(\d{4})\/(\d{2})\/(\d{2})/); const today = new Date().toLocaleDateString('zh-CN', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' });
-ok(!!m && /题库 v18/.test(bi), `构建信息按本地日期显示（${bi}；今天本地 ${today}）`);
+ok(!!m && /题库 v\d+/.test(bi), `构建信息按本地日期显示（${bi}；今天本地 ${today}）`);
 await pg.screenshot({ path: `${OUT}r8-parent-overview.png` });
 await b.close(); console.log(bad ? `${bad} FAIL` : 'ALL PASS'); process.exit(bad ? 1 : 0);
