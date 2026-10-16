@@ -93,7 +93,7 @@ describe('D14 §6 挑战题', () => {
   it('UI：只在初一我方回合出现，挑战题同科目同小节难度 +1，没有时灰掉并提示', () => {
     const src = readFileSync('src/ui/RoundBattle.tsx', 'utf8');
     expect(src).toMatch(/bs\.mode === 'j' && bs\.side === 'P'\) \{ const n = take\(\)/);   // r10：出题前选
-    expect(src).toMatch(/x\.subject === base\.subject && x\.unit === base\.unit && x\.difficulty === base\.difficulty \+ 1/);
+    expect(src).toMatch(/pickHarder\(\{ cur: tierRef\.current\.tier/);   // r12：改为相对当前难度 + 前序小节（tests/r12）
     expect(src).toMatch(/这一关没有更难的题了/); expect(src).not.toMatch(/chooseChal\(false\), 3000/); expect(src).toMatch(/data-testid="chal-normal"[^>]*>.*默认/);   // r11：不再 3 秒自动普通，普通标「默认」
   });
 });

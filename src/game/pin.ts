@@ -20,10 +20,25 @@ export const normAnswer = (s: string) => s.replace(/\s+/g, '').toLowerCase();
 /** 锁定：连续错 5 次 → 60 秒；再 5 次 → 5 分钟；之后每 5 次 → 15 分钟；对一次清零。localStorage + IndexedDB 双份。
     倒计时只按 performance.now()（单调时钟）的实际流逝扣减 remain，调系统时间无效（技术QA R4-4）；
     关掉 / 刷新期间不扣（无法可信地知道过了多久），重新打开后从剩余时间继续；seenAt 记录最后一次看到的墙钟，用于防回拨（D8）。 */
-export interface LockState { fails: number; level: number; until: number; remain?: number; seenAt?: number }
+export interface LockState { fails: number; level: number; until: number; remain?: number; seenAt?: number; long?: boolean }
 const LK = 'zy.pinLock';
 /** r9：找回问题单独计错、单独锁定（以前和密码共用一个倒计时） */
 export const LK_HINT = 'zy.hintLock';
+export const LK_REC = 'zy.recLock';
+/** r12（策划）：找回问题、恢复码各自连错 5 次 → 锁 24 小时。按单调时钟扣（关掉期间：墙钟往前走的部分才算，往回调不算），刷新不清零 */
+export const LONG_LOCK_MS = 24 * 3600e3;
+export function nextLock24(s: LockState, ok: boolean, now: number): LockState {
+  if (ok) return { fails: 0, level: 0, until: 0, remain: 0, seenAt: now };
+  const fails = s.fails + 1;
+  if (fails < 5) return { ...s, fails };
+  return { fails: 0, level: s.level + 1, until: now + LONG_LOCK_MS, remain: LONG_LOCK_MS, seenAt: now, long: true };
+}
+/** 重新打开时：长锁按「上次看到之后墙钟前进的时间」扣（回拨不扣，前跳最多扣到 until） */
+export function resumeLong(s: LockState, now: number): LockState {
+  if (!s.long || !s.remain || !s.seenAt) return s;
+  const gone = now > s.seenAt ? Math.min(now - s.seenAt, Math.max(0, s.until - s.seenAt)) : 0;
+  return { ...s, remain: Math.max(0, s.remain - gone), seenAt: Math.max(now, s.seenAt) };
+}
 export const LOCK_STEPS = [60e3, 5 * 60e3, 15 * 60e3];
 export function nextLock(s: LockState, ok: boolean, now: number): LockState {
   if (ok) return { fails: 0, level: 0, until: 0, remain: 0, seenAt: now };
@@ -47,7 +62,7 @@ export async function loadLock(key = LK): Promise<LockState> {
   if (!all.length) return { fails: 0, level: 0, until: 0, remain: 0 };
   const now = Date.now();
   const m = all.reduce((m, x) => (lockLeft(x, now) > lockLeft(m, now) || (lockLeft(x, now) === lockLeft(m, now) && x.fails + x.level * 5 > m.fails + m.level * 5) ? x : m));
-  return { ...m, remain: lockLeft(m, now) };   // 统一迁移到 remain
+  return resumeLong({ ...m, remain: lockLeft(m, now) }, now);   // 统一迁移到 remain；长锁补上关闭期间的墙钟流逝
 }
 export async function saveLock(s: LockState, key = LK) { try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s); }
 /** 曾经设置过密码的标记（密码数据丢失时不当成「首次使用」，技术QA P2-1） */

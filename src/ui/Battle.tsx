@@ -70,7 +70,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
   return { stage, shake, hero, monster, flash, canvas, dir, alive, monState };
 }
 
-export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleResult { half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps {
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -219,7 +219,10 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const ksRef = useRef(ks); ksRef.current = ks;
   const wrong = useRef<string[]>([]);
   const down = useRef<string | null>(null);
-  useWakeLock(); usePauseTimeout(paused, onQuit);
+  // r12 小萌新：暂停超时不再丢弃——已经答对过就按已答结算（全答完 = 胜利），一题没答才直接回地图
+  const kQuit = () => { const k = ksRef.current; if (k.done) { onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); return; }
+    if (!(k.first + k.retry + k.demo)) { onQuit(); return; } onEnd({ win: false, quit: true, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); };
+  useWakeLock(); usePauseTimeout(paused, kQuit);
   useForceEnd(() => { const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
@@ -263,7 +266,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
       setFx(''); setTilt(false);
       if (ns.done || idx + 1 >= questions.length) {
         if (gentle) { talk(`${monName}变成你的好朋友，挥挥手回家啦！`, 3000); setMonFace('👋'); await sleep(400); setHome(true); await sleep(1600); }
-        else { speak('小乌云变成你的好朋友啦！'); await D.dir.current?.kinderFinale(); }
+        else { speak('小乌云变成你的好朋友啦！'); await Promise.race([D.dir.current?.kinderFinale(), sleep(2500)]); }   // r12：演出最多 2.5 s，后台/卡住也照样结算
         if (!D.alive.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo } }); return;
       }
@@ -287,7 +290,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
         <div className="fx-shake" ref={D.shake}>
           <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div>
             {say && <div key={say + nudge} className={`ksay ${nudge ? 'nudge' : ''}`} data-testid="ksay">{say}</div>}</div>
-          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
+          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}>{kind === 'boss' && <svg className="boss-crown" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}<div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
             <img className={`kmon ${ks.lit >= 2 || gentle ? 'smile' : ''} ${gskin ? 'under-sheet' : ''}`} src={MONSTER_IMG.kinder} alt={monName} data-testid="kmon" data-mon={gskin?.id ?? 'cloud'} draggable={false} />
             <img className={`kmon white-flash ${gskin ? 'under-sheet' : ''}`} ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div>
             {monFace && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>
@@ -509,7 +512,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="stage" ref={D.stage}>
           <div className="fx-shake" ref={D.shake}>
             <div className="unit-wrap hero-wrap" ref={D.hero}><div className="breathe"><Sprite className="unit hero" c={c} /></div></div>
-            <div className={`unit-wrap mon-wrap ${kind}`} ref={D.monster}><div className="breathe slow">
+            <div className={`unit-wrap mon-wrap ${kind}`} ref={D.monster}>{kind === 'boss' && <svg className="boss-crown" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}<div className="breathe slow">
               <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} data-testid="monster-img" draggable={false} />
               <img className={`unit monster ${kind} white-flash`} ref={D.flash} src={MONSTER_IMG[mon.img]} alt="" aria-hidden draggable={false} /></div></div>
           </div>

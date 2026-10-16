@@ -220,8 +220,12 @@ export const STAR_RULES = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对�
 /** r10 R9-3：轮流回合（小学 3–6、初一、高一）按 D14 */
 export const STAR_RULES_ROUND = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成、没复活、剩一半血以上';
 export const STAR_RULES_K = '⭐ 过关　⭐⭐ 第一次就答对六成　⭐⭐⭐ 第一次就答对八成';
+/** r12（策划）：怪物撤退时正确率 ≥ 40%（半对算 0.5）才算通关，最多 ★ */
+export const RETREAT_CLEAR = 0.4;
+export const retreatCleared = (r: { correct: number; total: number }) => !!r.total && r.correct / r.total >= RETREAT_CLEAR - 1e-9;
 export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean; hpPct?: number }) {
   if (r.timeUp) return 0;
+  if (r.retreat && !retreatCleared(r)) return 0;   // r12：撤退且正确率 < 40% 不算通关
   const s = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived, r.hpPct ?? 1);
   return r.retreat ? Math.min(1, s) : s;
 }

@@ -5,7 +5,7 @@
       生效时间按墙钟，但时钟被调过（时钟锁定）时不生效；等待期间每个页面顶部都提示，任何人都能〔取消〕（不要密码）。
       重设后家长页一直提示「密码于 X 月 X 日被重设」，点〔知道了〕才消失。 */
 export interface PinVault { pinHash: string; pinHint?: { q: string; a: string }; recHash?: string; at?: number }
-export const RESET_DELAY_MS = 24 * 3600e3;
+export const RESET_DELAY_MS = 72 * 3600e3;   // r12（策划）：24 → 72 小时
 const LS = 'zy.pinBackup', CACHE = 'zy-pin', CKEY = './__zy_pin__';
 const ok = (x: unknown): x is PinVault => !!x && typeof (x as PinVault).pinHash === 'string' && (x as PinVault).pinHash.length > 0;
 export const vaultOf = (s: { pinHash?: string; pinHint?: { q: string; a: string }; pinRec?: string }): PinVault | null => s.pinHash ? { pinHash: s.pinHash, pinHint: s.pinHint, recHash: s.pinRec } : null;
@@ -34,8 +34,45 @@ export function makeRecoveryCode(rnd: () => number = () => { const a = new Uint3
 }
 export const normCode = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, '');
 /** 延时重设 */
-export interface PendingReset { requestedAt: number; effectiveAt: number }
+export interface PendingReset { observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
 export const newPending = (now: number): PendingReset => ({ requestedAt: now, effectiveAt: now + RESET_DELAY_MS });
 export const resetDue = (p: PendingReset | undefined, now: number, clockLocked: boolean) => !!p && !clockLocked && now >= p.effectiveAt && now >= p.requestedAt;
 export const fmtWhen = (t: number) => { const d = new Date(t); return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}点`; };
 export const fmtDay = (t: number) => { const d = new Date(t); return `${d.getMonth() + 1}月${d.getDate()}日`; };
+/** r12：找回问题答案可能存在多份副本里（升级前后设置过、副本不一致）：任何一份对得上都算对 */
+export function hintCandidates(...vs: ({ pinHint?: { q: string; a: string } } | { a?: string } | null | undefined)[]): string[] {
+  const out: string[] = []; for (const v of vs) { const a = (v as any)?.pinHint?.a ?? (v as any)?.a; if (typeof a === 'string' && a && !out.includes(a)) out.push(a); } return out;
+}
+/** 答案的几种规范化（旧版只去空格转小写；再兼容全角 / 首尾标点 / 不转小写） */
+export const answerVariants = (s: string) => { const a = s.replace(/\s+/g, ''); const b = a.normalize('NFKC'); return [...new Set([a.toLowerCase(), b.toLowerCase(), a, b, b.replace(/[。.，,！!？?]+$/u, '').toLowerCase()])]; };
+/* r12 技术QA R11-3：恢复码哈希另存独立的 4 份（IndexedDB 单独 key、单独 localStorage key、每个孩子档案、Cache Storage），
+   和密码副本分开：密码副本全丢了，恢复码还在 → 「家长密码数据不见了」页也能用恢复码重设 */
+const RLS = 'zy.recBackup', RCKEY = './__zy_rec__';
+export const REC_KV = 'zy.recHash';
+export async function writeRec(h: string | null | undefined, setKV?: (k: string, v: unknown) => unknown) {
+  try { if (h) localStorage.setItem(RLS, h); else localStorage.removeItem(RLS); } catch { /* */ }
+  try { await setKV?.(REC_KV, h || undefined); } catch { /* */ }
+  try { if (typeof caches === 'undefined') return; const c = await caches.open(CACHE); if (h) await c.put(RCKEY, new Response(h)); else await c.delete(RCKEY); } catch { /* */ }
+}
+export async function findRec(settings: { pinRec?: string } | undefined, profiles: { recHash?: string; pinVault?: PinVault }[], getKV?: (k: string) => Promise<unknown>): Promise<string | null> {
+  if (settings?.pinRec) return settings.pinRec;
+  try { const a = localStorage.getItem(RLS); if (a) return a; } catch { /* */ }
+  try { const b = await getKV?.(REC_KV); if (typeof b === 'string' && b) return b; } catch { /* */ }
+  const c = profiles.map(p => p.recHash ?? p.pinVault?.recHash).find(x => typeof x === 'string' && x); if (c) return c;
+  try { if (typeof caches !== 'undefined') { const r = await (await caches.open(CACHE)).match(RCKEY); if (r) { const t = await r.text(); if (t) return t; } } } catch { /* */ }
+  return null;
+}
+/* r12 技术QA R11-1：延时重设只按「App 运行时实际观察到的单调时间」+「两次运行之间有上限的间隔」累计，
+   不相信墙钟前跳；等待期间检测到大的时钟跳变 → 直接取消申请并提示 */
+export const GAP_CAP_MS = 8 * 3600e3;          // 两次打开之间最多认 8 小时
+export const JUMP_MS = 10 * 60e3;              // 运行中墙钟与单调时钟相差 > 10 分钟 = 时钟跳变
+export function tickPending(p: PendingReset, dtPerf: number, dtWall: number, wallNow: number): PendingReset | 'cancel' {
+  if (Math.abs(dtWall - dtPerf) > JUMP_MS) return 'cancel';
+  return { ...p, observed: (p.observed ?? 0) + Math.max(0, Math.min(dtPerf, 60e3)), lastWall: wallNow };
+}
+export function resumePending(p: PendingReset, wallNow: number): PendingReset {
+  const last = p.lastWall ?? p.requestedAt; const gap = wallNow > last ? Math.min(wallNow - last, GAP_CAP_MS) : 0;
+  return { ...p, observed: (p.observed ?? 0) + gap, lastWall: Math.max(wallNow, last) };
+}
+export const pendingDue = (p: PendingReset | undefined) => !!p && (p.observed ?? 0) >= RESET_DELAY_MS;
+export const pendingLeftMs = (p: PendingReset) => Math.max(0, RESET_DELAY_MS - (p.observed ?? 0));

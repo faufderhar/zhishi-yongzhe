@@ -524,8 +524,9 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .chal-tag { display: inline-block; font-size: 18px; color: #ffb36b; margin-bottom: 4px; }
 /* ===== r10 小班 ===== */
 /* 点错：卡片左右轻晃 2 下（2 Hz，1 s），更明显；伙伴摇头幅度加大 */
-@keyframes kwiggle2 { 0%,50%,100% { transform: translateX(0) rotate(0) } 12%,62% { transform: translateX(-12px) rotate(-6deg) } 37%,87% { transform: translateX(12px) rotate(6deg) } }
-.kopt.kwiggle { animation: kwiggle2 1s ease-in-out 1 !important; }
+/* r12 小萌新：点错摇晃更大更明显：0.6 s、左右 22px / 10°（只有位移，不闪、不改亮度） */
+@keyframes kwiggle2 { 0%,100% { transform: translateX(0) rotate(0) scale(1) } 15% { transform: translateX(-22px) rotate(-10deg) scale(1.06) } 40% { transform: translateX(20px) rotate(9deg) scale(1.06) } 65% { transform: translateX(-12px) rotate(-5deg) scale(1.03) } 85% { transform: translateX(6px) rotate(2deg) } }
+.kopt.kwiggle { animation: kwiggle2 .6s ease-in-out 1 !important; position: relative; z-index: 2; }
 @keyframes headshake2 { 0%,50%,100% { transform: translateX(0) rotate(0) } 12%,62% { transform: translateX(-14px) rotate(-8deg) } 37%,87% { transform: translateX(14px) rotate(8deg) } }
 .kpup-wrap.headshake { animation: headshake2 1s ease-in-out 1 !important; }
 .ksay { position: absolute; left: 50%; top: -18px; transform: translate(-10%, -100%); background: #fff; color: #5a3b00; border: 3px solid #ffd27a; border-radius: 22px; padding: 8px 16px; font-size: 26px; font-weight: 800; white-space: nowrap; z-index: 12; box-shadow: 0 4px 0 #0002; }
@@ -586,3 +587,11 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .unl-box input[type=checkbox]{flex:none;min-height:0;height:24px;max-height:24px;align-self:center;padding:0}
 .qcard.default{outline:4px solid #ffd54a;outline-offset:2px}.def-tag{font-size:.7em;background:#ffd54a;color:#333;border-radius:8px;padding:0 6px;margin-left:4px}
 .rec-code{font:800 40px/1.2 ui-monospace,monospace;letter-spacing:6px;background:#fff;color:#222;border-radius:12px;padding:10px 18px}
+
+/* r12：Boss 小王冠占位（精英和 Boss 共用怪物图，美术之后可替换） */
+.mon-wrap, .kmon-wrap { position: relative; }
+.boss-crown { position: absolute; top: -18px; left: 50%; width: 30%; max-width: 72px; transform: translateX(-50%) rotate(-8deg); z-index: 3; pointer-events: none; filter: drop-shadow(0 2px 2px #0005); }
+
+/* r12：等待重设的全屏提示（不闪烁、无动画） */
+.fullscreen-notice { position: fixed; inset: 0; z-index: 1000; background: #1d2440f2; display: flex; align-items: center; justify-content: center; }
+.fullscreen-notice .fs-card { background: #fff; color: #222; border-radius: 20px; padding: 32px 40px; max-width: 640px; text-align: center; }

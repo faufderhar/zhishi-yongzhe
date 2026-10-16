@@ -1,6 +1,9 @@
 /* IndexedDB：kv（设置/档案/进度/时长）、wrong（错题本）、answers（答题记录）、bank（家长导入的题，覆盖内置题） */
 import { openDB, type IDBPDatabase } from 'idb';
 import type { WrongEntry } from './game/wrongbook';
+import { findVault, findRec, writeRec, writeLocal, writeCache, type PinVault } from './game/pinVault';
+import { backupVault, mergePin } from './game/backupPin';
+import { verifyPin } from './game/pin';
 export interface AnswerRecord { profileId: string; questionId: string; correct: boolean; at: number; subject?: string }
 const DB = 'zhishi-yongzhe';
 export const STORES = ['kv', 'answers', 'wrong', 'bank'] as const;
@@ -87,8 +90,17 @@ export async function exportAll() {
       out[s] = keys.map((k, i) => [k, vals[i]]);
     } else out[s] = await d.getAll(s);
   }
-  return { app: 'zhishi-yongzhe', format: 1, exportedAt: new Date().toISOString(), stores: out };
+  const pin = await currentPin();   // r12：备份带上家长密码哈希和恢复码哈希
+  const rec = pin.vault?.recHash ?? await findRec(undefined, [], getKV);   // r12 R11-3：恢复码独立副本也写进备份
+  return { app: 'zhishi-yongzhe', format: 1, exportedAt: new Date().toISOString(), ...(pin.vault ? { pin: { ...pin.vault, ...(rec ? { recHash: rec } : {}) } } : {}), ...(rec ? { rec } : {}), stores: out };
 }
+/** 当前生效的家长密码（4 处副本任一）和等待中的重设 */
+export async function currentPin() {
+  const st = await getKV<any>('settings'); const ps = await getKV<any[]>('profiles');
+  const vault: PinVault | null = await findVault(st && typeof st === 'object' ? st : undefined, Array.isArray(ps) ? ps : []);
+  return { vault, pinReset: st?.pinReset, pinResetDoneAt: st?.pinResetDoneAt };
+}
+export class NeedPinError extends Error { constructor(m = '要先输入当前的家长密码才能恢复') { super(m); } }
 /** 恢复前校验（技术QA P1-3）：格式、各表行结构；返回预览和清洗后的数据；不合格抛出中文错误 */
 export function validateBackup(data: any): { clean: Record<string, unknown[]>; preview: { exportedAt?: string; profiles: number; kv: number; answers: number; wrong: number; bank: number; skipped: number } } {
   if (!data || typeof data !== 'object' || data.app !== 'zhishi-yongzhe' || !data.stores || typeof data.stores !== 'object') throw new Error('这个文件不是知识勇者的备份，或已损坏');
@@ -104,8 +116,12 @@ export function validateBackup(data: any): { clean: Record<string, unknown[]>; p
   return { clean, preview: { exportedAt: data.exportedAt, profiles: Array.isArray(prof) ? prof.length : 0, kv: clean.kv.length, answers: clean.answers.length, wrong: clean.wrong.length, bank: clean.bank.length, skipped } };
 }
 /** 恢复：先校验，再把当前数据快照存到 localStorage 外的 kv 快照里不现实（会被清空），因此返回当前快照供界面下载；整库在一个事务里写入 */
-export async function importAll(data: any) {
+export async function importAll(data: any, o: { pin?: string; trusted?: boolean } = {}) {
   const { clean } = validateBackup(data);
+  // r12：当前有密码 → 先验证；导入后保留当前密码；没有 → 用备份里的密码。等待中的 24 小时重设不被导入取消
+  const cur = await currentPin();
+  if (cur.vault && !o.trusted && !(o.pin && await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError(o.pin ? '家长密码不对，没有恢复' : undefined);
+  const m = mergePin(clean.kv as [string, unknown][], cur, backupVault(data, clean.kv as [string, unknown][])); clean.kv = m.kv;
   const snapshot = await exportAll();
   const d = await db();
   const tx = d.transaction([...STORES], 'readwrite');
@@ -117,6 +133,7 @@ export async function importAll(data: any) {
     else for (const v of rows) await st.put(v);
   }
   await tx.done;
+  writeLocal(m.vault); await writeCache(m.vault); if (m.vault?.recHash) await writeRec(m.vault.recHash, setKV);
   await setKV('snapshot:last', snapshot);   // 恢复后可「撤销恢复」（策划 T-P1-3）
   return snapshot;
 }

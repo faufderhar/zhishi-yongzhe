@@ -10,6 +10,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
     await pg.addLocatorHandler(pg.locator('[data-testid=stage-pick]'), async () => { await pg.click('[data-testid=stage-pick] .stage-btn.on'); }, { noWaitAfter: true });
     await pg.addLocatorHandler(pg.locator('[data-testid=grade-pick]'), async () => { await pg.click('[data-testid=grade-pick] .stage-btn.on'); }, { noWaitAfter: true });
   }
+  await pg.addLocatorHandler(pg.locator('[data-testid=pin-reset-notice-full]'), async () => { await pg.click('[data-testid=pin-reset-full-ok]'); }, { noWaitAfter: true });   // r12：等待重设的全屏提示
   await pg.addInitScript(o => { window.__zyTest = true; window.__zyTestNoTts = true; window.__said = []; Object.assign(window, o);
     const S = window.speechSynthesis; if (S) S.speak = u => { window.__said.push(u.text); }; }, init);
   const w = ms => pg.waitForTimeout(ms);
@@ -37,7 +38,7 @@ async function answer(pg, right) {
 }
 const inVp = (pg, sel) => pg.$$eval(sel, (es) => es.every(e => { const r = e.getBoundingClientRect(); return r.bottom <= innerHeight + 0.5 && r.right <= innerWidth + 0.5 && r.top >= 0; }));
 const next = async (pg, w) => { if (await pg.isVisible('[data-testid=next]')) { await pg.click('[data-testid=next]'); await w(500); } };
-const toMapOf = async (pg, w, name) => { await pg.click(`.profile-card:has-text("${name}")`); await w(500);
+const toMapOf = async (pg, w, name) => { await pg.click(`.profile-card:has-text("${name}")`); await w(500); if (await pg.isVisible("[data-testid=pin-ok]")) { for (const d of "2468") await pg.click(`[data-testid=pin-${d}]`); await pg.click("[data-testid=pin-ok]"); await w(500); }   /* r12：当天换档案要家长密码 */
   for (let i = 0; i < 25 && !(await pg.isVisible('[data-testid=level-1]')); i++) { for (const sp of ['stage-pick', 'grade-pick']) if (await pg.isVisible(`[data-testid=${sp}]`)) await pg.click(`[data-testid=${sp}] .stage-btn.on, [data-testid=${sp}] .stage-btn >> nth=0`).catch(() => {}); if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm])'); await pg.click('[data-testid=char-confirm]'); } await w(300); } };
 const skipTut = async (pg, w) => { for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-skip]'); i++) { await pg.click('[data-testid=tutorial-skip]'); await w(400); } };
 
@@ -124,7 +125,7 @@ if (on('chal')) {
     else if (await pg.isVisible('[data-testid=chal-none]')) { none++; if (none === 1) await pg.screenshot({ path: OUT + 'r11-chal-none.png' }); }
     await answer(pg, true); await w(1600); await next(pg, w);
   }
-  ok(bad2 === 0, `出现选择时挑战一定可选（灰的 ${bad2} 次）；没有更难题时直接出普通题并写明（${none} 回合）；可选 ${pick} 回合`);
+  ok(pick + none > 0, `r12 起：没有更难题（本小节 + 前序小节）时挑战按钮灰着（灰 ${bad2} 次）；没有更难题时直接出普通题并写明（${none} 回合）；可选 ${pick} 回合`);
   await ctx.close();
 }
 // 较真家长：临时加时、册别、勾选框、安装、错题本时间到
@@ -216,27 +217,18 @@ if (on('pin')) {
   ok(await pg.isVisible('[data-testid=pin-lost]') && !(await pg.isVisible('text=请爸爸妈妈来设置')), '所有副本都没了、有孩子档案：不出现「首次设置」');
   await pg.screenshot({ path: OUT + 'r11-pin-lost.png' });
   await pg.click('[data-testid=reset-request]'); await w(400); await pg.click('text=返回'); await w(500);
+  // r12 起规则（策划 / 技术QA R11-1）：72 小时；到期也要找回问题或恢复码；每次启动全屏提示一次；改时钟拿不到权限
   const ban = await pg.textContent('[data-testid=pin-reset-pending]').catch(() => '');
-  ok(/密码正在重设，\d+月\d+日\d+点生效/.test(ban), `每个页面顶部提示（${ban.slice(0, 40)}）`); await pg.screenshot({ path: OUT + 'r11-pin-pending.png' });
-  await pg.click('[data-testid=profile-card-0], .profile-card >> nth=0').catch(() => {}); await w(1200);
-  ok(await pg.isVisible('[data-testid=pin-reset-pending]'), '进到孩子的页面也有提示');
-  await pg.goto(URL); await w(1000);
-  await pg.click('[data-testid=pin-reset-cancel]'); await w(400); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '〔取消〕不要密码，提示消失');
+  ok(/有人申请重设家长密码.*到期/.test(ban), `每个页面顶部提示（${ban.slice(0, 40)}）`); await pg.screenshot({ path: OUT + 'r11-pin-pending.png' });
+  await pg.goto(URL); await w(1200);
+  ok(await pg.isVisible('[data-testid=pin-reset-notice-full]'), '重新打开：全屏提示一次'); await pg.screenshot({ path: OUT + 'r12-pin-reset-full.png' });
+  await pg.click('[data-testid=pin-reset-full-cancel]'); await w(400); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '〔取消申请〕不要密码，提示消失');
   await pg.click('[data-testid=parent]'); await w(600); await pg.click('[data-testid=reset-request]'); await w(300); await pg.click('text=返回'); await w(300);
-  // 把墙钟拨到 24 小时后（时钟锁定是在运行中检测的；这里重开页面模拟「过了一天」）
-  await pg.evaluate(() => sessionStorage.setItem('zyOff', String(24 * 3600e3 + 60e3))); await pg.reload(); await w(2500);
+  await pg.evaluate(() => sessionStorage.setItem('zyOff', String(25 * 3600e3))); await pg.reload(); await w(2500);
+  if (await pg.isVisible('[data-testid=pin-reset-full-ok]')) await pg.click('[data-testid=pin-reset-full-ok]');
   await pg.click('[data-testid=parent]'); await w(600);
-  const setup = await pg.isVisible('text=请爸爸妈妈来设置');
-  ok(setup, '24 小时到：可以设置新密码');
-  if (setup) { await pinIn('1357'); await pinIn('1357'); await pg.fill('[data-testid=hint-answer]', 'y'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]'); await pg.click('[data-testid=rec-done]'); await w(600);
-    const nt = await pg.textContent('[data-testid=pin-reset-notice]').catch(() => ''); ok(/密码于 \d+月\d+日 被重设/.test(nt), `家长页一直提示（${nt.slice(0, 30)}）`); await pg.screenshot({ path: OUT + 'r11-pin-reset-notice.png' });
-    await pg.click('[data-testid=parent-close]'); await w(300); await pg.click('[data-testid=parent]'); await w(300); await pinIn('1357'); await w(500);
-    ok(await pg.isVisible('[data-testid=pin-reset-notice]'), '再进家长页还在');
-    await pg.click('[data-testid=pin-reset-ack]'); await w(300); ok(!(await pg.isVisible('[data-testid=pin-reset-notice]')), '点〔知道了〕才消失'); }
-  // ③ 忘记密码 + 恢复码：立即重设
-  await pg.click('[data-testid=parent-close]'); await w(300); await pg.click('[data-testid=parent]'); await w(300);
-  await pg.click('[data-testid=forgot]'); await w(300); await pg.click('[data-testid=forgot-rec]'); await w(300);
-  await pg.fill('[data-testid=rec-input]', 'ZZZZ2222'); await pg.click('[data-testid=rec-ok]'); await w(400); ok(/恢复码不对/.test(await pg.textContent('[data-testid=rec-msg]').catch(() => '')), '错的恢复码：提示不对');
+  ok(!(await pg.isVisible('text=请爸爸妈妈来设置')), '把时钟往前拨 25 小时：拿不到设置新密码的权限');
+  await pg.screenshot({ path: OUT + 'r12-pin-clock-fwd.png' });
   await ctx.close();
 }
 if (on('pinrec')) {
@@ -247,7 +239,7 @@ if (on('pinrec')) {
   await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
   await pg.waitForSelector('[data-testid=rec-code]'); const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await pg.click('[data-testid=rec-done]'); await w(300);
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click('[data-testid=home-grade-7]'); await w(600);
-  await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300); await pg.click('[data-testid=forgot-rec]'); await w(300);
+  await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
   await pg.fill('[data-testid=rec-input]', code.toLowerCase().slice(0, 4) + ' ' + code.slice(4)); await pg.click('[data-testid=rec-ok]'); await w(500);
   ok(await pg.isVisible('text=请爸爸妈妈来设置'), '正确的恢复码（小写、带空格也行）：立即重设，不用等');
   await pinIn('1357'); await pinIn('1357'); await pg.waitForSelector('[data-testid=hint-answer]'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');

@@ -94,8 +94,8 @@ import { selectQuestions, spreadTemplates } from '../src/game/adaptive';
 describe('题库 v18：150 道多选题', () => {
   const raw = (g: string) => JSON.parse(readFileSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url), 'utf8'));
   it('version 字段是字符串 v18，导入转字符串；数字也接受', () => {
-    expect(raw('10').version).toBe('v18');
-    expect(loadBank(raw('10'), 'bank_10.json').version).toBe('v18');
+    expect(raw('10').version).toBe('v23');
+    expect(loadBank(raw('10'), 'bank_10.json').version).toBe('v23');
     expect(loadBank({ ...raw('7'), version: 4 }, 'bank_7.json').version).toBe('4');
   });
   it('真题判分：全对 full、漏选 partial、错选 wrong；漏选半伤害', () => {

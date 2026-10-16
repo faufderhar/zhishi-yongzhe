@@ -80,10 +80,13 @@ describe('裁定 3 怪物池', () => {
   });
 });
 describe('裁定 4 难度回落', () => {
-  it('连错 2 降 1 档（最多 1 档），降档后连对 2 恢复', () => {
+  it('r12：连错 2 降 1 档（一次 1 档，最低 1），连对 2 升 1 档（最高 5）', () => {
     let t = newTier(3); t = nextTier(t, false); expect(isConsolidating(t)).toBe(false);
-    t = nextTier(t, false); expect(t.tier).toBe(2); t = nextTier(t, false); t = nextTier(t, false); expect(t.tier).toBe(2);
-    t = nextTier(t, true); expect(t.tier).toBe(2); t = nextTier(t, true); expect(t.tier).toBe(3);
+    t = nextTier(t, false); expect(t.tier).toBe(2); t = nextTier(t, false); expect(t.tier).toBe(2); t = nextTier(t, false); expect(t.tier).toBe(1);
+    t = nextTier(t, false); t = nextTier(t, false); expect(t.tier).toBe(1);
+    t = nextTier(t, true); expect(t.tier).toBe(1); t = nextTier(t, true); expect(t.tier).toBe(2); t = nextTier(t, true); t = nextTier(t, true); expect(t.tier).toBe(3);
+    t = nextTier(t, true); t = nextTier(t, true); expect(t.tier).toBe(4); expect(isConsolidating(t)).toBe(false);
+    let u = newTier(5); u = nextTier(u, true); u = nextTier(u, true); expect(u.tier).toBe(5);
   });
   it('降档时取 tier 档，不低于 tier；只在初一/高一显示「巩固题」', () => {
     const t = { base: 3, tier: 2, right: 0, wrong: 0 };
@@ -140,7 +143,7 @@ describe('补测：解析不显示教材注记', () => {
 });
 describe('补测：关内难度不来回跳', () => {
   it('同一关连续取题，相邻难度差 ≤1（题库够时）', () => {
-    let pool = [5, 3, 2, 5, 3, 4, 3, 2, 3, 5, 3, 3].map((difficulty, i) => ({ difficulty, i })); let t = newTier(3); const seq: number[] = [];
+    let pool = [5, 3, 2, 5, 3, 4, 3, 2, 3, 5, 3, 3, 4, 4, 4, 2, 5, 1, 1, 2].map((difficulty, i) => ({ difficulty, i })); let t = newTier(3); const seq: number[] = [];
     for (let k = 0; k < 8; k++) { const q = pickByTier(pool, t)!; seq.push(q.difficulty); pool = pool.filter(x => x !== q); t = nextTier(t, k !== 2 && k !== 3); }
     for (let k = 1; k < seq.length; k++) expect(Math.abs(seq[k] - seq[k - 1])).toBeLessThanOrEqual(1);
   });

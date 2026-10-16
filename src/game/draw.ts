@@ -19,3 +19,8 @@ export function drawNext<T extends Q>(unused: T[], used: T[], o: DrawOpts<T>): {
   // 本关题池全部出过：才重复（错题、较早出的优先由调用方排序）
   const rep = used.filter(o.pred); return { q: pickByTier(rep.length ? rep : used, o.tier), repeat: true };
 }
+/** r12 学霸：本局没出过的题（题号 + 规范化题干都没出过；候选内部同题干只留一道） */
+export function unseen<T extends Q>(xs: T[], used: T[]): T[] {
+  const ks = new Set(used.map(x => x.key)), st = new Set(used.map(normStem)), seen = new Set<string>();
+  return xs.filter(x => { const t = normStem(x); if (ks.has(x.key) || st.has(t) || seen.has(t)) return false; seen.add(t); return true; });
+}

@@ -157,11 +157,11 @@ if (on('parent')) {
   for (let i = 0; i < 20; i++) await pg.click('[data-testid=limit-weekday-minus]', { timeout: 300 }).catch(() => {});
   const lv = await pg.textContent('[data-testid=limit-weekday-val]'); ok(lv.trim() === '5', `连点 −5 停在 5 分钟（${lv}），不会变成不限`);
   pg.once('dialog', d => d.accept()); await pg.check('[data-testid=limit-weekend-unl]'); await w(200);
-  ok((await pg.textContent('[data-testid=limit-weekend-val]')).trim() === '—' && await pg.isChecked('[data-testid=limit-weekend-unl]'), '「不限」单独开关（要确认），数值处不再重复写「不限」');
+  ok((await pg.textContent('[data-testid=limit-weekend-val]')).trim() === '不限' && await pg.isChecked('[data-testid=limit-weekend-unl]'), '「不限」单独开关（要确认），数值处显示「不限」（r12 较真家长）');
   for (const t of await pg.$$eval('[data-testid^="vol-"]:not([data-testid=vol-all])', es => es.map(e => e.dataset.testid))) if (t !== 'vol-二年级上册') { await pg.click(`[data-testid="${t}"]`); await w(100); }
   await pg.screenshot({ path: OUT + 'r9-parent-editor.png' });
   await pg.click('[data-testid=profile-save]'); await w(500);
-  const card = await pg.textContent('text=/已学 \\d 册/').catch(() => ''); ok(/已学 1 册/.test(card), `二年级上册保存后仍是 1 册（${card}）`);
+  const card = await pg.textContent('text=/已选：/').catch(() => ''); ok(/已选：[^、]+$/.test(card.trim()), `二年级上册保存后仍是 1 册（r12 列出册别：${card}）`);
   await pg.click('[data-testid^=edit-], button:has-text("编辑") >> nth=-1').catch(() => {}); await w(300);
   const on1 = await pg.$$eval('[data-testid^="vol-"][aria-pressed=true]', es => es.map(e => e.dataset.testid)); ok(on1.length === 1 && on1[0] === 'vol-二年级上册', `重新打开编辑：只选中二年级上册（${on1}）`);
   await ctx.close();

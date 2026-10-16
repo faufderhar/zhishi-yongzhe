@@ -22,14 +22,14 @@ test('R10-2 恢复码：8 位、无易混字符、哈希可校验、不分大小
   expect(await verifyPin(normCode(c.toLowerCase().slice(0, 4) + ' ' + c.slice(4)), h)).toBe(true);
   expect(await verifyPin('AAAAAAAA', h)).toBe(c === 'AAAAAAAA');
 });
-test('R10-2 24 小时延时重设：不到点不生效；时钟锁定不生效；把时钟调回申请之前不生效', () => {
+test('R10-2 延时重设（r12 起 72 小时）：不到点不生效；时钟锁定不生效；把时钟调回申请之前不生效', () => {
   const t0 = new Date(2026, 9, 16, 9, 0).getTime(); const p = newPending(t0);
   expect(p.effectiveAt - t0).toBe(RESET_DELAY_MS);
   expect(resetDue(p, t0 + RESET_DELAY_MS - 1, false)).toBe(false);
   expect(resetDue(p, t0 + RESET_DELAY_MS, false)).toBe(true);
   expect(resetDue(p, t0 + RESET_DELAY_MS, true)).toBe(false);
   expect(resetDue(undefined, t0 * 2, false)).toBe(false);
-  expect(fmtWhen(p.effectiveAt)).toBe('10月17日9点');
+  expect(fmtWhen(p.effectiveAt)).toBe('10月19日9点');
 });
 test('R10-2 副本：设置丢了从孩子档案恢复；全没了且有档案 → lost，没档案 → 首次设置', async () => {
   const v = { pinHash: 's2:x:y', recHash: 's2:a:b' };
