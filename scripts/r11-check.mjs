@@ -21,7 +21,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   return { ctx, pg, w, pinIn };
 }
 const said = pg => pg.evaluate(() => window.__said.splice(0));
-const enterMap = async (pg, w) => { await pg.click('text=r9'); await pg.waitForSelector('[data-testid=char-confirm]'); await pg.click('[data-testid^=char-]'); await pg.click('[data-testid=char-confirm]'); await w(700); };
+const enterMap = async (pg, w) => { await pg.click('text=r9'); await w(400); if (await pg.isVisible('[data-testid=pin-ok]')) { for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); }   /* r15：选档案都要密码（刚添加完的第一次除外） */ await pg.waitForSelector('[data-testid=char-confirm]'); await pg.click('[data-testid^=char-]'); await pg.click('[data-testid=char-confirm]'); await w(700); };
 const tutSkip = async (pg, w) => { for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-next]'); i++) { await pg.click('[data-testid=tutorial-next]'); await w(150); } };
 async function answer(pg, right) {
   for (let i = 0; i < 3; i++) {

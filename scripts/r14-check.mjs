@@ -157,8 +157,8 @@ if (on('clock')) {
   await put('clock', { maxSeen: Date.now() + 73 * 3600e3, locked: true, lockedAt: Date.now() });
   await put('usage:' + pid, { [day(0)]: { used: 300, bonus: 0 }, [day(73 * 3600e3)]: { used: 999, bonus: 0 } });
   await pg.reload(); await w(2500);
-  ok(!(await pg.isVisible('[data-testid=clock-lock]')), '时钟基准在未来 73 小时：不锁（作废并记日志）');
-  const home = await pg.textContent('.profile-card:has-text("r9") .left-time'); ok(!/还能玩 0 分/.test(home), `首页剩余不是 0：${home}`);
+  ok(await pg.isVisible('[data-testid=clock-lock]'), 'r15 R141-1：时钟基准在未来 73 小时（关着时把时钟往回调了）→ 锁');
+  const home = await pg.textContent('.profile-card:has-text("r9") .left-time'); console.log('  首页（锁着）：' + home);
   await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
   await pg.click('[data-testid=ptab-time]'); await w(300);
   const left = (await pg.textContent(`[data-testid=left-${pid}]`)).trim(); const m0 = home.match(/(\d+) 分/)?.[1]; ok(m0 && left.includes(m0 + ' 分'), `家长页剩余与首页一致（${left} / ${home}）`);
@@ -170,7 +170,7 @@ if (on('clock')) {
   await pg.evaluate(() => window.dispatchEvent(new CustomEvent('zy-update-ready', { detail: () => localStorage.setItem('zy.r141reload', '1') }))); await w(3500);
   ok(loads === 0 && !(await pg.evaluate(() => localStorage.getItem('zy.r141reload'))), '家长页：有新版本也不刷新');
   await pg.click('[data-testid=parent-close]'); await w(800); await pg.reload(); await w(2500);
-  ok(!(await pg.isVisible('[data-testid=clock-lock]')), '刷新后仍不锁');
+  ok(!(await pg.isVisible('[data-testid=clock-lock]')), '家长 ＋10 解锁后，刷新仍不锁'); { const h2 = await pg.textContent('.profile-card:has-text("r9") .left-time'); ok(!/还能玩 0 分/.test(h2), `解锁后首页剩余不是 0：${h2}`); }
   await ctx.close();
 }
 // r14.1 策划：旧预设找回问题不再拦家长页，只常驻提示 + 现在更换
@@ -266,7 +266,8 @@ if (on('allnodes')) {
         total++;
         if (!okB) { const why = await pg.isVisible('[data-testid=error-boundary]') ? 'boundary:' + (await pg.textContent('[data-testid=error-boundary]')).slice(0, 120) : await pg.isVisible('[data-testid=char-confirm]') ? 'char' : 'other'; badList.push(`${sub}#${i} ${why}`);
           await pg.screenshot({ path: OUT + `allnodes-${grade}-${sub}-${i}.png` }); await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await pg.click('text=r9'); await w(500); for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`).catch(() => {}); await pg.click('[data-testid=pin-ok]').catch(() => {}); await w(800); continue; }
-        await pg.click(SEL); await w(300); await pg.click('[data-testid=quit]'); await w(200); await pg.click('[data-testid=quit-confirm]'); await w(700);
+        await pg.click(SEL); await w(300); if (!(await pg.isVisible('[data-testid=quit]'))) { const bb = await pg.locator(SEL).boundingBox(); await pg.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.mouse.down(); await w(2400); await pg.mouse.up(); await w(300); }   /* 幼儿园：按住暂停 */
+        await pg.click('[data-testid=quit]'); await w(200); await pg.click('[data-testid=quit-confirm]'); await w(700);
       }
     }
     ok(!badList.length, `年级 ${grade}：${total} 关全部能开战 ${badList.slice(0, 8).join(' | ')}`); await ctx.close();
