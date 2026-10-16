@@ -663,3 +663,13 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15：申请重设横条不挡下面的按钮（返回等）；横条里的按钮照常可点 */
 .sys-bar[data-testid=pin-reset-pending]{pointer-events:none;opacity:.95}
 .sys-bar[data-testid=pin-reset-pending] button,.sys-bar[data-testid=pin-reset-pending] a{pointer-events:auto}
+
+/* r15 R141-4：矮手机竖屏（如 375×667）——意图长说明收起（点「要开盾 ⓘ」仍可看），战斗区再矮一点，键盘留在第一屏 */
+@media (orientation:portrait) and (max-height:740px){
+  .battle.rounds .intent-now{display:none}
+  .battle.rounds{grid-template-rows:auto auto 25% 1fr !important}
+  .battle.rounds .quiz .speak-btn,.battle.rounds .quiz [aria-label*=朗读]{transform:scale(.8)}
+  .battle.rounds .arena .stage{min-height:110px;height:calc(30dvh - 120px) !important}
+  .battle.rounds .qmeta{font-size:12px;margin:2px 0}
+  .battle .quiz [data-testid=tier-now]{display:none}
+}
