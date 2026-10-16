@@ -17,7 +17,7 @@ export interface BandConfig {
   adaptive: { up: number; down: number; min: number; max: number };
 }
 export const BANDS: Record<Band, BandConfig> = {
-  K:  { band: 'K',  label: '幼儿园', theme: 'kinder', chars: 'pups', battle: 'kinder', canFail: false, questions: { normal: 3, elite: 4, boss: 4 }, autoTTS: true, optionSpeaker: false, manualTTS: true, stats: 'std', dailyMinutes: { weekday: 15, weekend: 15 }, adaptive: { up: 4, down: 99, min: 1, max: 2 } },
+  K:  { band: 'K',  label: '幼儿园', theme: 'kinder', chars: 'pups', battle: 'kinder', canFail: false, questions: { normal: 3, elite: 3, boss: 5 }, autoTTS: true, optionSpeaker: false, manualTTS: true, stats: 'std', dailyMinutes: { weekday: 15, weekend: 15 }, adaptive: { up: 4, down: 99, min: 1, max: 2 } },
   G1: { band: 'G1', label: '小学·启蒙', theme: 'g1', chars: 'pups', battle: 'simple', canFail: false, questions: { normal: 5, elite: 6, boss: 8 }, autoTTS: true, optionSpeaker: true, manualTTS: true, stats: 'std', dailyMinutes: { weekday: 30, weekend: 40 }, adaptive: { up: 3, down: 2, min: 1, max: 5 } },
   G2: { band: 'G2', label: '小学·进阶', theme: 'std', chars: 'pups', battle: 'full', canFail: true, questions: { normal: 6, elite: 7, boss: 10 }, autoTTS: false, optionSpeaker: false, manualTTS: true, stats: 'std', dailyMinutes: { weekday: 40, weekend: 60 }, adaptive: { up: 3, down: 2, min: 1, max: 5 } },
   G3: { band: 'G3', label: '小学·挑战', theme: 'std', chars: 'pups', battle: 'full', canFail: true, questions: { normal: 7, elite: 7, boss: 10 }, autoTTS: false, optionSpeaker: false, manualTTS: true, stats: 'std', dailyMinutes: { weekday: 40, weekend: 60 }, adaptive: { up: 3, down: 2, min: 1, max: 5 } },

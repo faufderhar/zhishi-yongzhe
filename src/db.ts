@@ -62,6 +62,8 @@ export const deleteProfileData = (pid: string, kvKeys: string[]) => safeW(async 
   await tx.done;
 });
 export const getKV = <T>(k: string) => safe<T | undefined>(async () => (await db()).get('kv', k), undefined);
+/** r10：读失败时抛错（区分「没读到」和「确实没有」） */
+export const getKVStrict = async <T>(k: string): Promise<T | undefined> => (await db()).get('kv', k);
 export const setKV = (k: string, v: unknown) => safeW(async () => { await (await db()).put('kv', v, k); });
 export const answersOf = (pid: string) => safe<AnswerRecord[]>(async () => (await db()).getAllFromIndex('answers', 'byProfile', pid), []);
 export const wrongOf = (pid: string) => safe<WrongEntry[]>(async () => (await db()).getAllFromIndex('wrong', 'byProfile', pid), []);

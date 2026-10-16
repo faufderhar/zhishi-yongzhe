@@ -1,3 +1,4 @@
+import { backupPin } from './game/pin';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
@@ -31,6 +32,7 @@ import { ParentGate, ParentSettings } from './ui/Parent';
 type Nav = { pid: string; grade?: GradeKey; s: string; level?: string; name?: string; at: number; bv?: string };
 const BAL_VER = 'v0.3.8';   // D14 数值版本：旧版本中断的战斗提示「数值更新了」
 const NAV_KEY = 'zy-nav';
+const navN = () => { try { return Number(localStorage.getItem('zy-nav-n')) || 0; } catch { return 0; } };
 function readNav(): Nav | null { try { const v = JSON.parse(localStorage.getItem(NAV_KEY) ?? 'null'); return v && typeof v.pid === 'string' && typeof v.at === 'number' ? v : null; } catch { return null; } }
 function writeNav(n: Nav | null) { try { if (n) localStorage.setItem(NAV_KEY, JSON.stringify(n)); else localStorage.removeItem(NAV_KEY); } catch { /* */ } }
 
@@ -86,7 +88,7 @@ export default function App() {
     (async () => {
       const [st, ps, fl, ck] = await Promise.all([S.loadSettings(), S.loadProfiles(), S.loadFlags(), S.loadClock()]);
       let ck2 = S.checkClock(ck, Date.now());
-      setSettingsState(st); setProfilesState(ps); setFlags(fl);
+      if (st.pinHash) backupPin(st.pinHash, st.pinHint); setSettingsState(st); setProfilesState(ps); setFlags(fl);
       const us: Record<string, Usage> = {}, sk: Record<string, Skills> = {};
       for (const p of ps) { us[p.id] = await S.loadUsage(p.id); sk[p.id] = await S.loadSkills(p.id); }
       // D8：今天早于时长记录里最大的日期 → 也算时间被调回
@@ -104,7 +106,7 @@ export default function App() {
       const swReload = (() => { try { const v = sessionStorage.getItem('zy-sw-reload'); sessionStorage.removeItem('zy-sw-reload'); return !!v; } catch { return false; } })();
       if (nav && pp && Date.now() - nav.at < 2 * 3600e3 && nav.s !== 'profiles') {
         if (swReload) restoreRef.current = { nav, pp };   // 新版本自动刷新：直接回到原来的地图
-        else if (nav.s === 'battle' && nav.level) setInterrupted({ levelId: nav.level, name: nav.name ?? '', pid: pp.id, upd: nav.bv !== BAL_VER });   // 战斗中被关掉：首页提示
+        else if (nav.s === 'battle' && nav.level) setInterrupted({ levelId: nav.level, name: nav.name ?? '', pid: pp.id, upd: nav.bv !== BAL_VER, n: navN() });   // 战斗中被关掉：首页提示
       }
     })();
     const f = () => setPortrait(window.innerHeight > window.innerWidth);
@@ -113,13 +115,13 @@ export default function App() {
 
   const [lastPid, setLastPid] = useState<string>();
   const restoreRef = useRef<{ nav: Nav; pp: Profile } | null>(null);
-  const [interrupted, setInterrupted] = useState<{ levelId: string; name: string; pid?: string; upd?: boolean } | null>(null);
+  const [interrupted, setInterrupted] = useState<{ levelId: string; name: string; pid?: string; upd?: boolean; n?: number } | null>(null);
   const p0 = profiles.find(x => x.id === pid);
   // r8b：两级入口选的年级（默认档案年级）；非档案年级不带档案的教材册别
   const [viewGrade, setViewGrade] = useState<GradeKey | undefined>();
   const vg = p0 ? viewGrade ?? p0.grade : undefined;
   const vChars = vg ? (bandConfig(vg).chars === 'scifi' ? SCIFI : PUPS) : [];
-  const p = p0 && vg ? { ...p0, grade: vg, volumes: vg === p0.grade ? p0.volumes : null, charId: [p0.charIds?.[bandConfig(vg).chars], p0.charId].find(id => id && vChars.some(c => c.id === id)) } : p0;
+  const p = p0 && vg ? { ...p0, homeGrade: p0.grade, grade: vg, volumes: vg === p0.grade ? p0.volumes : null, charId: [p0.charIds?.[bandConfig(vg).chars], p0.charId].find(id => id && vChars.some(c => c.id === id)) } : p0;
   const cfg = p ? bandConfig(p.grade) : null;
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
   const allGradeQs = useMemo(() => bank && p ? questionsOfGrade(bank, p.grade) : [], [bank, p?.grade]);
@@ -132,7 +134,7 @@ export default function App() {
   const playableKeys = useMemo(() => new Set(gradeQs.map(q => q.key)), [gradeQs]);
   const today = dayStr();
   // 时钟被调回（GDD §8.2）：按「今日已用满」处理，家长在「时长」页解除
-  const remaining = (id: string) => { if (clock.locked) return 0; const pp = profiles.find(x => x.id === id); return pp ? remainingSec(S.effLimit(pp), usage[id] ?? {}, today) : Infinity; };
+  const remaining = (id: string) => { if (clock.locked) return 0; const pp = profiles.find(x => x.id === id); if (!pp) return Infinity; const r = remainingSec(S.effLimit(pp), usage[id] ?? {}, today); const sp = __TEST_HOOKS__ ? Number((window as unknown as { __zyTestSpentSec?: number }).__zyTestSpentSec) || 0 : 0; return sp ? Math.max(0, r - sp) : r; };
   const myRemaining = pid ? remaining(pid) : Infinity;
   // 到时：允许打完当前关，最多再 3 分钟，之后按已答题结算（策划 T-P2-2）
   // 首次联网后后台预下载各档案年龄段用到的动画（技术QA P1-6）；失败不影响流程（有程序动效兜底）
@@ -155,8 +157,15 @@ export default function App() {
     setProfiles(profiles.map(x => x.id === p.id ? { ...x, tutorialDone: true, ...(cfg?.battle === 'full' ? { tutorialV036: true } : {}) } : x));
     if (settings.tutorialReplay?.[p.id]) { const r = { ...settings.tutorialReplay }; delete r[p.id]; setSettings({ ...settings, tutorialReplay: r }); }
   };
-  const overTime = myRemaining <= 0 && screen.s === 'battle';
-  useEffect(() => { if (!overTime) return; const t = setTimeout(() => window.dispatchEvent(new Event(FORCE_END)), 3 * 60e3); return () => clearTimeout(t); }, [overTime]);
+  // r10 时长统一把关：所有答题入口（关卡 / 错题本「练习这些」/ 今日复习 / 中断恢复）进入时检查；进入后到时有 3 分钟收尾，然后强制结算
+  const ANSWER_SCREENS = ['battle', 'review'];
+  const [timeUpNote, setTimeUpNote] = useState(false);
+  useEffect(() => { if (ANSWER_SCREENS.includes(screen.s) && myRemaining <= 0 && !graceOk.current) { setTimeUpNote(true); setScreen({ s: 'map' }); } graceOk.current = false; }, [screen]);
+  const graceOk = useRef(false);
+  const overTime = myRemaining <= 0 && ANSWER_SCREENS.includes(screen.s);
+  useEffect(() => { if (!overTime) return; const t0 = Date.now(); setGraceLeft(180); const iv = setInterval(() => setGraceLeft(Math.max(0, 180 - Math.round((Date.now() - t0) / 1000))), 1000);
+    const t = setTimeout(() => window.dispatchEvent(new Event(FORCE_END)), 3 * 60e3); return () => { clearTimeout(t); clearInterval(iv); }; }, [overTime]);
+  const [graceLeft, setGraceLeft] = useState(180);
   const char: Character | undefined = p && cfg ? [...PUPS, ...SCIFI].find(c => c.id === p.charId) : undefined;
 
   // 计时：进入孩子档案后（地图/选角色/战斗/结算/错题本/复习）且页面可见时都计；幼儿园短关卡以前只计战斗，几乎为 0（试玩报告 #10）
@@ -184,7 +193,7 @@ export default function App() {
     };
   }, [playing, pid]);
 
-  const setSettings = (s: Settings) => { setSettingsState(s); S.saveSettings(s); };
+  const setSettings = (s: Settings) => { setSettingsState(s); S.saveSettings(s); backupPin(s.pinHash, s.pinHint); };
   const setProfiles = (ps: Profile[]) => {
     for (const old of profiles) if (!ps.some(x => x.id === old.id)) void deleteProfileData(old.id, S.profileKeys(old.id));   // P1-2：删档案连数据一起清
     setProfilesState(ps); S.saveProfiles(ps);
@@ -198,7 +207,7 @@ export default function App() {
       await pickProfile(r.pp);
       const g = r.nav.grade && !needsGate(r.pp.grade, r.nav.grade) ? r.nav.grade : r.pp.grade;   // 非档案年级不自动恢复：仍要家长确认
       if (['map', 'battle', 'result', 'char', 'wrongbook', 'review', 'review-done'].includes(r.nav.s)) enterGrade(g, false, r.pp);
-      if (r.nav.s === 'battle' && r.nav.level) setInterrupted({ levelId: r.nav.level, name: r.nav.name ?? '', pid: r.pp.id });
+      if (r.nav.s === 'battle' && r.nav.level) setInterrupted({ levelId: r.nav.level, name: r.nav.name ?? '', pid: r.pp.id, n: navN() });
     })();
   }, [screen, bank]);
   // r9：记下当前位置（重新加载后恢复）
@@ -209,6 +218,7 @@ export default function App() {
   }, [screen, pid, vg]);
   // r9：安卓返回键/手势——每个页面压一条历史，返回 = 游戏内返回；首页返回先确认；战斗中返回 = 暂停
   const backRef = useRef<() => boolean>(() => false);
+  const exiting = useRef(false);
   backRef.current = () => {
     const sc = screen;
     switch (sc.s) {
@@ -228,8 +238,9 @@ export default function App() {
   useEffect(() => {
     try { history.pushState({ zy: 1 }, ''); } catch { /* */ }
     const onPop = () => {
+      if (exiting.current) return;   // r10：确认退出后一次退到底，不再反复弹确认
       if (backRef.current()) { try { history.pushState({ zy: 1 }, ''); } catch { /* */ } return; }
-      if (confirm('要退出知识勇者吗？')) history.back(); else try { history.pushState({ zy: 1 }, ''); } catch { /* */ }
+      if (confirm('要退出知识勇者吗？')) { exiting.current = true; history.go(-(history.length - 1)); setTimeout(() => { exiting.current = false; }, 1500); } else try { history.pushState({ zy: 1 }, ''); } catch { /* */ }
     };
     window.addEventListener('popstate', onPop); return () => window.removeEventListener('popstate', onPop);
   }, []);
@@ -260,6 +271,7 @@ export default function App() {
   /** 每次作答：记录、难度阶梯、错题本 */
   function onAnswer(q: Question, correct: boolean, ans: string, isReview = false) {
     if (!p || !cfg) return;
+    try { localStorage.setItem('zy-nav-n', String(navN() + 1)); } catch { /* */ }
     recordAnswer({ profileId: p.id, questionId: q.key, correct, at: Date.now(), subject: q.subject });
     setSeenKeys(s => s.has(q.key) ? s : new Set(s).add(q.key));
     if (!isReview) setSkills(sk => { const nx = { ...sk, [q.subject]: updateSkill(sk[q.subject], correct, cfg) }; S.saveSkills(p.id, nx); setAllSkills(a => ({ ...a, [p.id]: nx })); return nx; });
@@ -308,13 +320,16 @@ export default function App() {
     // r8 多选规则：小学/幼儿园一律不出；初一/高一把本关题池里的多选题都放进候选（是否出、出几道由战斗里按回合规则决定，不受难度挑选影响）
     const qs2 = multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q));
     const extra2 = multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q));
-    masteredThisLevel.current = 0; setInterrupted(null);
+    masteredThisLevel.current = 0; setInterrupted(null); try { localStorage.setItem('zy-nav-n', '0'); } catch { /* */ }
     setScreen({ s: 'battle', level, qs: qs2, extra: extra2, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;
     const played = progress.plays[level.id]?.day === today ? progress.plays[level.id].count : 0;
     // 防刷（D3）：同关当天第 3 次起不再新增星星（历史最高保留）
+    // r10（较真家长）：一题都没答对（例如全部超时）不算「胜利」，0★；时长用完被强制结算一律按「时间到」
+    if (!r.kinder && r.correct === 0 && r.win) r = { ...r, win: false };
+    if (myRemaining <= 0 && !r.win && !r.quit) r = { ...r, timeUp: r.timeUp || r.correct === 0 };
     const stars = levelStars(r);   // 裁定 1：撤退最多 ★、时间到 0★；小班 correct = 第一次答对
     const gain = played >= 2 ? 0 : stars;
     const mastered = masteredThisLevel.current;
@@ -327,7 +342,7 @@ export default function App() {
   }
   const nextLevelOf = (level: Level) => { const ch = chapters.find(c => c.subject === level.chapter); const i = ch?.levels.findIndex(l => l.id === level.id) ?? -1; return ch && i >= 0 ? ch.levels[i + 1] : undefined; };
   const flagQ = (q: Question) => { const nf = { ...flags, [q.key]: (flags[q.key] ?? 0) + 1 }; setFlags(nf); S.saveFlags(nf); };
-  const startReview = (keys: string[]) => { const qs = keys.map(k => bank!.byKey.get(k)).filter((q): q is Question => !!q); if (qs.length) { masteredThisLevel.current = 0; setScreen({ s: 'review', qs, nonce: Date.now() }); } };
+  const startReview = (keys: string[]) => { if (myRemaining <= 0) { setTimeUpNote(true); return; } const qs = keys.map(k => bank!.byKey.get(k)).filter((q): q is Question => !!q); if (qs.length) { masteredThisLevel.current = 0; setScreen({ s: 'review', qs, nonce: Date.now() }); } };
 
   const theme = cfg && !['profiles', 'gate', 'parent', 'loading'].includes(screen.s) ? 'theme-' + cfg.theme : '';
   return (
@@ -336,18 +351,21 @@ export default function App() {
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
       {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
       {updateReady && ['profiles', 'map'].includes(screen.s) && <button className="sys-bar" data-testid="update-ready" onClick={() => updateReady()}>✨ 有新版本，点这里更新（不会丢进度）</button>}
-      {interrupted && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="interrupted">上次「{interrupted.name}」没打完游戏就被关掉了（可能是更新或平板清理了后台），已答的题都记下了
+      {interrupted && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="interrupted">上次玩「{interrupted.name}」时游戏没有正常结束就关掉了（可能是切到别的应用太久被平板关掉，或者版本更新）。{interrupted.n ? `已经答的 ${interrupted.n} 道题都保存了，` : ''}这一关需要重新开始
         <button className="chip" data-testid="interrupted-again" onClick={() => { const l = chapters.flatMap(c => c.levels).find(x => x.id === interrupted.levelId); setInterrupted(null); if (l) startLevel(l); }}>重新开始这一关</button>
         <button className="chip" onClick={() => setInterrupted(null)}>知道了</button></div>}
-      {interrupted?.pid && screen.s === 'profiles' && (() => { const ip = profiles.find(x => x.id === interrupted.pid); return ip && <div className="sys-bar warn-bar" data-testid="interrupted-home">{ip.avatar} {ip.name}上次的「{interrupted.name}」没打完游戏就被关掉了，已答的题都记下了{interrupted.upd ? '。数值更新了，这一关重新开始' : ''}
+      {interrupted?.pid && screen.s === 'profiles' && (() => { const ip = profiles.find(x => x.id === interrupted.pid); return ip && <div className="sys-bar warn-bar" data-testid="interrupted-home">{ip.avatar} {ip.name}上次玩「{interrupted.name}」时游戏没有正常结束就关掉了（可能是切到别的应用太久被平板关掉，或者版本更新）。{interrupted.n ? `已经答的 ${interrupted.n} 道题都保存了。` : ''}{interrupted.upd ? '游戏数值更新了，这一关要重新开始。' : ''}
         <button className="chip" data-testid="interrupted-go" onClick={() => { restoreRef.current = { nav: { pid: ip.id, grade: ip.lastGrade && !needsGate(ip.grade, ip.lastGrade) ? ip.lastGrade : ip.grade, s: 'battle', level: interrupted.levelId, name: interrupted.name, at: Date.now() }, pp: ip }; setScreen({ s: 'profiles', adding: false }); }}>回到这一关</button>
         <button className="chip" onClick={() => setInterrupted(null)}>知道了</button></div>; })()}
       {screen.s === 'loading' && <div className="center-screen"><h1 className="title">⚔️ 知识勇者</h1><p className="sub">正在加载题库… {loadPct}%</p></div>}
+      {overTime && <div className="sys-bar warn-bar grace-bar" data-testid="grace-bar">⏰ 时间到啦，打完这一关（最多 3 分钟，还剩 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}）</div>}
+      {timeUpNote && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="timeup-note" onClick={() => setTimeUpNote(false)}>⏰ 今天的时间用完啦，不能再答题了，明天再来！（家长可在设置里加时间）</div>}
       {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
         onAdd={p => { setProfiles([...profiles, p]); setScreen({ s: 'profiles' }); }} />}
       {screen.s === 'gate' && <ParentGate settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
         onSetPin={(h, hint) => setSettings({ ...settings, pinHash: h || undefined, pinHint: hint ?? settings.pinHint })}
+        onRestorePin={(h, hint) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint })} hasProgress={profiles.length > 0}
         onOk={() => setScreen(screen.next === 'add' ? { s: 'profiles', adding: true } : { s: 'parent' })} onCancel={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'parent' && bank && <ParentSettings currentPid={lastPid} settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
         usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => { const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); }} onClose={() => setScreen({ s: 'profiles' })} />}
@@ -358,6 +376,7 @@ export default function App() {
         onPick={g => enterGrade(g)} />}
       {screen.s === 'gate-grade' && p0 && <ParentGate settings={settings} purpose={`去${GRADE_LABEL[screen.g]}需要家长确认（${p0.name}的档案是${GRADE_LABEL[p0.grade]}）`}
         onSetPin={(h, hint) => setSettings({ ...settings, pinHash: h || undefined, pinHint: hint ?? settings.pinHint })}
+        onRestorePin={(h, hint) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint })} hasProgress={profiles.length > 0}
         onOk={() => enterGrade(screen.g, true)} onCancel={() => setScreen({ s: 'grade', stage: stageOf(screen.g) })} />}
       {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} progress={progress} wrong={wrong} remaining={myRemaining} c={char}
         chapterIdx={chapterIdx} setChapterIdx={setChapterIdx} onLevel={startLevel} onBack={() => setScreen({ s: 'grade', stage: stageOf(p.grade) })}
@@ -370,7 +389,7 @@ export default function App() {
         ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} />
         : cfg.battle === 'full'
-        ? <RoundBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
+        ? <RoundBattle seen={seenKeys} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => setProfilesState(ps => { const nx = ps.map(x => x.id === pid ? { ...x, tips: { ...x.tips, [k]: true } } : x); S.saveProfiles(nx); return nx; })}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' })} onFlag={flagQ} />

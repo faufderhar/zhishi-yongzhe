@@ -54,3 +54,7 @@ export async function saveLock(s: LockState, key = LK) { try { localStorage.setI
 export const PIN_MARK = 'zy.pinEverSet';
 export const markPinSet = () => { try { localStorage.setItem(PIN_MARK, '1'); } catch { /* */ } void setKV(PIN_MARK, 1); };
 export async function pinWasSet() { try { if (localStorage.getItem(PIN_MARK)) return true; } catch { /* */ } return !!(await getKV(PIN_MARK)); }
+/** r10：密码哈希在 localStorage 另存一份（IndexedDB 被清掉时能自动找回，不误报「丢失」） */
+export const PIN_BACKUP = 'zy.pinBackup';
+export const backupPin = (hash?: string, hint?: unknown) => { try { if (hash) localStorage.setItem(PIN_BACKUP, JSON.stringify({ hash, hint })); else localStorage.removeItem(PIN_BACKUP); } catch { /* */ } };
+export const readPinBackup = (): { hash: string; hint?: { q: string; a: string } } | null => { try { const x = JSON.parse(localStorage.getItem(PIN_BACKUP) ?? 'null'); return x && typeof x.hash === 'string' ? x : null; } catch { return null; } };

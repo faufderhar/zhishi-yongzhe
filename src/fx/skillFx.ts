@@ -48,7 +48,10 @@ export async function playSkill(r: SkillRig, k: SkillDef, o: PlaySkillOpts): Pro
   const rm = reducedMotion();
   const banP = fa(ban, rm ? [{ opacity: 0, transform: 'translate(-50%,0)' }, { opacity: 1, transform: 'translate(-50%,0)', offset: 0.25 }, { opacity: 1, transform: 'translate(-50%,0)', offset: 0.75 }, { opacity: 0, transform: 'translate(-50%,0)' }]
     : [{ opacity: 0, transform: 'translate(-50%,-8px)' }, { opacity: 1, transform: 'translate(-50%,0)', offset: 0.25 }, { opacity: 1, transform: 'translate(-50%,0)', offset: 0.75 }, { opacity: 0, transform: 'translate(-50%,-4px)' }], rm ? 900 : 600, 0, 'skill-banner');
-  const cleanup: HTMLElement[] = [ban];
+  // r10 小班：技能名横幅更大，停留 ≥4 秒或点一下才消失（不跟着特效一起收掉）
+  if (o.kinder) { ban.classList.add('kinder'); ban.style.pointerEvents = 'auto'; banP.catch(() => {}); ban.getAnimations().forEach(a => a.cancel()); ban.style.opacity = '1';
+    const gone = () => ban.remove(); ban.addEventListener('pointerdown', gone); window.setTimeout(gone, 4500); }
+  const cleanup: HTMLElement[] = o.kinder ? [] : [ban];
   const stopFps = sampleFps(total);
   try {
     if (reducedMotion()) {   // 只保留横幅 + 图标淡入淡出（无位移、无粒子）

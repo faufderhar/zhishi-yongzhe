@@ -7,41 +7,49 @@ import { speak } from '../tts';
 import { Sprite } from './Battle';
 
 export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void }) {
+  // r10：3 道不同的练习题（①点对的卡片 ②爱心 = 开心值 ③小喇叭再听一遍），练习不算星星；练完有「练习完成，开始闯关啦！」过渡
+  const QS = [
+    { q: '哪个是苹果？', ok: ['🍎', '苹果'], no: ['🚗', '汽车'], say: `我是${c.name}！哪个是苹果？点一点苹果` },
+    { q: '哪个是小狗？', ok: ['🐶', '小狗'], no: ['🐱', '小猫'], say: '答对了，爱心亮起来啦！再来：哪个是小狗？' },
+    { q: '哪个是红色的？', ok: ['🔴', '红色'], no: ['🔵', '蓝色'], say: '听不清就点小喇叭再听一遍。哪个是红色的？' },
+  ];
   const [step, setStep] = useState(1);
-  const [lit, setLit] = useState(false);
-  const [wig, setWig] = useState(false);   // r9：点错——卡片轻摇 0.5 s、算算摇头、「嗯～再想想」
+  const [lit, setLit] = useState(0);
+  const [wig, setWig] = useState(false);
+  const [done, setDone] = useState(false);
   const timers = useRef<number[]>([]);
   const later = (ms: number, f: () => void) => { timers.current.push(window.setTimeout(f, ms)); };
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
-  useEffect(() => {
-    timers.current.forEach(clearTimeout); timers.current = [];
-    // r9：小班首次引导 3 步（朗读、可跳过）：① 点对的卡片 ② 爱心 = 开心值 ③ 小喇叭再听一遍；练习不算星星
-    if (step === 1) { speak(`我是${c.name}！哪个是苹果？点一点苹果`); later(6000, () => speak('点一点苹果')); }
-    if (step === 2) { speak('答对了，小乌云就开心，爱心亮起来！这是练习，不算星星哦'); later(5000, () => setStep(3)); }
-    if (step === 3) { speak('听不清就点小喇叭。我们开始吧！'); later(3500, onDone); }
-  }, [step]);
+  const cur = QS[step - 1];
+  useEffect(() => { if (done) return; timers.current.forEach(clearTimeout); timers.current = []; speak(cur.say); later(7000, () => speak(cur.q)); }, [step, done]);
+  const right = () => {
+    if (done) return; setLit(l => l + 1);
+    if (step < 3) { setStep(step + 1); return; }
+    setDone(true); timers.current.forEach(clearTimeout); speak('练习完成，开始闯关啦！'); later(2000, onDone);
+  };
+  const okFirst = step !== 2;   // 正确项位置轮换，不是每次都在左边
+  const btnOk = <button key="ok" className="kopt" style={{ background: '#d5f0c4' }} data-testid="tut-apple" onClick={right}>
+    <span className="kface"><span className="kface-emo">{cur.ok[0]}</span><span className="kface-txt">{cur.ok[1]}</span></span>{step === 1 && <span className="finger" aria-hidden>👆</span>}</button>;
+  const btnNo = <button key="no" className={`kopt ${wig ? 'kwiggle' : ''}`} style={{ background: '#cfe3ff' }} data-testid="tut-car" onClick={() => { if (done) return; setWig(true); speak('嗯～再想想'); later(1000, () => setWig(false)); }}>
+    <span className="kface"><span className="kface-emo">{cur.no[0]}</span><span className="kface-txt">{cur.no[1]}</span></span></button>;
   return (
     <div className="kbattle tutorial" data-testid="tutorial-kinder">
       <div className="ktop">
-        <button className="chip skip" data-testid="tutorial-skip" onClick={onDone}>跳过</button>
         <span className="tut-steps" data-testid="tut-steps">练习 {step}/3</span>
         <div className="kbubble">
-          <button className={`kspeaker ${step === 3 ? 'pointed' : ''}`} aria-label="再听一遍" onClick={() => speak('哪个是苹果？')}>🔊</button>
+          <button className={`kspeaker ${step === 3 ? 'pointed' : ''}`} aria-label="再听一遍" onClick={() => speak(cur.q)}>🔊</button>
           {step === 3 && <span className="finger at-speaker" aria-hidden>👆</span>}
-          <div className="kq">哪个是苹果？</div>
+          <div className="kq" data-testid="tut-q">{cur.q}</div>
         </div>
-        <div className="hearts"><span className="hearts-label">开心值</span><span className={`kheart ${lit ? 'on pop' : 'off'}`}>{lit ? '💖' : '♥'}</span><b className="hearts-num">{lit ? 1 : 0}/1</b></div>
+        <div className="hearts"><span className="hearts-label">开心值</span>{[0, 1, 2].map(i => <span key={i} className={`kheart ${i < lit ? 'on' : 'off'} ${i === lit - 1 ? 'pop' : ''}`}>{i < lit ? '💖' : '♥'}</span>)}<b className="hearts-num">{lit}/3</b></div>
       </div>
       <div className="kstage">
         <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`}><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
         <div className="unit-wrap kmon-wrap"><div className="breathe slow"><img className={`kmon ${lit ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" /></div></div>
       </div>
-      {<div className="kopts">
-        <button className="kopt" style={{ background: '#d5f0c4' }} data-testid="tut-apple" onClick={() => { if (step === 1) { setLit(true); setStep(2); } }}>
-          <span className="kface"><span className="kface-emo">🍎</span><span className="kface-txt">苹果</span></span>{step === 1 && <span className="finger" aria-hidden>👆</span>}</button>
-        <button className={`kopt ${wig ? 'kwiggle' : ''}`} style={{ background: '#cfe3ff' }} data-testid="tut-car" onClick={() => { if (step !== 1) return; setWig(true); speak('嗯～再想想'); later(600, () => setWig(false)); }}>
-          <span className="kface"><span className="kface-emo">🚗</span><span className="kface-txt">汽车</span></span></button>
-      </div>}
+      <div className="kopts">{okFirst ? [btnOk, btnNo] : [btnNo, btnOk]}</div>
+      {done && <div className="tut-done" data-testid="tut-done">🎉 练习完成，开始闯关啦！</div>}
+      <button className="chip skip skip-corner" data-testid="tutorial-skip" onClick={onDone}>跳过练习 ⏭</button>
     </div>
   );
 }

@@ -514,3 +514,49 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .battle .hud .lvl-title, .battle.rounds .hud .lvl-title { white-space: normal !important; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; max-width: 200px !important; font-size: 14px; line-height: 1.2; text-overflow: clip; }
 .back-inline.labeled { display: inline-flex; align-items: center; gap: 4px; width: auto !important; padding: 0 14px; border-radius: 28px; white-space: nowrap; }
 .back-inline.labeled small { font-size: 18px; }
+/* r10 两段 Boss 血条 / 挑战选题 */
+.seg-bar { position: relative; display: inline-block; }
+.seg-bar .seg-mark { position: absolute; top: 2px; bottom: 2px; left: var(--seg); width: 3px; background: #fff; border-radius: 2px; opacity: .9; pointer-events: none; }
+.chal-pick p small { font-size: 18px; opacity: .8; margin-left: 8px; }
+.qcard.hot { border-color: #ff8a3d; }
+.qcard.grey { opacity: .5; }
+.chal-tag { display: inline-block; font-size: 18px; color: #ffb36b; margin-bottom: 4px; }
+/* ===== r10 小班 ===== */
+/* 点错：卡片左右轻晃 2 下（2 Hz，1 s），更明显；伙伴摇头幅度加大 */
+@keyframes kwiggle2 { 0%,50%,100% { transform: translateX(0) rotate(0) } 12%,62% { transform: translateX(-12px) rotate(-6deg) } 37%,87% { transform: translateX(12px) rotate(6deg) } }
+.kopt.kwiggle { animation: kwiggle2 1s ease-in-out 1 !important; }
+@keyframes headshake2 { 0%,50%,100% { transform: translateX(0) rotate(0) } 12%,62% { transform: translateX(-14px) rotate(-8deg) } 37%,87% { transform: translateX(14px) rotate(8deg) } }
+.kpup-wrap.headshake { animation: headshake2 1s ease-in-out 1 !important; }
+.ksay { position: absolute; left: 50%; top: -18px; transform: translate(-10%, -100%); background: #fff; color: #5a3b00; border: 3px solid #ffd27a; border-radius: 22px; padding: 8px 16px; font-size: 26px; font-weight: 800; white-space: nowrap; z-index: 12; box-shadow: 0 4px 0 #0002; }
+.ksay.nudge, .kbusy.nudge { animation: knudge .5s ease-in-out 1; }
+@keyframes knudge { 0%,100% { transform: translate(-10%, -100%) scale(1) } 50% { transform: translate(-10%, -100%) scale(1.06) } }
+.kbusy { position: absolute; left: 50%; bottom: 210px; transform: translateX(-50%); background: #fffbe9; color: #6b4a00; border-radius: 18px; padding: 8px 18px; font-size: 22px; z-index: 11; box-shadow: 0 3px 0 #0002; }
+.kbusy.nudge { animation: none; outline: 3px solid #ffb300; }
+.kopts.kwait .kopt:not(.dim) { filter: saturate(.6) brightness(.92); }
+.kopt.dim { opacity: .45 !important; }
+/* 没亮的爱心对比度更高 */
+.hearts .kheart.off { color: #c2185b !important; opacity: .85 !important; text-shadow: 0 0 2px #fff, 0 1px 0 #fff; }
+/* 小班地图小字 ≥18px */
+.map .chapter small, .map .unit-head, .map .unit-head small, .map .lv-name, .map .kind-tag { font-size: max(18px, 1em) !important; }
+.map .chapter small { font-size: 18px !important; }
+.map-tip { font-size: 26px !important; }
+/* 技能名横幅（小班）更大 */
+.skill-banner.kinder { font-size: 30px; padding: 8px 22px 8px 10px; top: 12px; }
+.skill-banner.kinder .skill-ico { width: 56px; height: 56px; font-size: 40px; }
+/* 温和战斗（小班精英 / Boss） */
+@keyframes hopin { 0% { transform: translateX(160px) translateY(0); opacity: 0 } 25% { transform: translateX(110px) translateY(-24px); opacity: 1 } 50% { transform: translateX(60px) translateY(0) } 75% { transform: translateX(20px) translateY(-18px) } 100% { transform: none } }
+.kmon-wrap.hop-in { animation: hopin 1.4s ease-out 1; }
+.kmon-wrap.go-home { transition: transform 1.6s ease-in, opacity 1.6s ease-in; transform: translateX(420px); opacity: .2; }
+.mon-face { position: absolute; top: -10px; right: -6px; font-size: 56px; z-index: 6; }
+.kstar-row .gstar { font-size: 40px; margin: 0 2px; }
+.kstar-row .gstar.on { color: #ffc107; text-shadow: 0 2px 0 #b8860b; }
+.kstar-row .gstar.off { color: #fff; opacity: .9; text-shadow: 0 0 0 #0000, 0 1px 2px #0005; -webkit-text-stroke: 2px #e0a800; color: transparent; }
+.kstar-row .gstar.pop { animation: soft-pop .6s ease-out 1; }
+@keyframes soft-pop { 0% { transform: scale(1) } 50% { transform: scale(1.25) } 100% { transform: scale(1) } }
+.kpup-wrap { position: relative; }
+.back.labeled { width: auto; padding: 0 20px; border-radius: 36px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.back.labeled small, .back-inline.labeled small { font-size: 20px; }
+.rules-btn { flex: 0 0 44px !important; width: 44px !important; height: 44px !important; padding: 0 !important; }
+.stage .rage-banner { top: 8%; font-size: 36px; white-space: nowrap; }
+.skip-corner { position: absolute !important; left: 16px; bottom: 16px; top: auto !important; right: auto !important; font-size: 20px; z-index: 30; }
+.tut-done { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 44px; font-weight: 900; color: #5a3b00; background: rgba(255,248,230,.7); z-index: 40; }

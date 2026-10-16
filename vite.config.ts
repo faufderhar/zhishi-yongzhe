@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { createHash } from 'node:crypto';
@@ -13,10 +13,10 @@ const BUILD = (() => { let h = 'nogit'; try { h = execSync('git rev-parse --shor
 const BUILD_TIME = (() => { try { return new Date(execSync('git log -1 --format=%cI').toString().trim()).toISOString(); } catch { return new Date().toISOString(); } })();
 export default defineConfig({
   base: './',
-  define: { __BANK_VER__: JSON.stringify(BANK_VER), __BANK_RELEASE__: JSON.stringify(BANK_RELEASE), __BUILD__: JSON.stringify(BUILD), __RELEASE__: JSON.stringify('r9'), __BUILD_TIME__: JSON.stringify(BUILD_TIME),
+  define: { __BANK_VER__: JSON.stringify(BANK_VER), __BANK_RELEASE__: JSON.stringify(BANK_RELEASE), __BUILD__: JSON.stringify(BUILD), __RELEASE__: JSON.stringify('r10'), __BUILD_TIME__: JSON.stringify(BUILD_TIME),
     // r8：测试钩子只在测试构建（ZY_TEST=1）、dev 服务器、vitest 里保留；正式构建为 false，整段代码被删除
     __TEST_HOOKS__: JSON.stringify(process.env.ZY_TEST === '1' || !!process.env.VITEST || !process.argv.includes('build')) },
-  plugins: [react(), VitePWA({
+  plugins: [react(), ({ name: 'zy-version', generateBundle() { this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify({ build: BUILD, release: 'r10', time: BUILD_TIME }) }); } } as Plugin), VitePWA({
     registerType: 'prompt', injectRegister: false, includeAssets: ['apple-touch-icon.png', 'icon.svg'],
     manifest: { name: '知识勇者', short_name: '知识勇者', display: 'standalone', orientation: 'landscape', background_color: '#1d2340', theme_color: '#2b3a78', start_url: './', scope: './', id: './', lang: 'zh-CN',
       icons: [
@@ -24,9 +24,10 @@ export default defineConfig({
         { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
         { src: 'icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
       ] },
-    workbox: { skipWaiting: true, clientsClaim: true, cleanupOutdatedCaches: true, importScripts: ['sw-extra.js'], navigateFallback: 'index.html', ignoreURLParametersMatching: [/^v$/, /^utm_/], globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}'], maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+    workbox: { skipWaiting: true, clientsClaim: true, cleanupOutdatedCaches: true, importScripts: ['sw-extra.js'], navigateFallback: null,   // r10：页面导航改为网络优先（sw-extra.js），离线才用缓存
+       ignoreURLParametersMatching: [/^v$/, /^utm_/], globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}'], maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
       // 序列帧约 4.3MB：不进预缓存，战斗时懒加载并运行时缓存（家长页可一键预下载供离线）
-      globIgnores: ['anim/**', 'fx/**', 'sfx/skills/**', 'art/monsters/subjects/**', 'images/k/**'],   // 技能特效 fx/skills/ 与音效 sfx/skills/ 也只运行时缓存
+      globIgnores: ['version.json', 'anim/**', 'fx/**', 'sfx/skills/**', 'art/monsters/subjects/**', 'images/k/**'],   // 技能特效 fx/skills/ 与音效 sfx/skills/ 也只运行时缓存
       runtimeCaching: [{ urlPattern: /\/(anim|fx)\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-anim', expiration: { maxEntries: 700 } } },
         { urlPattern: /\/sfx\/skills\/.+\.mp3$/, handler: 'CacheFirst', options: { cacheName: 'zy-sfx-skills', expiration: { maxEntries: 110 }, cacheableResponse: { statuses: [200] } } },
         { urlPattern: /\/art\/monsters\/subjects\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-monsters', expiration: { maxEntries: 400 }, cacheableResponse: { statuses: [200] } } },

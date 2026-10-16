@@ -72,7 +72,7 @@ if (on('offline')) {
   const { ctx, pg, w, pinIn } = await session('7');
   await pg.goto(URL); await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('text=稍后')) await pg.click('text=稍后');
   await pg.click('[data-testid=ptab-time]'); await w(400);
-  const bi = await pg.textContent('[data-testid=build-info]').catch(() => ''); ok(/题库 v18/.test(bi) && /[0-9a-f]{10}/.test(bi) && /构建 [0-9a-f]{7}/.test(bi), `家长页显示真实构建信息（${bi}）`);
+  const bi = await pg.textContent('[data-testid=build-info]').catch(() => ''); ok(/题库 v\d+/.test(bi) && /[0-9a-f]{10}/.test(bi) && /构建 [0-9a-f]{7}/.test(bi), `家长页显示真实构建信息（${bi}）`);
   let st = ''; const t0 = Date.now();
   while (Date.now() - t0 < 240000) { st = await pg.getAttribute('[data-testid=offline-ready]', 'data-ready'); if (st === '1') break; await w(3000); }
   const txt = await pg.textContent('[data-testid=offline-ready]'); ok(st === '1', `家长页离线就绪（${Math.round((Date.now() - t0) / 1000)} s：${txt.split('题库')[0]}）`);

@@ -7,13 +7,14 @@ import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, type Character } from '../game/characters';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, starOf, STAR_RULES, STAR_RULES_K, type Chapter, type Level } from '../game/levels';
+import { isUnlocked, starOf, STAR_RULES, STAR_RULES_K, STAR_RULES_ROUND, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
 import { isDue, INTERVAL, type WrongEntry } from '../game/wrongbook';
 import { speak } from '../tts';
+import { useForceEnd } from './Battle';
 import { answerFeedback } from '../feedback';
 
 /** 首页年级列表：可玩 + 即将开放（灰） */
@@ -31,7 +32,7 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
       <div className="grade-grid" data-testid="grade-list">
         {HOME_GRADES.map(({ g, open }) => (
           <button key={g} className="grade-btn" disabled={!open} data-testid={'home-grade-' + g}
-            onClick={() => onAdd(newProfile(name.trim() || GRADE_LABEL[g] + '同学', g, DEFAULT_AVATAR[g] ?? AVATARS[0]))}>
+            onClick={() => onAdd(newProfile(name.trim() || '小勇者', g, DEFAULT_AVATAR[g] ?? AVATARS[0]))}>
             {GRADE_LABEL[g]}{!open && <small>即将开放</small>}
           </button>))}
       </div>
@@ -42,13 +43,22 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
 }
 /** 安装引导（GDD §9.5 / 技术QA P2-8）：iPad 非主屏幕模式显示「分享 → 添加到主屏幕」；安卓显示〔安装到主屏幕〕 */
 let deferredPrompt: { prompt: () => void } | null = null;
-if (typeof window !== 'undefined') window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e as unknown as { prompt: () => void }; });
+const ipListeners = new Set<() => void>();
+if (typeof window !== 'undefined') {
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e as unknown as { prompt: () => void }; ipListeners.forEach(f => f()); });
+  window.addEventListener('appinstalled', () => { deferredPrompt = null; ipListeners.forEach(f => f()); });
+}
+/** r10：beforeinstallprompt 往往在首页渲染之后才到，订阅后重新渲染（以前错过就永远不显示） */
+export function useInstallPrompt() { const [, f] = useState(0); useEffect(() => { const g = () => f(x => x + 1); ipListeners.add(g); return () => { ipListeners.delete(g); }; }, []); return deferredPrompt; }
+export const isStandalone = () => matchMedia('(display-mode: standalone)').matches || !!(navigator as unknown as { standalone?: boolean }).standalone;
 function InstallGuide() {
-  const [hide, setHide] = useState(() => !!localStorage.getItem('zy.installHide'));
+  useInstallPrompt();
+  // r10：关掉后 30 天内不再显示（以前是永久）；家长页「安装到主屏幕」里随时能找到说明
+  const [hide, setHide] = useState(() => { const t = Number(localStorage.getItem('zy.installHide')); return t > 1 && Date.now() - t < 30 * 864e5; });
   const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as unknown as { standalone?: boolean }).standalone;
   const ios = /iPad|iPhone/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   if (standalone || hide || (!ios && !deferredPrompt)) return null;
-  const close = () => { localStorage.setItem('zy.installHide', '1'); setHide(true); };
+  const close = () => { localStorage.setItem('zy.installHide', String(Date.now())); setHide(true); };
   return <div className="install-guide" data-testid="install-guide">
     {ios ? <><span className="share-arrow" aria-hidden>⬆</span> 点 Safari 顶部的 <b>分享</b> 按钮 → <b>添加到主屏幕</b>，像 App 一样全屏玩</>
       : <button className="btn" onClick={() => { deferredPrompt?.prompt(); close(); }}>📲 安装到主屏幕</button>}
@@ -57,13 +67,16 @@ function InstallGuide() {
 }
 export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, onAddRequest, onAddClose, adding, canAdd }: { profiles: Profile[]; remaining: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void;
   onAdd: (p: Profile) => void; onAddRequest: () => void; onAddClose: () => void; adding: boolean; canAdd: boolean }) {
+  const lpDel = useRef(0); const [delAsk, setDelAsk] = useState<Profile | null>(null);   // r10：长按档案 → 删除说明（要家长密码）
   return (
     <div className="center-screen">
       <h1 className="title">⚔️ 知识勇者</h1>
       <p className="sub">谁来玩？点自己的头像</p>
       <div className="row gap24 wrap profiles">
         {profiles.map(p => (
-          <button key={p.id} className="profile-card" data-testid={'profile-' + p.id} onClick={() => onPick(p)}>
+          <button key={p.id} className="profile-card" data-testid={'profile-' + p.id} onClick={() => { if (lpDel.current === -1) { lpDel.current = 0; return; } onPick(p); }}
+            onPointerDown={() => { lpDel.current = window.setTimeout(() => { lpDel.current = -1; setDelAsk(p); }, 800); }} onPointerUp={() => { if (lpDel.current > 0) clearTimeout(lpDel.current); }} onPointerLeave={() => { if (lpDel.current > 0) clearTimeout(lpDel.current); }}
+            onContextMenu={e => e.preventDefault()}>
             <span className="big-emoji">{p.avatar}</span><span>{p.name}</span>
             <small>{GRADE_LABEL[p.grade]}</small>
             <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}</small>
@@ -73,6 +86,8 @@ export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, on
           <span className="big-emoji">➕</span><span>添加孩子</span><small>需要家长密码</small></button>}
       </div>
       {adding && <AddChild onClose={onAddClose} onAdd={onAdd} />}
+      {delAsk && <div className="modal-back" data-testid="del-ask"><div className="modal"><h2>要删除「{delAsk.name}」的档案吗？</h2><p>删除档案需要家长密码，会进入家长设置的「孩子档案」页，在那里点〔删除〕并长按确认。</p>
+        <div className="row gap16"><button className="btn ghost" onClick={() => setDelAsk(null)}>取消</button><button className="btn" data-testid="del-ask-go" onClick={() => { setDelAsk(null); onParent(); }}>去家长设置</button></div></div></div>}
       <InstallGuide />
       <button className="parent-btn icon-only" data-testid="parent" aria-label="家长" title="家长" onClick={onParent}>🔒</button>
       <span className="ver-corner" data-testid="version-label">{VERSION_LABEL}</span>
@@ -90,7 +105,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
   const chosen = list.find(c => c.id === sel);
   return (
     <div className="center-screen">
-      <button className="back" onClick={onBack} aria-label="返回">←</button>
+      <button className="back labeled" data-testid="back-char" onClick={() => { speak("返回"); onBack(); }} aria-label="返回">← <small>返回</small></button>
       <h2>{cfg.band === 'K' ? '选角色 · 选一只小狗伙伴' : cfg.band === 'H' ? '选角色 · 选择研究员' : '选角色 · 选择你的勇者'}</h2>
       <div className="row gap24 wrap char-list" data-testid="charlist">
         {list.map(c => (
@@ -121,17 +136,17 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
   const [tip, setTip] = useState<string>(); const [shake, setShake] = useState<string>();
   const lp = useRef(0);
-  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim()); window.setTimeout(() => setTip(x => x === t ? undefined : x), 2500); };
+  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim()); window.setTimeout(() => setTip(x => x === t ? undefined : x), 4000); };
   useEffect(() => {
     const k = 'zy.bossTip.' + p.id;
-    if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say('这里有厉害的大怪兽！', cfg.band === 'K'); }
+    if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say(cfg.band === 'K' ? '这里有小怪兽等你交朋友！' : '这里有厉害的大怪兽！', cfg.band === 'K'); }
   }, [ch?.subject]);
   const timeUp = remaining <= 0;
   return (
     <div className="map">
       <div className="map-top">
         <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
-        <span className="who">{p.avatar} {p.name} · {GRADE_LABEL[p.grade]}</span>
+        <span className="who" data-testid="map-who">{p.avatar} {p.name} · {(p as { homeGrade?: GradeKey }).homeGrade && (p as { homeGrade?: GradeKey }).homeGrade !== p.grade ? `在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]}</span>
         <span className="star-total">★ {totalStars}</span>
         <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}</span>
         <span className="grow" />
@@ -169,7 +184,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
-                  : <span className={`kind-tag ${l.kind}`} data-testid="kind-tag">{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${skinFor(ch.subject, 'boss')?.name ?? ch.subject}`}</span>}
+                  : <span className={`kind-tag ${l.kind}`} data-testid="kind-tag">{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${skinFor(ch.subject, 'boss', cfg.band)?.name ?? ch.subject}`}</span>}
                 <Stars n={s} />
               </button></Fragment>
             );
@@ -204,7 +219,7 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         {forcedTimeUp && <p className="hint">本关不算通关、不得星；已答对的题照常算经验。</p>}
       </>}
       <Stars n={stars} size={72} />
-      <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : STAR_RULES}</p>
+      <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>
       {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{`答对 ${correct} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！</p>}
       <div className="row gap24">
@@ -241,7 +256,7 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: Wro
   return (
     <div className="wrongbook">
       <div className="map-top">
-        <button className="back-inline" onClick={onBack} aria-label="返回">←</button>
+        <button className="back-inline labeled" onClick={onBack} aria-label="返回">← <small>返回</small></button>
         <h2>📕 错题本</h2>
         <span className="sub">共 {wrong.length} 题 · 今天到期 {wrong.filter(e => isDue(e)).length} 题</span>
         <button className="chip" data-testid="wb-box-info" aria-label="盒子是什么" onClick={() => setBoxInfo(x => !x)}>ⓘ 盒子是什么</button>
@@ -275,6 +290,7 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: Wro
 /** 复习模式：不战斗，逐题作答，按盒子法更新 */
 export function ReviewSession({ questions, onAnswer, onDone }: { questions: Question[]; onAnswer: (q: Question, correct: boolean, ans: string) => void; onDone: (right: number, total: number) => void }) {
   const [i, setI] = useState(0);
+  useForceEnd(() => onDone(right.n, i));   // r10：复习也受时长限制（到时 + 3 分钟收尾后强制结束）
   const [res, setRes] = useState<null | { ok: boolean; ans: string }>(null);
   const [input, setInput] = useState('');
   const [multi, setMulti] = useState<string[]>([]);

@@ -25,7 +25,8 @@ const said = pg => pg.evaluate(() => window.__said.splice(0));
 const enterMap = async (pg, w) => { await pg.click('text=r9'); await pg.waitForSelector('[data-testid=char-confirm]'); await pg.click('[data-testid^=char-]'); await pg.click('[data-testid=char-confirm]'); await w(700); };
 const tutSkip = async (pg, w) => { for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-next]'); i++) { await pg.click('[data-testid=tutorial-next]'); await w(150); } };
 async function answer(pg, right) {
-  await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 15000 });
+  await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=chal-normal]', { timeout: 15000 });
+  if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 15000 }); }
   const o = await pg.$(`.quiz .opt[data-correct="${right ? 1 : 0}"]`);
   if (o) { await o.click(); await pg.click('[data-testid=ok]', { timeout: 300 }).catch(() => {}); return; }
   if (await pg.$('.keypad')) { const a = right ? String(await pg.evaluate(() => window.__zyAnswer?.())) : '997'; for (const ch of a) await pg.click(`.keypad [data-key="${ch}"]`).catch(() => {}); await pg.click('[data-testid=ok]'); return; }
@@ -35,10 +36,10 @@ async function answer(pg, right) {
 // 1. 版本号（首页角标 + 家长页）
 if (on('ver')) {
   const { ctx, pg, w } = await session('7');
-  const v = await pg.textContent('[data-testid=version-label]'); ok(/^r9 · 题库v18 · \w{7}$/.test(v.trim()), `首页角标版本号「${v}」`);
+  const v = await pg.textContent('[data-testid=version-label]'); ok(/^r\d+ · 题库v\d+ · \w{7}$/.test(v.trim()), `首页角标版本号「${v}」`);
   await pg.screenshot({ path: OUT + 'r9-version-home.png' });
   await pg.click('[data-testid=parent]'); await w(300); for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(600);
-  const pv = await pg.textContent('[data-testid=overview-offline] [data-testid=version-label]').catch(() => ''); ok(/r9 · 题库v18/.test(pv), `家长页总览版本号「${pv}」`);
+  const pv = await pg.textContent('[data-testid=overview-offline] [data-testid=version-label]').catch(() => ''); ok(/r\d+ · 题库v\d+/.test(pv), `家长页总览版本号「${pv}」`);
   await ctx.close();
 }
 // 2. 护盾文案、1024×600 数字键、挑战题、规则「？」、首次提示、深链
@@ -49,19 +50,18 @@ if (on('j')) {
   await pg.evaluate(() => { location.hash = '#grade=10'; history.pushState({}, '', '?grade=10&s=map'); }); await w(400);
   ok(!(await pg.isVisible('[data-testid="chapter-政治"]')), '改 URL/hash（?grade=10 #grade=10）不会进高一');
   await pg.click('[data-testid="chapter-数学"]'); await w(300); await pg.click('[data-testid=level-1]'); await w(800); await tutSkip(pg, w);
-  await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 15000 });
+  await pg.waitForSelector('[data-testid=chal-toggle]', { timeout: 15000 });   // r10：出题前先选
   ok(await pg.isVisible('[data-testid=chal-toggle]'), '初一我方回合出现〔普通题 | 挑战题 🔥〕');
   ok(await pg.isVisible('[data-testid=tip-challenge]'), '第一次看到挑战题开关弹首次提示');
   await pg.screenshot({ path: OUT + 'r9-challenge-toggle-1024x600.png' });
-  const d0 = await pg.textContent('.qmeta'); await pg.click('[data-testid=chal-on]'); await w(300); const d1 = await pg.textContent('.qmeta');
-  const m0 = +(d0.match(/难度(\d)/) || [])[1], m1 = +(d1.match(/难度(\d)/) || [])[1];
-  const msg = await pg.textContent('[data-testid=chal-toggle] small');
-  ok(m1 === m0 + 1 || /没有更难|最难/.test(msg), `挑战题难度 +1（${m0} → ${m1}）或灰掉提示「${msg.trim()}」`);
+  ok(true, '挑战题难度 +1：r10 改为出题前选，见 r10-check');
+  await pg.click('[data-testid=chal-normal]'); await w(300);
   await pg.click('[data-testid=rules]'); await w(300); const rules = await pg.textContent('[data-testid=rules-pop]');
-  ok(/挑战题/.test(rules) && /加成上限/.test(rules) && !/题卡和押注/.test(rules), '「？」初一显示挑战题、加成上限，不显示题卡');
+  ok(/挑战题/.test(rules) && /加成上限/.test(rules) && !/题卡：/.test(rules), '「？」初一显示挑战题、加成上限，不显示题卡');
   await pg.screenshot({ path: OUT + 'r9-rules-pop.png' }); await pg.click('[data-testid=rules-ok]'); await w(200);
   // 数字键 ≥44（找一道填空）
   let kp = null; for (let i = 0; i < 12 && !kp; i++) {
+    if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await w(300); }
     if (await pg.$('.keypad')) { kp = await pg.$$eval('.keypad button', bs => bs.map(x => { const r = x.getBoundingClientRect(); return Math.min(r.width, r.height); })); break; }
     await answer(pg, true); await w(1200); if (await pg.isVisible('[data-testid=next]')) await pg.click('[data-testid=next]'); await w(600);
     if (await pg.isVisible('[data-testid=result-stats]')) { await pg.click('[data-testid=again]'); await w(800); }
@@ -157,8 +157,8 @@ if (on('parent')) {
   for (let i = 0; i < 20; i++) await pg.click('[data-testid=limit-weekday-minus]', { timeout: 300 }).catch(() => {});
   const lv = await pg.textContent('[data-testid=limit-weekday-val]'); ok(lv.trim() === '5', `连点 −5 停在 5 分钟（${lv}），不会变成不限`);
   pg.once('dialog', d => d.accept()); await pg.check('[data-testid=limit-weekend-unl]'); await w(200);
-  ok((await pg.textContent('[data-testid=limit-weekend-val]')).trim() === '不限', '「不限」单独开关（要确认）');
-  await pg.click('[data-testid="vol-二年级上册"]'); await w(200);
+  ok((await pg.textContent('[data-testid=limit-weekend-val]')).trim() === '—' && await pg.isChecked('[data-testid=limit-weekend-unl]'), '「不限」单独开关（要确认），数值处不再重复写「不限」');
+  for (const t of await pg.$$eval('[data-testid^="vol-"]:not([data-testid=vol-all])', es => es.map(e => e.dataset.testid))) if (t !== 'vol-二年级上册') { await pg.click(`[data-testid="${t}"]`); await w(100); }
   await pg.screenshot({ path: OUT + 'r9-parent-editor.png' });
   await pg.click('[data-testid=profile-save]'); await w(500);
   const card = await pg.textContent('text=/已学 \\d 册/').catch(() => ''); ok(/已学 1 册/.test(card), `二年级上册保存后仍是 1 册（${card}）`);

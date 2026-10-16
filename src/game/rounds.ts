@@ -2,7 +2,7 @@
 import type { Character } from './characters';
 import type { LevelKind, Band } from './grades';
 import { ROUND, LOW_GRADE_PATTERN, DIFF_MULT, comboMult, DODGE_CAP, DODGE_PER_FOCUS, DODGE_BONUS_CAP, FOCUS_MAX, FOCUS_DMG, ENERGY_CAP,
-  WEAK, AFFINITY, CARDS, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, type RoundMode, type MIntent, type RoundMonster } from './balance';
+  WEAK, AFFINITY, CARDS, cardOut, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, type RoundMode, type MIntent, type RoundMonster } from './balance';
 import { passive as PASSIVE } from './characters';
 import { roll, newRoll, tickCd, type SkillRoll, type SkillDef, type SkillSeg } from './skills';
 
@@ -23,7 +23,7 @@ export interface RState {
   /** D14：Boss 二阶段「怒」 */
   rage?: boolean;
 }
-/** 怪物当前攻击（二阶段 ×1.2 四舍五入） */
+/** 怪物当前攻击（二阶段 ×1.2 四舍五入）；r10：蓄力重击按基础攻击 ×2，不叠加怒气 */
 export const monAtk = (s: RState) => s.rage && s.def.rage ? Math.round(s.def.atk * s.def.rage) : s.def.atk;
 export const roundModeOf = (band: Band): RoundMode | null => band === 'G2' || band === 'G3' ? 'p36' : band === 'J' ? 'j' : band === 'H' ? 'h' : null;
 const SEG_OF: Record<RoundMode, SkillSeg> = { p36: 'P36', j: 'J', h: 'H' };
@@ -52,7 +52,7 @@ export function intentLabel(s: RState) {
     case 'charge': return { icon: '⚡', short: '⚡ 蓄力', grey: false, down, long: '怪物在蓄力，下次会放重击（×2）！这题答对能打断它。' };
     case 'heavy': return s.chargeBroken
       ? { icon: '💥', short: `💥 ${A}`, grey: true, down, long: `蓄力被你打断了，重击只剩 ${A} 点。` }
-      : { icon: '💥', short: `💥 ${2 * A}`, grey: false, down, long: `重击来了！答对闪开，答错受到 ${2 * A} 点伤害。` };
+      : { icon: '💥', short: `💥 ${2 * s.def.atk}`, grey: false, down, long: `重击来了！答对闪开，答错受到 ${2 * s.def.atk} 点伤害。` };
     case 'shield': return { icon: '🛡', short: `🛡 要开盾`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错它会挡掉你下一击的 ${s.shieldVal} 点伤害。` };
   }
 }
@@ -77,7 +77,7 @@ export function calcParts(s: RState, c: Character, i: RInput) {
   let outer = s.atk * (DIFF_MULT[i.difficulty] ?? 1) * (i.subject === c.major ? AFFINITY : 1) * (weakOf(s) === i.subject ? WEAK : 1) * (i.wager === 'sure' ? WAGER.sureOut : 1);
   if (PASSIVE.mathBonus(c) && i.subject === '数学') outer *= 1.1;
   if (i.stepIndex != null) outer *= MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)];
-  const inner = comboMult(s.combo) * (1 + FOCUS_DMG * s.focus) * card.out * (i.challenge ? CHALLENGE.out : 1) * (i.simSkillMult ?? 1);
+  const inner = comboMult(s.combo) * (1 + FOCUS_DMG * s.focus) * cardOut(card.out, i.difficulty) * (i.challenge ? CHALLENGE.out : 1) * (i.simSkillMult ?? 1);
   return { outer, inner };
 }
 /** 无技能时的伤害（封顶后） */
@@ -155,7 +155,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
     } else {
       const m = (i.wager === 'sure' ? WAGER.sureHurt : 1) * (part ? 0.5 : 1);   // 对方回合漏选：按答错结算，受到伤害减半
       if (it === 'atk') { o.taken = takeHurt(monAtk(s), m); o.text = '被攻击了'; }
-      else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? monAtk(s) : 2 * monAtk(s), m); s.chargeBroken = false; o.text = '💥 被重击了'; }
+      else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? monAtk(s) : 2 * s.def.atk, m); s.chargeBroken = false; o.text = '💥 被重击了'; }
       else if (it === 'charge') { s.chargeBroken = false; o.text = '⚡ 怪物蓄力成功，下次重击 ×2'; }
       else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾（挡 ${s.shieldVal}）`; }
       else o.text = '💤 怪物在发呆，没有攻击';

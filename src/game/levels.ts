@@ -202,6 +202,8 @@ export const levelsOfUnit = (levels: Level[], l: Level) => levels.filter(x => x.
 /** 星级（策划 r6 裁定 1）：正确率 = 答对 ÷ 作答（我方 + 对方回合全部题；超时算错；多选漏选算 0.5）。
     ★ 通关；★★ ≥60%；★★★ ≥80% 且未复活；回合上限撤退最多 ★；时间到 0★。小班沿用 D1–D3（只算自己第一次答对）。 */
 export const STAR_RULES = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成且没复活';
+/** r10 R9-3：轮流回合（小学 3–6、初一、高一）按 D14 */
+export const STAR_RULES_ROUND = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成、没复活、剩一半血以上';
 export const STAR_RULES_K = '⭐ 过关　⭐⭐ 第一次就答对六成　⭐⭐⭐ 第一次就答对八成';
 export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean; hpPct?: number }) {
   if (r.timeUp) return 0;

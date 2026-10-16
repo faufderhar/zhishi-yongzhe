@@ -54,6 +54,9 @@ export const FOCUS_MAX = 2, FOCUS_DMG = 0.25, ENERGY_CAP = 5;
 export const PERFECT_FRACTION = 0.5, PERFECT_NOLIMIT_SEC = 8;
 export const WEAK = 1.5, RESIST = 0.6, AFFINITY = 1.2;
 export const CARDS = { light: { label: '轻击', diff: -1, out: 0.8, ctr: 0.8 }, std: { label: '标准', diff: 0, out: 1, ctr: 1 }, heavy: { label: '重击', diff: 1, out: 1.6, ctr: 1.5 } } as const;
+/** r10（D14 修正 2）：高一题卡伤害倍率随难度缩放：有效 = 1 + (卡 − 1) × k，k = 0.5 / 0.75 / 1（难度 1 / 2 / ≥3）；答错风险不变 */
+export const CARD_K: Record<number, number> = { 1: 0.5, 2: 0.75 };
+export const cardOut = (out: number, difficulty: number) => 1 + (out - 1) * (difficulty >= 3 ? 1 : CARD_K[difficulty] ?? 0.5);
 export const WAGER = { sureOut: 1.2, sureHurt: 1.3, unsureCtr: 0.5 };
 export const HURT_CAP = 2.0;
 export const MULTI_STEP = [1.0, 1.3, 1.6];

@@ -2,6 +2,7 @@
 import { describe, it, expect } from 'vitest';
 import { newRound, resolveRound, reviveRound, nextIntent, intentLabel, phaseOf, type RState } from '../src/game/rounds';
 import { ROUND, CARDS } from '../src/game/balance';
+import { cardOut } from '../src/game/balance';
 import { PUPS, SCIFI } from '../src/game/characters';
 const poet = PUPS.find(c => c.major === '诗词')!, lexi = SCIFI.find(c => c.major === '英语')!, momo = PUPS.find(c => c.major === '语文')!;
 const P = (s: RState, correct: boolean, x: object = {}, end = true) => resolveRound(s, poet, { correct, subject: '诗词', difficulty: 2, rng: () => 0.99, ...x }, end);
@@ -99,12 +100,12 @@ describe('Boss 与高一', () => {
     expect(P(s, false, { card: 'heavy', wager: 'sure' })[1].taken).toBe(35);   // 1.5×1.3=1.95，未超 2.0
     expect(P(s, false, { card: 'heavy', wager: 'sure', simSkillMult: 1 })[1].taken).toBeLessThanOrEqual(18 * 2);
     const [, u] = P(s, false, { card: 'light', wager: 'unsure' }); expect(u.taken).toBe(Math.round(18 * 0.8 * 0.5)); expect(u.review).toBe(true);
-    expect(P(s, true, { card: 'heavy', wager: 'sure' })[1].dealt).toBe(Math.round(26 * 1.2 * CARDS.heavy.out * 1.2));
+    expect(P(s, true, { card: 'heavy', wager: 'sure' })[1].dealt).toBe(Math.round(26 * 1.2 * cardOut(CARDS.heavy.out, 2) * 1.2));   // r10：题卡倍率随难度（难度 2：×1.45）
   });
   it('多步题：小问 ×1.0/1.3/1.6，答错中断并按重击 ×1.5 反击，整题算 1 回合', () => {
     let s = { ...newRound('h', 'elite'), monsterHp: 999 }; const ds: number[] = [];
     for (let k = 0; k < 2; k++) { const [n, o] = P(s, true, { card: 'heavy', stepIndex: k }, false); ds.push(o.dealt); s = n; }
-    expect(s.turn).toBe(0); expect(ds).toEqual([Math.round(26 * 1.2 * 1.6), Math.round(26 * 1.2 * 1.3 * Math.min(1.8, 1.6 * 1.05))]);   // 段倍率在外层，题卡×连击在内层
+    expect(s.turn).toBe(0); expect(ds).toEqual([Math.round(26 * 1.2 * cardOut(1.6, 2)), Math.round(26 * 1.2 * 1.3 * Math.min(1.8, cardOut(1.6, 2) * 1.05))]);   // 段倍率在外层，题卡×连击在内层
     const [n, o] = P(s, false, { card: 'heavy', stepIndex: 2 }); expect(o.taken).toBe(36); expect(n.turn).toBe(1); expect(n.side).toBe('M');
   });
 });

@@ -4,6 +4,7 @@ import { useState as useS } from 'react';
 import { offlineStatus, onOffline } from '../offlineCache';
 import { BANK_VER, BANK_RELEASE } from '../bankStore';
 import { VERSION_LABEL } from '../version';
+import { useInstallPrompt, isStandalone } from './Screens';
 import { effLimit, MIN_LIMIT } from '../state';
 declare const __BUILD__: string; declare const __BUILD_TIME__: string;
 /** 构建日期按用户设备的本地时区显示（r8） */
@@ -32,16 +33,17 @@ import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
 import { exportAll, importAll, putImported, clearImported, validateBackup } from '../db';
 import { exportQuestion } from '../game/questions';
+import { getKVStrict } from '../db';
 import { setKV, getKV, answersOf, wrongOf, rollupOf, rollupAdd, type AnswerRecord, type Rollup } from '../db';
 import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
-import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, markPinSet, pinWasSet, readPinBackup, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
 import type { Skills } from '../game/adaptive';
 
 /** 家长密码门（D9 锁定 / X-13 首次设置需提示问题 / P2-1 密码丢失不当首次） */
-export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }) => void; onOk: () => void; onCancel: () => void; purpose?: string }) {
+export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRestorePin, hasProgress }: { settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }) => void; onOk: () => void; onCancel: () => void; purpose?: string; onRestorePin?: (h: string, hint?: { q: string; a: string }) => void; hasProgress?: boolean }) {
   const [first, setFirst] = useState<string>();
   const [err, setErr] = useState<string>();
   const [lock, setLock] = useState<LockState>({ fails: 0, level: 0, until: 0 });
@@ -51,7 +53,14 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
   const [hq, setHq] = useState(HINT_QUESTIONS[0]); const [ha, setHa] = useState('');
   const [pend, setPend] = useState<string>();
   useEffect(() => {
-    void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void (!settings.pinHash && pinWasSet().then(w => w && setMode('lost')));
+    void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void (!settings.pinHash && (async () => {
+      // r10：只有「确实读到了、而且没有」才算丢失；没读到 / 还没加载完都不算
+      let st: { pinHash?: string; pinHint?: { q: string; a: string } } | undefined;
+      for (let i = 0; i < 3; i++) { try { st = await getKVStrict('settings'); break; } catch { await new Promise(r => setTimeout(r, 300)); if (i === 2) return; } }
+      if (st?.pinHash) { onRestorePin?.(st.pinHash, st.pinHint); return; }
+      const bk = readPinBackup(); if (bk) { onRestorePin?.(bk.hash, bk.hint); return; }
+      if (await pinWasSet()) setMode('lost');
+    })());
     let last = performance.now();
     const t = setInterval(() => {   // 只按单调时钟扣锁定时间（技术QA R4-4）
       const p = performance.now(), dt = p - last; last = p; setNow(Date.now());
@@ -72,7 +81,7 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
   const sub = purpose ? <p className="parent-hint">{purpose}</p> : null;
   if (mode === 'lost') return (
     <div className="center-screen"><div className="pinpad"><h2>密码数据丢失</h2>
-      <p>这台平板上有游戏进度，但家长密码数据不见了。请从备份恢复，或回答找回问题后重设。</p>
+      <p>{hasProgress ? '这台平板上有游戏进度，但' : ''}家长密码数据不见了。请从备份恢复，或回答找回问题后重设。</p>
       <div className="row gap16"><button className="btn" onClick={() => setMode(settings.pinHint ? 'forgot' : 'pin')}>{settings.pinHint ? '回答找回问题' : '重新设置密码'}</button><button className="btn ghost" onClick={onCancel}>返回</button></div>
       <p className="hint">从备份恢复：设置新密码后在「家长 → 备份」里操作。</p></div></div>);
   if (mode === 'hint' && pend) return (
@@ -124,16 +133,27 @@ export interface ParentProps {
   clockLocked?: boolean; unlockClock?: () => void;
   onClose: () => void; initialTab?: Tab; currentPid?: string;
 }
+/** r10：家长页闲置 5 分钟自动退出，提前 30 秒提示（任何点击 / 输入都重新计时）；表单草稿会保留 */
+export const PARENT_IDLE_MS = 5 * 60e3, PARENT_WARN_MS = 30e3;
 export function ParentSettings(props: ParentProps) {
   const [tab, setTab] = useState<Tab>(props.initialTab ?? 'profiles');
+  const [warn, setWarn] = useState(0);
+  useEffect(() => {
+    const ms = (__TEST_HOOKS__ && (window as unknown as { __zyParentIdleMs?: number }).__zyParentIdleMs) || PARENT_IDLE_MS;
+    let last = Date.now(); const poke = () => { last = Date.now(); setWarn(0); };
+    const ev = ['pointerdown', 'keydown', 'input', 'wheel', 'touchstart'] as const; ev.forEach(e => window.addEventListener(e, poke, true));
+    const iv = setInterval(() => { const idle = Date.now() - last; if (idle >= ms) props.onClose(); else if (idle >= ms - Math.min(PARENT_WARN_MS, ms / 2)) setWarn(Math.ceil((ms - idle) / 1000)); }, 500);
+    return () => { clearInterval(iv); ev.forEach(e => window.removeEventListener(e, poke, true)); };
+  }, []);
   const tabs: [Tab, string][] = [['profiles', '👪 孩子档案'], ['report', '📊 学习报告'], ['bank', '📚 题库'], ['time', '⏳ 时长'], ['backup', '💾 备份/恢复'], ['pin', '🔑 密码']];
   return (
     <div className="parent">
       <div className="map-top">
-        <button className="back-inline" data-testid="parent-close" onClick={props.onClose} aria-label="退出家长设置">←</button>
+        <button className="back-inline labeled" data-testid="parent-close" onClick={props.onClose} aria-label="退出家长设置">← <small>返回</small></button>
         <h2>家长设置</h2><span className="grow" />
         {tabs.map(([k, l]) => <button key={k} className={`chip ${tab === k ? 'on' : ''}`} data-testid={'ptab-' + k} onClick={() => setTab(k)}>{l}</button>)}
       </div>
+      {warn > 0 && <div className="yellow-bar" data-testid="idle-warn">家长设置很久没有操作了，{warn} 秒后自动退出（没保存的档案会留着草稿）。点任意处继续。</div>}
       <ParentAlerts goBackup={() => setTab('backup')} />
       <div className="parent-body">
         {tab === 'profiles' && <><div className="p-card" data-testid="overview-offline"><OfflineReady /></div><ProfilesTab {...props} /></>}
@@ -168,7 +188,7 @@ function ParentAlerts({ goBackup }: { goBackup: () => void }) {
   </>;
 }
 function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
-  const [edit, setEdit] = useState<Profile | null>(null);
+  const [edit, setEdit] = useState<Profile | null>(() => { try { const d = JSON.parse(sessionStorage.getItem('zy-draft-profile') ?? 'null'); return d && typeof d.id === 'string' ? d : null; } catch { return null; } });   // r10：有草稿就直接打开
   const [delId, setDelId] = useState<string>();
   const save = (p: Profile) => { setProfiles(profiles.some(x => x.id === p.id) ? profiles.map(x => x.id === p.id ? p : x) : [...profiles, p]); setEdit(null); };
   return (
@@ -196,11 +216,16 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
   );
 }
 function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void }) {
-  const [f, setF] = useState<Profile>(p);
+  // r10：未保存的表单草稿（超时退出后再进来还在）
+  const DK = 'zy-draft-profile';
+  const [f, setF0] = useState<Profile>(() => { try { const d = JSON.parse(sessionStorage.getItem(DK) ?? 'null'); if (d && d.id === p.id) return d; } catch { /* */ } return p; });
+  const setF = (x: Profile) => { setF0(x); try { sessionStorage.setItem(DK, JSON.stringify(x)); } catch { /* */ } };
+  const clearDraft = () => { try { sessionStorage.removeItem(DK); } catch { /* */ } };
   const vols = useMemo(() => { const m = new Map<string, number>(); for (const q of questionsOfGrade(bank, f.grade)) m.set(q.volume, (m.get(q.volume) ?? 0) + 1); return [...m]; }, [bank, f.grade]);
   const setGrade = (g: GradeKey) => { const d = bandConfig(g).dailyMinutes; setF({ ...f, grade: g, volumes: null, limit: { weekday: Math.max(MIN_LIMIT, d.weekday), weekend: Math.max(MIN_LIMIT, d.weekend) }, unlimited: { weekday: d.weekday <= 0, weekend: d.weekend <= 0 } }); };
   // r9（较真家长）：「全部册别」时点某一册 = 只选这一册（以前是把它取消，选二年级上册反而存成「下册+通用」）
-  const toggleVol = (v: string) => { const cur = f.volumes; const nx = !cur ? [v] : cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v]; setF({ ...f, volumes: !nx.length || nx.length === vols.length ? null : nx }); };
+  // r10：「全部册别」时每一册都显示为选中；点某一册 = 取消这一册（其余保留）
+  const toggleVol = (v: string) => { const cur = f.volumes; const nx = !cur ? vols.map(x => x[0]).filter(x => x !== v) : cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v]; setF({ ...f, volumes: !nx.length || nx.length === vols.length ? null : nx }); };
   // r9（较真家长 严重）：最少 5 分钟，−5 不会再变成 0（不限）；「不限」是单独开关，要确认
   const step = (k: 'weekday' | 'weekend', d: number) => setF({ ...f, limit: { ...f.limit, [k]: Math.min(240, Math.max(MIN_LIMIT, f.limit[k] + d)) } });
   const setUnl = (k: 'weekday' | 'weekend', on: boolean) => { if (on && !confirm(`确定${k === 'weekday' ? '上学日' : '周末'}不限时长吗？孩子可以一直玩。`)) return; setF({ ...f, unlimited: { ...f.unlimited, [k]: on } }); };
@@ -208,19 +233,20 @@ function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankSt
     <Modal onClose={onCancel}>
       <div className="editor" data-testid="profile-editor">
         <h2>编辑档案</h2>
-        <label>名字 <input value={f.name} maxLength={8} onChange={e => setF({ ...f, name: e.target.value })} /></label>
+        <label>名字 <input data-testid="profile-name" value={f.name} maxLength={8} onChange={e => setF({ ...f, name: e.target.value })} /></label>
         <div className="row gap16 wrap avatars">{AVATARS.map(a => <button key={a} className={`chip ${a === f.avatar ? 'on' : ''}`} onClick={() => setF({ ...f, avatar: a })}>{a}</button>)}</div>
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
         <div><b>已学册别</b>（只从勾选的册别出题）<div className="row gap16 wrap">{vols.map(([v, n]) =>
-          <button key={v} className={`chip ${f.volumes?.includes(v) ? 'on' : ''}`} data-testid={'vol-' + v} aria-pressed={!!f.volumes?.includes(v)} onClick={() => toggleVol(v)}>{v}（{n}）</button>)}
+          <button key={v} className={`chip ${!f.volumes || f.volumes.includes(v) ? 'on' : ''}`} data-testid={'vol-' + v} aria-pressed={!f.volumes || f.volumes.includes(v)} onClick={() => toggleVol(v)}>{v}（{n}）</button>)}
           <button className={`chip ${!f.volumes ? 'on' : ''}`} data-testid="vol-all" aria-pressed={!f.volumes} onClick={() => setF({ ...f, volumes: null })}>全部册别</button></div></div>
         <div className="row gap16 wrap"><b>每日时长（分钟，最少 5）</b>
           {(['weekday', 'weekend'] as const).map(k => <span key={k} className="stepper" data-testid={'limit-' + k}>{k === 'weekday' ? '上学日' : '周末'}
             <button className="chip" data-testid={`limit-${k}-minus`} disabled={!!f.unlimited?.[k] || f.limit[k] <= MIN_LIMIT} onClick={() => step(k, -5)}>−5</button>
-            <b data-testid={`limit-${k}-val`}>{f.unlimited?.[k] ? '不限' : Math.max(MIN_LIMIT, f.limit[k])}</b>
+            <b data-testid={`limit-${k}-val`}>{f.unlimited?.[k] ? '—' : Math.max(MIN_LIMIT, f.limit[k])}</b>
             <button className="chip" data-testid={`limit-${k}-plus`} disabled={!!f.unlimited?.[k]} onClick={() => step(k, 5)}>＋5</button>
-            <label className="chip"><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限</label></span>)}</div>
-        <div className="row gap16"><button className="btn ghost" onClick={onCancel}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim()} onClick={() => onSave(f)}>保存</button></div>
+            <label className="chip unl-box"><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限时长</label></span>)}</div>
+        <div className="row gap16 wrap"><button className="chip" data-testid="reset-tips" disabled={!f.tips || !Object.keys(f.tips).length} onClick={() => setF({ ...f, tips: {} })}>💡 重置提示（首次提示再弹一次）</button></div>
+        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim()} onClick={() => { clearDraft(); onSave(f); }}>保存</button></div>
       </div>
     </Modal>
   );
@@ -354,6 +380,7 @@ function BackupTab() {
       </Modal>}
       <UndoRestore />
       <p className="hint">iPad：「添加到主屏幕」的 App 与 Safari 的数据是分开的，换设备或清理浏览器前请先导出备份。</p>
+      <InstallHelp />
     </div>
   );
 }
@@ -413,4 +440,18 @@ function ReportTab(props: ParentProps) {
       </>}
     </div>
   );
+}
+
+/** r10：家长页手动安装说明（桌面 Chrome / 安卓 / iPad），横幅关掉或没出现时也能装 */
+function InstallHelp() {
+  const dp = useInstallPrompt();
+  return <div className="p-card" data-testid="install-help"><b>📲 安装到主屏幕 / 桌面</b>
+    {isStandalone() ? <p>✅ 已经是安装后的 App 模式。</p> : <>
+      {dp && <button className="btn" data-testid="install-now" onClick={() => dp.prompt()}>现在安装</button>}
+      <ul className="hint">
+        <li>电脑 Chrome / Edge：地址栏右侧的「安装」图标（⊕ 或小电脑），或菜单 ⋮ → 「投放、保存和分享」→「安装页面…」。</li>
+        <li>安卓 Chrome：菜单 ⋮ → 「添加到主屏幕」/「安装应用」。</li>
+        <li>iPad / iPhone Safari：顶部「分享」⬆ → 「添加到主屏幕」。</li>
+      </ul></>}
+  </div>;
 }

@@ -1,3 +1,4 @@
+import { migrateVolumes } from './game/volumeMigrate';
 /* 应用级数据：设置、档案、进度（KV 存 IndexedDB） */
 import { getKV, setKV } from './db';
 import type { GradeKey } from './game/questions';
@@ -47,10 +48,10 @@ export function repairProfile(x: unknown): Profile | null {
   const def = bandConfig(grade as GradeKey).dailyMinutes;
   const lim = isObj(x.limit) ? x.limit : {};
   return { id: x.id, name: typeof x.name === 'string' && x.name ? x.name.slice(0, 16) : '小勇者', avatar: typeof x.avatar === 'string' && x.avatar ? x.avatar : '🧒', grade: grade as GradeKey,
-    volumes: Array.isArray(x.volumes) ? x.volumes.filter(v => typeof v === 'string') : null,
+    volumes: Array.isArray(x.volumes) ? migrateVolumes(grade as GradeKey, x.volumes.filter((v): v is string => typeof v === 'string')) : null,   // r10：v19 册别新写法
     ...(() => {   // r9 迁移：旧档案里的 0（不限）→ unlimited 开关 = 开，时长恢复默认值（最少 5 分钟）
       const un = isObj(x.unlimited) ? x.unlimited : {};
-      const one = (k: 'weekday' | 'weekend') => { const v = Number.isFinite(lim[k]) ? Number(lim[k]) : def[k]; return v <= 0 ? { v: Math.max(MIN_LIMIT, def[k] || MIN_LIMIT), off: true } : { v: Math.max(MIN_LIMIT, v), off: un[k] === true }; };
+      const one = (k: 'weekday' | 'weekend') => { const v = Number.isFinite(lim[k]) && Number(lim[k]) >= 0 ? Number(lim[k]) : def[k]; return v === 0 && lim[k] === 0 ? { v: Math.max(MIN_LIMIT, def[k] || MIN_LIMIT), off: true } : { v: Math.max(MIN_LIMIT, v), off: un[k] === true }; };
       const a = one('weekday'), b = one('weekend');
       return { limit: { weekday: a.v, weekend: b.v }, ...(a.off || b.off ? { unlimited: { weekday: a.off, weekend: b.off } } : {}) };
     })(),

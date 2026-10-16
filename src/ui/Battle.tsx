@@ -184,11 +184,16 @@ function KStem({ q }: { q: Question }) {
     </div>)}</div>;
 }
 
+/** r10：关内星星和结算同一个规则（⭐ 过关；第一次就答对 ≥6 成 ⭐⭐；≥8 成 ⭐⭐⭐），还没答完时按已答的题算 */
+export function kStarsNow(k: { first: number; retry: number; demo: number }) { const n = k.first + k.retry + k.demo; if (!n) return 0; const a = k.first / n; return a >= 0.8 - 1e-9 ? 3 : a >= 0.6 - 1e-9 ? 2 : 1; }
 export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean }) {
   const skRoll = useRef<SkillRoll>(newRoll()); const lastSkill = useRef('');
   useEffect(() => { preloadSkillArt(skillsFor('K', c.major)); }, [c.major]);
   useEffect(() => { (window as unknown as { __zyLastSkill?: () => string }).__zyLastSkill = () => lastSkill.current; }, []);
-  const hearts = Math.min(questions.length, cfg.questions[kind]);
+  // r10 策划裁定：小班精英 / Boss = 温和战斗（柔和版怪物跳进来、3 / 5 颗小星星、不掉血不攻击，最后变成朋友挥手回家）
+  const gentle = kind !== 'normal';
+  const hearts = Math.min(questions.length, gentle ? (kind === 'elite' ? 3 : 5) : cfg.questions[kind]);
+  const gskin = gentle ? skinFor(questions[0]?.subject, kind) : null;
   const [idx, setIdx] = useState(0);
   const [ks, setKs] = useState(newKinder(hearts));
   const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo' | 'ok'>('');
@@ -198,7 +203,13 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const [paused, setPaused] = useState(false);
   usePauseOnHide(setPaused);
   const lock = useRef(false);
-  const D = useDirector(true, c, 0.95);
+  const D = useDirector(true, c, 0.95, false, gskin ? { skin: gskin, soft: true } : undefined);
+  const [say, setSay] = useState<string | null>(null);   // r10：伙伴说的话（文字 + 朗读）
+  const [busy, setBusy] = useState(false);                // r10：锁定期间（伙伴在说话）给可见提示
+  const [nudge, setNudge] = useState(0);
+  const [monFace, setMonFace] = useState<string | null>(null);
+  const [home, setHome] = useState(false);
+  const talk = (t: string, ms = 1600) => { setSay(t); speak(t); window.setTimeout(() => setSay(x => x === t ? null : x), ms); };
   const ksRef = useRef(ks); ksRef.current = ks;
   const wrong = useRef<string[]>([]);
   const down = useRef<string | null>(null);
@@ -210,8 +221,9 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   if (!q) return null;
   const T = DESIGN.kinder;
   const answer = (ch: Option) => {
-    if (lock.current || paused || ksRef.current.removed.includes(ch.key)) return;
-    lock.current = true;
+    if (paused || ksRef.current.removed.includes(ch.key)) return;
+    if (lock.current) { setNudge(n => n + 1); return; }   // r10：锁定时点了也有反馈（提示框轻跳一下）
+    lock.current = true; setBusy(true);
     const cur = ksRef.current;
     const ok = isCorrect(q, ch.key);
     if (cur.attempt === 0) { onAnswer(q, ok, ch.key); if (!ok) wrong.current.push(q.key); }
@@ -219,32 +231,37 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
     const [ns, r] = kinderAnswer(cur, ok, ch.key, wrongVisible, demoReward);
     if (ok) answerFeedback(true); else softBump();
     if (r === 'retry') {
-      setKs(ns); setTilt(true); setWig(ch.key); D.dir.current?.kinderRetry(); speak('嗯～再想想');
-      setTimeout(() => setWig(null), 550);
-      setTimeout(() => { setTilt(false); lock.current = false; }, T.retryUnlockMs);
+      setKs(ns); setTilt(true); setWig(ch.key); D.dir.current?.kinderRetry(); talk(gentle ? '再试试～' : '嗯～再想想', T.retryUnlockMs + 300);
+      if (gentle) { setMonFace('😜'); setTimeout(() => setMonFace(null), 1100); }
+      setTimeout(() => setWig(null), 1000);
+      setTimeout(() => { setTilt(false); lock.current = false; setBusy(false); }, T.retryUnlockMs);
       return;
     }
     if (r === 'demo') {
-      setFx('demo'); setTilt(true); setWig(ch.key); setTimeout(() => setWig(null), 550);
+      setFx('demo'); setTilt(true); setWig(ch.key); setTimeout(() => setWig(null), 1000);
       const right = choices.find(x => q.answer.includes(x.key));
-      speak(`我来帮你看看！是${right?.text || '这个'}哦！`);   // r9：自动给答案前先说明
+      talk(`我来帮你看看！是${right?.text || '这个'}哦！`, T.demoMs);   // r9/r10：自动给答案前先说明（文字 + 朗读）
+      if (gentle) { setMonFace('😜'); setTimeout(() => setMonFace(null), 1100); }
     } else {
-      setFx('ok'); speak(PRAISE[Math.floor(Math.random() * PRAISE.length)]);
+      setFx('ok'); const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
       // 小班技能：35% 触发，连续 3 次没触发第 4 次必触发；纯演出，替换本题「星星攻击」，≤1.0 s（整体仍 1.2 s 内进下一题）
       const [nr, k] = rollSkill(skRoll.current, { seg: 'K', major: c.major, side: 'P', correct: true, rng: Math.random }); skRoll.current = nr;
-      if (k && D.dir.current) { lastSkill.current = k.id; void D.dir.current.playSkill(k, { kinder: true, maxMs: 1000 }); } else D.dir.current?.kinderCorrect();
+      const k2 = k ?? (gentle ? (() => { const ks2 = skillsFor('K', c.major); return ks2[Math.floor(Math.random() * ks2.length)]; })() : null);   // 温和战斗：每次答对都放一个可爱技能
+      if (gentle) { setMonFace('😆'); setTimeout(() => setMonFace(null), 1100); }
+      speak(praise + (k2 ? `${k2.char}的${k2.name}！` : ''));   // r10：技能名也朗读
+      if (k2 && D.dir.current) { const k = k2; lastSkill.current = k.id; void D.dir.current.playSkill(k, { kinder: true, maxMs: 1000 }); } else D.dir.current?.kinderCorrect();
     }
     setKs({ ...ns, removed: r === 'demo' ? choices.filter(x => !q.answer.includes(x.key)).map(x => x.key) : cur.removed });
     setTimeout(() => setJustLit(ns.lit - 1), r === 'demo' ? 1800 : 600);
     setTimeout(async () => {
       setFx(''); setTilt(false);
       if (ns.done || idx + 1 >= questions.length) {
-        speak('小乌云变成你的好朋友啦！');
-        await D.dir.current?.kinderFinale();
+        if (gentle) { talk(`${gskin?.name ?? '小怪兽'}变成你的好朋友，挥挥手回家啦！`, 3000); setMonFace('👋'); await sleep(400); setHome(true); await sleep(1600); }
+        else { speak('小乌云变成你的好朋友啦！'); await D.dir.current?.kinderFinale(); }
         if (!D.alive.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo } }); return;
       }
-      setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false;
+      setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false; setBusy(false);
     }, r === 'demo' ? T.demoMs : T.correctMs);
   };
   return (
@@ -252,24 +269,28 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
       <div className="ktop">
         <div className="row gap16 kleft">
           <HoldButton className="pause-btn" label="暂停（按住）" testid="pause" ms={2000} onDone={() => setPaused(true)}>⏸</HoldButton>
-          <div className="kstars">⭐ {ks.stars}</div>
+          <div className="kstars" data-testid="kstars" title="按现在的答题情况，这一关能拿的星星（和结算一样：第一次就答对的比例）">⭐ {kStarsNow(ks)}</div>
         </div>
         <div className="kbubble">
           {hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q)}>🔊</button>}
           <KStem q={q} />
         </div>
-        <div className="hearts" data-testid="hearts" aria-live="polite" aria-label={`开心值 ${ks.lit}/${ks.hearts}`}><span className="hearts-label">开心值</span>{Array.from({ length: ks.hearts }, (_, i) => { const on = i < ks.lit || i === justLit; return <span key={i} className={`kheart ${on ? 'on' : 'off'} ${i === justLit ? 'pop' : ''}`}>{on ? '💖' : '♥'}</span>; })}<b className="hearts-num" data-testid="hearts-num">{ks.lit}/{ks.hearts}</b></div>
+        {gentle ? <div className="hearts kstar-row" data-testid="gentle-stars" aria-label={`交朋友进度 ${ks.lit}/${ks.hearts}`}>{Array.from({ length: ks.hearts }, (_, i) => <span key={i} className={`gstar ${i < ks.lit || i === justLit ? 'on' : 'off'} ${i === justLit ? 'pop' : ''}`}>{i < ks.lit || i === justLit ? '😊' : '○'}</span>)}</div> :
+        <div className="hearts" data-testid="hearts" aria-live="polite" aria-label={`开心值 ${ks.lit}/${ks.hearts}`}><span className="hearts-label">开心值</span>{Array.from({ length: ks.hearts }, (_, i) => { const on = i < ks.lit || i === justLit; return <span key={i} className={`kheart ${on ? 'on' : 'off'} ${i === justLit ? 'pop' : ''}`}>{on ? '💖' : '♥'}</span>; })}<b className="hearts-num" data-testid="hearts-num">{ks.lit}/{ks.hearts}</b></div>}
       </div>
       <div className="kstage" ref={D.stage}>
         <div className="fx-shake" ref={D.shake}>
-          <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
-          <div className="unit-wrap kmon-wrap" ref={D.monster}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
-            <img className={`kmon ${ks.lit >= 2 ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" draggable={false} />
-            <img className="kmon white-flash" ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div></div>
+          <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div>
+            {say && <div key={say + nudge} className={`ksay ${nudge ? 'nudge' : ''}`} data-testid="ksay">{say}</div>}</div>
+          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
+            <img className={`kmon ${ks.lit >= 2 || gentle ? 'smile' : ''}`} src={gskin ? MONSTER_IMG[gskin.img] : MONSTER_IMG.kinder} alt={gskin?.name ?? '小乌云'} draggable={false} />
+            <img className="kmon white-flash" ref={D.flash} src={gskin ? MONSTER_IMG[gskin.img] : MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div>
+            {monFace && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>
         </div>
         <canvas className="fx-canvas" ref={D.canvas} />
       </div>
-      <div className="kopts" data-testid="kopts">
+      {busy && <div key={nudge} className={`kbusy ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
+      <div className={`kopts ${busy ? 'kwait' : ''}`} data-testid="kopts">
         {choices.map(ch => {
           const gone = ks.removed.includes(ch.key), right = q.answer.includes(ch.key);
           return (
@@ -323,7 +344,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   useEffect(() => { preloadSkillArt(skillsFor(skSeg, c.major)); }, [c.major, skSeg]);
   const mode = cfg.stats;
   const mon0 = MONSTERS[mode][kind];
-  const skin = skinFor(questions[0]?.subject, kind);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const skin = skinFor(questions[0]?.subject, kind, cfg.band);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
   const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   const [queue, setQueue] = useState<Question[]>(questions);
   const extraLeft = useRef(extra.filter(q => !questions.some(x => x.key === q.key)).slice(0, Math.ceil(questions.length * EXTRA_QUESTION_FACTOR)));
@@ -376,7 +397,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     const win = s.over === 'win' || (!s.over && outOfQuestions(s) === 'win') || (!cfg.canFail);
     setPhase('anim');
     // 胜负演出最多 0.8s（策划 r7），之后直接进结算或复活
-    if (!played) await Promise.race([win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(800)]);
+    if (!played) await Promise.race([win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(600)]);
     if (!D.alive.current) return;
     onEnd({ win, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
   };
@@ -425,7 +446,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     void play(ns, () => D.dir.current?.monsterAttack(r.taken, () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })))).then(() => {
       if (ns.over === 'lose') {   // 0 血：倒地 ≤0.8 s 后直接复活挑战或结算（策划 r7）
         
-        void Promise.race([D.dir.current?.defeat(), sleep(800)]).then(() => { const wq = queue.filter(x => stats.current.wrong.includes(x.key));
+        void Promise.race([D.dir.current?.defeat(), sleep(600)]).then(() => { const wq = queue.filter(x => stats.current.wrong.includes(x.key));
           if (cfg.canFail && !ns.revived && wq.length >= 2) setPhase('revive-ask'); else void finish(ns, true); });
         return;
       }

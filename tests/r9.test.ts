@@ -92,19 +92,19 @@ describe('D14 §6 挑战题', () => {
   });
   it('UI：只在初一我方回合出现，挑战题同科目同小节难度 +1，没有时灰掉并提示', () => {
     const src = readFileSync('src/ui/RoundBattle.tsx', 'utf8');
-    expect(src).toMatch(/chalOn = bs\.mode === 'j' && bs\.side === 'P'/);
+    expect(src).toMatch(/bs\.mode === 'j' && bs\.side === 'P'\) \{ const n = take\(\)/);   // r10：出题前选
     expect(src).toMatch(/x\.subject === base\.subject && x\.unit === base\.unit && x\.difficulty === base\.difficulty \+ 1/);
-    expect(src).toMatch(/这一关没有更难的题了/); expect(src).toMatch(/setChal\(false\)/);
+    expect(src).toMatch(/这一关没有更难的题了/); expect(src).toMatch(/chooseChal\(false\), 3000/);
   });
 });
 describe('D14 §7 规则与首次提示', () => {
   it('「？」浮层按学段：小学不显示专注、挑战、题卡；初一有挑战、高一有题卡', () => {
     const p = rulesFor('p36').map(r => r[0]), j = rulesFor('j').map(r => r[0]), h = rulesFor('h').map(r => r[0]);
-    expect(p).not.toContain('专注'); expect(p).not.toContain('挑战题'); expect(p).not.toContain('题卡和押注'); expect(p).not.toContain('Boss 二阶段');
-    expect(j).toContain('挑战题'); expect(j).not.toContain('题卡和押注'); expect(h).toContain('题卡和押注'); expect(h).not.toContain('挑战题');
+    expect(p).not.toContain('专注'); expect(p).not.toContain('挑战题'); expect(p).not.toContain('题卡'); expect(p).not.toContain('Boss 二阶段');
+    expect(j).toContain('挑战题'); expect(j).not.toContain('题卡'); expect(h).toContain('题卡'); expect(h).toContain('押注');   // r10：题卡、押注分开 expect(h).not.toContain('挑战题');
   });
   it('7 种首次提示，文案与规格一致', () => {
-    expect(TIP_KEYS).toEqual(['partial', 'dodge', 'perfect', 'guard', 'rage', 'challenge', 'cap']);
+    expect(TIP_KEYS).toEqual(['partial', 'dodge', 'perfect', 'guard', 'rage', 'challenge', 'cap', 'wagerP', 'wagerM', 'focus', 'energy']);   // r10 +押注/专注/能量
     expect(TIP_TEXT.cap).toBe('加成已经到顶啦（最多 ×1.8）');
   });
 });
@@ -120,7 +120,7 @@ describe('r9 较真家长', () => {
   });
   it('编辑器：−5 不会到 0；「全部册别」时点某册 = 只选这一册', () => {
     const src = readFileSync('src/ui/Parent.tsx', 'utf8');
-    expect(src).toMatch(/Math\.max\(MIN_LIMIT, f\.limit\[k\] \+ d\)/); expect(src).toMatch(/!cur \? \[v\]/);
+    expect(src).toMatch(/Math\.max\(MIN_LIMIT, f\.limit\[k\] \+ d\)/); expect(src).toMatch(/!cur \? vols\.map\(x => x\[0\]\)\.filter\(x => x !== v\)/);   // r10：全部册别时每册都亮，点一册 = 取消这一册
   });
 });
 describe('r9 学霸', () => {
