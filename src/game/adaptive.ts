@@ -79,12 +79,18 @@ export function spaceReviews<T>(list: T[], isRev: (x: T) => boolean): T[] {
 /** r15 回合制取题闸门：现在能不能出复习题（已出 shown 道，最近一道复习题在第 lastRev 道，-1 = 还没出过） */
 export const reviewAllowed = (shown: number, lastRev: number) => shown >= 2 && (lastRev < 0 || shown - lastRev >= 4);
 /** r15 策划（幼儿园–二年级）：允许重复，但同一道题不连着出（中间至少隔 1 道）；只有 1 道题的关除外 */
-export function noAdjacent<T extends { key: string }>(list: T[]): T[] {
-  const a = [...list];
-  for (let i = 1; i < a.length; i++) if (a[i].key === a[i - 1].key) {
-    const j = a.findIndex((x, k) => k > i && x.key !== a[i - 1].key && (k + 1 >= a.length || a[k + 1].key !== a[i].key) && a[k - 1].key !== a[i].key);
-    if (j > 0) [a[i], a[j]] = [a[j], a[i]];
-    else { const k = a.findIndex((x, m) => m < i - 1 && x.key !== a[i].key && (m === 0 || a[m - 1].key !== a[i].key) && a[m + 1].key !== a[i].key); if (k >= 0) { const [x] = a.splice(i, 1); a.splice(k + 1, 0, x); } }
+/* r15 小萌新：按题干比（同一题干的不同变体，如「数一数，有几个草莓？」，也不能连着出） */
+export const stemOf = (x: { key: string; question?: string }) => (x.question ?? '').trim() || x.key;
+export function noAdjacent<T extends { key: string; question?: string }>(list: T[]): T[] {
+  /* 贪心重排：尽量保持原顺序；某题干剩余过半时必须先放它，避免最后卡死 */
+  const rest = [...list]; const out: T[] = [];
+  while (rest.length) {
+    const cnt = new Map<string, number>(); for (const x of rest) cnt.set(stemOf(x), (cnt.get(stemOf(x)) ?? 0) + 1);
+    const last = out.length ? stemOf(out[out.length - 1]) : undefined;
+    let must: string | undefined; for (const [k, n] of cnt) if (k !== last && n > (rest.length) / 2) must = k;
+    let idx = rest.findIndex(x => must ? stemOf(x) === must : stemOf(x) !== last);
+    if (idx < 0) idx = 0;   // 只剩同一题干：没办法
+    out.push(rest.splice(idx, 1)[0]);
   }
-  return a;
+  return out;
 }

@@ -245,6 +245,47 @@ if (on('tzswitch')) {
   }
 }
 // r15 / 学霸：第 14 回合撤退、题出完提前撤退，都必须进结算页（不能直接回地图）
+if (on('allnodes')) {
+  // r15 学霸：每个年级每一关都能开战（不跳回选角色 / 不进错误页）；先按真实流程（新档案、选角色时才开战）测高一生物第 4 关
+  { const { ctx, pg, w } = await session('10', { __zyUnlockAll: true }); await pg.click('text=r9'); await pg.waitForSelector('[data-testid=char-confirm]');
+    await pg.click('[data-testid=char-suansuan]'); await pg.click('[data-testid=char-confirm]'); await w(700);
+    await pg.click('[data-testid=chapter-生物]'); await w(300); await pg.click('[data-testid=level-4]'); await w(1500); await tutSkip(pg, w); await skipTut(pg, w);
+    const loop = await pg.isVisible('[data-testid=char-confirm]'); ok(!loop && await pg.isVisible('[data-testid=pause]'), '高一选「算算」（另一套角色）后生命花园第 4 关能开战，不跳回选角色'); await ctx.close(); }
+  const SEL = '[data-testid=pause]';
+  for (const grade of (process.env.GRADES || 'K1,1,2,3,4,5,6,7,10').split(',').filter(g => g && g !== '-')) {
+    const { ctx, pg, w } = await session(grade, { __zyUnlockAll: true, __zyNoTut: true }); await enterMap(pg, w);
+    const subs = await pg.$$eval('[data-testid^=chapter-]', es => es.map(e => e.getAttribute('data-testid')));
+    let total = 0, badList = [];
+    for (const sub of subs) {
+      await pg.click(`[data-testid="${sub}"]`); await w(200);
+      const n = await pg.$$eval('[data-testid=levels] [data-testid^=level-]', es => es.length);
+      for (let i = 1; i <= n; i++) {
+        await pg.click(`[data-testid="${sub}"]`).catch(() => {}); await w(150);
+        await pg.click(`[data-testid=level-${i}]`); await w(900); await tutSkip(pg, w); await skipTut(pg, w);
+        let okB = false; for (let t = 0; t < 10 && !okB; t++) { okB = await pg.isVisible(SEL); if (!okB) { await tutSkip(pg, w); await skipTut(pg, w); await w(300); } }
+        total++;
+        if (!okB) { const why = await pg.isVisible('[data-testid=error-boundary]') ? 'boundary:' + (await pg.textContent('[data-testid=error-boundary]')).slice(0, 120) : await pg.isVisible('[data-testid=char-confirm]') ? 'char' : 'other'; badList.push(`${sub}#${i} ${why}`);
+          await pg.screenshot({ path: OUT + `allnodes-${grade}-${sub}-${i}.png` }); await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await pg.click('text=r9'); await w(500); for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`).catch(() => {}); await pg.click('[data-testid=pin-ok]').catch(() => {}); await w(800); continue; }
+        await pg.click(SEL); await w(300); await pg.click('[data-testid=quit]'); await w(200); await pg.click('[data-testid=quit-confirm]'); await w(700);
+      }
+    }
+    ok(!badList.length, `年级 ${grade}：${total} 关全部能开战 ${badList.slice(0, 8).join(' | ')}`); await ctx.close();
+  }
+}
+
+if (on('r15misc')) {
+  // r15：新装没家长密码，第一次换档案提示设密码（可跳过，只一次）
+  const ctx = await b.newContext({ viewport: { width: 1180, height: 820 } }); const pg = await ctx.newPage(); const w = ms => pg.waitForTimeout(ms);
+  await pg.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; });
+  await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(500);
+  const ids = await pg.$$eval('[data-testid^=profile-]', es => es.map(e => e.getAttribute('data-testid')).filter(t => /^profile-[\w-]+$/.test(t)));
+  await pg.evaluate(() => localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: 'someone-else', day: '2026-01-01' }))); await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await w(500);
+  await pg.click(`[data-testid=${ids[0]}]`); await w(500);
+  ok(await pg.isVisible('[data-testid=pin-nudge]'), `没密码时换档案提示设家长密码 (${ids.length} 个档案)`);
+  if (await pg.isVisible('[data-testid=pin-nudge]')) { await pg.click('[data-testid=pin-nudge-skip]'); await w(800); ok(!(await pg.isVisible('[data-testid=pin-nudge]')) && !(await pg.isVisible('[data-testid^=profile-]')), '「跳过」直接进档案'); }
+  await ctx.close();
+}
+
 if (on('r15retreat')) {
   for (const [grade, want] of [['3', 'retreat-exhausted'], ['7', 'retreat']]) {
     const { ctx, pg, w } = await session(grade, { __zyUnlockAll: true }); await enterMap(pg, w);

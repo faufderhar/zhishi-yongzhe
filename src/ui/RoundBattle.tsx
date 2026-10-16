@@ -223,7 +223,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     if (chal && bs.side === 'P') chalKeys.current.add(qq.key);
     const extraHard = (chal && bs.side === 'P') || (hs && P && card === 'heavy');
     const t0 = tierRef.current; if (!extraHard) tierRef.current = nextTier(tierRef.current, g === 'full'); else if (g === 'full') tierRef.current = { ...tierRef.current, wrong: 0 }; /* r14.1 学霸：挑战 / 重击答对也打断「连错」，不然 错-挑战对-错 会降档 */ setTierNow(tierRef.current.tier);
-    tierTrace.current.push({ d: qq.difficulty, ok: g === 'full', extra: extraHard, before: t0.tier, after: tierRef.current.tier }); if (__TEST_HOOKS__) (window as unknown as { __zyTier?: unknown }).__zyTier = tierTrace.current;
+    tierTrace.current.push({ d: qq.difficulty, ok: g === 'full', extra: extraHard, before: t0.tier, after: tierRef.current.tier }); setTierNow(tierRef.current.tier);   /* r15 学霸：顶栏显示实时当前难度 */ if (__TEST_HOOKS__) (window as unknown as { __zyTier?: unknown }).__zyTier = tierTrace.current;
     if (g === 'full') stats.current.correct++; else if (g === 'partial') { stats.current.correct += 0.5; stats.current.half++; stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); } else {   // 漏选算 0.5（裁定 1）
      stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); }
     onAnswer(qq, g === 'full', val);

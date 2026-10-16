@@ -11,6 +11,7 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
   tutorialReplay?: Record<string, boolean>;
+  pinNudged?: boolean                              // r15：没密码时第一次换档案已提示过设密码
   recConfirmed?: boolean                           // r15 R141-2：家长把恢复码打回来确认过已抄好
   recPrompted?: boolean                            // r12：升级前设的密码：已提示过生成恢复码
   restoredFromAt?: string                          // r13：用备份密码 / 恢复码恢复后，家长页提示「已从X月X日的备份恢复」

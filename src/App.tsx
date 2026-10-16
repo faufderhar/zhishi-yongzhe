@@ -56,6 +56,8 @@ type Screen =
 
 const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新或浏览器重载）', crash: '页面崩溃或内存不足被浏览器重启了（不是游戏自己刷新的，已记录）', restore: '刚才从备份恢复 / 合并 / 撤销后重新打开了', tab: '在这个标签页点了「在这里继续」，重新打开了', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
 const EXIT_TEXT: Record<string, string> = { quit: '刚才在暂停里点了〔回地图〕，还没答题，所以没有结算。', timeup: '今天的游戏时间用完了，关卡已结束。' };
+/* r15 学霸：选角色页（幼儿园以外）也列出另一套角色；这里必须同样接受，否则高一选「算算」后角色为空，点关卡永远跳回选角色 */
+const allowedChars = (g: GradeKey) => { const c = bandConfig(g); const own = c.chars === 'scifi' ? SCIFI : PUPS; return c.band === 'K' ? own : [...PUPS, ...SCIFI]; };
 export default function App() {
   const [screen, setScreen0] = useState<Screen>({ s: 'loading' });
   // r13 学霸：页面跳转日志 zy.navLog（from / to / reason / stack / 时间），只留最近 80 条，用来查「答题中被踢回首页」
@@ -170,7 +172,7 @@ export default function App() {
     f(); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f);
   }, [reloadBank]);
 
-  const [lastPid, setLastPid] = useState<string>(); const addedPid = useRef<string | undefined>(undefined);
+  const [lastPid, setLastPid] = useState<string>(); const addedPid = useRef<string | undefined>(undefined); const [pinNudge, setPinNudge] = useState<Profile | null>(null);
   const restoreRef = useRef<{ nav: Nav; pp: Profile } | null>(null);
   const [interruptedAll, setInterruptedAll] = useState<Record<string, Interrupted>>({});
   const interrupted = pid ? interruptedAll[pid] ?? null : null;   // 只给当前孩子
@@ -179,7 +181,7 @@ export default function App() {
   // r8b：两级入口选的年级（默认档案年级）；非档案年级不带档案的教材册别
   const [viewGrade, setViewGrade] = useState<GradeKey | undefined>();
   const vg = p0 ? viewGrade ?? p0.grade : undefined;
-  const vChars = vg ? (bandConfig(vg).chars === 'scifi' ? SCIFI : PUPS) : [];
+  const vChars = vg ? allowedChars(vg) : [];
   const p = p0 && vg ? { ...p0, homeGrade: p0.grade, grade: vg, volumes: vg === p0.grade ? p0.volumes : null, charId: [p0.charIds?.[bandConfig(vg).chars], p0.charId].find(id => id && vChars.some(c => c.id === id)) } : p0;
   const cfg = p ? bandConfig(p.grade) : null;
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
@@ -227,7 +229,9 @@ export default function App() {
   const [timeUpNote, setTimeUpNote] = useState(false);
   const [resetNoticeSeen, setResetNoticeSeen] = useState(false);   // r12：等待重设期间，每次启动全屏提示一次
   // r12 较真家长：到时前 3 分钟提前提醒（每个孩子每天一次，不闪烁）
-  const [warn3, setWarn3] = useState(false); const warned = useRef<string>('');
+  const [warn3, setWarn3] = useState(false); const [warnMini, setWarnMini] = useState(false);
+  /* r15 小萌新：「还有 3 分钟」横条 5 秒后收成角落小徽标，不再挡题目和地图 */
+  useEffect(() => { if (!warn3) return; setWarnMini(true); const t = setTimeout(() => setWarn3(false), 5000); return () => clearTimeout(t); }, [warn3]); const warned = useRef<string>('');
   useEffect(() => { if (!pid || !Number.isFinite(myRemaining)) return; const k = pid + today; if (myRemaining > 0 && myRemaining <= 180 && warned.current !== k) { warned.current = k; setWarn3(true); } if (myRemaining <= 0) setWarn3(false); }, [myRemaining, pid, today]);
   useEffect(() => { if (ANSWER_SCREENS.includes(screen.s) && myRemaining <= 0 && !graceOk.current) { setTimeUpNote(true); setScreen({ s: 'map' }, 'timeup'); } graceOk.current = false; }, [screen]);
   const graceOk = useRef(false);
@@ -393,6 +397,8 @@ export default function App() {
     const lp = (() => { try { const v = JSON.parse(localStorage.getItem('zy.lastPlayer') ?? 'null'); return v && typeof v === 'object' && typeof v.pid === 'string' ? v as { pid: string; day: string } : null; } catch { return null; } })();   // r14 技术QA R13-5：校验格式
     const prevPid = lastPid ?? lp?.pid;   // r13 学霸：每次换档案都要密码（不再只限当天；本次启动内换过的也算），家长页开关可关
     if (!viaPin && settings.pinHash && !settings.switchNoPin && profiles.length > 1 && !(addedPid.current === pp.id) /* r15：选今天正在用的同一个档案也要密码（以前 prevPid === pp.id 时跳过）；只有刚添加完的档案第一次进免密 */ /* r14.1 学霸：内置档案（kid-k / kid-7 / kid-10）同样要；新浏览器 / 没有上次记录、上次档案已删除也要 */) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
+    /* r15 学霸：新装还没家长密码时，第一次换档案提示家长设一个（可跳过，只提示一次） */
+    if (why === 'user' && !viaPin && !settings.pinHash && !settings.pinNudged && profiles.length > 1 && prevPid && prevPid !== pp.id) { setPinNudge(pp); return; }
     addedPid.current = undefined;
     try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: pp.id, day: today })); } catch { /* */ }
     setPid(pp.id); setLastPid(pp.id); setChapterIdx(0);
@@ -414,7 +420,7 @@ export default function App() {
     if (!gateOk && !prof && (viewGrade ?? lastGradeOf(p0) ?? p0.grade) !== g && settings.pinHash   /* r14：刚选完档案（还没进过年级）时也按「上次所在年级」算切换 */ && !settings.switchNoPin) { setScreen({ s: 'gate-grade', g }); return; }
     setViewGrade(g); setChapterIdx(0);
     setProfiles(profiles.map(x => x.id === p0.id ? { ...x, lastGrade: g } : x)); try { localStorage.setItem('zy-lastGrade-' + p0.id, g); } catch { /* */ }
-    const ch = bandConfig(g).chars === 'scifi' ? SCIFI : PUPS;
+    const ch = allowedChars(g);
     const has = [p0.charIds?.[bandConfig(g).chars], p0.charId].some(id => id && ch.some(c => c.id === id));
     setScreen(has ? { s: 'map' } : { s: 'char' });
   }
@@ -440,6 +446,9 @@ export default function App() {
     if (correct) setProgress(pr => ({ ...pr, xp: pr.xp + 5 * q.difficulty }));
   }
 
+  /* r15 学霸：选完角色后开战——旧代码在 setTimeout 里调用旧渲染的 startLevel（那时 char 还是空），又跳回选角色页，永远开不了战。改成等新档案生效后再开 */
+  const [pendingStart, setPendingStart] = useState<Level | null>(null);
+  useEffect(() => { if (!pendingStart || !char || screen.s !== 'map') return; const l = pendingStart; setPendingStart(null); startLevel(l); });
   function startLevel(level: Level) {
     if (!p || !cfg) return;
     if (myRemaining <= 0) return;
@@ -552,7 +561,11 @@ export default function App() {
           <button className="btn ghost" data-testid="pin-reset-full-ok" onClick={() => setResetNoticeSeen(true)}>知道了</button></div></div></div>}
       {settings.pinReset && ['profiles', 'map', 'stage', 'grade', 'char', 'wrongbook', 'result', 'review-done', 'parent', 'gate'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="pin-reset-pending">🔑 有人申请重设家长密码：{settings.pinReset.ready ? '已到期（还要回答找回问题或输入恢复码）' : <>已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72）· 已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</>}。不是爸爸妈妈申请的？<button className="chip" data-testid="pin-reset-cancel" onClick={() => setSettings({ ...settings, pinReset: undefined })}>取消</button></div>}
       {warn3 && myRemaining > 0 && myRemaining <= 180 && <div className="sys-bar warn-bar" data-testid="warn3" onClick={() => setWarn3(false)}>⏳ 还有 {Math.ceil(myRemaining / 60)} 分钟就到今天的游戏时间了，准备收尾吧（点此关闭）</div>}
+      {!warn3 && warnMini && myRemaining > 0 && myRemaining <= 180 && <div className="warn-mini" data-testid="warn3-mini" title="今天的游戏时间快到了">⏳ {Math.ceil(myRemaining / 60)} 分</div>}
       {timeUpNote && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="timeup-note" onClick={() => setTimeUpNote(false)}>⏰ 今天的时间用完啦，不能再答题了，明天再来！（家长可在设置里加时间）</div>}
+      {pinNudge && <div className="modal-back" data-testid="pin-nudge"><div className="modal"><h2>要不要设一个家长密码？</h2><p>现在换孩子档案不需要密码，孩子可以随意进别人的档案、改设置。设了密码后，换档案和进家长页都要输密码（家长页里可以关掉「换档案要密码」）。</p>
+        <div className="row gap16"><button className="btn" data-testid="pin-nudge-set" onClick={() => { const pp = pinNudge; setPinNudge(null); setSettings({ ...settingsRef.current, pinNudged: true }); setScreen({ s: 'gate', next: 'pick', pick: pp.id }); }}>设置密码</button>
+        <button className="btn ghost" data-testid="pin-nudge-skip" onClick={() => { const pp = pinNudge; setPinNudge(null); setSettings({ ...settingsRef.current, pinNudged: true }); void pickProfile(pp, true); }}>跳过</button></div></div></div>}
       {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} bonus={Object.fromEntries(profiles.map(x => [x.id, bonusToday(usage[x.id], today)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
         onAdd={p => { setProfiles([...profiles, p]); setLastPid(p.id); addedPid.current = p.id; try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
@@ -564,7 +577,7 @@ export default function App() {
       {screen.s === 'parent' && bank && <ParentSettings currentPid={lastPid} settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
         usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => unlockClock(false)} resetTiming={() => unlockClock(true)} remainingOf={remaining} onClose={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} subjects={chapters.map(c => c.subject)} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'grade', stage: stageOf(p.grade) })}
-        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id, charIds: { ...x.charIds, [cfg.chars]: c.id } } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setTimeout(() => startLevel(then), 0); }} />}
+        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id, charIds: { ...x.charIds, [cfg.chars]: c.id } } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setPendingStart(then); }} />}
       {screen.s === 'stage' && p0 && <StagePick current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onPick={st => setScreen({ s: 'grade', stage: st })} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }} />}
       {screen.s === 'grade' && p0 && <GradePick stage={screen.stage} current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onBack={() => setScreen({ s: 'stage' })}
         onPick={g => enterGrade(g)} />}

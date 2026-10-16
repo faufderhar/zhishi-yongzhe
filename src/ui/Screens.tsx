@@ -198,7 +198,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
                   if (timeUp) return;
-                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const need = missingPrereqs(ch.levels, i, progress.stars).map(x => x.name); say(need.length ? `🔒 还要先打赢：${need.length > 3 ? `${need[0]} … ${need[need.length - 1]}（共 ${need.length} 关）` : need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }
+                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const need = missingPrereqs(ch.levels, i, progress.stars).map(x => x.name); say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }
                   onLevel(l);
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
@@ -230,7 +230,7 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         <KinderSub k={kinder} total={total} />
       </> : <>
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
-        <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '怪物溜走了，再来一次吧！') : win ? '胜利！' : '这次差一点'}</h1>
+        <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '未通关 · 怪物溜走了，再来一次吧！') : win ? '胜利！' : '未通关 · 这次差一点'}</h1>
         {(forcedTimeUp || timeUp) && <p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p>}
         {retreat && !forcedTimeUp && exhausted && <p data-testid="retreat-exhausted">这一关的题都出过两次了，怪物提前撤退：{win ? '正确率够四成，算通关，最多 ★。' : '正确率不到四成，这次不算通关、不得星。'}</p>}
         {retreat && !forcedTimeUp && !exhausted && <p data-testid="retreat">{win ? '到了回合上限，怪物逃走了：正确率够四成，算通关，但最多 ★。下次试试更快打倒它！' : '到了回合上限，怪物溜走了：正确率不到四成，这次不算通关、不得星；答对的题照常算经验。'}</p>}

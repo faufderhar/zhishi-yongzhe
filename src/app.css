@@ -656,3 +656,6 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (orientation:portrait) and (max-height:700px) and (max-width:500px){
   .battle.rounds .arena .stage,.battle .arena .stage{height:120px}
 }
+
+/* r15 小萌新：剩余时间小徽标 */
+.warn-mini{position:fixed;top:8px;right:8px;z-index:60;background:#7a2a2a;color:#fff;border-radius:14px;padding:3px 10px;font-size:14px;font-weight:700;pointer-events:none;opacity:.92}

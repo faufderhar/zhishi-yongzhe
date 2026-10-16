@@ -41,7 +41,7 @@ export function refill<T extends Q>(used: T[], reserve: T[], adj: T[][], wrong: 
   // r14.1 技术QA R14-1：以前错题优先 + 重复后又排回队尾——唯一的那道错题会被一遍遍重复（一题出 4 次）。现在先挑重复次数最少的，再错题优先，再最早出的
   // r15 策划：重复时每道题一局最多出 2 次（首次 + 1 次重复）；以前答错的先重复；都出满 2 次 → kind 'none'（怪物提前撤退）
   const last = used[used.length - 1]; const cand0 = used.filter(x => !noRepeat.has(x.key) && (reps.get(x.key) ?? 0) < REPEAT_CAP - 1);
-  const cand = cand0.length > 1 ? cand0.filter(x => x !== last) : cand0;   // 尽量不连续出同一道
+  const lastStem = last ? ((last as { question?: string }).question ?? '').trim() || last.key : ''; const cand1 = cand0.filter(x => x !== last && (((x as { question?: string }).question ?? '').trim() || x.key) !== lastStem); const cand = cand1.length ? cand1 : cand0.length > 1 ? cand0.filter(x => x !== last) : cand0;   /* r15：也按题干避开 */   // 尽量不连续出同一道
   const rep = [...cand].sort((a, b) => +wrong.has(b.key) - +wrong.has(a.key) || used.indexOf(a) - used.indexOf(b))[0];
   if (rep) reps.set(rep.key, (reps.get(rep.key) ?? 0) + 1);
   if (!rep) return { pool: [], used, kind: 'none' };

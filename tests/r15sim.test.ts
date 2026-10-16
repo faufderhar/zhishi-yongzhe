@@ -51,3 +51,13 @@ describe('r15 复习题间隔 / K–2 不连着出', async () => {
       if (cnt <= Math.ceil(n / 2)) for (let i = 1; i < out.length; i++) expect(out[i].key, JSON.stringify(out)).not.toBe(out[i - 1].key); }
   });
 });
+
+describe('r15 小萌新：K–2 同题干变体也不连着出', () => {
+  it('noAdjacent 按题干', async () => {
+    const { noAdjacent, stemOf } = await import('../src/game/adaptive');
+    const L = [{ key: 'a1', question: '数一数，有几个草莓？' }, { key: 'a2', question: '数一数，有几个草莓？' }, { key: 'b', question: '1+1=?' }, { key: 'a3', question: '数一数，有几个草莓？' }, { key: 'c', question: '2+1=?' }];
+    const r = noAdjacent(L);
+    for (let i = 1; i < r.length; i++) expect(stemOf(r[i])).not.toBe(stemOf(r[i - 1]));
+    expect(r.length).toBe(5);
+  });
+});
