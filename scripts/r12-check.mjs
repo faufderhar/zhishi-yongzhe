@@ -85,7 +85,7 @@ if (on('kresult')) {
   await pg.click('[data-testid=level-1]'); await w(900); await skipTut(pg, w); await w(2600);
   await pg.waitForSelector('[data-testid^=opt-]');
   const wr = await pg.$('[data-testid^=opt-][data-correct="0"]'); await wr.click(); await w(100);
-  const dur = await wr.evaluate(e => getComputedStyle(e).animationDuration); ok(dur === '0.6s', `点错摇晃时长 ${dur}`); await w(1700);
+  const dur = await wr.evaluate(e => getComputedStyle(e).animationDuration); ok(parseFloat(dur) >= 0.6 && parseFloat(dur) <= 1, `点错摇晃时长（r14.1 改为水平大幅 ≤1s） ${dur}`); await w(1700);
   for (let i = 0; i < 12 && !(await pg.isVisible('.center-screen')); i++) { const c = await pg.$('[data-testid^=opt-][data-correct="1"]'); if (c) await c.click().catch(() => {}); await w(2500); }
   ok(await pg.isVisible('.center-screen'), '打完进结算页'); await w(3000);
   await pg.reload(); await w(2500);

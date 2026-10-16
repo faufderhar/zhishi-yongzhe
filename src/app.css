@@ -643,5 +643,5 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .reduce-motion .ktilt{animation:none}@media (prefers-reduced-motion:reduce){.ktilt{animation:none}}
 @keyframes kwiggle3{0%,100%{transform:translateX(0)}12%{transform:translateX(-30px)}32%{transform:translateX(28px)}52%{transform:translateX(-22px)}72%{transform:translateX(14px)}88%{transform:translateX(-6px)}}
 .kopt.kwiggle{animation:kwiggle3 .95s ease-in-out 1 !important;position:relative;z-index:2}
-@media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:kwiggleSoft .8s ease-in-out 1 !important}}
-.reduce-motion .kopt.kwiggle{animation:kwiggleSoft .8s ease-in-out 1 !important}
+@media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}}
+.reduce-motion .kopt.kwiggle{animation:kwiggleSoft .6s ease-in-out 1,ktint .6s ease-in-out 1 !important}

@@ -85,7 +85,7 @@ if (on('klock')) {
   const tap = async el => { const bb = await el.boundingBox(); await pg.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.mouse.down(); await pg.mouse.up(); };
   await tap(wrongs[0]); const t0 = Date.now();
   await w(150); const anim = await wrongs[0].evaluate(e => getComputedStyle(e).animationName); const tr = await wrongs[0].evaluate(e => getComputedStyle(e).transform);
-  ok(/kwiggle2/.test(anim), `点错的卡片在摇（animation=${anim}，transform=${tr.slice(0, 30)}）`); await pg.screenshot({ path: OUT + 'r11-k-wrong-shake.png' });
+  ok(/kwiggle3/.test(anim), `点错的卡片在摇（animation=${anim}，transform=${tr.slice(0, 30)}）`); await pg.screenshot({ path: OUT + 'r11-k-wrong-shake.png' });
   ok(await pg.isVisible('[data-testid=kbusy]'), '锁定期间有可见提示'); 
   await w(1400 - (Date.now() - t0)); const other = wrongs[1] ?? wrongs[0]; await tap(other);   // 1.4 s：锁内
   const bb = await other.boundingBox(); await w(1450 - (Date.now() - t0)); await pg.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.mouse.down(); await w(1650 - (Date.now() - t0)); await pg.mouse.up();   // 锁内按下、锁后松开
