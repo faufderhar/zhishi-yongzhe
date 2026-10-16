@@ -615,3 +615,6 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r14 小萌新：「在说话」提示移到上方，不挡中间的答案卡 */
 .kbusy { bottom: auto; top: 10px; }
 .dup-tag { color: #102; border-radius: 10px; padding: 1px 8px; font-weight: 700; }
+/* r14.1：多标签页——非活动标签页整页遮住 */
+.tab-inactive { position: fixed; inset: 0; z-index: 9999; background: #0b1020ee; display: flex; align-items: center; justify-content: center; color: #fff; }
+.gate-restore-note { font-size: 14px; opacity: .85; margin: 2px 0 0; }

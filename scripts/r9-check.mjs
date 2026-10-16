@@ -36,10 +36,10 @@ async function answer(pg, right) {
 // 1. 版本号（首页角标 + 家长页）
 if (on('ver')) {
   const { ctx, pg, w } = await session('7');
-  const v = await pg.textContent('[data-testid=version-label]'); ok(/^r\d+ · 题库v\d+ · \w{7}$/.test(v.trim()), `首页角标版本号「${v}」`);
+  const v = await pg.textContent('[data-testid=version-label]'); ok(/^r\d+(\.\d+)? · 题库v\d+ · \w{7}$/.test(v.trim()), `首页角标版本号「${v}」`);
   await pg.screenshot({ path: OUT + 'r9-version-home.png' });
   await pg.click('[data-testid=parent]'); await w(300); for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(600);
-  const pv = await pg.textContent('[data-testid=overview-offline] [data-testid=version-label]').catch(() => ''); ok(/r\d+ · 题库v\d+/.test(pv), `家长页总览版本号「${pv}」`);
+  const pv = await pg.textContent('[data-testid=overview-offline] [data-testid=version-label]').catch(() => ''); ok(/r\d+(\.\d+)? · 题库v\d+/.test(pv), `家长页总览版本号「${pv}」`);
   await ctx.close();
 }
 // 2. 护盾文案、1024×600 数字键、挑战题、规则「？」、首次提示、深链

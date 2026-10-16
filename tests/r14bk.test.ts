@@ -56,3 +56,12 @@ it('合并需要现在的家长密码；先快照，撤销能回到合并前', a
   const snap = await getKV<any>('snapshot:last'); expect(snap.exportedAt).toBeTruthy();
   await importAll(snap, { trusted: true }); expect(((await getKV<any[]>('profiles')) ?? []).length).toBe(nProf); void before;
 });
+it('覆盖恢复保留本机今天已玩的时长', async () => {
+  await importAll(file(), { trusted: true });
+  const d = new Date(); const td = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const ps = (await getKV<any[]>('profiles'))!; const pid = ps[0].id;
+  await setKV('usage:' + pid, { [td]: { used: 1234, bonus: 0 } });
+  const st = await getKV<Record<string, unknown>>('settings'); await setKV('settings', { ...st, pinHash: await makePinHash('1357') }); localStorage.clear();
+  await importAll(file(), { pin: '1357' });
+  expect((await getKV<any>('usage:' + pid))[td]).toEqual({ used: 1234, bonus: 0 });
+});

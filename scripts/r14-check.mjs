@@ -189,4 +189,21 @@ if (on('oldhint')) {
   ok(!(await pg.isVisible('[data-testid=old-hint-prompt]')), '换了新问题后提示消失');
   await ctx.close();
 }
+// r14.1 多标签页：只有一个活动标签页；其他显示「已在别处打开」+「在这里继续」
+if (on('tabs')) {
+  const { ctx, pg, w, pinIn } = await session('7', { __zyUnlockAll: true });
+  const pg2 = await ctx.newPage(); await pg2.goto(URL); await pg2.waitForTimeout(2500);
+  ok(await pg.isVisible('[data-testid=tab-inactive]'), '第二个标签页打开后：第一个显示「已在别处打开」');
+  ok(!(await pg2.isVisible('[data-testid=tab-inactive]')), '第二个标签页是活动的');
+  await pg.click('[data-testid=tab-takeover]'); await pg.waitForTimeout(3000);
+  ok(!(await pg.isVisible('[data-testid=tab-inactive]')) && await pg2.isVisible('[data-testid=tab-inactive]'), '「在这里继续」接管，另一个变成非活动');
+  await pg2.close();
+  // 覆盖恢复后的重开写明真实原因
+  await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
+  await pg.click('[data-testid=ptab-backup]'); await w(300);
+  const [fc] = await Promise.all([pg.waitForEvent('filechooser'), pg.click('text=从备份恢复')]); await fc.setFiles('/workspace/zhishi/backup_test.json'); await w(500);
+  await pg.fill('[data-testid=restore-pin]', '2468'); await w(300); await pg.click('[data-testid=restore-go]'); await pg.waitForTimeout(4500);
+  const body = await pg.textContent('body'); ok(!body.includes('游戏在更新版本时刷新了'), '覆盖恢复后的重开不再说「游戏在更新版本时刷新了」');
+  await ctx.close();
+}
 console.log(bad ? `r14 FAIL ${bad}` : 'r14 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

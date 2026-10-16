@@ -10,12 +10,12 @@ export const RELOAD_LOG = 'zy.reloadLog';
 export function logReload(reason: string, screen?: string) { try { const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); a.push({ reason, screen, at: Date.now() }); localStorage.setItem(RELOAD_LOG, JSON.stringify(a.slice(-20))); } catch { /* */ } }
 /** 启动时判断这次加载是怎么来的 */
 export const markAlive = () => { try { sessionStorage.setItem('zy-alive', '1'); } catch { /* */ } };
-export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'crash' | 'navigate'; detail?: string } {
+export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'crash' | 'restore' | 'tab' | 'navigate'; detail?: string } {
   try {
     const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); const last = a.filter((x: { reason: string }) => !String(x.reason).startsWith('blocked:')).pop();
     if ((document as unknown as { wasDiscarded?: boolean }).wasDiscarded) return { kind: 'discarded' };
     const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
-    if (last && Date.now() - last.at < 15e3) return { kind: 'sw', detail: last.reason };
+    if (last && Date.now() - last.at < 15e3) { const r = String(last.reason); return { kind: /^(import-|undo-)/.test(r) ? 'restore' : r === 'tab-takeover' ? 'tab' : 'sw', detail: r }; }   // r14.1：恢复 / 撤销 / 接管标签页的刷新写明真实原因
     // r13：有些环境（SW 接管 / 部分安卓 WebView）拿不到 navigation 条目；同一个标签页里的重载 sessionStorage 还在，用它补判
     const alive = (() => { try { return sessionStorage.getItem('zy-alive') === '1'; } catch { return false; } })();
     const isRe = nav?.type === 'reload' || (nav?.type !== 'navigate' && nav?.type !== 'back_forward' && alive);
@@ -28,7 +28,7 @@ export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'crash' |
 }
 /** r14：只有安全页面才允许游戏自己刷新；先把原因落盘再刷新 */
 let safeNow = false; export const setSafeScreen = (v: boolean) => { safeNow = v; };
-export function safeReload(reason: string, screen?: string) { if (!safeNow) { logReload('blocked:' + reason, screen); return false; } logReload(reason, screen); location.reload(); return true; }
+export function safeReload(reason: string, screen?: string) { if (!safeNow || (window as unknown as { __zyInactive?: boolean }).__zyInactive) { logReload('blocked:' + reason, screen); return false; } logReload(reason, screen); location.reload(); return true; }
 /** r14：每次换页记心跳；正常离开（pagehide）记离开——下次启动时「重载但没有正常离开」= 页面崩溃/被系统杀掉，而不是有人刷新 */
 const BEAT = 'zy.beat', BYE = 'zy.bye';
 export const beat = (screen: string) => { try { localStorage.setItem(BEAT, JSON.stringify({ screen, at: Date.now() })); } catch { /* */ } };

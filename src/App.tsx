@@ -1,5 +1,6 @@
 import { roundModeOf } from './game/rounds';
-import { launchCause, markAlive, beat, setSafeScreen } from './swUpdate';
+import { claimTab, onTabActive, isActiveTab } from './tabGuard';
+import { launchCause, markAlive, beat, setSafeScreen, logReload } from './swUpdate';
 import { bonusToday, tickGrace, GRACE_MS } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
 import { tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
@@ -53,13 +54,14 @@ type Screen =
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; capped?: boolean }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
-const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新或浏览器重载）', crash: '页面崩溃或内存不足被浏览器重启了（不是游戏自己刷新的，已记录）', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
+const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新或浏览器重载）', crash: '页面崩溃或内存不足被浏览器重启了（不是游戏自己刷新的，已记录）', restore: '刚才从备份恢复 / 合并 / 撤销后重新打开了', tab: '在这个标签页点了「在这里继续」，重新打开了', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
 const EXIT_TEXT: Record<string, string> = { quit: '刚才在暂停里点了〔回地图〕，还没答题，所以没有结算。', timeup: '今天的游戏时间用完了，关卡已结束。' };
 export default function App() {
   const [screen, setScreen0] = useState<Screen>({ s: 'loading' });
   // r13 学霸：页面跳转日志 zy.navLog（from / to / reason / stack / 时间），只留最近 80 条，用来查「答题中被踢回首页」
   const screenRef = useRef<Screen>(screen); screenRef.current = screen;
   // r14：用户意图令牌——每次真实点按 +1；自动导航（启动恢复）和异步结果在用户点过之后一律作废，不能覆盖更新的导航
+  const [tabActive, setTabActive] = useState(isActiveTab()); useEffect(() => onTabActive(setTabActive), []);
   const lastInput = useRef(0);
   const userGen = useRef(0); const pickGen = useRef(0); const [booted, setBooted] = useState(false);
   useEffect(() => { const f = (e: Event) => { if (e.isTrusted) { userGen.current++; lastInput.current = Date.now(); } }; window.addEventListener('pointerdown', f, true); window.addEventListener('keydown', f, true); return () => { window.removeEventListener('pointerdown', f, true); window.removeEventListener('keydown', f, true); }; }, []);
@@ -142,7 +144,7 @@ export default function App() {
       const swReload = (() => { try { const v = sessionStorage.getItem('zy-sw-reload'); sessionStorage.removeItem('zy-sw-reload'); return !!v; } catch { return false; } })();
       // r14 较真家长：在家长设置 / 密码页里被重载（选备份文件时浏览器回收页面、崩溃）——不要「恢复」到孩子的学段 / 选角色页，回首页并说明
       const beat0 = (() => { try { return JSON.parse(localStorage.getItem('zy.beat') ?? 'null') as { screen: string; at: number } | null; } catch { return null; } })();
-      const inParent = cause0.kind !== 'navigate' && !!beat0 && ['parent', 'gate', 'gate-grade'].includes(beat0.screen) && Date.now() - beat0.at < 30 * 60e3;
+      const inParent = !['navigate', 'restore', 'tab'].includes(cause0.kind) && !!beat0 && ['parent', 'gate', 'gate-grade'].includes(beat0.screen) && Date.now() - beat0.at < 30 * 60e3;
       if (inParent) setExitNote(`刚才在家长设置里时页面被重新加载了：${CAUSE_TEXT[cause0.kind] ?? ''}。请重新进入家长设置。`);
       if (!inParent && nav && pp && Date.now() - nav.at < 2 * 3600e3 && nav.s !== 'profiles') {
         // r13：不只新版本刷新——浏览器回收 / 崩溃重载 / 下拉刷新后（30 分钟内）也直接回到原来的孩子和地图，并在地图上说明原因，不再一声不响停在首页
@@ -245,7 +247,7 @@ export default function App() {
       const dp = nowP - lastPerf, dw = nowW - lastWall; lastPerf = nowP; lastWall = nowW;
       if (Math.abs(dw - dp) > 10 * 60e3 || dw < -60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
       else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
-      const pausedNow = document.visibilityState !== 'visible' || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
+      const pausedNow = document.visibilityState !== 'visible' || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
       if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; window.dispatchEvent(new Event(FORCE_END)); } }
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
@@ -320,6 +322,7 @@ export default function App() {
     // r11 技术QA R9-2：以前 history.go(-(length-1))——返回后当前位置后面还有「前进」记录，步数超出范围时浏览器什么都不做，于是又要确认好几次
     let exitT = 0; const exitTick = () => { clearTimeout(exitT); exitT = window.setTimeout(() => { exiting.current = false; }, 1500); };
     const onPop = () => {
+      logNav(screenRef.current.s, screenRef.current.s, 'popstate');   // r14.1：返回键 / 返回手势也记进 navLog
       if (exiting.current) { exitTick(); history.back(); return; }   // r11：确认退出后一路退到底（每一步都不再确认）
       if (backRef.current()) { try { history.pushState({ zy: 1 }, ''); } catch { /* */ } return; }
       if (confirm('要退出知识勇者吗？')) { exiting.current = true; exitTick(); history.back(); } else try { history.pushState({ zy: 1 }, ''); } catch { /* */ }
@@ -347,13 +350,13 @@ export default function App() {
   // r14 技术QA R13-5：通用兜底——换页后 1 帧内根节点什么都没画出来（白屏）→ 记日志并回首页
   useEffect(() => {
     if (!booted) return;
-    const t = window.setTimeout(() => { const root = document.getElementById('root'); if (root && !root.textContent?.trim() && !root.querySelector('img,svg,canvas,button')) { logErr('blank-render', screenRef.current.s); setPid(undefined); setScreen({ s: 'profiles' }, 'blank'); } }, 600);
+    const t = window.setTimeout(() => { const root = document.getElementById('root'); if (root && !root.textContent?.trim() && !root.querySelector('img,svg,canvas,button')) { logErr('blank-render', screenRef.current.s); setExitNote('刚才的页面没有显示出来，已回到首页（已记录）。'); setPid(undefined); setScreen({ s: 'profiles' }, 'blank'); } }, 600);
     return () => clearTimeout(t);
   }, [screen, booted]);
   useEffect(() => {
     if (!booted) return;
     const needP = ['stage', 'grade', 'gate-grade', 'map', 'char', 'battle', 'result', 'wrongbook', 'review', 'review-done'].includes(screen.s);
-    if (needP && !profiles.some(x => x.id === pid)) { logErr('blank', `screen=${screen.s} 但当前孩子 ${pid ?? '无'} 不存在`); setScreen({ s: 'profiles' }, 'no-profile'); }
+    if (needP && !profiles.some(x => x.id === pid)) { logErr('blank', `screen=${screen.s} 但当前孩子 ${pid ?? '无'} 不存在`); setExitNote('刚才的页面找不到当前孩子的档案，已回到首页（已记录）。'); setScreen({ s: 'profiles' }, 'no-profile'); }
   }, [booted, screen, pid, profiles]);
   const latest = useRef({ pickProfile: (..._: Parameters<typeof pickProfile>) => Promise.resolve(), enterGrade: (..._: Parameters<typeof enterGrade>) => {} });
   latest.current = { pickProfile, enterGrade };
@@ -495,6 +498,7 @@ export default function App() {
   const theme = cfg && !['profiles', 'gate', 'parent', 'loading'].includes(screen.s) ? 'theme-' + cfg.theme : '';
   return (
     <div className={`app ${theme}`} onPointerDown={unlockAudio}>
+      {!tabActive && <div className="tab-inactive" data-testid="tab-inactive"><div className="p-card wide-panel"><h2>已在别处打开</h2><p>知识勇者在这台设备的另一个标签页 / 窗口里打开了。为了不把数据弄乱，这里先停下。</p><button className="btn big-sq" data-testid="tab-takeover" onClick={() => { claimTab(); logReload('tab-takeover', screenRef.current.s); location.reload(); }}>在这里继续</button></div></div>}
       {portrait && !tipGone && <div className="portrait-tip" onAnimationEnd={() => setTipGone(true)}>横过来玩更舒服哦 ↻</div>}
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
       {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}

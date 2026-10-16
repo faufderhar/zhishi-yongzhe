@@ -46,7 +46,7 @@ const skipTut = async (pg, w) => { for (let i = 0; i < 8 && await pg.isVisible('
 import { readFileSync } from 'node:fs';
 if (on('label')) {
   const { ctx, pg, w } = await session('7'); const t = await pg.textContent('[data-testid=version-label]').catch(() => '');
-  ok(/^r1[2-9] · 题库v\d+ · /.test(t.trim()), `版本标签（${t.trim()}）`); await ctx.close();
+  ok(/^r1[2-9](\.\d+)? · 题库v\d+ · /.test(t.trim()), `版本标签（${t.trim()}）`); await ctx.close();
 }
 if (on('backup')) {
   const { ctx, pg, w, pinIn } = await session('7');

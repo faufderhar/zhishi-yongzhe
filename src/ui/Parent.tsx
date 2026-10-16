@@ -134,7 +134,8 @@ export function ParentGate({ allHints, settings, onSetPin, onOk, onCancel, purpo
       <b>找回问题</b><HintQ q={hq} setQ={setHq} />
       <input className="name-input" data-testid="recset-answer" placeholder="答案" value={ha} onChange={e => setHa(e.target.value)} />
       <div className="row gap16"><button className="btn" data-testid="recset-ok" disabled={!okPin || !hq.trim() || !normAnswer(ha)} onClick={async () => { setResetting(false); await finishSet(np1, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) }); }}>确定（旧恢复码作废）</button>
-        <button className="btn ghost" onClick={() => { setResetting(false); setMode(settings.pinHint ? 'forgot' : 'rec'); }}>取消</button></div></div></div>); }
+        <button className="btn ghost" onClick={() => { setResetting(false); setMode(settings.pinHint ? 'forgot' : 'rec'); }}>取消</button></div>
+      {!(okPin && hq.trim() && normAnswer(ha)) && <p className="hint" data-testid="recset-why">还差：{[!/^\d{4}$/.test(np1) && '4 位新密码', /^\d{4}$/.test(np1) && np1 !== np2 && '再输一次相同的密码', !hq.trim() && '选或写一个找回问题', !normAnswer(ha) && '找回问题的答案'].filter(Boolean).join('、')}</p>}</div></div>); }
   if (mode === 'forgot' && settings.pinHint && OLD_HINT_QUESTIONS.includes(settings.pinHint.q)) return (
     <div className="center-screen"><div className="pinpad wide-panel" data-testid="forgot-old-hint"><h2>忘记密码</h2><p className="big-rule">原来的找回问题（{settings.pinHint.q}）孩子可能知道答案，已经不能用来找回。</p><p>请用恢复码重设，或从备份恢复。</p>{recBox(true)}{restoreEntry}<button className="btn ghost" onClick={onCancel}>返回</button></div></div>);
   if (mode === 'forgot' && settings.pinHint) return (
@@ -461,7 +462,7 @@ function BackupTab() {
           <input className="name-input" data-testid="restore-bsec" disabled={ileft > 0} placeholder="备份时的家长密码 / 恢复码" value={bsec} onChange={e => setBsec(e.target.value)} />
           {ileft > 0 && <p className="warn" data-testid="restore-lock">错太多次了，请 {Math.ceil(ileft / 3600e3)} 小时后再试</p>}</div>}
         {mSum && <div className="p-card wide-panel" data-testid="merge-summary"><b>合并预览</b><p>新增孩子档案 {mSum.profilesAdded} 个 · 更新关卡星星 {mSum.levelsUpdated} 关 · 新增错题 {mSum.wrongAdded} 条 · 新增答题记录 {mSum.answersAdded} 条。</p><p className="hint">家长密码、时长设置和今天已用时长保持本机不变。合并前会自动保存当前数据的快照，之后可以「撤销」一次。</p>
-          <div className="row gap16"><button className="btn ghost" data-testid="merge-cancel" onClick={() => setMSum(null)}>取消</button><button className="btn" data-testid="merge-confirm" onClick={async () => { try { const r = await mergeAll(pending, { pin: rpin, today: dayStr() }); download(`知识勇者_合并前快照_${dayStr()}.json`, JSON.stringify(r.snapshot)); logReload('import-merge', 'parent'); setTimeout(() => location.reload(), 800); setMsg('已合并'); setMSum(null); } catch (e) { setMsg((e as Error).message); setMSum(null); setPending(null); } }}>确定合并</button></div></div>}
+          <div className="row gap16"><button className="btn ghost" data-testid="merge-cancel" onClick={() => setMSum(null)}>取消</button><button className="btn" data-testid="merge-confirm" onClick={async () => { try { const r = await mergeAll(pending, { pin: rpin, today: dayStr() }); download(`知识勇者_合并前快照_${dayStr()}.json`, JSON.stringify(r.snapshot)); logReload('import-merge', 'parent'); setTimeout(() => location.reload(), 800); setMsg('已合并，正在重新打开…'); setMSum(null); setPending(null); } catch (e) { setMsg((e as Error).message); setMSum(null); setPending(null); } }}>确定合并</button></div></div>}
         <div className="row gap16"><button className="btn ghost" onClick={() => setPending(null)}>取消</button>
           {needPin && <button className="btn" data-testid="merge-go" disabled={!curOk} title={curOk ? '' : '先输入现在的家长密码'} onClick={async () => setMSum(await mergePreview(pending, dayStr()))}>合并…</button>}
           <button className="btn danger" data-testid="restore-go" disabled={needPin && !rpin && (!bsec || ileft > 0)} onClick={async () => { try {
@@ -479,7 +480,7 @@ function UndoRestore() {
   const [snap, setSnap] = useState<any>();
   useEffect(() => { void getKV('snapshot:last').then(setSnap); }, []);
   if (!snap) return null;
-  return <button className="btn ghost" data-testid="undo-restore" onClick={async () => { if (!confirm('撤销上一次恢复，回到恢复前的数据？')) return; await importAll(snap, { trusted: true }); await setKV('snapshot:last', undefined); logReload('undo-restore', 'parent'); location.reload(); }}>↩ 撤销恢复 / 合并（回到 {String(snap.exportedAt ?? '').slice(0, 16).replace('T', ' ')} 的数据）</button>;
+  return <button className="btn ghost" data-testid="undo-restore" onClick={async () => { if (!confirm('撤销上一次恢复，回到恢复前的数据？')) return; await importAll(snap, { trusted: true }); await setKV('snapshot:last', undefined); logReload('undo-restore', 'parent'); location.reload(); }}>↩ 撤销恢复 / 合并（回到 {(() => { const d = new Date(snap.exportedAt ?? ''); return isNaN(+d) ? '上一次' : d.toLocaleString('zh-CN', { hour12: false, month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }); })()} 的数据）</button>;
 }
 function PinTab({ settings, setSettings }: ParentProps) {
   const [step, setStep] = useState<'old' | 'new' | 'confirm' | 'done'>('old');
@@ -593,6 +594,7 @@ export function GateRestore() {
   return <div className="gate-restore">
     <input ref={ref} type="file" accept=".json,application/json" hidden data-testid="gate-restore-file" onChange={async e => { const f = e.target.files?.[0]; if (!f) return; try { const d = JSON.parse(await f.text()); validateBackup(d); setData(d); setMsg(undefined); } catch (er) { setMsg(er instanceof SyntaxError ? '文件无法读取（不是 JSON）' : (er as Error).message); } e.target.value = ''; }} />
     <button className="link-btn" data-testid="gate-restore" onClick={() => ref.current?.click()}>📂 从备份恢复</button>
+    <p className="gate-restore-note" data-testid="gate-restore-note">忘了密码也能用：选备份文件，输入备份时的家长密码或恢复码，用备份覆盖这台设备的数据（今天已玩的时长保留本机的）。</p>
     {msg && !data && <p className="warn" data-testid="gate-restore-msg">{msg}</p>}
     {data && <Modal onClose={() => setData(null)}><div data-testid="gate-restore-box"><h2>从备份恢复（覆盖）</h2>
       <p>会用备份（{data.exportedAt ?? '未知时间'}）<b>覆盖</b>这台平板上的全部数据，恢复后家长密码变成备份里的密码。这里只能覆盖恢复；「合并」要先在家长页里输入现在的家长密码。</p>
