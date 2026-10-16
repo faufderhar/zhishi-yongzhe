@@ -146,6 +146,7 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     if (curKv.has('clock')) kvm.set('clock', curKv.get('clock')); else kvm.delete('clock');
     clean.kv = [...kvm.entries()]; }
   const snapshot = await exportAll();
+  if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }   // r15：恢复写库到重载之间，页面不能把内存里的旧设置写回去
   const d = await db();
   const tx = d.transaction([...STORES], 'readwrite');
   for (const s of STORES) {

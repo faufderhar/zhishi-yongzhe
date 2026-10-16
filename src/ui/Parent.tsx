@@ -43,7 +43,7 @@ import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
 import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, LK_IMPORT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
-import { pendingDays, PEND_DAYS } from '../game/pinVault';
+import { pendingDays, PEND_DAYS, findRec } from '../game/pinVault';
 import { hintCandidates, answerVariants, readLocal, readCache, makeRecoveryCode, normCode, RESET_DELAY_MS, fmtWhen, fmtDay } from '../game/pinVault';
 import type { Skills } from '../game/adaptive';
 
@@ -98,7 +98,7 @@ export function ParentGate({ allHints, settings, onSetPin, onOk, onCancel, purpo
       <input className="name-input" data-testid="rec-input" placeholder="8 位恢复码" value={rc} disabled={rlocked} maxLength={12} onChange={e => setRc(e.target.value)} />
       {(rlockMsg || rerr) && <p className="warn" data-testid="rec-msg">{rlockMsg ?? rerr}</p>}
       <button className="btn" data-testid="rec-ok" disabled={rlocked || normCode(rc).length !== 8} onClick={async () => {
-        const ok = await verifyPin(normCode(rc), settings.pinRec); const n = await noteR(ok);
+        const ok = await verifyPin(normCode(rc), settings.pinRec) || await (async () => { const h = await findRec(await getKV<any>('settings'), (await getKV<any[]>('profiles')) ?? [], getKV); return !!h && h !== settings.pinRec && verifyPin(normCode(rc), h); })(); const n = await noteR(ok);
         if (ok) { await note(true); setResetting(true); setMode('recset'); setNp1(''); setNp2(''); setHq(''); setHa(''); setErr(undefined); setRerr(undefined); setRc(''); } else setRerr(lockLeft(n) > 0 ? undefined : `恢复码不对，还可以试 ${5 - n.fails} 次`);
       }}>用恢复码重设</button></div>;
   const restoreEntry = <GateRestore />;
@@ -165,7 +165,8 @@ export function ParentGate({ allHints, settings, onSetPin, onOk, onCancel, purpo
     extra={<><button className="link-btn" data-testid="forgot" onClick={() => { setHa(''); setErr(undefined); setMode(settings.pinHint ? 'forgot' : settings.pinRec ? 'rec' : 'reset'); }}>忘记密码</button>{restoreEntry}</>}
     onSubmit={async p => {
       if (locked) return;
-      const ok = await verifyPin(p, settings.pinHash); const n = await note(ok);
+      // r15 较真家长：内存里的设置可能是旧的（另一个标签页改过 / 刚恢复）——也按库里最新的副本验证
+      const ok = await verifyPin(p, settings.pinHash) || await currentPin().then(c => !!c.vault && c.vault.pinHash !== settings.pinHash && verifyPin(p, c.vault.pinHash)); const n = await note(ok);
       if (ok) { if (!settings.pinHash!.startsWith('s2:') && crypto?.subtle) onSetPin(await makePinHash(p), settings.pinHint); onOk(); }
       else setErr(lockLeft(n) > 0 ? undefined : `密码不对，还可以试 ${5 - n.fails} 次`);
     }} /></div>;
@@ -495,7 +496,7 @@ function PinTab({ settings, setSettings }: ParentProps) {
   return <>{toggles}<HintEdit settings={settings} setSettings={setSettings} /><RecGen settings={settings} setSettings={setSettings} />
     <div className="row gap16"><button className="link-btn" data-testid="pintab-forgot" onClick={() => setForgot('forgot')}>忘记密码</button>{settings.pinRec && <button className="link-btn" data-testid="pintab-rec" onClick={() => setForgot('rec')}>用恢复码</button>}</div>
     <PinPad title={step === 'old' ? '输入旧密码' : step === 'new' ? '输入新密码' : '再输入一次新密码'} hint="请输入 4–6 位数字" error={err} onSubmit={async p => {
-    if (step === 'old') { if (await verifyPin(p, settings.pinHash)) { setStep('new'); setErr(undefined); } else setErr('旧密码不对'); return; }
+    if (step === 'old') { if (await verifyPin(p, settings.pinHash) || await currentPin().then(c => !!c.vault && c.vault.pinHash !== settings.pinHash && verifyPin(p, c.vault.pinHash))) { setStep('new'); setErr(undefined); } else setErr('旧密码不对'); return; }
     if (step === 'new') { if (!validPin(p)) { setErr('4–6 位数字'); return; } setN1(p); setStep('confirm'); setErr(undefined); return; }
     if (p !== n1) { setErr('两次不一致'); setStep('new'); return; }
     setSettings({ ...settings, pinHash: await makePinHash(p) }); markPinSet(); setStep('done');

@@ -273,7 +273,17 @@ export default function App() {
   const profilesRef = useRef(profiles); profilesRef.current = profiles;
   const stamp = (ps: Profile[], v: PinVault | null) => ps.map(x => { const { pinVault: _o, ...rest } = x; return v ? { ...rest, pinVault: v } : rest; });
   const mirrorPin = (v: PinVault | null) => { writeLocal(v); void writeCache(v); const ps = stamp(profilesRef.current, v); if (JSON.stringify(ps) !== JSON.stringify(profilesRef.current)) { profilesRef.current = ps; setProfilesState(ps); S.saveProfiles(ps); } };
-  const setSettings = (s: Settings) => { const prevRec = settingsRef.current.pinRec; settingsRef.current = s; setSettingsState(s); S.saveSettings(s); if (s.pinHash) mirrorPin(vaultOf(s)); if (s.pinRec && s.pinRec !== prevRec) { void writeRec(s.pinRec, setKV); const ps = profilesRef.current.map(x => ({ ...x, recHash: s.pinRec })); profilesRef.current = ps; setProfilesState(ps); S.saveProfiles(ps); } };
+  /* r15 较真家长：以前每次 setSettings 都把「本页内存里」整份设置连同密码写回 4 处副本——另一个标签页 / 共用浏览器的人改过密码，
+     这一页一取消申请、一计时就把旧密码写回去，家长就被锁在外面。现在：调用方没改的密码字段一律以库里最新的为准，只有真正改密码时才同步副本；
+     不活动的标签页、恢复进行中不写 */
+  const PIN_F = ['pinHash', 'pinHint', 'pinRec'] as const;
+  const setSettings = (s: Settings) => { const prev = settingsRef.current; const prevRec = prev.pinRec; const pinChanged = PIN_F.some(k => JSON.stringify(s[k]) !== JSON.stringify(prev[k]));
+    settingsRef.current = s; setSettingsState(s);
+    if (!isActiveTab() || (window as unknown as { __zyRestoring?: boolean }).__zyRestoring) return;
+    if (!pinChanged) { void S.loadSettings().then(cur => { const fresh = { ...settingsRef.current }; if (cur?.pinHash) for (const k of PIN_F) (fresh as Record<string, unknown>)[k] = cur[k];
+      if (PIN_F.some(k => JSON.stringify(fresh[k]) !== JSON.stringify(settingsRef.current[k]))) { logErr('pin-stale-memory', '本页内存里的密码和库里不同，以库里为准'); settingsRef.current = fresh; setSettingsState(fresh); }
+      void S.saveSettings(fresh); }); return; }
+    S.saveSettings(s); if (s.pinHash) mirrorPin(vaultOf(s)); if (s.pinRec && s.pinRec !== prevRec) { void writeRec(s.pinRec, setKV); const ps = profilesRef.current.map(x => ({ ...x, recHash: s.pinRec })); profilesRef.current = ps; setProfilesState(ps); S.saveProfiles(ps); } };
   const clearPin = (extra: Partial<Settings> = {}) => { const s = { ...settingsRef.current, pinHash: undefined, pinRec: undefined, ...extra }; settingsRef.current = s; setSettingsState(s); S.saveSettings(s); mirrorPin(null); void writeRec(null, setKV); const ps = profilesRef.current.map(({ recHash: _r, ...x }) => x); profilesRef.current = ps; setProfilesState(ps); S.saveProfiles(ps); };
   const setProfiles = (ps0: Profile[]) => {
     for (const old of profiles) if (!ps0.some(x => x.id === old.id)) void deleteProfileData(old.id, S.profileKeys(old.id));   // P1-2：删档案连数据一起清

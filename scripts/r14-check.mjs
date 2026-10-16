@@ -292,6 +292,27 @@ if (on('r15kb')) {
     await ctx.close();
   }
 }
+// r15 较真家长：另一个（不活动的）标签页内存里还是旧密码 + 等待中的申请——不能把旧密码 / 申请写回去
+if (on('r15lock')) {
+  const { ctx, pg, w, pinIn } = await session('7'); await enterMap(pg, w);
+  await pg.goto(URL); await w(1500); await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
+  await pg.click('[data-testid=reset-request]'); await w(800); if (await pg.isVisible('[data-testid=pin-reset-full-ok]')) await pg.click('[data-testid=pin-reset-full-ok]');
+  const p2 = await ctx.newPage(); await p2.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; });
+  await p2.addLocatorHandler(p2.locator('[data-testid=pin-reset-notice-full]'), async () => { await p2.click('[data-testid=pin-reset-full-cancel]'); }, { noWaitAfter: true });
+  await p2.goto(URL); await p2.waitForSelector('[data-testid^=profile-]'); await p2.waitForTimeout(1500);
+  ok(await pg.isVisible('[data-testid=tab-inactive]'), '第一个标签页变成「已在别处打开」');
+  const pin2 = async p => { for (const d of p) await p2.click(`[data-testid=pin-${d}]`); await p2.click('[data-testid=pin-ok]'); await p2.waitForTimeout(300); };
+  await p2.click('[data-testid=parent]'); await p2.waitForTimeout(300); await pin2('2468'); await p2.waitForTimeout(600);
+  if (await p2.isVisible('.modal >> text=稍后')) await p2.click('.modal >> text=稍后');
+  await p2.click('[data-testid=ptab-pin]'); await p2.waitForTimeout(300); await pin2('2468'); await pin2('1357'); await pin2('1357'); await p2.waitForTimeout(500);
+  ok((await p2.textContent('body')).includes('密码已修改'), '第二个标签页：密码改成 1357');
+  await p2.waitForTimeout(36000);   // 第一个标签页的申请计时器跑过一轮
+  await p2.goto(URL); await p2.waitForSelector('[data-testid^=profile-]'); await p2.waitForTimeout(1500);
+  await p2.click('[data-testid=parent]'); await p2.waitForTimeout(300); await pin2('1357'); await p2.waitForTimeout(800);
+  ok(await p2.isVisible('[data-testid=ptab-pin]'), '重载后 1357 能进家长页（没被旧标签页写回 2468）');
+  ok(!(await p2.isVisible('[data-testid=pin-reset-pending]')), '取消的申请没有被旧标签页写回来');
+  void pinIn; await ctx.close();
+}
 // ===== r15 =====
 // 王冠位置：真实截图 + 测量（幼儿园 Boss，答错后仍在、在怪物头顶附近）
 if (on('r15crown')) {
