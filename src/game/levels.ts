@@ -105,7 +105,10 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
       const normals: { c: Question[]; name: string; sub: number; res?: Question[] }[] = [];
       for (const [si, sb] of g.subs.entries()) {
         const chunks: Question[][] = [];
-        for (let i = 0; i < sb.qs.length; i += CHUNK) chunks.push(sb.qs.slice(i, i + CHUNK));
+        // r8：多选题属于整个小节：先不参与分段，再加进本小节每个普通关的题池（是否出、出几道由战斗按回合规则定）
+        const plain = sb.qs.filter(q => q.type !== '多选');
+        for (let i = 0; i < plain.length; i += CHUNK) chunks.push(plain.slice(i, i + CHUNK));
+        if (!chunks.length) chunks.push([]);
         if (chunks.length > 1 && chunks[chunks.length - 1].length < 4) chunks[chunks.length - 2].push(...chunks.pop()!);
         const nm = sb.units.map(u => shortUnit(u) || sb.volume).join(' + ');
         chunks.forEach((c, k) => normals.push({ c, name: chunks.length > 1 ? `${nm} ${k + 1}` : nm, sub: si }));
@@ -122,8 +125,9 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
         if (res) reserved.push(...res);
         recent.push(c);
         const parts = g.subs[sub].parts;
-        levels.push({ id: `${subject}|N|${c[0].key}`, chapter: subject, index: levels.length + 1, kind: 'normal', name, pool: c.map(q => q.key), ...meta,
-          ...(parts && k === normals.findIndex(x => x.sub === sub) ? { parts: parts.filter(x => x !== `${subject}|N|${c[0].key}`), aliases: parts.filter(x => x !== `${subject}|N|${c[0].key}`) } : {}) });
+        const lm = g.subs[sub].qs.filter(q => q.type === '多选'); const c0 = c[0] ?? lm[0];
+        levels.push({ id: `${subject}|N|${c0.key}`, chapter: subject, index: levels.length + 1, kind: 'normal', name, pool: [...c, ...lm].map(q => q.key), ...meta,
+          ...(parts && k === normals.findIndex(x => x.sub === sub) ? { parts: parts.filter(x => x !== `${subject}|N|${c0.key}`), aliases: parts.filter(x => x !== `${subject}|N|${c0.key}`) } : {}) });
         if (recent.length === 3 && k < normals.length - 1) {
           const pool = [...reserved, ...recent.flat()]; const id0 = recent[0][0].key; const fresh = reserved.map(q => q.key); recent = []; reserved = [];
           levels.push({ id: `${subject}|E|${id0}`, chapter: subject, index: levels.length + 1, kind: 'elite', name: '精英挑战', pool: pool.map(q => q.key), ...meta, ...(fresh.length ? { fresh } : {}) });

@@ -10,7 +10,7 @@ async function session(opts = {}) {
   const ctx = await b.newContext({ viewport: { width: 1024, height: 600 }, ...opts });
   const pg = await ctx.newPage(); const errs = [], reqs = [];
   pg.on('pageerror', e => errs.push(String(e))); pg.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') console.log('  [console]', m.text().slice(0, 200)); }); pg.on('request', r => reqs.push(r.url()));
-  await pg.addInitScript(() => { window.__zyTest = true; window.__fxFps = []; });
+  await pg.addInitScript(() => { window.__zyTest = true; window.__zyNoOfflineCache = true;   /* r7 起有后台离线缓存：本脚本只验「战斗内按需懒加载」 */ window.__fxFps = []; });
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   let pinSet = false;

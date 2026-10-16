@@ -45,7 +45,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
     }
     // 学科怪物序列帧（懒加载；失败保留静态立绘 + 程序动画）
     const art = mon?.skin?.art;
-    if (d && art && !(window as unknown as { __zyNoArt?: boolean }).__zyNoArt) {
+    if (d && art && !(__TEST_HOOKS__ && (window as unknown as { __zyNoArt?: boolean }).__zyNoArt)) {
       const names = Object.fromEntries((['idle', 'attack', 'hit', 'defeat'] as const).map(k => [k, mon!.soft ? art.anims[k].soft : art.anims[k].json])) as Record<'idle' | 'attack' | 'hit' | 'defeat', string>;
       void loadMonsterAnims(art.dir, names).then(a => {
         if (!a || !alive.current || dir.current !== d || !monster.current) return;
@@ -482,7 +482,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="qmeta">{q.subject} · {q.type} · 难度{q.difficulty}
           {q.status !== '已通过' && q.status !== 'AI初审通过' && <span className="pending">{q.status}</span>}
           {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
-        <div className="qtext" data-ans={import.meta.env.DEV || (window as unknown as { __zyTest?: boolean }).__zyTest ? q.answer[0] : undefined}><Tex text={q.question} /></div>
+        <div className="qtext" data-ans={import.meta.env.DEV || (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest) ? q.answer[0] : undefined}><Tex text={q.question} /></div>
         {asking && q.type === '多选' && (
           <div className="opts">
             {q.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} aria-pressed={multi.includes(ch.key)} data-testid={'opt-' + ch.key}

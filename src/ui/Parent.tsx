@@ -3,7 +3,9 @@ import { prefetchAll } from '../fx/sheets';
 import { useState as useS } from 'react';
 import { offlineStatus, onOffline } from '../offlineCache';
 import { BANK_VER, BANK_RELEASE } from '../bankStore';
-declare const __BUILD__: string;
+declare const __BUILD__: string; declare const __BUILD_TIME__: string;
+/** 构建日期按用户设备的本地时区显示（r8） */
+const buildDate = () => { try { return new Date(__BUILD_TIME__).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }); } catch { return ''; } };
 /** 离线就绪状态（技术QA R6-1） + 题库/构建版本（R6-5：来自构建信息） */
 export function OfflineReady() {
   const [s, setS] = useS(offlineStatus());
@@ -11,7 +13,7 @@ export function OfflineReady() {
   const ready = !!s && s.total > 0 && s.done >= s.total && s.failed === 0;
   return <p className="hint" data-testid="offline-ready" data-ready={ready ? '1' : '0'}>
     {ready ? '✅ 离线就绪：怪物动画、技能特效和音效都已缓存' : s ? `⏳ 离线素材缓存中 ${s.done}/${s.total}${s.failed ? `（${s.failed} 个暂未下载，联网后自动重试）` : ''}` : '⏳ 联网时会在后台缓存离线素材'}
-    <br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'}</span></p>;
+    <br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'} · {typeof __BUILD_TIME__ === 'string' ? buildDate() : ''}</span></p>;
 }
 function PrefetchAnim() {
   const [p, setP] = useS('');
@@ -126,7 +128,7 @@ export function ParentSettings(props: ParentProps) {
       </div>
       <ParentAlerts goBackup={() => setTab('backup')} />
       <div className="parent-body">
-        {tab === 'profiles' && <ProfilesTab {...props} />}
+        {tab === 'profiles' && <><div className="p-card" data-testid="overview-offline"><OfflineReady /></div><ProfilesTab {...props} /></>}
         {tab === 'report' && <ReportTab {...props} />}
         {tab === 'bank' && <BankTab {...props} />}
         {tab === 'time' && <TimeTab {...props} />}

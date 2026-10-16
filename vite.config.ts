@@ -8,10 +8,12 @@ import { readFileSync, readdirSync } from 'node:fs';
 const BANK_VER = (() => { const h = createHash('sha1'); for (const f of readdirSync('public/banks').sort()) h.update(f).update(readFileSync('public/banks/' + f)); return h.digest('hex').slice(0, 10); })();
 // 题库发布号（导入题库时由 tools 写入 public/banks/release.json）与构建号（git 短哈希 + 日期），家长页显示（技术QA R6-5）
 const BANK_RELEASE = (() => { try { return JSON.parse(readFileSync('public/banks/release.json', 'utf8')).release as string; } catch { return '?'; } })();
-const BUILD = (() => { let h = 'nogit'; try { h = execSync('git rev-parse --short HEAD').toString().trim(); } catch { /* */ } return `${h} · ${new Date().toISOString().slice(0, 10)}`; })();
+const BUILD = (() => { let h = 'nogit'; try { h = execSync('git rev-parse --short HEAD').toString().trim(); } catch { /* */ } return h; })();
 export default defineConfig({
   base: './',
-  define: { __BANK_VER__: JSON.stringify(BANK_VER), __BANK_RELEASE__: JSON.stringify(BANK_RELEASE), __BUILD__: JSON.stringify(BUILD) },
+  define: { __BANK_VER__: JSON.stringify(BANK_VER), __BANK_RELEASE__: JSON.stringify(BANK_RELEASE), __BUILD__: JSON.stringify(BUILD), __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    // r8：测试钩子只在测试构建（ZY_TEST=1）、dev 服务器、vitest 里保留；正式构建为 false，整段代码被删除
+    __TEST_HOOKS__: JSON.stringify(process.env.ZY_TEST === '1' || !!process.env.VITEST || !process.argv.includes('build')) },
   plugins: [react(), VitePWA({
     registerType: 'prompt', includeAssets: ['apple-touch-icon.png', 'icon.svg'],
     manifest: { name: '知识勇者', short_name: '知识勇者', display: 'standalone', orientation: 'landscape', background_color: '#1d2340', theme_color: '#2b3a78', start_url: './', scope: './', id: './', lang: 'zh-CN',

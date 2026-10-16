@@ -3,6 +3,7 @@ import './app.css';
 import { loadFxManifests } from './fx/assets';
 import { prefetchAll } from './fx/sheets';
 import { cacheForOffline } from './offlineCache';
+import { multiBand, isMultiSel } from './game/multi';
 import { STORAGE_ERROR, deleteProfileData, compactAnswers } from './db';
 import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
@@ -100,7 +101,7 @@ export default function App() {
   // 星级迁移：关卡表变化后把旧关卡的星写到新关卡（只升不降），持久化
   useEffect(() => { if (!p) return; const nx = migrateStars(chapters.flatMap(c => c.levels), progress.stars); if (nx) setProgress(pr => { const v = { ...pr, stars: { ...pr.stars, ...Object.fromEntries(Object.entries(nx).filter(([k, x]) => x > (pr.stars[k] ?? 0))) } }; S.saveProgress(p.id, v); return v; }); }, [chapters, p?.id, progress.stars]);
   // 仅自动化测试：导出关卡 → 题目 unit / 题干，供线上验收检查「诗词关卡里的题都属于这首诗」
-  useEffect(() => { const w = window as unknown as { __zyTest?: boolean; __zyLevels?: unknown }; if (!w.__zyTest || !bank) return;
+  useEffect(() => { const w = window as unknown as { __zyTest?: boolean; __zyLevels?: unknown }; if (!(__TEST_HOOKS__ && w.__zyTest) || !bank) return;
     w.__zyLevels = chapters.map(c => ({ subject: c.subject, levels: c.levels.map(l => ({ id: l.id, kind: l.kind, name: l.name, qs: l.pool.map(k => { const q = bank.byKey.get(k); return { unit: q?.unit, question: q?.question }; }) })) })); }, [chapters, bank]);
   const playableKeys = useMemo(() => new Set(gradeQs.map(q => q.key)), [gradeQs]);
   const today = dayStr();
@@ -114,8 +115,9 @@ export default function App() {
     const kinds = [...new Set(profiles.map(x => bandConfig(x.grade).chars === 'scifi' ? 'hs' : 'pup'))] as ('pup' | 'hs')[];
     // 学科怪物 + 技能特效/图标/音效：按档案年级与学科，空闲时放进运行时缓存（技术QA R6-1）
     const needs = bank ? [...new Set(profiles.map(x => x.grade))].map(g => ({ grade: g, subjects: [...new Set(questionsOfGrade(bank, g).map(q => q.subject))] })) : [];
-    const t = setTimeout(() => { void prefetchAll(undefined, kinds).catch(() => {}).then(() => cacheForOffline(needs)).catch(() => {}); }, 8000);
-    const on = () => { void cacheForOffline(needs).catch(() => {}); }; window.addEventListener('online', on);
+    const noBg = __TEST_HOOKS__ && !!(window as unknown as { __zyNoOfflineCache?: boolean }).__zyNoOfflineCache;   // 仅测试构建：r5「按需懒加载」检查时关掉后台离线缓存
+    const t = setTimeout(() => { if (noBg) return; void prefetchAll(undefined, kinds).catch(() => {}).then(() => cacheForOffline(needs)).catch(() => {}); }, 8000);
+    const on = () => { if (!noBg) void cacheForOffline(needs).catch(() => {}); }; window.addEventListener('online', on);
     return () => { clearTimeout(t); window.removeEventListener('online', on); };
   }, [profiles.map(x => x.grade).join(), !!bank]);
   const replay = !!p && (!p.tutorialDone || !!settings.tutorialReplay?.[p.id]);
@@ -217,12 +219,15 @@ export default function App() {
       : level.kind === 'elite' ? elitePool(pool, level.fresh, seenKeys, wrongKeys, n, assigned) : pool;
     const strict = prefPool;
     const qs = capMulti(spreadTemplates(selectQuestions({ pool: strict, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool), pool);
-    { const w = window as unknown as { __zyTest?: boolean; __zyForceQ?: string }; if (w.__zyTest && w.__zyForceQ) { const fq = [...byKey.values()].find(q => q.id === w.__zyForceQ); if (fq) qs.unshift(fq); } }   // 仅自动化测试：指定首题
+    { const w = window as unknown as { __zyTest?: boolean; __zyForceQ?: string }; if ((__TEST_HOOKS__ && w.__zyTest) && w.__zyForceQ) { const fq = [...byKey.values()].find(q => q.id === w.__zyForceQ); if (fq) qs.unshift(fq); } }   // 仅自动化测试：指定首题
     // 题少的课（语文课文/古诗词不合并）：关内重复本课题，错题优先（策划 r6）
     if (qs.length < n && pool.length && level.kind === 'normal') { const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
     const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind });
+    // r8 多选规则：小学/幼儿园一律不出；初一/高一把本关题池里的多选题都放进候选（是否出、出几道由战斗里按回合规则决定，不受难度挑选影响）
+    const qs2 = multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q));
+    const extra2 = multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q));
     masteredThisLevel.current = 0;
-    setScreen({ s: 'battle', level, qs, extra, nonce: Date.now() });
+    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;

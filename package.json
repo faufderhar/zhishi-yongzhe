@@ -9,7 +9,9 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
-    "shots": "node scripts/shots.mjs"
+    "shots": "node scripts/shots.mjs",
+    "build:test": "ZY_TEST=1 vite build --outDir dist-test",
+    "preview:test": "python3 -m http.server 4183 -d dist-test"
   },
   "dependencies": {
     "idb": "^8.0.4",

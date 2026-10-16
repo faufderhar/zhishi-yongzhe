@@ -72,4 +72,4 @@ export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra
 export function fmtMin(sec: number) { return sec === Infinity ? '不限' : `${Math.ceil(sec / 60)} 分钟`; }
 
 /** 技术QA R4-7：正确答案只放在 JS 里，选项 DOM 不带 data-correct；仅自动化测试（window.__zyTest）时才标出来方便脚本点 */
-export const TEST_DOM = typeof window !== 'undefined' && !!(window as unknown as { __zyTest?: boolean }).__zyTest;
+export const TEST_DOM = typeof window !== 'undefined' && !!(__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest);

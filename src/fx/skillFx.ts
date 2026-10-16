@@ -57,7 +57,7 @@ export async function playSkill(r: SkillRig, k: SkillDef, o: PlaySkillOpts): Pro
       await Promise.all([banP, fa(ic, [{ opacity: 0 }, { opacity: 1, offset: 0.4 }, { opacity: 1, offset: 0.7 }, { opacity: 0 }], Math.max(800, Math.min(total, 1000)), 0, 'skill-fx-icon')]);
       o.onImpact?.(); return;
     }
-    const sheet = W_().__zyNoArt ? null : await Promise.race([loadSkillSheet(k.id), sleep(250).then(() => null)]) as Sheet | null;   // 素材没到 250 ms 内 → 程序化
+    const sheet = (__TEST_HOOKS__ && W_().__zyNoArt) ? null : await Promise.race([loadSkillSheet(k.id), sleep(250).then(() => null)]) as Sheet | null;   // 素材没到 250 ms 内 → 程序化
     if (sheet) {
       log.mode = 'sheet';
       // 超过本次时长上限（小班 1.0 s）时提高播放帧率把整张播完，不截掉收尾帧
@@ -76,7 +76,7 @@ export async function playSkill(r: SkillRig, k: SkillDef, o: PlaySkillOpts): Pro
     await banP;
   } finally {
     stopFps(); cleanup.forEach(e => e.remove()); log.t1 = performance.now();
-    if (W_().__zyTest) (W_().__fxLog ??= []).push(log);
+    if ((__TEST_HOOKS__ && W_().__zyTest)) (W_().__fxLog ??= []).push(log);
   }
 }
 

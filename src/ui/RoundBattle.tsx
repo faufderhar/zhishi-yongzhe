@@ -5,6 +5,7 @@ import { Tex } from '../Tex';
 import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
+import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
 import { newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
@@ -29,8 +30,8 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const pool = useRef<Question[]>([...questions, ...extra.filter(q => !questions.some(x => x.key === q.key))]);
   const [bs, setBs] = useState<RState>(() => {
     const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail });
-    const th = (window as unknown as { __zyTest?: boolean; __zyTestHp?: number }).__zyTest ? (window as unknown as { __zyTestHp?: number }).__zyTestHp : undefined;   // 仅自动化测试
-    const tm = (window as unknown as { __zyTest?: boolean; __zyTestMonHp?: number }).__zyTest ? (window as unknown as { __zyTestMonHp?: number }).__zyTestMonHp : undefined;   // 仅自动化测试：怪物血量
+    const th = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestHp?: number }).__zyTest) ? (window as unknown as { __zyTestHp?: number }).__zyTestHp : undefined;   // 仅自动化测试
+    const tm = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestMonHp?: number }).__zyTest) ? (window as unknown as { __zyTestMonHp?: number }).__zyTestMonHp : undefined;   // 仅自动化测试：怪物血量
     const s1 = tm ? { ...s0, monsterHp: tm, monsterMax: tm } : s0;
     return th ? { ...s1, playerHp: th } : s1;
   });
@@ -61,7 +62,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   useEffect(() => { preloadSkillArt(mySkills); }, [mySkills]);
   useEffect(() => {   // 仅自动化测试：直接播放任意技能特效（图集 / 护眼逐个检查）
     const w = window as unknown as { __zyTest?: boolean; __zyPlaySkill?: (id: string) => Promise<void> | undefined };
-    if (w.__zyTest) w.__zyPlaySkill = id => { const k = skillById(id); return k ? D.dir.current?.playSkill(k, { kinder: k.seg === 'K' }) : undefined; };
+    if ((__TEST_HOOKS__ && w.__zyTest)) w.__zyPlaySkill = id => { const k = skillById(id); return k ? D.dir.current?.playSkill(k, { kinder: k.seg === 'K' }) : undefined; };
   }, []);   // 只懒加载本角色本学段的技能素材
   // 技术QA R6-4：答完到点〔继续〕之前，横幅/题目标签/意图都按「刚答的这一回合」显示；下一回合开始（phase=pre）才切换
   const [ansSide, setAnsSide] = useState<'P' | 'M' | null>(null);
@@ -72,10 +73,20 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   // 关内难度回落（裁定 4）：连错 2 题降 1 档，降档后连对 2 题恢复
   const tierRef = useRef<Tier>(newTier(Math.round(questions.reduce((a, q) => a + q.difficulty, 0) / Math.max(1, questions.length)) || 2));
   const [consol, setConsol] = useState(false);
-  const take = (pred0: (x: Question) => boolean = () => true) => { const pred = (x: Question) => pred0(x) && (x.type !== '多选' || used.current.filter(u => u.type === '多选').length < 2)   /* 策划 r7：每关最多 2 道多选 */; const fq = (window as unknown as { __zyTest?: boolean; __zyForceQ?: string }).__zyTest ? pool.current.find(x => x.id === (window as unknown as { __zyForceQ?: string }).__zyForceQ) : undefined;   /* 仅自动化测试：指定题 */ const q = fq ?? pickByTier(pool.current.filter(pred), tierRef.current) ?? pool.current.find(pred) ?? pool.current[0]; ; setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
+  const poolHasMulti = useRef(pool.current.some(isMultiSel)).current;
+  const multiCtx = (): MultiCtx => ({ band: cfg.band, side: bs.side as 'P' | 'M', turn: bs.turn + 1, used: usedMulti.current, poolHas: poolHasMulti });
+  const usedMulti = useRef(0);   // 本局已出多选数（复用已答题时也不清零）
+  const take = (pred: (x: Question) => boolean = () => true) => {
+    const fq = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyForceQ?: string }).__zyTest) ? pool.current.find(x => x.id === (window as unknown as { __zyForceQ?: string }).__zyForceQ) : undefined;   /* 仅测试构建：指定题 */
+    // r8：多选规则优先于「最接近难度」（只初一/高一、我方回合、第 1 回合不出、每局 1–2 道）
+    const pk = () => pickWithMulti(pool.current.filter(pred), multiCtx(), xs => pickByTier(xs, tierRef.current));
+    // 剩下的只有本回合不能出的多选：按普通题的重复规则，把已答题放回题池再挑
+    const q = fq ?? pk() ?? (() => { pool.current = [...pool.current, ...used.current]; used.current = []; return pk(); })() ?? pool.current[0];
+    if (q && isMultiSel(q)) usedMulti.current++;
+    setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
   const cards = useMemo(() => {
     if (!hs || phase !== 'cards') return null;
-    const rest = pool.current; const base = pickByTier(rest.filter(x => !isMulti(x)), tierRef.current) ?? rest[0]; if (!base) return null;
+    const rest = pool.current.filter(x => !isMultiSel(x)); const base = pickByTier(rest.filter(x => !isMulti(x)), tierRef.current) ?? rest[0]; if (!base) return null;
     const near = (d: number, used: string[]) => rest.filter(x => !used.includes(x.key) && !isMulti(x)).sort((a, b) => Math.abs(a.difficulty - d) - Math.abs(b.difficulty - d))[0];
     const light = near(base.difficulty - 1, [base.key]) ?? base;
     const heavy = rest.find(x => isMulti(x) && x.key !== base.key) ?? near(base.difficulty + 1, [base.key, light.key]) ?? base;
@@ -89,7 +100,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
       const wk = new Set(stats.current.wrong); pool.current = [...used.current].sort((a, b) => +wk.has(b.key) - +wk.has(a.key)); used.current = [];
       if (!pool.current.length) { void retreat(bs); return; }
     }
-    if (hs && P) { setPhase('cards'); return; }
+    if (hs && P && !multiRule(multiCtx()).force) { setPhase('cards'); return; }   // 必出多选的回合跳过选卡（按标准卡），保证出到
     setQ(take(x => P || !isMulti(x)));
     setPhase(hs && wagerOn ? 'wager' : 'question');
   }, [phase, bs.turn]);
@@ -187,7 +198,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     if (s.over) { void finish(s); return; }
     setPhase('pre');
   }
-  if ((window as unknown as { __zyTest?: boolean }).__zyTest) (window as unknown as { __zyAnswer?: () => string | undefined }).__zyAnswer = () => cq?.answer[0];   // 仅自动化测试
+  if ((__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest)) (window as unknown as { __zyAnswer?: () => string | undefined }).__zyAnswer = () => cq?.answer[0];   // 仅自动化测试
   const isEn = cq?.subject === '英语';
   const letters = cq?.subject === '英语' || !!cq?.answer.some(a => /[a-df-z]/i.test(a));   // 英语 / 文字答案用字母键盘；数字里的 e 是科学计数
   const tts = cq ? ttsText(cq) : '';
@@ -257,7 +268,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
-          <div className="qtext" data-ans={import.meta.env.DEV || (window as unknown as { __zyTest?: boolean }).__zyTest ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
+          <div className="qtext" data-ans={import.meta.env.DEV || (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest) ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
         </>}
         {asking && cq && cq.type === '多选' && (
           <div className="opts">

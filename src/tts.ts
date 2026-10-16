@@ -29,7 +29,7 @@ export function speakable(t: string) {
 }
 let speakingFlag = false;
 /** 正在朗读（朗读时答题计时暂停，策划 r7） */
-export const isSpeaking = () => !!synth && audioPrefs.tts && (speakingFlag || synth.speaking) && !(typeof window !== 'undefined' && (window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts);
+export const isSpeaking = () => !!synth && audioPrefs.tts && (speakingFlag || synth.speaking) && !(__TEST_HOOKS__ && typeof window !== 'undefined' && (window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts);
 export function speak(text: string, lang = 'zh-CN') {
   if (!synth || !audioPrefs.tts) return;
   synth.cancel();
