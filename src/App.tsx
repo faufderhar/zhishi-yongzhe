@@ -135,7 +135,9 @@ export default function App() {
       // r9：页面被重新加载（新版本刷新、平板清理后台）后回到原来的孩子与地图；战斗中被打断的给出提示，不再静默丢进度
       const cause0 = launchCause(); markAlive(); if (cause0.kind !== 'navigate') console.info('[zy] 启动原因', cause0);
       const runs: Record<string, Interrupted> = {};
-      for (const x of ps) { const r = readRun(x.id); if (r && Date.now() - r.at < 12 * 3600e3) runs[x.id] = { levelId: r.levelId, name: r.name, pid: x.id, upd: r.bv !== BAL_VER, n: r.n, cause: cause0.kind }; else if (r) writeRun(x.id, null); }
+      const endAt = (id: string) => { try { return (JSON.parse(localStorage.getItem('zy.lastEnd:' + id) ?? 'null') as { at: number } | null)?.at ?? 0; } catch { return 0; } };
+      for (const x of ps) { const r = readRun(x.id); if (r && r.at <= endAt(x.id)) { writeRun(x.id, null); continue; }   // r14.1 学霸：关卡其实已经结算（例如另一个标签页 / 结算后才重载）——不再显示「已答 N 题、星星没算」
+        if (r && Date.now() - r.at < 12 * 3600e3) runs[x.id] = { levelId: r.levelId, name: r.name, pid: x.id, upd: r.bv !== BAL_VER, n: r.n, cause: cause0.kind }; else if (r) writeRun(x.id, null); }
       setInterruptedAll(runs);
       { const r0 = Object.values(runs)[0];   // 首页不点名（「没打完」详情只给本人，在自己的地图上显示）
         if (r0) setExitNote(`有一关没有打完就离开了：${CAUSE_TEXT[r0.cause ?? 'navigate']}。点自己的头像进入地图可以看到详情。`); }
@@ -487,6 +489,7 @@ export default function App() {
     const nx = { ...pr, stars: { ...pr.stars, ...Object.fromEntries([level.id, ...(level.parts ?? [])].map(id => [id, Math.max(pr.stars[id] ?? 0, gain)])) }, masteredStars: pr.masteredStars + mastered,
       plays: { ...pr.plays, [level.id]: { day: today, count: (pr.plays[level.id]?.day === today ? pr.plays[level.id].count : 0) + 1 } } };
     writeRun(p.id, null); writeNav({ pid: p.id, grade: vg, s: 'map', at: Date.now(), bv: BAL_VER });
+    try { localStorage.setItem('zy.lastEnd:' + p.id, JSON.stringify({ levelId: level.id, at: Date.now() })); } catch { /* */ }   // r14.1：结算落盘时间（启动时比它早的「没打完」记录作废）
     S.saveProgress(p.id, nx); setProgress(nx);
     const best = Math.max(pr.stars[level.id] ?? 0, gain);
     setScreen({ s: 'result', level, r, stars, mastered, best, capped: gain === 0 && stars > 0 });

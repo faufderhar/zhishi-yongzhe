@@ -99,7 +99,13 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   // r10（D14 修正 1）：我方回合先选「普通 / 挑战」，选完才出题、开始计时；出题后锁定；3 秒不选默认普通（这 3 秒不计时）
   // r12（策划）：难一档相对当前自适应难度（tierRef），本小节没有就放宽到同单元前序小节；没有才灰
   const priorQs = useRef<Question[]>(prior ?? []);
-  const harder = (base: Question | undefined, exclude: string[] = []) => base ? pickHarder({ cur: tierRef.current.tier, lesson: pool.current, prior: priorQs.current, used: [...used.current, base], exclude: [base.key, ...exclude], subject: base.subject, skip: x => !!isMultiSel(x) || !!isMulti(x) })?.q : undefined;
+  const harder = (base: Question | undefined, exclude: string[] = []) => { if (!base) return undefined;
+    const q = pickHarder({ cur: tierRef.current.tier, lesson: pool.current, prior: priorQs.current, used: [...used.current, base], exclude: [base.key, ...exclude], subject: base.subject, skip: x => !!isMultiSel(x) || !!isMulti(x) })?.q;
+    if (q) return q;
+    // r14.1 学霸：更难的新题出完了 → 先用本局答错过的更难题，再用出过的更难题（不是挑战过的），都没有才灰
+    const cur = tierRef.current.tier, wr = new Set(stats.current.wrong);
+    const back = used.current.filter(x => x.difficulty > cur && x.key !== base.key && !exclude.includes(x.key) && !chalKeys.current.has(x.key) && !isMultiSel(x) && !isMulti(x) && x.subject === base.subject);
+    return back.find(x => wr.has(x.key)) ?? back[0]; };
   const chalPick = (base: Question | undefined) => harder(base);
   const hardQ = useRef<Question | undefined>(undefined);
   const chooseChal = (on: boolean) => {
@@ -112,7 +118,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
 
   /** 取下一题：对方回合排除多步题；高一对方回合出标准难度（不选卡） */
   // 关内难度回落（裁定 4）：连错 2 题降 1 档，降档后连对 2 题恢复
-  const chalKeys = useRef(new Set<string>());
+  const chalKeys = useRef(new Set<string>()); const [tierNow, setTierNow] = useState(0);
   const tierTrace = useRef<{ d: number; ok: boolean; extra: boolean; before: number; after: number }[]>([]);
   const tierRef = useRef<Tier>(newTier(Math.round(questions.reduce((a, q) => a + q.difficulty, 0) / Math.max(1, questions.length)) || 2));
   const [consol, setConsol] = useState(false);
@@ -211,7 +217,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     // r14：挑战题、重击卡（主动 +1 档）不改动当前难度计数——只有普通出题（含闪避题）计入连对 / 连错
     if (chal && bs.side === 'P') chalKeys.current.add(qq.key);
     const extraHard = (chal && bs.side === 'P') || (hs && P && card === 'heavy');
-    const t0 = tierRef.current; if (!extraHard) tierRef.current = nextTier(tierRef.current, g === 'full');
+    const t0 = tierRef.current; if (!extraHard) tierRef.current = nextTier(tierRef.current, g === 'full'); setTierNow(tierRef.current.tier);
     tierTrace.current.push({ d: qq.difficulty, ok: g === 'full', extra: extraHard, before: t0.tier, after: tierRef.current.tier }); if (__TEST_HOOKS__) (window as unknown as { __zyTier?: unknown }).__zyTier = tierTrace.current;
     if (g === 'full') stats.current.correct++; else if (g === 'partial') { stats.current.correct += 0.5; stats.current.half++; stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); } else {   // 漏选算 0.5（裁定 1）
      stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); }
@@ -339,7 +345,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierRef.current.tier}{cq.difficulty > tierRef.current.tier ? '，这题更难' : cq.difficulty < tierRef.current.tier ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{chalNone && P && phase !== 'revive-q' && <span className="chal-none" data-testid="chal-none" aria-disabled="true"> · <s>挑战题 🔥</s> 这一回合没有更难的题</span>}
+          <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{cq.difficulty > (tierNow || tierRef.current.tier) ? '，这题更难' : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{chalNone && P && phase !== 'revive-q' && <span className="chal-none" data-testid="chal-none" aria-disabled="true"> · <s>挑战题 🔥</s> 这一回合没有更难的题</span>}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
