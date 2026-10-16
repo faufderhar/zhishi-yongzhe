@@ -1,9 +1,12 @@
+import { GRADE_LABEL, type GradeKey } from './game/questions';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
 import { loadFxManifests } from './fx/assets';
 import { prefetchAll } from './fx/sheets';
 import { cacheForOffline } from './offlineCache';
 import { multiBand, isMultiSel } from './game/multi';
+import { stageOf, needsGate, defaultPick, type StageId } from './game/stages';
+import { StagePick, GradePick } from './ui/StagePick';
 import { STORAGE_ERROR, deleteProfileData, compactAnswers } from './db';
 import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
@@ -27,6 +30,7 @@ import { ParentGate, ParentSettings } from './ui/Parent';
 
 type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' } | { s: 'parent' }
+  | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
   | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; nonce: number }
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
@@ -93,7 +97,12 @@ export default function App() {
     f(); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f);
   }, [reloadBank]);
 
-  const p = profiles.find(x => x.id === pid);
+  const p0 = profiles.find(x => x.id === pid);
+  // r8b：两级入口选的年级（默认档案年级）；非档案年级不带档案的教材册别
+  const [viewGrade, setViewGrade] = useState<GradeKey | undefined>();
+  const vg = p0 ? viewGrade ?? p0.grade : undefined;
+  const vChars = vg ? (bandConfig(vg).chars === 'scifi' ? SCIFI : PUPS) : [];
+  const p = p0 && vg ? { ...p0, grade: vg, volumes: vg === p0.grade ? p0.volumes : null, charId: [p0.charIds?.[bandConfig(vg).chars], p0.charId].find(id => id && vChars.some(c => c.id === id)) } : p0;
   const cfg = p ? bandConfig(p.grade) : null;
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
   const allGradeQs = useMemo(() => bank && p ? questionsOfGrade(bank, p.grade) : [], [bank, p?.grade]);
@@ -172,7 +181,17 @@ export default function App() {
     const cutoff = Date.now() - 3 * 86400e3;
     setRecentRight(new Set(ans.filter(a => a.correct && a.at > cutoff).map(a => a.questionId)));
     setSeenKeys(new Set(ans.map(a => a.questionId)));
-    setScreen(pp.charId ? { s: 'map' } : { s: 'char' });
+    setViewGrade(undefined); setScreen({ s: 'stage' });
+  }
+  const lastGradeOf = (x: Profile) => { try { return localStorage.getItem('zy-lastGrade-' + x.id) ?? x.lastGrade; } catch { return x.lastGrade; } };
+  /** 进入某年级地图（r8b）：记住选择；该学段还没选过角色就先选角色 */
+  function enterGrade(g: GradeKey) {
+    if (!p0) return;
+    setViewGrade(g); setChapterIdx(0);
+    setProfiles(profiles.map(x => x.id === p0.id ? { ...x, lastGrade: g } : x)); try { localStorage.setItem('zy-lastGrade-' + p0.id, g); } catch { /* */ }
+    const ch = bandConfig(g).chars === 'scifi' ? SCIFI : PUPS;
+    const has = [p0.charIds?.[bandConfig(g).chars], p0.charId].some(id => id && ch.some(c => c.id === id));
+    setScreen(has ? { s: 'map' } : { s: 'char' });
   }
 
   /** 每次作答：记录、难度阶梯、错题本 */
@@ -263,10 +282,16 @@ export default function App() {
         onOk={() => setScreen(screen.next === 'add' ? { s: 'profiles', adding: true } : { s: 'parent' })} onCancel={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'parent' && bank && <ParentSettings settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
         usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => { const n = { maxSeen: Date.now(), locked: false }; setClock(n); void S.saveClock(n); }} onClose={() => setScreen({ s: 'profiles' })} />}
-      {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} subjects={chapters.map(c => c.subject)} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'profiles' })}
-        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setTimeout(() => startLevel(then), 0); }} />}
+      {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} subjects={chapters.map(c => c.subject)} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'grade', stage: stageOf(p.grade) })}
+        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id, charIds: { ...x.charIds, [cfg.chars]: c.id } } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setTimeout(() => startLevel(then), 0); }} />}
+      {screen.s === 'stage' && p0 && <StagePick current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onPick={st => setScreen({ s: 'grade', stage: st })} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }} />}
+      {screen.s === 'grade' && p0 && <GradePick stage={screen.stage} current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onBack={() => setScreen({ s: 'stage' })}
+        onPick={g => needsGate(p0.grade, g) ? setScreen({ s: 'gate-grade', g }) : enterGrade(g)} />}
+      {screen.s === 'gate-grade' && p0 && <ParentGate settings={settings} purpose={`去${GRADE_LABEL[screen.g]}需要家长确认（${p0.name}的档案是${GRADE_LABEL[p0.grade]}）`}
+        onSetPin={(h, hint) => setSettings({ ...settings, pinHash: h || undefined, pinHint: hint ?? settings.pinHint })}
+        onOk={() => enterGrade(screen.g)} onCancel={() => setScreen({ s: 'grade', stage: stageOf(screen.g) })} />}
       {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} progress={progress} wrong={wrong} remaining={myRemaining} c={char}
-        chapterIdx={chapterIdx} setChapterIdx={setChapterIdx} onLevel={startLevel} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }}
+        chapterIdx={chapterIdx} setChapterIdx={setChapterIdx} onLevel={startLevel} onBack={() => setScreen({ s: 'grade', stage: stageOf(p.grade) })}
         onWrongBook={() => setScreen({ s: 'wrongbook' })} onChar={() => setScreen({ s: 'char' })}
         onReview={() => startReview(wrong.filter(e => isDue(e)).sort((a, b) => a.due.localeCompare(b.due)).slice(0, 10).map(e => e.qkey))} />}
       {screen.s === 'battle' && cfg && char && p && needTutorial && (cfg.battle === 'kinder'

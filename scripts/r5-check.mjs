@@ -8,7 +8,10 @@ const b = await chromium.launch(); let bad = 0; const R = [];
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); R.push([!!c, m]); if (!c) bad++; };
 async function session(opts = {}) {
   const ctx = await b.newContext({ viewport: { width: 1024, height: 600 }, ...opts });
-  const pg = await ctx.newPage(); const errs = [], reqs = [];
+  const pg = await ctx.newPage();
+  // r8b 两级入口（学段 → 年级）：默认项就是档案年级，出现时直接点它
+  await pg.addLocatorHandler(pg.locator('[data-testid=stage-pick]'), async () => { await pg.click('[data-testid=stage-pick] .stage-btn.on'); }, { noWaitAfter: true });
+  await pg.addLocatorHandler(pg.locator('[data-testid=grade-pick]'), async () => { await pg.click('[data-testid=grade-pick] .stage-btn.on'); }, { noWaitAfter: true }); const errs = [], reqs = [];
   pg.on('pageerror', e => errs.push(String(e))); pg.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') console.log('  [console]', m.text().slice(0, 200)); }); pg.on('request', r => reqs.push(r.url()));
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyNoOfflineCache = true;   /* r7 起有后台离线缓存：本脚本只验「战斗内按需懒加载」 */ window.__fxFps = []; });
   const w = ms => pg.waitForTimeout(ms);
@@ -19,7 +22,7 @@ async function session(opts = {}) {
     await home(); await pg.click('[data-testid=add-child]'); await w(300);
     if (!pinSet) { await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); pinSet = true; } else await pinIn('2468');
     await w(300); await pg.fill('[data-testid=add-name]', name); await pg.click(`[data-testid=home-grade-${g}]`); await w(500);
-    await pg.click(`text=${name}`); await w(1200); const cs = await pg.$$('[data-testid^=char-]:not([data-testid=char-confirm])'); await cs[charIdx].click(); await pg.click('[data-testid=char-confirm]'); await w(600);
+    await pg.click(`text=${name}`); await w(1200); await pg.waitForSelector('[data-testid=char-confirm]'); const cs = await pg.$$('[data-testid^=char-]:not([data-testid=char-confirm])'); await cs[charIdx].click(); await pg.click('[data-testid=char-confirm]'); await w(600);
   }
   const tutAll = async () => { for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-next]'); i++) { await pg.click('[data-testid=tutorial-next]'); await w(150); } if (await pg.isVisible('[data-testid=tutorial-skip]')) { await pg.click('[data-testid=tutorial-skip]'); await w(500); } };
   async function answer(right) {

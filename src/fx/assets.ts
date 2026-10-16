@@ -41,7 +41,8 @@ function loadSkillBuf(path: string) {
   return p;
 }
 /** 已登记的音效文件数（测试 / 报告用） */
-export const sfxStats = { skillPlayed: 0, skillFallback: 0, last: '' };
+export const sfxStats = { skillPlayed: 0, skillFallback: 0, last: '', paths: [] as string[] };
+if (__TEST_HOOKS__ && typeof window !== 'undefined') (window as unknown as { __zySfxStats?: typeof sfxStats }).__zySfxStats = sfxStats;   // 仅测试构建
 async function playSkillSfx(id: string, o: { kinder?: boolean; fallback?: SfxName }) {
   const m = await skillManifest(); const e = m[id];
   const path = e ? (o.kinder && e.kindergarten ? e.kindergarten : e.file) : undefined;
@@ -49,7 +50,7 @@ async function playSkillSfx(id: string, o: { kinder?: boolean; fallback?: SfxNam
   if (muted || !audioPrefs.sfx) return;
   if (!buf || !c) { sfxStats.skillFallback++; synth(o.fallback ?? 'skill_math'); return; }
   const s = c.createBufferSource(), g = c.createGain(); g.gain.value = SKILL_SFX_GAIN * audioPrefs.volume; s.buffer = buf; s.connect(g).connect(c.destination); s.start();
-  sfxStats.skillPlayed++; sfxStats.last = path!;
+  sfxStats.skillPlayed++; sfxStats.last = path!; sfxStats.paths.push(id + '=' + path);
 }
 /** 播放音效：内置名（SfxName）或技能 ID（如 "j1_suansuan_2"）。静音开关对两者都生效 */
 export function sfx(name: SfxName | string, o: { kinder?: boolean; fallback?: SfxName } = {}) {

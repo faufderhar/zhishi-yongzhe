@@ -137,6 +137,10 @@ export function useWakeLock() {
 }
 /** 暂停超过 5 分钟自动回地图（策划 T-P2-3）；时长到点后的宽限结束时强制结算（T-P2-2） */
 /** 暂停：5 分钟无操作回地图；同时把暂停状态同步给 App 的计时器（暂停期间不计时，技术QA R4-2） */
+/** r8b：致命一击命中帧后不等受击/收招，120 ms 后直接进怪物 defeat → 结算 */
+export function lethalFast(lethal: boolean, run: (hit: () => void) => Promise<void> | undefined): () => Promise<void> | undefined {
+  return () => { let hit = () => {}; const p = new Promise<void>(r => { hit = r; }); const a = run(hit); return lethal ? Promise.race([a, p.then(() => sleep(120))]) as Promise<void> : a; };
+}
 export function usePauseTimeout(paused: boolean, onQuit: () => void) {
   useEffect(() => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = paused; return () => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = false; }; }, [paused]);
   useEffect(() => { if (!paused) return; const t = setTimeout(onQuit, 5 * 60e3); return () => clearTimeout(t); }, [paused]);
@@ -426,8 +430,8 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     setCanNext(true);
     // 小学 1–2 年级技能：纯演出，附加在自动出招上（≤1.0 s）
     if (skSeg === 'P12') { const [nr, k] = rollSkill(skRoll.current, { seg: 'P12', major: c.major, side: 'P', correct: true, rng: Math.random }); skRoll.current = nr; if (k) void D.dir.current?.playSkill(k, { maxMs: 1000 }); }
-    void play(ns, () => D.dir.current?.playerAttack({ subject: q.subject, major: c.major, dealt: r.dealt, crit, dodge: a === 'dodge', healed: r.healed, taken: r.taken,
-      onImpact: () => setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })), onCounter: () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })) })).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => { if (ns.over === 'win') void finish(ns); else setPhase('feedback'); });
+    void play(ns, lethalFast(ns.over === 'win', hit => D.dir.current?.playerAttack({ subject: q.subject, major: c.major, dealt: r.dealt, crit, dodge: a === 'dodge', healed: r.healed, taken: r.taken,
+      onImpact: () => { hit(); setView(v => ({ ...v, m: ns.monsterHp, c: ns.combo })); }, onCounter: () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })) }))).then(() => setFb({ ok: true, text: (auto ? '✔ 正确！自动' : '') + (a === 'attack' ? (crit ? '💥 连击暴击！' : '⚔ 攻击！') : '🛡 闪避反击！'), dealt: r.dealt, taken: r.taken })).then(() => { if (ns.over === 'win') void finish(ns); else setPhase('feedback'); });
   }
   function next() {
     const s = bs;

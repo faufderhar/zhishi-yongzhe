@@ -4,7 +4,10 @@ const URL = process.env.URL || 'http://localhost:4180/'; const OUT = process.env
 const b = await chromium.launch(); let bad = 0; const R = [];
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); R.push([!!c, m]); if (!c) bad++; };
 const ctx = await b.newContext({ viewport: { width: 1180, height: 820 } });
-const pg = await ctx.newPage(); const errs = [];
+const pg = await ctx.newPage();
+  // r8b 两级入口（学段 → 年级）：默认项就是档案年级，出现时直接点它
+  await pg.addLocatorHandler(pg.locator('[data-testid=stage-pick]'), async () => { await pg.click('[data-testid=stage-pick] .stage-btn.on'); }, { noWaitAfter: true });
+  await pg.addLocatorHandler(pg.locator('[data-testid=grade-pick]'), async () => { await pg.click('[data-testid=grade-pick] .stage-btn.on'); }, { noWaitAfter: true }); const errs = [];
 pg.on('pageerror', e => errs.push(String(e))); await pg.addInitScript(() => { window.__zyTest = true; });
 const w = ms => pg.waitForTimeout(ms);
 const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };

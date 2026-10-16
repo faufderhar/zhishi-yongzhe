@@ -7,6 +7,9 @@ const b = await chromium.launch(); let bad = 0;
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
 async function session(grade, init = {}, vp = { width: 1180, height: 820 }, test = true) {
   const ctx = await b.newContext({ viewport: vp }); const pg = await ctx.newPage();
+  // r8b 两级入口（学段 → 年级）：默认项就是档案年级，出现时直接点它
+  await pg.addLocatorHandler(pg.locator('[data-testid=stage-pick]'), async () => { await pg.click('[data-testid=stage-pick] .stage-btn.on'); }, { noWaitAfter: true });
+  await pg.addLocatorHandler(pg.locator('[data-testid=grade-pick]'), async () => { await pg.click('[data-testid=grade-pick] .stage-btn.on'); }, { noWaitAfter: true });
   await pg.addInitScript(([o, t]) => { if (t) window.__zyTest = true; window.__zyTestNoTts = true; Object.assign(window, o); }, [init, test]);
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };

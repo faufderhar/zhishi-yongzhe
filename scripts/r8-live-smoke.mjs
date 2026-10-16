@@ -4,6 +4,9 @@ import { mkdirSync } from 'node:fs';
 const URL = process.env.URL || 'https://faufderhar.github.io/zhishi-yongzhe/'; const OUT = process.env.OUT || 'screenshots/live/'; mkdirSync(OUT, { recursive: true });
 const b = await chromium.launch(); let bad = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
 const ctx = await b.newContext({ viewport: { width: 1180, height: 820 }, timezoneId: 'America/Los_Angeles' }); const pg = await ctx.newPage();
+  // r8b 两级入口（学段 → 年级）：默认项就是档案年级，出现时直接点它
+  await pg.addLocatorHandler(pg.locator('[data-testid=stage-pick]'), async () => { await pg.click('[data-testid=stage-pick] .stage-btn.on'); }, { noWaitAfter: true });
+  await pg.addLocatorHandler(pg.locator('[data-testid=grade-pick]'), async () => { await pg.click('[data-testid=grade-pick] .stage-btn.on'); }, { noWaitAfter: true });
 const js = []; pg.on('response', r => { if (/\/assets\/.+\.js$/.test(r.url())) js.push(r); });
 const w = ms => pg.waitForTimeout(ms);
 await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(800);

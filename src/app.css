@@ -465,3 +465,14 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .keypad.alpha .kp-row.last button{flex:1 1 0}.keypad.alpha .kp-row.last .space{flex:3 1 0}.keypad.alpha .kp-row.last .ok{flex:2 1 0}
 /* r7 · 技术QA R4-6：怪物意图、能量环点击区 ≥44×44 */
 .battle .intent,.battle .energy-ring{min-width:44px !important;min-height:44px !important;box-sizing:border-box}
+/* r8b 学段 / 年级入口：平板大按钮 */
+.stage-pick{gap:20px;padding:24px}
+.stage-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,220px));gap:20px;justify-content:center}
+.stage-grid.grades{grid-template-columns:repeat(3,minmax(150px,220px))}
+.stage-btn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:180px;border-radius:24px;background:#fff2;border:3px solid transparent;font-size:30px;font-weight:700;color:inherit}
+.stage-btn.on{border-color:#ffd54a;background:#ffd54a33}
+.stage-btn .stage-icon{font-size:80px;line-height:1}
+.stage-btn.grade{min-height:130px}
+.stage-btn.locked{opacity:.45;filter:grayscale(1);cursor:not-allowed}
+.stage-btn small{font-size:16px;font-weight:400}.stage-btn .mine{position:absolute;top:8px;right:12px;background:#4cd96455;padding:2px 8px;border-radius:999px}
+@media (orientation:portrait){.stage-grid{grid-template-columns:repeat(2,minmax(150px,280px))}.stage-grid.grades{grid-template-columns:repeat(2,minmax(150px,280px))}}

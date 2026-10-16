@@ -160,14 +160,17 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs ? wager : null });
     const k = o.skill;
     const d = D.dir.current;
+    // r8b：致命一击在命中帧之后不再等受击/收招动作，直接进怪物 defeat（≤0.8 s）→ 结算
+    let hitDone = () => {}; const hitP = new Promise<void>(r => { hitDone = r; });
     const show = k && d && o.side === 'P'   // 攻击技能：横幅 + 技能特效替代普攻演出，命中帧结算数字（≤1.5 s）
-      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt, 'crit'); } }); }
+      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt, 'crit'); } }); }
       : k && d ? async () => { await sleep(250); await d.playSkill(k, { maxMs: 1000, onImpact: () => { setView(v => ({ ...v, p: ns.playerHp })); if (o.healed) d.float(d.r.hero, '+' + o.healed, 'heal'); } }); }   // 守护技能：闪避后 ≤1.0 s
       : o.side === 'P'
-      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => setView(v => ({ ...v, m: ns.monsterHp })) })
+      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); } })
         : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500)
       : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500);
-    void play(show).then(() => {
+    const lethal = o.side === 'P' && ns.over === 'win';
+    void play(lethal ? () => Promise.race([show(), hitP.then(() => sleep(120))]) : show).then(() => {
       if (!D.alive.current) return;
       setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns);
       const full = g === 'full';   // 漏选不算答对（策划裁定 6）：显示解析，至少停 2 秒
