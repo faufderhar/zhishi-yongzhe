@@ -25,7 +25,7 @@ export function GradePick({ stage, current, profileGrade, onPick, onBack }: { st
         {st.grades.map(g => g.grade
           ? <button key={g.key} className={`stage-btn grade ${g.grade === current ? 'on' : ''}`} data-testid={'grade-' + g.key} aria-label={g.label}
               onClick={() => { speak(g.label); onPick(g.grade!); }}>
-              <span className="stage-label">{g.label}</span>{g.grade === profileGrade && <small className="mine">我的年级</small>}</button>
+              {g.icon && <span className="stage-icon" aria-hidden data-testid={'grade-icon-' + g.key}>{g.icon}</span>}<span className="stage-label">{g.label}</span>{g.grade === profileGrade && <small className="mine">我的年级</small>}</button>
           : <button key={g.key} className="stage-btn grade locked" data-testid={'grade-' + g.key} aria-disabled="true" aria-label={`${g.label}，敬请期待`}
               onClick={() => speak(`${g.label}还在准备中，敬请期待`)}>
               <span className="stage-label">🔒 {g.label}</span><small>敬请期待</small></button>)}

@@ -2,6 +2,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    # r9：只改截图/文档的提交不重新构建部署（以前 r8b 截图提交 57c2aba 触发了重建，线上 bundle 名和验收时记下的不一样）
+    paths-ignore: ['screenshots/**', 'docs/**', 'recordings/**', '**/*.md']
   workflow_dispatch:
 permissions:
   contents: read

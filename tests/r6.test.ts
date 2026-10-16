@@ -31,16 +31,16 @@ describe('裁定 6 多选漏选', () => {
   });
 });
 describe('裁定 7 高一 Boss 两阶段', () => {
-  it('第一阶段溢出不带入；第二阶段满 117 开始', () => {
-    const s0 = { ...newRound('h', 'boss'), monsterHp: 120 };
+  it('第一阶段溢出不带入；第二阶段满 125 开始（D14）', () => {
+    const s0 = { ...newRound('h', 'boss'), monsterHp: 128 };
     const [s, o] = resolveRound(s0, sci, { correct: true, subject: '数学', difficulty: 5, rng: () => 0.99, noSkill: true });
-    expect(o.phaseShift).toBe(true); expect(o.dealt).toBe(3); expect(s.monsterHp).toBe(117); expect(phaseOf(s)).toBe(1);
+    expect(o.phaseShift).toBe(true); expect(o.dealt).toBe(3); expect(s.monsterHp).toBe(125); expect(phaseOf(s)).toBe(1);
   });
   it('两段攻击：打破第一阶段后第二段不结算', () => {
-    const s0 = { ...newRound('h', 'boss'), monsterHp: 125 };
+    const s0 = { ...newRound('h', 'boss'), monsterHp: 133 };
     const A2H = { id: 'x', effect: 'A2H' } as never;
     const [s, o] = resolveRound(s0, sci, { correct: true, subject: '物理', difficulty: 3, rng: () => 0.99, forceSkill: A2H });
-    expect(s.monsterHp).toBe(117); expect(o.hits[1]).toBe(0);
+    expect(s.monsterHp).toBe(125); expect(o.hits[1]).toBe(0);
   });
   it('第二阶段可以正常打到 0', () => { const [s] = R({ ...newRound('h', 'boss'), monsterHp: 10 }, {}); expect(s.over).toBe('win'); });
 });

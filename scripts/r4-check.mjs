@@ -46,7 +46,7 @@ await pg.screenshot({ path: OUT + 'r4-tutorial-1.png' });
 const tut = await tutAll();
 ok(tut.length === 4 && /我方回合答对就攻击.*对方回合答对就能闪避，答得快还能攒专注/.test(tut[2]) && /点一下能看说明/.test(tut[1]), '§10 初一引导 4 张，第 2、3 张文案正确');
 await pg.waitForSelector('[data-testid=banner]', { timeout: 10000 });
-ok(/我方回合/.test(await pg.textContent('[data-testid=banner]')) && /第 1 回合 \/ 12/.test(await turnText()), '我方先手；顶栏「第 1 回合 / 12」（学霸 #3）');
+ok(/我方回合/.test(await pg.textContent('[data-testid=banner]')) && /第 1 回合 \/ 14/.test(await turnText()), '我方先手；顶栏「第 1 回合 / 14」（D14 上限 14）（学霸 #3）');
 ok(!(await pg.$('[data-testid=stance-attack], [data-testid=start-answer], [data-testid=act-attack], .countbar')), '没有进攻/防守、〔开始答题〕、限时行动条');
 await pg.screenshot({ path: OUT + 'r4-my-turn.png' });
 await pg.click('[data-testid=intent]'); await w(250);
@@ -114,7 +114,7 @@ for (let k = 0; k < 40; k++) {
   const myHp = +((await pg.textContent('.hp').catch(() => '')).match(/(\d+)\//) || [0, 99])[1];
   await answer(revived ? (/对方/.test(side) || myHp <= 26) : false);   // 复活后：低血时我方回合答对，避免再次阵亡（v0.3.7 起无法靠技能按钮控制）
   await pg.waitForSelector('[data-testid=next], [data-testid=result-stats], [data-testid=revive-yes], [data-testid=retreating]', { timeout: 15000 });
-  if (await pg.$('[data-testid=next]')) { await pg.waitForSelector('[data-testid=next]:not([disabled])', { timeout: 5000 }); if (/第 1[01] 回合/.test(await turnText())) { await pg.screenshot({ path: OUT + 'r4-turn-warn.png' }); warnSeen = warnSeen || /warn/.test(await pg.getAttribute('[data-testid=turn]', 'class')); } await pg.click('[data-testid=next]'); await w(400); }
+  if (await pg.$('[data-testid=next]')) { await pg.waitForSelector('[data-testid=next]:not([disabled])', { timeout: 5000 }); if (/第 1[23] 回合/.test(await turnText())) { await pg.screenshot({ path: OUT + 'r4-turn-warn.png' }); warnSeen = warnSeen || /warn/.test(await pg.getAttribute('[data-testid=turn]', 'class')); } await pg.click('[data-testid=next]'); await w(400); }
   if (await pg.$('[data-testid=retreating]')) { await pg.screenshot({ path: OUT + 'r4-retreat.png' }); await w(1500); }
 }
 ok(revived, '血量归零触发复活挑战');
@@ -125,7 +125,7 @@ await pg.waitForSelector('[data-testid=result-stats]', { timeout: 10000 }).catch
 const ret = await pg.isVisible('[data-testid=retreat]'); const stars = await pg.$$eval('.stars .on, .star.on', e => e.length).catch(() => -1);
 const rtxt = await pg.textContent('[data-testid=result-stats]').catch(() => '');
 const won = await pg.$$eval('.center-screen .stars .on', e => e.length).catch(() => -1);
-ok(ret && /共 12 回合/.test(rtxt) && won <= 1, `到上限（12）怪物撤退，算通关，最多 ★（${rtxt}，★×${won}）`);
+ok(ret && /共 14 回合/.test(rtxt) && won <= 1, `到上限（14，D14）怪物撤退，算通关，最多 ★（${rtxt}，★×${won}）`);
 await pg.screenshot({ path: OUT + 'r4-retreat-result.png' });
 // 老档案补弹第 3 张
 await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const t = r.result.transaction('kv', 'readwrite'); const st = t.objectStore('kv'); const g = st.get('profiles'); g.onsuccess = () => { st.put(g.result.map(p => p.name === 'r4初一' ? { ...p, tutorialDone: true, tutorialV036: false } : p), 'profiles'); }; t.oncomplete = res; }; }));

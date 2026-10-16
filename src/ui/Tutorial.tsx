@@ -9,35 +9,37 @@ import { Sprite } from './Battle';
 export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void }) {
   const [step, setStep] = useState(1);
   const [lit, setLit] = useState(false);
+  const [wig, setWig] = useState(false);   // r9：点错——卡片轻摇 0.5 s、算算摇头、「嗯～再想想」
   const timers = useRef<number[]>([]);
   const later = (ms: number, f: () => void) => { timers.current.push(window.setTimeout(f, ms)); };
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
   useEffect(() => {
     timers.current.forEach(clearTimeout); timers.current = [];
-    if (step === 1) { speak(`我是你的伙伴${c.name}，我们一起帮小怪兽开心起来吧！`); later(4000, () => setStep(2)); }
-    if (step === 2) { speak('哪个是苹果？点一点苹果'); later(5000, () => speak('点一点苹果')); }
-    if (step === 3) { speak('帮小怪兽答对题目，它就会开心，爱心就亮起来啦！'); later(5000, () => setStep(4)); }
-    if (step === 4) { speak('听不清就点小喇叭'); later(3500, onDone); }
+    // r9：小班首次引导 3 步（朗读、可跳过）：① 点对的卡片 ② 爱心 = 开心值 ③ 小喇叭再听一遍；练习不算星星
+    if (step === 1) { speak(`我是${c.name}！哪个是苹果？点一点苹果`); later(6000, () => speak('点一点苹果')); }
+    if (step === 2) { speak('答对了，小乌云就开心，爱心亮起来！这是练习，不算星星哦'); later(5000, () => setStep(3)); }
+    if (step === 3) { speak('听不清就点小喇叭。我们开始吧！'); later(3500, onDone); }
   }, [step]);
   return (
     <div className="kbattle tutorial" data-testid="tutorial-kinder">
       <div className="ktop">
         <button className="chip skip" data-testid="tutorial-skip" onClick={onDone}>跳过</button>
+        <span className="tut-steps" data-testid="tut-steps">练习 {step}/3</span>
         <div className="kbubble">
-          <button className={`kspeaker ${step === 4 ? 'pointed' : ''}`} aria-label="再听一遍" onClick={() => speak('哪个是苹果？')}>🔊</button>
-          {step === 4 && <span className="finger at-speaker" aria-hidden>👆</span>}
-          <div className="kq">{step === 1 ? `我是${c.name}！` : '哪个是苹果？'}</div>
+          <button className={`kspeaker ${step === 3 ? 'pointed' : ''}`} aria-label="再听一遍" onClick={() => speak('哪个是苹果？')}>🔊</button>
+          {step === 3 && <span className="finger at-speaker" aria-hidden>👆</span>}
+          <div className="kq">哪个是苹果？</div>
         </div>
-        <div className="hearts"><span className="hearts-label">开心值</span><span className={lit ? 'pop' : ''}>{lit ? '💖' : '🤍'}</span></div>
+        <div className="hearts"><span className="hearts-label">开心值</span><span className={`kheart ${lit ? 'on pop' : 'off'}`}>{lit ? '💖' : '♥'}</span><b className="hearts-num">{lit ? 1 : 0}/1</b></div>
       </div>
       <div className="kstage">
-        <div className="unit-wrap kpup-wrap"><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
+        <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`}><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
         <div className="unit-wrap kmon-wrap"><div className="breathe slow"><img className={`kmon ${lit ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" /></div></div>
       </div>
-      {step >= 2 && <div className="kopts">
-        <button className="kopt" style={{ background: '#d5f0c4' }} data-testid="tut-apple" onClick={() => { if (step === 2) { setLit(true); setStep(3); } }}>
-          <span className="kface"><span className="kface-emo">🍎</span><span className="kface-txt">苹果</span></span>{step === 2 && <span className="finger" aria-hidden>👆</span>}</button>
-        <button className="kopt" style={{ background: '#cfe3ff' }} onClick={() => step === 2 && speak('点一点苹果')}>
+      {<div className="kopts">
+        <button className="kopt" style={{ background: '#d5f0c4' }} data-testid="tut-apple" onClick={() => { if (step === 1) { setLit(true); setStep(2); } }}>
+          <span className="kface"><span className="kface-emo">🍎</span><span className="kface-txt">苹果</span></span>{step === 1 && <span className="finger" aria-hidden>👆</span>}</button>
+        <button className={`kopt ${wig ? 'kwiggle' : ''}`} style={{ background: '#cfe3ff' }} data-testid="tut-car" onClick={() => { if (step !== 1) return; setWig(true); speak('嗯～再想想'); later(600, () => setWig(false)); }}>
           <span className="kface"><span className="kface-emo">🚗</span><span className="kface-txt">汽车</span></span></button>
       </div>}
     </div>

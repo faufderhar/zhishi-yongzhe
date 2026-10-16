@@ -1,9 +1,8 @@
 import { StrictMode, Component, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import { registerSW } from 'virtual:pwa-register';
-// 新版本不在战斗中自动刷新：广播给 App，由孩子/家长在首页或地图点按钮更新（技术QA P1-7）
-const update = registerSW({ immediate: true, onNeedRefresh() { window.dispatchEvent(new CustomEvent('zy-update-ready', { detail: () => update(true) })); } });
+import { setupSW } from './swUpdate';
+setupSW();
 /** 出错页的家长操作（策划 T-P0-1）：都要家长密码 */
 async function rescue(kind: 'export' | 'restore') {
   const { getKV, exportAll, importAll } = await import('./db');

@@ -22,6 +22,8 @@ export const normAnswer = (s: string) => s.replace(/\s+/g, '').toLowerCase();
     关掉 / 刷新期间不扣（无法可信地知道过了多久），重新打开后从剩余时间继续；seenAt 记录最后一次看到的墙钟，用于防回拨（D8）。 */
 export interface LockState { fails: number; level: number; until: number; remain?: number; seenAt?: number }
 const LK = 'zy.pinLock';
+/** r9：找回问题单独计错、单独锁定（以前和密码共用一个倒计时） */
+export const LK_HINT = 'zy.hintLock';
 export const LOCK_STEPS = [60e3, 5 * 60e3, 15 * 60e3];
 export function nextLock(s: LockState, ok: boolean, now: number): LockState {
   if (ok) return { fails: 0, level: 0, until: 0, remain: 0, seenAt: now };
@@ -38,16 +40,16 @@ export function tickLock(s: LockState, dt: number, now: number): LockState {
   return { ...s, remain: Math.max(0, r - Math.min(2000, Math.max(0, dt))), seenAt: Math.max(s.seenAt ?? 0, now) };
 }
 const parse = (x: unknown): LockState | null => x && typeof x === 'object' && Number.isFinite((x as LockState).until) ? x as LockState : null;
-export async function loadLock(): Promise<LockState> {
-  let a: LockState | null = null; try { a = parse(JSON.parse(localStorage.getItem(LK) ?? 'null')); } catch { /* */ }
-  const b = parse(await getKV(LK));
+export async function loadLock(key = LK): Promise<LockState> {
+  let a: LockState | null = null; try { a = parse(JSON.parse(localStorage.getItem(key) ?? 'null')); } catch { /* */ }
+  const b = parse(await getKV(key));
   const all = [a, b].filter((x): x is LockState => !!x);
   if (!all.length) return { fails: 0, level: 0, until: 0, remain: 0 };
   const now = Date.now();
   const m = all.reduce((m, x) => (lockLeft(x, now) > lockLeft(m, now) || (lockLeft(x, now) === lockLeft(m, now) && x.fails + x.level * 5 > m.fails + m.level * 5) ? x : m));
   return { ...m, remain: lockLeft(m, now) };   // 统一迁移到 remain
 }
-export async function saveLock(s: LockState) { try { localStorage.setItem(LK, JSON.stringify(s)); } catch { /* */ } await setKV(LK, s); }
+export async function saveLock(s: LockState, key = LK) { try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s); }
 /** 曾经设置过密码的标记（密码数据丢失时不当成「首次使用」，技术QA P2-1） */
 export const PIN_MARK = 'zy.pinEverSet';
 export const markPinSet = () => { try { localStorage.setItem(PIN_MARK, '1'); } catch { /* */ } void setKV(PIN_MARK, 1); };

@@ -2,7 +2,7 @@
 import type { Character } from './characters';
 import type { LevelKind, Band } from './grades';
 import { ROUND, LOW_GRADE_PATTERN, DIFF_MULT, comboMult, DODGE_CAP, DODGE_PER_FOCUS, DODGE_BONUS_CAP, FOCUS_MAX, FOCUS_DMG, ENERGY_CAP,
-  WEAK, AFFINITY, CARDS, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, type RoundMode, type MIntent, type RoundMonster } from './balance';
+  WEAK, AFFINITY, CARDS, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, type RoundMode, type MIntent, type RoundMonster } from './balance';
 import { passive as PASSIVE } from './characters';
 import { roll, newRoll, tickCd, type SkillRoll, type SkillDef, type SkillSeg } from './skills';
 
@@ -20,7 +20,11 @@ export interface RState {
   /** 护体：下一次受伤 ×0.7，不叠加 */
   guard: boolean; silenced: number; debuffs: number; sk: SkillRoll;
   over: null | 'win' | 'lose' | 'retreat'; revived: boolean; noDeath: boolean;
+  /** D14：Boss 二阶段「怒」 */
+  rage?: boolean;
 }
+/** 怪物当前攻击（二阶段 ×1.2 四舍五入） */
+export const monAtk = (s: RState) => s.rage && s.def.rage ? Math.round(s.def.atk * s.def.rage) : s.def.atk;
 export const roundModeOf = (band: Band): RoundMode | null => band === 'G2' || band === 'G3' ? 'p36' : band === 'J' ? 'j' : band === 'H' ? 'h' : null;
 const SEG_OF: Record<RoundMode, SkillSeg> = { p36: 'P36', j: 'J', h: 'H' };
 export function newRound(mode: RoundMode, kind: LevelKind, opts: { lowGrade?: boolean; level?: number; noDeath?: boolean } = {}): RState {
@@ -40,7 +44,7 @@ export const downgrade = (it: MIntent): MIntent => it === 'heavy' ? 'atk' : 'idl
 export const phaseOf = (s: RState) => s.def.phases && s.monsterHp <= s.def.phases[1].hp ? 1 : 0;
 export const weakOf = (s: RState) => s.def.phases?.[phaseOf(s)].weak;
 export function intentLabel(s: RState) {
-  const it = nextIntent(s), A = s.def.atk, down = !!s.intentMod;
+  const it = nextIntent(s), A = monAtk(s), down = !!s.intentMod;
   const tag = down ? ' ↓' : '';
   switch (it) {
     case 'idle': return { icon: '💤', short: '💤 发呆' + tag, grey: true, down, long: '怪物被技能打乱了，下次对方回合它会发呆，不会攻击！' };
@@ -49,7 +53,7 @@ export function intentLabel(s: RState) {
     case 'heavy': return s.chargeBroken
       ? { icon: '💥', short: `💥 ${A}`, grey: true, down, long: `蓄力被你打断了，重击只剩 ${A} 点。` }
       : { icon: '💥', short: `💥 ${2 * A}`, grey: false, down, long: `重击来了！答对闪开，答错受到 ${2 * A} 点伤害。` };
-    case 'shield': return { icon: '🛡', short: `🛡 要开盾 ${s.shieldVal}`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错它会挡掉你下一击的 ${s.shieldVal} 点伤害。` };
+    case 'shield': return { icon: '🛡', short: `🛡 要开盾`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错它会挡掉你下一击的 ${s.shieldVal} 点伤害。` };
   }
 }
 
@@ -62,18 +66,22 @@ export interface RInput {
   forceSkill?: SkillDef | null; // 多步题后续小问沿用第一小问的技能
   noSkill?: boolean;       // 模拟专用：关闭随机技能
   simSkillMult?: number;   // 模拟专用：通用技能倍率
+  challenge?: boolean;     // D14 初一挑战题：答对内层 ×1.5；答错不能闪避、反击 ×1.5
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; rage?: boolean }
 
-export function calcD(s: RState, c: Character, i: RInput) {
+/** D14：返回外层伤害（固定倍率 / 高一押注、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战，技能另乘后统一封顶 ×1.8） */
+export function calcParts(s: RState, c: Character, i: RInput) {
   const card = CARDS[i.card ?? 'std'];
-  let d = s.atk * (DIFF_MULT[i.difficulty] ?? 1) * comboMult(s.combo) * (i.subject === c.major ? AFFINITY : 1) * (1 + FOCUS_DMG * s.focus)
-    * (weakOf(s) === i.subject ? WEAK : 1) * card.out * (i.wager === 'sure' ? WAGER.sureOut : 1) * (i.simSkillMult ?? 1);
-  if (PASSIVE.mathBonus(c) && i.subject === '数学') d *= 1.1;
-  if (i.stepIndex != null) d *= MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)];
-  return d;
+  let outer = s.atk * (DIFF_MULT[i.difficulty] ?? 1) * (i.subject === c.major ? AFFINITY : 1) * (weakOf(s) === i.subject ? WEAK : 1) * (i.wager === 'sure' ? WAGER.sureOut : 1);
+  if (PASSIVE.mathBonus(c) && i.subject === '数学') outer *= 1.1;
+  if (i.stepIndex != null) outer *= MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)];
+  const inner = comboMult(s.combo) * (1 + FOCUS_DMG * s.focus) * card.out * (i.challenge ? CHALLENGE.out : 1) * (i.simSkillMult ?? 1);
+  return { outer, inner };
 }
+/** 无技能时的伤害（封顶后） */
+export function calcD(s: RState, c: Character, i: RInput) { const { outer, inner } = calcParts(s, c, i); return outer * Math.min(INNER_CAP, inner); }
 const r1 = (x: number) => Math.max(1, Math.round(x));
 /** 命中：护盾依次抵扣（多段时剩余护盾留给下一段）；pierce 不扣护盾、护盾不变 */
 function hit(s: RState, d: number, pierce = false, o?: ROut) {
@@ -82,7 +90,11 @@ function hit(s: RState, d: number, pierce = false, o?: ROut) {
   if (!pierce) s.shield -= ab;
   let dealt = d - ab;
   // 高一 Boss 两阶段（策划裁定 7）：第一阶段溢出伤害不带入第二阶段，第二阶段满 117 开始
-  if (s.def.phases && phaseOf(s) === 0) { const floor = s.def.phases[1].hp; if (s.monsterHp - dealt <= floor) { dealt = s.monsterHp - floor; s.monsterHp = floor; if (o) o.phaseShift = true; s.shield = 0; return dealt; } }
+  if (s.def.phases && phaseOf(s) === 0) { const floor = s.def.phases[1].hp; if (s.monsterHp - dealt <= floor) { dealt = s.monsterHp - floor; s.monsterHp = floor; if (o) o.phaseShift = true; s.shield = 0;
+    // D14：Boss 怒了——换循环（从头开始），攻击 ×1.2
+    if (s.def.half) { s.pattern = s.def.half; s.mi = 0; }
+    if (s.def.rage) { s.rage = true; if (o) o.rage = true; }
+    return dealt; } }
   s.monsterHp = Math.max(0, s.monsterHp - dealt); return dealt;
 }
 
@@ -109,10 +121,11 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   if (s.side === 'P') {
     const card = CARDS[i.card ?? 'std'];
     if (ok) {
-      const base = calcD(s, c, i);
+      const { outer, inner } = calcParts(s, c, i);
       const e = sk?.effect;
-      if (e === 'A2H') { for (let k = 0; k < 2; k++) { const d = hit(s, r1(base * SKILL.atk.A2H), false, o); o.hits.push(d); o.dealt += d; } }
-      else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(base * m), e === 'A13P', o); o.hits.push(d); o.dealt = d; }
+      const capM = (m: number) => { if (inner * m > INNER_CAP + 1e-9) o.capped = true; return Math.min(INNER_CAP, inner * m); };
+      if (e === 'A2H') { for (let k = 0; k < 2; k++) { const d = hit(s, r1(outer * capM(SKILL.atk.A2H)), false, o); o.hits.push(d); o.dealt += d; } }
+      else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(outer * capM(m)), e === 'A13P', o); o.hits.push(d); o.dealt = d; }
       if (e !== 'A13P' && o.hits.length) s.shield = 0;   // 护盾挡完这一击（或多段）后清零，不叠加
       if (e === 'A125C') s.combo++;                        // 连击 +1 在本次伤害计算之后
       o.text = o.dealt ? '⚔ 攻击命中！' : '⚔ 被护盾挡住了';
@@ -120,10 +133,10 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       const d = hit(s, r1(calcD(s, c, i) * 0.5), false, o); o.hits.push(d); o.dealt = d; s.shield = 0;
       o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
-      const dodge = i.wager === 'sure' ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
+      const dodge = i.wager === 'sure' || i.challenge ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
       if (rng() < dodge) { o.dodged = true; o.text = '运气好闪开了！'; }
       else {
-        o.taken = takeHurt(s.def.atk, i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, i.wager === 'sure' ? WAGER.sureHurt : i.wager === 'unsure' ? WAGER.unsureCtr : 1);
+        o.taken = takeHurt(monAtk(s), i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, i.wager === 'sure' ? WAGER.sureHurt : i.wager === 'unsure' ? WAGER.unsureCtr : 1, i.challenge ? CHALLENGE.ctr : 1);
         o.text = '怪物反击！';
       }
       if (i.wager === 'unsure') o.review = true;
@@ -141,8 +154,8 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       if (o.perfect) o.text = '完美闪避！' + o.text.replace('闪避成功！', '');
     } else {
       const m = (i.wager === 'sure' ? WAGER.sureHurt : 1) * (part ? 0.5 : 1);   // 对方回合漏选：按答错结算，受到伤害减半
-      if (it === 'atk') { o.taken = takeHurt(s.def.atk, m); o.text = '被攻击了'; }
-      else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? s.def.atk : 2 * s.def.atk, m); s.chargeBroken = false; o.text = '💥 被重击了'; }
+      if (it === 'atk') { o.taken = takeHurt(monAtk(s), m); o.text = '被攻击了'; }
+      else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? monAtk(s) : 2 * monAtk(s), m); s.chargeBroken = false; o.text = '💥 被重击了'; }
       else if (it === 'charge') { s.chargeBroken = false; o.text = '⚡ 怪物蓄力成功，下次重击 ×2'; }
       else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾（挡 ${s.shieldVal}）`; }
       else o.text = '💤 怪物在发呆，没有攻击';
@@ -163,8 +176,8 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   }
   s.playerHp = Math.max(s.noDeath ? 1 : 0, s.playerHp - o.taken);
   // Boss 半血后换循环：从下一个意图开始（控制效果保留到新循环第一个意图）
-  if (o.phaseShift) o.text += ' 第一阶段被打破！进入第二阶段（满血 ' + s.monsterHp + '）';
-  if (s.def.half && s.pattern !== s.def.half && s.monsterHp < s.monsterMax / 2) { s.pattern = s.def.half; s.mi = 0; }
+  if (o.phaseShift) o.text += o.rage ? ' Boss 怒了！攻击变强，还换了招式' : ' 第一阶段被打破！进入第二阶段（满血 ' + s.monsterHp + '）';
+  if (s.def.half && !s.def.phases && s.pattern !== s.def.half && s.monsterHp < s.monsterMax / 2) { s.pattern = s.def.half; s.mi = 0; }
   if (endTurn || !ok) {
     s.turn++; s.sk = tickCd(s.sk); if (s.silenced) s.silenced--;
     if (o.skill?.cd) s.sk = { ...s.sk, cd: { ...s.sk.cd, [o.skill.id]: o.skill.cd } };   // 本回合触发的冷却从下一回合起算

@@ -3,6 +3,8 @@ import { prefetchAll } from '../fx/sheets';
 import { useState as useS } from 'react';
 import { offlineStatus, onOffline } from '../offlineCache';
 import { BANK_VER, BANK_RELEASE } from '../bankStore';
+import { VERSION_LABEL } from '../version';
+import { effLimit, MIN_LIMIT } from '../state';
 declare const __BUILD__: string; declare const __BUILD_TIME__: string;
 /** 构建日期按用户设备的本地时区显示（r8） */
 const buildDate = () => { try { return new Date(__BUILD_TIME__).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }); } catch { return ''; } };
@@ -13,7 +15,7 @@ export function OfflineReady() {
   const ready = !!s && s.total > 0 && s.done >= s.total && s.failed === 0;
   return <p className="hint" data-testid="offline-ready" data-ready={ready ? '1' : '0'}>
     {ready ? '✅ 离线就绪：怪物动画、技能特效和音效都已缓存' : s ? `⏳ 离线素材缓存中 ${s.done}/${s.total}${s.failed ? `（${s.failed} 个暂未下载，联网后自动重试）` : ''}` : '⏳ 联网时会在后台缓存离线素材'}
-    <br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'} · {typeof __BUILD_TIME__ === 'string' ? buildDate() : ''}</span></p>;
+    <br /><b data-testid="version-label">版本 {VERSION_LABEL}</b><br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'} · {typeof __BUILD_TIME__ === 'string' ? buildDate() : ''}</span></p>;
 }
 function PrefetchAnim() {
   const [p, setP] = useS('');
@@ -35,7 +37,7 @@ import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
-import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
 import type { Skills } from '../game/adaptive';
 
 /** 家长密码门（D9 锁定 / X-13 首次设置需提示问题 / P2-1 密码丢失不当首次） */
@@ -43,23 +45,29 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
   const [first, setFirst] = useState<string>();
   const [err, setErr] = useState<string>();
   const [lock, setLock] = useState<LockState>({ fails: 0, level: 0, until: 0 });
+  const [hlock, setHlock] = useState<LockState>({ fails: 0, level: 0, until: 0 });   // r9：找回问题单独锁定
   const [now, setNow] = useState(Date.now());
   const [mode, setMode] = useState<'pin' | 'hint' | 'forgot' | 'lost'>('pin');
   const [hq, setHq] = useState(HINT_QUESTIONS[0]); const [ha, setHa] = useState('');
   const [pend, setPend] = useState<string>();
   useEffect(() => {
-    void loadLock().then(setLock); void (!settings.pinHash && pinWasSet().then(w => w && setMode('lost')));
+    void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void (!settings.pinHash && pinWasSet().then(w => w && setMode('lost')));
     let last = performance.now();
     const t = setInterval(() => {   // 只按单调时钟扣锁定时间（技术QA R4-4）
       const p = performance.now(), dt = p - last; last = p; setNow(Date.now());
       setLock(l => { if (!lockLeft(l)) return l; const n = tickLock(l, dt, Date.now()); void saveLock(n); return n; });
+      setHlock(l => { if (!lockLeft(l)) return l; const n = tickLock(l, dt, Date.now()); void saveLock(n, LK_HINT); return n; });
     }, 1000);
     return () => clearInterval(t);
   }, []);
   const left = Math.ceil(lockLeft(lock, now) / 1000);
   const locked = left > 0;
-  const lockMsg = locked ? `密码错太多次了，请 ${Math.floor(left / 60)} 分 ${left % 60} 秒后再试` : undefined;
+  const hleft = Math.ceil(lockLeft(hlock, now) / 1000), hlocked = hleft > 0;
+  const fmt = (x: number) => `${Math.floor(x / 60)} 分 ${x % 60} 秒`;
+  const lockMsg = locked ? `密码错太多次了，请 ${fmt(left)}后再试${settings.pinHint && !hlocked ? '。可以等待，或用找回问题' : ''}` : undefined;
+  const hlockMsg = hlocked ? `找回问题答错太多次了，请 ${fmt(hleft)}后再试` : undefined;
   const note = async (ok: boolean) => { const n = nextLock(lock, ok, Date.now()); setLock(n); await saveLock(n); return n; };
+  const noteH = async (ok: boolean) => { const n = nextLock(hlock, ok, Date.now()); setHlock(n); await saveLock(n, LK_HINT); return n; };
   const finishSet = async (pin: string, hint?: { q: string; a: string }) => { onSetPin(await makePinHash(pin), hint); markPinSet(); onOk(); };
   const sub = purpose ? <p className="parent-hint">{purpose}</p> : null;
   if (mode === 'lost') return (
@@ -74,10 +82,10 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose }: { se
       <button className="btn" data-testid="hint-ok" disabled={!normAnswer(ha)} onClick={async () => finishSet(pend, { q: hq, a: await makePinHash(normAnswer(ha)) })}>完成</button></div></div>);
   if (mode === 'forgot' && settings.pinHint) return (
     <div className="center-screen"><div className="pinpad"><h2>忘记密码</h2><p>{settings.pinHint.q}</p>
-      <input className="name-input" data-testid="forgot-answer" value={ha} disabled={locked} onChange={e => setHa(e.target.value)} />
-      {(lockMsg || err) && <p className="warn">{lockMsg ?? err}</p>}
-      <div className="row gap16"><button className="btn" disabled={locked || !ha} onClick={async () => {
-        const ok = await verifyPin(normAnswer(ha), settings.pinHint!.a); const n = await note(ok);
+      <input className="name-input" data-testid="forgot-answer" value={ha} disabled={hlocked} onChange={e => setHa(e.target.value)} />
+      {(hlockMsg || err) && <p className="warn" data-testid="forgot-msg">{hlockMsg ?? err}</p>}
+      <div className="row gap16"><button className="btn" data-testid="forgot-ok" disabled={hlocked || !ha} onClick={async () => {
+        const ok = await verifyPin(normAnswer(ha), settings.pinHint!.a); const n = await noteH(ok); if (ok) await note(true);
         if (ok) { setMode('pin'); setFirst(undefined); setErr(undefined); onSetPin(''); } else setErr(lockLeft(n) > 0 ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
       }}>确定</button><button className="btn ghost" onClick={() => setMode('pin')}>返回</button></div></div></div>);
   if (!settings.pinHash) return (
@@ -114,7 +122,7 @@ export interface ParentProps {
   usage: Record<string, Usage>; setUsage: (pid: string, u: Usage) => void;
   skills: Record<string, Skills>; flags: Record<string, number>;
   clockLocked?: boolean; unlockClock?: () => void;
-  onClose: () => void; initialTab?: Tab;
+  onClose: () => void; initialTab?: Tab; currentPid?: string;
 }
 export function ParentSettings(props: ParentProps) {
   const [tab, setTab] = useState<Tab>(props.initialTab ?? 'profiles');
@@ -146,16 +154,16 @@ function ParentAlerts({ goBackup }: { goBackup: () => void }) {
   const [nag, setNag] = useState(false);
   useEffect(() => {
     void navigator.storage?.estimate?.().then(e => { if (e.quota) setUsage((e.usage ?? 0) / e.quota); }).catch(() => {});
-    void getKV<number>('lastBackupAt').then(t => { setLast(t ?? null); if (!t || Date.now() - t > 14 * 864e5) setNag(!sessionStorage.getItem('zy.nagged')); });
+    void getKV<number>('lastBackupAt').then(t => { setLast(t ?? null); if (!t || Date.now() - t > 14 * 864e5) void getKV<number>('backupSnoozeUntil').then(u => setNag(!(u && Date.now() < u))); });
   }, []);
   const days = last ? Math.floor((Date.now() - last) / 864e5) : null;
   return <>
     {usage !== undefined && usage > 0.8 && <div className="yellow-bar">保存失败风险：平板存储空间快满了（已用 {Math.round(usage * 100)}%），请导出备份</div>}
     <p className="hint backup-age" data-testid="backup-age">上次备份：{last === undefined ? '…' : days === null ? '从未备份' : days === 0 ? '今天' : `${days} 天前`}</p>
-    {nag && <Modal onClose={() => { setNag(false); sessionStorage.setItem('zy.nagged', '1'); }}>
+    {nag && <Modal onClose={() => { setNag(false); void setKV('backupSnoozeUntil', Date.now() + 7 * 864e5); }}>
       <h2>该备份啦</h2><p>{days === null ? '这台平板还没有备份过。' : `已经 ${days} 天没有备份了。`}清理浏览器或换平板时，没有备份会丢失进度。</p>
-      <div className="row gap16"><button className="btn" onClick={() => { setNag(false); sessionStorage.setItem('zy.nagged', '1'); goBackup(); }}>立即备份</button>
-        <button className="btn ghost" onClick={() => { setNag(false); sessionStorage.setItem('zy.nagged', '1'); }}>稍后</button></div>
+      <div className="row gap16"><button className="btn" onClick={() => { setNag(false); void setKV('backupSnoozeUntil', Date.now() + 7 * 864e5); goBackup(); }}>立即备份</button>
+        <button className="btn ghost" onClick={() => { setNag(false); void setKV('backupSnoozeUntil', Date.now() + 7 * 864e5); }}>稍后</button></div>
     </Modal>}
   </>;
 }
@@ -170,7 +178,7 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
           <div key={p.id} className="p-card">
             <span className="big-emoji">{p.avatar}</span>
             <b>{p.name}</b><small>{GRADE_LABEL[p.grade]} · {p.volumes ? `已学 ${p.volumes.length} 册` : '全部册别'}</small>
-            <small>每日 上学日 {p.limit.weekday || '不限'} / 周末 {p.limit.weekend || '不限'} 分钟</small>
+            <small>每日 上学日 {effLimit(p).weekday || '不限'} / 周末 {effLimit(p).weekend || '不限'} 分钟</small>
             {skills[p.id] && <small>难度：{Object.entries(skills[p.id]).map(([s, v]) => `${s}${v.level}`).join(' · ') || '还没开始答题'}</small>}
             <div className="row gap16"><button className="chip" data-testid={'edit-' + p.id} onClick={() => setEdit(p)}>编辑</button>
               <button className="chip" data-testid={'del-' + p.id} onClick={() => setDelId(p.id)}>删除</button></div>
@@ -190,9 +198,12 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
 function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void }) {
   const [f, setF] = useState<Profile>(p);
   const vols = useMemo(() => { const m = new Map<string, number>(); for (const q of questionsOfGrade(bank, f.grade)) m.set(q.volume, (m.get(q.volume) ?? 0) + 1); return [...m]; }, [bank, f.grade]);
-  const setGrade = (g: GradeKey) => setF({ ...f, grade: g, volumes: null, limit: { ...bandConfig(g).dailyMinutes } });
-  const toggleVol = (v: string) => { const cur = f.volumes ?? vols.map(x => x[0]); const nx = cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v]; setF({ ...f, volumes: nx.length === vols.length ? null : nx }); };
-  const step = (k: 'weekday' | 'weekend', d: number) => setF({ ...f, limit: { ...f.limit, [k]: Math.max(0, f.limit[k] + d) } });
+  const setGrade = (g: GradeKey) => { const d = bandConfig(g).dailyMinutes; setF({ ...f, grade: g, volumes: null, limit: { weekday: Math.max(MIN_LIMIT, d.weekday), weekend: Math.max(MIN_LIMIT, d.weekend) }, unlimited: { weekday: d.weekday <= 0, weekend: d.weekend <= 0 } }); };
+  // r9（较真家长）：「全部册别」时点某一册 = 只选这一册（以前是把它取消，选二年级上册反而存成「下册+通用」）
+  const toggleVol = (v: string) => { const cur = f.volumes; const nx = !cur ? [v] : cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v]; setF({ ...f, volumes: !nx.length || nx.length === vols.length ? null : nx }); };
+  // r9（较真家长 严重）：最少 5 分钟，−5 不会再变成 0（不限）；「不限」是单独开关，要确认
+  const step = (k: 'weekday' | 'weekend', d: number) => setF({ ...f, limit: { ...f.limit, [k]: Math.min(240, Math.max(MIN_LIMIT, f.limit[k] + d)) } });
+  const setUnl = (k: 'weekday' | 'weekend', on: boolean) => { if (on && !confirm(`确定${k === 'weekday' ? '上学日' : '周末'}不限时长吗？孩子可以一直玩。`)) return; setF({ ...f, unlimited: { ...f.unlimited, [k]: on } }); };
   return (
     <Modal onClose={onCancel}>
       <div className="editor" data-testid="profile-editor">
@@ -201,10 +212,14 @@ function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankSt
         <div className="row gap16 wrap avatars">{AVATARS.map(a => <button key={a} className={`chip ${a === f.avatar ? 'on' : ''}`} onClick={() => setF({ ...f, avatar: a })}>{a}</button>)}</div>
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
         <div><b>已学册别</b>（只从勾选的册别出题）<div className="row gap16 wrap">{vols.map(([v, n]) =>
-          <button key={v} className={`chip ${!f.volumes || f.volumes.includes(v) ? 'on' : ''}`} onClick={() => toggleVol(v)}>{v}（{n}）</button>)}</div></div>
-        <div className="row gap16 wrap"><b>每日时长（分钟，0=不限）</b>
-          {(['weekday', 'weekend'] as const).map(k => <span key={k} className="stepper">{k === 'weekday' ? '上学日' : '周末'}
-            <button className="chip" onClick={() => step(k, -5)}>−5</button><b>{f.limit[k]}</b><button className="chip" onClick={() => step(k, 5)}>＋5</button></span>)}</div>
+          <button key={v} className={`chip ${f.volumes?.includes(v) ? 'on' : ''}`} data-testid={'vol-' + v} aria-pressed={!!f.volumes?.includes(v)} onClick={() => toggleVol(v)}>{v}（{n}）</button>)}
+          <button className={`chip ${!f.volumes ? 'on' : ''}`} data-testid="vol-all" aria-pressed={!f.volumes} onClick={() => setF({ ...f, volumes: null })}>全部册别</button></div></div>
+        <div className="row gap16 wrap"><b>每日时长（分钟，最少 5）</b>
+          {(['weekday', 'weekend'] as const).map(k => <span key={k} className="stepper" data-testid={'limit-' + k}>{k === 'weekday' ? '上学日' : '周末'}
+            <button className="chip" data-testid={`limit-${k}-minus`} disabled={!!f.unlimited?.[k] || f.limit[k] <= MIN_LIMIT} onClick={() => step(k, -5)}>−5</button>
+            <b data-testid={`limit-${k}-val`}>{f.unlimited?.[k] ? '不限' : Math.max(MIN_LIMIT, f.limit[k])}</b>
+            <button className="chip" data-testid={`limit-${k}-plus`} disabled={!!f.unlimited?.[k]} onClick={() => step(k, 5)}>＋5</button>
+            <label className="chip"><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限</label></span>)}</div>
         <div className="row gap16"><button className="btn ghost" onClick={onCancel}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim()} onClick={() => onSave(f)}>保存</button></div>
       </div>
     </Modal>
@@ -310,7 +325,7 @@ function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock }: Parent
       {clockLocked && <div className="p-card wide"><b>⏰ 时间锁定中</b><p className="hint">检测到平板时间被调回，今天按「已用完」处理。确认时间正确后可解除。</p><button className="btn" data-testid="unlock-clock" onClick={unlockClock}>解除时间锁定</button></div>}
       <table className="tbl"><thead><tr><th>孩子</th><th>今日已玩</th><th>今日剩余</th><th>每日上限（上学日/周末）</th><th>临时加时</th></tr></thead>
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
-          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒</td><td>{fmtMin(remainingSec(p.limit, u, today))}</td><td>{p.limit.weekday || '不限'} / {p.limit.weekend || '不限'}</td>
+          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒</td><td>{fmtMin(remainingSec(effLimit(p), u, today))}</td><td>{effLimit(p).weekday || '不限'} / {effLimit(p).weekend || '不限'}</td>
             <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => setUsage(p.id, addBonus(u, today, 600))}>＋10 分钟</button></td></tr>; })}</tbody></table>
       <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /></div>
       <p className="hint">上限在「孩子档案 → 编辑」里改。只在答题/复习时计时，切到后台不计；关卡进行中时间到了会让孩子打完这一关。</p>
@@ -363,8 +378,9 @@ function PinTab({ settings, setSettings }: ParentProps) {
 
 
 /** 报告 #9：每个孩子的学习报告（复用答题记录 + 错题本；月度汇总后续再做） */
-function ReportTab({ profiles, bank }: ParentProps) {
-  const [pid, setPid] = useState(profiles[0]?.id);
+function ReportTab(props: ParentProps) {
+  const { profiles, bank } = props;
+  const [pid, setPid] = useState((props.currentPid && profiles.some(x => x.id === props.currentPid) ? props.currentPid : undefined) ?? profiles[0]?.id);   // r9：默认当前孩子
   const [data, setData] = useState<{ a: AnswerRecord[]; w: WrongEntry[]; ru: Rollup }>();
   useEffect(() => { if (!pid) return; setData(undefined); void Promise.all([answersOf(pid), wrongOf(pid), rollupOf(pid)]).then(([a, w, ru]) => setData({ a, w, ru })); }, [pid]);
   if (!profiles.length) return <p>还没有孩子档案。</p>;

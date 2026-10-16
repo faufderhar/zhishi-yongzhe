@@ -1,3 +1,4 @@
+import { STAR3, STAR2 } from './balance';
 /* 章节/关卡生成（GDD §7.1）：每个科目一个章节（地图区域），区域内按「册别 volume + 教材单元 unit」分组；
    每单元每 8 题 1 个普通关，每 3 个普通关后 1 个精英关，单元 ≥12 题时以单元 Boss 收尾。
    关卡 id 取首题的 grade:id（不含单元文本，单元改名不影响星级）。 */
@@ -202,9 +203,9 @@ export const levelsOfUnit = (levels: Level[], l: Level) => levels.filter(x => x.
     ★ 通关；★★ ≥60%；★★★ ≥80% 且未复活；回合上限撤退最多 ★；时间到 0★。小班沿用 D1–D3（只算自己第一次答对）。 */
 export const STAR_RULES = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成且没复活';
 export const STAR_RULES_K = '⭐ 过关　⭐⭐ 第一次就答对六成　⭐⭐⭐ 第一次就答对八成';
-export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean }) {
+export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean; hpPct?: number }) {
   if (r.timeUp) return 0;
-  const s = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived);
+  const s = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived, r.hpPct ?? 1);
   return r.retreat ? Math.min(1, s) : s;
 }
 /** Boss 选题池（裁定 2）：整章题，优先「还没出过」和「之前答错」的题；不够才重复已答对过的 */
@@ -233,10 +234,11 @@ export function bossPool<T extends { key: string }>(pool: T[], seen: Set<string>
   const pref = [...fresh, ...bad];
   return pref.length >= n ? pref : [...pref, ...pool.filter(q => !pref.includes(q))];
 }
-export function starsFor(win: boolean, accuracy: number, revived: boolean): number {
+/** D14：★★★ = 答对率 ≥ 80%、没复活、剩余血量 ≥ 50%（hpPct 只有轮流回合战斗会传；其余模式按满血） */
+export function starsFor(win: boolean, accuracy: number, revived: boolean, hpPct = 1): number {
   if (!win) return 0;
-  if (accuracy >= 0.8 - 1e-9) return revived ? 2 : 3;
-  if (accuracy >= 0.6 - 1e-9) return 2;
+  if (accuracy >= STAR3.acc - 1e-9) return revived || hpPct < STAR3.hp - 1e-9 ? 2 : 3;
+  if (accuracy >= STAR2.acc - 1e-9) return 2;
   return 1;
 }
 /** 解锁：每个教材单元的第 1 关开放（孩子可从正在学的单元开始）；单元内前一关 ≥1 星解锁下一关 */

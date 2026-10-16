@@ -15,13 +15,14 @@ describe('§3.2 balance 与表格一致', () => {
   it('数值', () => {
     expect([ROUND.p36.player, ROUND.j.player, ROUND.h.player]).toEqual([{ hp: 100, atk: 18 }, { hp: 100, atk: 20 }, { hp: 160, atk: 26 }]);
     const t = (m: 'p36' | 'j' | 'h') => (['normal', 'elite', 'boss'] as const).map(k => [ROUND[m].monsters[k].hp, ROUND[m].monsters[k].atk, ROUND[m].monsters[k].cap]);
-    expect(t('p36')).toEqual([[50, 10, 12], [100, 13, 16], [126, 15, 22]]);
-    expect(t('j')).toEqual([[60, 12, 12], [120, 16, 18], [153, 18, 24]]);
-    expect(t('h')).toEqual([[90, 18, 12], [170, 24, 18], [234, 26, 26]]);
+    expect(t('p36')).toEqual([[66, 10, 14], [125, 13, 20], [165, 13, 28]]);   // D14 §3
+    expect(t('j')).toEqual([[80, 12, 14], [150, 16, 20], [200, 14, 28]]);
+    expect(t('h')).toEqual([[100, 18, 14], [190, 24, 20], [250, 22, 30]]);
     expect([ROUND.p36.shield, ROUND.j.shield, ROUND.h.shield]).toEqual([8, 10, 15]);
     expect([ROUND.p36.dodge, ROUND.j.dodge, ROUND.h.dodge]).toEqual([0.3, 0.25, 0.25]);
     expect([ROUND.p36.perfect, ROUND.j.perfect, ROUND.h.perfect]).toEqual([false, true, true]);
-    expect(ROUND.h.monsters.boss.phases!.map(p => p.hp)).toEqual([117, 117]);
+    expect(ROUND.h.monsters.boss.phases!.map(p => p.hp)).toEqual([125, 125]); expect(ROUND.j.monsters.boss.phases!.map(p => p.hp)).toEqual([100, 100]);
+    expect([ROUND.j.monsters.boss.rage, ROUND.h.monsters.boss.rage, ROUND.p36.monsters.boss.rage]).toEqual([1.2, 1.2, undefined]);
   });
 });
 describe('§2 结算表', () => {
@@ -32,8 +33,8 @@ describe('§2 结算表', () => {
   });
   it('我方答对：伤害符合公式、先扣护盾、专注清零', () => {
     let s = { ...newRound('j', 'normal'), shield: 10, focus: 2 };
-    const [n, o] = P(s, true);   // 20×1.0×1(连击1)×1.2×1.5 = 36，先扣盾 10
-    expect(o.dealt).toBe(26); expect(n.monsterHp).toBe(34); expect(n.shield).toBe(0); expect(n.focus).toBe(0);
+    const [n, o] = P(s, true);   // 20×1.0×1.2(亲和)×min(1.8, 1(连击1)×1.5) = 36，先扣盾 10
+    expect(o.dealt).toBe(26); expect(n.monsterHp).toBe(54); expect(n.shield).toBe(0); expect(n.focus).toBe(0);
   });
   it('我方答错：反击 A，闪避失败受 A；专注清零', () => {
     const [n, o] = P({ ...newRound('j', 'normal'), focus: 1 }, false);
@@ -85,12 +86,12 @@ describe('完美闪避与专注', () => {
 // 技能测试见 tests/skills.test.ts（v0.3.7 随机释放）
 describe('Boss 与高一', () => {
   it('Boss 半血后从下一个意图起换循环', () => {
-    let s = { ...newRound('j', 'boss'), monsterHp: 70 }; [s] = P(s, true);
+    let s = { ...newRound('p36', 'boss'), monsterHp: 84 }; [s] = P(s, true);   // 小学 Boss 没有二阶段，只在半血后换循环
     expect(s.pattern).toEqual(['atk', 'charge', 'heavy']); expect(nextIntent(s)).toBe('atk');
   });
   it('高一 Boss 两阶段各 117，弱点不同', () => {
-    const s = newRound('h', 'boss'); expect(s.monsterHp).toBe(234); expect(phaseOf(s)).toBe(0); expect(phaseOf({ ...s, monsterHp: 117 })).toBe(1);
-    const a = P(s, true, { subject: '数学' })[1].dealt, b = P({ ...s, monsterHp: 117 }, true, { subject: '数学' })[1].dealt;
+    const s = newRound('h', 'boss'); expect(s.monsterHp).toBe(250); expect(phaseOf(s)).toBe(0); expect(phaseOf({ ...s, monsterHp: 125 })).toBe(1);
+    const a = P(s, true, { subject: '数学' })[1].dealt, b = P({ ...s, monsterHp: 125 }, true, { subject: '数学' })[1].dealt;
     expect(a).toBe(Math.round(26 * 1.5)); expect(b).toBe(26);
   });
   it('题卡与押注：反击 ×1.5×1.3 → 封顶 ×2.0；不太确定 ×0.5 并标记复习', () => {
@@ -103,12 +104,12 @@ describe('Boss 与高一', () => {
   it('多步题：小问 ×1.0/1.3/1.6，答错中断并按重击 ×1.5 反击，整题算 1 回合', () => {
     let s = { ...newRound('h', 'elite'), monsterHp: 999 }; const ds: number[] = [];
     for (let k = 0; k < 2; k++) { const [n, o] = P(s, true, { card: 'heavy', stepIndex: k }, false); ds.push(o.dealt); s = n; }
-    expect(s.turn).toBe(0); expect(ds).toEqual([Math.round(26 * 1.2 * 1.6), Math.round(26 * 1.2 * 1.6 * 1.1 * 1.3)]);
+    expect(s.turn).toBe(0); expect(ds).toEqual([Math.round(26 * 1.2 * 1.6), Math.round(26 * 1.2 * 1.3 * Math.min(1.8, 1.6 * 1.05))]);   // 段倍率在外层，题卡×连击在内层
     const [n, o] = P(s, false, { card: 'heavy', stepIndex: 2 }); expect(o.taken).toBe(36); expect(n.turn).toBe(1); expect(n.side).toBe('M');
   });
 });
 describe('上限、复活、3–4 年级', () => {
-  it('到上限撤退', () => { let s = { ...newRound('j', 'normal'), monsterHp: 999 }; while (!s.over) [s] = P(s, true); expect(s.over).toBe('retreat'); expect(s.turn).toBe(12); });
+  it('到上限撤退', () => { let s = { ...newRound('j', 'normal'), monsterHp: 999 }; while (!s.over) [s] = P(s, true); expect(s.over).toBe('retreat'); expect(s.turn).toBe(14); });
   it('复活：50% 血量、不计回合', () => { const s = reviveRound({ ...newRound('j', 'normal'), playerHp: 0, over: 'lose', turn: 5 }); expect(s.playerHp).toBe(50); expect(s.turn).toBe(5); expect(s.over).toBe(null); expect(s.revived).toBe(true); });
   it('小学 3–4 年级所有怪 ⚔⚔🛡', () => { const s = newRound('p36', 'boss', { lowGrade: true }); expect(s.pattern).toEqual(['atk', 'atk', 'shield']); });
 });

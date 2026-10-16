@@ -1,3 +1,4 @@
+import { VERSION_LABEL } from '../version';
 import { TEST_DOM } from './common';
 import { skinFor } from '../game/monsterSkin';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
@@ -11,7 +12,7 @@ import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
-import { isDue, type WrongEntry } from '../game/wrongbook';
+import { isDue, INTERVAL, type WrongEntry } from '../game/wrongbook';
 import { speak } from '../tts';
 import { answerFeedback } from '../feedback';
 
@@ -74,6 +75,7 @@ export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, on
       {adding && <AddChild onClose={onAddClose} onAdd={onAdd} />}
       <InstallGuide />
       <button className="parent-btn icon-only" data-testid="parent" aria-label="家长" title="家长" onClick={onParent}>🔒</button>
+      <span className="ver-corner" data-testid="version-label">{VERSION_LABEL}</span>
     </div>
   );
 }
@@ -119,7 +121,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
   const [tip, setTip] = useState<string>(); const [shake, setShake] = useState<string>();
   const lp = useRef(0);
-  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t); window.setTimeout(() => setTip(x => x === t ? undefined : x), 2500); };
+  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim()); window.setTimeout(() => setTip(x => x === t ? undefined : x), 2500); };
   useEffect(() => {
     const k = 'zy.bossTip.' + p.id;
     if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say('这里有厉害的大怪兽！', cfg.band === 'K'); }
@@ -128,7 +130,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
   return (
     <div className="map">
       <div className="map-top">
-        <button className="back-inline" onClick={onBack} aria-label="换人">←</button>
+        <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
         <span className="who">{p.avatar} {p.name} · {GRADE_LABEL[p.grade]}</span>
         <span className="star-total">★ {totalStars}</span>
         <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}</span>
@@ -148,7 +150,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
         </div>
         <div className="levels" data-testid="levels">
           {ch.levels.map((l, i) => {
-            const open = isUnlocked(ch.levels, i, progress.stars);
+            const open = (__TEST_HOOKS__ && !!(window as unknown as { __zyUnlockAll?: boolean }).__zyUnlockAll) || isUnlocked(ch.levels, i, progress.stars);   // 仅测试构建：全解锁
             const s = l.redirect ? starOf(chapters.flatMap(c => c.levels).find(x => x.id === l.redirect) ?? l, progress.stars) : starOf(l, progress.stars);
             const prev = ch.levels[i - 1];
             const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
@@ -156,13 +158,13 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
               {head && <div className="unit-head" data-testid="unit-head"><small>{l.volume}</small> {l.unit}</div>}
               <button key={l.id} className={`level ${l.kind} ${open ? '' : 'locked'} ${s ? 'done' : ''} ${shake === l.id ? 'nudge' : ''}`} aria-disabled={!open || timeUp}
                 data-testid={`level-${i + 1}`} data-locked={open ? '0' : '1'}
-                onPointerDown={() => { lp.current = window.setTimeout(() => { lp.current = -1; say(l.name, false); }, 550); }}
+                onPointerDown={() => { lp.current = window.setTimeout(() => { lp.current = -1; say('📖 ' + l.name, false); }, 550); }}
                 onPointerUp={() => { if (lp.current > 0) clearTimeout(lp.current); }} onPointerLeave={() => { if (lp.current > 0) clearTimeout(lp.current); }}
                 onContextMenu={e => e.preventDefault()}
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
                   if (timeUp) return;
-                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); say('先通过前一关就能打开哦', cfg.band === 'K'); return; }
+                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); say('🔒 先打赢前一关，就能打开这一关哦', true); return; }
                   onLevel(l);
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
@@ -233,7 +235,7 @@ function KinderLines({ k }: { k?: { first: number; retry: number; demo: number }
 /* ---------------- 错题本 ---------------- */
 export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: WrongEntry[]; byKey: Map<string, Question>; onBack: () => void; onReview: (keys: string[]) => void }) {
   const subjects = useMemo(() => [...new Set(wrong.map(w => w.subject))], [wrong]);
-  const [sub, setSub] = useState<string>('全部');
+  const [sub, setSub] = useState<string>('全部'); const [boxInfo, setBoxInfo] = useState(false);
   const list = wrong.filter(w => sub === '全部' || w.subject === sub).sort((a, b) => a.due.localeCompare(b.due));
   const due = list.filter(e => isDue(e));
   return (
@@ -242,10 +244,12 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: Wro
         <button className="back-inline" onClick={onBack} aria-label="返回">←</button>
         <h2>📕 错题本</h2>
         <span className="sub">共 {wrong.length} 题 · 今天到期 {wrong.filter(e => isDue(e)).length} 题</span>
+        <button className="chip" data-testid="wb-box-info" aria-label="盒子是什么" onClick={() => setBoxInfo(x => !x)}>ⓘ 盒子是什么</button>
         <span className="grow" />
         <button className="chip hot" data-testid="wb-review-due" disabled={!due.length} onClick={() => onReview(due.slice(0, 10).map(e => e.qkey))}>🔁 复习到期 {Math.min(due.length, 10)}</button>
         <button className="chip" data-testid="wb-review-all" disabled={!list.length} onClick={() => onReview(list.slice(0, 10).map(e => e.qkey))}>✍ 练习这些 {Math.min(list.length, 10)}</button>
       </div>
+      {boxInfo && <p className="p-card hint" data-testid="wb-box-pop">📦 「第 N 盒」是间隔复习的盒子：答错的题放进第 1 盒，隔 1 天复习；复习答对就升一盒，隔的天数变长（第 2 盒隔 {INTERVAL[2]} 天，第 3 盒隔 {INTERVAL[3]} 天）；第 3 盒再答对就算掌握，从错题本移走。复习答错会回到第 1 盒。</p>}
       <div className="row gap16 wrap wb-tabs">
         {['全部', ...subjects].map(s => <button key={s} className={`chip ${s === sub ? 'on' : ''}`} onClick={() => setSub(s)}>{s}</button>)}
       </div>
@@ -256,7 +260,7 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: Wro
           if (!q) return null;
           return (
             <div key={e.id} className="wb-item">
-              <div className="wb-meta"><span className="tag">{q.subject}</span> 盒子 {e.box} · {isDue(e) ? <b className="hot-text">今天复习</b> : `下次 ${e.due}`} · 错 {e.wrongCount} 次</div>
+              <div className="wb-meta"><span className="tag">{q.subject}</span> 第 {e.box} 盒 · {isDue(e) ? <b className="hot-text">今天复习</b> : `下次 ${e.due}`} · 错 {e.wrongCount} 次</div>
               <div className="wb-q"><Tex text={q.question} /></div>
               <div className="wb-a">你的答案：{!e.lastAnswer ? '（超时）' : (q.type === '选择' || q.type === '多选') ? <Tex text={e.lastAnswer.split('').map(k => `${k}. ${q.options.find(o => o.key === k)?.text ?? ''}`).join('；')} /> : e.lastAnswer} · 正确答案：<b><Tex text={correctText(q)} /></b></div>
               {q.explanation && <div className="expl">💡 <Tex text={q.explanation} /></div>}

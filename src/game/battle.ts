@@ -1,4 +1,4 @@
-import { DIFF_MULT, comboMult, PLAYER, MONSTERS } from './balance';
+import { DIFF_MULT, legacyComboMult as comboMult, PLAYER, MONSTERS } from './balance';
 import type { LevelKind } from './grades';
 import { passive, type Character } from './characters';
 

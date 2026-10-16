@@ -6,7 +6,7 @@ export interface WrongEntry {
 }
 export const dayStr = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 export function addDays(day: string, n: number) { const [y, m, d] = day.split('-').map(Number); return dayStr(new Date(y, m - 1, d + n)); }
-const INTERVAL = { 1: 1, 2: 3, 3: 7 } as const;
+export const INTERVAL = { 1: 1, 2: 3, 3: 7 } as const;
 
 export function onWrong(prev: WrongEntry | undefined, base: { profileId: string; qkey: string; subject: string }, answer: string, today = dayStr(), now = Date.now()): WrongEntry {
   return { id: `${base.profileId}|${base.qkey}`, ...base, box: 1, due: addDays(today, 1), wrongCount: (prev?.wrongCount ?? 0) + 1, lastAnswer: answer, addedAt: prev?.addedAt ?? now, updatedAt: now };

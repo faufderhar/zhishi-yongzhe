@@ -66,7 +66,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
   return { stage, shake, hero, monster, flash, canvas, dir, alive };
 }
 
-export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleResult { win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps {
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -120,7 +120,9 @@ export function useCountdown(active: boolean, paused: boolean, totalMs: number, 
 export function usePauseOnHide(setPaused: (b: boolean) => void) {
   useEffect(() => {
     const f = () => { if (document.visibilityState === 'hidden') setPaused(true); };
-    document.addEventListener('visibilitychange', f); return () => document.removeEventListener('visibilitychange', f);
+    const b = () => setPaused(true);   // r9：安卓返回键 / 返回手势 = 打开暂停
+    document.addEventListener('visibilitychange', f); window.addEventListener('zy-back-pause', b);
+    return () => { document.removeEventListener('visibilitychange', f); window.removeEventListener('zy-back-pause', b); };
   }, [setPaused]);
 }
 
@@ -192,6 +194,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo' | 'ok'>('');
   const [justLit, setJustLit] = useState(-1);
   const [tilt, setTilt] = useState(false);
+  const [wig, setWig] = useState<string | null>(null);   // r9：点错的卡片轻摇（≤2 Hz，0.5 s）+ 伙伴摇头
   const [paused, setPaused] = useState(false);
   usePauseOnHide(setPaused);
   const lock = useRef(false);
@@ -216,14 +219,15 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
     const [ns, r] = kinderAnswer(cur, ok, ch.key, wrongVisible, demoReward);
     if (ok) answerFeedback(true); else softBump();
     if (r === 'retry') {
-      setKs(ns); setTilt(true); D.dir.current?.kinderRetry(); speak('再想想哦');
+      setKs(ns); setTilt(true); setWig(ch.key); D.dir.current?.kinderRetry(); speak('嗯～再想想');
+      setTimeout(() => setWig(null), 550);
       setTimeout(() => { setTilt(false); lock.current = false; }, T.retryUnlockMs);
       return;
     }
     if (r === 'demo') {
-      setFx('demo'); setTilt(true);
+      setFx('demo'); setTilt(true); setWig(ch.key); setTimeout(() => setWig(null), 550);
       const right = choices.find(x => q.answer.includes(x.key));
-      speak(`看，是${right?.text || '这个'}哦！`);
+      speak(`我来帮你看看！是${right?.text || '这个'}哦！`);   // r9：自动给答案前先说明
     } else {
       setFx('ok'); speak(PRAISE[Math.floor(Math.random() * PRAISE.length)]);
       // 小班技能：35% 触发，连续 3 次没触发第 4 次必触发；纯演出，替换本题「星星攻击」，≤1.0 s（整体仍 1.2 s 内进下一题）
@@ -254,11 +258,11 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
           {hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q)}>🔊</button>}
           <KStem q={q} />
         </div>
-        <div className="hearts" data-testid="hearts" aria-live="polite"><span className="hearts-label">开心值</span>{Array.from({ length: ks.hearts }, (_, i) => <span key={i} className={i === justLit ? 'pop' : ''}>{i < ks.lit || i === justLit ? '💖' : '🤍'}</span>)}</div>
+        <div className="hearts" data-testid="hearts" aria-live="polite" aria-label={`开心值 ${ks.lit}/${ks.hearts}`}><span className="hearts-label">开心值</span>{Array.from({ length: ks.hearts }, (_, i) => { const on = i < ks.lit || i === justLit; return <span key={i} className={`kheart ${on ? 'on' : 'off'} ${i === justLit ? 'pop' : ''}`}>{on ? '💖' : '♥'}</span>; })}<b className="hearts-num" data-testid="hearts-num">{ks.lit}/{ks.hearts}</b></div>
       </div>
       <div className="kstage" ref={D.stage}>
         <div className="fx-shake" ref={D.shake}>
-          <div className="unit-wrap kpup-wrap" ref={D.hero}><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
+          <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
           <div className="unit-wrap kmon-wrap" ref={D.monster}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
             <img className={`kmon ${ks.lit >= 2 ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" draggable={false} />
             <img className="kmon white-flash" ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div></div>
@@ -269,8 +273,8 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
         {choices.map(ch => {
           const gone = ks.removed.includes(ch.key), right = q.answer.includes(ch.key);
           return (
-            <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }} aria-pressed={fx === 'ok' && right} disabled={gone} aria-hidden={gone}
-              className={`kopt ${gone ? 'gone' : ''} ${fx === 'demo' && right ? 'reveal' : ''} ${fx === 'ok' && right ? 'okmark' : ''}`}
+            <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }} aria-pressed={fx === 'ok' && right} disabled={gone}
+              className={`kopt ${gone ? 'dim' : ''} ${wig === ch.key ? 'kwiggle' : ''} ${fx === 'demo' && right ? 'reveal soft-pulse' : ''} ${fx === 'ok' && right ? 'okmark' : ''}`}
               data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (right ? '1' : '0') : undefined}
               onPointerDown={() => { down.current = ch.key; }}
               onPointerUp={() => { if (down.current === ch.key) answer(ch); down.current = null; }}
@@ -296,10 +300,14 @@ function KOptFace({ text }: { text: string }) {
 export function HoldButton({ ms, onDone, children, className, label, testid }: { ms: number; onDone: () => void; children: ReactNode; className?: string; label: string; testid?: string }) {
   const [p, setP] = useState(0); const t = useRef<number>(0); const st = useRef(0);
   const stop = () => { cancelAnimationFrame(t.current); setP(0); };
-  const tick = () => { const v = Math.min(1, (performance.now() - st.current) / ms); setP(v); if (v >= 1) { stop(); onDone(); } else t.current = requestAnimationFrame(tick); };
+  const done = useRef(false);
+  // r9：短按不暂停，但显示圆环并朗读「按住不放就能暂停」
+  const release = () => { const held = st.current ? performance.now() - st.current : 0; const was = done.current; stop(); st.current = 0; if (!was && held > 0 && held < ms) { speak('按住不放就能暂停'); setHint(true); setTimeout(() => setHint(false), 1800); } };
+  const [hint, setHint] = useState(false);
+  const tick = () => { const v = Math.min(1, (performance.now() - st.current) / ms); setP(v); if (v >= 1) { done.current = true; stop(); onDone(); } else t.current = requestAnimationFrame(tick); };
   return <button className={`${className ?? ''} hold`} aria-label={label} data-testid={testid} style={{ ['--p' as string]: p }}
-    onPointerDown={() => { st.current = performance.now(); t.current = requestAnimationFrame(tick); }} onPointerUp={stop} onPointerLeave={stop} onPointerCancel={stop}
-    onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onDone(); }}>{children}</button>;
+    onPointerDown={() => { done.current = false; st.current = performance.now(); t.current = requestAnimationFrame(tick); }} onPointerUp={release} onPointerLeave={() => { stop(); st.current = 0; }} onPointerCancel={() => { stop(); st.current = 0; }}
+    onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') onDone(); }}><span className="hold-ring" aria-hidden />{children}{hint && <span className="hold-hint" data-testid="hold-hint">按住不放就能暂停</span>}</button>;
 }
 
 /** 角色图：WebP 优先，PNG 兜底（旧 Safari） */
@@ -324,6 +332,8 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [phase, setPhase] = useState<Phase>('question');
   const [fb, setFb] = useState<{ ok: boolean; text: string; dealt?: number; taken?: number }>();
   const [canNext, setCanNext] = useState(true);
+  // r9：暂停 5 分钟自动退出时也按「已答的题」结算，不再静默丢进度
+  const quitNow = () => { const st = stats.current; if (!st.total) { onQuit(); return; } onEnd({ win: false, quit: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); };
   const [paused, setPaused] = useState(false);
   const [intentPop, setIntentPop] = useState(false);   // 报告 #7：点意图看说明
   usePauseOnHide(setPaused);
@@ -333,7 +343,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [flagged, setFlagged] = useState(false);
   const stats = useRef({ correct: 0, total: 0, wrong: [] as string[] });
   const bsRef = useRef(bs); bsRef.current = bs;
-  useWakeLock(); usePauseTimeout(paused, onQuit);
+  useWakeLock(); usePauseTimeout(paused, quitNow);
   useForceEnd(() => { const st = stats.current; onEnd({ win: false, timeUp: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); });
   // 复活挑战（GDD §4.4）：答对 2 道本关错题
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number } | null>(null);
@@ -468,7 +478,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="mon-info">
           <b>{kind === 'boss' ? '👑 ' : kind === 'elite' ? '⚡ ' : ''}<span data-testid="monster-name">{mon.name}</span></b>
           <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />
-          <button className="intent" data-testid="intent" aria-label="怪物意图说明" onClick={() => setIntentPop(true)}>{intent === 'attack' ? `⚔ 意图：攻击 ${bs.monsterAtk}` : `🛡 意图：护盾 ${bs.shieldAmt}`}{bs.monsterShield > 0 && ` · 护盾 ${bs.monsterShield}`} ⓘ</button>
+          <button className="intent" data-testid="intent" aria-label="怪物意图说明" onClick={() => setIntentPop(true)}>{intent === 'attack' ? `⚔ 要攻击 ${bs.monsterAtk}` : `🛡 要加盾 +${bs.shieldAmt}`}{bs.monsterShield > 0 && <span data-testid="mshield">（已有护盾 {bs.monsterShield}）</span>} ⓘ</button>
         </div>
         <div className="stage" ref={D.stage}>
           <div className="fx-shake" ref={D.shake}>
@@ -548,7 +558,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <p className="intent-long" data-testid="intent-pop">{intent === 'attack' ? `下回合攻击 ${bs.monsterAtk} 点` : `护盾，挡 ${bs.shieldAmt} 点伤害`}</p>
         <p className="hint">⚔ 攻击：数字是它这回合打你的伤害 · 🛡 护盾：先挡掉你的一部分伤害</p>
         <button className="btn" data-testid="intent-ok" onClick={() => setIntentPop(false)}>知道了</button></Modal>}
-      {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={() => { const st = stats.current; if (!st.total) { onQuit(); return; } onEnd({ win: false, quit: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); }} />}
+      {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={quitNow} />}
     </div>
   );
 }

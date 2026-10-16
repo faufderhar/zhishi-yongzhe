@@ -1,7 +1,11 @@
 /* 数值表（GDD §4.2–4.3），试玩后直接改这里 */
 import type { LevelKind } from './grades';
 export const DIFF_MULT: Record<number, number> = { 1: 0.8, 2: 1.0, 3: 1.2, 4: 1.5, 5: 1.8 };
-export function comboMult(c: number) { return c >= 8 ? 1.5 : c >= 5 ? 1.35 : c >= 3 ? 1.2 : c >= 2 ? 1.1 : 1; }
+/** 旧连击表：只给 1–2 年级的简易战斗（battle.ts）用，D14 不改 */
+export function legacyComboMult(c: number) { return c >= 8 ? 1.5 : c >= 5 ? 1.35 : c >= 3 ? 1.2 : c >= 2 ? 1.1 : 1; }
+/* D14（v0.3.8）倍率封顶：内层 M = min(INNER_CAP, 连击 × 专注 × 技能 × 题卡 × 挑战) */
+export const COMBO_STEP = 0.05, COMBO_CAP = 1.3, INNER_CAP = 1.8, CHALLENGE = { out: 1.5, ctr: 1.5 };
+export function comboMult(c: number) { return Math.min(COMBO_CAP, 1 + COMBO_STEP * Math.max(0, c - 1)); }
 export const PLAYER = { std: { hp: 100, atk: 20 }, hs: { hp: 160, atk: 26 } };
 export interface MonsterStat { name: string; emoji: string; hp: number; atk: number; shield: number; img: 'k' | 'j' | 'jb' | 'h' | 'hb' }
 /** 怪物血量按关卡题数缩放过（原型：普通 6 题左右能打完） */
@@ -25,17 +29,22 @@ export const EXTRA_QUESTION_FACTOR = 1;
 /* ===== D6 轮流回合（GDD v0.3.6 §4.4 / 实现规格 §3.2），所有数值只在这里改 ===== */
 export type RoundMode = 'p36' | 'j' | 'h';
 export type MIntent = 'atk' | 'charge' | 'heavy' | 'shield' | 'idle';
-export interface RoundMonster { hp: number; atk: number; cap: number; pat: MIntent[]; half?: MIntent[]; phases?: { hp: number; weak: string }[] }
+export interface RoundMonster { hp: number; atk: number; cap: number; pat: MIntent[]; half?: MIntent[]; phases?: { hp: number; weak?: string }[]; rage?: number /* D14：二阶段攻击倍率 */ }
 export interface RoundStats { player: { hp: number; atk: number }; shield: number; dodge: number; perfect: boolean; monsters: Record<LevelKind, RoundMonster> }
-const N: MIntent[] = ['atk', 'atk', 'shield'], E: MIntent[] = ['atk', 'charge', 'heavy'], B: MIntent[] = ['atk', 'atk', 'charge', 'heavy'];
+const N: MIntent[] = ['atk', 'atk', 'shield'], E: MIntent[] = ['atk', 'charge', 'heavy'], B: MIntent[] = ['atk', 'atk', 'charge', 'heavy'], R: MIntent[] = ['atk', 'charge', 'heavy'];
+/** Boss 关的时长（回合上限），以后可能再调：只改这里（D14：小学 28 / 初一 28 / 高一 30） */
+export const BOSS_CAP = { p36: 28, j: 28, h: 30 };
+/** 三星条件（D14）：答对率 ≥ 80%、没复活、剩余血量 ≥ 50% */
+export const STAR3 = { acc: 0.8, hp: 0.5 }, STAR2 = { acc: 0.6 };
 export const ROUND: Record<RoundMode, RoundStats> = {
   p36: { player: { hp: 100, atk: 18 }, shield: 8, dodge: 0.30, perfect: false, monsters: {
-    normal: { hp: 50, atk: 10, cap: 12, pat: N }, elite: { hp: 100, atk: 13, cap: 16, pat: E }, boss: { hp: 126, atk: 15, cap: 22, pat: B, half: E } } },
+    normal: { hp: 66, atk: 10, cap: 14, pat: N }, elite: { hp: 125, atk: 13, cap: 20, pat: E }, boss: { hp: 165, atk: 13, cap: BOSS_CAP.p36, pat: B, half: E } } },
   j: { player: { hp: 100, atk: 20 }, shield: 10, dodge: 0.25, perfect: true, monsters: {
-    normal: { hp: 60, atk: 12, cap: 12, pat: N }, elite: { hp: 120, atk: 16, cap: 18, pat: E }, boss: { hp: 153, atk: 18, cap: 24, pat: B, half: E } } },
+    normal: { hp: 80, atk: 12, cap: 14, pat: N }, elite: { hp: 150, atk: 16, cap: 20, pat: E },
+    boss: { hp: 200, atk: 14, cap: BOSS_CAP.j, pat: B, half: R, rage: 1.2, phases: [{ hp: 100 }, { hp: 100 }] } } },
   h: { player: { hp: 160, atk: 26 }, shield: 15, dodge: 0.25, perfect: true, monsters: {
-    normal: { hp: 90, atk: 18, cap: 12, pat: N }, elite: { hp: 170, atk: 24, cap: 18, pat: E },
-    boss: { hp: 234, atk: 26, cap: 26, pat: B, half: E, phases: [{ hp: 117, weak: '数学' }, { hp: 117, weak: '化学' }] } } },
+    normal: { hp: 100, atk: 18, cap: 14, pat: N }, elite: { hp: 190, atk: 24, cap: 20, pat: E },
+    boss: { hp: 250, atk: 22, cap: BOSS_CAP.h, pat: B, half: R, rage: 1.2, phases: [{ hp: 125, weak: '数学' }, { hp: 125, weak: '化学' }] } } },
 };
 /** 小学 3–4 年级：所有怪都用 ⚔ → ⚔ → 🛡 */
 export const LOW_GRADE_PATTERN: MIntent[] = N;

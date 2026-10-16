@@ -41,6 +41,7 @@ for (const [W, H] of (process.env.SKIP ? [] : [[768, 1024], [820, 1180], [1024, 
   const r = await pg.evaluate(() => { const g = s => { const e = document.querySelector(s); if (!e) return null; const r = e.getBoundingClientRect(); return [r.left, r.right, r.top, r.bottom]; };
     return { sw: document.documentElement.scrollWidth, okb: g('[data-testid=ok]'), turn: g('[data-testid=turn]'), del: g('.keypad .del') }; });
   ok(r.sw <= W, `${W}×${H} 竖屏无横向溢出（scrollWidth ${r.sw}）`);
+  if (process.env.DBG) console.log(JSON.stringify(r));
   ok(inView(r.okb, W, H) && inView(r.del, W, H), `${W}×${H} 键盘右列（⌫ / 确定）完整可见`);
   ok(inView(r.turn, W, H), `${W}×${H}「第 N 回合 / 上限」可见`);
   await pg.click('[data-key="1"]'); await pg.click('[data-testid=ok]');

@@ -9,7 +9,10 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
   tutorialReplay?: Record<string, boolean> }
-export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */ }
+export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */ }
+/** 实际生效的每日时长（0 = 不限）：r9 起 limit 最少 5 分钟，不限由 unlimited 开关决定 */
+export const effLimit = (p: Pick<Profile, 'limit' | 'unlimited'>): TimeLimit => ({ weekday: p.unlimited?.weekday ? 0 : Math.max(MIN_LIMIT, p.limit.weekday), weekend: p.unlimited?.weekend ? 0 : Math.max(MIN_LIMIT, p.limit.weekend) });
+export const MIN_LIMIT = 5;
 export interface Progress { stars: Record<string, number>; plays: Record<string, { day: string; count: number }>; masteredStars: number; xp: number }
 export const DEFAULT_SETTINGS: Settings = { includePending: false, g1NoLimit: false };
 export const AVATARS = ['🧒', '👧', '👦', '🧑‍🎓', '🧑‍🔬', '🐱', '🐶', '🐰', '🦊', '🐼', '🦁', '🐯'];
@@ -45,8 +48,18 @@ export function repairProfile(x: unknown): Profile | null {
   const lim = isObj(x.limit) ? x.limit : {};
   return { id: x.id, name: typeof x.name === 'string' && x.name ? x.name.slice(0, 16) : '小勇者', avatar: typeof x.avatar === 'string' && x.avatar ? x.avatar : '🧒', grade: grade as GradeKey,
     volumes: Array.isArray(x.volumes) ? x.volumes.filter(v => typeof v === 'string') : null,
-    limit: { weekday: Number.isFinite(lim.weekday) ? Number(lim.weekday) : def.weekday, weekend: Number.isFinite(lim.weekend) ? Number(lim.weekend) : def.weekend },
-    charId: typeof x.charId === 'string' ? x.charId : undefined, ...(x.tutorialDone === true ? { tutorialDone: true } : {}), ...(x.tutorialV036 === true ? { tutorialV036: true } : {}) };
+    ...(() => {   // r9 迁移：旧档案里的 0（不限）→ unlimited 开关 = 开，时长恢复默认值（最少 5 分钟）
+      const un = isObj(x.unlimited) ? x.unlimited : {};
+      const one = (k: 'weekday' | 'weekend') => { const v = Number.isFinite(lim[k]) ? Number(lim[k]) : def[k]; return v <= 0 ? { v: Math.max(MIN_LIMIT, def[k] || MIN_LIMIT), off: true } : { v: Math.max(MIN_LIMIT, v), off: un[k] === true }; };
+      const a = one('weekday'), b = one('weekend');
+      return { limit: { weekday: a.v, weekend: b.v }, ...(a.off || b.off ? { unlimited: { weekday: a.off, weekend: b.off } } : {}) };
+    })(),
+    charId: typeof x.charId === 'string' ? x.charId : undefined, ...(x.tutorialDone === true ? { tutorialDone: true } : {}), ...(x.tutorialV036 === true ? { tutorialV036: true } : {}),
+    // r9：修复时保留 r8b/D14 的新字段（以前被丢掉，导致「记住上次选择」、各学段角色丢失）
+    ...(typeof x.lastGrade === 'string' && GRADES.has(x.lastGrade) ? { lastGrade: x.lastGrade as GradeKey } : {}),
+    ...(isObj(x.charIds) ? { charIds: Object.fromEntries(Object.entries(x.charIds).filter(([, v]) => typeof v === 'string')) as Record<string, string> } : {}),
+    ...(isObj(x.tips) ? { tips: Object.fromEntries(Object.entries(x.tips).filter(([, v]) => v === true)) as Record<string, boolean> } : {}),
+    ...(isObj(x.kinderGuide) || x.kinderGuide === true ? { kinderGuide: true } : {}) };
 }
 export const loadSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await guarded<Partial<Settings>>('settings', x => isObj(x) ? x as Partial<Settings> : null, () => ({}))) });
 export const saveSettings = (s: Settings) => setKV('settings', s);
