@@ -5478,39 +5478,40 @@
    "textbook": "统编版",
    "unit": "三上·古诗 山行",
    "type": "选择",
-   "question": "“停车坐爱枫林晚”的下一句是？",
+   "question": "《山行》里，诗人停下车来，是因为喜爱什么？",
    "options": [
     {
-     "text": "春风又绿江南岸",
+     "text": "山上的人家",
      "image": "",
      "audio": ""
     },
     {
-     "text": "远上寒山石径斜",
+     "text": "天上的白云",
      "image": "",
      "audio": ""
     },
     {
-     "text": "霜叶红于二月花",
+     "text": "傍晚的枫林",
      "image": "",
      "audio": ""
     },
     {
-     "text": "白云生处有人家",
+     "text": "弯弯的石头小路",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "杜牧《山行》。",
+   "explanation": "停车坐爱枫林晚：因为喜爱傍晚的枫林而停车。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5822,39 +5823,40 @@
    "textbook": "统编版",
    "unit": "三下·古诗三首",
    "type": "选择",
-   "question": "“春江水暖鸭先知”说明？",
+   "question": "《惠崇春江晚景》里，“竹外桃花三两枝”中的桃花开在哪里？",
    "options": [
     {
-     "text": "江水不暖",
+     "text": "山顶上",
      "image": "",
      "audio": ""
     },
     {
-     "text": "鸭子会预报天气",
+     "text": "屋子里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "鸭子常在水里，最先感到水暖了",
+     "text": "河水里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "桃花开在水里",
+     "text": "竹林外边",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "写出对春天的细心观察。",
+   "answer": "D",
+   "explanation": "竹外桃花三两枝：竹林外两三枝桃花开了。",
    "difficulty": 2,
    "source": "AI",
    "volume": "三年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5dc5bf",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -18983,31 +18985,31 @@
    "textbook": "统编版",
    "unit": "三上·古诗 山行",
    "type": "选择",
-   "question": "“停车坐爱枫林晚”中“坐”的意思是？",
+   "question": "“霜叶红于二月花”中，“红于”的意思是？",
    "options": [
     {
-     "text": "因为",
+     "text": "变成了红色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "坐车",
+     "text": "和……一样红",
      "image": "",
      "audio": ""
     },
     {
-     "text": "坐下",
+     "text": "比……还要红",
      "image": "",
      "audio": ""
     },
     {
-     "text": "座位",
+     "text": "不如……红",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "坐：因为。",
+   "answer": "C",
+   "explanation": "霜叶比二月的花还要红。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级上册",
@@ -19055,9 +19057,9 @@
    "textbook": "统编版",
    "unit": "三上·古诗 望天门山",
    "type": "判断",
-   "question": "《望天门山》的作者是李白。",
+   "question": "《望天门山》写的是诗人坐船顺长江而下时看到的景色。",
    "answer": "对",
-   "explanation": "唐代李白。",
+   "explanation": "孤帆一片日边来，诗人在船上望天门山。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级上册",
@@ -19347,9 +19349,9 @@
    "textbook": "统编版",
    "unit": "三上·古诗 饮湖上初晴后雨",
    "type": "判断",
-   "question": "《饮湖上初晴后雨》的作者是苏轼。",
+   "question": "《饮湖上初晴后雨》写了西湖晴天和雨天两种景色。",
    "answer": "对",
-   "explanation": "宋代苏轼。",
+   "explanation": "水光潋滟晴方好，山色空蒙雨亦奇。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级上册",
@@ -21243,9 +21245,9 @@
    "textbook": "统编版",
    "unit": "三下·古诗 惠崇春江晚景",
    "type": "判断",
-   "question": "《惠崇春江晚景》的作者是苏轼。",
+   "question": "“正是河豚欲上时”是诗人看着画面想象出来的。",
    "answer": "对",
-   "explanation": "宋代苏轼。",
+   "explanation": "画上没有河豚，诗人由蒌蒿、芦芽联想到河豚将要上市。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级下册",
@@ -21676,12 +21678,32 @@
    "grade": 3,
    "textbook": "统编版",
    "unit": "三下·古诗三首",
-   "type": "填空",
-   "question": "《三衢道中》的作者是____。",
-   "answer": [
-    "曾几"
+   "type": "选择",
+   "question": "《三衢道中》里，“小溪泛尽却山行”的意思是？",
+   "options": [
+    {
+     "text": "坐船到了小溪尽头，再改走山路",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "在山上划船",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一直坐船在小溪上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小溪涨水淹没了山路",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋代诗人曾几。",
+   "answer": "A",
+   "explanation": "泛：乘船；却：再。",
    "difficulty": 1,
    "source": "AI",
    "volume": "三年级下册",

@@ -5188,40 +5188,21 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四上·古诗 出塞",
-   "type": "选择",
-   "question": "“但使龙城飞将在”的下一句是？",
-   "options": [
-    {
-     "text": "春风不度玉门关",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "秦时明月汉时关",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "不教胡马度阴山",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "葡萄美酒夜光杯",
-     "image": "",
-     "audio": ""
-    }
+   "type": "填空",
+   "question": "“但使龙城飞将在”中的“飞将”一般指汉代名将____。",
+   "answer": [
+    "李广"
    ],
-   "answer": "C",
-   "explanation": "王昌龄《出塞》。",
+   "explanation": "飞将：汉代名将李广，匈奴称他为“飞将军”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "四年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5506,39 +5487,40 @@
    "textbook": "统编版",
    "unit": "四下·古诗词 清平乐·村居",
    "type": "选择",
-   "question": "“最喜小儿亡赖”里“亡赖”的意思是？",
+   "question": "《清平乐·村居》里，“溪头卧剥莲蓬”的是谁？",
    "options": [
     {
-     "text": "没有用",
+     "text": "白发翁媪",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不认识字",
+     "text": "中儿",
      "image": "",
      "audio": ""
     },
     {
-     "text": "顽皮、淘气",
+     "text": "大儿",
      "image": "",
      "audio": ""
     },
     {
-     "text": "很坏要处罚",
+     "text": "小儿",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "辛弃疾写小儿剥莲蓬。",
+   "answer": "D",
+   "explanation": "最喜小儿亡赖，溪头卧剥莲蓬。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6b7a30",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -19648,12 +19630,32 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四上·古诗 出塞",
-   "type": "填空",
-   "question": "《出塞》的作者是____。",
-   "answer": [
-    "王昌龄"
+   "type": "选择",
+   "question": "《出塞》中“万里长征人未还”的“人”指的是？",
+   "options": [
+    {
+     "text": "诗人自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "出征守边的将士",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "做生意的商人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "敌人",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·王昌龄。",
+   "answer": "B",
+   "explanation": "写守边将士长年征战未能回家。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级上册",
@@ -19794,12 +19796,32 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四上·古诗 暮江吟",
-   "type": "填空",
-   "question": "《暮江吟》的作者是____。",
-   "answer": [
-    "白居易"
+   "type": "选择",
+   "question": "“半江瑟瑟半江红”中“瑟瑟”指的是？",
+   "options": [
+    {
+     "text": "冷得发抖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "碧绿色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "红色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风吹的声音",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·白居易。",
+   "answer": "B",
+   "explanation": "瑟瑟：碧绿色，形容没有被夕阳照到的江水。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级上册",
@@ -19940,12 +19962,32 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四上·古诗 雪梅",
-   "type": "填空",
-   "question": "《雪梅》的作者是____。",
-   "answer": [
-    "卢钺"
+   "type": "选择",
+   "question": "“梅须逊雪三分白”的意思是？",
+   "options": [
+    {
+     "text": "梅花比雪更白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雪比不上梅花香",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "梅花比不上雪白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "梅花和雪一样白",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·卢钺。",
+   "answer": "C",
+   "explanation": "逊：比不上。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级上册",
@@ -20086,12 +20128,32 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四上·古诗 题西林壁",
-   "type": "填空",
-   "question": "《题西林壁》的作者是____。",
-   "answer": [
-    "苏轼"
+   "type": "选择",
+   "question": "《题西林壁》中，诗人认不清庐山真面目的原因是？",
+   "options": [
+    {
+     "text": "离庐山太远",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山上有大雾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "身在庐山之中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天已经黑了",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·苏轼。",
+   "answer": "C",
+   "explanation": "不识庐山真面目，只缘身在此山中。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级上册",
@@ -20187,31 +20249,31 @@
    "textbook": "统编版",
    "unit": "四下·古诗词 四时田园杂兴",
    "type": "选择",
-   "question": "《四时田园杂兴》的作者范成大是哪个朝代的？",
+   "question": "“日长篱落无人过，惟有蜻蜓蛱蝶飞”说明农民们都？",
    "options": [
     {
-     "text": "唐",
+     "text": "下地干活去了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "宋",
+     "text": "进城去了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "汉",
+     "text": "在追蝴蝶",
      "image": "",
      "audio": ""
     },
     {
-     "text": "清",
+     "text": "在家睡觉",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "宋代。",
+   "answer": "A",
+   "explanation": "初夏农忙，白天篱笆边没有人经过。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级下册",
@@ -20378,12 +20440,32 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四下·古诗词 宿新市徐公店",
-   "type": "填空",
-   "question": "《宿新市徐公店》的作者是____。",
-   "answer": [
-    "杨万里"
+   "type": "选择",
+   "question": "“飞入菜花无处寻”中，孩子找不到蝴蝶的原因是？",
+   "options": [
+    {
+     "text": "黄蝴蝶飞进了同样是黄色的菜花里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "菜花太矮了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蝴蝶飞到天上去了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天黑看不见了",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·杨万里。",
+   "answer": "A",
+   "explanation": "黄蝶与黄色菜花颜色相同，难以分辨。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级下册",
@@ -20479,31 +20561,31 @@
    "textbook": "统编版",
    "unit": "四下·古诗词 清平乐·村居",
    "type": "选择",
-   "question": "《清平乐·村居》的作者辛弃疾是哪个朝代的？",
+   "question": "《清平乐·村居》里，“大儿”在做什么？",
    "options": [
     {
-     "text": "宋",
+     "text": "在剥莲蓬",
      "image": "",
      "audio": ""
     },
     {
-     "text": "唐",
+     "text": "在编鸡笼",
      "image": "",
      "audio": ""
     },
     {
-     "text": "汉",
+     "text": "在放牛",
      "image": "",
      "audio": ""
     },
     {
-     "text": "清",
+     "text": "在溪东的豆地里锄草",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "宋代。",
+   "answer": "D",
+   "explanation": "大儿锄豆溪东，中儿正织鸡笼。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级下册",
@@ -20524,12 +20606,32 @@
    "grade": 4,
    "textbook": "统编版",
    "unit": "四下·古诗词 清平乐·村居",
-   "type": "填空",
-   "question": "《清平乐·村居》的作者是____。",
-   "answer": [
-    "辛弃疾"
+   "type": "选择",
+   "question": "“醉里吴音相媚好”中的“吴音”指的是？",
+   "options": [
+    {
+     "text": "吹笛子的声音",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鸟叫声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吴国的音乐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吴地的方言",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·辛弃疾。",
+   "answer": "D",
+   "explanation": "吴音：吴地方言，作者当时住在江西上饶，古属吴地。",
    "difficulty": 2,
    "source": "AI",
    "volume": "四年级下册",

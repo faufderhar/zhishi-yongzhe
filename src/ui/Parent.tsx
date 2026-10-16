@@ -241,6 +241,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
           也出「待审核 / 需家长确认」的题（停用的题永远不出）</label>
         <label className="toggle"><input type="checkbox" checked={settings.g1NoLimit} onChange={e => setSettings({ ...settings, g1NoLimit: e.target.checked })} /> 1–2 年级不限时</label>
         <label className="toggle"><input type="checkbox" data-testid="hs-wager" checked={settings.hsWager ?? true} onChange={e => setSettings({ ...settings, hsWager: e.target.checked })} /> 高一战斗开启「信心押注」</label>
+        <label className="toggle"><input type="checkbox" data-testid="lenient-time" checked={!!settings.lenientTime} onChange={e => setSettings({ ...settings, lenientTime: e.target.checked })} /> 时限宽松（所有答题时限 ×1.5）</label>
         <label className="toggle"><input type="checkbox" data-testid="toggle-demo-reward" checked={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} onChange={e => setSettings({ ...settings, kinderDemoReward: e.target.checked })} /> 小班看演示学会的题也给⭐（不算「自己答对」）</label>
         <label className="toggle"><input type="checkbox" checked={settings.sfx ?? true} onChange={e => setSettings({ ...settings, sfx: e.target.checked })} /> 音效</label>
         <label className="toggle"><input type="checkbox" checked={settings.tts ?? true} onChange={e => setSettings({ ...settings, tts: e.target.checked })} /> 朗读</label>

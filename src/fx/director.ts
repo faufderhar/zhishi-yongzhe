@@ -213,9 +213,10 @@ export class Director {
     const { hero } = this.r;
     sfx('defeat');
     this.r.stage.classList.add('defeated');
-    await anim(hero, [{ transform: 'translateY(0) rotate(0)', opacity: 1 }, { transform: 'translateY(10px) rotate(-8deg)', opacity: 0.9, offset: 0.3 }, { transform: 'translateY(28px) rotate(-14deg) scale(.92)', opacity: 0.55 }], { duration: 900, fill: 'forwards' });
-    await sleep(400);
+    await anim(hero, [{ transform: 'translateY(0) rotate(0)', opacity: 1 }, { transform: 'translateY(10px) rotate(-8deg)', opacity: 0.9, offset: 0.3 }, { transform: 'translateY(28px) rotate(-14deg) scale(.92)', opacity: 0.55 }], { duration: 750, fill: 'forwards' });   // 倒地 ≤0.8 s（策划 r7）
   }
+  /** 复活：站起来 */
+  recover() { this.r.stage.classList.remove('defeated'); this.r.hero.getAnimations().forEach(a => a.cancel()); this.idle(); }
 
   /* ---------- 幼儿园：柔和版（无白闪 / 无震屏 / 无伤害数字） ---------- */
   async kinderCorrect() {

@@ -3165,40 +3165,41 @@
    "textbook": "统编版",
    "unit": "二下·古诗 村居",
    "type": "选择",
-   "question": "“草长莺飞二月天”的下一句是？",
-   "tts_text": "草长莺飞二月天的下一句是？",
+   "question": "《村居》里，“拂堤杨柳”是说杨柳的枝条怎样？",
+   "tts_text": "村居里，“拂堤杨柳”是说杨柳的枝条怎样？",
    "options": [
     {
-     "text": "儿童散学归来早",
+     "text": "被风吹断了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "拂堤杨柳醉春烟",
+     "text": "一片叶子也没有",
      "image": "",
      "audio": ""
     },
     {
-     "text": "忙趁东风放纸鸢",
+     "text": "轻轻地拂过堤岸",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "长在水底下",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "高鼎《村居》。",
+   "answer": "C",
+   "explanation": "拂：轻轻擦过。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -3257,7 +3258,7 @@
   },
   {
    "id": "Y2-032",
-   "status": "AI初审通过",
+   "status": "停用",
    "subject": "语文",
    "grade": 2,
    "textbook": "统编版",
@@ -3273,7 +3274,8 @@
    "source": "AI",
    "volume": "二年级下册",
    "knowledge_point": "语文",
-   "game_ready": true,
+   "review_note": "《赋得古原草送别》已不在 2026 春二下语文目录中，只保留在诗词科目（该语文小节只有 1 题），停用",
+   "game_ready": false,
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0f4071",

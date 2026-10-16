@@ -30,7 +30,15 @@ export function shortUnit(u?: string) {
 }
 
 /** volumes：已学册别（null = 全部）；volumeOrder：册别显示顺序 */
-export function buildChapters(qs: Question[], volumes: string[] | null = null): Chapter[] { return linkShortChinese(buildChapters0(qs, volumes)); }
+/** all：含不可玩题的全部题（用来找「可玩题为 0 的语文古诗课」，给它一张指向同名诗词关的卡片） */
+export function buildChapters(qs: Question[], volumes: string[] | null = null, all?: Question[]): Chapter[] { return linkShortChinese(buildChapters0(qs, volumes), zeroCnLessons(qs, volumes, all)); }
+function zeroCnLessons(qs: Question[], volumes: string[] | null, all?: Question[]) {
+  if (!all) return [];
+  const have = new Set(qs.filter(q => q.subject === '语文').map(q => q.volume + '|' + (q.unit ?? '')));
+  const out = new Map<string, Question>();
+  for (const q of all) { if (q.subject !== '语文' || (volumes && !volumes.includes(q.volume))) continue; const k = q.volume + '|' + (q.unit ?? ''); if (!have.has(k) && !out.has(k)) out.set(k, q); }
+  return [...out.values()];
+}
 function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapter[] {
   const bySubj = new Map<string, Question[]>();
   for (const q of qs) {
@@ -130,7 +138,7 @@ export function mergeSmallLessons(subject: string, subs: Sub[]): Sub[] {
 /** 语文课可玩题 < 3 时：若有同名诗词关，卡片指向那一关（不重复同一道题）；否则隐藏（策划 r6 / 题库 v14） */
 export const SHORT_CN = 3;
 const poemTitle = (s: string) => s.replace(/[（(][^）)]*[）)]/g, '').replace(/^.*?古诗(?:词)?(?:[一二三四两]首)?\s*/, '').replace(/[《》\s]/g, '');
-export function linkShortChinese(chs: Chapter[]): Chapter[] {
+export function linkShortChinese(chs: Chapter[], zero: Question[] = []): Chapter[] {
   const cn = chs.find(c => c.subject === '语文'); const po = chs.find(c => c.subject === '诗词'); if (!cn) return chs;
   const poems = (po?.levels ?? []).filter(l => l.kind === 'normal');
   const keep: Level[] = [];
@@ -138,6 +146,15 @@ export function linkShortChinese(chs: Chapter[]): Chapter[] {
     if (l.kind !== 'normal' || l.pool.length >= SHORT_CN) { keep.push(l); continue; }
     const t = poemTitle(l.name); const hit = t.length >= 2 ? poems.find(p => { const pt = poemTitle(p.name); return pt.length >= 2 && (pt === t || t.includes(pt) || pt.includes(t)); }) : undefined;
     if (hit) keep.push({ ...l, redirect: hit.id, name: `${l.name} → 古诗关` });
+  }
+  // 可玩题为 0 的语文课：有同名诗词关就加一张指向它的卡片（放在同册同章最后），否则不显示
+  for (const q of zero) {
+    const nm = shortUnit(q.unit) || q.volume; const t = poemTitle(nm); if (t.length < 2) continue;
+    const hit = poems.find(p => { const pt = poemTitle(p.name); return pt.length >= 2 && (pt === t || t.includes(pt) || pt.includes(t)); }); if (!hit) continue;
+    const unit = chapterOf(q.unit)?.title || nm; let at = -1;
+    keep.forEach((l, i) => { if (l.volume === q.volume && l.unit === unit) at = i; });
+    const lv: Level = { id: `语文|R|${q.key}`, chapter: '语文', index: 0, kind: 'normal', name: `${nm} → 古诗关`, pool: [], volume: q.volume, unit, redirect: hit.id };
+    if (at >= 0) keep.splice(at + 1, 0, lv); else keep.push(lv);
   }
   keep.forEach((l, i) => { l.index = i + 1; });
   cn.levels = keep; return chs;
@@ -177,10 +194,18 @@ export function starsFor(win: boolean, accuracy: number, revived: boolean): numb
 }
 /** 解锁：每个教材单元的第 1 关开放（孩子可从正在学的单元开始）；单元内前一关 ≥1 星解锁下一关 */
 /** 某关星级：本 id 与旧 id 取最大 */
+/** 星级迁移（策划 r7）：星星只升不降。每个新关卡 = max(自身已有星, 映射到它的旧普通/精英关的星)；返回 null 表示无变化 */
+export function migrateStars(levels: Level[], stars: Record<string, number>): Record<string, number> | null {
+  let nx: Record<string, number> | null = null;
+  for (const l of levels) { const v = starOf(l, stars); if (v > (stars[l.id] ?? 0)) { nx ??= { ...stars }; nx[l.id] = v; } }
+  return nx;
+}
 export const starOf = (l: Level, stars: Record<string, number>) => Math.max(stars[l.id] ?? 0, ...(l.aliases ?? []).map(a => stars[a] ?? 0));
 export function isUnlocked(levels: Level[], i: number, stars: Record<string, number>) {
-  const p = levels[i - 1];
-  return i === 0 || p.unit !== levels[i].unit || p.volume !== levels[i].volume || starOf(levels[i - 1], stars) > 0;
+  if (levels[i]?.redirect) return true;   // 指向诗词关的卡片：总是可点（进入后按诗词关处理）
+  let j = i - 1; while (j >= 0 && levels[j].redirect) j--;   // 跳过指向诗词关的卡片
+  const p = levels[j];
+  return j < 0 || p.unit !== levels[i].unit || p.volume !== levels[i].volume || starOf(p, stars) > 0;
 }
 
 /** 从单元文本解析「章/单元号」：'七上·第2章 有理数·2.2 数轴' → 第2章；'7A Unit 3 …' → Unit 3；'2.4 …' → 第2章；

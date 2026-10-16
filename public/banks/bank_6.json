@@ -4831,39 +4831,40 @@
    "textbook": "统编版",
    "unit": "六下·古诗 寒食",
    "type": "选择",
-   "question": "“春城无处不飞花”的下一句是？",
+   "question": "韩翃的《寒食》写的是哪个节日的景象？",
    "options": [
     {
-     "text": "轻烟散入五侯家",
+     "text": "元宵节",
      "image": "",
      "audio": ""
     },
     {
-     "text": "日暮汉宫传蜡烛",
+     "text": "重阳节",
      "image": "",
      "audio": ""
     },
     {
-     "text": "寒食东风御柳斜",
+     "text": "寒食节",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "中秋节",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "韩翃。",
+   "explanation": "寒食节在清明前一两天，禁火冷食。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -17874,12 +17875,32 @@
    "grade": 6,
    "textbook": "统编版",
    "unit": "六上·六月二十七日望湖楼醉书",
-   "type": "填空",
-   "question": "《六月二十七日望湖楼醉书》的作者是____。",
-   "answer": [
-    "苏轼"
+   "type": "选择",
+   "question": "“白雨跳珠乱入船”把雨点比作什么？",
+   "options": [
+    {
+     "text": "洒落的米粒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跳动的珍珠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "飞舞的雪花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白色的云",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·苏轼。",
+   "answer": "B",
+   "explanation": "写雨点又大又急。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级上册",
@@ -18020,12 +18041,32 @@
    "grade": 6,
    "textbook": "统编版",
    "unit": "六上·古诗词 宿建德江",
-   "type": "填空",
-   "question": "《宿建德江》的作者是____。",
-   "answer": [
-    "孟浩然"
+   "type": "选择",
+   "question": "“江清月近人”中，月亮为什么好像离人很近？",
+   "options": [
+    {
+     "text": "月亮落到了地上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诗人爬上了高山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "船开到了天边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "江水清澈，月亮倒映在水中",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·孟浩然。",
+   "answer": "D",
+   "explanation": "水中月影与人相近。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级上册",
@@ -18121,31 +18162,31 @@
    "textbook": "统编版",
    "unit": "六上·古诗词 西江月",
    "type": "选择",
-   "question": "《西江月·夜行黄沙道中》的作者辛弃疾是哪个朝代的？",
+   "question": "“七八个星天外，两三点雨山前”写的是？",
    "options": [
     {
-     "text": "清",
+     "text": "夏夜天气变化，星星稀疏、山前落雨",
      "image": "",
      "audio": ""
     },
     {
-     "text": "汉",
+     "text": "秋天落叶",
      "image": "",
      "audio": ""
     },
     {
-     "text": "唐",
+     "text": "冬天下大雪",
      "image": "",
      "audio": ""
     },
     {
-     "text": "宋",
+     "text": "清晨日出",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "D",
-   "explanation": "宋代。",
+   "answer": "A",
+   "explanation": "写夜行途中天气的变化。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级上册",
@@ -18312,12 +18353,32 @@
    "grade": 6,
    "textbook": "统编版",
    "unit": "六下·十五夜望月",
-   "type": "填空",
-   "question": "《十五夜望月》的作者是____。",
-   "answer": [
-    "王建"
+   "type": "选择",
+   "question": "“不知秋思落谁家”中的“秋思”指的是？",
+   "options": [
+    {
+     "text": "秋天的月饼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋天的庄稼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋天的雨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋天里思念亲人的情怀",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·王建。",
+   "answer": "D",
+   "explanation": "中秋望月，思念亲人。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级下册",
@@ -18458,12 +18519,32 @@
    "grade": 6,
    "textbook": "统编版",
    "unit": "六下·古诗 寒食",
-   "type": "填空",
-   "question": "《寒食》的作者是____。",
-   "answer": [
-    "韩翃"
+   "type": "选择",
+   "question": "“轻烟散入五侯家”中“五侯”指的是？",
+   "options": [
+    {
+     "text": "受皇帝宠信的权贵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五座山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五个侯爵的孩子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五个百姓",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·韩翃。",
+   "answer": "A",
+   "explanation": "诗人借此委婉讽刺权贵受宠。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级下册",
@@ -22311,9 +22392,9 @@
    "textbook": "统编版",
    "unit": "六下·古诗综合",
    "type": "判断",
-   "question": "《寒食》的作者是韩翃。",
+   "question": "“春城无处不飞花”写的是春天的景色。",
    "answer": "对",
-   "explanation": "唐代。",
+   "explanation": "韩翃《寒食》：春城无处不飞花，寒食东风御柳斜。",
    "difficulty": 2,
    "source": "AI",
    "volume": "六年级下册",

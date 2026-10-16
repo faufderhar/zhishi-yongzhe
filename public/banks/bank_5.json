@@ -5028,39 +5028,40 @@
    "textbook": "统编版",
    "unit": "五上·古诗三首 示儿",
    "type": "选择",
-   "question": "“王师北定中原日”的下一句是？",
+   "question": "“家祭无忘告乃翁”中“乃翁”指的是？",
    "options": [
     {
-     "text": "但悲不见九州同",
+     "text": "皇帝",
      "image": "",
      "audio": ""
     },
     {
-     "text": "家祭无忘告乃翁",
+     "text": "祖先",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春风又绿江南岸",
+     "text": "你的爷爷",
      "image": "",
      "audio": ""
     },
     {
-     "text": "死去元知万事空",
+     "text": "你的父亲，也就是陆游自己",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "陆游临终仍盼统一。",
+   "answer": "D",
+   "explanation": "乃翁：你的父亲。",
    "difficulty": 1,
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5073,39 +5074,40 @@
    "textbook": "统编版",
    "unit": "五上·题临安邸",
    "type": "选择",
-   "question": "“暖风熏得游人醉”的下一句是？",
+   "question": "“直把杭州作汴州”中的“汴州”指的是？",
    "options": [
     {
-     "text": "西湖歌舞几时休",
+     "text": "南宋的都城",
      "image": "",
      "audio": ""
     },
     {
-     "text": "山外青山楼外楼",
+     "text": "北宋的都城（今河南开封）",
      "image": "",
      "audio": ""
     },
     {
-     "text": "直把杭州作汴州",
+     "text": "唐朝的都城长安",
      "image": "",
      "audio": ""
     },
     {
-     "text": "商女不知亡国恨",
+     "text": "苏州",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "林升讽刺苟且偷安。",
+   "answer": "B",
+   "explanation": "汴州：北宋都城，当时已被金占领。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5118,39 +5120,40 @@
    "textbook": "统编版",
    "unit": "五上·己亥杂诗",
    "type": "选择",
-   "question": "“我劝天公重抖擞”的下一句是？",
+   "question": "《己亥杂诗》中“万马齐喑”比喻什么？",
    "options": [
     {
-     "text": "万马齐喑究可哀",
+     "text": "马生病了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "落红不是无情物",
+     "text": "社会死气沉沉，人们不敢说话",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不拘一格降人才",
+     "text": "打仗失败了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "九州生气恃风雷",
+     "text": "天气非常寒冷",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "龚自珍。",
+   "answer": "B",
+   "explanation": "喑：沉默不语。",
    "difficulty": 1,
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5413,39 +5416,40 @@
    "textbook": "统编版",
    "unit": "五上·枫桥夜泊",
    "type": "选择",
-   "question": "“姑苏城外寒山寺”的下一句是？",
+   "question": "《枫桥夜泊》中“江枫渔火对愁眠”主要表达了诗人怎样的心情？",
    "options": [
     {
-     "text": "朝辞白帝彩云间",
+     "text": "害怕紧张",
      "image": "",
      "audio": ""
     },
     {
-     "text": "夜半钟声到客船",
+     "text": "旅途中孤独忧愁",
      "image": "",
      "audio": ""
     },
     {
-     "text": "月落乌啼霜满天",
+     "text": "愤怒不平",
      "image": "",
      "audio": ""
     },
     {
-     "text": "江枫渔火对愁眠",
+     "text": "欢喜热闹",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "B",
-   "explanation": "张继。",
+   "explanation": "客船夜泊，愁绪难眠。",
    "difficulty": 1,
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6272,39 +6276,40 @@
    "textbook": "统编版",
    "unit": "五上·语文园地",
    "type": "选择",
-   "question": "“不拘一格降人才”呼吁的是？",
+   "question": "“不拘一格”的意思是？",
    "options": [
     {
-     "text": "打破常规，让各种人才出现",
+     "text": "要求非常严格",
      "image": "",
      "audio": ""
     },
     {
-     "text": "所有人一样",
+     "text": "不局限于一种规格或方式",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只看门第",
+     "text": "一格一格地排好",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不要人才",
+     "text": "只看一种标准",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "龚自珍。",
+   "answer": "B",
+   "explanation": "拘：拘泥、局限。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T11434a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -18451,12 +18456,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五上·古诗三首 示儿",
-   "type": "填空",
-   "question": "《示儿》的作者是____。",
-   "answer": [
-    "陆游"
+   "type": "选择",
+   "question": "陆游写《示儿》时的情境是？",
+   "options": [
+    {
+     "text": "考中进士时",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中秋节赏月时",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "出征打仗前",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "临终前写给儿子",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·陆游。",
+   "answer": "D",
+   "explanation": "《示儿》是陆游的绝笔诗。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
@@ -18597,12 +18622,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五上·古诗词三首 山居秋暝",
-   "type": "填空",
-   "question": "《山居秋暝》的作者是____。",
-   "answer": [
-    "王维"
+   "type": "选择",
+   "question": "《山居秋暝》中“竹喧归浣女”的“喧”指的是？",
+   "options": [
+    {
+     "text": "下雨的声音",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "洗衣姑娘们回家时竹林里传来的说笑声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风吹竹子的声音",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鸟叫声",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·王维。",
+   "answer": "B",
+   "explanation": "竹喧归浣女：竹林喧闹，是洗衣的姑娘们回来了。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
@@ -18889,12 +18934,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五上·己亥杂诗",
-   "type": "填空",
-   "question": "《己亥杂诗》的作者是____。",
-   "answer": [
-    "龚自珍"
+   "type": "选择",
+   "question": "《己亥杂诗》中，诗人希望“天公”怎样？",
+   "options": [
+    {
+     "text": "让天气变暖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "重新振作，降下各种各样的人才",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "惩罚坏人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "多下雨",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "清·龚自珍。",
+   "answer": "B",
+   "explanation": "我劝天公重抖擞，不拘一格降人才。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
@@ -19035,12 +19100,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五上·枫桥夜泊",
-   "type": "填空",
-   "question": "《枫桥夜泊》的作者是____。",
-   "answer": [
-    "张继"
+   "type": "选择",
+   "question": "“夜半钟声到客船”中的钟声来自哪里？",
+   "options": [
+    {
+     "text": "白马寺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "灵隐寺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "少林寺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "寒山寺",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "唐·张继。",
+   "answer": "D",
+   "explanation": "姑苏城外寒山寺，夜半钟声到客船。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
@@ -19181,12 +19266,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五上·题临安邸",
-   "type": "填空",
-   "question": "《题临安邸》的作者是____。",
-   "answer": [
-    "林升"
+   "type": "选择",
+   "question": "《题临安邸》讽刺的是？",
+   "options": [
+    {
+     "text": "商人卖东西太贵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "北宋皇帝太勤劳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "南宋统治者苟且偷安，不想收复失地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "游人不爱护西湖",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·林升。",
+   "answer": "C",
+   "explanation": "直把杭州作汴州。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
@@ -19327,12 +19432,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五下·古诗三首 稚子弄冰",
-   "type": "填空",
-   "question": "《稚子弄冰》的作者是____。",
-   "answer": [
-    "杨万里"
+   "type": "选择",
+   "question": "《稚子弄冰》里，孩子用什么穿起冰块当银钲？",
+   "options": [
+    {
+     "text": "竹竿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铁丝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "麻绳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "彩丝",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·杨万里。",
+   "answer": "D",
+   "explanation": "彩丝穿取当银钲。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
@@ -19473,12 +19598,32 @@
    "grade": 5,
    "textbook": "统编版",
    "unit": "五下·村晚",
-   "type": "填空",
-   "question": "《村晚》的作者是____。",
-   "answer": [
-    "雷震"
+   "type": "选择",
+   "question": "《村晚》里，牧童是怎样骑在牛背上的？",
+   "options": [
+    {
+     "text": "趴在牛背上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "站在牛背上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "横坐在牛背上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "牵着牛走路",
+     "image": "",
+     "audio": ""
+    }
    ],
-   "explanation": "宋·雷震。",
+   "answer": "C",
+   "explanation": "牧童归去横牛背。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",

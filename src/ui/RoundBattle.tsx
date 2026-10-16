@@ -10,7 +10,7 @@ import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX } from '../game/balance';
 import { timeLimitFor } from '../game/grades';
 import { MONSTER_IMG } from '../game/characters';
-import { speak } from '../tts';
+import { speak, isSpeaking } from '../tts';
 import { answerFeedback } from '../feedback';
 import { sleep } from '../fx/motion';
 import { skinFor, softFor } from '../game/monsterSkin';
@@ -52,6 +52,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const D = useDirector(false, c, 0.75, hs, { skin, soft: softFor(cfg.band) });
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp });
   const [ending, setEnding] = useState(false);
+  const falling = view.p <= 0 || view.m <= 0;   // 已被打到 0 血：直接倒地/defeat，不显示「战斗中…」（策划 r7）
   useWakeLock(); usePauseTimeout(paused, onQuit);
   const result = (s: RState) => ({ win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
   useForceEnd(() => { const s = bsRef.current; onEnd({ ...result(s), win: false, retreat: false, timeUp: true }); });   // 到时强制结算：与回合上限撤退分开（技术QA R4-3）
@@ -93,19 +94,23 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const cq = phase === 'revive-q' && rv ? rv.list[rv.i] : q;
   const limit = cq ? timeLimitFor(cq, cfg.band, {}) : 0;
   const [timeLeft, setTimeLeft] = useState(limit);
+  const [ttsTick, setTtsTick] = useState(0);
   const [elapsed, setElapsed] = useState(0);
   const asking = phase === 'question' || phase === 'revive-q';
   useEffect(() => { if (asking) { setTimeLeft(limit); setElapsed(0); } }, [cq?.key, asking, rv?.i]);
   useEffect(() => { if (cq && cfg.autoTTS && asking) { const t = ttsText(cq); if (t) speak(t, cq.subject === '英语' ? 'en' : 'zh-CN'); } }, [cq?.key, asking]);
   useEffect(() => {
     if (!asking || paused) return;
-    const t = setTimeout(() => { if (limit && timeLeft <= 1) { setTimeLeft(0); submit(''); return; } setElapsed(e => e + 1); if (limit) setTimeLeft(x => x - 1); }, 1000); return () => clearTimeout(t);
-  }, [asking, timeLeft, elapsed, paused, limit]);
+    const t = setTimeout(() => { if (isSpeaking()) { setTtsTick(x => x + 1); return; }   // 朗读时不计时
+      if (limit && timeLeft <= 1) { setTimeLeft(0); submit(''); return; } setElapsed(e => e + 1); if (limit) setTimeLeft(x => x - 1); }, 1000); return () => clearTimeout(t);
+  }, [asking, timeLeft, elapsed, paused, limit, ttsTick]);
 
-  const finish = async (s: RState) => {
+  // 0 血（策划 r7）：不再停在「结算中…」；倒地 / 怪物 defeat 动作最多 0.8 s，然后直接复活或结算
+  const END_MS = 800;
+  const finish = async (s: RState, played = false) => {
     if (ending) return; setEnding(true);
     const r = result(s); setPhase('anim');
-    if (s.over !== 'retreat') await Promise.race([r.win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(1200)]);
+    if (s.over !== 'retreat' && !played) await Promise.race([r.win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(END_MS)]);
     if (!D.alive.current) return;
     onEnd(r);
   };
@@ -121,7 +126,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     if (phase === 'revive-q' && rv) {
       const ok = val !== '' && judge(qq, qq.type === '多选' ? val.split('') : val) === 'full';
       answerFeedback(ok); const right = rv.right + (ok ? 1 : 0), tries = rv.tries + 1; setPicked(val);
-      if (right >= REVIVE.need) { const ns = reviveRound(bs); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setCanNext(true); setPhase('feedback'); return; }
+      if (right >= REVIVE.need) { const ns = reviveRound(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setCanNext(true); setPhase('feedback'); return; }
       if (tries >= REVIVE.tries || REVIVE.tries - tries < REVIVE.need - right) { setRv(null); void finish(bs); return; }
       setRv({ list: rv.list, i: (rv.i + 1) % rv.list.length, right, tries }); setInput(''); setMulti([]);
       return;
@@ -153,6 +158,16 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
       const full = g === 'full';   // 漏选不算答对（策划裁定 6）：显示解析，至少停 2 秒
       setFb({ ok: full, o, partial: g === 'partial', text: (full ? '✔ 正确！' : g === 'partial' ? '◐ 漏选了！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体抵挡 30%）' : '') });
       if (ns.over === 'win') { void finish(ns); return; }
+      if (ns.over === 'lose') {   // 直接倒地 → 复活挑战 / 结算
+        
+        void Promise.race([D.dir.current?.defeat(), sleep(END_MS)]).then(() => {
+          if (!D.alive.current) return;
+          
+          if (cfg.canFail && !ns.revived && stats.current.wrongQs.length >= 1) { setPhase('revive-ask'); return; }
+          void finish(ns, true);
+        });
+        return;
+      }
       setCanNext(full); setPhase('feedback');
       if (!full) setTimeout(() => setCanNext(true), 2000);   // 解析至少停 2 秒（规格 §1）
     });
@@ -168,6 +183,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     if (s.over) { void finish(s); return; }
     setPhase('pre');
   }
+  if ((window as unknown as { __zyTest?: boolean }).__zyTest) (window as unknown as { __zyAnswer?: () => string | undefined }).__zyAnswer = () => cq?.answer[0];   // 仅自动化测试
   const isEn = cq?.subject === '英语';
   const letters = cq?.subject === '英语' || !!cq?.answer.some(a => /[a-df-z]/i.test(a));   // 英语 / 文字答案用字母键盘；数字里的 e 是科学计数
   const tts = cq ? ttsText(cq) : '';
@@ -254,7 +270,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
           </div>
         )}
         {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={() => submit(input)} />}
-        {phase === 'anim' && <div className="anim-wait" data-testid="anim">结算中…</div>}
+        {phase === 'anim' && !ending && !falling && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">

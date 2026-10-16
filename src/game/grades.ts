@@ -40,15 +40,15 @@ export const isCalc = (q: Question) => ['数学', '物理', '化学', '科学'].
  * 每题时限（秒），0 = 不限时。题目 time 字段优先。
  * G1 30；G2 25；G3 20（阅读类 40、计算 45）；初中 45（理科计算 60）；高中 90（理科计算 120）；幼儿园不限时
  */
-export function timeLimitFor(q: Question, band: Band, opts: { g1NoLimit?: boolean } = {}): number {
-  if (band === 'K') return 0;
+/** 答题时限（策划 r7）：小班不限时；1–2 年级 40s；3–4 年级 30s；5–6 年级 25s；初一 25s；高一 30s。
+    计算题、填空题 ×1.5；家长页「时限宽松」再 ×1.5（叠加）。多步题按每一小问计时（调用方按小问传入）。 */
+export const BASE_LIMIT: Record<Band, number> = { K: 0, G1: 40, G2: 30, G3: 25, J: 25, H: 30 };
+export const timePrefs = { lenient: false };
+export function timeLimitFor(q: Question, band: Band, opts: { g1NoLimit?: boolean; lenient?: boolean } = {}): number {
+  const base = BASE_LIMIT[band]; if (!base) return 0;
   if (band === 'G1' && opts.g1NoLimit) return 0;
-  if (q.time) return q.time;
-  switch (band) {
-    case 'G1': return 30;
-    case 'G2': return 25;
-    case 'G3': return isCalc(q) ? 45 : isReading(q) ? 40 : 20;
-    case 'J': return isCalc(q) ? 60 : 45;
-    case 'H': return isCalc(q) ? 120 : 90;
-  }
+  let t = base;
+  if (isCalc(q) || q.type === '填空') t *= 1.5;
+  if (opts.lenient ?? timePrefs.lenient) t *= 1.5;
+  return Math.round(t);
 }

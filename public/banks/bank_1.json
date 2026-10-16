@@ -3733,37 +3733,38 @@
    "textbook": "统编版",
    "unit": "一下·第四单元·静夜思",
    "type": "选择",
-   "question": "“床前明月光”的下一句是？",
-   "tts_text": "床前明月光的下一句是？",
+   "question": "《静夜思》里，诗人“举头”看到了什么？",
+   "tts_text": "静夜思里，诗人“举头”看到了什么？",
    "options": [
     {
-     "text": "低头思故乡",
+     "text": "故乡",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "明月",
      "image": "",
      "audio": ""
     },
     {
-     "text": "疑是地上霜",
+     "text": "太阳",
      "image": "",
      "audio": ""
     },
     {
-     "text": "举头望明月",
+     "text": "星星",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "C",
-   "explanation": "疑是地上霜。",
+   "answer": "B",
+   "explanation": "举头望明月。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
    "change_tag": "修改",
@@ -3851,37 +3852,38 @@
    "textbook": "统编版",
    "unit": "一下·第六单元·古诗二首 池上",
    "type": "选择",
-   "question": "“小娃撑小艇”的下一句是？",
-   "tts_text": "小娃撑小艇的下一句是？",
+   "question": "《池上》里，小娃撑着小艇去做什么？",
+   "tts_text": "池上里，小娃撑着小艇去做什么？",
    "options": [
     {
-     "text": "不解藏踪迹",
+     "text": "捉青蛙",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "钓鱼",
      "image": "",
      "audio": ""
     },
     {
-     "text": "浮萍一道开",
+     "text": "偷采白莲",
      "image": "",
      "audio": ""
     },
     {
-     "text": "偷采白莲回",
+     "text": "游泳",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "D",
-   "explanation": "偷采白莲回。",
+   "answer": "C",
+   "explanation": "小娃撑小艇，偷采白莲回。",
    "difficulty": 2,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
    "change_tag": "修改",
@@ -3924,37 +3926,38 @@
    "textbook": "统编版",
    "unit": "一下·第六单元·古诗二首 小池",
    "type": "选择",
-   "question": "“小荷才露尖尖角”的下一句是？",
-   "tts_text": "小荷才露尖尖角的下一句是？",
+   "question": "《小池》里，“泉眼无声”是说泉水流得怎样？",
+   "tts_text": "小池里，“泉眼无声”是说泉水流得怎样？",
    "options": [
     {
-     "text": "泉眼无声惜细流",
+     "text": "又急又响",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春色满园关不住",
+     "text": "哗哗地响",
      "image": "",
      "audio": ""
     },
     {
-     "text": "早有蜻蜓立上头",
+     "text": "很细很慢，没有声音",
      "image": "",
      "audio": ""
     },
     {
-     "text": "树阴照水爱晴柔",
+     "text": "一点也不流",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "早有蜻蜓立上头。",
+   "explanation": "泉眼无声惜细流：泉水细细地流，没有声音。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdb6f17",
    "change_tag": "修改",
@@ -3970,32 +3973,32 @@
    "textbook": "统编版",
    "unit": "一下·第三单元·日积月累 赠汪伦",
    "type": "选择",
-   "question": "“桃花潭水深千尺”的下一句是？",
-   "tts_text": "桃花潭水深千尺的下一句是？",
+   "question": "《赠汪伦》里，李白是坐什么离开的？",
+   "tts_text": "赠汪伦里，李白是坐什么离开的？",
    "options": [
     {
-     "text": "举头望明月",
+     "text": "飞机",
      "image": "",
      "audio": ""
     },
     {
-     "text": "夜半客来归",
+     "text": "轿子",
      "image": "",
      "audio": ""
     },
     {
-     "text": "送我到江边",
+     "text": "马车",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不及汪伦送我情",
+     "text": "船",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "D",
-   "explanation": "李白写给朋友汪伦。",
+   "explanation": "李白乘舟将欲行。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级下册",
@@ -7903,32 +7906,32 @@
    "textbook": "统编版",
    "unit": "一下·第二单元·日积月累 春晓",
    "type": "选择",
-   "question": "“春眠不觉晓”的下一句是？",
-   "tts_text": "春眠不觉晓的下一句是？",
+   "question": "“春眠不觉晓”是什么意思？",
+   "tts_text": "“春眠不觉晓”是什么意思？",
    "options": [
     {
-     "text": "处处闻啼鸟",
+     "text": "春天睡不着觉",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "春天睡得香，不知不觉天就亮了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "夜来风雨声",
+     "text": "春天的早晨很冷",
      "image": "",
      "audio": ""
     },
     {
-     "text": "花落知多少",
+     "text": "春天不想起床上学",
      "image": "",
      "audio": ""
     }
    ],
-   "answer": "A",
-   "explanation": "处处闻啼鸟。",
+   "answer": "B",
+   "explanation": "晓：天亮。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级下册",

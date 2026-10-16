@@ -17,13 +17,7 @@ describe('年级段', () => {
     expect(['K1', '1', '2', '3', '4', '5', '6', '7', '10'].map(g => bandOf(g as any))).toEqual(['K', 'G1', 'G1', 'G2', 'G2', 'G3', 'G3', 'J', 'H']);
     expect(BANDS.G1.battle).toBe('simple'); expect(BANDS.G1.canFail).toBe(false); expect(BANDS.G1.autoTTS).toBe(true);
   });
-  it('时限：G1 30 / G2 25 / G3 20，阅读 40，计算 45；题目 time 优先；幼儿园不限', () => {
-    expect(timeLimitFor(mk({ id: 'a', type: '选择', subject: '诗词', options: [{ text: '1' }, { text: '2' }] as any, answer: 'A' as any }), 'G1')).toBe(30);
-    expect(timeLimitFor(mk({ id: 'a', subject: '诗词', type: '判断', answer: '对' as any }), 'G2')).toBe(25);
-    expect(timeLimitFor(mk({ id: 'a', subject: '诗词', type: '判断', answer: '对' as any }), 'G3')).toBe(20);
-    expect(timeLimitFor(mk({ id: 'a', subject: '语文', type: '判断', answer: '对' as any, question: '阅读下面的句子，'.repeat(6) }), 'G3')).toBe(40);
-    expect(timeLimitFor(mk({ id: 'a', subject: '数学', question: '计算：3+4=?' }), 'G3')).toBe(45);
-    expect(timeLimitFor(mk({ id: 'a', time: 90 as any }), 'G3')).toBe(90);
+  it('时限（r7 改为新规则，详见 tests/r7.test.ts）：幼儿园不限；一年级家长可关', () => {
     expect(timeLimitFor(mk({ id: 'a' }), 'K')).toBe(0);
     expect(timeLimitFor(mk({ id: 'a' }), 'G1', { g1NoLimit: true })).toBe(0);
   });

@@ -7,8 +7,8 @@ import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, type Question } from './game/questions';
-import { bandConfig } from './game/grades';
-import { buildChapters, levelStars, bossPool, levelsOfUnit, type Level } from './game/levels';
+import { bandConfig, timePrefs } from './game/grades';
+import { buildChapters, levelStars, bossPool, levelsOfUnit, migrateStars, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
@@ -48,6 +48,7 @@ export default function App() {
   const [portrait, setPortrait] = useState(false);
   const masteredThisLevel = useRef(0);
   useEffect(() => { setAudioPrefs({ sfx: settings.sfx ?? true, tts: settings.tts ?? true, volume: settings.volume ?? 0.8 }); }, [settings.sfx, settings.tts, settings.volume]);
+  timePrefs.lenient = !!settings.lenientTime;   // 渲染期同步，战斗内 timeLimitFor 直接读
   const [clock, setClock] = useState<S.ClockState>({ maxSeen: 0, locked: false });
   const [storageErr, setStorageErr] = useState<string>();
   const [updateReady, setUpdateReady] = useState<null | (() => void)>(null);
@@ -93,7 +94,10 @@ export default function App() {
   const p = profiles.find(x => x.id === pid);
   const cfg = p ? bandConfig(p.grade) : null;
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
-  const chapters = useMemo(() => buildChapters(gradeQs, p?.volumes ?? null), [gradeQs, p?.volumes]);
+  const allGradeQs = useMemo(() => bank && p ? questionsOfGrade(bank, p.grade) : [], [bank, p?.grade]);
+  const chapters = useMemo(() => buildChapters(gradeQs, p?.volumes ?? null, allGradeQs), [gradeQs, p?.volumes, allGradeQs]);
+  // 星级迁移：关卡表变化后把旧关卡的星写到新关卡（只升不降），持久化
+  useEffect(() => { if (!p) return; const nx = migrateStars(chapters.flatMap(c => c.levels), progress.stars); if (nx) setProgress(pr => { const v = { ...pr, stars: { ...pr.stars, ...Object.fromEntries(Object.entries(nx).filter(([k, x]) => x > (pr.stars[k] ?? 0))) } }; S.saveProgress(p.id, v); return v; }); }, [chapters, p?.id, progress.stars]);
   // 仅自动化测试：导出关卡 → 题目 unit / 题干，供线上验收检查「诗词关卡里的题都属于这首诗」
   useEffect(() => { const w = window as unknown as { __zyTest?: boolean; __zyLevels?: unknown }; if (!w.__zyTest || !bank) return;
     w.__zyLevels = chapters.map(c => ({ subject: c.subject, levels: c.levels.map(l => ({ id: l.id, kind: l.kind, name: l.name, qs: l.pool.map(k => { const q = bank.byKey.get(k); return { unit: q?.unit, question: q?.question }; }) })) })); }, [chapters, bank]);

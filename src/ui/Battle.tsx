@@ -11,7 +11,7 @@ import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newK
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
-import { speak, hasVoice } from '../tts';
+import { speak, hasVoice, isSpeaking } from '../tts';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
 import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
@@ -333,31 +333,33 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const q: Question | undefined = phase === 'revive-q' && rv ? rv.list[rv.i] : queue[idx];
   const limit = q ? timeLimitFor(q, cfg.band, { g1NoLimit }) : 0;
   const [timeLeft, setTimeLeft] = useState(limit);
+  const [ttsTick, setTtsTick] = useState(0);
   const [actKey, setActKey] = useState(0);
   const intent = intentOf(bs.turn);
   const D = useDirector(false, c, 0.75, mode === 'hs', { skin, soft: softFor(cfg.band) });
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp, c: bs.combo });   // 血条按命中时刻扣减
   const [ending, setEnding] = useState(false);
+  const falling = view.p <= 0 || view.m <= 0;   // 已被打到 0 血：直接倒地/defeat，不显示「战斗中…」（策划 r7）
 
   useEffect(() => { setTimeLeft(limit); }, [q?.key, phase === 'question' || phase === 'revive-q']);
   useEffect(() => { if (q && cfg.autoTTS && (phase === 'question' || phase === 'revive-q')) { const t = ttsText(q); if (t) speak(t, q.subject === '英语' ? 'en' : 'zh-CN'); } }, [q?.key, phase]);
   useEffect(() => {
     if ((phase !== 'question' && phase !== 'revive-q') || paused || !limit) return;
     if (timeLeft <= 0) { submit(''); return; }
-    const t = setTimeout(() => setTimeLeft(x => x - 1), 1000); return () => clearTimeout(t);
-  }, [phase, timeLeft, paused, limit]);
+    const t = setTimeout(() => { if (isSpeaking()) setTtsTick(x => x + 1); else setTimeLeft(x => x - 1); }, 1000); return () => clearTimeout(t);   // 朗读时不计时
+  }, [phase, timeLeft, paused, limit, ttsTick]);
   // D6 已取消（待策划新方案）：保持原流程，答对后 AUTO_ATTACK_SECONDS 秒自动攻击
   const actTotal = AUTO_ATTACK_SECONDS * 1000;
   const actMs = useCountdown(phase === 'action' && actTotal > 0, paused, actTotal || 1, actKey, () => act('attack'));
   const actLeft = Math.ceil(actMs / 1000);
 
   if (!q) return null;
-  const finish = async (s: BattleState) => {
+  const finish = async (s: BattleState, played = false) => {
     if (ending) return; setEnding(true);
     const win = s.over === 'win' || (!s.over && outOfQuestions(s) === 'win') || (!cfg.canFail);
     setPhase('anim');
-    // 胜负演出最多 1.2s，之后直接进结算（试玩报告 #8）
-    await Promise.race([win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(1200)]);
+    // 胜负演出最多 0.8s（策划 r7），之后直接进结算或复活
+    if (!played) await Promise.race([win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(800)]);
     if (!D.alive.current) return;
     onEnd({ win, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
   };
@@ -376,7 +378,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
       answerFeedback(ok);
       const right = rv.right + (ok ? 1 : 0);
       setPicked(val);
-      if (right >= 2) { const ns = revive(bs); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setPhase('feedback'); return; }
+      if (right >= 2) { const ns = revive(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp, c: ns.combo }); setRv(null); setFb({ ok: true, text: '复活成功！回到 50% 血量' }); setPhase('feedback'); return; }
       if (rv.i + 1 >= rv.list.length || (rv.list.length - rv.i - 1) < 2 - right) { setRv(null); finish(bs); return; }
       setRv({ ...rv, i: rv.i + 1, right }); setInput(''); setMulti([]); setTimeLeft(limit);
       return;
@@ -402,6 +404,12 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     const [ns, r] = resolveWrong(bs, c);
     setCanNext(false);
     void play(ns, () => D.dir.current?.monsterAttack(r.taken, () => setView(v => ({ ...v, p: ns.playerHp, c: ns.combo })))).then(() => {
+      if (ns.over === 'lose') {   // 0 血：倒地 ≤0.8 s 后直接复活挑战或结算（策划 r7）
+        
+        void Promise.race([D.dir.current?.defeat(), sleep(800)]).then(() => { const wq = queue.filter(x => stats.current.wrong.includes(x.key));
+          if (cfg.canFail && !ns.revived && wq.length >= 2) setPhase('revive-ask'); else void finish(ns, true); });
+        return;
+      }
       setFb({ ok: false, text: val === '' ? '⏰ 超时了' : '答错了', taken: r.taken }); setPhase('feedback');
       setTimeout(() => setCanNext(true), 1200);   // 解析至少停留一会儿
     });   // 解析至少停留一会儿
@@ -498,7 +506,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
             </div>
           </div>
         )}
-        {phase === 'anim' && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
+        {phase === 'anim' && !ending && !falling && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
         {phase === 'feedback' && fb && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`}>
             <h3>{fb.text}{fb.taken ? ` 受到 ${fb.taken} 伤害` : ''}{fb.dealt ? ` 造成 ${fb.dealt} 伤害` : ''}</h3>

@@ -87,7 +87,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
   return (
     <div className="center-screen">
       <button className="back" onClick={onBack} aria-label="返回">←</button>
-      <h2>{cfg.band === 'K' ? '选一只小狗伙伴' : cfg.band === 'H' ? '选择研究员' : '选择你的勇者'}</h2>
+      <h2>{cfg.band === 'K' ? '选角色 · 选一只小狗伙伴' : cfg.band === 'H' ? '选角色 · 选择研究员' : '选角色 · 选择你的勇者'}</h2>
       <div className="row gap24 wrap char-list" data-testid="charlist">
         {list.map(c => (
           <button key={c.id} className={`char-card ${c.id === sel ? 'sel' : ''} ${c.id === current ? 'last' : ''}`} data-testid={'char-' + c.id} aria-pressed={c.id === sel}
@@ -131,7 +131,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
         <span className="star-total">★ {totalStars}</span>
         <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}</span>
         <span className="grow" />
-        <button className="chip" onClick={onChar} data-testid="change-char">{c ? <Sprite className="chip-img" c={c} /> : '🐶'} 换角色</button>
+        <button className="chip" onClick={onChar} data-testid="change-char">{c ? <Sprite className="chip-img" c={c} /> : '🐶'} 选角色</button>
         {cfg.band !== 'K' && <button className="chip" data-testid="wrongbook" onClick={onWrongBook}>📕 错题本 {wrong.length}</button>}
         {cfg.band !== 'K' && <button className={`chip ${due ? 'hot' : ''}`} data-testid="review" disabled={!due || timeUp} onClick={onReview}>🔁 今日复习 {Math.min(due, 10)}</button>}
       </div>

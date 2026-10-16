@@ -4,7 +4,7 @@ import type { GradeKey } from './game/questions';
 import { bandConfig } from './game/grades';
 import type { TimeLimit, Usage } from './game/playtime';
 import type { Skills } from './game/adaptive';
-export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean; hsWager?: boolean;
+export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean; hsWager?: boolean; lenientTime?: boolean /* 时限宽松 ×1.5（r7） */;
   pinHint?: { q: string; a: string };            // 找回问题（答案存哈希）
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
