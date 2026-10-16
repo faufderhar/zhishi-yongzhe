@@ -43,6 +43,7 @@ import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
 import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, LK_IMPORT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { pendingDays, PEND_DAYS } from '../game/pinVault';
 import { hintCandidates, answerVariants, readLocal, readCache, makeRecoveryCode, normCode, RESET_DELAY_MS, fmtWhen, fmtDay } from '../game/pinVault';
 import type { Skills } from '../game/adaptive';
 
@@ -104,7 +105,7 @@ export function ParentGate({ allHints, settings, onSetPin, onOk, onCancel, purpo
   // r11：设好密码后生成 8 位恢复码，只显示这一次
   const finishSet = async (pin: string, hint?: { q: string; a: string }) => { const c = makeRecoveryCode(); onSetPin(await makePinHash(pin), hint, await makePinHash(c)); markPinSet(); setCode(c); setMode('code'); };
   const resetBox = <div className="p-card" data-testid="reset-box"><b>没有恢复码？</b><p className="hint">可以申请重设：{RESET_DELAY_MS / 3600e3} 小时后到期。等待期间每个页面顶部都会提示、每次打开游戏会全屏提示一次，任何人都能点〔取消〕。到期后仍要回答找回问题或输入恢复码才能设新密码。时长限制照常生效。</p>
-    {settings.pinReset ? <p data-testid="reset-pending">{settings.pinReset.ready ? '申请已到期：请回答找回问题或输入恢复码来设新密码。两样都没有，只能导入备份文件或清除浏览器数据（会清掉进度），见 ❓ 说明。' : `已申请，${fmtWhen(settings.pinReset.effectiveAt)}到期；到期后还要回答找回问题或输入恢复码。`}</p> : <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设密码（72 小时后到期）</button>}</div>;
+    {settings.pinReset ? <><p data-testid="reset-pending">{settings.pinReset.ready ? '申请已到期：请回答找回问题或输入恢复码来设新密码。两样都没有，只能导入备份文件或清除浏览器数据（会清掉进度），见 ❓ 说明。' : '已申请：累计满 72 小时、并且在 3 个不同的日子打开过游戏后到期；到期后还要回答找回问题或输入恢复码。'}</p>{settings.pinReset && <p className="big-rule" data-testid="reset-progress">已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}</> : <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设密码（72 小时后到期）</button>}</div>;
   if (mode === 'code') return (
     <div className="center-screen"><div className="pinpad"><h2>请记下恢复码</h2>
       <p>忘记密码时，用这个恢复码可以马上重设密码。<b>只显示这一次</b>，请抄在纸上或拍照保存，别让孩子看到。</p>
@@ -219,7 +220,7 @@ export function ParentSettings(props: ParentProps) {
         <li>设置密码时给的 8 位恢复码请抄下或拍照保存：忘记密码时输入恢复码能马上重设（找回问题要等 72 小时）。可以在「🔑 密码」里重新生成恢复码（旧的作废）。</li>
         <li>忘记密码时：①有恢复码 → 马上重设（新密码和找回问题一起提交后，旧恢复码才作废并发新码）；②记得找回问题答案 → 只能提交 72 小时延时重设申请，到期后再答一次才能设新密码；③密码、找回问题、恢复码都忘了 → 在「备份/恢复」导入以前导出的备份，输入备份时的家长密码或那时的恢复码；④这些都没有 → 只能清除浏览器数据重新开始（进度会清掉）。</li>
         <li>旧的预设找回问题（小名 / 宠物 / 生日）孩子可能知道答案，已失效：家长页顶部会一直提示，点「现在更换」换个新问题；换之前忘记密码只能用恢复码或备份。</li>
-        <li>找回问题、恢复码连续错 5 次会锁 24 小时；导入备份时输错备份密码 / 恢复码也计入同一个锁。锁定和延时只按游戏运行中实际经过的时间算，关掉游戏的时间不计（要让游戏开着才会走），调快平板时间无效。</li>
+        <li>找回问题、恢复码连续错 5 次会锁 24 小时；导入备份时输错备份密码 / 恢复码也计入同一个锁。24 小时锁定只按游戏开着的时间算；72 小时延时重设：关掉游戏的时间按真实时间算，但每次关闭最多算 12 小时，而且要在至少 3 个不同的日子打开过游戏才生效；时钟往回调会取消申请，调快平板时间无效。</li>
         <li>iPad「添加到主屏幕」的 App 与 Safari 里的数据是分开的。</li></ul><button className="chip" onClick={() => setHelp(false)}>关闭</button></div>}
       <RecGen prompt settings={props.settings} setSettings={props.setSettings} />
       <ParentAlerts goBackup={() => setTab('backup')} />

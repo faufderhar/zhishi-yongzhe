@@ -284,7 +284,7 @@ export default function App() {
   useEffect(() => {
     if (!settings.pinReset) return;
     // r13 技术QA R12-1：以前第一次执行在这里 return，计时器永远不启动——运行中不累计、时钟跳变也不取消
-    if (!pendResumed.current) { pendResumed.current = true; const st = settingsRef.current; if (st.pinReset) setSettings({ ...st, pinReset: resumePending(st.pinReset, Date.now()) }); }
+    if (!pendResumed.current) { pendResumed.current = true; const st = settingsRef.current; if (st.pinReset) { const r0 = resumePending(st.pinReset, Date.now()); if (r0 === 'cancel') { setSettings({ ...st, pinReset: undefined }); setResetCancelled(true); } else setSettings({ ...st, pinReset: { ...r0, ready: pendingDue(r0) } }); } }
     let lp = performance.now(), lw = Date.now();
     const f = () => { const st = settingsRef.current; if (!st.pinReset) return; const np = performance.now(), nw = Date.now();
       const r = tickPending(st.pinReset, np - lp, nw - lw, nw); lp = np; lw = nw;

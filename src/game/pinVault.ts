@@ -34,7 +34,7 @@ export function makeRecoveryCode(rnd: () => number = () => { const a = new Uint3
 }
 export const normCode = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, '');
 /** 延时重设 */
-export interface PendingReset { gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
+export interface PendingReset { days?: string[]; gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
 export const newPending = (now: number): PendingReset => ({ requestedAt: now, effectiveAt: now + RESET_DELAY_MS });
 export const resetDue = (p: PendingReset | undefined, now: number, clockLocked: boolean) => !!p && !clockLocked && now >= p.effectiveAt && now >= p.requestedAt;
 export const fmtWhen = (t: number) => { const d = new Date(t); return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}点`; };
@@ -68,16 +68,24 @@ export const GAP_CAP_MS = 8 * 3600e3;          // 两次打开之间最多认 8 
 export const JUMP_MS = 10 * 60e3;              // 运行中墙钟与单调时钟相差 > 10 分钟 = 时钟跳变
 /** 每个延时重设申请，关闭期间累计最多计入的时间 */
 export const GAP_TOTAL_MS = 24 * 3600e3;
+/* r14.1 策划定稿（找回问题 72 小时延时重设）：
+   - 关闭期间按真实时间计，但每段关闭最多 12 小时（调快时钟最多多算 12 小时）
+   - 生效要同时满足：累计 ≥ 72 小时，且至少在 3 个不同的日子打开过游戏
+   - 时钟往回调（比上次看到的早 5 分钟以上）→ 取消申请；运行中墙钟与单调时钟相差 > 10 分钟也取消
+   24 小时锁定（pin.ts 的 resumeLong）不共用这段代码，仍然只算游戏开着的时间。 */
+export const PEND_GAP_CAP_MS = 12 * 3600e3, PEND_DAYS = 3;
+const dayOf = (t: number) => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const withDay = (p: PendingReset, t: number): PendingReset => { const ds = new Set(p.days ?? [dayOf(p.requestedAt)]); ds.add(dayOf(t)); return { ...p, days: [...ds].sort().slice(-10) }; };
 export function tickPending(p: PendingReset, dtPerf: number, dtWall: number, wallNow: number): PendingReset | 'cancel' {
   if (Math.abs(dtWall - dtPerf) > JUMP_MS) return 'cancel';
-  return { ...p, observed: (p.observed ?? 0) + Math.max(0, Math.min(dtPerf, 60e3)), lastWall: wallNow };
+  return withDay({ ...p, observed: (p.observed ?? 0) + Math.max(0, Math.min(dtPerf, 60e3)), lastWall: wallNow }, wallNow);
 }
-export function resumePending(p: PendingReset, wallNow: number): PendingReset {
-  // r14 技术QA R13-1：关闭期间的流逝单次最多算 8 小时，而且每个申请累计最多只算 24 小时（关掉 → 调快 8 小时 → 打开 重复 10 次不能凑满 72 小时）
-  const last = p.lastWall ?? p.requestedAt; const used = p.gapUsed ?? 0;
-  const gap = 0;   // r14 策划定稿：关闭期间完全不计，只算 App 开着时实际观察到的时间（单调时钟，tickPending）；前跳检测仍会取消申请
-  void GAP_CAP_MS;
-  return { ...p, observed: (p.observed ?? 0) + gap, gapUsed: used + gap, lastWall: Math.max(wallNow, last) };
+export function resumePending(p: PendingReset, wallNow: number): PendingReset | 'cancel' {
+  const last = p.lastWall ?? p.requestedAt;
+  if (wallNow < last - 5 * 60e3) return 'cancel';   // 时钟往回调
+  const gap = Math.min(Math.max(0, wallNow - last), PEND_GAP_CAP_MS); void GAP_CAP_MS; void GAP_TOTAL_MS;
+  return withDay({ ...p, observed: (p.observed ?? 0) + gap, gapUsed: (p.gapUsed ?? 0) + gap, lastWall: Math.max(wallNow, last) }, wallNow);
 }
-export const pendingDue = (p: PendingReset | undefined) => !!p && (p.observed ?? 0) >= RESET_DELAY_MS;
+export const pendingDays = (p: PendingReset) => new Set(p.days ?? [dayOf(p.requestedAt)]).size;
+export const pendingDue = (p: PendingReset | undefined) => !!p && (p.observed ?? 0) >= RESET_DELAY_MS && pendingDays(p) >= PEND_DAYS;
 export const pendingLeftMs = (p: PendingReset) => Math.max(0, RESET_DELAY_MS - (p.observed ?? 0));

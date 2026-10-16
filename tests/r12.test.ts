@@ -79,14 +79,18 @@ describe('r12 技术QA R11-1：改系统时间拿不到家长权限', () => {
   it('运行中把时钟往前调 25 小时 → 申请直接取消', () => {
     const p = newPending(t0); expect(tickPending(p, 30e3, 25 * 3600e3, t0 + 25 * 3600e3)).toBe('cancel');
   });
-  it('关掉后把时钟往前调 25 小时 / 100 天再打开：最多只认 8 小时，不到期', () => {
-    let p = newPending(t0); p = resumePending(p, t0 + 25 * 3600e3); expect(p.observed ?? 0).toBe(0); expect(pendingDue(p)).toBe(false);
-    let q = newPending(t0); q = resumePending(q, t0 + 100 * 864e5); expect(pendingDue(q)).toBe(false);
+  it('r14.1：每段关闭最多算 12 小时；往回调取消', () => {
+    let p: any = resumePending(newPending(t0), t0 + 25 * 3600e3); expect(p.observed).toBe(12 * 3600e3); expect(pendingDue(p)).toBe(false);
+    expect(resumePending(newPending(t0), t0 - 5 * 3600e3)).toBe('cancel');
   });
-  it('往回调不补时间', () => { const p = resumePending(newPending(t0), t0 - 5 * 3600e3); expect(p.observed ?? 0).toBe(0); });
-  it('就算真的到期也只是「到期」，仍要找回问题或恢复码（pendingDue 不会清密码）', () => {
-    let p: any = newPending(t0); for (let i = 0; i < 10; i++) p = resumePending(p, (p.lastWall ?? t0) + GAP_CAP_MS); expect(pendingDue(p)).toBe(false);   // r14 R13-1：反复关掉调快 8 小时凑不满
-    for (let i = 0; i < 72 * 120; i++) { const n = tickPending(p, 30e3, 30e3, t0 + i * 30e3); p = n; } expect(pendingDue(p)).toBe(true);
+  it('r14.1：满 72 小时还要 3 个不同的日子打开过才到期；到期也只是「到期」', () => {
+    let p: any = newPending(t0);
+    for (let i = 0; i < 6; i++) p = resumePending(p, (p.lastWall ?? t0) + 12 * 3600e3);   // 72 小时，但跨了几天？
+    const p2: any = { ...newPending(t0), observed: 80 * 3600e3, days: ['2026-10-16', '2026-10-17'] }; expect(pendingDue(p2)).toBe(false);
+    expect(pendingDue({ ...p2, days: ['2026-10-16', '2026-10-17', '2026-10-18'] })).toBe(true);
+    // 关掉 → 调快 8 小时 → 打开，同一天里反复 10 次：天数不够，不到期
+    let q: any = { ...newPending(Date.parse('2026-10-16T01:00:00')), lastWall: Date.parse('2026-10-16T01:00:00') }; for (let i = 0; i < 10; i++) q = resumePending(q, q.lastWall + 60e3);
+    expect(pendingDue(q)).toBe(false); void p;
   });
 });
 import { newTier, nextTier, tierCap } from '../src/game/consolidate';
