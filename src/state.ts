@@ -1,3 +1,4 @@
+import { MASTERED_MAX, XP_MAX } from './game/limits';
 import type { PinVault, PendingReset } from './game/pinVault';
 import { migrateVolumes } from './game/volumeMigrate';
 /* 应用级数据：设置、档案、进度（KV 存 IndexedDB） */
@@ -93,7 +94,7 @@ const numRec = (x: unknown) => isObj(x) ? Object.fromEntries(Object.entries(x).f
 const clampN = (v: unknown, max: number) => Number.isFinite(v) ? Math.min(max, Math.max(0, Number(v))) : 0;
 export const loadProgress = (pid: string) => guarded<Progress>('progress:' + pid, x => isObj(x) ? {
   stars: starRec(x.stars), plays: isObj(x.plays) ? x.plays as Progress['plays'] : {},
-  masteredStars: clampN(x.masteredStars, 1e5), xp: clampN(x.xp, 1e7) } : null, emptyProgress);
+  masteredStars: clampN(x.masteredStars, MASTERED_MAX), xp: clampN(x.xp, XP_MAX) } : null, emptyProgress);
 export const saveProgress = (pid: string, p: Progress) => setKV('progress:' + pid, p);
 export const loadSkills = (pid: string) => guarded<Skills>('skills:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { level?: number }).level))) as Skills : null, () => ({}));
 export const saveSkills = (pid: string, s: Skills) => setKV('skills:' + pid, s);
