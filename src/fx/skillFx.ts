@@ -68,7 +68,7 @@ export async function playSkill(r: SkillRig, k: SkillDef, o: PlaySkillOpts): Pro
       const scale = Math.min(1, (r.stage.clientHeight * 0.75) / m.frame_height);
       let hitDone = false; const peak = m.peak_frame ?? Math.floor(m.frame_count / 2);
       log.anims.push({ el: 'fx-sprite', frames: [], duration: m.frame_count / m.fps * 1000, delay: 0, area: (m.frame_width * m.frame_height * scale * scale) / stageArea });
-      await Promise.all([banP, Promise.race([playFx(r.stage, fit, x, y, scale, { blend, onFrame: i => { if (!hitDone && i >= peak) { hitDone = true; o.onImpact?.(); } } }), sleep(total + 100)])]);
+      await Promise.all([banP, Promise.race([playFx(r.stage, fit, x, y, scale, { blend, onFrame: i => { if (!hitDone && i >= peak) { hitDone = true; o.onImpact?.(); } } }), sleep(total)])]);
       if (!hitDone) o.onImpact?.();
       return;
     }
