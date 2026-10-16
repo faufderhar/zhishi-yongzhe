@@ -232,7 +232,7 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
         <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '未通关 · 怪物溜走了，再来一次吧！') : win ? '胜利！' : '未通关 · 这次差一点'}</h1>
         {(forcedTimeUp || timeUp) && <p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p>}
-        {retreat && !forcedTimeUp && exhausted && <p data-testid="retreat-exhausted">这一关的题都出过两次了，怪物提前撤退：{win ? '正确率够四成，算通关，最多 ★。' : '正确率不到四成，这次不算通关、不得星。'}</p>}
+        {retreat && !forcedTimeUp && exhausted && <p data-testid="retreat-exhausted">题都答过两遍了，怪物提前撤退（这一关题比较少，每道题一局最多出 2 次）：{win ? '正确率够四成，算通关，最多 ★。' : '正确率不到四成，这次不算通关、不得星。'}</p>}
         {retreat && !forcedTimeUp && !exhausted && <p data-testid="retreat">{win ? '到了回合上限，怪物逃走了：正确率够四成，算通关，但最多 ★。下次试试更快打倒它！' : '到了回合上限，怪物溜走了：正确率不到四成，这次不算通关、不得星；答对的题照常算经验。'}</p>}
         {quit && !forcedTimeUp && <p data-testid="quit">本关未通过，不得星。</p>}
         {!win && !forcedTimeUp && <p>答对的题都算经验，错题已放进错题本，下次再来！</p>}

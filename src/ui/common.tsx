@@ -54,7 +54,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
 }
 /** 家长密码键盘 */
 export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra }: { title: string; hint?: string; onSubmit: (pin: string) => void; error?: string; onCancel?: () => void; disabled?: boolean; extra?: ReactNode }) {
-  const [v, setV] = useState('');
+  const [v, setV] = useState(''); const sent = useRef(false);   /* r15.1：触屏抬手就确认（同答题键盘），之后的 click 不再重复 */
   useEffect(() => { if (error) setV(''); }, [error]);
   return (
     <div className="pinpad">
@@ -65,9 +65,9 @@ export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra
         {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(k => <button key={k} disabled={disabled} data-testid={'pin-' + k} onClick={() => v.length < 6 && setV(v + k)}>{k}</button>)}
         <button className="del" onClick={() => setV(v.slice(0, -1))}>⌫</button>
         <button data-testid="pin-0" disabled={disabled} onClick={() => v.length < 6 && setV(v + '0')}>0</button>
-        <button className="ok" data-testid="pin-ok" disabled={disabled || v.length < 4} onClick={() => { onSubmit(v); setV(''); }}>确定</button>
+        <button className="ok" data-testid="pin-ok" disabled={disabled || v.length < 4} onPointerUp={e => { if (e.pointerType === 'mouse' || disabled || v.length < 4) return; sent.current = true; onSubmit(v); setV(''); }} onClick={() => { if (sent.current) { sent.current = false; return; } onSubmit(v); setV(''); }}>确定</button>
       </div>
-      {!disabled && v.length < 4 && <p className="pin-why">请输入 4–6 位数字</p>}
+      <p className="pin-why" style={{ visibility: !disabled && v.length < 4 ? 'visible' : 'hidden' }}>请输入 4–6 位数字</p>{/* r15.1：占位不收起，第 4 位时键盘不跳 */}
       {extra}
       {onCancel && <button className="btn ghost" onClick={onCancel}>返回</button>}
       <p className="hint">4–6 位数字。只用来防止孩子误入，不是安全密码。</p>

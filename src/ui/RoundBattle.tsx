@@ -39,6 +39,8 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     const ex = [...extra].sort((a, b) => +!!seen?.has(a.key) - +!!seen?.has(b.key));
     for (const q of [...questions, ...ex]) { const t = normQ(q); if (ks.has(q.key) || ts.has(t)) continue; ks.add(q.key); ts.add(t); out.push(q); } return out; })());
   const curated = useRef(new Set(questions.map(q => q.key))).current;
+  /* r15.1 学霸：本关（含后备 / 相邻小节）去重后的题数 × 2 = 最多能打的回合数；题少时回合上限显示真实值 */
+  const maxTurns = useMemo(() => new Set([...questions, ...extra, ...(reserve ?? []), ...(adj ?? []).flat()].map(q => q.key)).size * 2, []);
   const [bs, setBs] = useState<RState>(() => {
     const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail });
     const th = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestHp?: number }).__zyTest) ? (window as unknown as { __zyTestHp?: number }).__zyTestHp : undefined;   // 仅自动化测试
@@ -91,6 +93,14 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   // D14 首次提示（每个档案每种 1 次，2.5 秒自动消失或点一下关闭，不暂停计时）
   const [tipNow, setTipNow] = useState<{ k: TipKey; t: string } | null>(null);
   const seenTip = useRef<Record<string, boolean>>({ ...(tips ?? {}) });
+  /* r15.1 学霸：押注说明每个档案只显示前 3 次，可「不再提示」 */
+  const markTip = (k: string) => { if (seenTip.current[k]) return; seenTip.current[k] = true; onTip?.(k as TipKey); };
+  const wagerSeenN = () => ['wagerSeen1', 'wagerSeen2', 'wagerSeen3'].filter(k => seenTip.current[k]).length;
+  const [wagerDetail, setWagerDetail] = useState(true);
+  /* r15.1 学霸：技能让连击一次 +2 时标出「+1 技能」，不再像是 x0 直接跳到 x2 */
+  const prevCombo = useRef(0); const [comboTag, setComboTag] = useState(false);
+  useEffect(() => { if (bs.combo - prevCombo.current >= 2) { setComboTag(true); const t = setTimeout(() => setComboTag(false), 1800); prevCombo.current = bs.combo; return () => clearTimeout(t); } prevCombo.current = bs.combo; }, [bs.combo]);
+  const markWager = () => { const n = wagerSeenN(); setWagerDetail(!seenTip.current.wagerOff && n < 3); if (n < 3) markTip('wagerSeen' + (n + 1)); };
   const tip = (k: TipKey) => { if (seenTip.current[k]) return; seenTip.current[k] = true; onTip?.(k); setTipNow({ k, t: TIP_TEXT[k] }); setTimeout(() => setTipNow(x => x?.k === k ? null : x), 2500); };
   const [rules, setRules] = useState(false);
   const [rageAnim, setRageAnim] = useState(false);
@@ -291,14 +301,14 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
       <div className="hud">
         <Bar label="❤" v={view.p} max={bs.playerMax} cls="hp" />
         {asking && (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>)}
-        <span data-testid="combo">连击 x{bs.combo}</span>
+        <span data-testid="combo">连击 x{bs.combo}{comboTag && <small className="combo-tag" data-testid="combo-skill">+1 技能</small>}</span>
         {bs.perfectOn && <span data-testid="focus">专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(FOCUS_MAX - bs.focus)}</span>}
         <button className="energy-ring" data-testid="energy" aria-label={`能量 ${bs.energy}/${ENERGY_CAP}，点开看技能说明`} onClick={() => setRingPop(true)}>
           <svg viewBox="0 0 40 40" aria-hidden>{Array.from({ length: ENERGY_CAP }, (_, i) => { const a0 = (i / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 + 0.08, a1 = ((i + 1) / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 - 0.08;
             return <path key={i} d={`M ${20 + 16 * Math.cos(a0)} ${20 + 16 * Math.sin(a0)} A 16 16 0 0 1 ${20 + 16 * Math.cos(a1)} ${20 + 16 * Math.sin(a1)}`} fill="none" strokeWidth="5" strokeLinecap="round" stroke={i < bs.energy ? '#ffd54a' : 'rgba(255,255,255,.25)'} />; })}
             <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{bs.energy}/{ENERGY_CAP}</button>
         <span className="grow" />
-        <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`}>第 {curTurn} 回合 / {bs.cap}</span>
+        <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`}>第 {curTurn} 回合 / {Math.min(bs.cap, maxTurns)}{maxTurns < bs.cap && <small className="turn-note" data-testid="turn-note">（题少，最多 {maxTurns} 回合）</small>}</span>
         <span className="grow" />
         <span className="lvl-title" title={title} data-testid="lvl-title">{title}</span>
         <button className="rules-btn" aria-label="规则说明" data-testid="rules" onClick={() => setRules(true)}>？</button>
@@ -338,14 +348,14 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
               <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small></button>)}
           </div></div>
         )}
-        {phase === 'wager' && <WagerTip P={P} tip={tip} />}
+        {phase === 'wager' && <WagerTip P={P} tip={tip} />}{phase === 'wager' && <WagerCount mark={markWager} />}
         {phase === 'wager' && (
           <div className="cards" data-testid="wager"><p>看题前押注：有把握吗？</p><div className="row gap16">
             <button className="qcard" data-testid="wager-sure" onClick={() => { setWager('sure'); setPhase('question'); }}><b>确定</b>
-              <small>{P ? '答对伤害 ×1.2；答错反击 ×1.3 且不能闪避' : '答对必定完美闪避；答错受击 ×1.3'}</small></button>
+              {wagerDetail && <small>{P ? '答对伤害 ×1.2；答错反击 ×1.3 且不能闪避' : '答对必定完美闪避；答错受击 ×1.3'}</small>}</button>
             <button className="qcard" data-testid="wager-unsure" onClick={() => { setWager('unsure'); setPhase('question'); }}><b>不太确定</b>
-              <small>{P ? '答错反击 ×0.5，标记重点复习' : '答错照常受击，标记重点复习'}</small></button>
-          </div></div>
+              {wagerDetail && <small>{P ? '答错反击 ×0.5，标记重点复习' : '答错照常受击，标记重点复习'}</small>}</button>
+          </div>{wagerDetail && <button className="link-btn" data-testid="wager-hint-off" onClick={() => { markTip('wagerOff'); setWagerDetail(false); }}>不再提示</button>}</div>
         )}
         {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（选好才出题、才开始计时）</small></p>
           <div className="row gap16">
@@ -422,5 +432,6 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   );
 }
 
+function WagerCount({ mark }: { mark: () => void }) { useEffect(() => { mark(); }, []); return null; }
 /** r10：押注首次提示（按当前规则写明得失） */
 function WagerTip({ P, tip }: { P: boolean; tip: (k: TipKey) => void }) { useEffect(() => { tip(P ? 'wagerP' : 'wagerM'); }, [P]); return null; }
