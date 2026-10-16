@@ -6,6 +6,7 @@ import { TIP_TEXT, rulesFor, playRageDrum, type TipKey } from './rules';
 import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
+import { drawNext, normStem } from '../game/draw';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
 import { newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
@@ -22,7 +23,7 @@ import { newTier, nextTier, pickByTier, isConsolidating, showConsolidateTag, typ
 import { useDirector, PauseOverlay, Sprite, usePauseOnHide, useWakeLock, usePauseTimeout, useForceEnd, type BattleProps } from './Battle';
 
 type Phase = 'pre' | 'chal' | 'cards' | 'wager' | 'question' | 'anim' | 'feedback' | 'revive-ask' | 'revive-q' | 'retreat';
-const normQ = (q: Question) => q.question.replace(/[\s$]+/g, '');
+const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
 export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen }: BattleProps & { wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
@@ -58,6 +59,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const [flagged, setFlagged] = useState(false);
   const quitRef = useRef(() => {});
   const stats = useRef({ correct: 0, total: 0, wrong: [] as string[], wrongQs: [] as Question[] });
+  const [chalNone, setChalNone] = useState(false);
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number; tries: number } | null>(null);
   const D = useDirector(false, c, 0.75, hs, { skin, soft: softFor(cfg.band) });
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp });
@@ -91,17 +93,16 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const normalQ = useRef<Question | undefined>(undefined);
   // r10（D14 修正 1）：我方回合先选「普通 / 挑战」，选完才出题、开始计时；出题后锁定；3 秒不选默认普通（这 3 秒不计时）
   const chalPick = (base: Question | undefined) => { if (!base || base.difficulty >= 5) return undefined;
-    return pool.current.find(x => x.key !== base.key && x.subject === base.subject && x.unit === base.unit && x.difficulty === base.difficulty + 1 && !isMultiSel(x) && !isMulti(x)); };   // 只从本局没出过的题里找；不跨小节、不拿同难度凑数
+    const us = new Set(used.current.map(normStem)); us.add(normStem(base));
+    return pool.current.find(x => x.key !== base.key && !us.has(normStem(x)) && x.subject === base.subject && x.unit === base.unit && x.difficulty === base.difficulty + 1 && !isMultiSel(x) && !isMulti(x)); };   // 只从本局没出过的题里找；不跨小节、不拿同难度凑数
   const hardQ = useRef<Question | undefined>(undefined);
-  const [chalLeft, setChalLeft] = useState(3);
   const chooseChal = (on: boolean) => {
     if (phase !== 'chal') return;
     if (on && !hardQ.current) { setChalMsg((normalQ.current?.difficulty ?? 0) >= 5 ? '已经是最难的题了' : '这一关没有更难的题了'); setTimeout(() => setChalMsg(''), 2000); return; }
     const x = on ? hardQ.current : normalQ.current; reveal(x); setQ(x); setChal(on); setPhase('question');
   };
-  useEffect(() => { if (phase !== 'chal') return; tip('challenge'); setChalLeft(3);
-    const t = [1, 2].map(i => setTimeout(() => setChalLeft(3 - i), i * 1000)); const d = setTimeout(() => chooseChal(false), 3000);
-    return () => { t.forEach(clearTimeout); clearTimeout(d); }; }, [phase, bs.turn]);
+  // r11（策划，GDD §6）：不再 3 秒自动选普通；默认普通（高亮、标「默认」），不限时，点了才出题、才开始计时
+  useEffect(() => { if (phase !== 'chal') return; tip('challenge'); }, [phase, bs.turn]);
 
   /** 取下一题：对方回合排除多步题；高一对方回合出标准难度（不选卡） */
   // 关内难度回落（裁定 4）：连错 2 题降 1 档，降档后连对 2 题恢复
@@ -113,11 +114,8 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
   const take = (pred: (x: Question) => boolean = () => true) => {
     const fq = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyForceQ?: string }).__zyTest) ? pool.current.find(x => x.id === (window as unknown as { __zyForceQ?: string }).__zyForceQ) : undefined;   /* 仅测试构建：指定题 */
     // r8：多选规则优先于「最接近难度」（只初一/高一、我方回合、第 1 回合不出、每局 1–2 道）
-    const pk = () => { const all = pool.current.filter(pred);
-      const pref = all.filter(x => curated.has(x.key)), fresh = all.filter(x => !seen?.has(x.key));   // 先出选好的本关题，再出关外没见过的
-      for (const xs of [pref, fresh, all]) { if (!xs.length) continue; const r = pickWithMulti(xs, multiCtx(), ys => pickByTier(ys, tierRef.current)); if (r) return r; } return undefined; };
-    // 剩下的只有本回合不能出的多选：按普通题的重复规则，把已答题放回题池再挑
-    const q = fq ?? pk() ?? (() => { pool.current = [...pool.current, ...used.current]; used.current = []; return pk(); })() ?? pool.current[0];
+    // r11：统一走 drawNext（去重 + 难度回落 + 多选规则）；只有本关题全部出过才重复
+    const q = fq ?? drawNext(pool.current, used.current, { pred, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk) }).q;
     if (q && isMultiSel(q)) usedMulti.current++;
     setConsol(isConsolidating(tierRef.current) && !!q && q.difficulty < tierRef.current.base); return q; };
   /** r10：题一出现就算出过（不能靠切换刷题） */
@@ -139,7 +137,10 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
       if (!pool.current.length) { void retreat(bs); return; }
     }
     if (hs && P && !multiRule(multiCtx()).force) { setPhase('cards'); return; }   // 必出多选的回合跳过选卡（按标准卡），保证出到
-    if (bs.mode === 'j' && bs.side === 'P') { const n = take(); normalQ.current = n; hardQ.current = chalPick(n); setQ(undefined); setPhase('chal'); return; }
+    if (bs.mode === 'j' && bs.side === 'P') { const n = take(); normalQ.current = n; hardQ.current = chalPick(n);
+      // r11：出选择前就定好有没有挑战题；没有就直接出普通题，挑战按钮灰着并写明原因（不再等 3 秒、不会像被吞掉）
+      setChalNone(!hardQ.current); setQ(undefined); setPhase('chal'); return; }   // 没有更难的题：挑战按钮灰着写明原因，照样等点〔普通〕
+    setChalNone(false);
     setQ(reveal(take(x => P || !isMulti(x))));
     setPhase(hs && wagerOn ? 'wager' : 'question');
   }, [phase, bs.turn]);
@@ -310,14 +311,14 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
               <small>{P ? '答错反击 ×0.5，标记重点复习' : '答错照常受击，标记重点复习'}</small></button>
           </div></div>
         )}
-        {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（{chalLeft} 秒后默认普通题，不计时）</small></p>
+        {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（选好才出题、才开始计时）</small></p>
           <div className="row gap16">
-            <button className="qcard" data-testid="chal-normal" onClick={() => chooseChal(false)}><b>普通题</b><small>照常出题</small></button>
+            <button className="qcard default" data-testid="chal-normal" autoFocus onClick={() => chooseChal(false)}><b>普通题 <span className="def-tag">默认</span></b><small>照常出题</small></button>
             <button className={`qcard hot ${hardQ.current ? '' : 'grey'}`} data-testid="chal-on" aria-disabled={!hardQ.current} onClick={() => chooseChal(true)}><b>挑战题 🔥</b><small>{chalMsg || (hardQ.current ? '更难一档：答对伤害 ×1.5；答错反击 ×1.5，闪不开' : '这一回合没有更难的题')}</small></button>
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}
+          <div className="qmeta">{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{chalNone && P && phase !== 'revive-q' && <span className="chal-none" data-testid="chal-none" aria-disabled="true"> · <s>挑战题 🔥</s> 这一回合没有更难的题</span>}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}

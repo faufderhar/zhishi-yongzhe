@@ -17,7 +17,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   return { ctx, pg, w, pinIn };
 }
@@ -129,12 +129,12 @@ if (on('k')) {
   ok(vis.v === 'visible' && vis.o > 0.3 && vis.o < 0.7, `点错的卡还在、变暗（opacity ${vis.o}）`);
   // 第二次再错 → 自动给答案：「我来帮你看看！」+ 正确项柔和高亮
   const left = await pg.$$(`[data-testid^=opt-][data-correct="0"]:not([data-testid=${wk}])`);
-  if (left.length) { await left[0].click(); await w(200); const s4 = await said(pg); const rc = await pg.getAttribute('[data-testid^=opt-][data-correct="1"]', 'class');
+  if (left.length) { await w(1600); await left[0].click();   /* r11：点错后锁 1.5 s */ await w(200); const s4 = await said(pg); const rc = await pg.getAttribute('[data-testid^=opt-][data-correct="1"]', 'class');
     ok(s4.some(x => /我来帮你看看/.test(x)) && /soft-pulse/.test(rc), `连错两次：朗读「我来帮你看看！」、正确项柔和高亮（${s4}）`);
     await pg.screenshot({ path: OUT + 'r9-k-demo.png' }); } else ok(true, '只有 2 个选项：第二次没有可点的错项（跳过）');
   const hn = await pg.textContent('[data-testid=hearts-num]'); ok(/\d\/\d/.test(hn), `开心值显示数值（${hn}）`);
   await w(3500);
-  const stars = await pg.textContent('.kstars'); ok(/⭐ [1-9]/.test(stars), `第一题奖励的星星保留（${stars.trim()}）`);
+  ok(!(await pg.isVisible('.kstars')) && /[1-9]\//.test(await pg.textContent('[data-testid=hearts-num]')), 'r11：关内不显示星星（结算才给），第一题的开心值保留');
   await pg.screenshot({ path: OUT + 'r9-k-hearts-stars.png' });
   // 长按暂停：短按 → 提示
   const pb = await pg.locator('[data-testid=pause]').boundingBox(); await said(pg);
@@ -183,10 +183,11 @@ if (on('resume')) {
   const { ctx, pg, w } = await session('5');
   await enterMap(pg, w); await pg.click('[data-testid=level-1]'); await w(800); await tutSkip(pg, w); await pg.waitForSelector('.quiz .opt, .keypad'); await answer(pg, true); await w(1500);
   await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await w(800);
-  ok(await pg.isVisible('[data-testid=interrupted-home]'), '战斗中被刷新/关掉：首页提示「没打完」，不静默丢');
+  await pg.click('.profile-card:has-text("r9")'); for (let i = 0; i < 20 && !(await pg.isVisible('[data-testid=level-1]')); i++) { for (const sel of ['[data-testid=stage-pick] .stage-btn.on', '[data-testid=grade-pick] .stage-btn.on', '[data-testid=char-confirm]']) if (await pg.isVisible(sel)) await pg.click(sel).catch(() => {}); await w(400); }   // r11：提示只给本人，进他的地图才显示
+  ok(await pg.isVisible('[data-testid=interrupted]'), '战斗中被刷新/关掉：本人地图提示「没打完」，不静默丢');
   await pg.screenshot({ path: OUT + 'r9-interrupted.png' });
-  await pg.click('[data-testid=interrupted-go]'); await w(1500);
-  ok(await pg.isVisible('[data-testid=interrupted]') || await pg.isVisible('.quiz'), '点「回到这一关」回到地图（可重新开始这一关）');
+  await pg.click('[data-testid=interrupted-again]'); await w(1500);
+  ok(await pg.isVisible('.quiz') || await pg.isVisible('[data-testid=chal-toggle]') || await pg.isVisible('[data-testid=tutorial-next]'), '点「重新开始这一关」进关');
   await ctx.close();
 }
 await b.close(); console.log(bad ? `${bad} FAIL` : 'ALL PASS'); process.exit(bad ? 1 : 0);

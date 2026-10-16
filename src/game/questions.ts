@@ -15,6 +15,7 @@ export interface Question {
   key: string;            // 全局唯一键 = grade + ':' + id（科学题 id 如 K3-001 与幼儿园 K1 冲突，不能只靠 id）
   id: string; status: Status; subject: string; grade: GradeKey; gradeNum: number;
   textbook?: string; textbook_note?: string; unit?: string; volume: string;
+  usage?: 'boss' /* r11：只在 Boss 关出现（缺省 = normal，不写） */;
   type: QType; question: string; question_image?: string; question_audio?: string; tts_text?: string;
   options: Option[]; answer: string[]; template?: string; visual?: Visual; tolerance?: number; explanation: string; difficulty: number;
   tags: string[]; knowledge_point?: string; time?: number; source?: string; review_note?: string;
@@ -104,6 +105,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
     tags: Array.isArray(q.tags) ? q.tags : String(q.tags ?? q.tag ?? '').split('|').map(s => s.trim()).filter(Boolean),
     knowledge_point: q.knowledge_point || undefined, time: t > 0 ? t : undefined, source: q.source, review_note: q.review_note || undefined,
     tolerance: q.tolerance === undefined || q.tolerance === '' || q.tolerance === null ? undefined : Number(q.tolerance),
+    ...(q.usage === 'boss' ? { usage: 'boss' as const } : {}),
     explanation: cleanExplanation(q.explanation ?? ''), order, template: q.template ? String(q.template) : undefined, visual: parseVisual(q.visual),
   };
 }
@@ -147,6 +149,8 @@ export function loadBank(raw: any, fileName = ''): Bank {
     if (ctx && g && g !== ctx) warnings.push({ row: i + 1, id: q?.id, errors: [`题目 grade=${q.grade} 与文件年级 ${ctx} 不同，以题目字段为准`] });
     const mm = q && gameReadyMismatch(q);
     if (mm) warnings.push({ row: i + 1, id: q?.id, errors: [mm] });
+    // r11：usage 字段 'normal' | 'boss'，缺省 normal；不认识的值按 normal 导入并给警告
+    if (q && q.usage != null && q.usage !== '' && q.usage !== 'normal' && q.usage !== 'boss') { warnings.push({ row: i + 1, id: q?.id, errors: [`usage=${String(q.usage)} 不认识，按 normal 处理`] }); console.warn('[题库] usage 不认识，按 normal 处理', q.id, q.usage); }
     if (errors.length) bad.push({ row: i + 1, id: q?.id ?? '?', errors }); else all.push(normalize(q, i, ctx));
   });
   return { name: raw?.bank_name ?? fileName, version: raw?.version == null ? undefined : String(raw.version), grade: ctx, all, bad, warnings, counts: countStatuses(all) };
@@ -231,3 +235,6 @@ export function cleanExplanation(e: string): string {
     .replace(/[（(]?\s*(?:📘\s*)?(?:统编版|人教版|译林版|苏教版|鲁教版|北师大版)\d{0,4}\s*[:：][^。\n]*?(?:本题库[^。\n]*|默认[^。\n]*)[。]?[)）]?/g, '')
     .replace(/📘[^\n]*/g, '').trim();
 }
+
+/** r11：Boss 专用题（usage=boss）只在 Boss 关出现 */
+export const isBossOnly = (q: { usage?: string }) => q.usage === 'boss';

@@ -29,3 +29,11 @@ export function skinFor(subject: string | undefined, kind: LevelKind, band?: str
 export const sharedPool = (t: MonTheme) => new Set(ART.filter(a => a.theme === t).flatMap(a => a.pool_cn)).size > 1;
 /** 小班 / 低年级用柔和版（*_soft） */
 export const softFor = (band: string) => band === 'K' || band === 'G1';
+/** r11：幼儿园温和战斗的怪兽——从学科怪物的柔和版（*_soft）里挑最圆、最不吓人的普通级（只有普通级标了 kinder 学段）。
+    选用：小七（数学）、泡泡烧瓶（科学）、菊石宝宝（史地）、小芽芽（生物）、字母小 B（英语）。
+    不用：墨团团（通体黑色、高光强，偏暗不符合护眼）、迷雾糯（表情是难过）、齿轮仔（齿轮边是尖角）。 */
+export const KINDER_MON: Record<string, string> = { 数数: 'mon_math_normal', 颜色形状: 'mon_chem_normal', 认识动物: 'mon_histgeo_normal', 生活常识: 'mon_bio_normal', 儿歌古诗: 'mon_bio_normal', 英语: 'mon_english_normal' };
+export function kinderSkin(subject: string | undefined): MonSkin | null {
+  const id = subject ? KINDER_MON[subject] : undefined; const a = id ? ART.find(x => x.id === id) : undefined;
+  return a ? { id: a.id, name: a.name, img: 'k', art: a } : null;
+}

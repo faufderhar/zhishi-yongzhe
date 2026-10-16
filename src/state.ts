@@ -1,3 +1,4 @@
+import type { PinVault, PendingReset } from './game/pinVault';
 import { migrateVolumes } from './game/volumeMigrate';
 /* 应用级数据：设置、档案、进度（KV 存 IndexedDB） */
 import { getKV, setKV } from './db';
@@ -9,8 +10,12 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   pinHint?: { q: string; a: string };            // 找回问题（答案存哈希）
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4
   kinderDemoReward?: boolean;                     // D1：演示后仍给⭐（默认是）
-  tutorialReplay?: Record<string, boolean> }
-export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */ }
+  tutorialReplay?: Record<string, boolean>;
+  pinRec?: string                                  // r11：恢复码哈希
+  pinReset?: PendingReset                          // r11：等待生效的密码重设（24 小时）
+  pinResetDoneAt?: number                          // r11：密码被重设的时间（家长页一直提示，点〔知道了〕清掉）
+}
+export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */; pinVault?: PinVault /* r11：家长密码副本 */ }
 /** 实际生效的每日时长（0 = 不限）：r9 起 limit 最少 5 分钟，不限由 unlimited 开关决定 */
 export const effLimit = (p: Pick<Profile, 'limit' | 'unlimited'>): TimeLimit => ({ weekday: p.unlimited?.weekday ? 0 : Math.max(MIN_LIMIT, p.limit.weekday), weekend: p.unlimited?.weekend ? 0 : Math.max(MIN_LIMIT, p.limit.weekend) });
 export const MIN_LIMIT = 5;
@@ -60,7 +65,8 @@ export function repairProfile(x: unknown): Profile | null {
     ...(typeof x.lastGrade === 'string' && GRADES.has(x.lastGrade) ? { lastGrade: x.lastGrade as GradeKey } : {}),
     ...(isObj(x.charIds) ? { charIds: Object.fromEntries(Object.entries(x.charIds).filter(([, v]) => typeof v === 'string')) as Record<string, string> } : {}),
     ...(isObj(x.tips) ? { tips: Object.fromEntries(Object.entries(x.tips).filter(([, v]) => v === true)) as Record<string, boolean> } : {}),
-    ...(isObj(x.kinderGuide) || x.kinderGuide === true ? { kinderGuide: true } : {}) };
+    ...(isObj(x.kinderGuide) || x.kinderGuide === true ? { kinderGuide: true } : {}),
+    ...(isObj(x.pinVault) && typeof x.pinVault.pinHash === 'string' && x.pinVault.pinHash ? { pinVault: x.pinVault as unknown as PinVault } : {}) };   // r11：家长密码副本
 }
 export const loadSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await guarded<Partial<Settings>>('settings', x => isObj(x) ? x as Partial<Settings> : null, () => ({}))) });
 export const saveSettings = (s: Settings) => setKV('settings', s);

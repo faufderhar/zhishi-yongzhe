@@ -9,7 +9,7 @@ async function session(vp) {
   const ctx = await b.newContext({ viewport: vp }); const pg = await ctx.newPage(); const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(600);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', 'r8b'); await pg.click('[data-testid=home-grade-7]'); await w(400); await pg.click('text=r8b'); await w(800);
   return { ctx, pg, w };
 }

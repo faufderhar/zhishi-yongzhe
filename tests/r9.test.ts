@@ -94,7 +94,7 @@ describe('D14 §6 挑战题', () => {
     const src = readFileSync('src/ui/RoundBattle.tsx', 'utf8');
     expect(src).toMatch(/bs\.mode === 'j' && bs\.side === 'P'\) \{ const n = take\(\)/);   // r10：出题前选
     expect(src).toMatch(/x\.subject === base\.subject && x\.unit === base\.unit && x\.difficulty === base\.difficulty \+ 1/);
-    expect(src).toMatch(/这一关没有更难的题了/); expect(src).toMatch(/chooseChal\(false\), 3000/);
+    expect(src).toMatch(/这一关没有更难的题了/); expect(src).not.toMatch(/chooseChal\(false\), 3000/); expect(src).toMatch(/data-testid="chal-normal"[^>]*>.*默认/);   // r11：不再 3 秒自动普通，普通标「默认」
   });
 });
 describe('D14 §7 规则与首次提示', () => {
@@ -120,7 +120,7 @@ describe('r9 较真家长', () => {
   });
   it('编辑器：−5 不会到 0；「全部册别」时点某册 = 只选这一册', () => {
     const src = readFileSync('src/ui/Parent.tsx', 'utf8');
-    expect(src).toMatch(/Math\.max\(MIN_LIMIT, f\.limit\[k\] \+ d\)/); expect(src).toMatch(/!cur \? vols\.map\(x => x\[0\]\)\.filter\(x => x !== v\)/);   // r10：全部册别时每册都亮，点一册 = 取消这一册
+    expect(src).toMatch(/Math\.max\(MIN_LIMIT, f\.limit\[k\] \+ d\)/); expect(src).toMatch(/toggleVolS\(f\.volumes, v, vols\.map/);   // r11：状态逻辑移到 game/volumes.ts（有单测）
   });
 });
 describe('r9 学霸', () => {

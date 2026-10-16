@@ -29,3 +29,15 @@ export function hashPin(pin: string, salt = 'zsyz') {
   return h.toString(16);
 }
 export const validPin = (p: string) => /^\d{4,6}$/.test(p);
+
+/** r11：取消今天的临时加时 */
+export function cancelBonus(u: Usage, day: string): Usage { const r = u[day]; return r ? { ...u, [day]: { ...r, bonus: 0 } } : u; }
+/** r11：今天的临时加时（秒） */
+export const bonusToday = (u: Usage | undefined, day: string) => u?.[day]?.bonus ?? 0;
+
+/** r11 技术QA R10-1：时间到后的收尾（3 分钟）。每秒由游戏时钟调用一次：暂停 / 后台不走；单次最多走 2 秒（防卡顿跳秒、调时钟） */
+export const GRACE_MS = 3 * 60e3;
+export function tickGrace(left: number, dp: number, paused: boolean): { left: number; fire: boolean } {
+  if (paused) return { left, fire: false };
+  const n = Math.max(0, left - Math.min(Math.max(dp, 0), 2000)); return { left: n, fire: n <= 0 };
+}

@@ -21,7 +21,7 @@ describe('时长限制：所有答题入口', () => {
     expect(app).toMatch(/const startReview = [^\n]*myRemaining <= 0/);
     expect((app.match(/onReview=\{[^\n]*startReview/g) ?? []).length).toBeGreaterThanOrEqual(2);
   });
-  it('局中到时：3 分钟收尾后强制结算', () => { expect(app).toMatch(/FORCE_END\)\), 3 \* 60e3/); });
+  it('局中到时：3 分钟收尾后强制结算', () => { expect(app).toMatch(/tickGrace\(graceMs\.current, dp, pausedNow\)/); expect(app).toMatch(/g\.fire\) \{ graceMs\.current = null; window\.dispatchEvent\(new Event\(FORCE_END\)\)/); });   // r11：并进游戏时钟（暂停不走）
 });
 
 describe('幼儿园解锁规则（不变）', () => {

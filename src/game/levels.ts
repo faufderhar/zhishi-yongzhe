@@ -1,3 +1,4 @@
+import { isBossOnly } from './questions';
 import { STAR3, STAR2 } from './balance';
 /* 章节/关卡生成（GDD §7.1）：每个科目一个章节（地图区域），区域内按「册别 volume + 教材单元 unit」分组；
    每单元每 8 题 1 个普通关，每 3 个普通关后 1 个精英关，单元 ≥12 题时以单元 Boss 收尾。
@@ -7,7 +8,7 @@ import type { LevelKind } from './grades';
 /** 题库改版后旧关卡 id → 新关卡（按题池重合度生成，见 tools/level_aliases.md）；星级继承 */
 import LEVEL_ALIASES from './levelAliases.json';
 const ALIASES = LEVEL_ALIASES as Record<string, string[]>;
-export interface Level { id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
+export interface Level { bossPool?: string[] /* r11：本单元 usage=boss 的题（只在 Boss 关，优先出） */; id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
 export interface Chapter { subject: string; name: string; icon: string; levels: Level[]; volumes: string[]; count: number }
 export const AREA: Record<string, [string, string]> = {
   数学: ['数之城', '🔢'], 语文: ['墨韵山', '🖌️'], 英语: ['星语港', '🔤'], 诗词: ['诗词江湖', '📜'], 历史: ['时光长廊', '⏳'],
@@ -32,7 +33,21 @@ export function shortUnit(u?: string) {
 
 /** volumes：已学册别（null = 全部）；volumeOrder：册别显示顺序 */
 /** all：含不可玩题的全部题（用来找「可玩题为 0 的语文古诗课」，给它一张指向同名诗词关的卡片） */
-export function buildChapters(qs: Question[], volumes: string[] | null = null, all?: Question[]): Chapter[] { return ensureBoss(linkShortChinese(buildChapters0(qs, volumes), zeroCnLessons(qs, volumes, all))); }
+export function buildChapters(qs0: Question[], volumes: string[] | null = null, all?: Question[]): Chapter[] {
+  // r11：usage=boss 的题不进普通 / 精英题池，只挂到同科目、同册、同单元的 Boss 关（本册 Boss：同册）
+  const qs = qs0.filter(q => !isBossOnly(q)); const bq = qs0.filter(isBossOnly);
+  const build = (qs: Question[]): Chapter[] => ensureBoss(linkShortChinese(buildChapters0(qs, volumes), zeroCnLessons(qs, volumes, all)));
+  const chs = build(qs);
+  if (bq.length) {
+    // 单元名按正常建关的方式算：带上 Boss 题再建一次，看它本来会落在哪一关（科目 / 册 / 单元）
+    const home = new Map<string, string>(); const bset = new Set(bq.map(q => q.key));
+    for (const ch of build(qs0)) for (const l of ch.levels) if (l.kind !== 'boss') for (const k of l.pool) if (bset.has(k)) home.set(k, `${ch.subject}|${l.volume}|${l.unit}`);
+    for (const ch of chs) for (const l of ch.levels) if (l.kind === 'boss') {
+    const vb = l.id.includes('|VB|'); const ks = bq.filter(q => { const h = home.get(q.key); return !!h && (vb ? h.startsWith(`${ch.subject}|${l.volume}|`) : h === `${ch.subject}|${l.volume}|${l.unit}`); }).map(q => q.key);
+    if (ks.length) l.bossPool = ks;
+  } }
+  return chs;
+}
 /** 学霸全解锁报告 #4：单元都不满 12 题的学科（如高一政治、五年级英语、诗词）原来没有 Boss。
     整个学科一个 Boss 都没有时，每册加一个「本册 Boss」（≥8 题），题池为本册全部题，放在本册最后一关之后（前一关得星解锁） */
 export function ensureBoss(chs: Chapter[]): Chapter[] {

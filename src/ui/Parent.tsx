@@ -4,7 +4,8 @@ import { useState as useS } from 'react';
 import { offlineStatus, onOffline } from '../offlineCache';
 import { BANK_VER, BANK_RELEASE } from '../bankStore';
 import { VERSION_LABEL } from '../version';
-import { useInstallPrompt, isStandalone } from './Screens';
+import { useInstallPrompt, isStandalone, isIOS, IosSteps, promptInstall } from './Screens';
+import { toggleVol as toggleVolS, toggleAllVols, volsValid, learnedCount } from '../game/volumes';
 import { effLimit, MIN_LIMIT } from '../state';
 declare const __BUILD__: string; declare const __BUILD_TIME__: string;
 /** 构建日期按用户设备的本地时区显示（r8） */
@@ -27,7 +28,7 @@ import { Modal, PinPad, fmtMin } from './common';
 import { GRADE_LABEL, loadBank, countStatuses, type Bank, type GradeKey } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
-import { validPin, remainingSec, addBonus, type Usage } from '../game/playtime';
+import { validPin, remainingSec, addBonus, cancelBonus, type Usage } from '../game/playtime';
 import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
@@ -39,17 +40,19 @@ import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
-import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, markPinSet, pinWasSet, readPinBackup, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { readLocal, readCache, makeRecoveryCode, normCode, RESET_DELAY_MS, fmtWhen, fmtDay } from '../game/pinVault';
 import type { Skills } from '../game/adaptive';
 
 /** 家长密码门（D9 锁定 / X-13 首次设置需提示问题 / P2-1 密码丢失不当首次） */
-export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRestorePin, hasProgress }: { settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }) => void; onOk: () => void; onCancel: () => void; purpose?: string; onRestorePin?: (h: string, hint?: { q: string; a: string }) => void; hasProgress?: boolean }) {
+export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRestorePin, hasProgress, onRequestReset }: { settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }, rec?: string) => void; onOk: () => void; onCancel: () => void; purpose?: string; onRestorePin?: (h: string, hint?: { q: string; a: string }) => void; hasProgress?: boolean; onRequestReset?: () => void }) {
   const [first, setFirst] = useState<string>();
   const [err, setErr] = useState<string>();
   const [lock, setLock] = useState<LockState>({ fails: 0, level: 0, until: 0 });
   const [hlock, setHlock] = useState<LockState>({ fails: 0, level: 0, until: 0 });   // r9：找回问题单独锁定
   const [now, setNow] = useState(Date.now());
-  const [mode, setMode] = useState<'pin' | 'hint' | 'forgot' | 'lost'>('pin');
+  const [mode, setMode] = useState<'pin' | 'hint' | 'forgot' | 'lost' | 'code' | 'rec' | 'reset'>('pin');
+  const [code, setCode] = useState('');
   const [hq, setHq] = useState(HINT_QUESTIONS[0]); const [ha, setHa] = useState('');
   const [pend, setPend] = useState<string>();
   useEffect(() => {
@@ -58,8 +61,9 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRest
       let st: { pinHash?: string; pinHint?: { q: string; a: string } } | undefined;
       for (let i = 0; i < 3; i++) { try { st = await getKVStrict('settings'); break; } catch { await new Promise(r => setTimeout(r, 300)); if (i === 2) return; } }
       if (st?.pinHash) { onRestorePin?.(st.pinHash, st.pinHint); return; }
-      const bk = readPinBackup(); if (bk) { onRestorePin?.(bk.hash, bk.hint); return; }
-      if (await pinWasSet()) setMode('lost');
+      const bk = readLocal() ?? await readCache(); if (bk) { onRestorePin?.(bk.pinHash, bk.pinHint); return; }
+      // r11：一份密码副本都没有：有孩子档案 → 不能直接设新密码（恢复码 / 24 小时延时重设）；真正的新装（没有档案）才走首次设置。到期的延时重设也算新设置
+      if (hasProgress && !settings.pinResetDoneAt && await pinWasSet()) setMode('lost');   // 出厂自带的示例档案不算
     })());
     let last = performance.now();
     const t = setInterval(() => {   // 只按单调时钟扣锁定时间（技术QA R4-4）
@@ -77,13 +81,29 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRest
   const hlockMsg = hlocked ? `找回问题答错太多次了，请 ${fmt(hleft)}后再试` : undefined;
   const note = async (ok: boolean) => { const n = nextLock(lock, ok, Date.now()); setLock(n); await saveLock(n); return n; };
   const noteH = async (ok: boolean) => { const n = nextLock(hlock, ok, Date.now()); setHlock(n); await saveLock(n, LK_HINT); return n; };
-  const finishSet = async (pin: string, hint?: { q: string; a: string }) => { onSetPin(await makePinHash(pin), hint); markPinSet(); onOk(); };
+  // r11：设好密码后生成 8 位恢复码，只显示这一次
+  const finishSet = async (pin: string, hint?: { q: string; a: string }) => { const c = makeRecoveryCode(); onSetPin(await makePinHash(pin), hint, await makePinHash(c)); markPinSet(); setCode(c); setMode('code'); };
+  const resetBox = <div className="p-card" data-testid="reset-box"><b>没有恢复码？</b><p className="hint">可以申请重设：{RESET_DELAY_MS / 3600e3} 小时后生效。等待期间每个页面顶部都会提示，任何人都能点〔取消〕——防止孩子偷偷重设。时长限制照常生效。</p>
+    {settings.pinReset ? <p data-testid="reset-pending">已申请，{fmtWhen(settings.pinReset.effectiveAt)}生效。</p> : <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设密码（24 小时后生效）</button>}</div>;
+  if (mode === 'code') return (
+    <div className="center-screen"><div className="pinpad"><h2>请记下恢复码</h2>
+      <p>忘记密码时，用这个恢复码可以马上重设密码。<b>只显示这一次</b>，请抄在纸上或拍照保存，别让孩子看到。</p>
+      <div className="rec-code" data-testid="rec-code">{code.slice(0, 4)} {code.slice(4)}</div>
+      <button className="btn" data-testid="rec-done" onClick={() => { setCode(''); onOk(); }}>我记下了</button></div></div>);
+  if (mode === 'rec') return (
+    <div className="center-screen"><div className="pinpad"><h2>用恢复码重设密码</h2><p>输入设置密码时记下的 8 位恢复码（不分大小写）。</p>
+      <input className="name-input" data-testid="rec-input" value={ha} disabled={hlocked} maxLength={12} onChange={e => setHa(e.target.value)} />
+      {(hlockMsg || err) && <p className="warn" data-testid="rec-msg">{hlockMsg ?? err}</p>}
+      <div className="row gap16"><button className="btn" data-testid="rec-ok" disabled={hlocked || normCode(ha).length !== 8} onClick={async () => {
+        const ok = await verifyPin(normCode(ha), settings.pinRec); const n = await noteH(ok);
+        if (ok) { await note(true); setMode('pin'); setFirst(undefined); setErr(undefined); setHa(''); onSetPin(''); } else setErr(lockLeft(n) > 0 ? undefined : `恢复码不对，还可以试 ${5 - n.fails} 次`);
+      }}>确定</button><button className="btn ghost" onClick={() => { setErr(undefined); setMode(settings.pinHash ? 'forgot' : 'lost'); }}>返回</button></div>{resetBox}</div></div>);
   const sub = purpose ? <p className="parent-hint">{purpose}</p> : null;
   if (mode === 'lost') return (
-    <div className="center-screen"><div className="pinpad"><h2>密码数据丢失</h2>
-      <p>{hasProgress ? '这台平板上有游戏进度，但' : ''}家长密码数据不见了。请从备份恢复，或回答找回问题后重设。</p>
-      <div className="row gap16"><button className="btn" onClick={() => setMode(settings.pinHint ? 'forgot' : 'pin')}>{settings.pinHint ? '回答找回问题' : '重新设置密码'}</button><button className="btn ghost" onClick={onCancel}>返回</button></div>
-      <p className="hint">从备份恢复：设置新密码后在「家长 → 备份」里操作。</p></div></div>);
+    <div className="center-screen"><div className="pinpad" data-testid="pin-lost"><h2>家长密码数据不见了</h2>
+      <p>这台平板上有孩子的档案，但所有家长密码副本都没有了（通常是浏览器数据被部分清理）。为了不让孩子直接设新密码，不能马上重设。</p>
+      <div className="row gap16">{settings.pinRec && <button className="btn" data-testid="lost-rec" onClick={() => { setHa(''); setErr(undefined); setMode('rec'); }}>用恢复码重设</button>}<button className="btn ghost" onClick={onCancel}>返回</button></div>
+      {resetBox}</div></div>);
   if (mode === 'hint' && pend) return (
     <div className="center-screen"><div className="pinpad"><h2>设置找回问题（必填）</h2>
       <div className="col gap8">{HINT_QUESTIONS.map(x => <label key={x} className="toggle-line"><input type="radio" checked={hq === x} onChange={() => setHq(x)} /> {x}</label>)}</div>
@@ -96,7 +116,9 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRest
       <div className="row gap16"><button className="btn" data-testid="forgot-ok" disabled={hlocked || !ha} onClick={async () => {
         const ok = await verifyPin(normAnswer(ha), settings.pinHint!.a); const n = await noteH(ok); if (ok) await note(true);
         if (ok) { setMode('pin'); setFirst(undefined); setErr(undefined); onSetPin(''); } else setErr(lockLeft(n) > 0 ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
-      }}>确定</button><button className="btn ghost" onClick={() => setMode('pin')}>返回</button></div></div></div>);
+      }}>确定</button><button className="btn ghost" onClick={() => setMode('pin')}>返回</button></div>
+      {settings.pinRec && <button className="link-btn" data-testid="forgot-rec" onClick={() => { setHa(''); setErr(undefined); setMode('rec'); }}>用恢复码</button>}{resetBox}</div></div>);
+  if (mode === 'reset') return <div className="center-screen"><div className="pinpad"><h2>忘记密码</h2>{resetBox}<button className="btn ghost" onClick={() => setMode('pin')}>返回</button></div></div>;
   if (!settings.pinHash) return (
     <div className="center-screen">{sub}
       <PinPad title={first ? '再输入一次确认' : '请爸爸妈妈来设置家长密码'} hint="请输入 4–6 位数字" error={err} onCancel={onCancel} onSubmit={p => {
@@ -108,7 +130,7 @@ export function ParentGate({ settings, onSetPin, onOk, onCancel, purpose, onRest
     </div>
   );
   return <div className="center-screen">{sub}<PinPad title="输入家长密码" hint="请输入 4–6 位数字" error={lockMsg ?? err} disabled={locked} onCancel={onCancel}
-    extra={settings.pinHint && <button className="link-btn" data-testid="forgot" onClick={() => { setHa(''); setErr(undefined); setMode('forgot'); }}>忘记密码</button>}
+    extra={<button className="link-btn" data-testid="forgot" onClick={() => { setHa(''); setErr(undefined); setMode(settings.pinHint ? 'forgot' : settings.pinRec ? 'rec' : 'reset'); }}>忘记密码</button>}
     onSubmit={async p => {
       if (locked) return;
       const ok = await verifyPin(p, settings.pinHash); const n = await note(ok);
@@ -137,7 +159,7 @@ export interface ParentProps {
 export const PARENT_IDLE_MS = 5 * 60e3, PARENT_WARN_MS = 30e3;
 export function ParentSettings(props: ParentProps) {
   const [tab, setTab] = useState<Tab>(props.initialTab ?? 'profiles');
-  const [warn, setWarn] = useState(0);
+  const [warn, setWarn] = useState(0); const [help, setHelp] = useState(false);
   useEffect(() => {
     const ms = (__TEST_HOOKS__ && (window as unknown as { __zyParentIdleMs?: number }).__zyParentIdleMs) || PARENT_IDLE_MS;
     let last = Date.now(); const poke = () => { last = Date.now(); setWarn(0); };
@@ -150,10 +172,15 @@ export function ParentSettings(props: ParentProps) {
     <div className="parent">
       <div className="map-top">
         <button className="back-inline labeled" data-testid="parent-close" onClick={props.onClose} aria-label="退出家长设置">← <small>返回</small></button>
-        <h2>家长设置</h2><span className="grow" />
+        <h2>家长设置</h2><button className="chip" data-testid="parent-help" aria-label="帮助" onClick={() => setHelp(h => !h)}>❓</button><span className="grow" />
         {tabs.map(([k, l]) => <button key={k} className={`chip ${tab === k ? 'on' : ''}`} data-testid={'ptab-' + k} onClick={() => setTab(k)}>{l}</button>)}
       </div>
       {warn > 0 && <div className="yellow-bar" data-testid="idle-warn">家长设置很久没有操作了，{warn} 秒后自动退出（没保存的档案会留着草稿）。点任意处继续。</div>}
+      {props.settings.pinResetDoneAt && <div className="yellow-bar" data-testid="pin-reset-notice">🔑 家长密码于 {fmtDay(props.settings.pinResetDoneAt)} 被重设过。如果不是你操作的，请检查孩子的时长和设置。<button className="chip" data-testid="pin-reset-ack" onClick={() => props.setSettings({ ...props.settings, pinResetDoneAt: undefined })}>知道了</button></div>}
+      {help && <div className="p-card" data-testid="parent-help-pop"><b>❓ 家长帮助</b><ul className="hint">
+        <li><b>清除浏览器数据（历史记录、网站数据、缓存）会把孩子的进度、错题本和设置一起删掉</b>，家长密码也可能跟着丢。请定期在「备份/恢复」里导出备份文件。</li>
+        <li>设置密码时给的 8 位恢复码请抄下或拍照保存：忘记密码时能马上重设。没有恢复码可以申请重设，24 小时后生效，期间任何人都能取消。</li>
+        <li>iPad「添加到主屏幕」的 App 与 Safari 里的数据是分开的。</li></ul><button className="chip" onClick={() => setHelp(false)}>关闭</button></div>}
       <ParentAlerts goBackup={() => setTab('backup')} />
       <div className="parent-body">
         {tab === 'profiles' && <><div className="p-card" data-testid="overview-offline"><OfflineReady /></div><ProfilesTab {...props} /></>}
@@ -187,7 +214,7 @@ function ParentAlerts({ goBackup }: { goBackup: () => void }) {
     </Modal>}
   </>;
 }
-function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
+function ProfilesTab({ profiles, setProfiles, bank, skills, usage, setUsage }: ParentProps) {
   const [edit, setEdit] = useState<Profile | null>(() => { try { const d = JSON.parse(sessionStorage.getItem('zy-draft-profile') ?? 'null'); return d && typeof d.id === 'string' ? d : null; } catch { return null; } });   // r10：有草稿就直接打开
   const [delId, setDelId] = useState<string>();
   const save = (p: Profile) => { setProfiles(profiles.some(x => x.id === p.id) ? profiles.map(x => x.id === p.id ? p : x) : [...profiles, p]); setEdit(null); };
@@ -197,7 +224,7 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
         {profiles.map(p => (
           <div key={p.id} className="p-card">
             <span className="big-emoji">{p.avatar}</span>
-            <b>{p.name}</b><small>{GRADE_LABEL[p.grade]} · {p.volumes ? `已学 ${p.volumes.length} 册` : '全部册别'}</small>
+            <b>{p.name}</b><small>{GRADE_LABEL[p.grade]} · {p.volumes ? `已学 ${learnedCount(p.volumes)} 册` : '全部册别'}</small>
             <small>每日 上学日 {effLimit(p).weekday || '不限'} / 周末 {effLimit(p).weekend || '不限'} 分钟</small>
             {skills[p.id] && <small>难度：{Object.entries(skills[p.id]).map(([s, v]) => `${s}${v.level}`).join(' · ') || '还没开始答题'}</small>}
             <div className="row gap16"><button className="chip" data-testid={'edit-' + p.id} onClick={() => setEdit(p)}>编辑</button>
@@ -211,11 +238,11 @@ function ProfilesTab({ profiles, setProfiles, bank, skills }: ParentProps) {
         <div className="row gap16"><button className="btn cancel-btn" data-testid="del-cancel" onClick={() => setDelId(undefined)}>取消，不删除</button>
           <HoldButton className="btn danger" label="长按 1.5 秒删除" testid="del-confirm" ms={1500} onDone={() => { setProfiles(profiles.filter(x => x.id !== delId)); setDelId(undefined); }}>长按删除</HoldButton></div>
       </Modal>; })()}
-      {edit && <ProfileEditor p={edit} bank={bank} onSave={save} onCancel={() => setEdit(null)} />}
+      {edit && <ProfileEditor p={edit} bank={bank} onSave={save} onCancel={() => setEdit(null)} bonusSec={usage[edit.id]?.[dayStr()]?.bonus ?? 0} onCancelBonus={() => setUsage(edit.id, cancelBonus(usage[edit.id] ?? {}, dayStr()))} />}
     </div>
   );
 }
-function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void }) {
+function ProfileEditor({ p, bank, onSave, onCancel, bonusSec = 0, onCancelBonus }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void; bonusSec?: number; onCancelBonus?: () => void }) {
   // r10：未保存的表单草稿（超时退出后再进来还在）
   const DK = 'zy-draft-profile';
   const [f, setF0] = useState<Profile>(() => { try { const d = JSON.parse(sessionStorage.getItem(DK) ?? 'null'); if (d && d.id === p.id) return d; } catch { /* */ } return p; });
@@ -225,7 +252,7 @@ function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankSt
   const setGrade = (g: GradeKey) => { const d = bandConfig(g).dailyMinutes; setF({ ...f, grade: g, volumes: null, limit: { weekday: Math.max(MIN_LIMIT, d.weekday), weekend: Math.max(MIN_LIMIT, d.weekend) }, unlimited: { weekday: d.weekday <= 0, weekend: d.weekend <= 0 } }); };
   // r9（较真家长）：「全部册别」时点某一册 = 只选这一册（以前是把它取消，选二年级上册反而存成「下册+通用」）
   // r10：「全部册别」时每一册都显示为选中；点某一册 = 取消这一册（其余保留）
-  const toggleVol = (v: string) => { const cur = f.volumes; const nx = !cur ? vols.map(x => x[0]).filter(x => x !== v) : cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v]; setF({ ...f, volumes: !nx.length || nx.length === vols.length ? null : nx }); };
+  const toggleVol = (v: string) => setF({ ...f, volumes: toggleVolS(f.volumes, v, vols.map(x => x[0])) });   // r11：状态定义见 game/volumes.ts
   // r9（较真家长 严重）：最少 5 分钟，−5 不会再变成 0（不限）；「不限」是单独开关，要确认
   const step = (k: 'weekday' | 'weekend', d: number) => setF({ ...f, limit: { ...f.limit, [k]: Math.min(240, Math.max(MIN_LIMIT, f.limit[k] + d)) } });
   const setUnl = (k: 'weekday' | 'weekend', on: boolean) => { if (on && !confirm(`确定${k === 'weekday' ? '上学日' : '周末'}不限时长吗？孩子可以一直玩。`)) return; setF({ ...f, unlimited: { ...f.unlimited, [k]: on } }); };
@@ -238,15 +265,17 @@ function ProfileEditor({ p, bank, onSave, onCancel }: { p: Profile; bank: BankSt
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
         <div><b>已学册别</b>（只从勾选的册别出题）<div className="row gap16 wrap">{vols.map(([v, n]) =>
           <button key={v} className={`chip ${!f.volumes || f.volumes.includes(v) ? 'on' : ''}`} data-testid={'vol-' + v} aria-pressed={!f.volumes || f.volumes.includes(v)} onClick={() => toggleVol(v)}>{v}（{n}）</button>)}
-          <button className={`chip ${!f.volumes ? 'on' : ''}`} data-testid="vol-all" aria-pressed={!f.volumes} onClick={() => setF({ ...f, volumes: null })}>全部册别</button></div></div>
+          <button className={`chip ${!f.volumes ? 'on' : ''}`} data-testid="vol-all" aria-pressed={!f.volumes} onClick={() => setF({ ...f, volumes: toggleAllVols(f.volumes) })}>全部册别</button></div>
+          {!volsValid(f.volumes) && <p className="warn-text" data-testid="vol-none">⚠ 至少要选一册才能保存（点〔全部册别〕可以全选）</p>}</div>
         <div className="row gap16 wrap"><b>每日时长（分钟，最少 5）</b>
           {(['weekday', 'weekend'] as const).map(k => <span key={k} className="stepper" data-testid={'limit-' + k}>{k === 'weekday' ? '上学日' : '周末'}
             <button className="chip" data-testid={`limit-${k}-minus`} disabled={!!f.unlimited?.[k] || f.limit[k] <= MIN_LIMIT} onClick={() => step(k, -5)}>−5</button>
             <b data-testid={`limit-${k}-val`}>{f.unlimited?.[k] ? '—' : Math.max(MIN_LIMIT, f.limit[k])}</b>
             <button className="chip" data-testid={`limit-${k}-plus`} disabled={!!f.unlimited?.[k]} onClick={() => step(k, 5)}>＋5</button>
-            <label className="chip unl-box"><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限时长</label></span>)}</div>
+            <label className={`chip unl-box ${f.unlimited?.[k] ? 'checked' : ''}`}><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限时长</label></span>)}</div>
+        {bonusSec > 0 && <p className="hint" data-testid="bonus-note">今天还有临时加时 {Math.round(bonusSec / 60)} 分钟（只在今天有效，会加在每日上限之外）。<button className="chip" data-testid="bonus-cancel" onClick={onCancelBonus}>取消今天的临时加时</button></p>}
         <div className="row gap16 wrap"><button className="chip" data-testid="reset-tips" disabled={!f.tips || !Object.keys(f.tips).length} onClick={() => setF({ ...f, tips: {} })}>💡 重置提示（首次提示再弹一次）</button></div>
-        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim()} onClick={() => { clearDraft(); onSave(f); }}>保存</button></div>
+        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes)} onClick={() => { clearDraft(); onSave(f); }}>保存</button></div>
       </div>
     </Modal>
   );
@@ -352,7 +381,7 @@ function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock }: Parent
       <table className="tbl"><thead><tr><th>孩子</th><th>今日已玩</th><th>今日剩余</th><th>每日上限（上学日/周末）</th><th>临时加时</th></tr></thead>
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
           return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒</td><td>{fmtMin(remainingSec(effLimit(p), u, today))}</td><td>{effLimit(p).weekday || '不限'} / {effLimit(p).weekend || '不限'}</td>
-            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => setUsage(p.id, addBonus(u, today, 600))}>＋10 分钟</button></td></tr>; })}</tbody></table>
+            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => setUsage(p.id, addBonus(u, today, 600))}>＋10 分钟</button>{r.bonus > 0 && <> <small data-testid={'bonus-now-' + p.id}>今天已加 {Math.round(r.bonus / 60)} 分钟</small> <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today))}>取消</button></>}</td></tr>; })}</tbody></table>
       <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /></div>
       <p className="hint">上限在「孩子档案 → 编辑」里改。只在答题/复习时计时，切到后台不计；关卡进行中时间到了会让孩子打完这一关。</p>
     </div>
@@ -444,10 +473,14 @@ function ReportTab(props: ParentProps) {
 
 /** r10：家长页手动安装说明（桌面 Chrome / 安卓 / iPad），横幅关掉或没出现时也能装 */
 function InstallHelp() {
-  const dp = useInstallPrompt();
+  const dp = useInstallPrompt(); const [msg, setMsg] = useState('');
+  const ios = isIOS();
   return <div className="p-card" data-testid="install-help"><b>📲 安装到主屏幕 / 桌面</b>
     {isStandalone() ? <p>✅ 已经是安装后的 App 模式。</p> : <>
-      {dp && <button className="btn" data-testid="install-now" onClick={() => dp.prompt()}>现在安装</button>}
+      {ios ? <p data-testid="install-help-ios"><IosSteps /></p>
+        : dp ? <button className="btn" data-testid="install-now" onClick={() => { void promptInstall().then(ok => setMsg(ok ? '✅ 已安装' : '没有安装。可以再点一次，或按下面的步骤手动安装。')); }}>现在安装</button>
+        : <p className="hint" data-testid="install-no-prompt">浏览器现在没有提供一键安装（例如刚取消过，或已经装过），请按下面的步骤手动安装：</p>}
+      {msg && <p className="hint" data-testid="install-msg">{msg}</p>}
       <ul className="hint">
         <li>电脑 Chrome / Edge：地址栏右侧的「安装」图标（⊕ 或小电脑），或菜单 ⋮ → 「投放、保存和分享」→「安装页面…」。</li>
         <li>安卓 Chrome：菜单 ⋮ → 「添加到主屏幕」/「安装应用」。</li>

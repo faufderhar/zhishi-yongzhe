@@ -15,7 +15,7 @@ async function session(grade, init = {}, vp = { width: 1180, height: 820 }, opt 
   const w = ms => pg.waitForTimeout(ms);
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await w(300);
+  await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   return { ctx, pg, w, pinIn };
 }
@@ -45,8 +45,9 @@ if (on('chal')) {
   await pg.waitForSelector('[data-testid=chal-toggle]', { timeout: 15000 });
   ok(!(await pg.isVisible('.quiz .opt, .keypad, .qtext')), '选普通/挑战时还看不到题目');
   await pg.screenshot({ path: OUT + 'r10-chal-pick.png' });
-  const t0 = Date.now(); await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 6000 }); const dt = Date.now() - t0;
-  ok(dt > 1500 && dt < 4500 && !(await pg.isVisible('[data-testid=chal-tag]')), `不选 → 约 3 秒后默认普通题（${dt}ms）`);
+  await w(5000); ok(await pg.isVisible('[data-testid=chal-toggle]') && !(await pg.isVisible('.quiz .opt, .keypad')), 'r11：不再 3 秒自动普通，等 5 秒仍在选择');
+  ok(/默认/.test(await pg.textContent('[data-testid=chal-normal]')), '〔普通题〕标「默认」');
+  await pg.click('[data-testid=chal-normal]'); await pg.waitForSelector('.quiz .opt, .keypad', { timeout: 6000 }); ok(!(await pg.isVisible('[data-testid=chal-tag]')), '点普通才出题');
   ok(!(await pg.isVisible('[data-testid=chal-toggle]')), '出题后不能再改');
   await answer(pg, true); await w(1800); await next(pg, w);
   for (let i = 0; i < 6; i++) { if (await pg.isVisible('[data-testid=chal-on]')) break; await answer(pg, true); await w(1600); await next(pg, w); }
@@ -119,7 +120,7 @@ if (on('k')) {
   const done = await pg.waitForSelector('[data-testid=tut-done]', { timeout: 4000 }).then(() => true).catch(() => false);
   ok(done, '「练习完成，开始闯关啦！」过渡'); if (done) await pg.screenshot({ path: OUT + 'r10-k-tut-done.png' });
   await w(2600); await pg.waitForSelector('[data-testid^=opt-]', { timeout: 8000 }).catch(() => {});
-  const k0 = (await pg.textContent('[data-testid=kstars]').catch(() => '')).trim(); ok(/0/.test(k0) || k0 === '', `正式关开始星星计数从 0（${k0}）`);
+  ok(!(await pg.isVisible('[data-testid=kstars]')), 'r11：幼儿园关内不显示星星（结算才给）');
   await pg.click('[data-testid^=opt-][data-correct="0"], .quiz .opt[data-correct="0"]').catch(() => {}); await w(300);
   const sh = await pg.$('.kwiggle2, .headshake2, .shake'); const say1 = await pg.textContent('[data-testid=ksay]').catch(() => '');
   ok(!!sh || !!say1, `小班点错：摇一摇 + 伙伴说话（${say1}）`); await pg.screenshot({ path: OUT + 'r10-k-wrong.png' });
@@ -131,8 +132,8 @@ if (on('k')) {
     const s = await session('K1', { __zyUnlockAll: true }); const { pg: p2, w: w2 } = s;
     await enterMap(p2, w2); await p2.locator(`.level.${kind}`).first().click(); await w2(900);
     for (let i = 0; i < 8 && await p2.isVisible('[data-testid=tutorial-skip]'); i++) { await p2.click('[data-testid=tutorial-skip]'); await w2(400); }
-    await p2.waitForSelector('[data-testid=gentle-stars]', { timeout: 10000 }).catch(() => {});
-    const cnt = await p2.$$eval('[data-testid=gentle-stars] > *', es => es.length).catch(() => 0); const txt = await p2.textContent('[data-testid=gentle-stars]').catch(() => '');
+    await p2.waitForSelector('[data-testid=hearts]', { timeout: 10000 }).catch(() => {});
+    const cnt = await p2.$$eval('[data-testid=hearts] .ksmile', es => es.length).catch(() => 0); const txt = await p2.textContent('[data-testid=hearts]').catch(() => '');
     ok(cnt === n && !/⭐|★/.test(txt), `${kind}：交朋友进度 ${cnt} 格（要 ${n}），用笑脸不用星星`);
     ok(!(await p2.isVisible('.mhp')) && !(await p2.isVisible('.bar.hp')), `${kind}：没有血条`);
     await p2.screenshot({ path: OUT + `r10-k-${kind}-start.png` });
@@ -183,7 +184,8 @@ if (on('misc')) {
   const { ctx, pg, w } = await session('5');
   await enterMap(pg, w); await pg.click('[data-testid=level-1]'); await w(800); await tutSkip(pg, w); await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=chal-normal]');
   await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await w(800);
-  const it = await pg.textContent('[data-testid=interrupted-home]').catch(() => ''); ok(!/答了 ?0/.test(it) && /没打完|没玩完|上次/.test(it), `0 题中断提示「${it.trim()}」`);
+  await pg.click('.profile-card:has-text("r9")'); await pg.waitForSelector('[data-testid=level-1], [data-testid=char-confirm]'); if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm])'); await pg.click('[data-testid=char-confirm]'); } await w(800); const it = await pg.textContent('[data-testid=interrupted]').catch(() => '');   // r11：本人地图上提示
+  await pg.goto(URL); await w(800); ok(!/答了 ?0/.test(it) && /没有打完/.test(it) && !/已答的 0/.test(it), `0 题中断提示「${it.trim()}」`);
   await pg.screenshot({ path: OUT + 'r10-interrupted-0.png' });
   let n = 0; pg.on('dialog', d => { n++; d.accept(); });
   await pg.goBack().catch(() => {}); await w(3000);

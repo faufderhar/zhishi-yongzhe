@@ -495,7 +495,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r9：数字键在 1024×600 也 ≥44px（StdBattle / 所有战斗、复习） */
 .keypad button, .keypad .k { min-height: 44px; min-width: 44px; }
 /* r9 小班反馈（护眼：<3 Hz、亮度变化 ≤20%、不闪白） */
-.kopt.dim { opacity: .45; filter: grayscale(.4); pointer-events: none; visibility: visible !important; transform: none !important; }
+.kopt.dim { opacity: .45; filter: grayscale(.4); pointer-events: none; visibility: visible !important; }
+.kopt.dim:not(.kwiggle) { transform: none !important; }   /* r11：以前 transform:none !important 把点错的摇晃动画压掉了 */
 @keyframes kwiggle { 0%,100% { transform: rotate(0) } 25% { transform: rotate(-4deg) } 75% { transform: rotate(4deg) } }
 .kopt.kwiggle { animation: kwiggle .5s ease-in-out 1; }
 @keyframes headshake { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-8px) rotate(-3deg) } 75% { transform: translateX(8px) rotate(3deg) } }
@@ -560,3 +561,28 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .stage .rage-banner { top: 8%; font-size: 36px; white-space: nowrap; }
 .skip-corner { position: absolute !important; left: 16px; bottom: 16px; top: auto !important; right: auto !important; font-size: 20px; z-index: 30; }
 .tut-done { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 44px; font-weight: 900; color: #5a3b00; background: rgba(255,248,230,.7); z-index: 40; }
+
+/* r11 幼儿园 */
+.kmon.under-sheet{opacity:0}
+.hearts.smiles .ksmile{font-size:34px;display:inline-block;transition:opacity .3s,filter .3s}
+.hearts.smiles .ksmile.off{opacity:.25;filter:grayscale(1) contrast(.7)}
+.hearts.smiles .ksmile.on{opacity:1;filter:none}
+.hearts.smiles .ksmile.pop{animation:kpop .5s ease-out 1}
+@keyframes kpop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+/* 减少动画：点错不摇，改成温和的颜色脉冲（淡橙色描边一闪一闪，≤2 Hz） */
+@keyframes ktint{0%,100%{box-shadow:0 8px 0 #0003}50%{box-shadow:0 0 0 10px #ffb36b99,0 8px 0 #0003}}
+@media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:ktint .5s ease-in-out 2 !important}.kpup-wrap.headshake{animation:none !important}.hearts.smiles .ksmile.pop{animation:none}}
+.reduce-motion .kopt.kwiggle{animation:ktint .5s ease-in-out 2 !important}
+.reduce-motion .kpup-wrap.headshake{animation:none !important}
+.chal-none{opacity:.6;font-size:.9em}
+.ios-steps .share-ic{display:inline-flex;align-items:center;gap:4px;color:#0a84ff;vertical-align:middle}
+.warn-text{color:#ffb36b;font-weight:700}
+/* r11：「不限时长」勾选框：未勾选是空心描边，勾选是实心 + ✓（以前未勾选显示白色实心方块） */
+.unl-box input[type=checkbox]{appearance:none;-webkit-appearance:none;width:24px;height:24px;border:3px solid #cfd6f5;border-radius:6px;background:transparent;display:inline-grid;place-items:center;margin:0 6px 0 0;vertical-align:middle;cursor:pointer}
+.unl-box input[type=checkbox]:checked{background:#4cd964;border-color:#4cd964}
+.unl-box input[type=checkbox]:checked::after{content:'✓';color:#fff;font-weight:900;font-size:18px;line-height:1}
+.unl-box input[type=checkbox]::before{content:none !important}
+.sys-bar.static{position:static;margin:8px auto}
+.unl-box input[type=checkbox]{flex:none;min-height:0;height:24px;max-height:24px;align-self:center;padding:0}
+.qcard.default{outline:4px solid #ffd54a;outline-offset:2px}.def-tag{font-size:.7em;background:#ffd54a;color:#333;border-radius:8px;padding:0 6px;margin-left:4px}
+.rec-code{font:800 40px/1.2 ui-monospace,monospace;letter-spacing:6px;background:#fff;color:#222;border-radius:12px;padding:10px 18px}

@@ -41,31 +41,44 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
     </Modal>
   );
 }
+/** r11（较真家长）：剩余时间里含临时加时时写明 */
+export const bonusNote = (rem: number | undefined, b: number | undefined) => b && b > 0 && rem !== undefined && Number.isFinite(rem) ? `（含今天临时加时 ${Math.round(b / 60)} 分钟）` : '';
 /** 安装引导（GDD §9.5 / 技术QA P2-8）：iPad 非主屏幕模式显示「分享 → 添加到主屏幕」；安卓显示〔安装到主屏幕〕 */
-let deferredPrompt: { prompt: () => void } | null = null;
+type BIP = { prompt: () => Promise<void> | void; userChoice?: Promise<{ outcome: 'accepted' | 'dismissed' }> };
+let deferredPrompt: BIP | null = null;
+let installDismissed = false;   // r11：桌面 Chrome 点了「取消」：横幅留着，改成手动步骤
 const ipListeners = new Set<() => void>();
 if (typeof window !== 'undefined') {
-  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e as unknown as { prompt: () => void }; ipListeners.forEach(f => f()); });
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e as unknown as BIP; ipListeners.forEach(f => f()); });
   window.addEventListener('appinstalled', () => { deferredPrompt = null; ipListeners.forEach(f => f()); });
 }
 /** r10：beforeinstallprompt 往往在首页渲染之后才到，订阅后重新渲染（以前错过就永远不显示） */
 export function useInstallPrompt() { const [, f] = useState(0); useEffect(() => { const g = () => f(x => x + 1); ipListeners.add(g); return () => { ipListeners.delete(g); }; }, []); return deferredPrompt; }
+export const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+/** r11：弹出安装框；返回是否装上。用过的事件作废（Chrome 之后会再发一次 beforeinstallprompt） */
+export async function promptInstall(): Promise<boolean> { const d = deferredPrompt; if (!d) return false; deferredPrompt = null; ipListeners.forEach(f => f());
+  try { await d.prompt(); const c = await d.userChoice; if (c?.outcome === 'dismissed') { installDismissed = true; ipListeners.forEach(f => f()); return false; } return true; } catch { return false; } }
+export const wasInstallDismissed = () => installDismissed;
 export const isStandalone = () => matchMedia('(display-mode: standalone)').matches || !!(navigator as unknown as { standalone?: boolean }).standalone;
 function InstallGuide() {
   useInstallPrompt();
-  // r10：关掉后 30 天内不再显示（以前是永久）；家长页「安装到主屏幕」里随时能找到说明
+  // r10：关掉后 30 天内不再显示；r11：点安装后又在系统框里取消，横幅不消失，改成手动步骤；家长页「安装到主屏幕」随时能再装
   const [hide, setHide] = useState(() => { const t = Number(localStorage.getItem('zy.installHide')); return t > 1 && Date.now() - t < 30 * 864e5; });
-  const standalone = matchMedia('(display-mode: standalone)').matches || (navigator as unknown as { standalone?: boolean }).standalone;
-  const ios = /iPad|iPhone/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  if (standalone || hide || (!ios && !deferredPrompt)) return null;
+  const ios = isIOS();
+  if (isStandalone() || hide || (!ios && !deferredPrompt && !installDismissed)) return null;
   const close = () => { localStorage.setItem('zy.installHide', String(Date.now())); setHide(true); };
   return <div className="install-guide" data-testid="install-guide">
-    {ios ? <><span className="share-arrow" aria-hidden>⬆</span> 点 Safari 顶部的 <b>分享</b> 按钮 → <b>添加到主屏幕</b>，像 App 一样全屏玩</>
-      : <button className="btn" onClick={() => { deferredPrompt?.prompt(); close(); }}>📲 安装到主屏幕</button>}
+    {ios ? <IosSteps />
+      : deferredPrompt ? <button className="btn" data-testid="install-btn" onClick={() => { void promptInstall().then(ok => { if (ok) close(); }); }}>📲 安装到主屏幕</button>
+      : <span data-testid="install-manual">没装上也没关系：点地址栏右侧的安装图标 ⊕，或菜单 ⋮ →「投放、保存和分享」→「安装页面…」。家长设置 →「备份/恢复」里也能再装。</span>}
     <button className="chip" onClick={close} aria-label="关闭">✕</button>
   </div>;
 }
-export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, onAddRequest, onAddClose, adding, canAdd }: { profiles: Profile[]; remaining: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void;
+/** iPad / iPhone Safari 没有安装弹框：文字 + 分享图标引导 */
+export function IosSteps() {
+  return <span className="ios-steps" data-testid="ios-steps">点 Safari 的 <b className="share-ic" aria-label="分享"><svg width="22" height="26" viewBox="0 0 22 26" aria-hidden><path d="M11 1v15M6 6l5-5 5 5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /><path d="M4 10H2v15h18V10h-2" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" /></svg> 分享</b> → 往下找 <b>「添加到主屏幕」</b> ➕ → 右上角〔添加〕，像 App 一样全屏玩</span>;
+}
+export function ProfileSelect({ profiles, remaining, bonus = {}, onPick, onParent, onAdd, onAddRequest, onAddClose, adding, canAdd }: { profiles: Profile[]; remaining: Record<string, number>; bonus?: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void;
   onAdd: (p: Profile) => void; onAddRequest: () => void; onAddClose: () => void; adding: boolean; canAdd: boolean }) {
   const lpDel = useRef(0); const [delAsk, setDelAsk] = useState<Profile | null>(null);   // r10：长按档案 → 删除说明（要家长密码）
   return (
@@ -79,7 +92,7 @@ export function ProfileSelect({ profiles, remaining, onPick, onParent, onAdd, on
             onContextMenu={e => e.preventDefault()}>
             <span className="big-emoji">{p.avatar}</span><span>{p.name}</span>
             <small>{GRADE_LABEL[p.grade]}</small>
-            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}</small>
+            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}{bonusNote(remaining[p.id], bonus[p.id])}</small>
           </button>
         ))}
         {canAdd && <button className="profile-card add-card" data-testid="add-child" onClick={onAddRequest}>
@@ -125,8 +138,8 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
 }
 
 const KIND_LABEL = { normal: '', elite: '精英', boss: 'Boss' };
-export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onLevel, onBack, onWrongBook, onReview, onChar, chapterIdx, setChapterIdx }: {
-  p: Profile; cfg: BandConfig; chapters: Chapter[]; progress: Progress; wrong: WrongEntry[]; remaining: number; c: Character | undefined;
+export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus = 0, c, onLevel, onBack, onWrongBook, onReview, onChar, chapterIdx, setChapterIdx }: {
+  p: Profile; cfg: BandConfig; chapters: Chapter[]; progress: Progress; wrong: WrongEntry[]; remaining: number; bonus?: number; c: Character | undefined;
   onLevel: (l: Level) => void; onBack: () => void; onWrongBook: () => void; onReview: () => void; onChar: () => void;
   chapterIdx: number; setChapterIdx: (i: number) => void;
 }) {
@@ -148,7 +161,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, c, onL
         <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
         <span className="who" data-testid="map-who">{p.avatar} {p.name} · {(p as { homeGrade?: GradeKey }).homeGrade && (p as { homeGrade?: GradeKey }).homeGrade !== p.grade ? `在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]}</span>
         <span className="star-total">★ {totalStars}</span>
-        <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}</span>
+        <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}{bonusNote(remaining, bonus)}</span>
         <span className="grow" />
         <button className="chip" onClick={onChar} data-testid="change-char">{c ? <Sprite className="chip-img" c={c} /> : '🐶'} 选角色</button>
         {cfg.band !== 'K' && <button className="chip" data-testid="wrongbook" onClick={onWrongBook}>📕 错题本 {wrong.length}</button>}
@@ -248,7 +261,7 @@ function KinderLines({ k }: { k?: { first: number; retry: number; demo: number }
 }
 
 /* ---------------- 错题本 ---------------- */
-export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: WrongEntry[]; byKey: Map<string, Question>; onBack: () => void; onReview: (keys: string[]) => void }) {
+export function WrongBookScreen({ wrong, byKey, onBack, onReview , timeUp = false }: { wrong: WrongEntry[]; byKey: Map<string, Question>; onBack: () => void; onReview: (keys: string[]) => void ; timeUp?: boolean }) {
   const subjects = useMemo(() => [...new Set(wrong.map(w => w.subject))], [wrong]);
   const [sub, setSub] = useState<string>('全部'); const [boxInfo, setBoxInfo] = useState(false);
   const list = wrong.filter(w => sub === '全部' || w.subject === sub).sort((a, b) => a.due.localeCompare(b.due));
@@ -261,9 +274,10 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview }: { wrong: Wro
         <span className="sub">共 {wrong.length} 题 · 今天到期 {wrong.filter(e => isDue(e)).length} 题</span>
         <button className="chip" data-testid="wb-box-info" aria-label="盒子是什么" onClick={() => setBoxInfo(x => !x)}>ⓘ 盒子是什么</button>
         <span className="grow" />
-        <button className="chip hot" data-testid="wb-review-due" disabled={!due.length} onClick={() => onReview(due.slice(0, 10).map(e => e.qkey))}>🔁 复习到期 {Math.min(due.length, 10)}</button>
-        <button className="chip" data-testid="wb-review-all" disabled={!list.length} onClick={() => onReview(list.slice(0, 10).map(e => e.qkey))}>✍ 练习这些 {Math.min(list.length, 10)}</button>
+        <button className="chip hot" data-testid="wb-review-due" disabled={timeUp || !due.length} onClick={() => onReview(due.slice(0, 10).map(e => e.qkey))}>🔁 复习到期 {Math.min(due.length, 10)}</button>
+        <button className="chip" data-testid="wb-review-all" disabled={timeUp || !list.length} onClick={() => onReview(list.slice(0, 10).map(e => e.qkey))}>✍ 练习这些 {Math.min(list.length, 10)}</button>
       </div>
+      {timeUp && <div className="sys-bar warn-bar static" data-testid="wb-timeup">⏰ 今天的时间用完啦，错题本可以看，但不能练习和复习了，明天再来！（家长可在设置里加时间）</div>}
       {boxInfo && <p className="p-card hint" data-testid="wb-box-pop">📦 「第 N 盒」是间隔复习的盒子：答错的题放进第 1 盒，隔 1 天复习；复习答对就升一盒，隔的天数变长（第 2 盒隔 {INTERVAL[2]} 天，第 3 盒隔 {INTERVAL[3]} 天）；第 3 盒再答对就算掌握，从错题本移走。复习答错会回到第 1 盒。</p>}
       <div className="row gap16 wrap wb-tabs">
         {['全部', ...subjects].map(s => <button key={s} className={`chip ${s === sub ? 'on' : ''}`} onClick={() => setSub(s)}>{s}</button>)}
