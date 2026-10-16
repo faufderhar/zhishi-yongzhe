@@ -34,7 +34,7 @@ export function makeRecoveryCode(rnd: () => number = () => { const a = new Uint3
 }
 export const normCode = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, '');
 /** 延时重设 */
-export interface PendingReset { observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
+export interface PendingReset { gapUsed?: number; observed?: number; lastWall?: number; requestedAt: number; effectiveAt: number; ready?: boolean /* r12：到期——仍要找回问题答案或恢复码才能设新密码 */ }
 export const newPending = (now: number): PendingReset => ({ requestedAt: now, effectiveAt: now + RESET_DELAY_MS });
 export const resetDue = (p: PendingReset | undefined, now: number, clockLocked: boolean) => !!p && !clockLocked && now >= p.effectiveAt && now >= p.requestedAt;
 export const fmtWhen = (t: number) => { const d = new Date(t); return `${d.getMonth() + 1}月${d.getDate()}日${d.getHours()}点`; };
@@ -66,13 +66,18 @@ export async function findRec(settings: { pinRec?: string } | undefined, profile
    不相信墙钟前跳；等待期间检测到大的时钟跳变 → 直接取消申请并提示 */
 export const GAP_CAP_MS = 8 * 3600e3;          // 两次打开之间最多认 8 小时
 export const JUMP_MS = 10 * 60e3;              // 运行中墙钟与单调时钟相差 > 10 分钟 = 时钟跳变
+/** 每个延时重设申请，关闭期间累计最多计入的时间 */
+export const GAP_TOTAL_MS = 24 * 3600e3;
 export function tickPending(p: PendingReset, dtPerf: number, dtWall: number, wallNow: number): PendingReset | 'cancel' {
   if (Math.abs(dtWall - dtPerf) > JUMP_MS) return 'cancel';
   return { ...p, observed: (p.observed ?? 0) + Math.max(0, Math.min(dtPerf, 60e3)), lastWall: wallNow };
 }
 export function resumePending(p: PendingReset, wallNow: number): PendingReset {
-  const last = p.lastWall ?? p.requestedAt; const gap = wallNow > last ? Math.min(wallNow - last, GAP_CAP_MS) : 0;
-  return { ...p, observed: (p.observed ?? 0) + gap, lastWall: Math.max(wallNow, last) };
+  // r14 技术QA R13-1：关闭期间的流逝单次最多算 8 小时，而且每个申请累计最多只算 24 小时（关掉 → 调快 8 小时 → 打开 重复 10 次不能凑满 72 小时）
+  const last = p.lastWall ?? p.requestedAt; const used = p.gapUsed ?? 0;
+  const gap = 0;   // r14 策划定稿：关闭期间完全不计，只算 App 开着时实际观察到的时间（单调时钟，tickPending）；前跳检测仍会取消申请
+  void GAP_CAP_MS;
+  return { ...p, observed: (p.observed ?? 0) + gap, gapUsed: used + gap, lastWall: Math.max(wallNow, last) };
 }
 export const pendingDue = (p: PendingReset | undefined) => !!p && (p.observed ?? 0) >= RESET_DELAY_MS;
 export const pendingLeftMs = (p: PendingReset) => Math.max(0, RESET_DELAY_MS - (p.observed ?? 0));

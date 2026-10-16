@@ -100,7 +100,7 @@ describe('效果数值（v0.3.7 新数值，取代 r4 的 4 个手动技能）',
   });
   it('被动不受影响：数学 +10%、语文回 3、英语护连击', () => {
     expect(resolveRound(j(), suan, { correct: true, subject: '数学', difficulty: 2, noSkill: true })[1].dealt).toBe(Math.round(20 * 1.2 * 1.1));
-    expect(resolveRound({ ...j(), playerHp: 50 }, momo, { correct: true, subject: '数学', difficulty: 2, noSkill: true })[1].healed).toBe(3);
+    expect(resolveRound({ ...j(), playerHp: 50 }, momo, { correct: true, subject: '语文', difficulty: 2, noSkill: true })[1].healed).toBe(3);
     expect(resolveRound({ ...newRound('h', 'normal'), combo: 3 }, lexi, { correct: false, subject: '数学', difficulty: 2, rng: () => 0.99 })[0].combo).toBe(3);
   });
 });

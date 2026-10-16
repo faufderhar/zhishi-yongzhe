@@ -18,9 +18,11 @@ export function addUsage(u: Usage, day: string, sec: number): Usage {
   out[day] = { ...r, used: r.used + sec };
   return out;
 }
-export function addBonus(u: Usage, day: string, sec: number): Usage {
+export function addBonus(u: Usage, day: string, sec: number, limitSec?: number): Usage {
   const r = u[day] ?? { used: 0, bonus: 0 };
-  return { ...u, [day]: { ...r, bonus: r.bonus + sec } };
+  // r14 小萌新：已经超出上限时，加时从「现在」算起（先补齐超出的部分），否则加了也还是 0
+  const over = limitSec ? Math.max(0, r.used - (limitSec + r.bonus)) : 0;
+  return { ...u, [day]: { ...r, bonus: r.bonus + over + sec } };
 }
 /** 家长密码：仅用于防孩子误入，不是安全措施（局域网 http 下没有 crypto.subtle，用 FNV-1a） */
 export function hashPin(pin: string, salt = 'zsyz') {

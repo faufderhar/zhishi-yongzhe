@@ -53,7 +53,7 @@ export function intentLabel(s: RState) {
     case 'heavy': return s.chargeBroken
       ? { icon: '💥', short: `💥 ${A}`, grey: true, down, long: `蓄力被你打断了，重击只剩 ${A} 点。` }
       : { icon: '💥', short: `💥 ${2 * s.def.atk}`, grey: false, down, long: `重击来了！答对闪开，答错受到 ${2 * s.def.atk} 点伤害。` };
-    case 'shield': return { icon: '🛡', short: `🛡 要开盾`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错它会挡掉你下一击的 ${s.shieldVal} 点伤害。` };
+    case 'shield': return { icon: '🛡', short: `🛡 要开盾`, grey: false, down, long: `怪物想开护盾！答对就能破盾，答错的话怪物开盾：你下一次攻击少 ${s.shieldVal} 点伤害。` };
   }
 }
 
@@ -106,7 +106,8 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   const part = !!i.partial && i.correct; const ok = i.correct && !part; if (part) o.partial = true;
   if (ok) {
     s.combo++; const g = 1 + (s.combo === 3 ? 1 : 0); o.energyGain = Math.min(ENERGY_CAP, s.energy + g) - s.energy; s.energy += o.energyGain;
-    if (PASSIVE.heal(c)) { const h = Math.min(3, s.playerMax - s.playerHp); s.playerHp += h; o.healed = h; }
+    if (PASSIVE.heal(c) && i.subject === c.major) {   // r14：墨墨回血只在语文题
+    const h = Math.min(3, s.playerMax - s.playerHp); s.playerHp += h; o.healed = h; }
   } else if (part) { /* 连击、能量不变 */ } else if (PASSIVE.comboGuard(c) && !s.comboGuardUsed && s.combo > 0) s.comboGuardUsed = true; else s.combo = 0;
   // 技能判定：能量 +1 之后；只有答对；多步题只在第一小问
   let sk: SkillDef | null = i.forceSkill ?? null;
@@ -134,7 +135,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
       const dodge = i.wager === 'sure' || i.challenge ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
-      if (rng() < dodge) { o.dodged = true; o.text = '没打中！还好躲开了怪物的反击'; }   // r12：我方回合答错是「没打中」
+      if (rng() < dodge) { o.dodged = true; o.text = `没打中！不过你闪开了怪物的反击（闪避几率 ${Math.round(dodge * 100)}%，专注越高越容易闪开）`; }   // r12：我方回合答错是「没打中」
       else {
         o.taken = takeHurt(monAtk(s), i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, i.wager === 'sure' ? WAGER.sureHurt : i.wager === 'unsure' ? WAGER.unsureCtr : 1, i.challenge ? CHALLENGE.ctr : 1);
         o.text = '怪物反击！';

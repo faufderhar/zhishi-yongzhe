@@ -53,10 +53,10 @@ export class Director {
   shakeScreen(power = 1) {
     if (this.gentle) return Promise.resolve();
     // 衰减正弦：普通 6px / 暴击 12px，150ms
-    const d = power > 1 ? 12 : 6; const fr: Keyframe[] = [];
+    const d = power > 1 ? 20 : 11; const fr: Keyframe[] = [];   // r14 小萌新：幅度加大（原 12 / 6）
     for (let i = 0; i <= 6; i++) { const k = 1 - i / 6; fr.push({ transform: `translate(${(i % 2 ? -1 : 1) * d * k}px,${(i % 3 - 1) * d * 0.4 * k}px)` }); }
     fr.push({ transform: 'translate(0,0)' });
-    return anim(this.r.shake, fr, { duration: power > 1 ? 190 : 150, easing: 'linear' });
+    return anim(this.r.shake, fr, { duration: power > 1 ? 280 : 220, easing: 'linear' });
   }
   /** 学科怪物序列帧（有则用它的 idle/attack/hit/defeat；hit 自带柔和白闪，不再叠加白闪） */
   monSheets?: MonSheets;

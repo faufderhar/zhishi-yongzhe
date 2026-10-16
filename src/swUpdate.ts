@@ -10,17 +10,29 @@ export const RELOAD_LOG = 'zy.reloadLog';
 export function logReload(reason: string, screen?: string) { try { const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); a.push({ reason, screen, at: Date.now() }); localStorage.setItem(RELOAD_LOG, JSON.stringify(a.slice(-20))); } catch { /* */ } }
 /** 启动时判断这次加载是怎么来的 */
 export const markAlive = () => { try { sessionStorage.setItem('zy-alive', '1'); } catch { /* */ } };
-export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'navigate'; detail?: string } {
+export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'crash' | 'navigate'; detail?: string } {
   try {
-    const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); const last = a[a.length - 1];
+    const a = JSON.parse(localStorage.getItem(RELOAD_LOG) ?? '[]'); const last = a.filter((x: { reason: string }) => !String(x.reason).startsWith('blocked:')).pop();
     if ((document as unknown as { wasDiscarded?: boolean }).wasDiscarded) return { kind: 'discarded' };
     const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
     if (last && Date.now() - last.at < 15e3) return { kind: 'sw', detail: last.reason };
     // r13：有些环境（SW 接管 / 部分安卓 WebView）拿不到 navigation 条目；同一个标签页里的重载 sessionStorage 还在，用它补判
     const alive = (() => { try { return sessionStorage.getItem('zy-alive') === '1'; } catch { return false; } })();
-    return { kind: nav?.type === 'reload' || (nav?.type !== 'navigate' && alive) ? 'reload' : 'navigate' };
+    const isRe = nav?.type === 'reload' || (nav?.type !== 'navigate' && nav?.type !== 'back_forward' && alive);
+    if (!isRe) return { kind: 'navigate' };
+    // r14：真正的「刷新」会先触发 pagehide；没有正常离开记录（或比最后一次心跳还早）= 页面崩溃 / 内存不足被系统重启
+    const bye = Number(localStorage.getItem(BYE) ?? 0); const bt = JSON.parse(localStorage.getItem(BEAT) ?? 'null') as { screen: string; at: number } | null;
+    if (bt && bye < bt.at) return { kind: 'crash', detail: bt.screen };
+    return { kind: 'reload' };
   } catch { return { kind: 'navigate' }; }
 }
+/** r14：只有安全页面才允许游戏自己刷新；先把原因落盘再刷新 */
+let safeNow = false; export const setSafeScreen = (v: boolean) => { safeNow = v; };
+export function safeReload(reason: string, screen?: string) { if (!safeNow) { logReload('blocked:' + reason, screen); return false; } logReload(reason, screen); location.reload(); return true; }
+/** r14：每次换页记心跳；正常离开（pagehide）记离开——下次启动时「重载但没有正常离开」= 页面崩溃/被系统杀掉，而不是有人刷新 */
+const BEAT = 'zy.beat', BYE = 'zy.bye';
+export const beat = (screen: string) => { try { localStorage.setItem(BEAT, JSON.stringify({ screen, at: Date.now() })); } catch { /* */ } };
+if (typeof window !== 'undefined') window.addEventListener('pagehide', () => { try { localStorage.setItem(BYE, String(Date.now())); } catch { /* */ } });
 let pending = false;
 export const updatePending = () => pending;
 export function setupSW() {
@@ -30,7 +42,7 @@ export function setupSW() {
   const check = () => { void reg?.update().catch(() => {}); };
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!had) return;   // 第一次安装接管，不算更新
-    pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: (sc?: string) => { logReload('controllerchange', sc); location.reload(); } }));
+    pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: (sc?: string) => { safeReload('controllerchange', sc); } }));
   });
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js', { scope: './', updateViaCache: 'none' }).then(r => {
@@ -46,10 +58,12 @@ export function setupSW() {
       if (!v.build || v.build === __BUILD__) return;
       check(); const k = 'zy-heal-' + v.build;
       if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, '1');
-      pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: (sc?: string) => { logReload('version.json:' + v.build, sc); location.reload(); } }));
+      pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: (sc?: string) => { safeReload('version.json:' + v.build, sc); } }));
     } catch { /* 离线 */ }
   };
   window.addEventListener('load', () => { void heal(); });
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { check(); void heal(); } });
+  // r14 较真家长：选文件 / 弹键盘 / 系统对话框会让页面短暂隐藏——60 秒内回来不算「切回前台」，不触发更新检查
+  let hiddenAt = 0;
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') { hiddenAt = Date.now(); return; } if (Date.now() - hiddenAt < 60e3) return; check(); void heal(); });
   setInterval(() => { check(); void heal(); }, 60 * 60e3);
 }

@@ -293,7 +293,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
         <div className="fx-shake" ref={D.shake}>
           <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div>
             {say && <div key={say + nudge} className={`ksay ${nudge ? 'nudge' : ''}`} data-testid="ksay">{say}</div>}</div>
-          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}>{kind === 'boss' && <svg className="boss-crown" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}<div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>
+          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>{kind === 'boss' && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
             <img className={`kmon ${ks.lit >= 2 || gentle ? 'smile' : ''} ${gskin ? 'under-sheet' : ''}`} src={MONSTER_IMG.kinder} alt={monName} data-testid="kmon" data-mon={gskin?.id ?? 'cloud'} draggable={false} />
             <img className={`kmon white-flash ${gskin ? 'under-sheet' : ''}`} ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div>
             {monFace && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>
@@ -515,7 +515,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         <div className="stage" ref={D.stage}>
           <div className="fx-shake" ref={D.shake}>
             <div className="unit-wrap hero-wrap" ref={D.hero}><div className="breathe"><Sprite className="unit hero" c={c} /></div></div>
-            <div className={`unit-wrap mon-wrap ${kind}`} ref={D.monster}>{kind === 'boss' && <svg className="boss-crown" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}<div className="breathe slow">
+            <div className={`unit-wrap mon-wrap ${kind}`} ref={D.monster}><div className="breathe slow">{kind === 'boss' && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
               <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} data-testid="monster-img" draggable={false} />
               <img className={`unit monster ${kind} white-flash`} ref={D.flash} src={MONSTER_IMG[mon.img]} alt="" aria-hidden draggable={false} /></div></div>
           </div>
@@ -575,7 +575,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
         {phase === 'revive-ask' && (
           <div className="feedback bad">
             <h3>💫 血量归零</h3>
-            <p>复活挑战：答对 2 道本关错题，回到 50% 血量（每关 1 次）。</p>
+            <p>复活挑战：答对 2 道题，回到 50% 血量（每关 1 次）。</p>
             <div className="row gap16 fb-btns">
               <button className="btn ghost" data-testid="revive-no" onClick={() => finish(bs)}>放弃</button>
               <button className="btn" data-testid="revive-yes" onClick={() => {

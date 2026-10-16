@@ -243,8 +243,8 @@ if (on('pinrec')) {
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click('[data-testid=home-grade-7]'); await w(600);
   await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
   await pg.fill('[data-testid=rec-input]', code.toLowerCase().slice(0, 4) + ' ' + code.slice(4)); await pg.click('[data-testid=rec-ok]'); await w(500);
-  ok(await pg.isVisible('text=设置新的家长密码'), '正确的恢复码（小写、带空格也行）：立即重设，不用等');
-  await pinIn('1357'); await pinIn('1357'); await pg.waitForSelector('[data-testid=hint-answer]'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
+  ok(await pg.isVisible('[data-testid=recset]'), '正确的恢复码（小写、带空格也行）：立即重设，不用等');
+  await pg.fill('[data-testid=recset-pin1]', '1357'); await pg.fill('[data-testid=recset-pin2]', '1357'); await pg.click('[data-testid=recset] input[type=radio] >> nth=0'); await pg.fill('[data-testid=recset-answer]', 'x'); await pg.click('[data-testid=recset-ok]');
   await pg.waitForSelector('[data-testid=rec-code]'); const c2 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); ok(c2 !== code, '重设后给新的恢复码'); await pg.click('[data-testid=rec-done]'); await w(500);
   ok(await pg.isVisible('[data-testid=parent-close]'), '新密码设好进入家长页'); await ctx.close();
 }

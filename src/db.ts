@@ -123,11 +123,15 @@ export async function backupSecretOk(data: any, secret: string): Promise<boolean
   if (await verifyPin(secret, bv.pinHash)) return true;
   const c = normCode(secret); return !!bv.recHash && c.length === 8 && await verifyPin(c, bv.recHash);
 }
+/** r14：上一次恢复走的验证方式（结算提示只显示对应的一句） */
+export let lastImportPath: 'backup' | 'current' = 'current';
 export async function importAll(data: any, o: { pin?: string; trusted?: boolean; backupSecret?: string } = {}) {
   const { clean } = validateBackup(data);
   // r12：当前有密码 → 先验证；导入后保留当前密码；没有 → 用备份里的密码。等待中的 24 小时重设不被导入取消
   let cur = await currentPin();
-  const viaBackup = !!o.backupSecret && !o.trusted;
+  // r14 较真家长：在「当前密码」框里输了备份时的旧密码 / 恢复码——当前密码不对时再按备份里的密码 / 恢复码验证
+  if (!o.backupSecret && o.pin && cur.vault && !o.trusted && !(await verifyPin(o.pin, cur.vault.pinHash)) && await backupSecretOk(data, o.pin)) o = { ...o, backupSecret: o.pin, pin: undefined };
+  const viaBackup = !!o.backupSecret && !o.trusted; lastImportPath = viaBackup ? 'backup' : 'current';
   if (viaBackup) { if (!(await backupSecretOk(data, o.backupSecret!))) throw new BackupSecretError(); cur = { ...cur, vault: null, pinResetDoneAt: undefined }; }
   else if (cur.vault && !o.trusted && !(o.pin && await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError(o.pin ? '家长密码不对，没有恢复' : undefined);
   const m = mergePin(clean.kv as [string, unknown][], cur, backupVault(data, clean.kv as [string, unknown][])); clean.kv = m.kv;
@@ -146,4 +150,23 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
   writeLocal(m.vault); await writeCache(m.vault); if (m.vault?.recHash) await writeRec(m.vault.recHash, setKV);
   await setKV('snapshot:last', snapshot);   // 恢复后可「撤销恢复」（策划 T-P1-3）
   return snapshot;
+}
+
+/** r14 策划：合并导入（只在家长页、已验证当前家长密码后可选）。先自动快照，可一次「撤销」 */
+import { mergeBackup, type MergeIn, type MergeSummary } from './game/merge';
+async function readAllRaw(): Promise<MergeIn> { const d = await db(); const ak = await d.getAllKeys('answers'), av = await d.getAll('answers'); const kk = await d.getAllKeys('kv'), kvv = await d.getAll('kv');
+  return { kv: kk.map((k, i) => [String(k), kvv[i]]), answers: ak.map((k, i) => [k, av[i]]) as MergeIn['answers'], wrong: await d.getAll('wrong'), bank: await d.getAll('bank') }; }
+export async function mergePreview(data: any, today: string): Promise<MergeSummary> { const { clean } = validateBackup(data); return mergeBackup(await readAllRaw(), clean as unknown as MergeIn, today).summary; }
+export async function mergeAll(data: any, o: { pin: string; today: string }) {
+  const { clean } = validateBackup(data); const cur = await currentPin();
+  if (!cur.vault || !(await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError('合并要先输入现在的家长密码');
+  const snapshot = await exportAll();
+  const { out, summary } = mergeBackup(await readAllRaw(), clean as unknown as MergeIn, o.today);
+  const d = await db(); const tx = d.transaction([...STORES], 'readwrite');
+  for (const s of STORES) { const st = tx.objectStore(s); await st.clear();
+    if (s === 'kv') for (const [k, v] of out.kv) await st.put(v, k);
+    else if (s === 'answers') for (const [, v] of out.answers) await st.add(v);
+    else for (const v of (s === 'wrong' ? out.wrong : out.bank)) await st.put(v); }
+  await tx.done; await setKV('snapshot:last', snapshot);
+  return { snapshot, summary };
 }

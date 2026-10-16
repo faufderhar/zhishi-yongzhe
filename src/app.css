@@ -599,3 +599,19 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .fullscreen-notice .fs-card { background: #fff; color: #222; border-radius: 20px; padding: 32px 40px; max-width: 640px; text-align: center; }
 /* r13 小萌新：点错的卡片会立刻变灰（dim），摇晃时看起来又短又小——摇晃的 0.6 s 内保持原样，摇完再变灰 */
 .kopt.dim.kwiggle { opacity: 1 !important; filter: none !important; transition: none !important; }
+
+/* r14：找回问题 / 恢复码重设面板自适应宽度，保存按钮不出屏 */
+.wide-panel { width: min(560px, 94vw); max-width: 94vw; box-sizing: border-box; max-height: 92vh; overflow-y: auto; }
+.wide-panel .name-input { width: 100%; box-sizing: border-box; }
+.wide-panel .row { flex-wrap: wrap; }
+.big-rule { font-size: 1.35em; font-weight: 700; color: #b00020; line-height: 1.4; }
+/* r14：「＋10 分钟」位置固定，后面出现的「取消」不挤动它 */
+.bonus-slot { display: inline-block; min-width: 13em; margin-left: 12px; text-align: left; vertical-align: middle; }
+/* r14 小萌新：皇冠放进怪物的呼吸 / 跳动容器里，贴着头顶跟着动 */
+.breathe:has(> .boss-crown) { position: relative; }
+.boss-crown.in-mon { top: 6%; }
+/* 答错摇头幅度加大 */
+@keyframes shake{15%{transform:translateX(-30px) rotate(-10deg)}40%{transform:translateX(26px) rotate(9deg)}65%{transform:translateX(-16px) rotate(-5deg)}85%{transform:translateX(8px) rotate(2deg)}}
+/* r14 小萌新：「在说话」提示移到上方，不挡中间的答案卡 */
+.kbusy { bottom: auto; top: 10px; }
+.dup-tag { color: #102; border-radius: 10px; padding: 1px 8px; font-weight: 700; }

@@ -27,14 +27,14 @@ describe('r13 技术QA：锁定 / 延时重设防调时钟', () => {
   it('R12-2：24 小时锁关掉后调快 24 小时再打开，只算 8 小时', () => {
     let s = { fails: 0, level: 0, until: 0 } as Parameters<typeof nextLock24>[0]; const t0 = 1e12;
     for (let i = 0; i < 5; i++) s = nextLock24(s, false, t0);
-    const r = resumeLong(s, t0 + 24 * 3600e3); expect(lockLeft(r)).toBe(16 * 3600e3);
+    const r = resumeLong(s, t0 + 24 * 3600e3); expect(r.remain).toBe(24 * 3600e3);   // r14 策划：关闭期间完全不计
   });
   it('R12-1：运行中按观察到的时间累计；跳变取消', () => {
     let p = newPending(1e12); const left0 = pendingLeftMs(p);
     for (let i = 0; i < 120; i++) { const n = tickPending(p, 30e3, 30e3, 1e12 + i * 30e3); if (n === 'cancel') throw 0; p = n; }
     expect(left0 - pendingLeftMs(p)).toBe(3600e3);
     expect(tickPending(p, 30e3, 30e3 + 86400e3, 2e12)).toBe('cancel');
-    expect(pendingLeftMs(resumePending(p, 1e12 + 3600e3 + 86400e3 * 3))).toBe(left0 - 3600e3 - 8 * 3600e3);
+    expect(pendingLeftMs(resumePending(p, 1e12 + 3600e3 + 86400e3 * 3))).toBe(left0 - 3600e3);
   });
 });
 import { normAnswer, HINT_QUESTIONS } from '../src/game/pin';
@@ -49,7 +49,7 @@ import { refill, normStem } from '../src/game/draw';
 import { isMultiSel } from '../src/game/multi';
 // r12b 的不重复测试只用了「题数 ≥ 回合数」的合成题池，没覆盖真实的小题池（如高一物理第 13 关只有 4 道）——这里用真实题库每一关跑满 18 回合
 describe.skipIf(!existsSync('public/banks/bank_7.json'))('r13 技术QA R12-3：真实题池整局不重复', () => {
-  for (const g of ['7', '10']) it(`年级 ${g}：本关 + 相邻小节都出完之前不重复`, () => {
+  for (const g of ['1', '2', '3', '4', '5', '6', '7', '10']) it(`年级 ${g}：本关 + 前面已学小节都出完之前不重复（r14 全年级）`, () => {
     const all = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const qs = playable(all, false); const by = new Map(qs.map(q => [q.key, q]));
     let bad = 0, levels = 0, adjUsed = 0;
     for (const ch of buildChapters(qs, null, all)) for (const l of ch.levels) {
@@ -57,7 +57,7 @@ describe.skipIf(!existsSync('public/banks/bank_7.json'))('r13 技术QA R12-3：�
       const lesson = l.pool.map(k => by.get(k)!).filter(q => q && !isMultiSel(q));
       const noCross = ['语文', '诗词'].includes(ch.subject); const idx = ch.levels.indexOf(l); const lk = new Set(l.pool);
       const ls = levelsOfUnit(ch.levels, l).filter(x => x.kind === 'normal' && x.id !== l.id && !x.redirect);
-      const adj = noCross ? [] : [...ls.filter(x => ch.levels.indexOf(x) < idx).reverse(), ...ls.filter(x => ch.levels.indexOf(x) > idx)].map(x => x.pool.map(k => by.get(k)!).filter(q => q && !isBossOnly(q) && !lk.has(q.key) && !isMultiSel(q))).filter(x => x.length);
+      const adj = noCross ? [] : [...ls.filter(x => ch.levels.indexOf(x) < idx).reverse()].map(x => x.pool.map(k => by.get(k)!).filter(q => q && !isBossOnly(q) && !lk.has(q.key) && !isMultiSel(q))).filter(x => x.length);
       const distinct = new Set([...lesson, ...adj.flat()].map(normStem)).size;
       let pool = [...lesson], used: typeof lesson = []; const seen: string[] = [];
       for (let t = 0; t < 18; t++) {
@@ -67,7 +67,7 @@ describe.skipIf(!existsSync('public/banks/bank_7.json'))('r13 技术QA R12-3：�
         if (seen.includes(normStem(q)) && seen.length < distinct) bad++; seen.push(normStem(q));
       }
     }
-    expect(levels).toBeGreaterThan(20); expect(adjUsed).toBeGreaterThan(0); expect(bad).toBe(0);
+    expect(levels).toBeGreaterThan(5); expect(bad).toBe(0);
   });
 });
 import { splitLesson } from '../src/game/levels';
@@ -92,3 +92,49 @@ describe('r13 策划：小节平均分关', () => {
   });
 });
 import { starOf, migrateStars } from '../src/game/levels';
+import { elitePool } from '../src/game/levels';
+describe('r14 策划：精英关补题顺序', () => {
+  it('没见过的不够 → 以前答错的 → 以前见过的', () => {
+    const P = ['u1', 'u2', 's1', 'w1', 's2', 'w2'].map(key => ({ key }));
+    const r = elitePool(P, [], new Set(['s1', 'w1', 's2', 'w2']), new Set(['w1', 'w2']), 5).map(q => q.key);
+    expect(r).toEqual(['u1', 'u2', 'w1', 'w2', 's1']);
+  });
+  it('没见过的够 6 道就只出没见过的', () => {
+    const P = Array.from({ length: 8 }, (_, i) => ({ key: 'u' + i })).concat([{ key: 'w' }]);
+    expect(elitePool(P, [], new Set(['w']), new Set(['w']), 6).map(q => q.key)).not.toContain('w');
+  });
+});
+
+// r14
+import { resolveRound as rr14, newRound as nr14 } from '../src/game/rounds';
+import { refill as rf14 } from '../src/game/draw';
+import { nextTier as nt14, newTier as nw14 } from '../src/game/consolidate';
+import { PUPS as CH14 } from '../src/game/characters';
+describe('r14', () => {
+  it('墨墨回血只在语文题', () => {
+    const momo = CH14.find(c => c.id === 'momo')!;
+    const mk = () => ({ ...nr14('j', 'normal'), playerHp: 50, playerMax: 100, side: 'P' }) as never;
+    const [, oz] = rr14(mk(), momo, { correct: true, subject: '语文', difficulty: 2, rng: () => 0.99 });
+    const [, om] = rr14(mk(), momo, { correct: true, subject: '数学', difficulty: 2, rng: () => 0.99 });
+    expect(oz.healed).toBeGreaterThanOrEqual(3); expect(om.healed).toBe(0);
+  });
+  it('重复时不拿本局挑战题', () => {
+    const a = { key: 'a', difficulty: 4, question: 'x' } as never, b = { key: 'b', difficulty: 2, question: 'y' } as never;
+    expect(rf14([a, b], [], [], new Set(['a']), new Set(['a'])).pool[0]).toBe(b);
+    expect(rf14([a], [], [], new Set(), new Set(['a'])).kind).toBe('none');
+  });
+  it('难度轨迹：连对 2 升、连错 2 降、上限 min(base+1,3)', () => {
+    let t = nw14(1); const tr: number[] = [];
+    for (const ok of [true, true, true, true, true, true, false, false]) { t = nt14(t, ok); tr.push(t.tier); }
+    expect(tr).toEqual([1, 2, 2, 2, 2, 2, 2, 1]);
+  });
+});
+import { addBonus as ab14, remainingSec as rs14 } from '../src/game/playtime';
+describe('r14 加时', () => {
+  it('超出上限后 +20 分钟：剩余变成 20 分钟', () => {
+    const lim = { weekday: 60, weekend: 60 } as never; const d = new Date('2026-10-14T10:00:00');
+    let u = { '2026-10-14': { used: 94 * 60, bonus: 0 } } as never;
+    u = ab14(u, '2026-10-14', 600, 3600); u = ab14(u, '2026-10-14', 600, 3600);
+    expect(rs14(lim, u, '2026-10-14', d)).toBe(1200);
+  });
+});

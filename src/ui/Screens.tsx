@@ -92,6 +92,8 @@ export function ProfileSelect({ profiles, remaining, bonus = {}, onPick, onParen
             onContextMenu={e => e.preventDefault()}>
             <span className="big-emoji">{p.avatar}</span><span>{p.name}</span>
             <small>{GRADE_LABEL[p.grade]}</small>
+            {(() => { const same = profiles.filter(x => x.name === p.name && x.avatar === p.avatar); if (same.length < 2) return null; const i = same.indexOf(p);   // r14 小萌新：同名同头像的档案加编号和颜色区分
+              return <small className="dup-tag" data-testid={'dup-' + p.id} style={{ background: ['#4cc9f0', '#f72585', '#ffd23f', '#80ed99'][i % 4] }}>{p.name} {i + 1} 号</small>; })()}
             <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}{bonusNote(remaining[p.id], bonus[p.id])}</small>
           </button>
         ))}
@@ -179,7 +181,8 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         <div className="levels" data-testid="levels">
           {ch.levels.map((l, i) => {
             const open = (__TEST_HOOKS__ && !!(window as unknown as { __zyUnlockAll?: boolean }).__zyUnlockAll) || isUnlocked(ch.levels, i, progress.stars);   // 仅测试构建：全解锁
-            const s = l.redirect ? starOf(chapters.flatMap(c => c.levels).find(x => x.id === l.redirect) ?? l, progress.stars) : starOf(l, progress.stars);
+            const s0 = l.redirect ? starOf(chapters.flatMap(c => c.levels).find(x => x.id === l.redirect) ?? l, progress.stars) : starOf(l, progress.stars);
+            const s = open ? s0 : 0;   // r14 小萌新：锁着的关不显示星星（Boss 合并单元时从其他小节 Boss 继承来的星，没解锁前不显示）
             const prev = ch.levels[i - 1];
             const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
             return (<Fragment key={l.id}>
@@ -210,7 +213,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, half = 0 }: {
+export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, half = 0, capped = false }: { capped?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -231,8 +234,10 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
         {!win && !forcedTimeUp && <p>答对的题都算经验，错题已放进错题本，下次再来！</p>}
         {forcedTimeUp && <p className="hint">本关不算通关、不得星；已答对的题照常算经验。</p>}
       </>}
-      <Stars n={stars} size={72} />
-      {best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
+      {/* r14 小萌新：不加星时不显示大星星，只写原因和最佳 */}
+      {!capped && <Stars n={stars} size={72} />}
+      {capped && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
+      {!capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
       {best !== undefined && best > stars && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>
       {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}

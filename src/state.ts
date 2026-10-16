@@ -79,7 +79,9 @@ export async function loadProfiles(): Promise<Profile[]> {
   if (!Array.isArray(raw)) { await quarantine('profiles', raw); const d = DEFAULT_PROFILES(); await setKV('profiles', d); return d; }
   const ok = raw.map(repairProfile).filter((p): p is Profile => !!p);
   const ids = new Set<string>(); const uniq = ok.filter(p => !ids.has(p.id) && !!ids.add(p.id));
-  if (uniq.length !== raw.length || JSON.stringify(uniq) !== JSON.stringify(raw)) { await quarantine('profiles', raw); await setKV('profiles', uniq.length ? uniq : DEFAULT_PROFILES()); }
+  // r14：只有真的丢了档案（损坏 / 重复）才隔离；只是补字段、字段顺序不同就静默写回（以前每次启动都记一条 corrupt:profiles）
+  if (uniq.length !== raw.length) { await quarantine('profiles', raw); await setKV('profiles', uniq.length ? uniq : DEFAULT_PROFILES()); }
+  else if (JSON.stringify(uniq) !== JSON.stringify(raw)) await setKV('profiles', uniq);
   return uniq.length ? uniq : DEFAULT_PROFILES();
 }
 export const saveProfiles = (p: Profile[]) => setKV('profiles', p);

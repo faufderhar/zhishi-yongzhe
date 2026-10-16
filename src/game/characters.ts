@@ -5,7 +5,7 @@ const W = (c: Omit<Character, 'webp'>): Character => ({ ...c, webp: c.img.replac
 /** 小狗救援队：幼儿园 + 初一 */
 export const PUPS: Character[] = [
   W({ id: 'suansuan', name: '算算', img: A('pups/pup_math_suansuan.png'), major: '数学', emoji: '🐶', desc: '数学题伤害 ×1.2，再 +10%' }),
-  W({ id: 'momo', name: '墨墨', img: A('pups/pup_chinese_momo.png'), major: '语文', emoji: '🐶', desc: '语文题伤害 ×1.2，答对回复 3 血' }),
+  W({ id: 'momo', name: '墨墨', img: A('pups/pup_chinese_momo.png'), major: '语文', emoji: '🐶', desc: '语文题伤害 ×1.2，语文题答对回复 3 血' }),
   W({ id: 'abei', name: '阿贝', img: A('pups/pup_english_abei.png'), major: '英语', emoji: '🐶', desc: '英语题伤害 ×1.2，首次答错不断连击' }),
   W({ id: 'shishi', name: '诗诗', img: A('pups/pup_poetry_shishi.png'), major: '诗词', emoji: '🐩', desc: '诗词题伤害 ×1.2' }),
   W({ id: 'beibei', name: '杯杯', img: A('pups/pup_chem_beibei.png'), major: '化学', emoji: '🐶', desc: '化学题伤害 ×1.2' }),

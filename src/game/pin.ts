@@ -22,7 +22,7 @@ export const normAnswer = (s: string) => s.normalize('NFKC').replace(/\s+/g, '')
 /** 锁定：连续错 5 次 → 60 秒；再 5 次 → 5 分钟；之后每 5 次 → 15 分钟；对一次清零。localStorage + IndexedDB 双份。
     倒计时只按 performance.now()（单调时钟）的实际流逝扣减 remain，调系统时间无效（技术QA R4-4）；
     关掉 / 刷新期间不扣（无法可信地知道过了多久），重新打开后从剩余时间继续；seenAt 记录最后一次看到的墙钟，用于防回拨（D8）。 */
-export interface LockState { fails: number; level: number; until: number; remain?: number; seenAt?: number; long?: boolean }
+export interface LockState { gapUsed?: number; fails: number; level: number; until: number; remain?: number; seenAt?: number; long?: boolean }
 const LK = 'zy.pinLock';
 /** r9：找回问题单独计错、单独锁定（以前和密码共用一个倒计时） */
 export const LK_HINT = 'zy.hintLock';
@@ -37,12 +37,14 @@ export function nextLock24(s: LockState, ok: boolean, now: number): LockState {
   return { fails: 0, level: s.level + 1, until: now + LONG_LOCK_MS, remain: LONG_LOCK_MS, seenAt: now, long: true };
 }
 /** 重新打开时：长锁按「上次看到之后墙钟前进的时间」扣（回拨不扣，前跳最多扣到 until） */
-export const LOCK_GAP_CAP_MS = 8 * 3600e3;
+export const LOCK_GAP_CAP_MS = 8 * 3600e3, LOCK_GAP_TOTAL_MS = 12 * 3600e3;
 export function resumeLong(s: LockState, now: number): LockState {
   if (!s.long || !s.remain || !s.seenAt) return s;
   // r13 技术QA R12-2：关闭期间最多算 8 小时（和延时重设同一规则），关掉 → 调快 24 小时 → 再打开 不能直接解锁
-  const gone = now > s.seenAt ? Math.min(now - s.seenAt, LOCK_GAP_CAP_MS, Math.max(0, s.until - s.seenAt)) : 0;
-  return { ...s, remain: Math.max(0, s.remain - gone), seenAt: Math.max(now, s.seenAt) };
+  // r14 技术QA R13-1：每次长锁关闭期间累计最多算 LOCK_GAP_TOTAL_MS（反复「关掉 → 调快 → 打开」不能凑满）
+  const used = s.gapUsed ?? 0;
+  const gone = 0;   // r14 策划定稿：长锁也只按 App 开着时的单调时钟扣（tickLock），关闭期间不计
+  return { ...s, remain: Math.max(0, s.remain - gone), gapUsed: used + gone, seenAt: Math.max(now, s.seenAt) };
 }
 export const LOCK_STEPS = [60e3, 5 * 60e3, 15 * 60e3];
 export function nextLock(s: LockState, ok: boolean, now: number): LockState {

@@ -52,9 +52,9 @@ describe('r12 密码找回', () => {
   it('找回问题 / 恢复码：连错 5 次锁 24 小时；关掉期间墙钟前进才扣，回拨不扣', () => {
     let s = { fails: 0, level: 0, until: 0, remain: 0 } as any; for (let i = 0; i < 4; i++) s = nextLock24(s, false, 1000); expect(lockLeft(s)).toBe(0);
     s = nextLock24(s, false, 1000); expect(s.remain).toBe(LONG_LOCK_MS);
-    expect(resumeLong(s, 1000 + 3600e3).remain).toBe(LONG_LOCK_MS - 3600e3);
+    expect(resumeLong(s, 1000 + 3600e3).remain).toBe(LONG_LOCK_MS);   // r14：关闭期间不计
     expect(resumeLong(s, 0).remain).toBe(LONG_LOCK_MS);
-    expect(resumeLong(s, 1000 + 99 * 3600e3).remain).toBe(LONG_LOCK_MS - 8 * 3600e3);   // r13 R12-2：关闭期间最多算 8 小时
+    expect(resumeLong(s, 1000 + 99 * 3600e3).remain).toBe(LONG_LOCK_MS);
   });
   it('迁移：r11 之前设的找回问题答案（r10 格式）仍然认', async () => {
     const r10 = { pinHash: await makePinHash('2468'), pinHint: { q: '孩子的小名是？', a: await makePinHash(normAnswer('测试小名')) } };
@@ -80,12 +80,13 @@ describe('r12 技术QA R11-1：改系统时间拿不到家长权限', () => {
     const p = newPending(t0); expect(tickPending(p, 30e3, 25 * 3600e3, t0 + 25 * 3600e3)).toBe('cancel');
   });
   it('关掉后把时钟往前调 25 小时 / 100 天再打开：最多只认 8 小时，不到期', () => {
-    let p = newPending(t0); p = resumePending(p, t0 + 25 * 3600e3); expect(p.observed).toBe(GAP_CAP_MS); expect(pendingDue(p)).toBe(false);
+    let p = newPending(t0); p = resumePending(p, t0 + 25 * 3600e3); expect(p.observed ?? 0).toBe(0); expect(pendingDue(p)).toBe(false);
     let q = newPending(t0); q = resumePending(q, t0 + 100 * 864e5); expect(pendingDue(q)).toBe(false);
   });
   it('往回调不补时间', () => { const p = resumePending(newPending(t0), t0 - 5 * 3600e3); expect(p.observed ?? 0).toBe(0); });
   it('就算真的到期也只是「到期」，仍要找回问题或恢复码（pendingDue 不会清密码）', () => {
-    let p: any = newPending(t0); for (let i = 0; i < 9; i++) p = resumePending(p, (p.lastWall ?? t0) + GAP_CAP_MS); expect(pendingDue(p)).toBe(true);
+    let p: any = newPending(t0); for (let i = 0; i < 10; i++) p = resumePending(p, (p.lastWall ?? t0) + GAP_CAP_MS); expect(pendingDue(p)).toBe(false);   // r14 R13-1：反复关掉调快 8 小时凑不满
+    for (let i = 0; i < 72 * 120; i++) { const n = tickPending(p, 30e3, 30e3, t0 + i * 30e3); p = n; } expect(pendingDue(p)).toBe(true);
   });
 });
 import { newTier, nextTier, tierCap } from '../src/game/consolidate';

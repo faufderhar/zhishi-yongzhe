@@ -252,9 +252,11 @@ export function elitePool<T extends { key: string }>(pool: T[], fresh: string[] 
   const f = new Set(fresh);
   const a = pool.filter(q => f.has(q.key) && !seen.has(q.key));
   const b = pool.filter(q => !f.has(q.key) && !seen.has(q.key) && !assigned.has(q.key));
+  // r14 策划：没见过的用完 → 以前答错的 → 以前见过的（不强求 6 道新题）
+  const b2 = pool.filter(q => !f.has(q.key) && !seen.has(q.key) && assigned.has(q.key));
   const c = pool.filter(q => seen.has(q.key) && wrong.has(q.key));
-  const pref = [...a, ...b, ...c];
-  return pref.length >= n ? pref : [...pref, ...pool.filter(q => !pref.includes(q)).slice(0, n - pref.length)];   // 不够才重复，且只补到够数
+  const d = pool.filter(q => seen.has(q.key) && !wrong.has(q.key));
+  const un = [...a, ...b, ...b2]; return un.length >= n ? un : [...un, ...[...c, ...d].slice(0, n - un.length)];
 }
 /** 本单元在 level 之前的关卡（按生成顺序）已分到的题 */
 export function assignedBefore(levels: Level[], level: Level): Set<string> {
@@ -292,6 +294,7 @@ export function isUnlocked(levels: Level[], i: number, stars: Record<string, num
   if (levels[i]?.redirect) return true;   // 指向诗词关的卡片：总是可点（进入后按诗词关处理）
   let j = i - 1; while (j >= 0 && levels[j].redirect) j--;   // 跳过指向诗词关的卡片
   const p = levels[j];
+  if ((stars[levels[i].id] ?? 0) > 0) return true;   // r14：这一关自己打出过星（不是继承的）就算开着
   return j < 0 || p.unit !== levels[i].unit || p.volume !== levels[i].volume || starOf(p, stars) > 0;
 }
 
