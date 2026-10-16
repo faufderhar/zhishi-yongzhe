@@ -667,10 +667,10 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15 R141-4：矮手机竖屏（如 375×667）——意图长说明收起（点「要开盾 ⓘ」仍可看），战斗区再矮一点，键盘留在第一屏 */
 @media (orientation:portrait) and (max-height:740px){
   .battle.rounds .intent-now{display:none}
-  .battle.rounds{grid-template-rows:auto auto 21% 1fr !important}
+  .battle.rounds{grid-template-rows:auto auto 14% 1fr !important}
   /* r15.1 技术QA R15-3：最后一排键（z–m / 空格 退格 确定；- 0 . 确定）也在第一屏 */
-  .battle .keypad button,.battle .keypad .k{height:40px !important;min-height:40px !important}
-  .battle .keypad.num3 .kp-side .ok{min-height:80px}
+  .battle.rounds .keypad.num3 button,.battle.rounds .keypad.num button{height:38px !important;min-height:38px !important;font-size:20px}
+  .battle.rounds .keypad.num3 .kp-side .ok{min-height:80px !important}
   .battle .keypad{gap:4px !important}
   .battle .quiz{padding-top:4px !important;padding-bottom:4px !important}
   .battle .qtext{font-size:20px;margin:2px 0 !important}
@@ -692,3 +692,5 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15.1 */
 .combo-tag{margin-left:6px;padding:1px 6px;border-radius:8px;background:#ffd34d;color:#5a3a00;font-size:12px;font-weight:800;animation:pop .3s}
 .turn-note{margin-left:4px;font-size:12px;opacity:.85}
+@media (orientation:portrait) and (max-height:740px){.battle.rounds .qmeta{min-height:0}.battle.rounds .qmeta .speak,.battle.rounds .quiz .tts-btn{transform:scale(.75);margin:-6px 0}}
+@media (orientation:portrait) and (max-height:740px){.battle.rounds .qtext{max-height:84px;overflow-y:auto;overscroll-behavior:contain}}

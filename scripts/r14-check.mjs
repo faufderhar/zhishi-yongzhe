@@ -339,6 +339,14 @@ if (on('r15retreat')) {
   }
 }
 // r15 技术QA R141-4：手机竖屏英语键盘整块在第一屏、提示气泡不压题干
+if (process.env.MEASURE) {
+  const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, { width: 375, height: 667 }); await enterMap(pg, w);
+  await pg.click('.chapter:has-text("数学")'); await w(400); await pg.click('[data-testid=level-1]'); await w(1200); await tutSkip(pg, w); await skipTut(pg, w);
+  for (let t = 0; t < 6 && !(await pg.isVisible('.keypad')); t++) { if (await pg.isVisible('[data-testid=chal-normal]')) await pg.click('[data-testid=chal-normal]'); await answer(pg, true).catch(() => {}); await w(900); await next(pg, w); await w(300); }
+  await w(500);
+  console.log(JSON.stringify(await pg.evaluate(() => [['.battle'], ['.hud'], ['.side-banner'], ['.arena'], ['.arena .stage'], ['.mon-info'], ['.quiz'], ['.qmeta'], ['.qtext'], ['.keypad-wrap'], ['.keypad'], ['.input-box']].map(([s]) => { const e = document.querySelector(s); if (!e) return s + ':none'; const r = e.getBoundingClientRect(); return `${s}: y=${Math.round(r.top)} h=${Math.round(r.height)} sh=${e.scrollHeight}`; }).concat([getComputedStyle(document.querySelector('.battle')).gridTemplateRows, innerHeight]))));
+  await ctx.close();
+}
 if (on('r15kbnum')) {
   // r15.1 技术QA R15-3：数字键盘最后一排「- 0 .」和确定也在 375×667 第一屏（多看几道题）
   const vp = { width: 375, height: 667 }; const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
@@ -352,7 +360,9 @@ if (on('r15kbnum')) {
       await answer(pg, true).catch(() => {}); await w(900); await next(pg, w); await w(300);
       if (await pg.isVisible('[data-testid=result-title]')) break;
     }
-    await pg.goto(URL); await w(1200); await enterMap(pg, w).catch(() => {}); const t2 = await pg.$('.chapter:has-text("数学")'); if (t2) { await t2.click(); await w(400); }
+    if (await pg.isVisible('[data-testid=pause]')) { await pg.click('[data-testid=pause]'); await w(300); await pg.click('[data-testid=quit]').catch(() => {}); await w(200); await pg.click('[data-testid=quit-confirm]').catch(() => {}); await w(700); }
+    else if (await pg.isVisible('[data-testid=result-title]')) { await pg.click('[data-testid=result-map], text=回地图').catch(() => {}); await w(700); }
+    const t2 = await pg.$('.chapter:has-text("数学")'); if (t2) { await t2.click().catch(() => {}); await w(400); }
   }
   ok(seen > 0 && bads === 0, `375×667 数字 / 字母键盘每排都在第一屏（看了 ${seen} 道，超出 ${bads}）`); await ctx.close();
 }
