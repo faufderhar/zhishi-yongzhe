@@ -633,3 +633,15 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle.rounds .quiz .qmeta{padding-right:0;flex-wrap:wrap;font-size:13px}.battle.rounds .quiz{padding:8px 12px;gap:8px}
   .battle .quiz .opts{grid-template-columns:1fr 1fr;gap:8px}.battle .quiz .opts > *{min-width:0;padding:8px}
 }
+/* r14.1 小萌新：皇冠。以前答错时 React 重写 className 把 has-sheet 冲掉，皇冠跟着布局跑丢；序列帧怪物头顶在帧内约 28% 处 */
+.breathe.has-sheet > .boss-crown.in-mon{top:26%;animation:crownBob 1.6s ease-in-out infinite}
+@keyframes crownBob{0%,100%{transform:translateX(-50%) rotate(-8deg) translateY(0)}50%{transform:translateX(-50%) rotate(-8deg) translateY(4px)}}
+.ktilt > .boss-crown{animation:none}
+/* 答错晃动：水平大幅摆动，约 2.5 Hz，不闪 */
+@keyframes kwrongX{0%,100%{transform:translateX(0)}20%{transform:translateX(-26px)}40%{transform:translateX(22px)}60%{transform:translateX(-16px)}80%{transform:translateX(8px)}}
+.ktilt{animation:kwrongX .8s ease-in-out 1}
+.reduce-motion .ktilt{animation:none}@media (prefers-reduced-motion:reduce){.ktilt{animation:none}}
+@keyframes kwiggle3{0%,100%{transform:translateX(0)}12%{transform:translateX(-30px)}32%{transform:translateX(28px)}52%{transform:translateX(-22px)}72%{transform:translateX(14px)}88%{transform:translateX(-6px)}}
+.kopt.kwiggle{animation:kwiggle3 .95s ease-in-out 1 !important;position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){.kopt.kwiggle{animation:kwiggleSoft .8s ease-in-out 1 !important}}
+.reduce-motion .kopt.kwiggle{animation:kwiggleSoft .8s ease-in-out 1 !important}

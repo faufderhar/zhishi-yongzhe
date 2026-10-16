@@ -216,4 +216,17 @@ if (on('phone')) {
     await pg.screenshot({ path: OUT + `phone-${vp.width}.png` }); await ctx.close();
   }
 }
+// r14.1 学霸：内置档案（初一同学 kid-7 等）切换同样要密码；没有「上次玩家」记录时也要
+if (on('seedpin')) {
+  const { ctx, pg, w } = await session('7'); await enterMap(pg, w);
+  for (const clear of [false, true]) {
+    if (clear) await pg.evaluate(() => localStorage.removeItem('zy.lastPlayer'));
+    await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(1500);
+    for (const nm of ['初一同学', '小班宝贝']) { if (!(await pg.isVisible(`.profile-card:has-text("${nm}")`))) continue;
+      await pg.click(`.profile-card:has-text("${nm}")`); await w(600);
+      ok(await pg.isVisible('[data-testid=pin-ok]'), `切到内置档案「${nm}」要密码${clear ? '（清掉上次玩家记录后）' : ''}`);
+      await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(1200); }
+  }
+  await ctx.close();
+}
 console.log(bad ? `r14 FAIL ${bad}` : 'r14 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

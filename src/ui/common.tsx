@@ -14,6 +14,11 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
   // 技术QA R6-2/R6-3：QWERTY 三行（10/9/7）+ ' - 两键，第 4 行空格、退格、确定
   const rows = ['qwertyuiop', 'asdfghjkl', "zxcvbnm'-"].map(r => r.split(''));
   const vRef = useRef(value); vRef.current = value;
+  // r14.1 学霸：打完字第一次点「确定」常常没反应——按下后键盘区域重排（输入框变高 / 计时刷新）时按下和抬起不在同一元素上，click 不触发。
+  // 现在抬起就提交；随后的 click 去重（400 ms 内不重复提交）
+  const okAt = useRef(0);
+  const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); onOk(); };
+  const okClick = () => { if (Date.now() - okAt.current < 400) return; if (vRef.current.trim()) onOk(); };
   useEffect(() => {   // 物理键盘也能输入
     const h = (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
@@ -33,7 +38,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
         <div className="kp-row last">
           <button className="space" data-key="space" onClick={() => onChange(value + ' ')}>空格</button>
           <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
-          <button className="ok" data-testid="ok" onClick={onOk} disabled={!value.trim()}>确定</button></div>
+          <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!value.trim()}>确定</button></div>
       </div> : <div className="keypad num3">
         {/* 技术QA P2-4：固定 3×4「7 8 9 / 4 5 6 / 1 2 3 / - 0 .」，退格/分数/确定在右侧一列，横竖屏一致 */}
         <div className="kp-digits">{['7', '8', '9', '4', '5', '6', '1', '2', '3', '-', '0', '.'].map(k => <button key={k} data-key={k} onClick={() => onChange(value + k)}>{k}</button>)}</div>
@@ -41,7 +46,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
           <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
           <button data-key="/" onClick={() => onChange(value + '/')}>/</button>
           {sci && !letters && <button data-key="e" onClick={() => onChange(value + 'e')}>×10ⁿ</button>}
-          <button className="ok" data-testid="ok" onClick={onOk} disabled={!value.trim()}>确定</button>
+          <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!value.trim()}>确定</button>
         </div>
       </div>}
     </div>

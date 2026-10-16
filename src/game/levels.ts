@@ -290,6 +290,12 @@ export function migrateStars(levels: Level[], stars: Record<string, number>): Re
   return nx;
 }
 export const starOf = (l: Level, stars: Record<string, number>) => Math.max(stars[l.id] ?? 0, ...(l.aliases ?? []).map(a => stars[a] ?? 0));
+/** r14.1 学霸：锁着的关还差哪些前置关（同一单元里前面所有没打出星的普通关 / 精英关） */
+export function missingPrereqs(levels: Level[], i: number, stars: Record<string, number>): Level[] {
+  const out: Level[] = [];
+  for (let j = i - 1; j >= 0; j--) { const p = levels[j]; if (p.unit !== levels[i].unit || p.volume !== levels[i].volume) break; if (p.redirect) continue; if (starOf(p, stars) <= 0) out.unshift(p); }
+  return out;
+}
 export function isUnlocked(levels: Level[], i: number, stars: Record<string, number>) {
   if (levels[i]?.redirect) return true;   // 指向诗词关的卡片：总是可点（进入后按诗词关处理）
   let j = i - 1; while (j >= 0 && levels[j].redirect) j--;   // 跳过指向诗词关的卡片

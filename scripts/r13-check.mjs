@@ -156,7 +156,9 @@ if (on('pend')) {
   ok(await pg.isVisible('[data-testid=pin-reset-pending]').catch(() => false) || (await pg.textContent('body')).includes('已申请'), '已提交延时重设');
   const t0 = await pg.evaluate(() => Date.now());
   await pg.clock.setSystemTime(t0 + 2 * 86400e3); await pg.clock.runFor(35e3); await w(800);
-  ok(await pg.isVisible('[data-testid=pin-reset-cancelled]'), '运行中时钟前跳 2 天：延时重设被取消（计时器确实在跑）');
+  ok(!(await pg.isVisible('[data-testid=pin-reset-cancelled]')), 'r14.1：运行中时钟前跳 2 天不取消（最多算 12 小时）');
+  await pg.clock.setSystemTime(t0 - 86400e3); await pg.clock.runFor(35e3); await w(800);
+  ok(await pg.isVisible('[data-testid=pin-reset-cancelled]'), '运行中时钟往回调：延时重设被取消（计时器确实在跑）');
   await ctx.close();
 }
 // r13：暂停很久不离开关卡；页面刷新后回到地图并说明原因

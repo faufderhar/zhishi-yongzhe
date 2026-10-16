@@ -22,7 +22,7 @@ export function updateSkill(s: SubjectSkill | undefined, correct: boolean, cfg: 
 
 /** 选题：优先 difficulty = 目标等级，不够依次找 ±1、±2…；最近答对过的题排后；约 20% 来自到期错题 */
 export function selectQuestions(opts: {
-  pool: Question[]; fallback: Question[]; n: number; target: number; kind: LevelKind;
+  pool: Question[]; fallback: Question[]; n: number; rank?: (q: Question) => number /* r14.1：历史排序（没答过 0 < 答错 1 < 答过 2），优先于难度贴近 */; target: number; kind: LevelKind;
   due?: Question[]; recentCorrect?: Set<string>; rnd?: () => number; maxDifficulty?: number;
 }): Question[] {
   const { pool, fallback, n, kind, due = [], recentCorrect = new Set(), rnd = Math.random } = opts;
@@ -31,7 +31,7 @@ export function selectQuestions(opts: {
   for (const q of shuffle(due, rnd).slice(0, nReview)) { out.push(q); used.add(q.key); }
   const pick = (src: Question[], target: number, count: number) => {
     const cand = shuffle(src.filter(q => !used.has(q.key) && q.difficulty <= (opts.maxDifficulty ?? 5)), rnd);
-    cand.sort((a, b) => Math.abs(a.difficulty - target) - Math.abs(b.difficulty - target) || (+recentCorrect.has(a.key)) - (+recentCorrect.has(b.key)));
+    cand.sort((a, b) => (opts.rank ? opts.rank(a) - opts.rank(b) : 0) || Math.abs(a.difficulty - target) - Math.abs(b.difficulty - target) || (+recentCorrect.has(a.key)) - (+recentCorrect.has(b.key)));
     for (const q of cand.slice(0, count)) { out.push(q); used.add(q.key); }
   };
   const base = opts.target + (kind === 'elite' ? 1 : 0);

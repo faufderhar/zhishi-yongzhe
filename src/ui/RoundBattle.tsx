@@ -217,7 +217,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
     // r14：挑战题、重击卡（主动 +1 档）不改动当前难度计数——只有普通出题（含闪避题）计入连对 / 连错
     if (chal && bs.side === 'P') chalKeys.current.add(qq.key);
     const extraHard = (chal && bs.side === 'P') || (hs && P && card === 'heavy');
-    const t0 = tierRef.current; if (!extraHard) tierRef.current = nextTier(tierRef.current, g === 'full'); setTierNow(tierRef.current.tier);
+    const t0 = tierRef.current; if (!extraHard) tierRef.current = nextTier(tierRef.current, g === 'full'); else if (g === 'full') tierRef.current = { ...tierRef.current, wrong: 0 }; /* r14.1 学霸：挑战 / 重击答对也打断「连错」，不然 错-挑战对-错 会降档 */ setTierNow(tierRef.current.tier);
     tierTrace.current.push({ d: qq.difficulty, ok: g === 'full', extra: extraHard, before: t0.tier, after: tierRef.current.tier }); if (__TEST_HOOKS__) (window as unknown as { __zyTier?: unknown }).__zyTier = tierTrace.current;
     if (g === 'full') stats.current.correct++; else if (g === 'partial') { stats.current.correct += 0.5; stats.current.half++; stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); } else {   // 漏选算 0.5（裁定 1）
      stats.current.wrong.push(qq.key); stats.current.wrongQs.push(qq); }
@@ -374,6 +374,9 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, onAnswer, o
             {!fb.ok && <>
               {picked && <p>你的答案：{cq.type === '选择' || cq.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(cq)} /></b></p>
+              {/* r14.1 学霸：多选因多选了错误选项而错时，点名是哪几个 */}
+              {picked && cq.type === '多选' && (() => { const ex = picked.split('').filter(k => !cq.answer.includes(k)); const miss = cq.answer.filter(k => !picked.includes(k));
+                return ex.length || miss.length ? <p className="expl" data-testid="multi-why">{ex.length ? <>多选了不该选的：{ex.map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>)}</> : null}{miss.length ? <>{ex.length ? '；' : ''}漏选了：{miss.map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>)}</> : null}</p> : null; })()}
               {cq.explanation && <p className="expl">💡 <Tex text={cq.explanation} /></p>}
               {fb.o?.review && <p className="hint">已标记「重点复习」</p>}
             </>}

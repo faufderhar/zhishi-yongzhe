@@ -293,7 +293,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
         <div className="fx-shake" ref={D.shake}>
           <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div>
             {say && <div key={say + nudge} className={`ksay ${nudge ? 'nudge' : ''}`} data-testid="ksay">{say}</div>}</div>
-          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''}`}>{kind === 'boss' && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
+          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''} ${D.monState === 'ok' ? 'has-sheet' : ''}`}>{kind === 'boss' && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
             <img className={`kmon ${ks.lit >= 2 || gentle ? 'smile' : ''} ${gskin ? 'under-sheet' : ''}`} src={MONSTER_IMG.kinder} alt={monName} data-testid="kmon" data-mon={gskin?.id ?? 'cloud'} draggable={false} />
             <img className={`kmon white-flash ${gskin ? 'under-sheet' : ''}`} ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div>
             {monFace && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>
@@ -365,7 +365,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [fb, setFb] = useState<{ ok: boolean; text: string; dealt?: number; taken?: number }>();
   const [canNext, setCanNext] = useState(true);
   // r9：暂停 5 分钟自动退出时也按「已答的题」结算，不再静默丢进度
-  const quitNow = () => { const st = stats.current; if (!st.total) { onQuit(); return; } onEnd({ win: false, quit: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); };
+  const quitNow = () => { const st = stats.current; if (!st.total) { onQuit(); return; } onEnd({ win: false, quit: true, correct: st.correct, half: st.half, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); };
   const [paused, setPaused] = useState(false);
   const [intentPop, setIntentPop] = useState(false);   // 报告 #7：点意图看说明
   usePauseOnHide(setPaused);
@@ -373,10 +373,10 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
   const [multi, setMulti] = useState<string[]>([]);
   const [picked, setPicked] = useState<string>();
   const [flagged, setFlagged] = useState(false);
-  const stats = useRef({ correct: 0, total: 0, wrong: [] as string[] });
+  const stats = useRef({ correct: 0, half: 0, total: 0, wrong: [] as string[] });
   const bsRef = useRef(bs); bsRef.current = bs;
   useWakeLock(); usePauseTimeout(paused, quitNow);
-  useForceEnd(() => { const st = stats.current; onEnd({ win: false, timeUp: true, correct: st.correct, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); });
+  useForceEnd(() => { const st = stats.current; onEnd({ win: false, timeUp: true, correct: st.correct, half: st.half, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); });
   // 复活挑战（GDD §4.4）：答对 2 道本关错题
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number } | null>(null);
   const q: Question | undefined = phase === 'revive-q' && rv ? rv.list[rv.i] : queue[idx];
@@ -410,7 +410,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     // 胜负演出最多 0.8s（策划 r7），之后直接进结算或复活
     if (!played) await Promise.race([win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(600)]);
     if (!D.alive.current) return;
-    onEnd({ win, correct: stats.current.correct, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
+    onEnd({ win, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, wrongKeys: stats.current.wrong });
   };
   /** 先播演出，命中瞬间扣血条，演完再进入反馈 */
   async function play(ns: BattleState, show: () => Promise<void> | undefined) {
@@ -439,7 +439,7 @@ export function StdBattle({ cfg, c, kind, title, questions, extra, g1NoLimit, on
     const ok = g !== 'wrong';
     setPicked(val); answerFeedback(ok); setFlagged(false);
     stats.current.total++;
-    if (g === 'full') stats.current.correct++; else stats.current.wrong.push(q.key);
+    if (g === 'full') stats.current.correct++; else { if (g === 'partial') { stats.current.correct += 0.5; stats.current.half++; } stats.current.wrong.push(q.key); }   // r14.1 学霸：结算页要显示「半对 Y 题」
     onAnswer(q, g === 'full', val);
     if (g === 'partial') {   // 多选漏选：半伤害、不受击、自动攻击
       const [ns, r] = resolveCorrect(bs, c, 'attack', q.subject, q.difficulty, 0.5);

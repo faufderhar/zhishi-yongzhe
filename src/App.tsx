@@ -51,7 +51,7 @@ type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' | 'pick'; pick?: string } | { s: 'parent' }
   | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
   | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; nonce: number }
-  | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; capped?: boolean }
+  | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
 const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新或浏览器重载）', crash: '页面崩溃或内存不足被浏览器重启了（不是游戏自己刷新的，已记录）', restore: '刚才从备份恢复 / 合并 / 撤销后重新打开了', tab: '在这个标签页点了「在这里继续」，重新打开了', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
@@ -369,7 +369,7 @@ export default function App() {
     const stale = () => pickGen.current !== gen || (why === 'restore' && userGen.current !== ug);   // 有更新的选择 / 用户已经点了别的
     const lp = (() => { try { const v = JSON.parse(localStorage.getItem('zy.lastPlayer') ?? 'null'); return v && typeof v === 'object' && typeof v.pid === 'string' ? v as { pid: string; day: string } : null; } catch { return null; } })();   // r14 技术QA R13-5：校验格式
     const prevPid = lastPid ?? lp?.pid;   // r13 学霸：每次换档案都要密码（不再只限当天；本次启动内换过的也算），家长页开关可关
-    if (!viaPin && settings.pinHash && !settings.switchNoPin && prevPid && prevPid !== pp.id && profiles.some(x => x.id === prevPid)) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
+    if (!viaPin && settings.pinHash && !settings.switchNoPin && profiles.length > 1 && prevPid !== pp.id /* r14.1 学霸：内置档案（kid-k / kid-7 / kid-10）同样要；新浏览器 / 没有上次记录、上次档案已删除也要 */) { setScreen({ s: 'gate', next: 'pick', pick: pp.id }); return; }
     try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: pp.id, day: today })); } catch { /* */ }
     setPid(pp.id); setLastPid(pp.id); setChapterIdx(0);
     const [pr, sk, wr, ans] = await Promise.all([S.loadProgress(pp.id), S.loadSkills(pp.id), wrongOf(pp.id), answersOf(pp.id)]);
@@ -427,8 +427,10 @@ export default function App() {
     // 补题和错题复习都只取「同一章（册别+章/单元）」的题，绝不跨章（试玩报告 #1：集合关卡混入余弦定理）
     // 裁定 2：普通 / 精英关只用本课（本关题池）的题；Boss 用整章，优先没出过和之前答错的
     const sameUnit = level.kind === 'boss' ? [...new Set([...levelsOfUnit(chapter.levels, level).flatMap(l => l.pool), ...level.pool])] : level.pool;
+    // r14.1 学霸：后备题 / 战斗内补题也按「本档案历史上没答过 → 以前答错 → 答过」排，重开一局不会先拿到上一局的题
     const wrongKeys = new Set(wrong.map(e => e.qkey));
-    const fallback0 = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key));
+    const histRank = (q: Question) => !seenKeys.has(q.key) ? 0 : wrongKeys.has(q.key) ? 1 : 2;
+    const fallback0 = sameUnit.map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key)).sort((a, b) => histRank(a) - histRank(b));
     const fallback = level.kind === 'boss' ? bossPool(fallback0, seenKeys, wrongKeys, cfg.questions.boss) : fallback0;
     const unitKeys = new Set(sameUnit);
     const due = wrong.filter(e => isDue(e) && unitKeys.has(e.qkey)).map(e => byKey.get(e.qkey)).filter((q): q is Question => !!q && playableKeys.has(q.key));
@@ -440,7 +442,7 @@ export default function App() {
       : level.kind === 'elite' ? elitePool(pool, level.fresh, seenKeys, wrongKeys, n, assigned)
       : (() => { const o = elitePool(pool, [], seenKeys, wrongKeys, n); return o.length ? o : pool; })();   // r14：普通关也按「本机没见过 → 以前答错 → 以前见过」排（重开一局不再出同样的 4 道）
     const strict = prefPool;
-    const qs0 = capMulti(spreadTemplates(selectQuestions({ pool: strict, fallback, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), pool), pool);
+    const qs0 = capMulti(spreadTemplates(selectQuestions({ pool: strict, fallback, rank: level.kind === 'boss' ? undefined : histRank, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), [...pool].sort((a, b) => histRank(a) - histRank(b))), pool);
     // r11：Boss 关先出本单元 usage=boss 的题（没出过 / 答错过的在前），剩下的按原来的整单元规则补
     const bossOnly = level.kind === 'boss' ? (level.bossPool ?? []).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key)) : [];
     const qs = bossOnly.length ? withBossFirst(bossPool(bossOnly, seenKeys, wrongKeys, n), qs0, n) : qs0;
@@ -449,7 +451,7 @@ export default function App() {
     // r13 技术QA R12-3：回合制（初一 / 高一 / 小学 full）不再在开局把本课题重复塞满；不够时战斗里先补同单元相邻小节，最后才重复
     if (!roundModeOf(cfg.band) && cfg.battle !== 'full' && qs.length < n && pool.length && level.kind === 'normal') {   // r14 技术QA R13-2：小学 3–6 年级也是回合制，不再开局重复塞满
     const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
-    const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind });
+    const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind, rank: level.kind === 'boss' ? undefined : histRank });
     // r8 多选规则：小学/幼儿园一律不出；初一/高一把本关题池里的多选题都放进候选（是否出、出几道由战斗里按回合规则决定，不受难度挑选影响）
     // r13 学霸：同一小节拆成几关（如 2.1-1 / 2.1-2）时多选题两关都在题池里——普通关不再出本机已经出过的多选题（精英 / Boss 仍可出，但排在没见过的后面）
     // r14 技术QA R13-3：多选保底优先——本关没有本机没见过的多选题时，先用以前答错的多选，再用见过的（最多 2 道），不再整局一道多选都没有
@@ -493,7 +495,7 @@ export default function App() {
     try { localStorage.setItem('zy.lastEnd:' + p.id, JSON.stringify({ levelId: level.id, at: Date.now() })); } catch { /* */ }   // r14.1：结算落盘时间（启动时比它早的「没打完」记录作废）
     S.saveProgress(p.id, nx); setProgress(nx);
     const best = Math.max(pr.stars[level.id] ?? 0, gain);
-    setScreen({ s: 'result', level, r, stars, mastered, best, capped: gain === 0 && stars > 0 });
+    setScreen({ s: 'result', level, r, stars, mastered, best, prevBest, capped: gain === 0 && stars > 0 });
   }
   const nextLevelOf = (level: Level) => { const ch = chapters.find(c => c.subject === level.chapter); const i = ch?.levels.findIndex(l => l.id === level.id) ?? -1; return ch && i >= 0 ? ch.levels[i + 1] : undefined; };
   const flagQ = (q: Question) => { const nf = { ...flags, [q.key]: (flags[q.key] ?? 0) + 1 }; setFlags(nf); S.saveFlags(nf); };
@@ -525,7 +527,7 @@ export default function App() {
       {timeUpNote && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="timeup-note" onClick={() => setTimeUpNote(false)}>⏰ 今天的时间用完啦，不能再答题了，明天再来！（家长可在设置里加时间）</div>}
       {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} bonus={Object.fromEntries(profiles.map(x => [x.id, bonusToday(usage[x.id], today)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
-        onAdd={p => { setProfiles([...profiles, p]); setScreen({ s: 'profiles' }); }} />}
+        onAdd={p => { setProfiles([...profiles, p]); setLastPid(p.id); try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
       {screen.s === 'gate' && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
         onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
@@ -560,7 +562,7 @@ export default function App() {
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
+      {screen.s === 'result' && cfg && char && <ResultScreen prevBest={screen.prevBest} capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} timeUp={myRemaining <= 0} />}

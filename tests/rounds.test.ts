@@ -43,7 +43,7 @@ describe('§2 结算表', () => {
   });
   it('我方答错闪避：初一无专注 1000 次闪避率 25%±3%，闪开不掉血', () => {
     let seed = 42; const rng = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 2 ** 32;
-    let d = 0; for (let k = 0; k < 1000; k++) { const [, o] = resolveRound(newRound('j', 'normal'), poet, { correct: false, subject: '诗词', difficulty: 2, rng }); if (o.dodged) { d++; expect(o.taken).toBe(0); expect(o.text).toMatch(/^没打中！不过你闪开了怪物的反击（闪避几率/); } }
+    let d = 0; for (let k = 0; k < 1000; k++) { const [, o] = resolveRound(newRound('j', 'normal'), poet, { correct: false, subject: '诗词', difficulty: 2, rng }); if (o.dodged) { d++; expect(o.taken).toBe(0); expect(o.text).toMatch(/^没打中！还好躲开了怪物的反击（闪避几率 \d+%）$/); } }
     expect(Math.abs(d / 1000 - 0.25)).toBeLessThanOrEqual(0.03);
   });
   it('闪避率：每层专注 +10%，上限 60%；押确定为 0', () => {

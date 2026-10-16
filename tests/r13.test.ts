@@ -154,3 +154,6 @@ describe('r14.1 R14-1：题出完后的重复轮换', () => {
     expect(Math.max(...Object.values(cnt))).toBeLessThanOrEqual(2); for (let i = 1; i < seq.length; i++) expect(seq[i]).not.toBe(seq[i - 1]);
   });
 });
+it('r14.1：答对后连错计数归零（错-对-错 不降档）', () => {
+  let t = { base: 2, tier: 2, right: 0, wrong: 0 } as any; t = nt14(t, false); t = nt14(t, true); t = nt14(t, false); expect(t.tier).toBe(2);
+});

@@ -135,7 +135,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
       const dodge = i.wager === 'sure' || i.challenge ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
-      if (rng() < dodge) { o.dodged = true; o.text = `没打中！不过你闪开了怪物的反击（闪避几率 ${Math.round(dodge * 100)}%，专注越高越容易闪开）`; }   // r12：我方回合答错是「没打中」
+      if (rng() < dodge) { o.dodged = true; o.text = `没打中！还好躲开了怪物的反击（闪避几率 ${Math.round(dodge * 100)}%）`;   /* r14.1 学霸：恢复 r12 文案，只附上几率 */ }   // r12：我方回合答错是「没打中」
       else {
         o.taken = takeHurt(monAtk(s), i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, i.wager === 'sure' ? WAGER.sureHurt : i.wager === 'unsure' ? WAGER.unsureCtr : 1, i.challenge ? CHALLENGE.ctr : 1);
         o.text = '怪物反击！';
