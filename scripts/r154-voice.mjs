@@ -52,6 +52,31 @@ const swOn = await pg.evaluate(() => !!navigator.serviceWorker?.controller);
 console.log(`  SW 控制页面：${swOn}，zy-voice 缓存条目：${cached}`);
 if (swOn) ok(cached > 0, `录音进了运行时缓存 zy-voice（${cached} 条）`);
 await pg.screenshot({ path: OUT + 'voice-k1-speaker.png' });
+/* r15.4：从选角色到打完一关（含答错再试、自动给答案、答对夸奖 + 技能 + 开心值、结算），再打一个温和关（怪兽回家）：全程不该有「不能朗读」 */
+async function playLevel(pg, w, tag) {
+  for (let step = 0; step < 60; step++) {
+    if (await pg.isVisible('[data-testid=kinder-sub]')) { await w(2500); return true; }
+    const opts = await pg.$$('[data-testid=kopts] .kopt:not([disabled])');
+    if (!opts.length) { await w(400); continue; }
+    const wrong = await pg.$('[data-testid=kopts] .kopt[data-correct="0"]:not([disabled])');
+    const n = await pg.evaluate(() => window.__zyStepN = (window.__zyStepN || 0) + 1);
+    if (wrong && n % 3 !== 0) await wrong.tap().catch(() => {}); else await (await pg.$('[data-testid=kopts] .kopt[data-correct="1"]'))?.tap().catch(() => {});
+    await w(2600);
+  }
+  console.log('  ' + tag + '：60 步内没到结算'); return false;
+}
+ok(await playLevel(pg, w, '第 1 关'), '小班第 1 关打到结算（答错再试 / 自动给答案 / 答对都走过）');
+await pg.tap('[data-testid=to-map]').catch(() => {}); await w(1500);
+const gentleLv = await pg.$$eval('[data-testid^=level-]', es => { const e = es.find(x => /⚡|👑/.test(x.textContent || '')); return e ? e.getAttribute('data-testid') : null; });
+ok(!!gentleLv, '地图上找到温和关（⚡/👑）：' + gentleLv);
+if (gentleLv) { await pg.tap(`[data-testid="${gentleLv}"]`); await w(1500); await skipTut(pg, w); ok(await playLevel(pg, w, gentleLv), `温和关 ${gentleLv} 打到结算（怪兽变朋友回家）`); }
+for (const t of ['还要先打赢前面的关，才能打开这一关哦', '真棒！开心值2个，一共3个。']) await pg.evaluate(t => window.__zySpeak(t), t);
+await w(3000);
+const pl = await pg.evaluate(() => [...new Set(window.__zyRecLog.map(x => x.url.split('/').pop().replace(/\.[0-9a-f]{10}\.mp3$/, '')))]);
+console.log('  放过的录音（' + pl.length + '）：' + pl.filter(x => x.startsWith('p_')).join(' '));
+ok(pl.some(x => /^p_(home|cloud_friend)/.test(x)) && pl.some(x => /^p_happy_/.test(x)) && pl.some(x => /^p_demo_/.test(x)), '放到了怪兽回家 / 开心值 / 自动给答案的录音');
+const miss = await pg.evaluate(() => window.__zyMissLog || []), iss2 = await pg.evaluate(() => window.__ttsIssues);
+ok(!miss.length && !iss2.length, `小班从选角色到打完两关：没有一句缺录音、没有「不能朗读」${miss.length ? '；缺：' + JSON.stringify([...new Set(miss)]) : ''}`);
 await ctx.close();
 { const { ctx, pg, w } = await session(['1400x792-浏览器', 1400, 792, 2, 1], '3');
   await pg.tap('[data-testid=level-1]'); await w(1500); await skipTut(pg, w);
