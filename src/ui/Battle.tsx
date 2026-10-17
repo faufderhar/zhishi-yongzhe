@@ -1,6 +1,6 @@
 import { noAdjacent } from '../game/adaptive';
 import { TEST_DOM } from './common';
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
 import { QImage, CountVisual } from './QImage';
@@ -19,6 +19,26 @@ import { Director } from '../fx/director';
 import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
 import type { MonSkin } from '../game/monsterSkin';
 import { appReduceMotion, setAppReduceMotion, sleep } from '../fx/motion';
+
+/** r15.4 安卓平板（华为 MatePad 横屏 + 浏览器栏 / 字体放大）：小班题目气泡变高时战斗区被挤矮，
+ *  固定高度的伙伴 / 怪物会往上伸进题目气泡。按战斗区实际高度把立绘（静态图或序列帧）等比缩小，底边对齐不动。 */
+export function useKFit(stage: RefObject<HTMLDivElement | null>) {
+  useLayoutEffect(() => {
+    const el = stage.current; if (!el || typeof ResizeObserver === 'undefined') return;
+    const fit = () => {
+      const h = el.clientHeight; let need = 0;
+      el.querySelectorAll<HTMLElement>('.kpup-wrap > .breathe, .kmon-wrap > .breathe').forEach(b => { need = Math.max(need, b.offsetHeight); });
+      const raw = need > 0 ? Math.max(0, h - 4) / need : 1, k = Math.min(1, Math.max(0.3, raw));
+      // 太挤（立绘要缩到 60% 以下）：整场改紧凑排版（题目字 / 数数图 / 选项卡小一号），只加不撤，避免来回跳
+      const kb = el.closest('.kbattle'); if (raw < 0.6 && kb && !kb.classList.contains('ktight')) { kb.classList.add('ktight'); requestAnimationFrame(fit); }
+      el.style.setProperty('--kfit', k.toFixed(3)); el.dataset.kfit = k.toFixed(2);
+    };
+    const ro = new ResizeObserver(fit); ro.observe(el);
+    const watch = () => el.querySelectorAll<HTMLElement>('.kpup-wrap > .breathe, .kmon-wrap > .breathe').forEach(b => ro.observe(b));
+    watch(); const mo = new MutationObserver(() => { watch(); fit(); }); mo.observe(el, { childList: true, subtree: true });
+    fit(); return () => { ro.disconnect(); mo.disconnect(); };
+  }, [stage]);
+}
 
 /** 挂载演出导演（Canvas 粒子层 + 各单位节点） */
 export function useDirector(gentle: boolean, c: Character, scale: number, hs = false, mon?: { skin: MonSkin | null; soft: boolean }) {
@@ -215,6 +235,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   usePauseOnHide(setPaused);
   const lock = useRef(false);
   const D = useDirector(true, c, 0.95, false, gskin0 ? { skin: gskin0, soft: true } : undefined);
+  useKFit(D.stage);
   const gskin = gskin0 && D.monState !== 'fail' ? gskin0 : null;   // 柔和版怪兽没加载出来 → 小乌云，文字也跟着说小乌云
   const monName = gskin?.name ?? '小乌云';
   const [say, setSay] = useState<string | null>(null);   // r10：伙伴说的话（文字 + 朗读）

@@ -4,7 +4,7 @@ import type { BandConfig } from '../game/grades';
 import type { Character } from '../game/characters';
 import { MONSTER_IMG } from '../game/characters';
 import { speak } from '../tts';
-import { Sprite } from './Battle';
+import { Sprite, useKFit } from './Battle';
 
 export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void }) {
   // r10：3 道不同的练习题（①点对的卡片 ②爱心 = 开心值 ③小喇叭再听一遍），练习不算星星；练完有「练习完成，开始闯关啦！」过渡
@@ -18,6 +18,7 @@ export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void
   const [wig, setWig] = useState(false);
   const [done, setDone] = useState(false);
   const timers = useRef<number[]>([]);
+  const kst = useRef<HTMLDivElement>(null); useKFit(kst);
   const later = (ms: number, f: () => void) => { timers.current.push(window.setTimeout(f, ms)); };
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
   const cur = QS[step - 1];
@@ -43,7 +44,7 @@ export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void
         </div>
         <div className="hearts"><span className="hearts-label">开心值</span>{[0, 1, 2].map(i => <span key={i} className={`kheart ${i < lit ? 'on' : 'off'} ${i === lit - 1 ? 'pop' : ''}`}>{i < lit ? '💖' : '♥'}</span>)}<b className="hearts-num">{lit}/3</b></div>
       </div>
-      <div className="kstage">
+      <div className="kstage" ref={kst}>
         <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`}><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
         <div className="unit-wrap kmon-wrap"><div className="breathe slow"><img className={`kmon ${lit ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" /></div></div>
       </div>
