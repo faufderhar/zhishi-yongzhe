@@ -240,6 +240,7 @@ export default function App() {
   const [resetNoticeSeen, setResetNoticeSeen] = useState(false);   // r12：等待重设期间，每次启动全屏提示一次
   const [cancelBox, setCancelBox] = useState(false);   // r15.4：取消重设申请的输入框
   const [ttsIssue, setTtsIssue] = useState<string | null>(null);   // r15.4：朗读不可用时给看得见的提示（华为浏览器等）
+  useEffect(() => { if (!ttsIssue) return; const t = window.setTimeout(() => setTtsIssue(null), 6000); return () => clearTimeout(t); }, [ttsIssue]);   // r15.4：朗读提示 6 秒后自己收起，不长期压住小班题目气泡
   useEffect(() => { const f = (e: Event) => setTtsIssue((e as CustomEvent).detail as string); window.addEventListener('zy-tts-issue', f); return () => window.removeEventListener('zy-tts-issue', f); }, []);
   // r12 较真家长：到时前 3 分钟提前提醒（每个孩子每天一次，不闪烁）
   const [warn3, setWarn3] = useState(false); const [warnMini, setWarnMini] = useState(false);

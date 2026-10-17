@@ -28,7 +28,9 @@ export function unlockAudio(e?: Event) {
 if (typeof window !== 'undefined') for (const t of ['pointerdown', 'pointerup', 'touchend', 'click', 'keydown']) window.addEventListener(t, ev => { if (ev.isTrusted && (!sfxCtx || sfxCtx.state !== 'running' || !warmed)) unlockAudio(ev); }, { capture: true, passive: true });
 export const audioState = () => ({ ctx: sfxCtx?.state ?? 'none', warmed, unlocked, tts: ttsState, voices: synth?.getVoices().length ?? 0, zh: zhVoice?.lang ?? null });
 /** r15.4：朗读出问题时通知界面（没有中文语音 / 被浏览器拦了），不再静悄悄失败 */
-const notify = (kind: 'novoice' | 'blocked' | 'unavailable') => { try { window.dispatchEvent(new CustomEvent('zy-tts-issue', { detail: kind })); } catch { /* */ } };
+/* r15.4：每种问题本次打开只提示一次（不每题弹一次盖住题目）；提示条几秒后自己收起（App） */
+const told = new Set<string>();
+const notify = (kind: 'novoice' | 'blocked' | 'unavailable') => { if (told.has(kind)) return; told.add(kind); try { window.dispatchEvent(new CustomEvent('zy-tts-issue', { detail: kind })); } catch { /* */ } };
 let noVoiceTold = false;
 export const ttsSupported = () => !!synth;
 /** 家长页「音效」「朗读」开关 + 音量（技术QA P3-4） */
