@@ -94,3 +94,22 @@ describe('r15.3 标签准确', () => {
     for (let i = 0; i + 4 <= out.length; i++) expect(out.slice(i, i + 4).filter(x => x.key.startsWith('r')).length).toBeLessThanOrEqual(1);
   });
 });
+
+import { anyHarder } from '../src/game/harder';
+describe('r15.3 策划 A：挑战按钮——只要还有更难的题（含出过的）就能点', () => {
+  const mk = (key: string, difficulty: number) => ({ key, difficulty, question: key, subject: '数学', type: '选择' });
+  it('当前档 3（上限）：本课有出过的难度 4 → 仍给挑战题，不灰', () => {
+    expect(anyHarder([mk('a', 3), mk('b', 4)], 3, { baseKey: 'a', seen: new Set(['b']) })?.key).toBe('b');
+  });
+  it('顺序：本局答错 → 没见过 → 以前答错 → 见过；取最低的更难一档', () => {
+    const c = [mk('s', 4), mk('w', 4), mk('u', 4), mk('r', 4), mk('x', 5)];
+    const o = { baseKey: 'base', seen: new Set(['s', 'w', 'r']), wrongHist: new Set(['w']), wrongRun: new Set(['r']) };
+    expect(anyHarder(c, 3, o)?.key).toBe('r');
+    expect(anyHarder(c, 3, { ...o, wrongRun: new Set() })?.key).toBe('u');
+    expect(anyHarder(c.filter(x => x.key !== 'u'), 3, { ...o, wrongRun: new Set() })?.key).toBe('w');
+  });
+  it('一道更难的都没有才返回空（按钮才灰）', () => {
+    expect(anyHarder([mk('a', 3), mk('b', 2)], 3, { baseKey: 'a' })).toBeUndefined();
+    expect(anyHarder([mk('a', 5)], 5, { baseKey: 'x' })).toBeUndefined();
+  });
+});

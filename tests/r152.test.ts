@@ -32,8 +32,10 @@ describe('r15.2 初一普通关 ★★★ 要答对 1 道挑战题', () => {
   });
   it('首次短提示和「？」规则写上「答对一道挑战题就能拿 3 星」，只在初一', () => {
     expect(CHAL_STAR_HINT).toBe('答对一道挑战题就能拿 3 星');
-    expect(TIP_TEXT.challenge).toContain(CHAL_STAR_HINT);
-    expect(rulesFor('j').find(r => r[0] === '挑战题')?.[1]).toContain(CHAL_STAR_HINT);
+    /* r15.3 策划 D：首次短提示改为原文（不再含 3 星说明）；3 星规则写在「？」里 */
+    expect(TIP_TEXT.challenge).toBe('每次我方出题前可以选：普通题（默认）或挑战题。挑战题难一档，答对伤害 ×1.5；答错会受到 ×1.5 反击，而且不能闪避。慢慢选，点了才开始计时。');
+    expect(rulesFor('j').find(r => r[0] === '挑战题')?.[1]).toContain('初一普通关要拿 3 星，得至少答对一道挑战题（这一关没有挑战题时不算）。');
+    for (const t of [TIP_TEXT.challenge, ...rulesFor('j').map(r => r[1])]) expect(t).not.toMatch(/3 ?秒/);
     expect(rulesFor('h').some(r => r[1].includes(CHAL_STAR_HINT))).toBe(false);
     expect(rulesFor('p36').some(r => r[1].includes(CHAL_STAR_HINT))).toBe(false);
   });

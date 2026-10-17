@@ -1,3 +1,4 @@
+import { tierCap } from '../game/consolidate';
 import { stemOf } from '../game/adaptive';
 import { TEST_DOM } from './common';
 /* D6 轮流回合战斗界面（实现规格 v0.3.6）：我方回合 / 对方回合交替，每回合 1 题；小学 3–6、初一、高一 */
@@ -8,7 +9,7 @@ import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { drawNext, normStem } from '../game/draw';
-import { pickHarder } from '../game/harder';
+import { pickHarder, anyHarder } from '../game/harder';
 import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
@@ -68,7 +69,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   const [chalNone, setChalNone] = useState(false); const [chalWhy, setChalWhy] = useState('');
   // r14 策划：挑战灰着时写清原因（如初一 1.3、2.1-1：本课和前面小节最难只有当前难度，题库没有更难的）
   const maxD = useRef(Math.max(0, ...[...questions, ...extra, ...(reserve ?? []), ...(prior ?? [])].filter(x => !isMultiSel(x)).map(x => x.difficulty))).current;
-  const whyNoHarder = (cur: number) => maxD <= cur ? `这一课（含前面学过的小节）最难的题就是难度 ${maxD}，现在已经在这个难度，没有更难的了` : '比现在更难的题这一局都出过了';
+  const whyNoHarder = (cur: number) => `这一课（含前面学过的小节）最难的题就是难度 ${Math.max(maxD, cur)}，没有更难的了`;
   const [rv, setRv] = useState<{ list: Question[]; i: number; right: number; tries: number } | null>(null);
   const D = useDirector(false, c, 0.75, hs, { skin, soft: softFor(cfg.band) });
   const [view, setView] = useState({ p: bs.playerHp, m: bs.monsterHp });
@@ -110,16 +111,20 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   const [chal, setChal] = useState(false);
   const [chalMsg, setChalMsg] = useState('');
   const normalQ = useRef<Question | undefined>(undefined);
-  // r10（D14 修正 1）：我方回合先选「普通 / 挑战」，选完才出题、开始计时；出题后锁定；3 秒不选默认普通（这 3 秒不计时）
+  // r10（D14 修正 1）：我方回合先选「普通 / 挑战」，选完才出题、开始计时；出题后锁定（r11 起不再自动选）
   // r12（策划）：难一档相对当前自适应难度（tierRef），本小节没有就放宽到同单元前序小节；没有才灰
   const priorQs = useRef<Question[]>(prior ?? []);
   const harder = (base: Question | undefined, exclude: string[] = []) => { if (!base) return undefined;
-    const q = pickHarder({ cur: tierRef.current.tier, lesson: pool.current, prior: priorQs.current, used: [...used.current, base], exclude: [base.key, ...exclude, ...(reviewAllowed(shownN.current, lastRev.current) ? [] : [...revSet])], subject: base.subject, skip: x => !!isMultiSel(x) || !!isMulti(x) })?.q;   /* r15.1 R15-2：挑战 / 重击也守复习间隔 */
+    /* r15.3 策划 A：没见过的先，再以前答错的，再见过的（pickHarder 同难度取第一个） */
+    const hr = (x: Question) => !seen?.has(x.key) ? 0 : stats.current.wrong.includes(x.key) ? 1 : 2; const byHist = (xs: Question[]) => [...xs].sort((a, b) => hr(a) - hr(b));
+    const q = pickHarder({ cur: tierRef.current.tier, lesson: byHist(pool.current), prior: byHist(priorQs.current), used: [...used.current, base], exclude: [base.key, ...exclude, ...(reviewAllowed(shownN.current, lastRev.current) ? [] : [...revSet])], subject: base.subject, skip: x => !!isMultiSel(x) || !!isMulti(x) })?.q;   /* r15.1 R15-2：挑战 / 重击也守复习间隔 */
     if (q) return q;
     // r14.1 学霸：更难的新题出完了 → 先用本局答错过的更难题，再用出过的更难题（不是挑战过的），都没有才灰
     const cur = tierRef.current.tier, wr = new Set(stats.current.wrong);
     const back = used.current.filter(x => x.difficulty > cur && x.key !== base.key && !exclude.includes(x.key) && !chalKeys.current.has(x.key) && (repCount.current.get(x.key) ?? 0) < REPEAT_CAP - 1 && !isMultiSel(x) && !isMulti(x) && x.subject === base.subject);
-    return back.find(x => wr.has(x.key)) ?? back[0]; };
+    const b1 = back.find(x => wr.has(x.key)) ?? back[0]; if (b1) return b1;
+    /* r15.3 策划 A：只要本课 / 题池里还有比当前档更难的题（含出过的、挑战过的），挑战按钮就能点；顺序：没见过 → 以前答错 → 见过。真的一道都没有才灰 */
+    return anyHarder([...pool.current, ...priorQs.current, ...(reserve ?? []), ...(adj ?? []).flat(), ...used.current], cur, { baseKey: base.key, subject: base.subject, exclude, skip: x => !!isMultiSel(x) || !!isMulti(x), seen, wrongRun: wr }); };
   const chalPick = (base: Question | undefined) => harder(base);
   const hardQ = useRef<Question | undefined>(undefined);
   const chalSeen = useRef(false), chalRight = useRef(0);   // r15.2：挑战按钮亮过没有、答对几道挑战题（初一普通关 3 星条件）
@@ -373,7 +378,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{cq.difficulty > (tierNow || tierRef.current.tier) ? '，这题更难' : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{chalNone && P && phase !== 'revive-q' && <span className="chal-none" data-testid="chal-none" aria-disabled="true"> · <s>挑战题 🔥</s> 这一回合没有更难的题</span>}
+          <div className="qmeta">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}

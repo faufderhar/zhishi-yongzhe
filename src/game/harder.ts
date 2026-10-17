@@ -13,3 +13,14 @@ export function pickHarder<T extends HQ>(o: HarderOpts<T>): { q: T; from: 'lesso
   const b = best(o.prior); if (b) return { q: b, from: 'prior' };
   return undefined;
 }
+
+/** r15.3 策划 A：没有「没出过」的更难题时的兜底——本课 / 题池里任何比当前档更难的题（含出过的、挑战过的）都行。
+ *  取最低的更难一档；同档里 本局答错 → 历史没见过 → 以前答错 → 见过。一道都没有才返回 undefined（挑战按钮才灰） */
+export function anyHarder<T extends HQ>(cands: T[], cur: number, o: { baseKey: string; subject?: string; exclude?: string[]; skip?: (x: T) => boolean; seen?: Set<string>; wrongRun?: Set<string>; wrongHist?: Set<string> }): T | undefined {
+  const ex = new Set(o.exclude ?? []); const ks = new Set<string>();
+  const any = cands.filter(x => x.difficulty > cur && x.key !== o.baseKey && !ex.has(x.key) && !(o.skip?.(x)) && (!o.subject || x.subject === o.subject) && !ks.has(x.key) && !!ks.add(x.key));
+  if (!any.length) return undefined;
+  const d = Math.min(...any.map(x => x.difficulty));
+  const r = (x: T) => (o.wrongRun?.has(x.key) ? 0 : 4) + (!o.seen?.has(x.key) ? 0 : o.wrongHist?.has(x.key) ? 1 : 2);
+  return any.filter(x => x.difficulty === d).sort((a, b) => r(a) - r(b))[0];
+}
