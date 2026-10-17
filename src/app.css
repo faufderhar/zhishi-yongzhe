@@ -694,3 +694,10 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .turn-note{margin-left:4px;font-size:12px;opacity:.85}
 @media (orientation:portrait) and (max-height:740px){.battle.rounds .qmeta{min-height:0}.battle.rounds .qmeta .speak,.battle.rounds .quiz .tts-btn{transform:scale(.75);margin:-6px 0}}
 @media (orientation:portrait) and (max-height:740px){.battle.rounds .qtext{max-height:84px;overflow-y:auto;overscroll-behavior:contain}}
+/* r15.2 技术QA：较高的手机竖屏（如 414×896）题干元信息多一行时，英语键盘最后一排也在第一屏 */
+@media (orientation:portrait) and (max-width:500px){
+  .battle.rounds .intent-now{display:none}
+  .battle.rounds{grid-template-rows:auto auto 14% 1fr !important}
+  .battle.rounds .arena .stage{min-height:110px;height:calc(30dvh - 120px) !important}
+  .battle.rounds .qmeta{font-size:12px;margin:2px 0}
+}
