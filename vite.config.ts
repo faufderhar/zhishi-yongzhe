@@ -43,6 +43,8 @@ export default defineConfig({
       globIgnores: ['version.json', 'anim/**', 'fx/**', 'sfx/skills/**', 'art/monsters/subjects/**', 'images/k/**'],   // 技能特效 fx/skills/ 与音效 sfx/skills/ 也只运行时缓存
       runtimeCaching: [{ urlPattern: /\/(anim|fx)\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-anim', expiration: { maxEntries: 700 } } },
         { urlPattern: /\/sfx\/skills\/.+\.mp3$/, handler: 'CacheFirst', options: { cacheName: 'zy-sfx-skills', expiration: { maxEntries: 110 }, cacheableResponse: { statuses: [200] } } },
+        /* r15.4 朗读录音退路：按需加载，CacheFirst，只缓存完整 200 响应（不缓存 206 分段，Chrome 从缓存回放分段会失败；播放用 new Audio 整段读） */
+        { urlPattern: /\/voice\/.+\.(mp3|m4a)$/, handler: 'CacheFirst', options: { cacheName: 'zy-voice', expiration: { maxEntries: 3000 }, cacheableResponse: { statuses: [200] }, rangeRequests: true } },
         { urlPattern: /\/art\/monsters\/subjects\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-monsters', expiration: { maxEntries: 400 }, cacheableResponse: { statuses: [200] } } },
         { urlPattern: /\/images\/k\/.+\.webp$/, handler: 'CacheFirst', options: { cacheName: 'zy-kimg', expiration: { maxEntries: 100 }, cacheableResponse: { statuses: [200] } } }] },
   })],

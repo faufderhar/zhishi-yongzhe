@@ -13,7 +13,7 @@ import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newK
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
-import { speak, hasVoice, isSpeaking } from '../tts';
+import { speak, hasVoice, isSpeaking, voiceKey } from '../tts';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
 import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
@@ -162,7 +162,9 @@ export function useForceEnd(f: () => void) {
 /* ---------------- 幼儿园（不会失败） ---------------- */
 const PRAISE = ['真棒！', '太厉害了！', '答对啦！', '你好聪明！', '{mon}笑啦！'];   // r11：{mon} 换成这一关的怪兽名
 const KCOLORS = ['#cfe3ff', '#d5f0c4', '#fff0b3'];
-function speakStem(q: Question) { const t = ttsText(q); if (t) speak(t); }
+/* r15.4 录音退路：题干和每个选项单独的录音（manifest 键：题号#stem / 题号#optN，N = 题目原始选项序号；判断题用共用提示语 p:dui / p:cuo） */
+const optVoiceKey = (q: Question, ch: Option) => q.type === '判断' ? (ch.key === '对' ? 'p:dui' : 'p:cuo') : voiceKey(q.id, `opt${Math.max(0, q.options.findIndex(o => o.key === ch.key))}`);
+function speakStem(q: Question, shown?: Option[]) { const t = ttsText(q); if (t) speak(t, 'zh-CN', { id: q.id, keys: [voiceKey(q.id, 'stem'), ...(shown ?? []).map(ch => optVoiceKey(q, ch))] }); }
 
 /** 题干拆分：连续 emoji 作为「可数的物品」放大显示（较真家长 J-1：题干里的 🍎 不能当普通文字小字显示） */
 const EMO = /(\p{Extended_Pictographic}(?:\uFE0F|\u200D\p{Extended_Pictographic}|\p{Emoji_Modifier})*)/u;
@@ -231,7 +233,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   useForceEnd(() => { const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
-  useEffect(() => { if (q && cfg.autoTTS) speakStem(q); }, [q, cfg.autoTTS]);
+  useEffect(() => { if (q && cfg.autoTTS) speakStem(q, choices); }, [q, cfg.autoTTS]);
   if (!q) return null;
   const T = DESIGN.kinder;
   const answer = (ch: Option) => {
@@ -284,7 +286,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
           <HoldButton className="pause-btn" label="暂停（按住）" testid="pause" ms={2000} onDone={() => setPaused(true)}>⏸</HoldButton>
         </div>
         <div className="kbubble">
-          {hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q)}>🔊</button>}
+          {hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q, choices)}>🔊</button>}
           <KStem q={q} />
         </div>
         {/* r11：普通 / 精英 / Boss 统一：淡淡的笑脸轮廓，每答对一题亮一个 +「开心值 n/N」；关内不显示星星（星星只在结算给） */}
@@ -392,7 +394,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
   const falling = view.p <= 0 || view.m <= 0;   // 已被打到 0 血：直接倒地/defeat，不显示「战斗中…」（策划 r7）
 
   useEffect(() => { setTimeLeft(limit); }, [q?.key, phase === 'question' || phase === 'revive-q']);
-  useEffect(() => { if (q && cfg.autoTTS && (phase === 'question' || phase === 'revive-q')) { const t = ttsText(q); if (t) speak(t, q.subject === '英语' ? 'en' : 'zh-CN'); } }, [q?.key, phase]);
+  useEffect(() => { if (q && cfg.autoTTS && (phase === 'question' || phase === 'revive-q')) { const t = ttsText(q); if (t) speak(t, q.subject === '英语' ? 'en' : 'zh-CN', { id: q.id, keys: [voiceKey(q.id, 'stem'), ...(q.type === '选择' || q.type === '判断' ? choicesOf(q).map(ch => optVoiceKey(q, ch)) : [])] }); } }, [q?.key, phase]);
   useEffect(() => {
     if ((phase !== 'question' && phase !== 'revive-q') || paused || !limit) return;
     if (timeLeft <= 0) { submit(''); return; }
@@ -543,7 +545,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
               <div key={ch.key} className="opt-wrap">
                 <button className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (q.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>
                   {q.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button>
-                {cfg.optionSpeaker && q.type === '选择' && !ch.text.includes('$') && <button className="opt-spk" aria-label="读选项" onClick={() => speak(ch.text)}>🔈</button>}
+                {cfg.optionSpeaker && q.type === '选择' && !ch.text.includes('$') && <button className="opt-spk" aria-label="读选项" onClick={() => speak(ch.text, 'zh-CN', { keys: [optVoiceKey(q, ch)] })}>🔈</button>}
               </div>))}
           </div>
         )}

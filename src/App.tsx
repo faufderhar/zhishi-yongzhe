@@ -24,7 +24,9 @@ import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, stemOf, upd
 import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
 import { PUPS, SCIFI, type Character } from './game/characters';
-import { unlockAudio, speak } from './tts';
+import { unlockAudio, speak, registerPrompts } from './tts';
+import { PROMPT_BY_TEXT } from './game/voicePrompts';
+registerPrompts(PROMPT_BY_TEXT);   // r15.4：共用提示语录音退路
 import { recordAnswer, wrongOf, putWrong, delWrong, answersOf } from './db';
 import * as S from './state';
 import type { Profile, Progress, Settings } from './state';
@@ -237,6 +239,8 @@ export default function App() {
   const [timeUpNote, setTimeUpNote] = useState(false);
   const [resetNoticeSeen, setResetNoticeSeen] = useState(false);   // r12：等待重设期间，每次启动全屏提示一次
   const [cancelBox, setCancelBox] = useState(false);   // r15.4：取消重设申请的输入框
+  const [ttsIssue, setTtsIssue] = useState<string | null>(null);   // r15.4：朗读不可用时给看得见的提示（华为浏览器等）
+  useEffect(() => { const f = (e: Event) => setTtsIssue((e as CustomEvent).detail as string); window.addEventListener('zy-tts-issue', f); return () => window.removeEventListener('zy-tts-issue', f); }, []);
   // r12 较真家长：到时前 3 分钟提前提醒（每个孩子每天一次，不闪烁）
   const [warn3, setWarn3] = useState(false); const [warnMini, setWarnMini] = useState(false);
   /* r15 小萌新：「还有 3 分钟」横条 5 秒后收成角落小徽标，不再挡题目和地图 */
@@ -578,7 +582,7 @@ export default function App() {
 
   const theme = cfg && !['profiles', 'gate', 'parent', 'loading'].includes(screen.s) ? 'theme-' + cfg.theme : '';
   return (
-    <div className={`app ${theme}`} onPointerDown={unlockAudio}>
+    <div className={`app ${theme}`} onPointerDown={e => unlockAudio(e.nativeEvent)}>
       {!tabActive && <div className="tab-inactive" data-testid="tab-inactive"><div className="p-card wide-panel"><h2>已在别处打开</h2><p>知识勇者在这台设备的另一个标签页 / 窗口里打开了。为了不把数据弄乱，这里先停下。</p><button className="btn big-sq" data-testid="tab-takeover" onClick={() => { claimTab(); logReload('tab-takeover', screenRef.current.s); location.reload(); }}>在这里继续</button></div></div>}
       {portrait && !tipGone && <div className="portrait-tip" onAnimationEnd={() => setTipGone(true)}>横过来玩更舒服哦 ↻</div>}
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
@@ -596,6 +600,7 @@ export default function App() {
         ? <button className="grace-icon" data-testid="grace-icon" aria-label={GRACE_VOICE} onClick={() => speak(GRACE_VOICE)}>
             <span className="gi-clock" aria-hidden>⏰</span><span className="gi-track" aria-hidden><span className="gi-fill" style={{ width: `${Math.max(0, Math.min(100, graceLeft / 180 * 100))}%` }} /></span><span className="gi-sleep" aria-hidden>🛏️</span></button>
         : <div className="grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>)}
+      {ttsIssue && <div className="sys-bar warn-bar" data-testid="tts-issue" onClick={() => setTtsIssue(null)}>🔇 {ttsIssue === 'blocked' ? '点一下屏幕就能听到朗读' : ttsIssue === 'novoice' ? '这台平板没有中文朗读语音，暂时不能朗读（家长可在系统设置 → 文字转语音 里下载中文语音）' : '这台平板暂时不能朗读'}（点此关闭）</div>}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">
         <h1>有人申请重设家长密码</h1><ResetWhy testid="reset-rules" /><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}
