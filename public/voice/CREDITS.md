@@ -20,3 +20,7 @@
 
 ## Use
 Intended for the 知识勇者 family learning game (non-commercial family use). Model weights remain under Apache-2.0; respect LongMaoData attribution for the Chinese data as stated on the model card.
+
+## r15.4 additions (2026-10-17)
+- 95 new shared prompts for 小班 lines that contain variables, expanded from game data (src/game/voiceLines.ts → /workspace/tts/prompts_dynamic.json → `batch.py --prompt-list`): character names, 「X，出发！」, tutorial greeting, skill lines, 开心值 n/m, monster names going home / laughing, stage/grade labels, numbers 1–20, 「我来帮你看看！是…哦！」 pieces. Same voice zf_002, speed 1.5, same post chain, true-peak audit (≤ −1.5 dBTP).
+- 19 keys re-generated after 题库审核 小班读音抽查_v1 (pron_zh.tsv +13 rows; tts_subst.tsv 嘿哟→嘿呦, TTS-only).
