@@ -3,7 +3,7 @@ import { openDB, type IDBPDatabase } from 'idb';
 import type { WrongEntry } from './game/wrongbook';
 import { findVault, findRec, writeRec, writeLocal, writeCache, normCode, type PinVault } from './game/pinVault';
 import { backupVault, mergePin } from './game/backupPin';
-import { cleanKv, cleanAnswer, cleanWrong } from './game/sanitize';
+import { sanitizeData } from './game/sanitize';
 import { verifyPin } from './game/pin';
 export interface AnswerRecord { profileId: string; questionId: string; correct: boolean; at: number; subject?: string }
 const DB = 'zhishi-yongzhe';
@@ -153,9 +153,7 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     if (curKv.has('clock')) kvm.set('clock', curKv.get('clock')); else kvm.delete('clock');
     clean.kv = [...kvm.entries()]; }
   /* r15.3 技术QA R152-4：写库前清洗数字（星星 / 经验 / 时长 / 次数 / 难度 / 时间戳）；不合格的项丢掉 */
-  clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => [k, cleanKv(k, v)]).filter(([, v]) => v !== undefined);
-  clean.answers = (clean.answers as [unknown, unknown][]).map(([k, v]) => [k, cleanAnswer(v)]).filter(([, v]) => v !== undefined);
-  clean.wrong = (clean.wrong as unknown[]).map(cleanWrong).filter(v => v !== undefined);
+  { const sd = sanitizeData(clean); clean.kv = sd.kv; clean.answers = sd.answers; clean.wrong = sd.wrong; }   // r15.4：和合并共用
   const snapshot = await exportAll();
   if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }   // r15：恢复写库到重载之间，页面不能把内存里的旧设置写回去
   const d = await db();
@@ -177,12 +175,14 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
 import { mergeBackup, type MergeIn, type MergeSummary } from './game/merge';
 async function readAllRaw(): Promise<MergeIn> { const d = await db(); const ak = await d.getAllKeys('answers'), av = await d.getAll('answers'); const kk = await d.getAllKeys('kv'), kvv = await d.getAll('kv');
   return { kv: kk.map((k, i) => [String(k), kvv[i]]), answers: ak.map((k, i) => [k, av[i]]) as MergeIn['answers'], wrong: await d.getAll('wrong'), bank: await d.getAll('bank') }; }
-export async function mergePreview(data: any, today: string): Promise<MergeSummary> { const { clean } = validateBackup(data); return mergeBackup(await readAllRaw(), clean as unknown as MergeIn, today).summary; }
+/** r15.4 技术QA P2-1：合并前先清洗备份，合并结果写库前再清洗一次（和覆盖恢复同一个 sanitizeData） */
+const cleanIn = (x: MergeIn): MergeIn => sanitizeData(x) as unknown as MergeIn;
+export async function mergePreview(data: any, today: string): Promise<MergeSummary> { const { clean } = validateBackup(data); return mergeBackup(await readAllRaw(), cleanIn(clean as unknown as MergeIn), today).summary; }
 export async function mergeAll(data: any, o: { pin: string; today: string }) {
   const { clean } = validateBackup(data); const cur = await currentPin();
   if (!cur.vault || !(await verifyPin(o.pin, cur.vault.pinHash))) throw new NeedPinError('合并要先输入现在的家长密码');
   const snapshot = await exportAll();
-  const { out, summary } = mergeBackup(await readAllRaw(), clean as unknown as MergeIn, o.today);
+  const { out: out0, summary } = mergeBackup(await readAllRaw(), cleanIn(clean as unknown as MergeIn), o.today); const out = cleanIn(out0);
   const d = await db(); const tx = d.transaction([...STORES], 'readwrite');
   for (const s of STORES) { const st = tx.objectStore(s); await st.clear();
     if (s === 'kv') for (const [k, v] of out.kv) await st.put(v, k);

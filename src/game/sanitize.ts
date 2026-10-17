@@ -33,10 +33,28 @@ export function cleanKv(k: string, v: unknown): unknown {
   if (k.startsWith('usage:')) return cleanUsage(v);
   if (k.startsWith('skills:')) return cleanSkills(v);
   if (k === 'flags') return cleanFlags(v);
+  if (k === 'profiles') return cleanProfiles(v);
   return v;
+}
+/* r15.4 技术QA P2-2：档案每日时长 limit 按家长页能设的范围夹（5–240 分钟；0 是旧版「不限」写法，留给 repairProfile 迁移）；
+   不是有限数的删掉，读的时候 repairProfile 补年级默认值 */
+export const LIMIT_MIN = 5, LIMIT_MAX = 240;
+export function cleanLimitMin(v: unknown): number | undefined { if (typeof v !== 'number' || !Number.isFinite(v)) return undefined; if (v === 0) return 0; return Math.min(LIMIT_MAX, Math.max(LIMIT_MIN, Math.round(v))); }
+export function cleanProfiles(x: unknown) {
+  if (!Array.isArray(x)) return x;
+  return x.map(p => { if (!isObj(p) || !isObj(p.limit)) return p; const lim: R = {};
+    for (const k of ['weekday', 'weekend']) { const n = cleanLimitMin(p.limit[k]); if (n !== undefined) lim[k] = n; }
+    return { ...p, limit: lim }; });
 }
 export function cleanAnswer(v: unknown) { if (!isObj(v)) return undefined; const at = num(v.at, 0, TS_MAX, true); return at === undefined ? undefined : { ...v, at, correct: v.correct === true }; }
 export function cleanWrong(v: unknown) {
   if (!isObj(v)) return undefined; const box = num(v.box, 1, 3, true) ?? 1;
   return { ...v, box, wrongCount: num(v.wrongCount, 0, 1e4, true) ?? 1, addedAt: num(v.addedAt, 0, TS_MAX, true) ?? 0, updatedAt: num(v.updatedAt, 0, TS_MAX, true) ?? 0, due: typeof v.due === 'string' ? v.due : '' };
+}
+/** r15.4 技术QA P2-1：覆盖恢复、撤销恢复、合并共用这一个清洗（以前合并没走，错题本出现「第 NaN 盒」） */
+export function sanitizeData<T extends { kv?: unknown; answers?: unknown; wrong?: unknown }>(c: T): T {
+  const kv = Array.isArray(c.kv) ? (c.kv as [string, unknown][]).map(([k, v]): [string, unknown] => [k, cleanKv(k, v)]).filter(([, v]) => v !== undefined) : [];
+  const answers = Array.isArray(c.answers) ? (c.answers as [unknown, unknown][]).map(([k, v]): [unknown, unknown] => [k, cleanAnswer(v)]).filter(([, v]) => v !== undefined) : [];
+  const wrong = Array.isArray(c.wrong) ? (c.wrong as unknown[]).map(cleanWrong).filter(v => v !== undefined) : [];
+  return { ...c, kv, answers, wrong };
 }
