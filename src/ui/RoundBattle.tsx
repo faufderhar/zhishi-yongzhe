@@ -1,5 +1,5 @@
 import { tierCap } from '../game/consolidate';
-import { stemOf } from '../game/adaptive';
+import { stemOf, reviewGate } from '../game/adaptive';
 import { TEST_DOM } from './common';
 /* D6 轮流回合战斗界面（实现规格 v0.3.6）：我方回合 / 对方回合交替，每回合 1 题；小学 3–6、初一、高一 */
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -167,7 +167,12 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   const reveal = (x: Question | undefined) => { if (!x) return x; if (revSet.has(x.key)) lastRev.current = shownN.current; shownN.current++; pool.current = pool.current.filter(y => y.key !== x.key); priorQs.current = priorQs.current.filter(y => y.key !== x.key); if (!used.current.includes(x)) used.current.push(x); else repCount.current.set(x.key, (repCount.current.get(x.key) ?? 0) + 1); /* r15：复用本局出过的题（挑战回退等）也计入重复次数 */ return x; };
   const cards = useMemo(() => {
     if (!hs || phase !== 'cards') return null;
-    const rest = pool.current.filter(x => !isMultiSel(x)); const base = pickByTier(rest.filter(x => !isMulti(x)), tierRef.current) ?? rest[0]; if (!base) return null;
+    /* r15.3 技术QA R152-1：高一选卡以前不看复习间隔（错题几乎覆盖整关时，复习题挤在前几题）；现在三张卡都守「前 2 题不出、每 4 题最多 1 道」，
+       本关没有非复习题先借后备 / 相邻小节的，真的只剩复习题才放宽；同档里本档案没见过的先 */
+    const g = reviewGate(pool.current.filter(x => !isMultiSel(x)), x => revSet.has(x.key), reviewAllowed(shownN.current, lastRev.current), unseenOf([...(reserve ?? []), ...(adj ?? []).flat()]).filter(x => !isMultiSel(x) && !isMulti(x)));
+    if (g.borrowed) pool.current = [...pool.current, g.borrowed];
+    const rest = g.list; const unseenH = (xs: Question[]) => { const u = xs.filter(x => !seen?.has(x.key)); return u.length ? u : xs; };
+    const base = pickByTier(unseenH(rest.filter(x => !isMulti(x))), tierRef.current) ?? rest[0]; if (!base) return null;
     const near = (d: number, used: string[]) => rest.filter(x => !used.includes(x.key) && !isMulti(x)).sort((a, b) => Math.abs(a.difficulty - d) - Math.abs(b.difficulty - d))[0];
     const light = near(base.difficulty - 1, [base.key]) ?? base;
     // r12：重击卡不再因没有更难题而缺位：先多步题，再更难一档（含前序小节），都没有就用当前难度的题（倍率按难度挂钩公式自然变小）

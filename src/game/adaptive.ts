@@ -77,6 +77,13 @@ export function spaceReviews<T>(list: T[], isRev: (x: T) => boolean): T[] {
   return out;
 }
 /** r15 回合制取题闸门：现在能不能出复习题（已出 shown 道，最近一道复习题在第 lastRev 道，-1 = 还没出过） */
+/** r15.3 技术QA R152-1：复习间隔不允许时，候选里先去掉复习题；本关没有非复习题就从后备 / 相邻小节借一道非复习题；真的只剩复习题才放宽 */
+export function reviewGate<T>(cands: T[], isRev: (x: T) => boolean, revOk: boolean, more: T[] = []): { list: T[]; borrowed?: T } {
+  if (revOk) return { list: cands };
+  const nr = cands.filter(x => !isRev(x)); if (nr.length) return { list: nr };
+  const b = more.find(x => !isRev(x)); if (b) return { list: [b], borrowed: b };
+  return { list: cands };
+}
 export const reviewAllowed = (shown: number, lastRev: number) => shown >= 2 && (lastRev < 0 || shown - lastRev >= 4);
 /** r15 策划（幼儿园–二年级）：允许重复，但同一道题不连着出（中间至少隔 1 道）；只有 1 道题的关除外 */
 /* r15 小萌新：按题干比（同一题干的不同变体，如「数一数，有几个草莓？」，也不能连着出） */

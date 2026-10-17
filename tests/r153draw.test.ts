@@ -113,3 +113,30 @@ describe('r15.3 策划 A：挑战按钮——只要还有更难的题（含出�
     expect(anyHarder([mk('a', 5)], 5, { baseKey: 'x' })).toBeUndefined();
   });
 });
+
+import { reviewGate, reviewAllowed } from '../src/game/adaptive';
+describe('r15.3 技术QA R152-1：错题几乎覆盖整关时复习题也不挤在前面', () => {
+  it('14 道题里 10 道是复习题：前 2 题不出复习、每 4 题最多 1 道，直到只剩复习题', () => {
+    for (let run = 0; run < 50; run++) {
+      const all = Array.from({ length: 14 }, (_, i) => ({ key: 'q' + i, question: '题' + i, difficulty: 2 + (i % 3) }));
+      const rev = new Set(all.slice(0, 10).map(q => q.key).sort(() => Math.random() - 0.5));
+      const reserve = Array.from({ length: 3 }, (_, i) => ({ key: 'r' + i, question: '备' + i, difficulty: 3 }));
+      let pool = [...all].sort(() => Math.random() - 0.5); const used: typeof all = []; let lastRev = -1;
+      for (let shown = 0; shown < 17; shown++) {
+        const g = reviewGate(pool, x => rev.has(x.key), reviewAllowed(shown, lastRev), reserve.filter(x => !used.includes(x)));
+        if (g.borrowed) pool = [...pool, g.borrowed];
+        const q = drawNext(g.list, used, { pred: () => true, curated: new Set(), tier: newTier(3), multi: (xs, pk) => pk(xs) }).q!;
+        const nonRevLeft = pool.some(x => !rev.has(x.key)) || reserve.some(x => !used.includes(x));
+        if (rev.has(q.key)) { if (nonRevLeft) { expect(shown, '前 2 题出了复习题').toBeGreaterThanOrEqual(2); if (lastRev >= 0) expect(shown - lastRev, '4 题内出了 2 道复习').toBeGreaterThanOrEqual(4); } lastRev = shown; }
+        used.push(q); pool = pool.filter(x => x.key !== q.key); if (!pool.length) break;
+      }
+    }
+  });
+  it('reviewGate：允许时原样；不允许时去掉复习；都是复习先借一道；借不到才放宽', () => {
+    const isR = (x: string) => x.startsWith('r');
+    expect(reviewGate(['r1', 'n1'], isR, true).list).toEqual(['r1', 'n1']);
+    expect(reviewGate(['r1', 'n1'], isR, false).list).toEqual(['n1']);
+    expect(reviewGate(['r1'], isR, false, ['r2', 'n9'])).toEqual({ list: ['n9'], borrowed: 'n9' });
+    expect(reviewGate(['r1'], isR, false, ['r2']).list).toEqual(['r1']);
+  });
+});
