@@ -72,8 +72,22 @@ const vbase = () => (typeof document !== 'undefined' ? (document.baseURI || '/')
 export function voiceManifest() { return voiceMan ??= (typeof fetch === 'undefined' ? Promise.resolve({}) : fetch(vbase() + 'voice/manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))).then(m => (m && typeof m === 'object' ? m : {}) as VoiceMan); }
 export const VOICE_GAP_STEM_MS = 200, VOICE_GAP_OPT_MS = 100, VOICE_GAP_SEG_MS = 120;
 export const voiceKey = (id: string, part: 'stem' | `opt${number}`) => `${id}#${part}`;
-let recEl: HTMLAudioElement | null = null; let recSeq = 0;
-const playOne = (url: string, my: number) => new Promise<boolean>(res => { if (my !== recSeq) return res(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; el.onended = () => res(true); el.onerror = () => res(false); el.play().catch(() => res(false)); });
+let recEl: HTMLAudioElement | null = null; let recSeq = 0; let recSrc: AudioBufferSourceNode | null = null;
+/* r15.4：有已解锁的 AudioContext 时用 fetch + decodeAudioData 播（不发 Range 请求 → 整个 200 响应进 SW 缓存 zy-voice，离线也能播；
+   停顿按毫秒准；和音效同一个已解锁的 context，不受 <audio> 自动播放限制）。没有 context 才退回 <audio>。 */
+const bufCache = new Map<string, Promise<AudioBuffer | null>>();
+const loadBuf = (url: string) => { const ctx = sfxCtx; if (!ctx || typeof fetch === 'undefined') return Promise.resolve(null); let p = bufCache.get(url); if (!p) { p = fetch(url).then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))).then(b => ctx.decodeAudioData(b)).catch(() => { bufCache.delete(url); return null; }); bufCache.set(url, p); if (bufCache.size > 60) bufCache.delete(bufCache.keys().next().value as string); } return p; };
+const playEl = (url: string, my: number) => new Promise<boolean>(res => { if (my !== recSeq) return res(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; el.onended = () => res(true); el.onerror = () => res(false); el.play().catch(() => res(false)); });
+const playOne = async (url: string, my: number): Promise<boolean> => {
+  if (my !== recSeq) return false;
+  const ctx = sfxCtx; if (!ctx || ctx.state !== 'running') return playEl(url, my);
+  const buf = await loadBuf(url); if (my !== recSeq) return false; if (!buf) return playEl(url, my);
+  return new Promise<boolean>(res => { const src = ctx.createBufferSource(), g = ctx.createGain(); g.gain.value = audioPrefs.volume; src.buffer = buf; src.connect(g).connect(ctx.destination);
+    recSrc = src; src.onended = () => { if (recSrc === src) recSrc = null; res(true); }; recLog?.push({ url, t: performance.now(), dur: buf.duration }); src.start(); });
+};
+const stopRec = () => { recEl?.pause(); try { recSrc?.stop(); } catch { /* */ } recSrc = null; };
+/* 仅测试构建：记录每段录音开始的时间（r154-nosynth 量停顿） */
+const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((window as unknown as { __zyRecLog?: { url: string; t: number; dur: number }[] }).__zyRecLog = []) : null;
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 export async function playRecorded(keys: string[]): Promise<boolean> {
   const it = (await voiceManifest()).items ?? {};
@@ -81,7 +95,8 @@ export async function playRecorded(keys: string[]): Promise<boolean> {
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
     fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
   if (!steps.length) return false;
-  const my = ++recSeq; recEl?.pause(); speakingFlag = true;
+  const my = ++recSeq; stopRec(); speakingFlag = true;
+  steps.forEach(st => { void loadBuf(st.url); });   // 先并行取 / 解码，后面按顺序播
   try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; if (!(await playOne(steps[i].url, my)) && i === 0) return false; } return true; }
   finally { if (my === recSeq) speakingFlag = false; }
 }
@@ -96,7 +111,7 @@ const canSystem = (lang: string) => testPlain() ? !!synth : !!synth && ttsState 
 /** 朗读。o.id = 题号（有录音时用录音兜底） */
 export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[] } = {}) {
   if (!audioPrefs.tts) return;
-  const fallback = () => { void playRecorded(keysFor(text, o)).then(ok => { if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
+  const fallback = () => { void playRecorded(keysFor(text, o)).then(ok => { if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
   if (!canSystem(lang)) { fallback(); return; }
   synth!.cancel();
   const u = new SpeechSynthesisUtterance(speakable(text));
