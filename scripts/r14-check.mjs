@@ -309,8 +309,8 @@ if (on('r151')) {
       ok(await pg.isVisible('[data-testid=reset-pending]') || await pg.isVisible('[data-testid=pin-reset-pending]'), '「申请重设密码」后出现等待中的提示');
       const st = await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get('settings'); g.onsuccess = () => { r.result.close(); res(!!g.result?.pinReset); }; }; }));
       ok(st, '申请真的写进了设置（pinReset）');
-      ok(await pg.isVisible('[data-testid=pin-reset-cancel]'), '顶部横条有「取消」');
-      await pg.click('[data-testid=pin-reset-cancel]'); await w(600); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '点「取消」后申请撤销');
+      ok(await pg.isVisible('[data-testid=pin-reset-cancel]') && /不是我申请的？输入家长密码取消/.test(await pg.textContent('[data-testid=pin-reset-cancel]')), '顶部横条有「不是我申请的？输入家长密码取消」');
+      await pg.click('[data-testid=pin-reset-cancel]'); await w(400); await pg.fill('[data-testid=reset-cancel-input]', '2468'); await pg.click('[data-testid=reset-cancel-ok]'); await w(800); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '输家长密码取消后申请撤销');
     }
     await ctx.close();
   }
@@ -396,7 +396,7 @@ if (on('r15lock')) {
   await pg.goto(URL); await w(1500); await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
   await pg.click('[data-testid=reset-request]'); await w(800); if (await pg.isVisible('[data-testid=pin-reset-full-ok]')) await pg.click('[data-testid=pin-reset-full-ok]');
   const p2 = await ctx.newPage(); await p2.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; });
-  await p2.addLocatorHandler(p2.locator('[data-testid=pin-reset-notice-full]'), async () => { await p2.click('[data-testid=pin-reset-full-cancel]'); }, { noWaitAfter: true });
+  await p2.addLocatorHandler(p2.locator('[data-testid=pin-reset-notice-full]'), async () => { await p2.click('[data-testid=pin-reset-full-cancel]'); await p2.fill('[data-testid=reset-cancel-input]', '2468'); await p2.click('[data-testid=reset-cancel-ok]'); await p2.waitForSelector('[data-testid=pin-reset-notice-full]', { state: 'detached', timeout: 5000 }).catch(() => {}); }, { noWaitAfter: true });
   await p2.goto(URL); await p2.waitForSelector('[data-testid^=profile-]'); await p2.waitForTimeout(1500);
   ok(await pg.isVisible('[data-testid=tab-inactive]'), '第一个标签页变成「已在别处打开」');
   const pin2 = async p => { for (const d of p) await p2.click(`[data-testid=pin-${d}]`); await p2.click('[data-testid=pin-ok]'); await p2.waitForTimeout(300); };

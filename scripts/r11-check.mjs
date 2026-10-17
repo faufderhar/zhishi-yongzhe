@@ -224,8 +224,12 @@ if (on('pin')) {
   ok(/有人申请重设家长密码.*(已等.*已打开|到期)/.test(ban), `每个页面顶部提示（${ban.slice(0, 40)}）`); await pg.screenshot({ path: OUT + 'r11-pin-pending.png' });
   await pg.goto(URL); await w(1200);
   ok(await pg.isVisible('[data-testid=pin-reset-notice-full]'), '重新打开：全屏提示一次'); await pg.screenshot({ path: OUT + 'r12-pin-reset-full.png' });
-  await pg.click('[data-testid=pin-reset-full-cancel]'); await w(400); ok(!(await pg.isVisible('[data-testid=pin-reset-pending]')), '〔取消申请〕不要密码，提示消失');
-  await pg.click('[data-testid=parent]'); await w(600); await pg.click('[data-testid=reset-request]'); await w(300); await pg.click('text=返回'); await w(300);
+  // r15.4 策划定稿：取消要家长密码或恢复码（这里密码副本全删了，取消不了，只能等或「知道了」）
+  await pg.click('[data-testid=pin-reset-full-cancel]'); await w(400); ok(await pg.isVisible('[data-testid=reset-cancel-input]'), '〔不是我申请的？输入家长密码取消〕弹出输入框');
+  await pg.fill('[data-testid=reset-cancel-input]', '9999'); await pg.click('[data-testid=reset-cancel-ok]'); await w(500);
+  ok(await pg.isVisible('[data-testid=reset-cancel-msg]') && !!(await pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get('settings'); g.onsuccess = () => { r.result.close(); res(!!g.result?.pinReset); }; }; }))), '输错：提示不对，申请还在');
+  await pg.click('[data-testid=reset-cancel-back]'); await w(200); await pg.click('[data-testid=pin-reset-full-ok]'); await w(300);
+  await pg.click('[data-testid=parent]'); await w(600); if (await pg.isVisible('[data-testid=reset-request]')) await pg.click('[data-testid=reset-request]'); await w(300); await pg.click('text=返回'); await w(300);
   await pg.evaluate(() => sessionStorage.setItem('zyOff', String(25 * 3600e3))); await pg.reload(); await w(2500);
   if (await pg.isVisible('[data-testid=pin-reset-full-ok]')) await pg.click('[data-testid=pin-reset-full-ok]');
   await pg.click('[data-testid=parent]'); await w(600);

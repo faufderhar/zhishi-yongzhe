@@ -33,6 +33,7 @@ import { RoundBattle } from './ui/RoundBattle';
 import { KinderBattle, StdBattle, FORCE_END, type BattleResult } from './ui/Battle';
 import { ProfileSelect, CharSelect, MapScreen, ResultScreen, WrongBookScreen, ReviewSession } from './ui/Screens';
 import { ParentGate, ParentSettings } from './ui/Parent';
+import { ResetWhy, ResetCancelBox, CANCEL_BTN } from './ui/ResetCancel';
 import { logNav, logErr } from './navLog';
 
 type Interrupted = { levelId: string; name: string; pid?: string; upd?: boolean; n?: number; cause?: string };
@@ -235,6 +236,7 @@ export default function App() {
   const ANSWER_SCREENS = ['battle', 'review'];
   const [timeUpNote, setTimeUpNote] = useState(false);
   const [resetNoticeSeen, setResetNoticeSeen] = useState(false);   // r12：等待重设期间，每次启动全屏提示一次
+  const [cancelBox, setCancelBox] = useState(false);   // r15.4：取消重设申请的输入框
   // r12 较真家长：到时前 3 分钟提前提醒（每个孩子每天一次，不闪烁）
   const [warn3, setWarn3] = useState(false); const [warnMini, setWarnMini] = useState(false);
   /* r15 小萌新：「还有 3 分钟」横条 5 秒后收成角落小徽标，不再挡题目和地图 */
@@ -594,11 +596,12 @@ export default function App() {
         : <div className="grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>)}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">
-        <h1>有人申请重设家长密码</h1><details className="reset-rules" data-testid="reset-rules" ><summary>重设规则</summary><ul className="hint"><li>从申请起满 72 小时，并且其中至少有 3 个不同的日子打开过这个游戏。</li><li>游戏开着的时间一共至少 30 分钟。</li><li>关掉游戏的时间也算，但只有上一次打开至少 5 分钟才算，每段最多算 12 小时。</li><li>联网时以网络时间为准；把设备时钟往回调会取消申请。</li><li>至少要联网打开一次（校验网络时间）才能到期；离线时申请的，联网后会按网络时间核对等了多久，对不上就取消。</li><li>想取消：输入正确的家长密码或恢复码。</li></ul></details><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}
-        <p className="hint">到期后也要回答找回问题或输入恢复码才能设新密码。不是爸爸妈妈申请的，请点〔取消申请〕。</p>
-        <div className="row gap16"><button className="btn danger" data-testid="pin-reset-full-cancel" onClick={() => { setSettings({ ...settings, pinReset: undefined }); setResetNoticeSeen(true); }}>取消申请</button>
+        <h1>有人申请重设家长密码</h1><ResetWhy testid="reset-rules" /><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}
+        <p className="hint">到期后还要答对找回问题（或输入恢复码）才能设新密码。</p>
+        <div className="row gap16"><button className="btn danger" data-testid="pin-reset-full-cancel" onClick={() => setCancelBox(true)}>{CANCEL_BTN}</button>{/* r15.4 策划定稿：取消要家长密码或恢复码 */}
           <button className="btn ghost" data-testid="pin-reset-full-ok" onClick={() => setResetNoticeSeen(true)}>知道了</button></div></div></div>}
-      {settings.pinReset && ['profiles', 'map', 'stage', 'grade', 'char', 'wrongbook', 'result', 'review-done', 'parent', 'gate'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="pin-reset-pending">🔑 有人申请重设家长密码：{settings.pinReset.ready ? '已到期（还要回答找回问题或输入恢复码）' : <>已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72）· 已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</>}。不是爸爸妈妈申请的？<button className="chip" data-testid="pin-reset-cancel" onClick={() => setSettings({ ...settings, pinReset: undefined })}>取消</button></div>}
+      {settings.pinReset && ['profiles', 'map', 'stage', 'grade', 'char', 'wrongbook', 'result', 'review-done', 'parent', 'gate'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="pin-reset-pending">🔑 有人申请重设家长密码：{settings.pinReset.ready ? '已到期（还要回答找回问题或输入恢复码）' : <>已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72）· 已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</>}。<button className="chip" data-testid="pin-reset-cancel" onClick={() => setCancelBox(true)}>{CANCEL_BTN}</button></div>}
+      {settings.pinReset && cancelBox && <ResetCancelBox settings={settings} onBack={() => setCancelBox(false)} onCancelled={() => { setSettings({ ...settingsRef.current, pinReset: undefined }); setResetNoticeSeen(true); setCancelBox(false); }} />}
       {warn3 && myRemaining > 0 && myRemaining <= 180 && <div className="sys-bar warn-bar" data-testid="warn3" onClick={() => setWarn3(false)}>⏳ 还有 {Math.ceil(myRemaining / 60)} 分钟就到今天的游戏时间了，准备收尾吧（点此关闭）</div>}
       {!warn3 && warnMini && myRemaining > 0 && myRemaining <= 180 && <div className="warn-mini" data-testid="warn3-mini" title="今天的游戏时间快到了">⏳ {Math.ceil(myRemaining / 60)} 分</div>}
       {timeUpNote && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="timeup-note" onClick={() => setTimeUpNote(false)}>⏰ 今天的时间用完啦，不能再答题了。<br />明天 0:00 重新计时。<br />（家长可在设置里加时间）</div>}
