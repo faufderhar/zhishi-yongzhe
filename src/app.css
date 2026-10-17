@@ -747,3 +747,10 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .kbattle.ktight .kitem{font-size:48px;min-width:64px;min-height:64px}
 .kbattle.ktight .kopt{height:clamp(120px,22dvh,280px);min-height:120px}
 .kbattle.ktight .kopts{min-height:0}
+/* r15.4：横屏矮屏（1024×600）题干三行（如 M7-550）时数字键盘最后一排出屏——有键盘时答题区间距 / 输入框收紧 */
+@media (orientation:landscape) and (max-height:700px){
+  .battle.rounds .quiz:has(.keypad-wrap){gap:8px;padding-top:8px;padding-bottom:6px}
+  .battle.rounds .quiz:has(.keypad-wrap) .keypad-wrap{gap:6px}
+  .battle.rounds .quiz:has(.keypad-wrap) .input-box{min-height:44px;font-size:24px;padding:6px 14px}
+  .battle.rounds .quiz:has(.keypad-wrap) .qtext{flex-shrink:0;max-height:calc(3 * 1.45em);overflow-y:auto;overscroll-behavior:contain}
+}
