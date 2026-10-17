@@ -59,8 +59,9 @@ if (on('chal')) {
   await ctx.close();
 }
 // R9-1 各尺寸：数字键盘整块在屏内
-if (on('kb')) for (const [W, H] of [[768, 1024], [1024, 600], [600, 1024], [744, 1133], [1180, 820], [820, 1180], [1366, 1024], [1024, 768]]) {
-  const { ctx, pg, w } = await session('7', {}, { width: W, height: H });
+/* r15.4：首题随机后会抽到三行长题干（M7-550 小棒摆五边形）——竖屏平板强制出这道再测一遍 */
+if (on('kb')) for (const [W, H, FQ] of [[768, 1024], [1024, 600], [600, 1024], [744, 1133], [1180, 820], [820, 1180], [1366, 1024], [1024, 768], [768, 1024, 'M7-550'], [600, 1024, 'M7-550'], [820, 1180, 'M7-550'], [744, 1133, 'M7-550']]) {
+  const { ctx, pg, w } = await session('7', FQ ? { __zyForceQ: FQ } : {}, { width: W, height: H });
   await enterMap(pg, w); await pg.click('[data-testid="chapter-数学"]').catch(() => {}); await w(300); await pg.click('[data-testid=level-1]'); await w(800); await tutSkip(pg, w);
   let got = false; for (let i = 0; i < 14 && !got; i++) {
     await pg.waitForSelector('.quiz .opt, .keypad, [data-testid=chal-normal], [data-testid=result-stats]', { timeout: 15000 }).catch(() => {});
@@ -69,7 +70,7 @@ if (on('kb')) for (const [W, H] of [[768, 1024], [1024, 600], [600, 1024], [744,
     if (await pg.isVisible('[data-testid=result-stats]')) { await pg.click('[data-testid=again]'); await w(800); continue; }
     await answer(pg, true); await w(1500); await next(pg, w);
   }
-  if (got) { const a = await inVp(pg, '.keypad button, [data-testid=ok]'); ok(a, `${W}×${H}：数字键盘和〔确定〕都在屏内`); await pg.screenshot({ path: OUT + `r10-kb-${W}x${H}.png` }); }
+  if (got) { const a = await inVp(pg, '.keypad button, [data-testid=ok]'); ok(a, `${W}×${H}${FQ ? '（长题干 ' + FQ + '）' : ''}：数字键盘和〔确定〕都在屏内`); await pg.screenshot({ path: OUT + `r10-kb-${W}x${H}${FQ ? '-' + FQ : ''}.png` }); }
   else ok(false, `${W}×${H}：没遇到填空题`);
   await ctx.close();
 }

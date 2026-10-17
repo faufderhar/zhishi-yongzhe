@@ -729,3 +729,9 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .forgot-page .pbar-row progress{flex:1;height:14px;accent-color:#2b7a3d}
 .forgot-page .reset-why{color:#333;margin:8px 0}.forgot-page .reset-why ul{margin:6px 0 0 18px;padding:0}
 .forgot-page .link-btn{color:#1a56b0}
+/* r15.4 技术QA：竖屏平板（768×1024）题干三行时数字键盘最后一排被挤出屏——有键盘时战斗区矮一点、题干最多约 3 行（多的在题干里滚动） */
+@media (orientation:portrait){
+  .battle.rounds:has(.keypad-wrap){grid-template-rows:auto auto 27% 1fr}
+  .battle.rounds:has(.keypad-wrap) .arena .stage{height:calc(25dvh - 120px) !important;min-height:110px}
+  .battle.rounds .quiz:has(.keypad-wrap) .qtext{flex-shrink:0;max-height:calc(3 * 1.45em);overflow-y:auto;overscroll-behavior:contain}
+}
