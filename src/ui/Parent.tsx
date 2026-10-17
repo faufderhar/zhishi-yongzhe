@@ -30,7 +30,7 @@ import { Modal, PinPad, fmtMin } from './common';
 import { GRADE_LABEL, loadBank, countStatuses, type Bank, type GradeKey } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
-import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, type Usage } from '../game/playtime';
+import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, splitUsed, fmtMS, type Usage } from '../game/playtime';
 import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
@@ -425,7 +425,10 @@ function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock, resetTim
       {clockLocked && <div className="p-card wide"><b>⏰ 时间锁定中</b><p className="hint">检测到平板时间被调回，今天按「已用完」处理。确认时间正确后可解除。</p><button className="btn" data-testid="unlock-clock" onClick={unlockClock}>解除时间锁定</button></div>}
       <table className="tbl"><thead><tr><th>孩子</th><th>今日已玩</th><th>今日剩余</th><th>每日上限（上学日/周末）</th><th>临时加时</th></tr></thead>
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
-          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{Math.floor(r.used / 60)} 分 {r.used % 60} 秒{(() => { const m = limitMinutes(effLimit(p), new Date()); return m ? <div><small data-testid={'limit-today-' + p.id}>今天上限 {m + Math.round(r.bonus / 60)} 分钟{r.bonus > 0 ? `（含加时 ${Math.round(r.bonus / 60)}）` : ''} · 已用 {Math.floor(r.used / 60)}:{String(r.used % 60).padStart(2, '0')}</small></div> : null; })()}</td><td data-testid={'left-' + p.id}>{fmtMin(remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today))}{clockLocked ? '（时间锁定中）' : ''}</td><td>{effLimit(p).weekday || '不限'} / {effLimit(p).weekend || '不限'}</td>
+          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{(() => { const m = limitMinutes(effLimit(p), new Date()); const base = m ? m * 60 + r.bonus : Infinity; const sp = splitUsed(r.used, base);
+            /* r15.3 较真家长 / 小萌新：已用和收尾分开显示；上限（含加时）、剩余都精确到秒 */
+            return <><span data-testid={'used-' + p.id}>已用 {fmtMS(sp.play)}{sp.wrap > 0 ? <> + 收尾 {fmtMS(sp.wrap)}</> : null}</span>
+              {m ? <div><small data-testid={'limit-today-' + p.id}>今天上限 {fmtMS(base)}{r.bonus > 0 ? `（含加时 ${fmtMS(r.bonus)}）` : ''}{sp.wrap > 0 ? ' · 收尾最多 3:00，不算进上限' : ''}</small></div> : null}</>; })()}</td><td data-testid={'left-' + p.id} data-left-sec={(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? v : -1; })()}>{(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? fmtMS(v) : fmtMin(v); })()}{clockLocked ? '（时间锁定中）' : ''}</td><td>{effLimit(p).weekday || '不限'} / {effLimit(p).weekend || '不限'}</td>
             <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => { if (clockLocked) unlockClock?.(); setUsage(p.id, addBonus(u, today, 600)); }}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? r.used - (m * 60 + r.bonus) : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {Math.floor(over / 60)}:{String(over % 60).padStart(2, '0')}（关卡收尾时间，最多 3 分钟），加的时间先抵掉超出的部分</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && <> <small data-testid={'bonus-now-' + p.id}>今天已加 {Math.round(r.bonus / 60)} 分钟</small> <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today))}>取消</button></>}</span></td></tr>; })}</tbody></table>
       {resetTiming && <div className="p-card wide" data-testid="reset-timing-box"><b>计时出错了？</b><p className="hint">把今天所有孩子的已玩时长和临时加时清零，并把时间基准重置为现在（解除时间锁定，删掉「今天之后」的时长记录）。</p>
         <button className="btn ghost" data-testid="reset-timing" onClick={() => { if (confirm('把今天的计时清零并重置时间基准？')) resetTiming(); }}>重置今天的计时</button></div>}

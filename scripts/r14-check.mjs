@@ -161,7 +161,7 @@ if (on('clock')) {
   const home = await pg.textContent('.profile-card:has-text("r9") .left-time'); console.log('  首页（锁着）：' + home);
   await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
   await pg.click('[data-testid=ptab-time]'); await w(300);
-  const left = (await pg.textContent(`[data-testid=left-${pid}]`)).trim(); const m0 = home.match(/(\d+) 分/)?.[1]; ok(m0 && left.includes(m0 + ' 分'), `家长页剩余与首页一致（${left} / ${home}）`);
+  const left = (await pg.textContent(`[data-testid=left-${pid}]`)).trim(); const m0 = home.match(/(\d+) 分/)?.[1]; const ls = Number(await pg.getAttribute(`[data-testid=left-${pid}]`, 'data-left-sec')); ok(m0 && Math.ceil(ls / 60) === Number(m0), `家长页剩余与首页一致（${left} / ${home}）`);
   await pg.click(`[data-testid=bonus-${pid}]`); await w(300); ok(/今天已加 10 分钟/.test(await pg.textContent(`[data-testid=bonus-now-${pid}]`)), '＋10 → 今天已加 10 分钟');
   await pg.click(`[data-testid=bonus-${pid}]`); await w(300); ok(/今天已加 20 分钟/.test(await pg.textContent(`[data-testid=bonus-now-${pid}]`)), '再 ＋10 → 今天已加 20 分钟');
   pg.once('dialog', d => d.accept()); await pg.click('[data-testid=reset-timing]'); await w(500);

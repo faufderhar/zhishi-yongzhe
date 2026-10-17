@@ -1,7 +1,7 @@
 import { roundModeOf } from './game/rounds';
 import { claimTab, onTabActive, isActiveTab } from './tabGuard';
 import { launchCause, markAlive, beat, setSafeScreen, logReload } from './swUpdate';
-import { bonusToday, tickGrace, GRACE_MS } from './game/playtime';
+import { bonusToday, tickGrace, GRACE_MS, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
 import { netCheck, pendingDays, PEND_DAYS, tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
@@ -80,6 +80,7 @@ export default function App() {
   const [skills, setSkills] = useState<Skills>({});
   const [allSkills, setAllSkills] = useState<Record<string, Skills>>({});
   const [usage, setUsageAll] = useState<Record<string, Usage>>({});
+  const usageRef = useRef(usage); usageRef.current = usage;
   const [wrong, setWrong] = useState<WrongEntry[]>([]);
   const [recentRight, setRecentRight] = useState<Set<string>>(new Set());
   const [seenKeys, setSeenKeys] = useState<Set<string>>(new Set());
@@ -239,7 +240,12 @@ export default function App() {
   const overTime = myRemaining <= 0 && ANSWER_SCREENS.includes(screen.s);
   // r11 技术QA R10-1：3 分钟收尾倒计时并进下面的游戏时钟（单调时钟、暂停/后台不走、只有一个计时源），不再用 Date.now + 固定 setTimeout
   const graceMs = useRef<number | null>(null);
-  useEffect(() => { const G = (__TEST_HOOKS__ && (window as unknown as { __zyGraceMs?: number }).__zyGraceMs) || GRACE_MS; graceMs.current = overTime ? G : null; setGraceLeft(Math.ceil(G / 1000)); }, [overTime]);
+  /* r15.3 较真家长：今天的上限秒数（含加时；不限 = Infinity）。用时永远 ≤ 上限 + 3 分钟收尾 */
+  const limitBase = (id: string, u: Record<string, Usage> = usageRef.current) => { const pp = profilesRef.current.find(x => x.id === id); if (!pp) return Infinity; const m = limitMinutes(S.effLimit(pp)); return m ? m * 60 + (u[id]?.[dayStr()]?.bonus ?? 0) : Infinity; };
+  useEffect(() => { const G0 = (__TEST_HOOKS__ && (window as unknown as { __zyGraceMs?: number }).__zyGraceMs) || GRACE_MS;
+    /* 收尾时长扣掉已经记进去的超时部分（用时按秒批量结算，进入收尾时可能已多记几秒；同一天第二次进入收尾也不会再给 3 分钟） */
+    const G = overTime && pid ? graceBudgetMs(usageRef.current[pid]?.[dayStr()]?.used ?? 0, limitBase(pid), G0) : G0;
+    graceMs.current = overTime ? G : null; setGraceLeft(Math.ceil(G / 1000)); if (overTime && G <= 0) { graceMs.current = null; window.dispatchEvent(new Event(FORCE_END)); } }, [overTime]);
   const [graceLeft, setGraceLeft] = useState(180);
   const char: Character | undefined = p && cfg ? [...PUPS, ...SCIFI].find(c => c.id === p.charId) : undefined;
 
@@ -261,15 +267,19 @@ export default function App() {
       if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; window.dispatchEvent(new Event(FORCE_END)); } }
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
-      if (acc >= 5000) {
-        const sec = Math.floor(acc / 1000); acc -= sec * 1000;
-        setUsageAll(u => { const nu = addUsage(u[pid] ?? {}, dayStr(), sec); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
+      /* r15.3 较真家长：以前时间到之后，结算页 / 地图 / 错题本照样计时（r15 起所有登录界面都计时），收尾 3 分钟之外还在涨（5 分钟上限出现 8:25）。
+         现在：超过上限的部分只在收尾进行中（战斗 / 复习里）才记，而且总数封顶在上限 + 3:00；离上限 6 秒以内每秒结算（收尾按时开始） */
+      const base = limitBase(pid); const near = Number.isFinite(base) && base - ((usageRef.current[pid]?.[dayStr()]?.used ?? 0) + acc / 1000) <= 6;
+      if (acc >= 5000 || (near && acc >= 1000)) {
+        const sec = Math.floor(acc / 1000); acc -= sec * 1000; const inGrace = graceMs.current !== null;
+        setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), inGrace); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
       }
     }, 1000);
     return () => {
       clearInterval(t);
       const sec = Math.round(acc / 1000);   // 退出时把不足 5 秒的部分也记上
-      if (sec > 0) setUsageAll(u => { const nu = addUsage(u[pid] ?? {}, dayStr(), sec); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
+      const inGrace = graceMs.current !== null;
+      if (sec > 0) setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), inGrace); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
     };
   }, [playing, pid]);
 
@@ -568,7 +578,7 @@ export default function App() {
         <button className="chip" onClick={() => setInterrupted(null)}>知道了</button></div>}
       {/* r11：「没打完」只提示给那个孩子本人（进了他的地图才显示），首页不再显示别人的提示，也不会打断正在玩的孩子 */}
       {screen.s === 'loading' && <div className="center-screen"><h1 className="title">⚔️ 知识勇者</h1><p className="sub">正在加载题库… {loadPct}%</p></div>}
-      {overTime && <div className="sys-bar warn-bar grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）</div>}
+      {overTime && <div className="sys-bar warn-bar grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">
         <h1>有人申请重设家长密码</h1><details className="reset-rules" data-testid="reset-rules" ><summary>重设规则</summary><ul className="hint"><li>从申请起满 72 小时，并且其中至少有 3 个不同的日子打开过这个游戏。</li><li>游戏开着的时间一共至少 30 分钟。</li><li>关掉游戏的时间也算，但只有上一次打开至少 5 分钟才算，每段最多算 12 小时。</li><li>联网时以网络时间为准；把设备时钟往回调会取消申请。</li><li>至少要联网打开一次（校验网络时间）才能到期；离线时申请的，联网后会按网络时间核对等了多久，对不上就取消。</li><li>想取消：输入正确的家长密码或恢复码。</li></ul></details><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}
