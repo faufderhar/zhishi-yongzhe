@@ -754,3 +754,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle.rounds .quiz:has(.keypad-wrap) .input-box{min-height:44px;font-size:24px;padding:6px 14px}
   .battle.rounds .quiz:has(.keypad-wrap) .qtext{flex-shrink:0;max-height:calc(3 * 1.45em);overflow-y:auto;overscroll-behavior:contain}
 }
+/* r15.4：矮手机竖屏（375×667）保留 r15 的题干上限 84px（多的在题干里滚动）——上面 36098e0 的「最多约 3 行」只给高的竖屏平板，否则 KaTeX 三行题干把数字键盘最后一排挤出第一屏 */
+@media (orientation:portrait) and (max-height:740px){.battle.rounds .quiz:has(.keypad-wrap) .qtext{max-height:84px}
+  .battle.rounds .quiz:has(.keypad-wrap){gap:6px}
+  .battle.rounds .quiz:has(.keypad-wrap) .q-dmg .hint{display:none}   /* 「（已含连击…）」说明在 ？ 规则里也有；矮手机有键盘时省一行 */
+  .battle.rounds .quiz:has(.keypad-wrap) .input-box{min-height:44px;padding:6px 14px}}

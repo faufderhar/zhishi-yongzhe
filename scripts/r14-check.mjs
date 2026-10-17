@@ -365,6 +365,15 @@ if (on('r15kbnum')) {
     const t2 = await pg.$('.chapter:has-text("数学")'); if (t2) { await t2.click().catch(() => {}); await w(400); }
   }
   ok(seen > 0 && bads === 0, `375×667 数字 / 字母键盘每排都在第一屏（看了 ${seen} 道，超出 ${bads}）`); await ctx.close();
+  /* r15.4：首题随机后抽到 KaTeX 三行题干 M7-353（1+3+5+…+19）时最后一排曾出屏——强制出这道再看 */
+  { const { ctx, pg, w } = await session('7', { __zyUnlockAll: true, __zyForceQ: 'M7-353' }, vp); await enterMap(pg, w);
+    const tab = await pg.$('.chapter:has-text("数学")'); if (tab) { await tab.click(); await w(500); }
+    await pg.click('[data-testid=level-1]').catch(() => {}); await w(1000); await tutSkip(pg, w); await skipTut(pg, w);
+    if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await w(500); }
+    await pg.waitForSelector('.keypad', { timeout: 8000 }).catch(() => {}); await w(300);
+    const has = await pg.isVisible('.keypad'); const a = has && await inVp(pg, '.keypad button');
+    if (!a) await pg.screenshot({ path: OUT + 'r154-kbnum-M7-353-bad.png' });
+    ok(has && a, `375×667（长题干 M7-353）：数字键盘每排都在第一屏`); await ctx.close(); }
 }
 if (on('r15kb')) {
   for (const vp of [{ width: 375, height: 667 }, { width: 414, height: 896 }]) {
