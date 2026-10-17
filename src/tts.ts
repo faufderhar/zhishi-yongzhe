@@ -58,22 +58,29 @@ let ttsState: TtsState = !synth ? 'none' : 'unknown';
 export const ttsStatus = () => ttsState;
 if (synth) { const chk = () => { const n = synth.getVoices().length; if (n === 0) { if (ttsState === 'unknown') ttsState = 'none'; } else { pickVoice(); if (!zhVoice && (ttsState === 'unknown' || ttsState === 'none')) ttsState = 'nozh'; else if (zhVoice && ttsState === 'none') ttsState = 'unknown'; } };
   synth.addEventListener?.('voiceschanged', () => { pickVoice(); if (synth.getVoices().length) { if (ttsState === 'none') ttsState = 'unknown'; chk(); } }); setTimeout(chk, 2000); }
-/* 录音规格（音频设计）：mp3 单声道 24 kHz 40 kbps，放 public/voice/（CREDITS.md 写来源 / 授权）。题干和每个选项是单独的文件（点选项单独听）；
-   文件里不留静音，播放器插停顿：题干 → 选项 400 ms，选项之间 300 ms。常用提示语（答对、再试试…）共用文件。小班不再降 6 dB。
-   manifest：items 的键 = 「题号#stem」「题号#opt0…」「p:提示语 id」→ 文件名（相对 voice/）。 */
-interface VoiceMan { items?: Record<string, string> }
+/* 录音规格（音频设计）：mp3 单声道 24 kHz 40 kbps，放 public/voice/（CREDITS.md 写来源 / 授权），由 /workspace/tts/batch.py 生成。
+   题干和每个选项是单独的文件（点选项单独听）。文件本身带 50 ms 头 / 150 ms 尾静音，所以播放器只补：题干 → 选项 200 ms，选项之间 100 ms；
+   同一题干的中英文分段：batch.py 合成在一个文件里（中间 120 ms）；如果 manifest 给的是分段文件数组，播放器在分段之间插 120 ms。
+   常用提示语（答对、再试试…）共用文件。小班不再降 6 dB。
+   manifest：items 的键 = 「题号#stem」「题号#optN」（N = 原始选项序号）「p:提示语 id」→ 文件名（相对 voice/，或分段文件名数组）；meta 只给生成脚本用。
+   manifest 不存在 / 为空时照常工作（全部走系统朗读或提示）。 */
+interface VoiceMan { items?: Record<string, string | string[]> }
 let voiceMan: Promise<VoiceMan> | null = null;
 const vbase = () => (typeof document !== 'undefined' ? (document.baseURI || '/') : '/').replace(/[^/]*$/, '');
-export function voiceManifest() { return voiceMan ??= (typeof fetch === 'undefined' ? Promise.resolve({}) : fetch(vbase() + 'voice/manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))) as Promise<VoiceMan>; }
-export const VOICE_GAP_STEM_MS = 400, VOICE_GAP_OPT_MS = 300;
+export function voiceManifest() { return voiceMan ??= (typeof fetch === 'undefined' ? Promise.resolve({}) : fetch(vbase() + 'voice/manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))).then(m => (m && typeof m === 'object' ? m : {}) as VoiceMan); }
+export const VOICE_GAP_STEM_MS = 200, VOICE_GAP_OPT_MS = 100, VOICE_GAP_SEG_MS = 120;
 export const voiceKey = (id: string, part: 'stem' | `opt${number}`) => `${id}#${part}`;
 let recEl: HTMLAudioElement | null = null; let recSeq = 0;
 const playOne = (url: string, my: number) => new Promise<boolean>(res => { if (my !== recSeq) return res(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; el.onended = () => res(true); el.onerror = () => res(false); el.play().catch(() => res(false)); });
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 export async function playRecorded(keys: string[]): Promise<boolean> {
-  const it = (await voiceManifest()).items ?? {}; const files = keys.map(k => [k, it[k]] as const).filter(([, f]) => !!f); if (!files.length) return false;
+  const it = (await voiceManifest()).items ?? {};
+  const steps: { url: string; gap: number }[] = []; let prevKey = '';
+  for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
+    fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
+  if (!steps.length) return false;
   const my = ++recSeq; recEl?.pause(); speakingFlag = true;
-  try { for (let i = 0; i < files.length; i++) { if (i) await new Promise(r => setTimeout(r, files[i - 1][0].endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS)); if (my !== recSeq) return true; if (!(await playOne(vbase() + 'voice/' + files[i][1], my)) && i === 0) return false; } return true; }
+  try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; if (!(await playOne(steps[i].url, my)) && i === 0) return false; } return true; }
   finally { if (my === recSeq) speakingFlag = false; }
 }
 /** 共用提示语：文字 → 提示语 id（ui/voicePrompts 登记）；speak() 用文字查录音 */

@@ -1,4 +1,4 @@
 {
-  "_spec": "r15.4 录音退路：mp3 单声道 24 kHz 40 kbps；键 = 题号#stem / 题号#optN（N = 原始选项序号）/ p:提示语 id（见 src/game/voicePrompts.ts）→ 文件名（相对 voice/）。文件里不留静音，播放器插停顿（题干→选项 400 ms，选项之间 300 ms）。小班不降 6 dB。",
+  "_spec": "r15.4 录音退路：mp3 单声道 24 kHz 40 kbps；键 = 题号#stem / 题号#optN（N = 原始选项序号）/ p:提示语 id（见 src/game/voicePrompts.ts）→ 文件名（相对 voice/）。文件自带 50 ms 头 / 150 ms 尾静音，播放器补停顿（题干→选项 200 ms，选项之间 100 ms，分段文件之间 120 ms）。小班不降 6 dB。",
   "items": {}
 }

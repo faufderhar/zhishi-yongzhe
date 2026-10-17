@@ -9,12 +9,16 @@ beforeAll(() => {
   (globalThis as any).Audio = class { src: string; volume = 1; onended?: () => void; onerror?: () => void; constructor(u: string) { this.src = u; } play() { played.push({ url: this.src, t: Date.now() }); setTimeout(() => this.onended?.(), 5); return Promise.resolve(); } pause() {} };
 });
 describe('r15.4 录音退路', () => {
-  it('没有 speechSynthesis：按题干 → 选项播录音，停顿 400 / 300 ms', async () => {
+  it('没有 speechSynthesis：按题干 → 选项播录音，停顿 200 / 100 ms（文件自带头尾静音）', async () => {
     const t = await import('../src/tts');
     expect(t.ttsStatus()).toBe('none');
     const ok = await t.playRecorded([t.voiceKey('K1-001', 'stem'), t.voiceKey('K1-001', 'opt0'), t.voiceKey('K1-001', 'opt1')]);
     expect(ok).toBe(true); expect(played.map(p => p.url)).toEqual(['http://x/app/voice/k/K1-001_s.mp3', 'http://x/app/voice/k/K1-001_0.mp3', 'http://x/app/voice/k/K1-001_1.mp3']);
-    expect(played[1].t - played[0].t).toBeGreaterThanOrEqual(395); expect(played[2].t - played[1].t).toBeGreaterThanOrEqual(295); expect(played[2].t - played[1].t).toBeLessThan(395);
+    expect(played[1].t - played[0].t).toBeGreaterThanOrEqual(195); expect(played[2].t - played[1].t).toBeGreaterThanOrEqual(95); expect(played[2].t - played[1].t).toBeLessThan(195);
+  });
+  it('分段文件数组：分段之间 120 ms；manifest 没有 / 为空时返回 false', async () => {
+    const t = await import('../src/tts'); played.length = 0;
+    expect(await t.playRecorded(['nope#stem'])).toBe(false);
   });
   it('共用提示语按文字找录音；没有录音 → 发「不能朗读」提示', async () => {
     const t = await import('../src/tts'); t.registerPrompts({ '再试试～': 'retry' }); played.length = 0;
