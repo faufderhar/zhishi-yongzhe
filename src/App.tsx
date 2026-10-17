@@ -51,7 +51,7 @@ type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' | 'pick'; pick?: string } | { s: 'parent' }
   | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
   | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; review?: string[]; prevStem?: string; nonce: number }
-  | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean }
+  | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean; playN?: number }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
 const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新或浏览器重载）', crash: '页面崩溃或内存不足被浏览器重启了（不是游戏自己刷新的，已记录）', restore: '刚才从备份恢复 / 合并 / 撤销后重新打开了', tab: '在这个标签页点了「在这里继续」，重新打开了', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
@@ -564,7 +564,7 @@ export default function App() {
     try { localStorage.setItem('zy.lastEnd:' + p.id, JSON.stringify({ levelId: level.id, at: Date.now() })); } catch { /* */ }   // r14.1：结算落盘时间（启动时比它早的「没打完」记录作废）
     S.saveProgress(p.id, nx); setProgress(nx);
     const best = Math.max(pr.stars[level.id] ?? 0, gain);
-    setScreen({ s: 'result', level, r, stars, mastered, best, prevBest, capped: gain === 0 && stars > 0 });
+    setScreen({ s: 'result', level, r, stars, mastered, best, prevBest, capped: gain === 0 && stars > 0, playN: played + 1 });
   }
   const nextLevelOf = (level: Level) => { const ch = chapters.find(c => c.subject === level.chapter); const i = ch?.levels.findIndex(l => l.id === level.id) ?? -1; return ch && i >= 0 ? ch.levels[i + 1] : undefined; };
   const flagQ = (q: Question) => { const nf = { ...flags, [q.key]: (flags[q.key] ?? 0) + 1 }; setFlags(nf); S.saveFlags(nf); };
@@ -626,16 +626,16 @@ export default function App() {
         ? <KinderTutorial c={char} onDone={finishTutorial} />
         : <StdTutorial cfg={cfg} onDone={finishTutorial} onlyCard3={onlyCard3} />)}
       {screen.s === 'battle' && cfg && char && !needTutorial && (cfg.battle === 'kinder'
-        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
+        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
-        ? <RoundBattle prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
+        ? <RoundBattle prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => { const id = pid; setProfiles(ps => ps.map(x => x.id === id ? { ...x, tips: { ...x.tips, [k]: true } } : x)); }}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />
-        : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
+        : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen endReason={screen.r.endReason} chalHint={chalCostStar(screen.r)} exhausted={!!screen.r.exhausted} prevBest={screen.prevBest} capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
+      {screen.s === 'result' && cfg && char && <ResultScreen endReason={screen.r.endReason} chalHint={chalCostStar(screen.r)} exhausted={!!screen.r.exhausted} prevBest={screen.prevBest} capped={screen.capped} playN={screen.playN} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} timeUp={myRemaining <= 0} />}

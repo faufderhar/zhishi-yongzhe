@@ -196,3 +196,8 @@ export function reviveRound(s: RState): RState {
   return n;
 }
 export const roundsLeft = (s: RState) => s.cap - s.turn;
+/** r15.3 学霸：「本题预计伤害」= 答对且不触发技能时实际打出的伤害——同一套结算（连击 +1 后的倍率、亲和 / 弱点、
+    押注、挑战、题卡、专注、被动加成、封顶、护盾抵扣、Boss 阶段下限）全算进去；只有技能是答完才随机判定，不含 */
+export function estimateDealt(s: RState, c: Character, i: Omit<RInput, 'correct'>): number {
+  return resolveRound(s, c, { ...i, correct: true, partial: false, noSkill: true, rng: () => 0.999999 })[1].dealt;
+}

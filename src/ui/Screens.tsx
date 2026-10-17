@@ -203,7 +203,8 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
-                  : <span className={`kind-tag ${l.kind}`} data-testid="kind-tag">{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${skinFor(ch.subject, 'boss', cfg.band, l.unit)?.name ?? ch.subject}`}</span>}
+                  : (() => { const bk = l.kind === 'boss' ? skinFor(ch.subject, 'boss', cfg.band, l.unit) : null;   /* r15.3 学霸：Boss 标签（含锁着时）用这只 Boss 自己的主色，和战斗里的怪物同一个 hue-rotate */
+                    return <span className={`kind-tag ${l.kind}`} data-testid="kind-tag" data-hue={bk?.hue ?? ''} style={bk?.hue ? { filter: `hue-rotate(${bk.hue}deg)` } : undefined}>{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${bk?.name ?? ch.subject}`}</span>; })()}
                 <Stars n={s} />
               </button></Fragment>
             );
@@ -216,7 +217,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
-export function ResultScreen({ endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; prevBest?: number; exhausted?: boolean;
+export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -244,8 +245,8 @@ export function ResultScreen({ endReason, chalHint = false, cfg, c, win, stars, 
       {/* r14.1 小萌新：重玩没拿到新星也不显示大星星 */}
       {!capped && !(prevBest !== undefined && prevBest > 0 && stars <= prevBest) && <Stars n={stars} size={72} />}
       {!capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">这次 {'★'.repeat(stars) || '0★'}，没有超过最佳 {'★'.repeat(prevBest)}，地图上的星星不变。</p>}
-      {capped && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
-      {!capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
+      {capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
+      {!capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星）；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
       {best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       {chalHint && <p className="sub" data-testid="result-chal-hint">🔥 {CHAL_STAR_HINT}</p>}   {/* r15.2：只因没答对挑战题拿 2 星 */}
       <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>

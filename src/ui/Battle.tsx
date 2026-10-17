@@ -72,7 +72,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
 }
 
 export interface BattleResult { endReason?: 'hp0' | 'reviveFail' /* r15.3 学霸：输掉的原因（结算页显示） */; chalNeed?: boolean /* r15.2：初一普通关且挑战按钮亮过 → 3 星要答对挑战题 */; chalRight?: number /* r15.2：答对的挑战题数 */; exhausted?: boolean /* r15：题出完（每题 2 次）提前撤退 */; half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
-export interface BattleProps { review?: string[] /* r15：错题复习题的 key（卡片显示「复习」） */;
+export interface BattleProps { unit?: string /* r15.3：关卡所在章（Boss 按章取名 / 主色） */; review?: string[] /* r15：错题复习题的 key（卡片显示「复习」） */;
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
   g1NoLimit?: boolean;
@@ -350,13 +350,13 @@ export function Sprite({ c, className }: { c: Character; className?: string }) {
 
 /* ---------------- 小学 / 初一 / 高一 ---------------- */
 type Phase = 'question' | 'action' | 'feedback' | 'revive-ask' | 'revive-q' | 'anim';
-export function StdBattle({ cfg, c, kind, title, questions, extra, review, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
+export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review, g1NoLimit, onAnswer, onEnd, onQuit, onFlag }: BattleProps) {
   const skRoll = useRef<SkillRoll>(newRoll());
   const skSeg = segOf(cfg.band);
   useEffect(() => { preloadSkillArt(skillsFor(skSeg, c.major)); }, [c.major, skSeg]);
   const mode = cfg.stats;
   const mon0 = MONSTERS[mode][kind];
-  const skin = skinFor(questions[0]?.subject, kind, cfg.band, questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
   const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   const [queue, setQueue] = useState<Question[]>(questions);
   const extraLeft = useRef(extra.filter(q => !questions.some(x => x.key === q.key)).slice(0, Math.ceil(questions.length * EXTRA_QUESTION_FACTOR)));

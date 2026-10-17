@@ -13,7 +13,7 @@ import { pickHarder, anyHarder } from '../game/harder';
 import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
-import { calcD, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { calcD, estimateDealt, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
@@ -31,10 +31,10 @@ type Phase = 'pre' | 'chal' | 'cards' | 'wager' | 'question' | 'anim' | 'feedbac
 const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
-export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem }: BattleProps & { prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
+export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem }: BattleProps & { prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
   const mon0 = MONSTERS[cfg.stats][kind];
-  const skin = skinFor(questions[0]?.subject, kind, cfg.band, questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
   const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   // r10 同一局不重复：按题号和题面（去空格）去重；关外出过的题排在后面（Boss 优先没出过的）
   const pool = useRef<Question[]>((() => { const ks = new Set<string>(), ts = new Set<string>(), out: Question[] = [];
@@ -364,7 +364,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
               <b>{CARDS[k].label}</b><span>{cards[k].subject} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
               <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small>
-              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {Math.max(1, Math.round(calcD(bs, c, { correct: true, subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })))}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
+              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押「确定」≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: 'sure' })}）` : ''}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
         )}
         {phase === 'wager' && <WagerTip P={P} tip={tip} />}{phase === 'wager' && <WagerCount mark={markWager} />}
@@ -386,6 +386,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
           <div className="qmeta">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
+          {P && phase === 'question' && <small className="q-dmg" data-testid="q-dmg">本题答对预计伤害 ≈ {estimateDealt(bs, c, { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std', wager: hs ? wager : null, challenge: chal && bs.mode === 'j' })}<span className="hint">（已含连击、押注、挑战、被动、护盾；技能触发另算）</span></small>}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
           <div className="qtext" data-ans={import.meta.env.DEV || (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest) ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
         </>}
