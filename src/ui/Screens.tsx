@@ -216,7 +216,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
-export function ResultScreen({ chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { chalHint?: boolean; capped?: boolean; prevBest?: number; exhausted?: boolean;
+export function ResultScreen({ endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; prevBest?: number; exhausted?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -230,7 +230,9 @@ export function ResultScreen({ chalHint = false, cfg, c, win, stars, correct, to
         <KinderSub k={kinder} total={total} />
       </> : <>
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
-        <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '未通关 · 怪物溜走了，再来一次吧！') : win ? '胜利！' : '未通关 · 这次差一点'}</h1>
+        <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '未通关 · 怪物溜走了，再来一次吧！') : win ? '胜利！' : `未通关 · ${endReason === 'reviveFail' ? '复活失败' : endReason === 'hp0' ? '血量归零' : '怪物还在'}`}</h1>
+        {/* r15.3 学霸：输了写清原因；鼓励语按正确率（低正确率不再说「这次差一点」） */}
+        {!win && !forcedTimeUp && !timeUp && !quit && !retreat && <p data-testid="lose-why">{endReason === 'reviveFail' ? '复活挑战没成功。' : endReason === 'hp0' ? '血量打光了。' : ''}{(() => { const a = total ? correct / total : 0; return a >= 0.6 ? `答对 ${correct}/${total}，这次差一点！` : a >= 0.3 ? `答对 ${correct}/${total}，再练练就能过。` : `答对 ${correct}/${total}。先去错题本看看错的题，再来挑战。`; })()}</p>}
         {(forcedTimeUp || timeUp) && <p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p>}
         {retreat && !forcedTimeUp && exhausted && <p data-testid="retreat-exhausted">题都答过两遍了，怪物提前撤退（这一关题比较少，每道题一局最多出 2 次）：{win ? '正确率够四成，算通关，最多 ★。' : '正确率不到四成，这次不算通关、不得星。'}</p>}
         {retreat && !forcedTimeUp && !exhausted && <p data-testid="retreat">{win ? '到了回合上限，怪物逃走了：正确率够四成，算通关，但最多 ★。下次试试更快打倒它！' : '到了回合上限，怪物溜走了：正确率不到四成，这次不算通关、不得星；答对的题照常算经验。'}</p>}

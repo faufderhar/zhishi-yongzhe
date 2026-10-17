@@ -76,7 +76,8 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   const falling = view.p <= 0 || view.m <= 0;   // 已被打到 0 血：直接倒地/defeat，不显示「战斗中…」（策划 r7）
   useWakeLock(); usePauseTimeout(paused, () => quitRef.current());
   const exhausted = useRef(false); const shownN = useRef(0), lastRev = useRef(-1); const revSet = useMemo(() => new Set(review ?? []), []);
-  const result = (s: RState) => ({ exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong, chalNeed: mode === 'j' && kind === 'normal' && chalSeen.current, chalRight: chalRight.current });
+  const reviveFailed = useRef(false); const [reviveMsg, setReviveMsg] = useState('');
+  const result = (s: RState) => ({ endReason: s.over === 'lose' ? (reviveFailed.current ? 'reviveFail' as const : 'hp0' as const) : undefined, exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong, chalNeed: mode === 'j' && kind === 'normal' && chalSeen.current, chalRight: chalRight.current });
   // r9：暂停超时 / 暂停里点回地图：按已答的题结算，不静默丢进度
   const quitNow = () => { if (!stats.current.total) { onQuit(); return; } onEnd({ ...result(bsRef.current), win: false, retreat: false, quit: true }); };
   quitRef.current = quitNow;
@@ -228,7 +229,10 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
       const ok = val !== '' && judge(qq, qq.type === '多选' ? val.split('') : val) === 'full';
       answerFeedback(ok); const right = rv.right + (ok ? 1 : 0), tries = rv.tries + 1; setPicked(val);
       if (right >= REVIVE.need) { const ns = reviveRound(bs); D.dir.current?.recover(); setBs(ns); setView({ p: ns.playerHp, m: ns.monsterHp }); setRv(null); setFb(undefined); D.dir.current?.float(D.dir.current.r.hero, '复活！50% 血量', 'heal'); setPhase('pre'); return; }   // 学霸报告 #7：复活后直接出新题，不再停在刚答错的题上
-      if (tries >= REVIVE.tries || REVIVE.tries - tries < REVIVE.need - right) { setRv(null); void finish(bs); return; }
+      /* r15.3 学霸：4 次机会答对 2 道——剩下的机会已经不够答对 2 道时提前结束（规则没变），并在屏幕上说清楚，不再像是少算了一次 */
+      if (tries >= REVIVE.tries || REVIVE.tries - tries < REVIVE.need - right) { reviveFailed.current = true;
+        setReviveMsg(tries >= REVIVE.tries ? `复活失败：${REVIVE.tries} 次机会用完，只答对 ${right} 道` : `复活失败：剩下 ${REVIVE.tries - tries} 次机会，已经不够答对 ${REVIVE.need} 道了`);
+        setRv(null); setPhase('anim'); window.setTimeout(() => { if (D.alive.current) void finish(bs); }, 2200); return; }
       setRv({ list: rv.list, i: (rv.i + 1) % rv.list.length, right, tries }); setInput(''); setMulti([]);
       return;
     }
@@ -390,7 +394,8 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
           </div>
         )}
         {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={() => submit(input)} />}
-        {phase === 'anim' && !ending && !falling && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
+        {reviveMsg && <div className="feedback bad" data-testid="revive-fail"><h3>{reviveMsg}</h3></div>}
+        {phase === 'anim' && !ending && !falling && !reviveMsg && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">

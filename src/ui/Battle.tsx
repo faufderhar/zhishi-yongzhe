@@ -71,7 +71,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
   return { stage, shake, hero, monster, flash, canvas, dir, alive, monState };
 }
 
-export interface BattleResult { chalNeed?: boolean /* r15.2：初一普通关且挑战按钮亮过 → 3 星要答对挑战题 */; chalRight?: number /* r15.2：答对的挑战题数 */; exhausted?: boolean /* r15：题出完（每题 2 次）提前撤退 */; half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
+export interface BattleResult { endReason?: 'hp0' | 'reviveFail' /* r15.3 学霸：输掉的原因（结算页显示） */; chalNeed?: boolean /* r15.2：初一普通关且挑战按钮亮过 → 3 星要答对挑战题 */; chalRight?: number /* r15.2：答对的挑战题数 */; exhausted?: boolean /* r15：题出完（每题 2 次）提前撤退 */; half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps { review?: string[] /* r15：错题复习题的 key（卡片显示「复习」） */;
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
