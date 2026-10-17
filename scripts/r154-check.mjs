@@ -91,4 +91,51 @@ if (on('sleepy')) {
     await ctx.close();
   }
 }
+
+// 较真家长 r15.3 复测 + 策划忘记密码页定稿 + 改密码后恢复码提示
+if (on('parent154')) {
+  const { ctx, pg, w, pinIn } = await session('7', { __zyUnlockAll: true });
+  const kv = k => pg.evaluate(k => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get(k); g.onsuccess = () => { r.result.close(); res(g.result); }; }; }), k);
+  await pg.click('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
+  // (4) 每日上限 m:ss；计时旁写「2 分钟没操作会暂停计时」
+  await pg.click('[data-testid=ptab-time]'); await w(300);
+  const lc = (await pg.textContent('[data-testid^=limit-cfg-]')).trim(); ok(/^\d+:\d\d \/ \d+:\d\d$/.test(lc), `每日上限显示 m:ss（「${lc}」）`);
+  ok(/2 分钟没操作会暂停计时/.test(await pg.textContent('[data-testid^=idle-note-]')), '已用时长旁写着「2 分钟没操作会暂停计时」');
+  // (3) 导出后「上次备份」马上变成今天
+  await pg.click('[data-testid=ptab-backup]'); await w(400);
+  const age0 = await pg.textContent('[data-testid=backup-age]');
+  const [dl] = await Promise.all([pg.waitForEvent('download'), pg.click('[data-testid=backup-export]')]); const file = OUT + 'r154-backup.json'; await dl.saveAs(file); await w(600);
+  const age1 = await pg.textContent('[data-testid=backup-age]'); ok(/从未备份/.test(age0) && /今天/.test(age1), `导出后「上次备份」马上刷新（${age0.trim()} → ${age1.trim()}）`);
+  // (1) 覆盖恢复确认框：本机时间、两张清单、不写「覆盖…全部数据」
+  await pg.setInputFiles('[data-testid=backup] input[type=file], input[type=file] >> nth=0', file).catch(async () => { await pg.setInputFiles('input[type=file]', file); }); await w(500);
+  const when = (await pg.textContent('[data-testid=restore-when]').catch(() => '')).trim(); const box = await pg.textContent('.modal').catch(() => '');
+  ok(/^备份时间：\d{1,2}月\d{1,2}日 \d\d:\d\d$/.test(when) && !/\d{4}-\d\d-\d\dT/.test(box), `恢复确认框用本机时间（「${when}」）`);
+  ok(await pg.isVisible('[data-testid=restore-will-replace]') && await pg.isVisible('[data-testid=restore-will-keep]') && !/全部数据/.test(box), '恢复确认框分「会被替换」「会保留」两张清单，不写「覆盖…全部数据」');
+  ok(/会保留：.*今天已经玩了多久/.test(box) && !/会被替换：[^。]*今天/.test(box), '今天已玩时长只在「会保留」里');
+  await pg.click('.modal button.btn.ghost:text-is("取消")'); await w(300);
+  // 改密码：恢复码不变（默认保留），可以重新生成（旧码作废、新码要抄回确认）
+  await pg.click('[data-testid=ptab-pin]'); await w(300);
+  const rec0 = (await kv('settings'))?.pinRec;
+  const change = async (oldP, newP) => { await pg.click('[data-testid=pintab-change]'); await w(300); await pinIn(oldP); await pinIn(newP); await pinIn(newP); await w(500); };
+  await change('2468', '1357');
+  ok(await pg.isVisible('[data-testid=rec-after-change]') && /原来的恢复码仍然有效。如果担心恢复码被别人看到过，可以重新生成。/.test(await pg.textContent('[data-testid=rec-after-change]')), '改完密码提示「原来的恢复码仍然有效…」');
+  ok(await pg.evaluate(() => document.activeElement?.getAttribute('data-testid')) === 'rec-keep', '默认是「保留」');
+  await pg.click('[data-testid=rec-keep]'); await w(300); const rec1 = (await kv('settings'))?.pinRec;
+  ok(!!rec0 && rec0 === rec1 && !(await pg.isVisible('[data-testid=rec-after-change]')), '点「保留」：恢复码没变');
+  await pg.click('[data-testid=pintab-close]').catch(() => {}); await pg.click('[data-testid=ptab-time]'); await w(200); await pg.click('[data-testid=ptab-pin]'); await w(300);
+  await change('1357', '2468'); await pg.click('[data-testid=rec-regen]'); await w(500);
+  const rec2 = (await kv('settings'))?.pinRec; ok(await pg.isVisible('[data-testid=rec-code]') && rec2 && rec2 !== rec0, '点「重新生成」：出新恢复码，旧的作废');
+  ok(await pg.isVisible('[data-testid=recgen-done], [data-testid=rec-typeback], [data-testid=recgen-code] input'), '新恢复码照常要抄回确认');
+  // 忘记密码页（策划定稿）
+  await pg.click('[data-testid=ptab-time]'); await w(200); await pg.click('[data-testid=ptab-pin]'); await w(300); await pg.click('[data-testid=pintab-forgot]'); await w(400);
+  const fp = await pg.textContent('[data-testid=forgot-page]').catch(() => '');
+  ok(/忘记家长密码了？选一种办法：/.test(fp) && /① 我有恢复码/.test(fp) && /② 我有备份文件/.test(fp) && /③ 什么都没有：点「申请重设」/.test(fp), '忘记密码页：标题 + 三个编号办法');
+  ok(!(await pg.$eval('[data-testid=reset-why]', e => e.open)), '「为什么要等 3 天？」默认收起');
+  const reds = await pg.$$eval('[data-testid=forgot-page] p, [data-testid=forgot-page] li, [data-testid=forgot-page] h2', es => es.filter(e => e.offsetParent && !e.classList.contains('err-dark') && !e.classList.contains('warn')).map(e => getComputedStyle(e).color).filter(c => { const m = c.match(/\d+/g).map(Number); return m[0] > 150 && m[0] > m[1] + 60; }));
+  ok(!reds.length, `正文没有红字（${reds.length} 处）`);
+  await pg.click('[data-testid=reset-request]'); await w(800); await pg.click('[data-testid=pin-reset-full-ok]', { timeout: 1500 }).catch(() => {}); await w(300);
+  ok(await pg.isVisible('[data-testid=reset-bar-hours]') && await pg.isVisible('[data-testid=reset-bar-days]'), '申请后显示两条进度条（已等 X 小时 / 72，已打开 X / 3 天）');
+  await pg.screenshot({ path: OUT + 'r154-forgot.png', fullPage: true });
+  await ctx.close();
+}
 console.log(bad ? `r154 FAIL ${bad}` : 'r154 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

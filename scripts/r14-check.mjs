@@ -108,8 +108,8 @@ if (on('parent')) {
   const [fc] = await Promise.all([pg.waitForEvent('filechooser', { timeout: 5000 }).catch(() => null), pg.click('text=从备份恢复')]);
   await still('打开选文件对话框'); if (fc) await fc.setFiles([]).catch(() => {});
   await pg.click('[data-testid=ptab-pin]'); await w(200); await pg.click('[data-testid=pintab-forgot]').catch(() => {}); await w(300);
-  ok(await pg.isVisible('[data-testid=forgot-rule]'), '忘记密码页大字写明：只有恢复码能立即重设'); await flick(); await w(2600);
-  ok(await pg.isVisible('[data-testid=forgot-rule]'), '忘记密码页：页面短暂隐藏后仍在');
+  ok(await pg.isVisible('[data-testid=forgot-page] [data-testid=forgot-opt-rec]'), '忘记密码页：三个编号办法（① 恢复码马上重设）'); await flick(); await w(2600);
+  ok(await pg.isVisible('[data-testid=forgot-page]'), '忘记密码页：页面短暂隐藏后仍在');
   ok(loads === 0, `整个过程没有重载（${loads}）`); ok(!(await pg.evaluate(() => localStorage.getItem('zy.r14reloadCalled'))), '家长页里不触发更新刷新');
   ok(errs.length === 0, `没有页面错误（${errs.slice(0, 2).join(' | ')}）`);
   await ctx.close();

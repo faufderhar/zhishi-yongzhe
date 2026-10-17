@@ -717,3 +717,15 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .sleepy-mon .zzz{position:absolute;right:-18px;top:-10px;font-size:40px;animation:zzz 2s ease-in-out infinite}
 @keyframes zzz{0%{transform:translateY(6px);opacity:.4}50%{transform:translateY(-6px);opacity:1}100%{transform:translateY(6px);opacity:.4}}
 .sleepy-card h2{margin:10px 0 4px;font-size:28px}.sleepy-card p{margin:4px 0;font-size:18px}
+/* r15.4 策划：忘记密码页正文深灰，只有错误提示深红 */
+.forgot-page{color:#333;background:#fff;text-align:left}
+.forgot-page h2{color:#222}
+.forgot-page .forgot-opts{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:12px}
+.forgot-page .forgot-opts>li{background:#f4f5f8;border-radius:12px;padding:10px 14px}
+.forgot-page .forgot-opts p{margin:4px 0;color:#333}
+.forgot-page .hint,.forgot-page .gate-restore-note{color:#555}
+.forgot-page .warn,.forgot-page .err-dark{color:#8b0000}
+.forgot-page .pbar-row{display:flex;align-items:center;gap:10px;margin:6px 0;color:#333}
+.forgot-page .pbar-row progress{flex:1;height:14px;accent-color:#2b7a3d}
+.forgot-page .reset-why{color:#333;margin:8px 0}.forgot-page .reset-why ul{margin:6px 0 0 18px;padding:0}
+.forgot-page .link-btn{color:#1a56b0}
