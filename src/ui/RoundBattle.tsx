@@ -1,3 +1,4 @@
+import { stemOf } from '../game/adaptive';
 import { TEST_DOM } from './common';
 /* D6 轮流回合战斗界面（实现规格 v0.3.6）：我方回合 / 对方回合交替，每回合 1 题；小学 3–6、初一、高一 */
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -29,7 +30,7 @@ type Phase = 'pre' | 'chal' | 'cards' | 'wager' | 'question' | 'anim' | 'feedbac
 const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
-export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj }: BattleProps & { prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
+export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem }: BattleProps & { prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
   const mon0 = MONSTERS[cfg.stats][kind];
   const skin = skinFor(questions[0]?.subject, kind, cfg.band, questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
@@ -147,7 +148,9 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     const revOk = reviewAllowed(shownN.current, lastRev.current);
     /* r15.1 技术QA R15-2：本关题池里非复习题出完时，先从同单元后备题 / 相邻小节补一道非复习题，实在没有才出复习题（以前直接连出 4 道复习） */
     const nonRev = (x: Question) => pred(x) && !revSet.has(x.key);
-    let q = fq ?? (revOk || !revSet.size ? dn(pred) : dn(nonRev));
+    /* r15.3 小萌新：这一局第一题不和上一局最后一题同题干（有别的题可出时） */
+    const first = shownN.current === 0 && prevStem ? dn(x => (revOk || !revSet.has(x.key)) && pred(x) && stemOf(x) !== prevStem) : undefined;
+    let q = fq ?? first ?? (revOk || !revSet.size ? dn(pred) : dn(nonRev));
     if (!q && !revOk && revSet.size) { const add = unseenOf([...(reserve ?? []), ...(adj ?? []).flat()]).filter(x => nonRev(x) && !pool.current.some(y => y.key === x.key) && !isMultiSel(x)); if (add.length) { pool.current = [...pool.current, add[0]]; q = dn(nonRev); } }
     if (!q) q = dn(pred);
     if (q && isMultiSel(q)) usedMulti.current++;

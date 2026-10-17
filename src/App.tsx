@@ -17,10 +17,10 @@ import { STORAGE_ERROR, deleteProfileData, compactAnswers, getKV, setKV } from '
 import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
-import { playable, isBossOnly, type Question } from './game/questions';
+import { playable, isBossOnly, shuffle, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
-import { starOf, retreatCleared, buildChapters, levelStars, chalCostStar, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
-import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, updateSkill, type Skills } from './game/adaptive';
+import { starOf, retreatCleared, buildChapters, levelStars, chalCostStar, bossPool, elitePool, assignedBefore, capMulti, lessonRank, levelsOfUnit, migrateStars, type Level } from './game/levels';
+import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, stemOf, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
 import { PUPS, SCIFI, type Character } from './game/characters';
@@ -50,7 +50,7 @@ function writeNav(n: Nav | null) { try { if (n) localStorage.setItem(NAV_KEY, JS
 type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' | 'pick'; pick?: string } | { s: 'parent' }
   | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
-  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; review?: string[]; nonce: number }
+  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; review?: string[]; prevStem?: string; nonce: number }
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
@@ -82,7 +82,8 @@ export default function App() {
   const [usage, setUsageAll] = useState<Record<string, Usage>>({});
   const [wrong, setWrong] = useState<WrongEntry[]>([]);
   const [recentRight, setRecentRight] = useState<Set<string>>(new Set());
-  const [seenKeys, setSeenKeys] = useState<Set<string>>(new Set());   // 出过的题（Boss 选题优先没出过的）
+  const [seenKeys, setSeenKeys] = useState<Set<string>>(new Set());
+  const lastAnswered = useRef<{ pid: string; q: Question } | undefined>(undefined);   // r15.3：上一局最后答的题（下一局开头避开同题干）   // 出过的题（Boss 选题优先没出过的）
   const [flags, setFlags] = useState<Record<string, number>>({});
   const [chapterIdx, setChapterIdx] = useState(0);
   const [portrait, setPortrait] = useState(false);
@@ -431,6 +432,7 @@ export default function App() {
     { const r = readRun(p.id); if (r) writeRun(p.id, { ...r, n: r.n + 1 }); }
     recordAnswer({ profileId: p.id, questionId: q.key, correct, at: Date.now(), subject: q.subject });
     setSeenKeys(s => s.has(q.key) ? s : new Set(s).add(q.key));
+    lastAnswered.current = { pid: p.id, q };
     if (!isReview) setSkills(sk => { const nx = { ...sk, [q.subject]: updateSkill(sk[q.subject], correct, cfg) }; S.saveSkills(p.id, nx); setAllSkills(a => ({ ...a, [p.id]: nx })); return nx; });
     const id = `${p.id}|${q.key}`;
     setWrong(list => {
@@ -472,11 +474,20 @@ export default function App() {
     const n = cfg.questions[level.kind];
     // 策划 r7：精英先出本课没出现过的（含生成时已分给前面普通关的题，不只看游玩记录）；Boss 先出整章没出现过/答错的，精英预留题优先
     const assigned = assignedBefore(chapter.levels, level);
+    const lessonKeys = new Set(level.pool);
+    /* r15.1 策划规则 C：同一小节（lesson）的几关共用题池——本关题出完后，先补同小节其他关（没见过 → 以前答错 → 见过），再补前面小节，最后重复。语文课文 / 古诗词同一篇也一样 */
+    const lessonOthers = level.kind === 'boss' || !level.lesson ? [] : [...new Set(chapter.levels.filter(l => l.lesson === level.lesson && l.id !== level.id && l.kind !== 'boss' && !l.redirect).flatMap(l => l.pool))]
+      .filter(k => !lessonKeys.has(k)).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key) && !isBossOnly(q)).sort((a, b) => histRank(a) - histRank(b));
+    /* r15.3 学霸 / 小萌新：普通关开局就从整个小节挑（本关没见过 → 同小节没见过 → 答错 → 见过，同名次随机）。
+       以前开局只看本关题池、见过的题按原顺序截取：题全见过后每局都是同一批同顺序的题，同小节其他关没见过的题只在本关出完后才补 */
+    const lessonPool = level.kind === 'normal' ? [...pool, ...lessonOthers] : pool;
+    const lr = lessonRank(lessonKeys, seenKeys, wrongKeys);
+    const runRank = level.kind === 'boss' ? undefined : level.kind === 'normal' ? lr : histRank;
     const prefPool = level.kind === 'boss' ? bossPool(pool, seenKeys, wrongKeys, n, new Set(levelsOfUnit(chapter.levels, level).flatMap(l => l.fresh ?? [])))
-      : level.kind === 'elite' ? elitePool(pool, level.fresh, seenKeys, wrongKeys, n, assigned)
-      : (() => { const o = elitePool(pool, [], seenKeys, wrongKeys, n); return o.length ? o : pool; })();   // r14：普通关也按「本机没见过 → 以前答错 → 以前见过」排（重开一局不再出同样的 4 道）
+      : level.kind === 'elite' ? elitePool(pool, level.fresh, seenKeys, wrongKeys, n, assigned, Math.random)
+      : lessonPool;   // r15.3：普通关候选 = 整个小节，按 lessonRank 排名、同名次随机
     const strict = prefPool;
-    const qs0 = capMulti(spreadTemplates(selectQuestions({ pool: strict, fallback, rank: level.kind === 'boss' ? undefined : histRank, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), [...pool].sort((a, b) => histRank(a) - histRank(b))), pool);
+    const qs0 = capMulti(spreadTemplates(selectQuestions({ pool: strict, fallback, rank: runRank, n, target, kind: level.kind, due, recentCorrect: recentRight, maxDifficulty: cfg.band === 'K' ? 2 : 5 }), shuffle(lessonPool).sort((a, b) => (runRank ?? histRank)(a) - (runRank ?? histRank)(b))), pool);
     // r11：Boss 关先出本单元 usage=boss 的题（没出过 / 答错过的在前），剩下的按原来的整单元规则补
     const bossOnly = level.kind === 'boss' ? (level.bossPool ?? []).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key)) : [];
     const qs = bossOnly.length ? withBossFirst(bossPool(bossOnly, seenKeys, wrongKeys, n), qs0, n) : qs0;
@@ -485,7 +496,7 @@ export default function App() {
     // r13 技术QA R12-3：回合制（初一 / 高一 / 小学 full）不再在开局把本课题重复塞满；不够时战斗里先补同单元相邻小节，最后才重复
     if (!roundModeOf(cfg.band) && cfg.battle !== 'full' && qs.length < n && pool.length && level.kind === 'normal') {   // r14 技术QA R13-2：小学 3–6 年级也是回合制，不再开局重复塞满
     const rep = [...pool].sort((a, b) => +wrongKeys.has(b.key) - +wrongKeys.has(a.key)); for (let i = 0; qs.length < n; i++) qs.push(rep[i % rep.length]); }
-    const extra = selectQuestions({ pool: cfg.battle === 'full' ? pool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind, rank: level.kind === 'boss' ? undefined : histRank });
+    const extra = selectQuestions({ pool: cfg.battle === 'full' ? lessonPool : fallback, fallback: cfg.battle === 'full' ? fallback : [], n: cfg.battle === 'full' ? Math.max(n * 2, 30) : n * 2, target, kind: level.kind, rank: runRank });
     // r8 多选规则：小学/幼儿园一律不出；初一/高一把本关题池里的多选题都放进候选（是否出、出几道由战斗里按回合规则决定，不受难度挑选影响）
     // r13 学霸：同一小节拆成几关（如 2.1-1 / 2.1-2）时多选题两关都在题池里——普通关不再出本机已经出过的多选题（精英 / Boss 仍可出，但排在没见过的后面）
     // r14 技术QA R13-3：多选保底优先——本关没有本机没见过的多选题时，先用以前答错的多选，再用见过的（最多 2 道），不再整局一道多选都没有
@@ -496,10 +507,12 @@ export default function App() {
     const dueKeys = new Set(due.map(q => q.key));
     // r15 策划：复习题前 2 题不出、之后每 4 题最多 1 道；幼儿园–二年级同一道题不连着出
     const qs1 = spaceReviews((multiBand(cfg.band) ? qs : qs.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), q => dueKeys.has(q.key));
-    const qs2 = ['K', 'G1', 'G2'].includes(cfg.band) && new Set(qs1.map(q => q.key)).size > 1 ? noAdjacent(qs1) : qs1;
+    /* r15.3 小萌新：上一局最后一题和这一局第一题不同题干（幼儿园–二年级整局都不相邻；其他年级只换开头） */
+    const prevQ = lastAnswered.current?.pid === p.id ? lastAnswered.current.q : undefined;
+    const qs2a = ['K', 'G1', 'G2'].includes(cfg.band) && new Set(qs1.map(q => q.key)).size > 1 ? noAdjacent(qs1, prevQ) : qs1;
+    const qs2 = (() => { if (!prevQ || !qs2a.length || stemOf(qs2a[0]) !== stemOf(prevQ)) return qs2a; const i = qs2a.findIndex(q => stemOf(q) !== stemOf(prevQ)); if (i <= 0) return qs2a; const o = [...qs2a]; const [x] = o.splice(i, 1); o.unshift(x); return o; })();
     const extra2 = (multiBand(cfg.band) ? [...extra, ...pool.filter(q => isMultiSel(q) && !extra.some(x => x.key === q.key) && !qs.some(x => x.key === q.key))] : extra.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q));
     // r12：挑战题 / 重击卡的「更难一档」本小节没有时，放宽到同单元前序小节（只取前面已学的，不取后面的；Boss 已是整单元）
-    const lessonKeys = new Set(level.pool);
     const prior = level.kind === 'boss' ? [] : [...assignedBefore(chapter.levels, level)].filter(k => !lessonKeys.has(k)).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key) && !isBossOnly(q) && (multiBand(cfg.band) || !isMultiSel(q)));
     // r13 策划：题池用完 → 同单元相邻小节（前面的先），再不够才重复；语文课文 / 古诗词不跨课，只重复
     const noCross = level.kind === 'boss' || ['语文', '诗词'].includes(chapter.subject);
@@ -508,14 +521,11 @@ export default function App() {
       const ls = levelsOfUnit(all, level).filter(l => l.kind === 'normal' && l.id !== level.id && !l.redirect);
       const before = ls.filter(l => all.indexOf(l) < idx).reverse() /* r14 策划：只取前面已学的小节，最近的先 */, after = ls.filter(l => all.indexOf(l) > idx);
       void after; return [...before].map(l => l.pool.map(k => byKey.get(k)!).filter(mf)).filter(g => g.length); })();
-    /* r15.1 策划规则 C：同一小节（lesson）的几关共用题池——本关题出完后，先补同小节其他关（没见过 → 以前答错 → 见过），再补前面小节，最后重复。语文课文 / 古诗词同一篇也一样 */
-    const lessonOthers = level.kind === 'boss' || !level.lesson ? [] : [...new Set(chapter.levels.filter(l => l.lesson === level.lesson && l.id !== level.id && l.kind !== 'boss' && !l.redirect).flatMap(l => l.pool))]
-      .filter(k => !lessonKeys.has(k)).map(k => byKey.get(k)!).filter(q => q && playableKeys.has(q.key) && !isBossOnly(q)).sort((a, b) => histRank(a) - histRank(b));
     const sameLesson = new Set(lessonOthers.map(q => q.key));
     const reserve1 = [...fallback0, ...lessonOthers.filter(q => !fallback0.some(x => x.key === q.key))];
     const adj1 = adjGroups.map(g => g.filter(q => !sameLesson.has(q.key))).filter(g => g.length);
     masteredThisLevel.current = 0; setInterrupted(null);
-    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, review: [...dueKeys], reserve: (multiBand(cfg.band) ? reserve1 : reserve1.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adj1, nonce: Date.now() });
+    setScreen({ s: 'battle', level, qs: qs2, extra: extra2, prior, review: [...dueKeys], reserve: (multiBand(cfg.band) ? reserve1 : reserve1.filter(q => !isMultiSel(q))).filter(q => !seenMulti(q)), adj: adj1, prevStem: prevQ ? stemOf(prevQ) : undefined, nonce: Date.now() });
   }
   function endLevel(level: Level, r: BattleResult) {
     if (!p) return;
@@ -603,7 +613,7 @@ export default function App() {
         ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
-        ? <RoundBattle seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
+        ? <RoundBattle prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => setProfilesState(ps => { const nx = ps.map(x => x.id === pid ? { ...x, tips: { ...x.tips, [k]: true } } : x); S.saveProfiles(nx); return nx; })}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />

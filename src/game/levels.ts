@@ -1,4 +1,4 @@
-import { isBossOnly } from './questions';
+import { isBossOnly, shuffle } from './questions';
 import { STAR3, STAR2 } from './balance';
 /* 章节/关卡生成（GDD §7.1）：每个科目一个章节（地图区域），区域内按「册别 volume + 教材单元 unit」分组；
    每单元每 8 题 1 个普通关，每 3 个普通关后 1 个精英关，单元 ≥12 题时以单元 Boss 收尾。
@@ -254,15 +254,22 @@ export function levelStars(r: { win: boolean; correct: number; total: number; re
 export const chalCostStar = (r: Parameters<typeof levelStars>[0]) => levelStars(r) === 2 && levelStars({ ...r, chalNeed: false }) === 3;
 /** Boss 选题池（裁定 2）：整章题，优先「还没出过」和「之前答错」的题；不够才重复已答对过的 */
 /** 精英关选题（策划 r7）：先出生成时留给精英、且没出现过的题，再出本课其它没出现过的，再出答错过的；不够才重复 */
-export function elitePool<T extends { key: string }>(pool: T[], fresh: string[] = [], seen: Set<string>, wrong: Set<string>, n: number, assigned: Set<string> = new Set()): T[] {
+export function elitePool<T extends { key: string }>(pool: T[], fresh: string[] = [], seen: Set<string>, wrong: Set<string>, n: number, assigned: Set<string> = new Set(), rnd?: () => number): T[] {
   const f = new Set(fresh);
   const a = pool.filter(q => f.has(q.key) && !seen.has(q.key));
   const b = pool.filter(q => !f.has(q.key) && !seen.has(q.key) && !assigned.has(q.key));
   // r14 策划：没见过的用完 → 以前答错的 → 以前见过的（不强求 6 道新题）
   const b2 = pool.filter(q => !f.has(q.key) && !seen.has(q.key) && assigned.has(q.key));
-  const c = pool.filter(q => seen.has(q.key) && wrong.has(q.key));
-  const d = pool.filter(q => seen.has(q.key) && !wrong.has(q.key));
+  /* r15.3 小萌新：以前这里按题池原顺序截取——题全见过后，每局永远是同样的前 n 道。传 rnd 时同一组内随机 */
+  const mix = (xs: T[]) => rnd ? shuffle(xs, rnd) : xs;
+  const c = mix(pool.filter(q => seen.has(q.key) && wrong.has(q.key)));
+  const d = mix(pool.filter(q => seen.has(q.key) && !wrong.has(q.key)));
   const un = [...a, ...b, ...b2]; return un.length >= n ? un : [...un, ...[...c, ...d].slice(0, n - un.length)];
+}
+/** r15.3 学霸 / 小萌新：普通关开局候选 = 整个小节（规则 C）。名次：本关没见过 0 → 同小节其他关没见过 1 → 本关答错 2 → 同小节答错 3 → 本关见过 4 → 同小节见过 5；
+ *  同名次内由 selectQuestions 随机。以前只用本关题池、且见过的题按原顺序截取：题全见过后每局同一批题，同小节其他关没见过的题反而排在后面 */
+export function lessonRank(levelKeys: Set<string>, seen: Set<string>, wrong: Set<string>) {
+  return (q: { key: string }) => (!seen.has(q.key) ? 0 : wrong.has(q.key) ? 2 : 4) + (levelKeys.has(q.key) ? 0 : 1);
 }
 /** 本单元在 level 之前的关卡（按生成顺序）已分到的题 */
 export function assignedBefore(levels: Level[], level: Level): Set<string> {

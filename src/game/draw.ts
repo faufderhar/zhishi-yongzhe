@@ -18,8 +18,12 @@ export function drawNext<T extends Q>(unused: T[], used: T[], o: DrawOpts<T>): {
   const nearest = (xs: T[]) => { if (!xs.length) return xs; const m = Math.min(...xs.map(x => tierCost(x.difficulty, o.tier))); return xs.filter(x => tierCost(x.difficulty, o.tier) === m); };
   const best = (ys: T[]) => { const n = nearest(ys); for (const g of groups(n)) if (g.length) return g[0]; return undefined; };
   const byGroups = (xs: T[]) => xs.length ? o.multi(xs, best) : undefined;   // 多选规则先筛（必须出 / 不许出），筛完再按难度 → 分组
-  if (isConsolidating(o.tier)) { const low = allowed.filter(x => x.difficulty <= o.tier.tier); const r = low.length ? byGroups(low) : undefined; if (r) return { q: r, repeat: false }; }
-  const r = byGroups(allowed) ?? pickByTier(allowed, o.tier) ?? pickByTier(fresh0, o.tier);   // 多选规则 / 对方回合限制挑不出时，仍先用没出过的题
+  /* r15.3 学霸：先在「本档案历史上没见过」的题里挑，没有才用见过的。以前先按难度最接近：上一局出过、难度正好的题会压过没见过但差一档的题，
+     重开一局就有一半是上一局的题（高一生物 8 道重复 4 道） */
+  const hist = (xs: T[]) => { if (!o.seen) return xs; const u = xs.filter(x => !o.seen!.has(x.key)); return u.length ? u : xs; };
+  const byHist = (xs: T[]) => { const h = hist(xs); return (h !== xs ? byGroups(h) : undefined) ?? byGroups(xs); };
+  if (isConsolidating(o.tier)) { const low = allowed.filter(x => x.difficulty <= o.tier.tier); const r = low.length ? byHist(low) : undefined; if (r) return { q: r, repeat: false }; }
+  const r = byHist(allowed) ?? pickByTier(hist(allowed), o.tier) ?? pickByTier(hist(fresh0), o.tier);   // 多选规则 / 对方回合限制挑不出时，仍先用没出过的题
   if (r) return { q: r, repeat: false };
   // 本关题池全部出过：才重复（错题、较早出的优先由调用方排序）
   const rep = used.filter(o.pred); return { q: pickByTier(rep.length ? rep : used, o.tier), repeat: true };
