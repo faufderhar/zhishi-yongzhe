@@ -265,7 +265,7 @@ export default function App() {
   // 按时间戳差值累计（技术QA P2-3）：每秒结算一次、暂停/后台不计、单次差值封顶 2 秒；同时做会话内时钟跳变检测
   useEffect(() => {
     if (!playing || !pid) return;
-    let lastPerf = performance.now(), lastWall = Date.now(), acc = 0;
+    let lastPerf = performance.now(), lastWall = Date.now(), acc = 0, graceDone = false;
     const t = setInterval(() => {
       const nowP = performance.now(), nowW = Date.now();
       const dp = nowP - lastPerf, dw = nowW - lastWall; lastPerf = nowP; lastWall = nowW;
@@ -273,9 +273,11 @@ export default function App() {
       if (dw < -60e3 || dw < dp - 10 * 60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
       else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
       const pausedNow = document.visibilityState !== 'visible' || Date.now() - lastInput.current > IDLE_MS || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
-      if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; window.dispatchEvent(new Event(FORCE_END)); } }
+      if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; graceDone = true; window.dispatchEvent(new Event(FORCE_END)); } }
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
+      /* r15.4 技术QA P4-2：收尾走完的这一下，把还没结算的零头按收尾记上（向上取整，封顶在上限 + 3:00）。以前收尾结束后零头按「不在收尾」记，被夹掉 → 显示 2:59 */
+      if (graceDone) { graceDone = false; const sec = Math.ceil(acc / 1000 - 1e-6); acc = 0; if (sec > 0) setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), true); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; }); return; }
       /* r15.3 较真家长：以前时间到之后，结算页 / 地图 / 错题本照样计时（r15 起所有登录界面都计时），收尾 3 分钟之外还在涨（5 分钟上限出现 8:25）。
          现在：超过上限的部分只在收尾进行中（战斗 / 复习里）才记，而且总数封顶在上限 + 3:00；离上限 6 秒以内每秒结算（收尾按时开始） */
       const base = limitBase(pid); const near = Number.isFinite(base) && base - ((usageRef.current[pid]?.[dayStr()]?.used ?? 0) + acc / 1000) <= 6;

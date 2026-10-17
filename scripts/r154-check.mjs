@@ -139,4 +139,16 @@ if (on('parent154')) {
   await pg.screenshot({ path: OUT + 'r154-forgot.png', fullPage: true });
   await ctx.close();
 }
+// r15.4 技术QA P4-2：收尾走满后家长页是「收尾 3:00」（以前 2:59，总用时少 1 秒）。page.clock 快进，每 20 秒按一次键（不触发 2 分钟无操作暂停）；小班不限时、不会输，战斗一直在
+if (on('wrap')) {
+  const { ctx, pg, w } = await session('K1', {}, { width: 1180, height: 820 }, { clock: true }); await enterMap(pg, w);
+  await pg.click('[data-testid=level-1]'); await pg.clock.runFor(1500); await tutSkip(pg, w); await skipTut(pg, w);
+  await pg.waitForSelector('.kbattle, .battle', { timeout: 10000 });
+  const usage = () => pg.evaluate(() => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const st = r.result.transaction('kv').objectStore('kv'); const g = st.get('profiles'); g.onsuccess = () => { const id = g.result?.[0]?.id; const d = new Date(); const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; const u = st.get('usage:' + id); u.onsuccess = () => { r.result.close(); res(u.result?.[day]?.used ?? null); }; }; }; }));
+  let graceSeen = false;
+  for (let i = 0; i < 70; i++) { await pg.keyboard.press('Shift'); await pg.clock.runFor(20000); if (await pg.isVisible('[data-testid=grace-icon], [data-testid=grace-bar]')) graceSeen = true; }
+  await pg.clock.runFor(8000); const used = await usage();
+  ok(graceSeen && used === 15 * 60 + 180, `小班 15 分钟上限 + 收尾走满：今天用时正好 ${15 * 60 + 180} 秒（实际 ${used}）`);
+  await ctx.close();
+}
 console.log(bad ? `r154 FAIL ${bad}` : 'r154 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);
