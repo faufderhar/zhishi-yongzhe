@@ -181,7 +181,12 @@ export default function App() {
   const setInterrupted = (_: null) => { if (pid) setInterruptedAll(m => { const n = { ...m }; delete n[pid]; return n; }); };
   const p0 = profiles.find(x => x.id === pid);
   // r8b：两级入口选的年级（默认档案年级）；非档案年级不带档案的教材册别
-  const [viewGrade, setViewGrade] = useState<GradeKey | undefined>();
+  /* r15.3 学霸：「初一同学 · 在玩高一的关卡」——选档案时先 setPid、等读完数据才清掉上一个孩子正在看的年级，中间这段（以及这时写下的「上次位置」、
+     页面更新后按它恢复）新档案会带着上一个孩子的年级。现在看的年级记在「哪个孩子」名下，换了孩子就不算数 */
+  const [viewGradeOf, setViewGradeOf] = useState<{ pid: string; g: GradeKey } | undefined>();
+  const viewGrade = viewGradeOf && p0 && viewGradeOf.pid === p0.id ? viewGradeOf.g : undefined;
+  const pidRef = useRef(pid); pidRef.current = pid;
+  const setViewGrade = (g: GradeKey | undefined, id = pidRef.current) => setViewGradeOf(g && id ? { pid: id, g } : undefined);
   const vg = p0 ? viewGrade ?? p0.grade : undefined;
   const vChars = vg ? allowedChars(vg) : [];
   const p = p0 && vg ? { ...p0, homeGrade: p0.grade, grade: vg, volumes: vg === p0.grade ? p0.volumes : null, charId: [p0.charIds?.[bandConfig(vg).chars], p0.charId].find(id => id && vChars.some(c => c.id === id)) } : p0;
@@ -223,7 +228,7 @@ export default function App() {
   const needTutorial = replay || onlyCard3;
   const finishTutorial = () => {
     if (!p) return;
-    setProfiles(profiles.map(x => x.id === p.id ? { ...x, tutorialDone: true, ...(cfg?.battle === 'full' ? { tutorialV036: true } : {}) } : x));
+    setProfiles(ps => ps.map(x => x.id === p.id ? { ...x, tutorialDone: true, ...(cfg?.battle === 'full' ? { tutorialV036: true } : {}) } : x));
     if (settings.tutorialReplay?.[p.id]) { const r = { ...settings.tutorialReplay }; delete r[p.id]; setSettings({ ...settings, tutorialReplay: r }); }
   };
   // r10 时长统一把关：所有答题入口（关卡 / 错题本「练习这些」/ 今日复习 / 中断恢复）进入时检查；进入后到时有 3 分钟收尾，然后强制结算
@@ -300,8 +305,9 @@ export default function App() {
       void S.saveSettings(fresh); }); return; }
     S.saveSettings(s); if (s.pinHash) mirrorPin(vaultOf(s)); if (s.pinRec && s.pinRec !== prevRec) { void writeRec(s.pinRec, setKV); const ps = profilesRef.current.map(x => ({ ...x, recHash: s.pinRec })); profilesRef.current = ps; setProfilesState(ps); S.saveProfiles(ps); } };
   const clearPin = (extra: Partial<Settings> = {}) => { const s = { ...settingsRef.current, pinHash: undefined, pinRec: undefined, ...extra }; settingsRef.current = s; setSettingsState(s); S.saveSettings(s); mirrorPin(null); void writeRec(null, setKV); const ps = profilesRef.current.map(({ recHash: _r, ...x }) => x); profilesRef.current = ps; setProfilesState(ps); S.saveProfiles(ps); };
-  const setProfiles = (ps0: Profile[]) => {
-    for (const old of profiles) if (!ps0.some(x => x.id === old.id)) void deleteProfileData(old.id, S.profileKeys(old.id));   // P1-2：删档案连数据一起清
+  /* r15.3 学霸：可传函数——按最新档案改（以前各处用渲染时的 profiles 改一个字段再整份写回，会把刚记下的押注说明次数 / 年级等冲掉） */
+  const setProfiles = (arg: Profile[] | ((ps: Profile[]) => Profile[])) => { const ps0 = typeof arg === 'function' ? arg(profilesRef.current) : arg;
+    for (const old of profilesRef.current) if (!ps0.some(x => x.id === old.id)) void deleteProfileData(old.id, S.profileKeys(old.id));   // P1-2：删档案连数据一起清
     const ps = stamp(ps0, vaultOf(settingsRef.current)); profilesRef.current = ps;   // 新档案也带一份密码副本
     setProfilesState(ps); S.saveProfiles(ps);
   };
@@ -412,7 +418,7 @@ export default function App() {
     if (why === 'user' && !viaPin && !settings.pinHash && !settings.pinNudged && profiles.length > 1 && prevPid && prevPid !== pp.id) { setPinNudge(pp); return; }
     addedPid.current = undefined;
     try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: pp.id, day: today })); } catch { /* */ }
-    setPid(pp.id); setLastPid(pp.id); setChapterIdx(0);
+    setPid(pp.id); pidRef.current = pp.id; setViewGrade(undefined); setLastPid(pp.id); setChapterIdx(0);
     const [pr, sk, wr, ans] = await Promise.all([S.loadProgress(pp.id), S.loadSkills(pp.id), wrongOf(pp.id), answersOf(pp.id)]);
     if (stale()) { logNav(screenRef.current.s, screenRef.current.s, `pickProfile(${pp.name}) 作废：有更新的导航`); return; }
     setProgress(pr); setSkills(sk); setWrong(wr);
@@ -424,13 +430,13 @@ export default function App() {
   const lastGradeOf = (x: Profile) => { try { return localStorage.getItem('zy-lastGrade-' + x.id) ?? x.lastGrade; } catch { return x.lastGrade; } };
   /** 进入某年级地图（r8b）：记住选择；该学段还没选过角色就先选角色 */
   function enterGrade(g: GradeKey, gateOk = false, prof?: Profile) {
-    const p0 = prof ?? profiles.find(x => x.id === pid); if (!p0) return;
+    const p0 = prof ?? profilesRef.current.find(x => x.id === pidRef.current) ?? profiles.find(x => x.id === pid); if (!p0) return;
     // r9：家长确认在入口处强制（不只靠界面）：非档案年级没经过确认一律先去确认页
     if (needsGate(p0.grade, g) && !gateOk) { setScreen({ s: 'gate-grade', g }); return; }
     // r13 学霸：同一档案在年级之间来回切换（包括切回档案年级）也要家长密码，除非家长开了「切换不用密码」
     if (!gateOk && !prof && (viewGrade ?? lastGradeOf(p0) ?? p0.grade) !== g && settings.pinHash   /* r14：刚选完档案（还没进过年级）时也按「上次所在年级」算切换 */ && !settings.switchNoPin) { setScreen({ s: 'gate-grade', g }); return; }
-    setViewGrade(g); setChapterIdx(0);
-    setProfiles(profiles.map(x => x.id === p0.id ? { ...x, lastGrade: g } : x)); try { localStorage.setItem('zy-lastGrade-' + p0.id, g); } catch { /* */ }
+    setViewGrade(g, p0.id); setChapterIdx(0);
+    setProfiles(ps => ps.map(x => x.id === p0.id ? { ...x, lastGrade: g } : x)); try { localStorage.setItem('zy-lastGrade-' + p0.id, g); } catch { /* */ }
     const ch = allowedChars(g);
     const has = [p0.charIds?.[bandConfig(g).chars], p0.charId].some(id => id && ch.some(c => c.id === id));
     setScreen(has ? { s: 'map' } : { s: 'char' });
@@ -594,7 +600,7 @@ export default function App() {
         <button className="btn ghost" data-testid="pin-nudge-skip" onClick={() => { const pp = pinNudge; setPinNudge(null); setSettings({ ...settingsRef.current, pinNudged: true }); void pickProfile(pp, true); }}>跳过</button></div></div></div>}
       {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} bonus={Object.fromEntries(profiles.map(x => [x.id, bonusToday(usage[x.id], today)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
-        onAdd={p => { setProfiles([...profiles, p]); setLastPid(p.id); addedPid.current = p.id; try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
+        onAdd={p => { setProfiles(ps => [...ps, p]); setLastPid(p.id); addedPid.current = p.id; try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
       {screen.s === 'gate' && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
         onRecConfirmed={() => setSettings({ ...settingsRef.current, recConfirmed: true })} onSetPin={(h, hint, rec) => h ? setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec ? { recConfirmed: false } : {}), ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }) : clearPin(settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {})}
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
@@ -603,7 +609,7 @@ export default function App() {
       {screen.s === 'parent' && bank && <ParentSettings currentPid={lastPid} settings={settings} setSettings={setSettings} profiles={profiles} setProfiles={setProfiles} bank={bank} reloadBank={reloadBank}
         usage={usage} setUsage={setUsage} skills={allSkills} flags={flags} clockLocked={clock.locked} unlockClock={() => unlockClock(false)} resetTiming={() => unlockClock(true)} remainingOf={remaining} onClose={() => setScreen({ s: 'profiles' })} />}
       {screen.s === 'char' && cfg && p && <CharSelect cfg={cfg} current={p.charId} subjects={chapters.map(c => c.subject)} onBack={() => setScreen(p.charId ? { s: 'map' } : { s: 'grade', stage: stageOf(p.grade) })}
-        onPick={c => { setProfiles(profiles.map(x => x.id === p.id ? { ...x, charId: c.id, charIds: { ...x.charIds, [cfg.chars]: c.id } } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setPendingStart(then); }} />}
+        onPick={c => { setProfiles(ps => ps.map(x => x.id === p.id ? { ...x, charId: c.id, charIds: { ...x.charIds, [cfg.chars]: c.id } } : x)); const then = screen.then; setScreen({ s: 'map' }); if (then) setPendingStart(then); }} />}
       {screen.s === 'stage' && p0 && <StagePick current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onPick={st => setScreen({ s: 'grade', stage: st })} onBack={() => { setPid(undefined); setScreen({ s: 'profiles' }); }} />}
       {screen.s === 'grade' && p0 && <GradePick stage={screen.stage} current={defaultPick(p0.grade, lastGradeOf(p0))} profileGrade={p0.grade} onBack={() => setScreen({ s: 'stage' })}
         onPick={g => enterGrade(g)} />}
@@ -625,7 +631,7 @@ export default function App() {
         : cfg.battle === 'full'
         ? <RoundBattle prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
-            tips={p0?.tips} onTip={k => setProfilesState(ps => { const nx = ps.map(x => x.id === pid ? { ...x, tips: { ...x.tips, [k]: true } } : x); S.saveProfiles(nx); return nx; })}
+            tips={p0?.tips} onTip={k => { const id = pid; setProfiles(ps => ps.map(x => x.id === id ? { ...x, tips: { ...x.tips, [k]: true } } : x)); }}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />)}

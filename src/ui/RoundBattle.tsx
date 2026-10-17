@@ -97,7 +97,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   /* r15.1 学霸：押注说明每个档案只显示前 3 次，可「不再提示」 */
   const markTip = (k: string) => { if (seenTip.current[k]) return; seenTip.current[k] = true; onTip?.(k as TipKey); };
   const wagerSeenN = () => ['wagerSeen1', 'wagerSeen2', 'wagerSeen3'].filter(k => seenTip.current[k]).length;
-  const [wagerDetail, setWagerDetail] = useState(true);
+  const [wagerDetail, setWagerDetail] = useState(() => !seenTip.current.wagerOff && wagerSeenN() < 3);   // r15.3：开局就按已看次数，不再先闪一下说明
   /* r15.1 学霸：技能让连击一次 +2 时标出「+1 技能」，不再像是 x0 直接跳到 x2 */
   const prevCombo = useRef(0); const [comboTag, setComboTag] = useState(false);
   useEffect(() => { if (bs.combo - prevCombo.current >= 2) { setComboTag(true); const t = setTimeout(() => setComboTag(false), 1800); prevCombo.current = bs.combo; return () => clearTimeout(t); } prevCombo.current = bs.combo; }, [bs.combo]);
