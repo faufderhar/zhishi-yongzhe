@@ -6,7 +6,8 @@ import { stemOf } from './adaptive';
 import { pickByTier, isConsolidating, tierCost, type Tier } from './consolidate';
 export const normStem = (q: { question: string }) => q.question.replace(/[\s$，。,.？?！!“”"]+/g, '');
 export interface DrawOpts<T> { pred: (x: T) => boolean; curated: Set<string>; seen?: Set<string>; tier: Tier;
-  multi: (xs: T[], pick: (ys: T[]) => T | undefined) => T | undefined /* 多选规则：force 时只挑多选、不允许时排除多选 */ }
+  multi: (xs: T[], pick: (ys: T[]) => T | undefined) => T | undefined /* 多选规则：force 时只挑多选、不允许时排除多选 */
+  force?: (x: T) => boolean /* r15.3 本回合必须出的题型（多选保底）：候选里有这类题时，先在这类题里按「没见过 → 见过」挑 */ }
 type Q = { key: string; question: string; difficulty: number };
 export function drawNext<T extends Q>(unused: T[], used: T[], o: DrawOpts<T>): { q: T | undefined; repeat: boolean } {
   const usedStems = new Set(used.map(normStem));
@@ -21,7 +22,9 @@ export function drawNext<T extends Q>(unused: T[], used: T[], o: DrawOpts<T>): {
   /* r15.3 学霸：先在「本档案历史上没见过」的题里挑，没有才用见过的。以前先按难度最接近：上一局出过、难度正好的题会压过没见过但差一档的题，
      重开一局就有一半是上一局的题（高一生物 8 道重复 4 道） */
   const hist = (xs: T[]) => { if (!o.seen) return xs; const u = xs.filter(x => !o.seen!.has(x.key)); return u.length ? u : xs; };
-  const byHist = (xs: T[]) => { const h = hist(xs); return (h !== xs ? byGroups(h) : undefined) ?? byGroups(xs); };
+  /* r15.3 多选保底：「没见过的先」不能压过必出的多选——多选题全见过（保底允许重出见过的）时，以前没见过的普通题先被挑走，整局 0 道多选 */
+  const byHist0 = (xs: T[]) => { const h = hist(xs); return (h !== xs ? byGroups(h) : undefined) ?? byGroups(xs); };
+  const byHist = (xs: T[]) => { const f = o.force ? xs.filter(o.force) : []; return (f.length ? byHist0(f) : undefined) ?? byHist0(xs); };
   if (isConsolidating(o.tier)) { const low = allowed.filter(x => x.difficulty <= o.tier.tier); const r = low.length ? byHist(low) : undefined; if (r) return { q: r, repeat: false }; }
   const r = byHist(allowed) ?? pickByTier(hist(allowed), o.tier) ?? pickByTier(hist(fresh0), o.tier);   // 多选规则 / 对方回合限制挑不出时，仍先用没出过的题
   if (r) return { q: r, repeat: false };

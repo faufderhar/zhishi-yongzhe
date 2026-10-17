@@ -140,3 +140,16 @@ describe('r15.3 技术QA R152-1：错题几乎覆盖整关时复习题也不挤�
     expect(reviewGate(['r1'], isR, false, ['r2']).list).toEqual(['r1']);
   });
 });
+
+describe('r15.3 多选保底不被「没见过的先」压掉', () => {
+  it('多选题都见过、普通题没见过：必出多选的回合仍出多选', () => {
+    const mk = (key: string, type: string, d = 2) => ({ key, question: key + ' 题干', difficulty: d, type });
+    const pool = [mk('a', '单选'), mk('b', '单选'), mk('m1', '多选'), mk('m2', '多选')];
+    const seen = new Set(['m1', 'm2']);
+    const multi = (xs: typeof pool, pk: (ys: typeof pool) => (typeof pool)[number] | undefined) => { const m = xs.filter(x => x.type === '多选'); return m.length ? pk(m) ?? m[0] : pk(xs); };
+    const r = drawNext(pool, [], { pred: () => true, curated: new Set(), seen, tier: newTier(2), multi, force: x => x.type === '多选' });
+    expect(r.q?.type).toBe('多选');
+    const r2 = drawNext(pool, [], { pred: () => true, curated: new Set(), seen, tier: newTier(2), multi: (xs, pk) => pk(xs.filter(x => x.type !== '多选')) ?? pk(xs) });
+    expect(seen.has(r2.q!.key)).toBe(false);   // 不必出多选时仍是没见过的先
+  });
+});
