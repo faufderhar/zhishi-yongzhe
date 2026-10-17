@@ -3,6 +3,7 @@ import { openDB, type IDBPDatabase } from 'idb';
 import type { WrongEntry } from './game/wrongbook';
 import { findVault, findRec, writeRec, writeLocal, writeCache, normCode, type PinVault } from './game/pinVault';
 import { backupVault, mergePin } from './game/backupPin';
+import { cleanKv, cleanAnswer, cleanWrong } from './game/sanitize';
 import { verifyPin } from './game/pin';
 export interface AnswerRecord { profileId: string; questionId: string; correct: boolean; at: number; subject?: string }
 const DB = 'zhishi-yongzhe';
@@ -138,6 +139,8 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
      备份里没有密码时保留本机密码（避免恢复后没有密码）。撤销恢复（trusted 快照）照旧。 */
   const bv = backupVault(data, clean.kv as [string, unknown][]);
   if (!o.trusted && bv) cur = { ...cur, vault: null, pinReset: undefined, pinResetDoneAt: undefined };
+  /* r15.3 技术QA R152-3：撤销恢复要连家长密码、恢复码（4 处副本）和等待中的重设一起回到恢复前（以前保留了恢复后的密码，和确认框说的不一样） */
+  if (o.trusted && bv) { const st = (clean.kv as [string, any][]).find(r => r[0] === 'settings')?.[1]; cur = { vault: null, pinReset: st?.pinReset, pinResetDoneAt: undefined }; }
   const m = mergePin(clean.kv as [string, unknown][], cur, bv); clean.kv = m.kv;
   if (!o.trusted && bv) clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => k === 'settings' && v && typeof v === 'object' ? [k, { ...(v as object), restoredFromAt: data.exportedAt ?? 'unknown' }] : [k, v]);
   // r14.1：覆盖恢复也保留本机「今天已玩」的时长（和合并一致），防止用旧备份把今天的用时清零
@@ -149,6 +152,10 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     // r14.1：时钟基准是设备状态，覆盖恢复也保留本机的（以前会写回备份里旧的 / 锁定的 clock）
     if (curKv.has('clock')) kvm.set('clock', curKv.get('clock')); else kvm.delete('clock');
     clean.kv = [...kvm.entries()]; }
+  /* r15.3 技术QA R152-4：写库前清洗数字（星星 / 经验 / 时长 / 次数 / 难度 / 时间戳）；不合格的项丢掉 */
+  clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => [k, cleanKv(k, v)]).filter(([, v]) => v !== undefined);
+  clean.answers = (clean.answers as [unknown, unknown][]).map(([k, v]) => [k, cleanAnswer(v)]).filter(([, v]) => v !== undefined);
+  clean.wrong = (clean.wrong as unknown[]).map(cleanWrong).filter(v => v !== undefined);
   const snapshot = await exportAll();
   if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }   // r15：恢复写库到重载之间，页面不能把内存里的旧设置写回去
   const d = await db();

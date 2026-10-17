@@ -141,7 +141,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
   if (mode === 'forgot' && settings.pinHint && OLD_HINT_QUESTIONS.includes(settings.pinHint.q)) return (
     <div className="center-screen"><div className="pinpad wide-panel" data-testid="forgot-old-hint"><h2>忘记密码</h2><p className="big-rule">原来的找回问题（{settings.pinHint.q}）孩子可能知道答案，已经不能用来找回。</p><p>请用恢复码重设，或从备份恢复。</p>{recBox(true)}{restoreEntry}<button className="btn ghost" onClick={onCancel}>返回</button></div></div>);
   if (mode === 'forgot' && settings.pinHint) return (
-    <div className="center-screen"><div className="pinpad"><h2>忘记密码</h2><p className="big-rule" data-testid="forgot-rule">只有恢复码能立即重设，用找回问题要先等 72 小时（只算游戏开着的时间）</p><p>{settings.pinHint.q}</p>
+    <div className="center-screen"><div className="pinpad"><h2>忘记密码</h2><div className="big-rule" data-testid="forgot-rule">{/* r15.3 技术QA R152-5：按现在的规则写，短句分行 */}<p>只有恢复码能马上重设。</p><p>用找回问题要等 72 小时：</p><p>· 游戏关着的时间也算，每次最多算 12 小时</p><p>· 要在 3 个不同的日子打开过游戏</p><p>· 没联网时申请的，联网核对一次时间后才生效</p></div><p>{settings.pinHint.q}</p>
       <input className="name-input" data-testid="forgot-answer" value={ha} disabled={hlocked} onChange={e => setHa(e.target.value)} />
       {(hlockMsg || err) && <p className="warn" data-testid="forgot-msg">{hlockMsg ?? err}</p>}
       {restoreEntry}
@@ -463,9 +463,10 @@ function BackupTab() {
         <h2>确定恢复？</h2><p>会用备份（{pending.exportedAt ?? '未知时间'}）<b>覆盖</b>这台平板上的全部数据。</p>
         {(() => { const v = validateBackup(pending).preview; return <p className="hint" data-testid="restore-preview">备份内容：孩子档案 {v.profiles} 个 · 设置/进度 {v.kv} 项 · 答题记录 {v.answers} 条 · 错题 {v.wrong} 条 · 导入题 {v.bank} 道{v.skipped ? ` · 跳过损坏行 ${v.skipped}` : ''}。恢复前会自动下载一份当前数据的快照。</p>; })()}
         <p className="hint" data-testid="restore-pin-note">{needPin ? '验证：输入现在的家长密码，或者备份时的家长密码 / 恢复码（忘了现在的密码时用）。' : '这台平板还没有家长密码。'}</p>
-        <ul className="hint restore-list" data-testid="restore-replace"><li><b>换成备份里的：</b>孩子档案、关卡星星和进度、错题、答题记录、导入的题、时长和其他设置。</li>
+        <ul className="hint restore-list" data-testid="restore-replace">{/* r15.3 较真家长：每类数据只出现一次（换掉 / 保留），今天已玩的时长单独一句；和 importAll 实际做的一致 */}<li><b>换成备份里的：</b>孩子档案、关卡星星和进度、错题、答题记录、导入的题、每日时长上限、以前各天的游戏时长记录和其他设置。</li>
           <li><b>家长密码和恢复码：</b>{!backupVault(pending, validateBackup(pending).clean.kv as [string, unknown][]) ? '备份里没有家长密码：保留现在的。' : '换成备份时的家长密码和恢复码（现在的密码和恢复码作废，等待中的重设申请也取消）。'}</li>
-          <li><b>保留这台平板的：</b>今天已玩的时长、平板时钟记录。</li></ul>
+          <li><b>保留这台平板的：</b>平板时钟记录。</li></ul>
+        <p className="hint" data-testid="restore-today">今天已经玩了多久，按这台平板上记的算，不会被备份里的改掉。</p>
         {needPin && <label className="row gap8">当前家长密码 <input type="password" inputMode="numeric" data-testid="restore-pin" value={rpin} onChange={e => setRpin(e.target.value)} /></label>}
         {needPin && <div className="p-card" data-testid="restore-alt"><b>忘了当前密码？</b><p className="hint">输入<b>备份时</b>的家长密码或那时的恢复码也能恢复。连续错 5 次锁 24 小时。</p>
           <input className="name-input" data-testid="restore-bsec" disabled={ileft > 0} placeholder="备份时的家长密码 / 恢复码" value={bsec} onChange={e => setBsec(e.target.value)} />
