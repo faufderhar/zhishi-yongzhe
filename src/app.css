@@ -701,3 +701,19 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle.rounds .arena .stage{min-height:110px;height:calc(30dvh - 120px) !important}
   .battle.rounds .qmeta{font-size:12px;margin:2px 0}
 }
+/* r15.4 小萌新：收尾提示在页面最上面占一行（不浮在题目上）；小班是大图标 + 进度条，不写字 */
+.grace-bar{order:-1;flex:none;background:#7a2a2a;color:#fff;border-bottom:2px solid #ffd54a;padding:6px 14px;font-size:15px;line-height:1.35;text-align:center;z-index:50}
+.grace-icon{order:-1;flex:none;display:flex;align-items:center;justify-content:center;gap:14px;background:#7a2a2a;border:0;border-bottom:3px solid #ffd54a;padding:6px 16px;min-height:64px;cursor:pointer;z-index:50}
+.grace-icon .gi-clock{font-size:48px;line-height:1;animation:gi-wobble 1.6s ease-in-out infinite}
+.grace-icon .gi-sleep{font-size:40px;line-height:1}
+.grace-icon .gi-track{width:min(40vw,320px);height:18px;border-radius:9px;background:#0005;overflow:hidden}
+.grace-icon .gi-fill{display:block;height:100%;background:#ffd54a;transition:width 1s linear}
+@keyframes gi-wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+/* r15.4 小萌新：时间用完后点关卡 → 睡着的小怪兽 */
+.sleepy-pop{position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;background:#0008}
+.sleepy-card{background:#fff8e6;color:#4a3420;border-radius:24px;padding:24px 32px;text-align:center;max-width:min(90vw,420px);box-shadow:0 8px 30px #0006}
+.sleepy-mon{position:relative;display:inline-block}
+.sleepy-mon img{width:160px;height:auto;filter:saturate(.75) brightness(.95);transform:rotate(-6deg)}
+.sleepy-mon .zzz{position:absolute;right:-18px;top:-10px;font-size:40px;animation:zzz 2s ease-in-out infinite}
+@keyframes zzz{0%{transform:translateY(6px);opacity:.4}50%{transform:translateY(-6px);opacity:1}100%{transform:translateY(6px);opacity:.4}}
+.sleepy-card h2{margin:10px 0 4px;font-size:28px}.sleepy-card p{margin:4px 0;font-size:18px}

@@ -1,7 +1,7 @@
 import { roundModeOf } from './game/rounds';
 import { claimTab, onTabActive, isActiveTab } from './tabGuard';
 import { launchCause, markAlive, beat, setSafeScreen, logReload } from './swUpdate';
-import { bonusToday, tickGrace, GRACE_MS, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
+import { bonusToday, tickGrace, GRACE_MS, GRACE_VOICE, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
 import { netCheck, pendingDays, PEND_DAYS, tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
@@ -24,7 +24,7 @@ import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, stemOf, upd
 import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
 import { PUPS, SCIFI, type Character } from './game/characters';
-import { unlockAudio } from './tts';
+import { unlockAudio, speak } from './tts';
 import { recordAnswer, wrongOf, putWrong, delWrong, answersOf } from './db';
 import * as S from './state';
 import type { Profile, Progress, Settings } from './state';
@@ -243,6 +243,8 @@ export default function App() {
   useEffect(() => { if (ANSWER_SCREENS.includes(screen.s) && myRemaining <= 0 && !graceOk.current) { setTimeUpNote(true); setScreen({ s: 'map' }, 'timeup'); } graceOk.current = false; }, [screen]);
   const graceOk = useRef(false);
   const overTime = myRemaining <= 0 && ANSWER_SCREENS.includes(screen.s);
+  /* r15.4 小萌新：小班进入收尾时间时朗读一次（不识字的孩子看不懂横条） */
+  useEffect(() => { if (overTime && cfg?.band === 'K') speak(GRACE_VOICE); }, [overTime, cfg?.band]);
   // r11 技术QA R10-1：3 分钟收尾倒计时并进下面的游戏时钟（单调时钟、暂停/后台不走、只有一个计时源），不再用 Date.now + 固定 setTimeout
   const graceMs = useRef<number | null>(null);
   /* r15.3 较真家长：今天的上限秒数（含加时；不限 = Infinity）。用时永远 ≤ 上限 + 3 分钟收尾 */
@@ -584,7 +586,12 @@ export default function App() {
         <button className="chip" onClick={() => setInterrupted(null)}>知道了</button></div>}
       {/* r11：「没打完」只提示给那个孩子本人（进了他的地图才显示），首页不再显示别人的提示，也不会打断正在玩的孩子 */}
       {screen.s === 'loading' && <div className="center-screen"><h1 className="title">⚔️ 知识勇者</h1><p className="sub">正在加载题库… {loadPct}%</p></div>}
-      {overTime && <div className="sys-bar warn-bar grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>}
+      {/* r15.4 小萌新：收尾提示不再浮在题目上——放在页面最上面一行，把下面的内容往下挤（order:-1，不是 fixed）。
+          小班（不识字）不写字：一个大闹钟图标 + 收尾进度条，进入收尾时朗读一次，点图标再读一遍 */}
+      {overTime && (cfg?.band === 'K'
+        ? <button className="grace-icon" data-testid="grace-icon" aria-label={GRACE_VOICE} onClick={() => speak(GRACE_VOICE)}>
+            <span className="gi-clock" aria-hidden>⏰</span><span className="gi-track" aria-hidden><span className="gi-fill" style={{ width: `${Math.max(0, Math.min(100, graceLeft / 180 * 100))}%` }} /></span><span className="gi-sleep" aria-hidden>🛏️</span></button>
+        : <div className="grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>)}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">
         <h1>有人申请重设家长密码</h1><details className="reset-rules" data-testid="reset-rules" ><summary>重设规则</summary><ul className="hint"><li>从申请起满 72 小时，并且其中至少有 3 个不同的日子打开过这个游戏。</li><li>游戏开着的时间一共至少 30 分钟。</li><li>关掉游戏的时间也算，但只有上一次打开至少 5 分钟才算，每段最多算 12 小时。</li><li>联网时以网络时间为准；把设备时钟往回调会取消申请。</li><li>至少要联网打开一次（校验网络时间）才能到期；离线时申请的，联网后会按网络时间核对等了多久，对不上就取消。</li><li>想取消：输入正确的家长密码或恢复码。</li></ul></details><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.floor((settings.pinReset.observed ?? 0) / 3600e3)} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}

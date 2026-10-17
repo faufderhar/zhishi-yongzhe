@@ -5,7 +5,8 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
-import { PUPS, SCIFI, type Character } from '../game/characters';
+import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
+import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE } from '../game/playtime';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_K, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
@@ -160,6 +161,10 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
     if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say(cfg.band === 'K' ? '这里有小怪兽等你交朋友！' : '这里有厉害的大怪兽！', cfg.band === 'K'); }
   }, [ch?.subject]);
   const timeUp = remaining <= 0;
+  /* r15.4 小萌新：时间用完后点关卡以前什么反应都没有——改成弹出睡着的小怪兽（小班同时朗读），点一下或 4 秒后关掉 */
+  const [sleepy, setSleepy] = useState(false); const sleepyT = useRef(0);
+  const showSleepy = () => { setSleepy(true); if (cfg.band === 'K') speak(SLEEPY_VOICE); clearTimeout(sleepyT.current); sleepyT.current = window.setTimeout(() => setSleepy(false), 4000); };
+  useEffect(() => () => clearTimeout(sleepyT.current), []);
   return (
     <div className="map">
       <div className="map-top">
@@ -197,7 +202,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 onContextMenu={e => e.preventDefault()}
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
-                  if (timeUp) return;
+                  if (timeUp) { showSleepy(); return; }
                   if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const need = missingPrereqs(ch.levels, i, progress.stars).map(x => x.name); say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }
                   onLevel(l);
                 }}>
@@ -212,6 +217,9 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         </div>
       </div>}
       {tip && <div className="map-tip" data-testid="map-tip" role="status">{tip}</div>}
+      {sleepy && <div className="sleepy-pop" data-testid="sleepy" role="dialog" aria-label={SLEEPY_TEXT} onClick={() => setSleepy(false)}><div className="sleepy-card">
+        <div className="sleepy-mon"><img src={MONSTER_IMG.kinder} alt="" draggable={false} /><span className="zzz" aria-hidden>💤</span></div>
+        <h2>{SLEEPY_TEXT}</h2><p data-testid="sleepy-reset">{SLEEPY_RESET}</p></div></div>}
       {timeUp && <div className="timeup-bar" data-testid="timeup-bar">今天的时间用完啦。<br />明天 0:00 重新计时。<br /><small>（家长可在设置里加时间）</small></div>}
     </div>
   );
