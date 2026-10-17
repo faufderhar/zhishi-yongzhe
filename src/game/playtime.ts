@@ -42,3 +42,24 @@ export function tickGrace(left: number, dp: number, paused: boolean): { left: nu
   if (paused) return { left, fire: false };
   const n = Math.max(0, left - Math.min(Math.max(dp, 0), 2000)); return { left: n, fire: n <= 0 };
 }
+/** r15.3 较真家长：今天的用时上限 = 上限（含加时）+ 3 分钟收尾。
+ *  base = 上限秒数（含加时；Infinity = 不限）。超过 base 的部分只在「收尾进行中（战斗 / 复习里）」才计，且总数永远不超过 base + 收尾。
+ *  以前时间到之后，结算页 / 地图 / 错题本还在照常计时（r15 起所有登录界面都计时），所以会超出 8:00 */
+export const GRACE_SEC = GRACE_MS / 1000;
+export function clampUsageAdd(used: number, add: number, base: number, inGrace: boolean): number {
+  if (!(add > 0)) return 0;
+  if (!Number.isFinite(base)) return add;
+  const cap = inGrace ? base + GRACE_SEC : base;
+  return Math.max(0, Math.min(add, cap - used));
+}
+/** 家长页拆分：已用（不超过上限） + 收尾（超过上限的部分，最多 3 分钟） */
+export function splitUsed(used: number, base: number): { play: number; wrap: number } {
+  if (!Number.isFinite(base)) return { play: used, wrap: 0 };
+  return { play: Math.min(used, base), wrap: Math.max(0, used - base) };
+}
+/** 收尾还能走多少毫秒：3 分钟，但已经计进去的超时部分要扣掉（用时每 5 秒结算一次，进入收尾时可能已多计了几秒） */
+export function graceBudgetMs(used: number, base: number, G = GRACE_MS): number {
+  if (!Number.isFinite(base)) return G;
+  return Math.max(0, Math.min(G, (base + GRACE_SEC - used) * 1000));
+}
+export const fmtMS = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
