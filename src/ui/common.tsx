@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState, type ReactNode } from 'react';
+import { addNumKey, press, type Burst } from '../game/keypad';
 export function Bar({ label, v, max, cls }: { label: string; v: number; max: number; cls: string }) {
   return <span className={`bar ${cls}`} aria-live="polite" aria-label={`${cls === "hp" ? "我的血量" : "怪物血量"} ${v}/${max}`}>{label}<span className="track"><span className="ghost" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /><span className="fill" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /></span>{v}/{max}</span>;
 }
@@ -22,11 +23,15 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
      另外每次按键都在 vRef 上接着拼，不用渲染时的旧 value（两次按键之间还没重绘也不会丢字） */
   const ptrAt = useRef(0);
   const apply = (f: (v: string) => string) => { const n = f(vRef.current); vRef.current = n; onChange(n); };
+  /* r15.3 学霸：多指几乎同时按（工具一次发几个 touch）时，1234 曾显示 3214——事件到达顺序 ≠ 按下顺序。
+     现在按 pointerdown 的时间戳排：150 ms 内的一串按键，晚到但更早按下的键插回原位重算（见 game/keypad.ts） */
+  const burst = useRef<Burst | null>(null);
   const keyProps = (f: (v: string) => string) => ({
-    onPointerDown: (e: React.PointerEvent) => { if (e.pointerType === 'mouse' && e.button !== 0) return; ptrAt.current = Date.now(); apply(f); },
+    onPointerDown: (e: React.PointerEvent) => { if (e.pointerType === 'mouse' && e.button !== 0) return; ptrAt.current = Date.now();
+      const nb = press(burst.current, vRef.current, e.timeStamp, performance.now(), f); burst.current = nb; vRef.current = nb.cur; onChange(nb.cur); },
     onClick: (e: React.MouseEvent) => { if (e.detail !== 0 && Date.now() - ptrAt.current < 1500) return; apply(f); },   // 键盘 / 读屏激活（没有 pointerdown）照常生效
   });
-  const add = (k: string) => keyProps(v => v + k);
+  const add = (k: string) => keyProps(v => letters ? v + k : addNumKey(v, k));   // r15.3：数字键盘的「-」只在数的开头有效
   const back = keyProps(v => v.slice(0, -1));
   const okAt = useRef(0);
   const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); onOk(); };
@@ -36,7 +41,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
       if (e.key === 'Enter') { if (v.trim()) onOk(); }
       else if (e.key === 'Backspace') apply(x => x.slice(0, -1));
-      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) { const k = letters ? e.key.toLowerCase() : e.key; apply(x => x + k); }
+      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) { const k = letters ? e.key.toLowerCase() : e.key; apply(x => letters ? x + k : addNumKey(x, k)); }
       else return;
       e.preventDefault();
     };
