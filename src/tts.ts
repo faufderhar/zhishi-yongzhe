@@ -128,3 +128,6 @@ export function beep(good: boolean) {
   g.gain.setValueAtTime(0.08 * audioPrefs.volume, sfxCtx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, sfxCtx.currentTime + 0.25);
   o.connect(g).connect(sfxCtx.destination); o.start(); o.stop(sfxCtx.currentTime + 0.25);
 }
+
+/* 仅测试构建：r154-nosynth 用来读音频状态、直接触发朗读 */
+if (__TEST_HOOKS__ && typeof window !== 'undefined') Object.assign(window, { __zyAudio: audioState, __zySpeak: speak });
