@@ -16,6 +16,18 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
   const vRef = useRef(value); vRef.current = value;
   // r14.1 学霸：打完字第一次点「确定」常常没反应——按下后键盘区域重排（输入框变高 / 计时刷新）时按下和抬起不在同一元素上，click 不触发。
   // 现在抬起就提交；随后的 click 去重（400 ms 内不重复提交）
+  /* r15.2.1 学霸：快速打字时手指交叠（上一个键还没抬起，下一个键已经按下）——以前按键在 click 时才生效，而 click 要等抬手才合成：
+     交叠时顺序按「谁先抬手」来（-,1 变成「1-」，-,3,/,2 变成「3-/2」），甚至整个 click 被浏览器丢掉（100 变 1、41 变 4）。
+     现在按下（pointerdown）就生效，每个手指各有一次、顺序就是按下的顺序；之后合成的 click 不再重复。
+     另外每次按键都在 vRef 上接着拼，不用渲染时的旧 value（两次按键之间还没重绘也不会丢字） */
+  const ptrAt = useRef(0);
+  const apply = (f: (v: string) => string) => { const n = f(vRef.current); vRef.current = n; onChange(n); };
+  const keyProps = (f: (v: string) => string) => ({
+    onPointerDown: (e: React.PointerEvent) => { if (e.pointerType === 'mouse' && e.button !== 0) return; ptrAt.current = Date.now(); apply(f); },
+    onClick: (e: React.MouseEvent) => { if (e.detail !== 0 && Date.now() - ptrAt.current < 1500) return; apply(f); },   // 键盘 / 读屏激活（没有 pointerdown）照常生效
+  });
+  const add = (k: string) => keyProps(v => v + k);
+  const back = keyProps(v => v.slice(0, -1));
   const okAt = useRef(0);
   const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); onOk(); };
   const okClick = () => { if (Date.now() - okAt.current < 400) return; if (vRef.current.trim()) onOk(); };
@@ -23,8 +35,8 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
     const h = (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
       if (e.key === 'Enter') { if (v.trim()) onOk(); }
-      else if (e.key === 'Backspace') onChange(v.slice(0, -1));
-      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) onChange(v + (letters ? e.key.toLowerCase() : e.key));
+      else if (e.key === 'Backspace') apply(x => x.slice(0, -1));
+      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) { const k = letters ? e.key.toLowerCase() : e.key; apply(x => x + k); }
       else return;
       e.preventDefault();
     };
@@ -34,18 +46,18 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
     <div className="keypad-wrap">
       <div className="input-box" data-testid="input">{(letters ? value : value.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
       {letters ? <div className="keypad alpha">
-        {rows.map((r, i) => <div className="kp-row" key={i}>{r.map(k => <button key={k} data-key={k} className={k === "'" || k === '-' ? 'sym' : ''} onClick={() => onChange(value + k)}>{k}</button>)}</div>)}
+        {rows.map((r, i) => <div className="kp-row" key={i}>{r.map(k => <button key={k} data-key={k} className={k === "'" || k === '-' ? 'sym' : ''} {...add(k)}>{k}</button>)}</div>)}
         <div className="kp-row last">
-          <button className="space" data-key="space" onClick={() => onChange(value + ' ')}>空格</button>
-          <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
+          <button className="space" data-key="space" {...add(' ')}>空格</button>
+          <button className="del" aria-label="退格" {...back}>⌫</button>
           <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!value.trim()}>确定</button></div>
       </div> : <div className="keypad num3">
         {/* 技术QA P2-4：固定 3×4「7 8 9 / 4 5 6 / 1 2 3 / - 0 .」，退格/分数/确定在右侧一列，横竖屏一致 */}
-        <div className="kp-digits">{['7', '8', '9', '4', '5', '6', '1', '2', '3', '-', '0', '.'].map(k => <button key={k} data-key={k} onClick={() => onChange(value + k)}>{k}</button>)}</div>
+        <div className="kp-digits">{['7', '8', '9', '4', '5', '6', '1', '2', '3', '-', '0', '.'].map(k => <button key={k} data-key={k} {...add(k)}>{k}</button>)}</div>
         <div className="kp-side">
-          <button className="del" aria-label="退格" onClick={() => onChange(value.slice(0, -1))}>⌫</button>
-          <button data-key="/" onClick={() => onChange(value + '/')}>/</button>
-          {sci && !letters && <button data-key="e" onClick={() => onChange(value + 'e')}>×10ⁿ</button>}
+          <button className="del" aria-label="退格" {...back}>⌫</button>
+          <button data-key="/" {...add('/')}>/</button>
+          {sci && !letters && <button data-key="e" {...add('e')}>×10ⁿ</button>}
           <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!value.trim()}>确定</button>
         </div>
       </div>}
