@@ -243,7 +243,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const [nudge, setNudge] = useState(0);
   const [monFace, setMonFace] = useState<string | null>(null);
   const [home, setHome] = useState(false);
-  const talk = (t: string, ms = 1600) => { setSay(t); speak(t); window.setTimeout(() => setSay(x => x === t ? null : x), ms); };
+  const talk = (t: string, ms = 1600, o?: { keys?: string[]; alt?: string[] }) => { setSay(t); speak(t, 'zh-CN', o); window.setTimeout(() => setSay(x => x === t ? null : x), ms); };
   const ksRef = useRef(ks); ksRef.current = ks;
   const wrong = useRef<string[]>([]);
   const down = useRef<string | null>(null);
@@ -276,7 +276,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
     if (r === 'demo') {
       setFx('demo'); setTilt(true); setWig(ch.key);
       const right = choices.find(x => q.answer.includes(x.key));
-      talk(`我来帮你看看！是${right?.text || '这个'}哦！`, T.demoMs);   // r9/r10：自动给答案前先说明（文字 + 朗读）
+      talk(`我来帮你看看！是${right?.text || '这个'}哦！`, T.demoMs, right ? { keys: ['p:demo_pre', optVoiceKey(q, right), 'p:demo_post'], alt: ['p:demo_this'] } : undefined);   // r15.4 录音：前半句 + 这个选项的录音 + 「哦！」；选项没录音（符号）就说「是这个哦」   // r9/r10：自动给答案前先说明（文字 + 朗读）
       if (gentle) { setMonFace('😜'); setTimeout(() => setMonFace(null), 1100); }
     } else {
       setFx('ok'); const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)].replace('{mon}', monName);

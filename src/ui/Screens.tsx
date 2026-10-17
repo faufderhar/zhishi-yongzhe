@@ -1,5 +1,6 @@
 import { VERSION_LABEL } from '../version';
 import { TEST_DOM } from './common';
+import { KINDER_LOCK_VOICE } from '../game/voiceLines';
 import { skinFor } from '../game/monsterSkin';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
@@ -203,7 +204,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
                   if (timeUp) { showSleepy(); return; }
-                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const need = missingPrereqs(ch.levels, i, progress.stars).map(x => x.name); say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }
+                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const need = missingPrereqs(ch.levels, i, progress.stars).map(x => x.name); if (need.length && cfg.band === 'K') { say(`🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}`, false); speak(KINDER_LOCK_VOICE); } else say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }   // r15.4：小班朗读不念关名（关名没录音），屏幕上照样写
                   onLevel(l);
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>

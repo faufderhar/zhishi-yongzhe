@@ -1,6 +1,7 @@
 /* r15.4 录音退路：共用提示语（文字 → 提示语 id；manifest 键「p:id」）。只登记固定的句子；
-   带变量的句子（怪兽名、技能名、开心值个数、「我来帮你看看！是…哦！」、角色名）录音时要拆成片段，暂时只走系统朗读 / 提示。 */
+   带变量的句子见 voiceLines.ts（按数据展开成固定句子；speak() 整句查不到时按句子拼接）。 */
 import { GRACE_VOICE, SLEEPY_VOICE } from './playtime';
+import { dynamicPrompts } from './voiceLines';
 export const VOICE_PROMPTS: Record<string, string> = {
   dui: '对', cuo: '错',
   retry: '再试试～', think: '嗯～再想想',
@@ -10,6 +11,7 @@ export const VOICE_PROMPTS: Record<string, string> = {
   res_k0: '每道题都认真学会啦！下次试试第一次就答对哦', res_k1: '越来越棒啦！', res_k2: '太厉害啦！',
   back: '返回', back_grade: '返回选年级', stage_k: '幼儿园', grade_k1: '小班', stage_p: '小学', grade_1: '一年级', grade_2: '二年级',
   grace: GRACE_VOICE, sleepy: SLEEPY_VOICE,
+  ...dynamicPrompts(),   // r15.4：小班带变量的句子（角色名、出发、技能、开心值、怪兽回家…）按数据展开；batch.py 用 --prompt-list 读导出的 JSON
 };
 /** speak() 用：文字 → id */
 export const PROMPT_BY_TEXT: Record<string, string> = Object.fromEntries(Object.entries(VOICE_PROMPTS).map(([id, t]) => [t, id]));

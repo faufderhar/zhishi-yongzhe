@@ -89,29 +89,39 @@ const stopRec = () => { recEl?.pause(); try { recSrc?.stop(); } catch { /* */ } 
 /* 仅测试构建：记录每段录音开始的时间（r154-nosynth 量停顿） */
 const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((window as unknown as { __zyRecLog?: { url: string; t: number; dur: number }[] }).__zyRecLog = []) : null;
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
-export async function playRecorded(keys: string[]): Promise<boolean> {
+export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
   const it = (await voiceManifest()).items ?? {};
+  if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
   const steps: { url: string; gap: number }[] = []; let prevKey = '';
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
     fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
   if (!steps.length) return false;
   const my = ++recSeq; stopRec(); speakingFlag = true;
   steps.forEach(st => { void loadBuf(st.url); });   // 先并行取 / 解码，后面按顺序播
-  try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; if (!(await playOne(steps[i].url, my)) && i === 0) return false; } return true; }
+  try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; const ok = await playOne(steps[i].url, my); if (my !== recSeq) return true; /* 被下一句打断不算失败 */ if (!ok && i === 0) return false; } return true; }
   finally { if (my === recSeq) speakingFlag = false; }
 }
 /** 共用提示语：文字 → 提示语 id（ui/voicePrompts 登记）；speak() 用文字查录音 */
 let promptIds: Record<string, string> = {};
-export const registerPrompts = (m: Record<string, string>) => { promptIds = { ...promptIds, ...m }; };
-const keysFor = (text: string, o: { id?: string; keys?: string[] }) => o.keys ?? (o.id ? [voiceKey(o.id, 'stem')] : promptIds[text] ? ['p:' + promptIds[text]] : []);
+export const registerPrompts = (m: Record<string, string>) => { promptIds = { ...promptIds, ...m }; normIds = null; };
+/* r15.4：整句没有录音时，按登记过的句子拼接（只看汉字 / 字母 / 数字，标点和表情不算）；必须整句都拼得上，否则不用录音 */
+const norm = (t: string) => t.replace(/[^\u4e00-\u9fffA-Za-z0-9]/g, '');
+let normIds: Map<string, string> | null = null;
+function segmentKeys(text: string): string[] | null {
+  if (!normIds) { normIds = new Map(); for (const [t, id] of Object.entries(promptIds)) { const n = norm(t); if (n && !normIds.has(n)) normIds.set(n, id); } }
+  const s = norm(text); if (!s) return null; const n = s.length; const best: (string[] | null)[] = Array(n + 1).fill(null); best[0] = [];
+  for (let i = 0; i < n; i++) { const cur = best[i]; if (!cur) continue; for (let j = n; j > i; j--) { const id = normIds.get(s.slice(i, j)); if (id && (!best[j] || best[j]!.length > cur.length + 1)) best[j] = [...cur, 'p:' + id]; } }
+  return best[n];
+}
+const keysFor = (text: string, o: { id?: string; keys?: string[]; alt?: string[] }) => o.keys ?? (o.id ? [voiceKey(o.id, 'stem')] : promptIds[text] ? ['p:' + promptIds[text]] : promptIds[text.trim()] ? ['p:' + promptIds[text.trim()]] : segmentKeys(text) ?? []);
 /* 测试构建：大多数浏览器测试把 speechSynthesis.speak 换成记录函数（不会触发 onstart），这时不做能力检测，照旧走系统朗读；
    专门的测试设 __zyTestTtsDetect 才走检测 / 退路 */
 const testPlain = () => __TEST_HOOKS__ && typeof window !== 'undefined' && !!(window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts && !(window as unknown as { __zyTestTtsDetect?: boolean }).__zyTestTtsDetect;
 const canSystem = (lang: string) => testPlain() ? !!synth : !!synth && ttsState !== 'none' && ttsState !== 'broken' && !(ttsState === 'nozh' && !/^en/.test(lang));
 /** 朗读。o.id = 题号（有录音时用录音兜底） */
-export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[] } = {}) {
+export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[]; alt?: string[] /* keys 缺段时改放这几段 */ } = {}) {
   if (!audioPrefs.tts) return;
-  const fallback = () => { void playRecorded(keysFor(text, o)).then(ok => { if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
+  const fallback = () => { void (o.alt ? playRecorded(keysFor(text, o), true).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id)).then(ok => { if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
   if (!canSystem(lang)) { fallback(); return; }
   synth!.cancel();
   const u = new SpeechSynthesisUtterance(speakable(text));
