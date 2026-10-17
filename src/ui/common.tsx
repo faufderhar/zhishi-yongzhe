@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, type ReactNode } from 'react';
-import { addNumKey, press, type Burst } from '../game/keypad';
+import { addNumKey, press, physKey, type Burst } from '../game/keypad';
 export function Bar({ label, v, max, cls }: { label: string; v: number; max: number; cls: string }) {
   return <span className={`bar ${cls}`} aria-live="polite" aria-label={`${cls === "hp" ? "我的血量" : "怪物血量"} ${v}/${max}`}>{label}<span className="track"><span className="ghost" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /><span className="fill" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /></span>{v}/{max}</span>;
 }
@@ -39,9 +39,10 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
   useEffect(() => {   // 物理键盘也能输入
     const h = (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
+      const key = physKey(e, letters);   // r15.4 学霸：中文输入法 / 小键盘的「-」（key 为 Process、－、−、Subtract 等）也认
       if (e.key === 'Enter') { if (v.trim()) onOk(); }
       else if (e.key === 'Backspace') apply(x => x.slice(0, -1));
-      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(e.key) : /^[0-9.\-/]$/.test(e.key)) { const k = letters ? e.key.toLowerCase() : e.key; apply(x => letters ? x + k : addNumKey(x, k)); }
+      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(key) : /^[0-9.\-/]$/.test(key)) { const k = letters ? key.toLowerCase() : key; apply(x => letters ? x + k : addNumKey(x, k)); }
       else return;
       e.preventDefault();
     };

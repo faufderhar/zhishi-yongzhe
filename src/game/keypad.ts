@@ -18,3 +18,15 @@ export function press(b: Burst | null, value: string, t: number, now: number, f:
   nb.cur = nb.ev.reduce((v, e) => e.f(v), nb.base);
   return nb;
 }
+
+/** r15.4 学霸：物理键盘按键归一。数字键盘：中文输入法下 key 常是 'Process' 或全角符号，按 code 认（Minus / NumpadSubtract / Digit3 / Numpad3 / Slash / Period）；
+    全角／数学减号（－ − – —）、旧浏览器的 'Subtract' 都当「-」。字母键盘不改 '–' '—'（英语里另有用处，原样过正则） */
+export function physKey(e: { key: string; code?: string }, letters: boolean): string {
+  const k = e.key, c = e.code ?? '';
+  if (letters) return k;
+  if (['－', '−', '–', '—', 'Subtract'].includes(k) || ((k === 'Process' || k === 'Unidentified') && (c === 'Minus' || c === 'NumpadSubtract'))) return '-';
+  if (k === 'Process' || k === 'Unidentified') { const m = c.match(/^(?:Digit|Numpad)(\d)$/); if (m) return m[1]; if (c === 'Slash' || c === 'NumpadDivide') return '/'; if (c === 'Period' || c === 'NumpadDecimal') return '.'; }
+  if (k === '／') return '/'; if (k === '。' || k === '．') return '.';
+  if (/^[０-９]$/.test(k)) return String.fromCharCode(k.charCodeAt(0) - 0xFF10 + 48);
+  return k;
+}
