@@ -404,7 +404,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
                 {cq.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button></div>)}
           </div>
         )}
-        {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={() => submit(input)} />}
+        {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {reviveMsg && <div className="feedback bad" data-testid="revive-fail"><h3>{reviveMsg}</h3></div>}
         {phase === 'anim' && !ending && !falling && !reviveMsg && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}

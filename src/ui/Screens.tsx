@@ -169,7 +169,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
     <div className="map">
       <div className="map-top">
         <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
-        <span className="who" data-testid="map-who">{p.avatar} {p.name} · {(p as { homeGrade?: GradeKey }).homeGrade && (p as { homeGrade?: GradeKey }).homeGrade !== p.grade ? `在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]}</span>
+        {/* r15.4 学霸：在别的年级玩时写明这是哪个年级的档案（「初一同学 · 初一档案 · 在玩高一的关卡」），不会被当成高一档案名取错 */}<span className="who" data-testid="map-who">{p.avatar} {p.name} · {(() => { const hg = (p as { homeGrade?: GradeKey }).homeGrade; return hg && hg !== p.grade ? `${GRADE_LABEL[hg]}档案 · 在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]; })()}</span>
         <span className="star-total" data-testid="star-total" title={progress.masteredStars ? `关卡 ${levelStarsTotal} + 错题掌握 ${progress.masteredStars}` : undefined}>★ {levelStarsTotal}{progress.masteredStars ? <small> ＋掌握 {progress.masteredStars}</small> : null}</span>
         <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}{bonusNote(remaining, bonus)}</span>
         <span className="grow" />
@@ -356,7 +356,7 @@ export function ReviewSession({ questions, onAnswer, onDone }: { questions: Ques
         {!res && q.type === '多选' && <div className="opts">{q.options.map(ch =>
           <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{ch.key}</i><Tex text={ch.text} /></button>)}
           <button className="next multi-ok" disabled={!multi.length} onClick={() => submit(multi.join(''))}>确定</button></div>}
-        {!res && q.type === '填空' && <Keypad key={q.key} letters={q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a))} value={input} onChange={setInput} onOk={() => submit(input)} />}
+        {!res && q.type === '填空' && <Keypad key={q.key} letters={q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a))} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {res && <div className={`feedback ${res.ok ? 'ok' : 'bad'}`}>
           <h3>{res.ok ? '✔ 答对了！这题升一个盒子' : '✘ 还没记住，明天再复习'}</h3>
           <p>正确答案：<b><Tex text={correctText(q)} /></b></p>

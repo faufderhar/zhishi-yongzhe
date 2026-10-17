@@ -547,7 +547,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
               </div>))}
           </div>
         )}
-        {asking && q.type === '填空' && <Keypad key={q.key} letters={letters} sci={cfg.band === 'H'} value={input} onChange={setInput} onOk={() => submit(input)} />}
+        {asking && q.type === '填空' && <Keypad key={q.key} letters={letters} sci={cfg.band === 'H'} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {phase === 'action' && (
           <div className="actions">
             {actTotal > 0 && <div className="countbar smooth"><div style={{ transform: `scaleX(${actMs / actTotal})` }} /></div>}

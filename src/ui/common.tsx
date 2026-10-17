@@ -10,11 +10,21 @@ export function Modal({ children, onClose }: { children: ReactNode; onClose?: ()
   return <div className="modal-back" onClick={e => { if (e.target === e.currentTarget) onClose?.(); }}><div className="modal">{children}</div></div>;
 }
 /** 自带屏幕键盘（GDD §9.4） */
-export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boolean; sci?: boolean; value: string; onChange: (v: string) => void; onOk: () => void }) {
+export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boolean; sci?: boolean; value: string; onChange: (v: string) => void; onOk: (v: string) => void }) {
   // 字母键盘：完整 a–z（含 e），不显示 ×10ⁿ；×10ⁿ 只在数字键盘（理科）出现（试玩报告 #1）
   // 技术QA R6-2/R6-3：QWERTY 三行（10/9/7）+ ' - 两键，第 4 行空格、退格、确定
   const rows = ['qwertyuiop', 'asdfghjkl', "zxcvbnm'-"].map(r => r.split(''));
-  const vRef = useRef(value); vRef.current = value;
+  /* r15.4 学霸：输入框在「已输入的值」和「空」之间闪、「确定」亮暗切换、有一次点确定没反应（和上轮「36 变 3」同根）。
+     以前有两份「当前输入」：键盘里的 vRef（按键立即更新）和父组件的 input（要等重绘）；每次渲染又用父组件的旧值盖回 vRef，
+     而「确定」提交的是父组件上一次渲染时的 input。按键和「确定」挨得很近（同一帧、物理键盘回车、工具连发）时，提交的是旧值（空 → 当超时、「36」→「3」），
+     显示也会在两份值之间来回。现在键盘自己持有唯一的当前值：显示、「确定」能不能点、提交的内容都用它；父组件只接收通知。
+     父组件主动改值（换题清空、复活换题）时才同步进来——判断依据是「和我最后一次报出去的值不同」，不会把正在输入的值盖掉 */
+  const [val, setVal] = useState(value); const burst = useRef<Burst | null>(null);
+  const vRef = useRef(value); const sentRef = useRef(value);
+  const onChangeRef = useRef(onChange); onChangeRef.current = onChange; const onOkRef = useRef(onOk); onOkRef.current = onOk;
+  useEffect(() => { if (value !== sentRef.current) { sentRef.current = value; vRef.current = value; burst.current = null; setVal(value); } }, [value]);
+  const commit = (n: string) => { vRef.current = n; sentRef.current = n; setVal(n); onChangeRef.current(n); };
+  const submitNow = () => { const v = vRef.current; if (v.trim()) onOkRef.current(v); };
   // r14.1 学霸：打完字第一次点「确定」常常没反应——按下后键盘区域重排（输入框变高 / 计时刷新）时按下和抬起不在同一元素上，click 不触发。
   // 现在抬起就提交；随后的 click 去重（400 ms 内不重复提交）
   /* r15.2.1 学霸：快速打字时手指交叠（上一个键还没抬起，下一个键已经按下）——以前按键在 click 时才生效，而 click 要等抬手才合成：
@@ -22,41 +32,40 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
      现在按下（pointerdown）就生效，每个手指各有一次、顺序就是按下的顺序；之后合成的 click 不再重复。
      另外每次按键都在 vRef 上接着拼，不用渲染时的旧 value（两次按键之间还没重绘也不会丢字） */
   const ptrAt = useRef(0);
-  const apply = (f: (v: string) => string) => { const n = f(vRef.current); vRef.current = n; onChange(n); };
+  const apply = (f: (v: string) => string) => commit(f(vRef.current));
   /* r15.3 学霸：多指几乎同时按（工具一次发几个 touch）时，1234 曾显示 3214——事件到达顺序 ≠ 按下顺序。
      现在按 pointerdown 的时间戳排：150 ms 内的一串按键，晚到但更早按下的键插回原位重算（见 game/keypad.ts） */
-  const burst = useRef<Burst | null>(null);
   const keyProps = (f: (v: string) => string) => ({
     onPointerDown: (e: React.PointerEvent) => { if (e.pointerType === 'mouse' && e.button !== 0) return; ptrAt.current = Date.now();
-      const nb = press(burst.current, vRef.current, e.timeStamp, performance.now(), f); burst.current = nb; vRef.current = nb.cur; onChange(nb.cur); },
+      const nb = press(burst.current, vRef.current, e.timeStamp, performance.now(), f); burst.current = nb; commit(nb.cur); },
     onClick: (e: React.MouseEvent) => { if (e.detail !== 0 && Date.now() - ptrAt.current < 1500) return; apply(f); },   // 键盘 / 读屏激活（没有 pointerdown）照常生效
   });
   const add = (k: string) => keyProps(v => letters ? v + k : addNumKey(v, k));   // r15.3：数字键盘的「-」只在数的开头有效
   const back = keyProps(v => v.slice(0, -1));
   const okAt = useRef(0);
-  const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); onOk(); };
-  const okClick = () => { if (Date.now() - okAt.current < 400) return; if (vRef.current.trim()) onOk(); };
+  const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); submitNow(); };
+  const okClick = () => { if (Date.now() - okAt.current < 400) return; submitNow(); };
   useEffect(() => {   // 物理键盘也能输入
     const h = (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
       const key = physKey(e, letters);   // r15.4 学霸：中文输入法 / 小键盘的「-」（key 为 Process、－、−、Subtract 等）也认
-      if (e.key === 'Enter') { if (v.trim()) onOk(); }
+      if (e.key === 'Enter') { if (v.trim()) submitNow(); }
       else if (e.key === 'Backspace') apply(x => x.slice(0, -1));
       else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(key) : /^[0-9.\-/]$/.test(key)) { const k = letters ? key.toLowerCase() : key; apply(x => letters ? x + k : addNumKey(x, k)); }
       else return;
       e.preventDefault();
     };
     window.addEventListener('keydown', h); return () => window.removeEventListener('keydown', h);
-  }, [letters, onOk, onChange]);
+  }, [letters]);
   return (
     <div className="keypad-wrap">
-      <div className="input-box" data-testid="input">{(letters ? value : value.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
+      <div className="input-box" data-testid="input">{(letters ? val : val.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
       {letters ? <div className="keypad alpha">
         {rows.map((r, i) => <div className="kp-row" key={i}>{r.map(k => <button key={k} data-key={k} className={k === "'" || k === '-' ? 'sym' : ''} {...add(k)}>{k}</button>)}</div>)}
         <div className="kp-row last">
           <button className="space" data-key="space" {...add(' ')}>空格</button>
           <button className="del" aria-label="退格" {...back}>⌫</button>
-          <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!value.trim()}>确定</button></div>
+          <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!val.trim()}>确定</button></div>
       </div> : <div className="keypad num3">
         {/* 技术QA P2-4：固定 3×4「7 8 9 / 4 5 6 / 1 2 3 / - 0 .」，退格/分数/确定在右侧一列，横竖屏一致 */}
         <div className="kp-digits">{['7', '8', '9', '4', '5', '6', '1', '2', '3', '-', '0', '.'].map(k => <button key={k} data-key={k} {...add(k)}>{k}</button>)}</div>
@@ -64,7 +73,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
           <button className="del" aria-label="退格" {...back}>⌫</button>
           <button data-key="/" {...add('/')}>/</button>
           {sci && !letters && <button data-key="e" {...add('e')}>×10ⁿ</button>}
-          <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!value.trim()}>确定</button>
+          <button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!val.trim()}>确定</button>
         </div>
       </div>}
     </div>

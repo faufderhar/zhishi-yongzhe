@@ -2,11 +2,11 @@
 import { STAGES, stageOf, type StageId } from '../game/stages';
 import { speak } from '../tts';
 import type { GradeKey } from '../game/questions';
-export function StagePick({ current, profileGrade, onPick, onBack }: { current: GradeKey; profileGrade: GradeKey; onPick: (s: StageId) => void; onBack: () => void }) {
+export function StagePick({ current, profileGrade, onPick, onBack, who }: { current: GradeKey; profileGrade: GradeKey; onPick: (s: StageId) => void; onBack: () => void; who?: string }) {
   const cur = stageOf(current);
   return (
     <div className="center-screen stage-pick" data-testid="stage-pick">
-      <h1>选学段</h1>
+      <h1>选学段</h1>{who && <p className="sub" data-testid="stage-who">{who}</p>}{/* r15.4 学霸：写明现在是谁的档案（上次去过别的年级时默认选中那个年级，容易以为进的是另一个档案） */}
       <div className="stage-grid">
         {STAGES.map(s => <button key={s.id} className={`stage-btn ${s.id === cur ? 'on' : ''}`} data-testid={'stage-' + s.id} aria-label={s.label}
           onClick={() => { speak(s.label); onPick(s.id); }}>
