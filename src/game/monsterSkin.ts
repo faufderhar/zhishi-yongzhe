@@ -19,7 +19,10 @@ export const BOSS_NAME: Record<'J' | 'H', Record<MonTheme, string>> = {
   H: { number: '函数魔方帝', ink: '文言墨龙', letter: '语法巨像', flask: '元素炼金王', gear: '力学钢铁兽', plant: '基因藤蔓女王', fossil: '时空化石巨人', mist: '哲思迷雾王' },
 };
 /* r15.1 策划：高一数学各章 Boss 原来都叫「函数魔方帝」——按章改名，美术不变、换主色；Boss id、星星不变 */
-const H_MATH_BOSS: [string, string, number][] = [['指数与对数', '对数巨塔主', 40], ['函数概念与性质', '奇偶双面王', 140], ['幂函数、指数函数和对数函数', '指对双生龙', 200], ['三角函数', '周期轮回将', 260], ['函数应用', '零点潜行者', 310]];
+const H_MATH_BOSS: [string, string, number][] = [['指数与对数', '对数巨塔主', 40], ['函数概念与性质', '奇偶双面王', 140], ['幂函数、指数函数和对数函数', '指对双生龙', 200], ['三角函数', '周期轮回将', 260], ['函数应用', '零点潜行者', 310],
+  /* r15.1 策划：其余 10 章也各用不同名字（苏教版章名），同一美术换主色 */
+  ['集合', '交并迷雾主', 24], ['常用逻辑用语', '充要辩论王', 72], ['不等式', '均值天平守', 96], ['平面向量', '向量风暴骑', 168], ['三角恒等变换', '变形角度师', 216],
+  ['解三角形', '正余弦三角将', 240], ['复数', '虚数幻影帝', 288], ['立体几何初步', '棱柱巨像', 336], ['统计', '样本收集者', 120], ['概率', '骰子命运师', 352]];
 export function hMathBoss(unit: string | undefined): { name: string; hue: number } | undefined {
   if (!unit) return undefined; const ch = unit.split('·').find(x => /^第\d+章/.test(x))?.replace(/^第\d+章\s*/, '') ?? unit;
   const m = H_MATH_BOSS.find(([c]) => ch === c); return m ? { name: m[1], hue: m[2] } : undefined;

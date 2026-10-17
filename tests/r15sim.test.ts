@@ -101,8 +101,27 @@ describe('r15.1 策划：高一数学 Boss 按章改名换色', () => {
     expect(n('必修第一册·第6章 幂函数、指数函数和对数函数·第2节')?.name).toBe('指对双生龙');
     expect(n('第7章 三角函数')?.name).toBe('周期轮回将');
     expect(n('第8章 函数应用')?.name).toBe('零点潜行者');
-    expect(n('第1章 集合')?.name).toBe('函数魔方帝');
+    expect(n('第1章 集合')?.name).toBe('交并迷雾主');
     expect(n('第4章 指数与对数')?.hue).not.toBe(n('第5章 函数概念与性质')?.hue);
     expect(n('第4章 指数与对数')?.id).toBe(n('第1章 集合')?.id);
+  });
+});
+
+describe('r15.1 策划：高一数学 15 章 Boss 名字全不同', () => {
+  it('题库 v30 的 15 章都有自己的名字和主色，没有「函数魔方帝」', async () => {
+    const { skinFor } = await import('../src/game/monsterSkin');
+    const { readFileSync } = await import('node:fs');
+    const qs = JSON.parse(readFileSync('public/banks/bank_10.json', 'utf8')).questions as { subject: string; unit: string }[];
+    const units = [...new Set(qs.filter(q => q.subject === '数学').map(q => q.unit))];
+    const byCh = new Map<string, { name?: string; hue?: number; id?: string }>();
+    for (const u of units) { const ch = u.split('·').find(x => /^第\d+章/.test(x))!; const s = skinFor('数学', 'boss', 'H', u); byCh.set(ch, { name: s?.name, hue: s?.hue, id: s?.id }); }
+    expect(byCh.size).toBe(15);
+    const want: Record<number, string> = { 1: '交并迷雾主', 2: '充要辩论王', 3: '均值天平守', 4: '对数巨塔主', 5: '奇偶双面王', 6: '指对双生龙', 7: '周期轮回将', 8: '零点潜行者', 9: '向量风暴骑', 10: '变形角度师', 11: '正余弦三角将', 12: '虚数幻影帝', 13: '棱柱巨像', 14: '样本收集者', 15: '骰子命运师' };
+    for (const [ch, v] of byCh) expect(v.name).toBe(want[Number(/第(\d+)章/.exec(ch)![1])]);
+    const vs = [...byCh.values()];
+    expect(new Set(vs.map(v => v.name)).size).toBe(15);
+    expect(new Set(vs.map(v => v.hue)).size).toBe(15);
+    expect(new Set(vs.map(v => v.id)).size).toBe(1);
+    expect(vs.some(v => v.name === '函数魔方帝')).toBe(false);
   });
 });
