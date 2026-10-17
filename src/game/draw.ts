@@ -7,7 +7,8 @@ import { pickByTier, isConsolidating, tierCost, type Tier } from './consolidate'
 export const normStem = (q: { question: string }) => q.question.replace(/[\s$，。,.？?！!“”"]+/g, '');
 export interface DrawOpts<T> { pred: (x: T) => boolean; curated: Set<string>; seen?: Set<string>; tier: Tier;
   multi: (xs: T[], pick: (ys: T[]) => T | undefined) => T | undefined /* 多选规则：force 时只挑多选、不允许时排除多选 */
-  force?: (x: T) => boolean /* r15.3 本回合必须出的题型（多选保底）：候选里有这类题时，先在这类题里按「没见过 → 见过」挑 */ }
+  force?: (x: T) => boolean /* r15.3 本回合必须出的题型（多选保底）：候选里有这类题时，先在这类题里按「没见过 → 见过」挑 */
+  first?: boolean /* r15.4 技术QA P4-1：一局第一题——在合格的题（难度最接近、历史上没见过）里等概率随机挑，不按列表顺序取第一个 */; rnd?: () => number }
 type Q = { key: string; question: string; difficulty: number };
 export function drawNext<T extends Q>(unused: T[], used: T[], o: DrawOpts<T>): { q: T | undefined; repeat: boolean } {
   const usedStems = new Set(used.map(normStem));
@@ -17,7 +18,7 @@ export function drawNext<T extends Q>(unused: T[], used: T[], o: DrawOpts<T>): {
   // 以前先按分组再按难度：精选组里只剩 1 档的题时，闪避题会出到难度 1，而攻击题在 3。
   const groups = (xs: T[]) => { const un = (x: T) => !o.seen?.has(x.key), cu = (x: T) => o.curated.has(x.key); return [xs.filter(x => cu(x) && un(x)), xs.filter(un), xs.filter(cu), xs]; };
   const nearest = (xs: T[]) => { if (!xs.length) return xs; const m = Math.min(...xs.map(x => tierCost(x.difficulty, o.tier))); return xs.filter(x => tierCost(x.difficulty, o.tier) === m); };
-  const best = (ys: T[]) => { const n = nearest(ys); for (const g of groups(n)) if (g.length) return g[0]; return undefined; };
+  const best = (ys: T[]) => { const n = nearest(ys); if (o.first && n.length) return n[Math.floor((o.rnd ?? Math.random)() * n.length) % n.length]; for (const g of groups(n)) if (g.length) return g[0]; return undefined; };
   const byGroups = (xs: T[]) => xs.length ? o.multi(xs, best) : undefined;   // 多选规则先筛（必须出 / 不许出），筛完再按难度 → 分组
   /* r15.3 学霸：先在「本档案历史上没见过」的题里挑，没有才用见过的。以前先按难度最接近：上一局出过、难度正好的题会压过没见过但差一档的题，
      重开一局就有一半是上一局的题（高一生物 8 道重复 4 道） */

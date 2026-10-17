@@ -150,7 +150,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     // r8：多选规则优先于「最接近难度」（只初一/高一、我方回合、第 1 回合不出、每局 1–2 道）
     // r11：统一走 drawNext（去重 + 难度回落 + 多选规则）；只有本关题全部出过才重复
     // r15 策划：复习题前 2 题不出，之后每 4 题最多 1 道（只剩复习题时才放宽）
-    const dn = (pr: (x: Question) => boolean) => drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk), force: multiRule(multiCtx()).force ? isMultiSel : undefined }).q;
+    const dn = (pr: (x: Question) => boolean) => drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk), force: multiRule(multiCtx()).force ? isMultiSel : undefined, first: shownN.current === 0 && !used.current.length }).q;
     const revOk = reviewAllowed(shownN.current, lastRev.current);
     /* r15.1 技术QA R15-2：本关题池里非复习题出完时，先从同单元后备题 / 相邻小节补一道非复习题，实在没有才出复习题（以前直接连出 4 道复习） */
     const nonRev = (x: Question) => pred(x) && !revSet.has(x.key);
