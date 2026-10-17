@@ -163,7 +163,7 @@ if (on('time')) {
   await pg.evaluate(() => { window.__zyTestSpentSec = 1e7; }); await w(1500);
   const gb = await pg.textContent('[data-testid=grace-bar]').catch(() => ''); ok(/时间到啦 · 收尾时间 \d:\d\d：打完这一关/.test(gb), `局中时间到：「${gb.trim()}」`);
   await pg.screenshot({ path: OUT + 'r10-grace.png' });
-  await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(800); await pg.click('.profile-card:has-text("r9")'); await pg.waitForSelector('[data-testid=char-confirm], [data-testid=wrongbook]', { timeout: 8000 }).catch(() => pg.screenshot({ path: '/workspace/tmp/dbg2.png' }));
+  await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(800); await pg.click('.profile-card:has-text("r9")'); await w(500); if (await pg.isVisible('[data-testid=pin-ok]')) { for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(500); }   /* r15：选档案要家长密码 */ await pg.waitForSelector('[data-testid=char-confirm], [data-testid=wrongbook]', { timeout: 8000 }).catch(() => pg.screenshot({ path: '/workspace/tmp/dbg2.png' }));
   if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm])'); await pg.click('[data-testid=char-confirm]'); } await pg.waitForSelector('[data-testid=wrongbook]', { timeout: 8000 }).catch(() => {});
   await pg.screenshot({ path: OUT + 'dbg-map.png' }); ok(await pg.isVisible('[data-testid=wrongbook]'), '回到地图');
   await pg.evaluate(() => { window.__zyTestSpentSec = 1e7; }); await w(800);
