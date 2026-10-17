@@ -110,7 +110,8 @@ if (on('keypad')) {
     const a = String(await pg.evaluate(() => window.__zyAnswer?.()));
     await mon();
     if (f) await pg.evaluate(f, a); else { for (const ch of a) { await pg.tap(`.keypad [data-key="${ch}"]`); await w(80); } await pg.evaluate(() => { const ok = document.querySelector('.keypad [data-testid=ok]'); ok.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, pointerType: 'touch', button: 0 })); }); }
-    const t = await fb(); if (!/正确/.test(t)) { await pg.screenshot({ path: OUT + 'r154-keypad-fail.png' }); console.log('  dbg', await pg.evaluate(() => document.querySelector('.quiz')?.innerText.slice(0, 300))); } ok(/正确/.test(t), `${name}：答案 ${a} 判对（${t}）`);
+    let t = await fb(); if (!/正确/.test(t) && await pg.isVisible('[data-testid=result-stats]')) { const rs = await pg.textContent('[data-testid=result-stats]'); const m = rs.match(/答对 (\d+) \/ (\d+)/); if (m && m[1] === m[2]) t = `正确（这一击打倒怪物，直接到结算：${m[0]}）`; }   /* 最后一击直接进结算页，没有反馈条 */
+    if (!/正确/.test(t)) { await pg.screenshot({ path: OUT + 'r154-keypad-fail.png' }); console.log('  dbg', await pg.evaluate(() => document.querySelector('.quiz')?.innerText.slice(0, 300))); } ok(/正确/.test(t), `${name}：答案 ${a} 判对（${t}）`);
     const log = await pg.evaluate(() => window.__log); const vals = log.map(x => x[1].split('|')[0]);
     const flick = vals.filter((v, i) => i > 0 && v.length < vals[i - 1].length).length;   // 只加不减：值变短 = 闪回旧值 / 空
     ok(flick === 0, `${name}：输入框只增不减、不闪回空（${JSON.stringify(log)}）`);
