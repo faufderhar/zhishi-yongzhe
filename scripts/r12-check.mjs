@@ -105,9 +105,8 @@ if (on('crown')) {
 if (on('pin')) {
   const { ctx, pg, w, pinIn } = await session('7');
   await pg.click('[data-testid=parent]'); await w(300); await pg.click('[data-testid=forgot]'); await w(300);
-  ok(await pg.isVisible('[data-testid=forgot-answer]') && await pg.isVisible('[data-testid=forgot-rec-box] [data-testid=rec-input]'), '忘记密码页：找回问题 + 恢复码输入框');
-  for (let i = 0; i < 5; i++) { await pg.fill('[data-testid=forgot-answer]', 'wrong' + i); await pg.click('[data-testid=forgot-ok]'); await w(250); }
-  const m = await pg.textContent('[data-testid=forgot-msg]').catch(() => ''); ok(/锁定/.test(m) && /小时/.test(m), `找回问题连错 5 次锁 24 小时（${m}）`);
+  /* r15.4 策划定稿：忘记密码页改成 ①恢复码 ②备份 ③申请重设；找回问题到期后才出现（连错 5 次锁 24 小时由 tests/r12.test.ts、r13.test.ts 覆盖） */
+  ok(await pg.isVisible('[data-testid=forgot-opt-rec] [data-testid=rec-input]') && await pg.isVisible('[data-testid=reset-request]'), '忘记密码页：恢复码输入框 + 申请重设');
   await pg.screenshot({ path: OUT + 'r12-forgot.png' }); await ctx.close();
 }
 if (on('switch')) {

@@ -147,13 +147,15 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
         <li data-testid="forgot-opt-rec"><p>① 我有恢复码：输入设置密码时保存的 8 位恢复码，马上设新密码。</p>{settings.pinRec ? recBox(false) : <p className="hint">这台平板还没有恢复码。</p>}</li>
         <li data-testid="forgot-opt-backup"><p>② 我有备份文件：从备份恢复，密码会变回备份时的密码。</p>{restoreEntry}</li>
         <li data-testid="forgot-opt-reset"><p>③ 什么都没有：点「申请重设」。约 3 天后回到这里，答对找回问题，就能设新密码。等这几天，是为了防止孩子自己重设密码。</p>
-          {!pr ? <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设</button>
-            : <div data-testid="reset-progress"><label className="pbar-row">已等 {waitedH} 小时 / 72<progress data-testid="reset-bar-hours" max={72} value={waitedH} /></label>
-                <label className="pbar-row">已打开 {daysN} / 3 天<progress data-testid="reset-bar-days" max={3} value={daysN} /></label>
-                {pr.ready ? <><p>{settings.pinHint.q}</p><input className="name-input" data-testid="forgot-answer" value={ha} disabled={hlocked} onChange={e => setHa(e.target.value)} />
-                  <button className="btn" data-testid="forgot-ok" disabled={hlocked || !ha} onClick={async () => {
-                    const ok = await checkHint(ha); const n = await noteH(ok); if (ok) { await note(true); setResetting(true); setMode('pin'); setFirst(undefined); setErr(undefined); } else setErr(lockLeft(n) > 0 ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
-                  }}>确定</button></> : null}</div>}
+          {pr && <div data-testid="reset-progress"><label className="pbar-row">已等 {waitedH} 小时 / 72<progress data-testid="reset-bar-hours" max={72} value={waitedH} /></label>
+            <label className="pbar-row">已打开 {daysN} / 3 天<progress data-testid="reset-bar-days" max={3} value={daysN} /></label></div>}
+          {/* 规则不变：申请本身不用答题（r15.1 起就有「申请重设」按钮）；到期后要答对找回问题才设新密码 */}
+          {!pr && <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设</button>}
+          {pr?.ready && <><p>{settings.pinHint.q}</p><input className="name-input" data-testid="forgot-answer" value={ha} disabled={hlocked} onChange={e => setHa(e.target.value)} />
+            <button className="btn" data-testid="forgot-ok" disabled={hlocked || !ha} onClick={async () => {
+              const ok = await checkHint(ha); const n = await noteH(ok); if (ok) { await note(true); setResetting(true); setMode('pin'); setFirst(undefined); setErr(undefined); }
+              else setErr(lockLeft(n) > 0 ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
+            }}>确定</button></>}
           {(hlockMsg || err) && <p className="err-dark" data-testid="forgot-msg">{hlockMsg ?? err}</p>}</li>
       </ol>
       <details className="reset-why" data-testid="reset-why"><summary>为什么要等 3 天？</summary><ul>

@@ -133,6 +133,7 @@ if (on('parent154')) {
   ok(!(await pg.$eval('[data-testid=reset-why]', e => e.open)), '「为什么要等 3 天？」默认收起');
   const reds = await pg.$$eval('[data-testid=forgot-page] p, [data-testid=forgot-page] li, [data-testid=forgot-page] h2', es => es.filter(e => e.offsetParent && !e.classList.contains('err-dark') && !e.classList.contains('warn')).map(e => getComputedStyle(e).color).filter(c => { const m = c.match(/\d+/g).map(Number); return m[0] > 150 && m[0] > m[1] + 60; }));
   ok(!reds.length, `正文没有红字（${reds.length} 处）`);
+  ok(!(await pg.isVisible('[data-testid=forgot-answer]')), '③ 没申请 / 没到期时不让答找回问题（到期后才答）');
   await pg.click('[data-testid=reset-request]'); await w(800); await pg.click('[data-testid=pin-reset-full-ok]', { timeout: 1500 }).catch(() => {}); await w(300);
   ok(await pg.isVisible('[data-testid=reset-bar-hours]') && await pg.isVisible('[data-testid=reset-bar-days]'), '申请后显示两条进度条（已等 X 小时 / 72，已打开 X / 3 天）');
   await pg.screenshot({ path: OUT + 'r154-forgot.png', fullPage: true });
