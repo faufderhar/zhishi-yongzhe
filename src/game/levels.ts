@@ -240,12 +240,18 @@ export const STAR_RULES_K = '⭐ 过关　⭐⭐ 第一次就答对六成　⭐�
 /** r12（策划）：怪物撤退时正确率 ≥ 40%（半对算 0.5）才算通关，最多 ★ */
 export const RETREAT_CLEAR = 0.4;
 export const retreatCleared = (r: { correct: number; total: number }) => !!r.total && r.correct / r.total >= RETREAT_CLEAR - 1e-9;
-export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean; hpPct?: number }) {
+/** r15.2（用户 + 策划）：初一普通关 ★★★ 还要至少答对 1 道挑战题；挑战按钮整关一直灰着就不要求（chalNeed=false）。精英 / Boss / 其他年级不变 */
+export const CHAL_STAR_HINT = '答对一道挑战题就能拿 3 星';
+export const chalMissing = (r: { chalNeed?: boolean; chalRight?: number }) => !!r.chalNeed && !(r.chalRight ?? 0);
+export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean; hpPct?: number; chalNeed?: boolean; chalRight?: number }) {
   if (r.timeUp) return 0;
   if (r.retreat && !retreatCleared(r)) return 0;   // r12：撤退且正确率 < 40% 不算通关
-  const s = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived, r.hpPct ?? 1);
+  const s0 = starsFor(r.win, r.total ? r.correct / r.total : 0, r.revived, r.hpPct ?? 1);
+  const s = s0 === 3 && chalMissing(r) ? 2 : s0;
   return r.retreat ? Math.min(1, s) : s;
 }
+/** 结算页：是不是只因为没答对挑战题才从 3 星变 2 星 */
+export const chalCostStar = (r: Parameters<typeof levelStars>[0]) => levelStars(r) === 2 && levelStars({ ...r, chalNeed: false }) === 3;
 /** Boss 选题池（裁定 2）：整章题，优先「还没出过」和「之前答错」的题；不够才重复已答对过的 */
 /** 精英关选题（策划 r7）：先出生成时留给精英、且没出现过的题，再出本课其它没出现过的，再出答错过的；不够才重复 */
 export function elitePool<T extends { key: string }>(pool: T[], fresh: string[] = [], seen: Set<string>, wrong: Set<string>, n: number, assigned: Set<string> = new Set()): T[] {

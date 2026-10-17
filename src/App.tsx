@@ -19,7 +19,7 @@ import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { playable, isBossOnly, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
-import { starOf, retreatCleared, buildChapters, levelStars, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
+import { starOf, retreatCleared, buildChapters, levelStars, chalCostStar, bossPool, elitePool, assignedBefore, capMulti, levelsOfUnit, migrateStars, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
@@ -609,7 +609,7 @@ export default function App() {
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />
         : <StdBattle key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} g1NoLimit={settings.g1NoLimit}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />)}
-      {screen.s === 'result' && cfg && char && <ResultScreen exhausted={!!screen.r.exhausted} prevBest={screen.prevBest} capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
+      {screen.s === 'result' && cfg && char && <ResultScreen chalHint={chalCostStar(screen.r)} exhausted={!!screen.r.exhausted} prevBest={screen.prevBest} capped={screen.capped} half={screen.r.half} cfg={cfg} c={char} win={screen.r.win} stars={screen.stars} best={screen.best} correct={screen.r.correct} total={screen.r.total} kinder={screen.r.kinder} retreat={screen.r.retreat} quit={screen.r.quit} turns={screen.r.turns}
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} timeUp={myRemaining <= 0} />}

@@ -7,7 +7,7 @@ import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, type Character } from '../game/characters';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_K, STAR_RULES_ROUND, type Chapter, type Level } from '../game/levels';
+import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_K, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
@@ -216,7 +216,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
-export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { capped?: boolean; prevBest?: number; exhausted?: boolean;
+export function ResultScreen({ chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { chalHint?: boolean; capped?: boolean; prevBest?: number; exhausted?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -245,6 +245,7 @@ export function ResultScreen({ cfg, c, win, stars, correct, total, newlyMastered
       {capped && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
       {!capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这一关今天已经玩了 3 次，这次不再加星；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
       {best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
+      {chalHint && <p className="sub" data-testid="result-chal-hint">🔥 {CHAL_STAR_HINT}</p>}   {/* r15.2：只因没答对挑战题拿 2 星 */}
       <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>
       {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！明天 0:00 重新计时。</p>}

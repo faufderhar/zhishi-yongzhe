@@ -11,7 +11,7 @@ import { pickHarder } from '../game/harder';
 import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
-import { newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { calcD, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
@@ -75,7 +75,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
   const falling = view.p <= 0 || view.m <= 0;   // 已被打到 0 血：直接倒地/defeat，不显示「战斗中…」（策划 r7）
   useWakeLock(); usePauseTimeout(paused, () => quitRef.current());
   const exhausted = useRef(false); const shownN = useRef(0), lastRev = useRef(-1); const revSet = useMemo(() => new Set(review ?? []), []);
-  const result = (s: RState) => ({ exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong });
+  const result = (s: RState) => ({ exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong, chalNeed: mode === 'j' && kind === 'normal' && chalSeen.current, chalRight: chalRight.current });
   // r9：暂停超时 / 暂停里点回地图：按已答的题结算，不静默丢进度
   const quitNow = () => { if (!stats.current.total) { onQuit(); return; } onEnd({ ...result(bsRef.current), win: false, retreat: false, quit: true }); };
   quitRef.current = quitNow;
@@ -120,6 +120,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     return back.find(x => wr.has(x.key)) ?? back[0]; };
   const chalPick = (base: Question | undefined) => harder(base);
   const hardQ = useRef<Question | undefined>(undefined);
+  const chalSeen = useRef(false), chalRight = useRef(0);   // r15.2：挑战按钮亮过没有、答对几道挑战题（初一普通关 3 星条件）
   const chooseChal = (on: boolean) => {
     if (phase !== 'chal') return;
     if (on && !hardQ.current) { setChalMsg((normalQ.current?.difficulty ?? 0) >= 5 ? '已经是最难的题了' : '这一关没有更难的题了'); setTimeout(() => setChalMsg(''), 2000); return; }
@@ -180,7 +181,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     if (hs && P && !multiRule(multiCtx()).force) { setPhase('cards'); return; }   // 必出多选的回合跳过选卡（按标准卡），保证出到
     if (bs.mode === 'j' && bs.side === 'P') { const n = take(); normalQ.current = n; hardQ.current = chalPick(n);
       // r11：出选择前就定好有没有挑战题；没有就直接出普通题，挑战按钮灰着并写明原因（不再等 3 秒、不会像被吞掉）
-      setChalNone(!hardQ.current); setChalWhy(hardQ.current ? '' : whyNoHarder(tierRef.current.tier)); setQ(undefined); setPhase('chal'); return; }   // 没有更难的题：挑战按钮灰着写明原因，照样等点〔普通〕
+      if (hardQ.current) chalSeen.current = true; setChalNone(!hardQ.current); setChalWhy(hardQ.current ? '' : whyNoHarder(tierRef.current.tier)); setQ(undefined); setPhase('chal'); return; }   // 没有更难的题：挑战按钮灰着写明原因，照样等点〔普通〕
     setChalNone(false);
     setQ(reveal(take(x => P || !isMulti(x))));
     setPhase(hs && wagerOn ? 'wager' : 'question');
@@ -234,7 +235,7 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
     setPicked(val); answerFeedback(g === 'full'); setFlagged(false);
     stats.current.total++;
     // r14：挑战题、重击卡（主动 +1 档）不改动当前难度计数——只有普通出题（含闪避题）计入连对 / 连错
-    if (chal && bs.side === 'P') chalKeys.current.add(qq.key);
+    if (chal && bs.side === 'P') { chalKeys.current.add(qq.key); if (g === 'full') chalRight.current++; }
     const extraHard = (chal && bs.side === 'P') || (hs && P && card === 'heavy');
     const t0 = tierRef.current; if (!extraHard) tierRef.current = nextTier(tierRef.current, g === 'full'); else if (g === 'full') tierRef.current = { ...tierRef.current, wrong: 0 }; /* r14.1 学霸：挑战 / 重击答对也打断「连错」，不然 错-挑战对-错 会降档 */ setTierNow(tierRef.current.tier);
     tierTrace.current.push({ d: qq.difficulty, ok: g === 'full', extra: extraHard, before: t0.tier, after: tierRef.current.tier }); setTierNow(tierRef.current.tier);   /* r15 学霸：顶栏显示实时当前难度 */ if (__TEST_HOOKS__) (window as unknown as { __zyTier?: unknown }).__zyTier = tierTrace.current;
@@ -345,7 +346,8 @@ export function RoundBattle({ cfg, c, kind, title, questions, extra, review, onA
           <div className="cards" data-testid="cards"><p>选一张题卡</p><div className="row gap16">
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
               <b>{CARDS[k].label}</b><span>{cards[k].subject} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
-              <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small></button>)}
+              <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small>
+              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {Math.max(1, Math.round(calcD(bs, c, { correct: true, subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })))}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
         )}
         {phase === 'wager' && <WagerTip P={P} tip={tip} />}{phase === 'wager' && <WagerCount mark={markWager} />}
