@@ -158,7 +158,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       if (it === 'atk') { o.taken = takeHurt(monAtk(s), m); o.text = '被攻击了'; }
       else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? monAtk(s) : 2 * s.def.atk, m); s.chargeBroken = false; o.text = '💥 被重击了'; }
       else if (it === 'charge') { s.chargeBroken = false; o.text = '⚡ 怪物蓄力成功，下次重击 ×2'; }
-      else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾（挡 ${s.shieldVal}）`; }
+      else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾：你下一次攻击少 ${s.shieldVal} 点伤害（这回合它没攻击）`; }
       else o.text = '💤 怪物在发呆，没有攻击';
       if (i.wager === 'unsure') o.review = true;
       if (part) o.text = '漏选：' + o.text + (o.taken ? '（伤害减半）' : '');

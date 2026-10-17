@@ -319,7 +319,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
       <div className="hud">
         <Bar label="❤" v={view.p} max={bs.playerMax} cls="hp" />
         {asking && (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>)}
-        <span data-testid="combo">连击 x{bs.combo}{comboTag && <small className="combo-tag" data-testid="combo-skill">+1 技能</small>}</span>
+        <span data-testid="combo">连击 x{bs.combo}{comboTag && <small className="combo-tag" data-testid="combo-skill" title="技能让这次连击多 +1，前面的数字已经算进去了">含技能 +1</small>}{/* r15.4 学霸：数字已包含技能那 1 次（答对 +1、技能再 +1） */}</span>
         {bs.perfectOn && <span data-testid="focus">专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(FOCUS_MAX - bs.focus)}</span>}
         <button className="energy-ring" data-testid="energy" aria-label={`能量 ${bs.energy}/${ENERGY_CAP}，点开看技能说明`} onClick={() => setRingPop(true)}>
           <svg viewBox="0 0 40 40" aria-hidden>{Array.from({ length: ENERGY_CAP }, (_, i) => { const a0 = (i / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 + 0.08, a1 = ((i + 1) / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 - 0.08;
@@ -340,7 +340,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
           {bs.def.phases ? (() => { const f = bs.def.phases[1].hp, p0 = view.m > f; return <div className="seg-bar" data-testid="boss-bar" style={{ ['--seg' as string]: `${(f / bs.monsterMax) * 100}%` }}><Bar label="" v={view.m} max={bs.monsterMax} cls={`mhp ${p0 ? '' : 'phase2'}`} /><i className="seg-mark" aria-hidden /></div>; })()   /* r10：两阶段 Boss 一条总血条分两段，进二阶段不回满 */
             : <Bar label="" v={view.m} max={bs.monsterMax} cls="mhp" />}
           <button className={`intent intent-${nextIntent(bs)} ${il.grey ? 'grey' : ''} ${!P && asking ? 'now' : ''}`} data-testid="intent" data-intent={nextIntent(bs)} onClick={() => setIntentPop(true)} aria-label={'怪物意图：' + il.long}>
-            {il.short} ⓘ{bs.shield > 0 && <span data-testid="mshield">（已有护盾 {bs.shield}）</span>}</button>
+            {il.short} ⓘ{bs.shield > 0 && <span data-testid="mshield">（怪物护盾 {bs.shield}：挡你下一击）</span>}{/* r15.4 学霸：护盾是怪物挡你的攻击，不减你受到的伤害——写在标签上，免得以为能替你挡 */}</button>
           {!P && asking && <div className="intent-now" data-testid="intent-now">{il.long}</div>}
         </div>
         <div className="stage" ref={D.stage}>
