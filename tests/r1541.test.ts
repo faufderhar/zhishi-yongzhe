@@ -100,7 +100,7 @@ describe('r15.4.1 小班时间到结算页 / 录音', () => {
   });
   it('结算页：小班时间到不显示星星比较，自动朗读', () => {
     const src = readFileSync('src/ui/Screens.tsx', 'utf8');
-    expect(src).toMatch(/!kTime && !capped && prevBest !== undefined/); expect(src).toMatch(/speak\(TIMEUP_K_TEXT\)/);
+    expect(src).toMatch(/!kTime && cfg.band !== 'K' && !capped && prevBest !== undefined/); expect(src).toMatch(/speak\(TIMEUP_K_TEXT\)/);
   });
   it('备份 / 读回时保留 wrap 字段', () => { expect(cleanUsage({ d: { used: 100, bonus: 0, wrap: 30 } })).toEqual({ d: { used: 100, bonus: 0, wrap: 30 } }); expect(cleanUsage({ d: { used: 100, bonus: 0 } })).toEqual({ d: { used: 100, bonus: 0 } }); });
 });
