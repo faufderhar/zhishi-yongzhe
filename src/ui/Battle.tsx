@@ -1,6 +1,6 @@
 import { noAdjacent } from '../game/adaptive';
 import { TEST_DOM } from './common';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react';
 import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
 import { QImage, CountVisual } from './QImage';
@@ -323,10 +323,11 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
             {monFace && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>
         </div>
         <canvas className="fx-canvas" ref={D.canvas} />
+        {/* r15.4.1 小萌新：「在说话」提示放在战斗区顶部（题目气泡下面），不再压住题干气泡上沿 */}
+        {busy && <div key={nudge} className={`kbusy ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
       </div>
-      {busy && <div key={nudge} className={`kbusy ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
       <div className={`kopts ${busy ? 'kwait' : ''}`} data-testid="kopts">
-        {choices.map(ch => {
+        {choices.map((ch, _i, all) => { const maxN = Math.max(...all.map(x => emojiOnlyN(x.text)));
           const gone = ks.removed.includes(ch.key), right = q.answer.includes(ch.key);
           return (
             <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }} aria-pressed={fx === 'ok' && right} disabled={gone}
@@ -336,7 +337,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
               onPointerUp={() => { if (down.current === ch.key) answer(ch); down.current = null; }}
               onPointerCancel={() => { down.current = null; }}
               onClick={e => { if (e.detail === 0) answer(ch); /* 键盘/读屏 */ }}>
-              <QImage image={ch.image} cls="kopt-img" fallback={<KOptFace text={ch.text} />} />
+              <QImage image={ch.image} cls="kopt-img" fallback={<KOptFace text={ch.text} maxN={maxN} />} />
             </button>
           );
         })}
@@ -346,11 +347,19 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   );
 }
 /** 小班选项（策划 X-6）：上方 emoji 区 70%，下方文字 30%，不重叠 */
-function KOptFace({ text }: { text: string }) {
+/** 只有 emoji 的选项有几个 emoji（有文字 → 0） */
+const emojiOnlyN = (t: string) => { const segs = t.split(EMO).filter(Boolean); return segs.some(x => !EMO.test(x) && x.trim()) ? 0 : segs.filter(x => EMO.test(x)).length; };
+const gridOf = (n: number) => { const cols = n <= 3 ? Math.max(1, n) : n === 4 ? 2 : 3; return [cols, Math.ceil(Math.max(1, n) / cols)]; };
+function KOptFace({ text, maxN = 0 }: { text: string; maxN?: number }) {
   const segs = text.split(EMO).filter(Boolean);
-  const emo = segs.filter(x => EMO.test(x)).join(''), rest = segs.filter(x => !EMO.test(x)).join('').trim();
+  const emos = segs.filter(x => EMO.test(x)), emo = emos.join(''), rest = segs.filter(x => !EMO.test(x)).join('').trim();
+  /* r15.4.1 小萌新：只有 emoji 的选项（「哪一组是 3 个」🍎🍎🍎）按个数排成固定网格（1–3 个一排、4 个 2×2、5–6 个两排 3+2 / 3+3），
+     每个 emoji 的大小按卡片宽高（容器查询 cqw/cqh）算，整组总在卡片里；以前 110px 大字自动换行，竖着摞出卡片底 / 屏幕 */
+  /* 同一题各选项的 emoji 一样大（按本题最多的那组排版算），不会因为 4 个排 2×2 反而比 3 个一排显得大 */
+  if (emos.length && !rest) { const n = emos.length, [cols] = gridOf(n), [fc, fr] = gridOf(Math.max(n, maxN));
+    return <span className="kcount" data-testid="kcount" data-n={n} style={{ '--cols': cols, '--fc': fc, '--fr': fr } as CSSProperties}>{emos.map((e, i) => <span key={i} className="kcount-i">{e}</span>)}</span>; }
   if (emo && rest) return <span className="kface"><span className="kface-emo">{emo}</span><span className={`kface-txt ${[...rest].length > 4 ? 'small' : ''}`}>{rest}</span></span>;
-  return <span className={`kopt-text ${[...text].length <= 3 ? 'short' : ''}`}>{text}</span>;
+  return <span className={`kopt-text ${[...text].length <= 3 ? 'short' : ''}`} style={{ '--len': Math.max(1, [...text].length) } as CSSProperties}>{text}</span>;
 }
 /** 长按按钮（小班暂停防误触，X-10）：按住时圆环进度 */
 export function HoldButton({ ms, onDone, children, className, label, testid }: { ms: number; onDone: () => void; children: ReactNode; className?: string; label: string; testid?: string }) {
