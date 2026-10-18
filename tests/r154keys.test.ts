@@ -16,6 +16,6 @@ describe('r15.4 物理键盘按键归一', () => {
   it('字母键盘原样', () => { expect(physKey({ key: '–' }, true)).toBe('–'); expect(physKey({ key: 'a' }, true)).toBe('a'); });
   it('「-」只在数的开头：-3/2 能打出来，3- 不会出现', () => {
     const type = (s: string) => [...s].reduce((v, k) => addNumKey(v, physKey({ key: k }, false)), '');
-    expect(type('-3/2')).toBe('-3/2'); expect(type('3-')).toBe('3'); expect(type('3/-2')).toBe('3/-2'); expect(type('－3')).toBe('-3');
+    expect(type('-3/2')).toBe('-3/2'); expect(type('3-')).toBe('-3'); expect(type('3/-2')).toBe('3/-2'); expect(type('－3')).toBe('-3');
   });
 });

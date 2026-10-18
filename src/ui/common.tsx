@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, type ReactNode } from 'react';
-import { addNumKey, minusOk, press, physKey, type Burst } from '../game/keypad';
+import { addNumKey, press, physKey, type Burst } from '../game/keypad';
 export function Bar({ label, v, max, cls }: { label: string; v: number; max: number; cls: string }) {
   return <span className={`bar ${cls}`} aria-live="polite" aria-label={`${cls === "hp" ? "我的血量" : "怪物血量"} ${v}/${max}`}>{label}<span className="track"><span className="ghost" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /><span className="fill" style={{ transform: `scaleX(${Math.max(0, v) / max})` }} /></span>{v}/{max}</span>;
 }
@@ -41,13 +41,8 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
     onClick: (e: React.MouseEvent) => { if (e.detail !== 0 && Date.now() - ptrAt.current < 1500) return; apply(f); },   // 键盘 / 读屏激活（没有 pointerdown）照常生效
   });
   const add = (k: string) => keyProps(v => letters ? v + k : addNumKey(v, k));   // r15.3：数字键盘的「-」只在数的开头有效
-  /* r15.4.1 学霸：已经输了数字再按「-」以前没反应也没提示——现在轻提示「负号要先按」2.5 秒（不改规则：- 仍只能在数的开头） */
-  const [minusHint, setMinusHint] = useState(false); const mhT = useRef(0);
-  const warnMinus = () => { if (letters || minusOk(vRef.current)) return; setMinusHint(true); clearTimeout(mhT.current); mhT.current = window.setTimeout(() => setMinusHint(false), 2500); };
-  useEffect(() => () => clearTimeout(mhT.current), []);
-  const addKey = (k: string) => { const p = add(k); if (k !== '-' || letters) return p;
-    return { onPointerDown: (e: React.PointerEvent) => { if (!(e.pointerType === 'mouse' && e.button !== 0)) warnMinus(); p.onPointerDown(e); },
-      onClick: (e: React.MouseEvent) => { if (!(e.detail !== 0 && Date.now() - ptrAt.current < 1500)) warnMinus(); p.onClick(e); } }; };
+  /* r15.4.2 学霸：输了数字后按「-」直接切换这个数的正负（keypad.ts toggleMinus），不再弹提示 */
+  const addKey = add;
   const back = keyProps(v => v.slice(0, -1));
   const okAt = useRef(0);
   const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); submitNow(); };
@@ -58,7 +53,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
       const key = physKey(e, letters);   // r15.4 学霸：中文输入法 / 小键盘的「-」（key 为 Process、－、−、Subtract 等）也认
       if (e.key === 'Enter') { if (v.trim()) submitNow(); }
       else if (e.key === 'Backspace') apply(x => x.slice(0, -1));
-      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(key) : /^[0-9.\-/]$/.test(key)) { const k = letters ? key.toLowerCase() : key; if (k === '-') warnMinus(); apply(x => letters ? x + k : addNumKey(x, k)); }
+      else if (letters ? /^[a-zA-Z '\-’‘–—]$/.test(key) : /^[0-9.\-/]$/.test(key)) { const k = letters ? key.toLowerCase() : key; apply(x => letters ? x + k : addNumKey(x, k)); }
       else return;
       e.preventDefault();
     };
@@ -66,7 +61,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
   }, [letters]);
   return (
     <div className="keypad-wrap">
-      <div className="input-box" data-testid="input">{(letters ? val : val.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}{minusHint && <span className="kp-hint" data-testid="minus-hint" role="status">负号要先按：先按「-」再按数字</span>}</div>
+      <div className="input-box" data-testid="input">{(letters ? val : val.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>
       {letters ? <div className="keypad alpha">
         {rows.map((r, i) => <div className="kp-row" key={i}>{r.map(k => <button key={k} data-key={k} className={k === "'" || k === '-' ? 'sym' : ''} {...add(k)}>{k}</button>)}</div>)}
         <div className="kp-row last">

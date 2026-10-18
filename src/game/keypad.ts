@@ -4,7 +4,14 @@
       实测（CDP Input.dispatchTouchEvent）：浏览器把事件带的 timestamp 原样放进 e.timeStamp；
       同一个 touchStart 里带多个手指时，各 pointerdown 的 timeStamp 相同，顺序就是手指列表的顺序。 */
 export const minusOk = (v: string) => v === '' || v.endsWith('/') || v.endsWith('e');
-export const addNumKey = (v: string, k: string) => (k === '-' && !minusOk(v) ? v : v + k);
+/* r15.4.2 学霸：已经输了数字再按「-」= 给这个数切换正负（把负号放到 / 拿掉在数的开头），不再弹「负号要先按」提示（他等提示时超时了 2 题）。
+   规则 1 不变：结果里的「-」仍然只在一个数的开头。有 ×10ⁿ（e）时切换的是指数（最后输入的那个数）；分数切换整个分数的正负（放在最前面） */
+export function toggleMinus(v: string): string {
+  if (minusOk(v)) return v + '-';
+  const i = v.lastIndexOf('e'); const st = i >= 0 ? i + 1 : 0; const seg = v.slice(st);
+  return v.slice(0, st) + (seg.startsWith('-') ? seg.slice(1) : '-' + seg);
+}
+export const addNumKey = (v: string, k: string) => (k === '-' ? toggleMinus(v) : v + k);
 export type KeyFn = (v: string) => string;
 export interface Burst { base: string; cur: string; at: number; ev: { t: number; f: KeyFn }[] }
 export const BURST_MS = 150;

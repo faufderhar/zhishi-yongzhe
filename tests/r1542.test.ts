@@ -88,3 +88,12 @@ describe('r15.4.2 学霸 F：初一护盾「预计 ≈16（挡掉 10，没有护
     expect((s.match(/shieldFloat\(\)/g) ?? []).length).toBeGreaterThanOrEqual(2);
   });
 });
+import { addNumKey as ak, toggleMinus, minusOk as mok, press as kpress } from '../src/game/keypad';
+describe('r15.4.2 学霸 G：输了数字再按「-」= 切换正负（r15.3 规则 1：- 只在数的开头）', () => {
+  const typ = (keys: string) => [...keys].reduce((v, k) => ak(v, k), '');
+  it('整数 / 小数：放到开头、再按拿掉', () => { expect(typ('12-')).toBe('-12'); expect(typ('12--')).toBe('12'); expect(typ('3.5-')).toBe('-3.5'); expect(typ('-12')).toBe('-12'); expect(typ('-12-')).toBe('12'); });
+  it('分数：切换整个分数（放最前面）；/ 后面空着时按 - 仍是分母的负号', () => { expect(typ('3/4-')).toBe('-3/4'); expect(typ('-3/4-')).toBe('3/4'); expect(typ('3/-4')).toBe('3/-4'); });
+  it('×10ⁿ：切换指数（最后输入的数）；e 后面空着时按 - 照旧', () => { expect(typ('15e3-')).toBe('15e-3'); expect(typ('15e-3-')).toBe('15e3'); expect(typ('15e-3')).toBe('15e-3'); });
+  it('结果里的「-」永远只在一个数的开头', () => { for (const k of ['1-2-3', '3/4-5', '1e2-3-', '-', '--', '0.5-/2-']) { const v = typ(k); expect(v).toMatch(/^-?[0-9.]*(\/-?[0-9.]*)?(e-?[0-9.]*)?$/); } expect(toggleMinus('')).toBe('-'); expect(mok('7/')).toBe(true); });
+  it('多指同时按：按时间戳重排后再切换（规则 2 不变）', () => { let b = kpress(null, '', 10, 100, v => ak(v, '5')); b = kpress(b, b.cur, 12, 110, v => ak(v, '-')); expect(b.cur).toBe('-5'); b = kpress(null, '', 20, 200, v => ak(v, '-')); b = kpress(b, b.cur, 15, 205, v => ak(v, '5')); expect(b.cur).toBe('-5'); });
+});

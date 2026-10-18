@@ -46,9 +46,9 @@ describe('技术QA', () => {
   });
 });
 describe('学霸：键盘负号', () => {
-  it('规则不变：- 只在数的开头；已有数字时按 - 不改值（界面另给「负号要先按」提示）', () => {
-    expect(addNumKey('3', '-')).toBe('3'); expect(minusOk('3')).toBe(false); expect(addNumKey('', '-')).toBe('-');
-    expect(readFileSync('src/ui/common.tsx', 'utf8')).toMatch(/负号要先按/);
+  it('r15.4.2：- 仍只在数的开头；已有数字时按 - 切换这个数的正负（不再弹「负号要先按」）', () => {
+    expect(addNumKey('3', '-')).toBe('-3'); expect(addNumKey('-3', '-')).toBe('3'); expect(minusOk('3')).toBe(false); expect(addNumKey('', '-')).toBe('-');
+    expect(readFileSync('src/ui/common.tsx', 'utf8')).not.toMatch(/负号要先按/);
   });
 });
 describe('小萌新：小班 emoji 选项', () => {
