@@ -268,12 +268,14 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     const k = o.skill;
     const d = D.dir.current;
     // r8b：致命一击在命中帧之后不再等受击/收招动作，直接进怪物 defeat（≤0.8 s）→ 结算
+    /* r15.4.2 学霸：护盾挡掉的点数在命中时飘字显示——这一击打死怪物（直接去结算、看不到反馈文字）时也能看到 */
+    const shieldFloat = () => { if (o.absorbed) setTimeout(() => D.dir.current?.float(D.dir.current.r.monster, `🛡 护盾挡掉 ${o.absorbed}`, 'soft'), 120); };
     let hitDone = () => {}; const hitP = new Promise<void>(r => { hitDone = r; });
     const show = k && d && o.side === 'P'   // 攻击技能：横幅 + 技能特效替代普攻演出，命中帧结算数字（≤1.5 s）
-      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt, 'crit'); } }); }
+      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, `✨${k.name} ` + (o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt), 'crit'); shieldFloat(); } }); }   /* r15.4.2 学霸：技能打出来的数字前写技能名（预计伤害不含技能，以前看不出为什么多了） */
       : k && d ? async () => { await sleep(250); await d.playSkill(k, { maxMs: 1000, onImpact: () => { setView(v => ({ ...v, p: ns.playerHp })); if (o.healed) d.float(d.r.hero, '+' + o.healed, 'heal'); } }); }   // 守护技能：闪避后 ≤1.0 s
       : o.side === 'P'
-      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); } })
+      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); shieldFloat(); } })
         : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500)
       : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500);
     const lethal = o.side === 'P' && ns.over === 'win';

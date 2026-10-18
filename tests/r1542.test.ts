@@ -63,3 +63,28 @@ describe('r15.4.2 #3 / #4', () => {
     const css = rd('src/app.css'); expect(css).toMatch(/\.kstage:has\(>\.skill-banner\.kinder\)>\.kbusy\{top:96px\}/); expect(css).toMatch(/\.kstage:has\(\.ksay\)>\.skill-banner\.kinder\{opacity:0!important/);
   });
 });
+import { newRound, resolveRound, estimateDealt, calcParts } from '../src/game/rounds';
+import { skillById } from '../src/game/skills';
+import { PUPS } from '../src/game/characters';
+describe('r15.4.2 学霸 F：初一护盾「预计 ≈16（挡掉 10，没有护盾是 26）」实际 -23', () => {
+  const c = PUPS.find(x => x.id === 'suansuan')!;
+  const s0 = { ...newRound('j', 'normal'), shield: 10, monsterHp: 999 };
+  const inp = { subject: '数学', difficulty: 2 };   // 算算（数学主修）· 数学 2 级：没有护盾 26（和截图一致）
+  it('数学没错：没触发技能时实际伤害 = 预计（挡掉的点数也一致）', () => {
+    const est = estimateDealt(s0, c, inp), raw = estimateDealt({ ...s0, shield: 0 }, c, inp);
+    const [, o] = resolveRound(s0, c, { ...inp, correct: true, noSkill: true });
+    expect(o.dealt).toBe(est); expect(o.absorbed).toBe(raw - est); expect(o.absorbed).toBe(10);
+  });
+  it('-23 = 触发了「数轴突刺」（答对伤害 ×1.25）：26×1.25≈33，护盾挡 10 → 23；预计伤害不含技能', () => {
+    const k = skillById('j1_suansuan_2')!; expect(k.effect).toBe('A125C');
+    const s = { ...s0 }; const { outer, inner } = calcParts({ ...s, combo: 1 }, c, { ...inp, correct: true });
+    const raw = Math.round(outer * Math.min(1.8, inner)); expect(raw).toBe(26);
+    const [, o] = resolveRound(s, c, { ...inp, correct: true, forceSkill: k });
+    expect(o.skill?.name).toBe('数轴突刺'); expect(o.dealt).toBe(23); expect(o.absorbed).toBe(10);
+  });
+  it('界面：技能伤害飘字带技能名；命中时飘「护盾挡掉 n」（打死怪物也飘）', () => {
+    const s = rd('src/ui/RoundBattle.tsx');
+    expect(s).toMatch(/d\.float\(d\.r\.monster, `✨\$\{k\.name\} `/); expect(s).toMatch(/护盾挡掉 \$\{o\.absorbed\}/);
+    expect((s.match(/shieldFloat\(\)/g) ?? []).length).toBeGreaterThanOrEqual(2);
+  });
+});
