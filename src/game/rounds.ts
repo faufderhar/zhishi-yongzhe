@@ -8,7 +8,8 @@ import { roll, newRoll, tickCd, type SkillRoll, type SkillDef, type SkillSeg } f
 
 export type Side = 'P' | 'M';
 export type CardKind = keyof typeof CARDS;
-export type Wager = 'sure' | 'unsure' | null;
+/** r15.4.2：押注 = 我方回合看题前打开的开关（true = 押） */
+export type Wager = boolean;
 export interface RState {
   mode: RoundMode; seg: SkillSeg; kind: LevelKind; def: RoundMonster; shieldVal: number; baseDodge: number; perfectOn: boolean;
   side: Side; turn: number; cap: number;
@@ -60,7 +61,7 @@ export function intentLabel(s: RState) {
 export interface RInput {
   correct: boolean; partial?: boolean; subject: string; difficulty: number;
   fast?: boolean;          // 对方回合用时 ≤ 时限一半
-  card?: CardKind; wager?: Wager;
+  card?: CardKind; wager?: Wager;   // r15.4.2：只在我方回合有效
   rng?: () => number;      // 闪避判定 + 技能判定（可注入种子）
   stepIndex?: number;      // 多步题第几小问（0 起）；仅我方回合；技能只在第 0 小问判定
   forceSkill?: SkillDef | null; // 多步题后续小问沿用第一小问的技能
@@ -71,13 +72,13 @@ export interface RInput {
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
   energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
 
-/** D14：返回外层伤害（固定倍率 / 高一押注、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战，技能另乘后统一封顶 ×1.8） */
+/** D14：返回外层伤害（固定倍率、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战×押注，技能另乘后统一封顶 ×1.8）。r15.4.2：押注 ×1.25 改进内层，和重击卡一起也不超过 ×1.8 */
 export function calcParts(s: RState, c: Character, i: RInput) {
   const card = CARDS[i.card ?? 'std'];
-  let outer = s.atk * (DIFF_MULT[i.difficulty] ?? 1) * (i.subject === c.major ? AFFINITY : 1) * (weakOf(s) === i.subject ? WEAK : 1) * (i.wager === 'sure' ? WAGER.sureOut : 1);
+  let outer = s.atk * (DIFF_MULT[i.difficulty] ?? 1) * (i.subject === c.major ? AFFINITY : 1) * (weakOf(s) === i.subject ? WEAK : 1);
   if (PASSIVE.mathBonus(c) && i.subject === '数学') outer *= 1.1;
   if (i.stepIndex != null) outer *= MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)];
-  const inner = comboMult(s.combo) * (1 + FOCUS_DMG * s.focus) * cardOut(card.out, i.difficulty) * (i.challenge ? CHALLENGE.out : 1) * (i.simSkillMult ?? 1);
+  const inner = comboMult(s.combo) * (1 + FOCUS_DMG * s.focus) * cardOut(card.out, i.difficulty) * (i.challenge ? CHALLENGE.out : 1) * (i.wager && s.side === 'P' ? WAGER.out : 1) * (i.simSkillMult ?? 1);
   return { outer, inner };
 }
 /** 无技能时的伤害（封顶后） */
@@ -104,9 +105,10 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   const s: RState = { ...prev }; const rng = i.rng ?? Math.random;
   const o: ROut = { side: s.side, dealt: 0, hits: [], taken: 0, dodged: false, perfect: false, healed: 0, energyGain: 0, skill: null, guardUsed: false, brokeCharge: false, brokeShield: false, gotShield: false, review: false, text: '' };
   // 多选漏选（策划裁定 6）：不算答对；不判技能 / 完美闪避 / 专注 / 能量，连击不变
-  const part = !!i.partial && i.correct; const ok = i.correct && !part; if (part) o.partial = true;
+  const bet = !!i.wager && s.side === 'P';   // r15.4.2：押注只在我方回合；押了以后半对按答错
+  const part = !!i.partial && i.correct && !bet; const ok = i.correct && !i.partial; if (part) o.partial = true;
   if (ok) {
-    s.combo++; const g = 1 + (s.combo === 3 ? 1 : 0); o.energyGain = Math.min(ENERGY_CAP, s.energy + g) - s.energy; s.energy += o.energyGain;
+    s.combo++; const g = 1 + (s.combo === 3 ? 1 : 0) + (bet ? WAGER.energy : 0); o.energyGain = Math.min(ENERGY_CAP, s.energy + g) - s.energy; s.energy += o.energyGain;
     if (PASSIVE.heal(c) && i.subject === c.major) {   // r14：墨墨回血只在语文题
     const h = Math.min(3, s.playerMax - s.playerHp); s.playerHp += h; o.healed = h; }
   } else if (part) { /* 连击、能量不变 */ } else if (PASSIVE.comboGuard(c) && !s.comboGuardUsed && s.combo > 0) s.comboGuardUsed = true; else s.combo = 0;
@@ -135,19 +137,18 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       const d = hit(s, r1(calcD(s, c, i) * 0.5), false, o); o.hits.push(d); o.dealt = d; s.shield = 0;
       o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
-      const dodge = i.wager === 'sure' || i.challenge ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
+      const dodge = bet || i.challenge ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
       if (rng() < dodge) { o.dodged = true; o.text = `没打中！还好躲开了怪物的反击（闪避几率 ${Math.round(dodge * 100)}%）`;   /* r14.1 学霸：恢复 r12 文案，只附上几率 */ }   // r12：我方回合答错是「没打中」
       else {
-        o.taken = takeHurt(monAtk(s), i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, i.wager === 'sure' ? WAGER.sureHurt : i.wager === 'unsure' ? WAGER.unsureCtr : 1, i.challenge ? CHALLENGE.ctr : 1);
-        o.text = '怪物反击！';
+        o.taken = takeHurt(monAtk(s), i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, bet ? WAGER.ctr : 1, i.challenge ? CHALLENGE.ctr : 1);
+        o.text = bet && i.correct && i.partial ? '押注时半对算答错：怪物反击！' : bet ? '押注答错：怪物反击，闪不开！' : '怪物反击！';
       }
-      if (i.wager === 'unsure') o.review = true;
     }
     if (endTurn || !ok) s.focus = 0;   // 我方回合结束时专注清零
   } else {
     const it = nextIntent(s); o.intent = it; s.mi++; s.intentMod = null;
     if (ok) {
-      if (s.perfectOn && (i.fast || i.wager === 'sure')) { o.perfect = true; s.focus = Math.min(FOCUS_MAX, s.focus + 1); if (s.debuffs) s.debuffs--; }
+      if (s.perfectOn && i.fast) { o.perfect = true; s.focus = Math.min(FOCUS_MAX, s.focus + 1); if (s.debuffs) s.debuffs--; }
       if (it === 'charge') { s.chargeBroken = true; o.brokeCharge = true; o.text = '⚡ 打断了蓄力！'; }
       else if (it === 'heavy') { s.chargeBroken = false; o.text = '💥 闪开了重击！'; }
       else if (it === 'shield') { o.brokeShield = true; o.text = '🛡 破盾成功！'; }
@@ -155,13 +156,12 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       else o.text = '闪避成功！';
       if (o.perfect) o.text = '完美闪避！' + o.text.replace('闪避成功！', '');
     } else {
-      const m = (i.wager === 'sure' ? WAGER.sureHurt : 1) * (part ? 0.5 : 1);   // 对方回合漏选：按答错结算，受到伤害减半
+      const m = part ? 0.5 : 1;   // 对方回合漏选：按答错结算，受到伤害减半
       if (it === 'atk') { o.taken = takeHurt(monAtk(s), m); o.text = '被攻击了'; }
       else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? monAtk(s) : 2 * s.def.atk, m); s.chargeBroken = false; o.text = '💥 被重击了'; }
       else if (it === 'charge') { s.chargeBroken = false; o.text = '⚡ 怪物蓄力成功，下次重击 ×2'; }
       else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾：你下一次攻击少 ${s.shieldVal} 点伤害（这回合它没攻击）`; }
       else o.text = '💤 怪物在发呆，没有攻击';
-      if (i.wager === 'unsure') o.review = true;
       if (part) o.text = '漏选：' + o.text + (o.taken ? '（伤害减半）' : '');
     }
     // 守护池技能（对方回合答对后生效）
@@ -198,7 +198,7 @@ export function reviveRound(s: RState): RState {
 }
 export const roundsLeft = (s: RState) => s.cap - s.turn;
 /** r15.3 学霸：「本题预计伤害」= 答对且不触发技能时实际打出的伤害——同一套结算（连击 +1 后的倍率、亲和 / 弱点、
-    押注、挑战、题卡、专注、被动加成、封顶、护盾抵扣、Boss 阶段下限）全算进去；只有技能是答完才随机判定，不含 */
+    押注（我方）、挑战、题卡、专注、被动加成、封顶、护盾抵扣、Boss 阶段下限）全算进去；只有技能是答完才随机判定，不含 */
 export function estimateDealt(s: RState, c: Character, i: Omit<RInput, 'correct'>): number {
   return resolveRound(s, c, { ...i, correct: true, partial: false, noSkill: true, rng: () => 0.999999 })[1].dealt;
 }

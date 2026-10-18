@@ -66,7 +66,7 @@ export function StdTutorial({ cfg, onDone, onlyCard3 }: { cfg: BandConfig; onDon
     { t: rounds ? '怪物头上的图标是它下一步要做什么：⚔ 攻击 / ⚡ 蓄力 / 🛡 护盾，点一下能看说明' : '怪物头上的图标是它下一步要做什么：⚔ 攻击 / ⚡ 蓄力 / 🛡 护盾', at: 'm' },
     { t: card3, at: 'a' },
     { t: '血条空了也别怕，答对 2 道错题就能复活', at: 'h' },
-    ...(cfg.band === 'H' ? [{ t: '我方回合挑一张题卡，重击伤害高但答错挨打也多；押『确定』答错了就闪不开哦', at: 'q' }] : []),
+    ...(cfg.band === 'H' ? [{ t: '我方回合挑一张题卡，重击伤害高但答错挨打也多；有把握可以打开「押注」，押了答错就闪不开哦', at: 'q' }] : []),
   ];
   const cards = onlyCard3 ? [all[2]] : all;
   const [i, setI] = useState(0);

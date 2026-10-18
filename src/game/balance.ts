@@ -57,7 +57,8 @@ export const CARDS = { light: { label: '轻击', diff: -1, out: 0.8, ctr: 0.8 },
 /** r10（D14 修正 2）：高一题卡伤害倍率随难度缩放：有效 = 1 + (卡 − 1) × k，k = 0.5 / 0.75 / 1（难度 1 / 2 / ≥3）；答错风险不变 */
 export const CARD_K: Record<number, number> = { 1: 0.5, 2: 0.75 };
 export const cardOut = (out: number, difficulty: number) => 1 + (out - 1) * (difficulty >= 3 ? 1 : CARD_K[difficulty] ?? 0.5);
-export const WAGER = { sureOut: 1.2, sureHurt: 1.3, unsureCtr: 0.5 };
+/* r15.4.2 游戏策划：高一押注改成我方回合看题前的开关（默认不押）。押：答对伤害 ×1.25（算进内层封顶 ×1.8）、能量 +1；答错（含半对）反击 ×1.25 且不能闪避 */
+export const WAGER = { out: 1.25, ctr: 1.25, energy: 1 };
 export const HURT_CAP = 2.0;
 export const MULTI_STEP = [1.0, 1.3, 1.6];
 export const REVIVE = { need: 2, tries: 4, hp: 0.5 };

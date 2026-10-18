@@ -25,8 +25,8 @@ describe('学霸：初一怪物护盾', () => {
   });
   it('初一没有押注：只有高一（mode h）进入押注阶段', () => {
     const src = readFileSync('src/ui/RoundBattle.tsx', 'utf8');
-    expect(src).toMatch(/const hs = mode === 'h'/); expect(src).toMatch(/setPhase\(hs && wagerOn \? 'wager' : 'question'\)/);
-    expect(src).toMatch(/wager: hs \? wager : null/);
+    expect(src).toMatch(/const hs = mode === 'h'/); expect(src).toMatch(/setPhase\(hs && wagerOn && P \? 'bet' : 'question'\)/);   // r15.4.2：押注开关
+    expect(src).toMatch(/wager: hs && P && wagerOn \? wager : false/);
   });
 });
 describe('技术QA', () => {

@@ -27,7 +27,7 @@ import { skinFor, softFor } from '../game/monsterSkin';
 import { newTier, nextTier, pickByTier, isConsolidating, showConsolidateTag, type Tier } from '../game/consolidate';
 import { useDirector, PauseOverlay, Sprite, usePauseOnHide, useWakeLock, usePauseTimeout, useForceEnd, type BattleProps } from './Battle';
 
-type Phase = 'pre' | 'chal' | 'cards' | 'wager' | 'question' | 'anim' | 'feedback' | 'revive-ask' | 'revive-q' | 'retreat';
+type Phase = 'pre' | 'chal' | 'cards' | 'bet' | 'question' | 'anim' | 'feedback' | 'revive-ask' | 'revive-q' | 'retreat';
 const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
@@ -55,7 +55,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const [phase, setPhase] = useState<Phase>('pre');
   const [ringPop, setRingPop] = useState(false);
   const [card, setCard] = useState<CardKind>('std');
-  const [wager, setWager] = useState<Wager>(null);
+  const [wager, setWager] = useState<Wager>(false);   // r15.4.2：押注开关（我方回合看题前，默认不押）
   const [q, setQ] = useState<Question | undefined>();
   const [fb, setFb] = useState<{ ok: boolean; o?: ROut; text: string; partial?: boolean }>();
   const [canNext, setCanNext] = useState(true);
@@ -96,16 +96,17 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   // D14 首次提示（每个档案每种 1 次，2.5 秒自动消失或点一下关闭，不暂停计时）
   const [tipNow, setTipNow] = useState<{ k: TipKey; t: string } | null>(null);
   const seenTip = useRef<Record<string, boolean>>({ ...(tips ?? {}) });
-  /* r15.1 学霸：押注说明每个档案只显示前 3 次，可「不再提示」 */
   const markTip = (k: string) => { if (seenTip.current[k]) return; seenTip.current[k] = true; onTip?.(k as TipKey); };
-  const wagerSeenN = () => ['wagerSeen1', 'wagerSeen2', 'wagerSeen3'].filter(k => seenTip.current[k]).length;
-  const [wagerDetail, setWagerDetail] = useState(() => !seenTip.current.wagerOff && wagerSeenN() < 3);   // r15.3：开局就按已看次数，不再先闪一下说明
+  /* r15.4.2 游戏策划：押注开关第一次出现时在开关下面给一句短提示（每个档案 1 次）。提示就放在开关旁边、这一步一直显示到出题，
+     不是 2.5 秒自己消失的气泡，所以不会被别的东西盖住 / 错过；显示出来那一刻才记「看过」 */
+  const [betHint, setBetHint] = useState(false);
   /* r15.1 学霸：技能让连击一次 +2 时标出「+1 技能」，不再像是 x0 直接跳到 x2 */
   const prevCombo = useRef(0); const [comboTag, setComboTag] = useState(false);
   useEffect(() => { if (bs.combo - prevCombo.current >= 2) { setComboTag(true); const t = setTimeout(() => setComboTag(false), 1800); prevCombo.current = bs.combo; return () => clearTimeout(t); } prevCombo.current = bs.combo; }, [bs.combo]);
-  const markWager = () => { const n = wagerSeenN(); setWagerDetail(!seenTip.current.wagerOff && n < 3); if (n < 3) markTip('wagerSeen' + (n + 1)); };
   const tip = (k: TipKey) => { if (seenTip.current[k]) return; seenTip.current[k] = true; onTip?.(k); setTipNow({ k, t: TIP_TEXT[k] }); setTimeout(() => setTipNow(x => x?.k === k ? null : x), 2500); };
   const [rules, setRules] = useState(false);
+  useEffect(() => { const show = (phase === 'cards' || phase === 'bet') && hs && wagerOn && bs.side === 'P';
+    if (show && !seenTip.current.betHint) { setBetHint(true); markTip('betHint'); } else if (!show) setBetHint(false); }, [phase]);
   const [rageAnim, setRageAnim] = useState(false);
   // D14 初一挑战题：只在初一我方回合，默认普通题，每回合结束回到普通题
   const [chal, setChal] = useState(false);
@@ -182,7 +183,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   // 进入每个回合：高一我方先选卡；押注；其他直接出题
   useEffect(() => {
     if (phase !== 'pre' || bs.over) return;
-    setCard('std'); setWager(null); setChal(false); normalQ.current = undefined; setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
+    setCard('std'); setWager(false); setChal(false); normalQ.current = undefined; setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
     if (!pool.current.length) {   // 本关题不够撑满回合上限：重复使用已答过的题（错题优先）
       // r12 学霸：先补本关（Boss 为整单元）里本局还没出过的题（按题号 + 题干去重）；真的全部出过才重复，并记日志
       // r13 技术QA R12-3 / 策划：本关出完 → 同单元相邻小节（前面的先）→ 都出完才重复 1 道；不再清空「本局出过」
@@ -198,7 +199,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
       if (hardQ.current) chalSeen.current = true; setChalNone(!hardQ.current); setChalWhy(hardQ.current ? '' : whyNoHarder(tierRef.current.tier)); setQ(undefined); setPhase('chal'); return; }   // 没有更难的题：挑战按钮灰着写明原因，照样等点〔普通〕
     setChalNone(false);
     setQ(reveal(take(x => P || !isMulti(x))));
-    setPhase(hs && wagerOn ? 'wager' : 'question');
+    setPhase(hs && wagerOn && P ? 'bet' : 'question');   // r15.4.2：必出多步题的我方回合不选卡，但看题前照样能押注；对方回合没有押注
   }, [phase, bs.turn]);
 
   const cq = phase === 'revive-q' && rv ? rv.list[rv.i] : q;
@@ -230,7 +231,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     setPhase('anim');
     try { await Promise.race([show(), sleep(1500)]); } catch { /* 动画失败不影响流程 */ }
   }
-  const pickCard = (k: CardKind) => { if (!cards) return; setCard(k); setQ(reveal(cards[k])); setConsol(isConsolidating(tierRef.current) && cards[k].difficulty < tierRef.current.base); setPhase(wagerOn ? 'wager' : 'question'); };
+  const pickCard = (k: CardKind) => { if (!cards) return; setCard(k); setQ(reveal(cards[k])); setConsol(isConsolidating(tierRef.current) && cards[k].difficulty < tierRef.current.base); setPhase('question'); };
 
   function submit(val: string) {
     if (phase === 'question') setAnsSide(bs.side as 'P' | 'M');
@@ -261,7 +262,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     onAnswer(qq, g === 'full', val);
     pool.current = pool.current.filter(x => x.key !== qq.key); if (!used.current.includes(qq)) used.current.push(qq);
     const fast = elapsed <= (limit ? limit * PERFECT_FRACTION : PERFECT_NOLIMIT_SEC);
-    const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs ? wager : null, challenge: chal && bs.side === 'P' && bs.mode === 'j' });
+    const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs && P && wagerOn ? wager : false, challenge: chal && bs.side === 'P' && bs.mode === 'j' });
     if (o.partial) tip('partial'); if (o.energyGain) tip('energy'); if (o.perfect && bs.perfectOn) tip('focus'); if (o.dodged && o.side === 'M') tip('dodge');   /* r12：「运气好闪开」只在怪物回合 */ if (o.perfect) tip('perfect'); if (o.guardUsed) tip('guard'); if (o.capped) tip('cap');
     if (o.rage) { tip('rage'); setRageAnim(true); playRageDrum(); setTimeout(() => setRageAnim(false), 1400); }
     const k = o.skill;
@@ -364,18 +365,11 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
               <b>{CARDS[k].label}</b><span>{cards[k].subject} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
               <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small>
-              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押「确定」≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: 'sure' })}）` : ''}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
+              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押注 ≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: true })}）` : ''}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
         )}
-        {phase === 'wager' && <WagerTip P={P} tip={tip} />}{phase === 'wager' && <WagerCount mark={markWager} />}
-        {phase === 'wager' && (
-          <div className="cards" data-testid="wager"><p>看题前押注：有把握吗？</p><div className="row gap16">
-            <button className="qcard" data-testid="wager-sure" onClick={() => { setWager('sure'); setPhase('question'); }}><b>确定</b>
-              {wagerDetail && <small>{P ? '答对伤害 ×1.2；答错反击 ×1.3 且不能闪避' : '答对必定完美闪避；答错受击 ×1.3'}</small>}</button>
-            <button className="qcard" data-testid="wager-unsure" onClick={() => { setWager('unsure'); setPhase('question'); }}><b>不太确定</b>
-              {wagerDetail && <small>{P ? '答错反击 ×0.5，标记重点复习' : '答错照常受击，标记重点复习'}</small>}</button>
-          </div>{wagerDetail && <button className="link-btn" data-testid="wager-hint-off" onClick={() => { markTip('wagerOff'); setWagerDetail(false); }}>不再提示</button>}</div>
-        )}
+        {(phase === 'cards' || phase === 'bet') && hs && wagerOn && P && <BetToggle on={wager} set={setWager} hint={betHint} />}
+        {phase === 'bet' && <div className="cards" data-testid="bet-phase"><p>这一回合是多步题</p><button className="next" data-testid="bet-go" onClick={() => setPhase('question')}>出题 ▶</button></div>}
         {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（选好才出题、才开始计时）</small></p>
           <div className="row gap16">
             <button className="qcard default" data-testid="chal-normal" autoFocus onClick={() => chooseChal(false)}><b>普通题 <span className="def-tag">默认</span></b><small>照常出题</small></button>
@@ -383,10 +377,10 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager ? ` · 押${wager === 'sure' ? '确定' : '不太确定'}` : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
+          <div className="qmeta">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager && P && phase !== 'revive-q' ? ' · 押注' : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
-          {P && phase === 'question' && (() => { const inp = { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std' as CardKind, wager: hs ? wager : null, challenge: chal && bs.mode === 'j' }; const est = estimateDealt(bs, c, inp), raw = bs.shield > 0 ? estimateDealt({ ...bs, shield: 0 }, c, inp) : est;
+          {P && phase === 'question' && (() => { const inp = { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std' as CardKind, wager: hs && wagerOn ? wager : false, challenge: chal && bs.mode === 'j' }; const est = estimateDealt(bs, c, inp), raw = bs.shield > 0 ? estimateDealt({ ...bs, shield: 0 }, c, inp) : est;
             /* r15.4.1 学霸：有护盾时写明「护盾挡掉 n」——预计伤害一直是挡完以后的数，以前只写「已含护盾」，看起来像护盾没挡 */
             return <small className="q-dmg" data-testid="q-dmg" data-raw={raw} data-est={est}>本题答对预计伤害 ≈ {est}{raw > est && <b data-testid="q-dmg-shield">（护盾挡掉 {raw - est}，没有护盾是 {raw}）</b>}<span className="hint">（已含连击{hs ? '、押注' : ''}{bs.mode === 'j' ? '、挑战' : ''}、被动、护盾；技能触发另算）</span></small>; })()}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
@@ -455,6 +449,11 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   );
 }
 
-function WagerCount({ mark }: { mark: () => void }) { useEffect(() => { mark(); }, []); return null; }
-/** r10：押注首次提示（按当前规则写明得失） */
-function WagerTip({ P, tip }: { P: boolean; tip: (k: TipKey) => void }) { useEffect(() => { tip(P ? 'wagerP' : 'wagerM'); }, [P]); return null; }
+/** r15.4.2 游戏策划：押注开关（我方回合看题前，题卡旁边，默认关，点一下就押） */
+export const BET_LABEL = '押注：答对伤害 ×1.25，能量 +1；答错反击 ×1.25，且不能闪避';
+export const BET_HINT = '💡 新玩法：有把握就点一下打开「押注」（默认不押）。不押就照常答题，答错还有机会闪开。';
+function BetToggle({ on, set, hint }: { on: boolean; set: (f: (x: boolean) => boolean) => void; hint: boolean }) {
+  return <div className="bet-wrap" data-testid="bet-wrap"><button className={`bet-toggle ${on ? 'on' : ''}`} role="switch" aria-checked={on} data-testid="bet-toggle" data-on={on ? '1' : '0'} onClick={() => set(x => !x)}>
+    <span className="bt-sw" aria-hidden><span className="bt-knob" /></span><span className="bt-label">{BET_LABEL}</span></button>
+    {hint && <p className="bet-hint" data-testid="bet-hint">{BET_HINT}</p>}</div>;
+}

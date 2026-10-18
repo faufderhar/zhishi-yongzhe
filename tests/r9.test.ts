@@ -30,9 +30,10 @@ describe('D14 §2 倍率封顶', () => {
     const [, o2] = hit(s2, abei, { forceSkill: A2H, noSkill: false });   // 1.3×1.5×0.7 = 1.365 < 1.8：每段 20×1.2×1.365
     expect(o2.hits).toEqual([33, 33]);
   });
-  it('外层：押注、多步段倍率不进封顶', () => {
+  it('r15.4.2：押注 ×1.25 改进内层封顶（和重击卡、连击一起最多 ×1.8）', () => {
     const h = { ...newRound('h', 'normal'), combo: 6, monsterHp: 999 };
-    expect(hit(h, sci, { card: 'heavy', wager: 'sure' })[1].dealt).toBe(Math.round(26 * 1.2 * 1.2 * 1.8 * (sci.major === '数学' ? 1.1 : 1)));
+    expect(hit(h, sci, { card: 'heavy', wager: true })[1].dealt).toBe(Math.round(26 * 1.2 * 1.8 * (sci.major === '数学' ? 1.1 : 1)));
+    expect(hit(h, sci, { card: 'heavy', wager: true })[1].dealt).toBe(hit(h, sci, { card: 'heavy' })[1].dealt);
   });
 });
 describe('D14 §3 数值表（快照）', () => {
@@ -104,7 +105,7 @@ describe('D14 §7 规则与首次提示', () => {
     expect(j).toContain('挑战题'); expect(j).not.toContain('题卡'); expect(h).toContain('题卡'); expect(h).toContain('押注');   // r10：题卡、押注分开 expect(h).not.toContain('挑战题');
   });
   it('7 种首次提示，文案与规格一致', () => {
-    expect(TIP_KEYS).toEqual(['partial', 'dodge', 'perfect', 'guard', 'rage', 'challenge', 'cap', 'wagerP', 'wagerM', 'focus', 'energy']);   // r10 +押注/专注/能量
+    expect(TIP_KEYS).toEqual(['partial', 'dodge', 'perfect', 'guard', 'rage', 'challenge', 'cap', 'focus', 'energy']);   // r10 +专注/能量；r15.4.2 押注提示改成开关旁的提示（不再是首次气泡）
     expect(TIP_TEXT.cap).toBe('加成已经到顶啦（最多 ×1.8）');
   });
 });

@@ -81,7 +81,7 @@ describe('完美闪避与专注', () => {
     expect(P(withIntent('atk'), true, { fast: false })[0].focus).toBe(0);
     expect(P({ ...newRound('j', 'normal'), focus: 0 }, true, { fast: true })[0].focus).toBe(0);
     expect(P(withIntent('atk', 'p36'), true, { fast: true })[0].focus).toBe(0);
-    expect(P(withIntent('atk', 'h'), true, { wager: 'sure' })[1].perfect).toBe(true);
+    expect(P(withIntent('atk', 'h'), true, { wager: true })[1].perfect).toBe(false);   // r15.4.2：对方回合没有押注
   });
 });
 // 技能测试见 tests/skills.test.ts（v0.3.7 随机释放）
@@ -95,12 +95,16 @@ describe('Boss 与高一', () => {
     const a = P(s, true, { subject: '数学' })[1].dealt, b = P({ ...s, monsterHp: 125 }, true, { subject: '数学' })[1].dealt;
     expect(a).toBe(Math.round(26 * 1.5)); expect(b).toBe(26);
   });
-  it('题卡与押注：反击 ×1.5×1.3 → 封顶 ×2.0；不太确定 ×0.5 并标记复习', () => {
+  it('r15.4.2 题卡与押注：押注答错反击 ×1.25 且不能闪避；答对 ×1.25 算进内层封顶 ×1.8、能量 +1；半对按答错', () => {
     const s = newRound('h', 'normal');
-    expect(P(s, false, { card: 'heavy', wager: 'sure' })[1].taken).toBe(35);   // 1.5×1.3=1.95，未超 2.0
-    expect(P(s, false, { card: 'heavy', wager: 'sure', simSkillMult: 1 })[1].taken).toBeLessThanOrEqual(18 * 2);
-    const [, u] = P(s, false, { card: 'light', wager: 'unsure' }); expect(u.taken).toBe(Math.round(18 * 0.8 * 0.5)); expect(u.review).toBe(true);
-    expect(P(s, true, { card: 'heavy', wager: 'sure' })[1].dealt).toBe(Math.round(26 * 1.2 * cardOut(CARDS.heavy.out, 2) * 1.2));   // r10：题卡倍率随难度（难度 2：×1.45）
+    expect(P(s, false, { card: 'heavy', wager: true, rng: () => 0 })[1].taken).toBe(Math.round(18 * 1.5 * 1.25));   // rng=0 本来必闪，押注不能闪
+    expect(P(s, false, { card: 'heavy', rng: () => 0 })[1].dodged).toBe(true);                                       // 不押：照常有闪避
+    const [, w] = P(s, false, { card: 'std', wager: true, rng: () => 0 }); expect(w.dodged).toBe(false); expect(w.review).toBe(false);
+    const [s1, r] = P(s, true, { card: 'heavy', wager: true }); expect(r.capped).toBe(true);
+    expect(r.dealt).toBe(Math.round(26 * 1.2 * Math.min(1.8, cardOut(CARDS.heavy.out, 2) * 1.25)));   // 1.45×1.25=1.81 → 封顶 1.8
+    expect(r.energyGain).toBe(2); expect(s1.energy).toBe(2);                                            // 答对 +1，押注再 +1
+    expect(P(s, true, { card: 'std', wager: true })[1].dealt).toBe(Math.round(26 * 1.2 * 1.25));
+    const [, h] = P(s, true, { card: 'std', wager: true, partial: true, rng: () => 0 }); expect(h.partial).toBeFalsy(); expect(h.dealt).toBe(0); expect(h.taken).toBe(Math.round(18 * 1.25)); expect(h.dodged).toBe(false);
   });
   it('多步题：小问 ×1.0/1.3/1.6，答错中断并按重击 ×1.5 反击，整题算 1 回合', () => {
     let s = { ...newRound('h', 'elite'), monsterHp: 999 }; const ds: number[] = [];

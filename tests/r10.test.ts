@@ -38,7 +38,7 @@ describe('D14 修正 3：Boss 蓄力重击按基础攻击，不叠怒气', () =>
 });
 describe('D14 修正 4：首次提示与规则', () => {
   it('押注 / 专注 / 能量提示写明实际得失；规则含押注、专注、能量、Boss 二阶段', () => {
-    expect(TIP_TEXT.wagerP).toMatch(/×1\.2.*×1\.3.*×0\.5/); expect(TIP_TEXT.focus).toMatch(/完美闪避.*\+10%.*2 层/); expect(TIP_TEXT.energy).toMatch(/5/);
+    expect(rulesFor('h').find(r => r[0] === '押注')![1]).toMatch(/×1\.25.*能量.*\+1.*×1\.25.*不能闪避.*×1\.8/); expect(rulesFor('j').some(r => r[0] === '押注')).toBe(false); expect(TIP_TEXT.focus).toMatch(/完美闪避.*\+10%.*2 层/); expect(TIP_TEXT.energy).toMatch(/5/);
     const h = rulesFor('h').map(r => r[0]); for (const k of ['押注', '专注', '能量', 'Boss 二阶段']) expect(h).toContain(k);
     expect(rulesFor('j').find(r => r[0] === '挑战题')![1]).toMatch(/出题前/);
   });
