@@ -880,3 +880,6 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .kbattle .kstage > *{min-width:0}
 /* 竖屏：怪物立绘（云朵等宽图）按高度算宽度会伸出右边，限宽、等比缩 */
 @media (orientation:portrait){.kbattle .kpup,.kbattle .kmon{max-width:40vw}}
+/* r15.4.2 技术QA P1-1：手机横过来后（844×390 等矮屏）新手引导第 2 / 4 步卡片 margin-top:30%（按宽度算 ≈250px）被推出屏幕、点不到「下一步」。矮屏不下移，盖层可滚 */
+.tut-overlay{overflow-y:auto}
+@media (max-height:600px){.tut-card.at-m,.tut-card.at-h{margin-top:0}.tut-card{padding:28px 24px 16px;gap:10px;font-size:clamp(18px,4.6dvh,26px)}}

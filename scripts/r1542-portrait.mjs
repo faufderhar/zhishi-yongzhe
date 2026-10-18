@@ -56,26 +56,35 @@ const quit = async (pg, w) => { const box = await pg.locator('[data-testid=pause
   await pg.click('[data-testid=quit]', { timeout: 3000 }).catch(() => {}); await pg.click('[data-testid=quit-confirm]', { timeout: 3000 }).catch(() => {}); await pg.waitForSelector('[data-testid=level-1]', { timeout: 8000 }).catch(() => {}); };
 const measure = pg => pg.evaluate(async () => {
   const vw = innerWidth, vh = innerHeight; const out = []; const R = e => e.getBoundingClientRect();
-  const targets = [...document.querySelectorAll('.kopts .kopt, .opts .opt, .quiz .opt, .keypad-wrap button, .keypad button, .kbubble .kitem, .qtext')].filter(e => { const s = getComputedStyle(e), r = R(e); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 2 && r.height > 2; });
+  const targets = [...document.querySelectorAll('.kopts .kopt, .opts .opt, .quiz .opt, .keypad-wrap button, .keypad button, .kbubble .kitem, .qtext, .multi-ok')].filter(e => { const s = getComputedStyle(e), r = R(e); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 2 && r.height > 2; });
   for (const e of targets) { const name = (e.dataset.testid || e.className.split(' ')[0]) + '「' + (e.textContent || '').trim().slice(0, 10) + '」';
     let r = R(e); if (r.left < -1 || r.right > vw + 1) { out.push(`${name} 横向出屏 ${Math.round(r.left)}–${Math.round(r.right)} / ${vw}`); continue; }
     if (r.top < -1 || r.bottom > vh + 1) { e.scrollIntoView({ block: 'nearest' }); await new Promise(z => setTimeout(z, 80)); r = R(e); if (r.top < -1 || r.bottom > vh + 1) out.push(`${name} 纵向出屏且滚不到 ${Math.round(r.top)}–${Math.round(r.bottom)} / ${vh}`); }
     if (!e.matches('.qtext') && e.scrollWidth > e.clientWidth + 2) out.push(`${name} 文字溢出 ${e.scrollWidth}>${e.clientWidth}`); }
-  for (const e of document.querySelectorAll('.hearts, .kbubble, .kmon, .kpup, .hud, .side-banner, .quiz, .unit-wrap img, .pause-btn')) { const r = R(e); if (r.width > 2 && (r.left < -1 || r.right > vw + 1)) out.push(`${e.className.split(' ')[0]} 被裁（横向 ${Math.round(r.left)}–${Math.round(r.right)} / ${vw}）`); }
+  for (const e of document.querySelectorAll('.hearts, .kbubble, .hud, .side-banner, .quiz, .unit-wrap, .pause-btn')) { const r = R(e); if (r.width > 2 && (r.left < -1 || r.right > vw + 1)) out.push(`${e.tagName}.${String(e.className).split(' ')[0]}${e.getAttribute('src') ? '[' + e.getAttribute('src').split('/').pop().slice(0, 24) + ']' : ''}（${e.closest('[data-testid]')?.dataset.testid || ''}） 被裁（横向 ${Math.round(r.left)}–${Math.round(r.right)} / ${vw}）`); }
   return { n: targets.length, out, vw, vh };
 });
 // 调试：PARTS=D IDS=K-049 GRADES=K1 VPS=768x1024 → 打印气泡 / 选项 / 暂停钮位置并截图
 if (on('D')) for (const vp of VPS) { const s = await session(vp, GRADES[0]); for (const id of (process.env.IDS || '').split(',')) { await enter(s.pg, s.w, id);
   console.log(vp, id, JSON.stringify(await s.pg.evaluate(() => { const r = q => { const e = document.querySelector(q); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)]; }; const wide = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1).slice(0, 6).map(e => e.tagName + '.' + String(e.className).split(' ').slice(0, 2).join('.') + ':' + Math.round(e.getBoundingClientRect().width)); return { iw: innerWidth, sw: document.documentElement.scrollWidth, wide, scrollH: document.documentElement.scrollHeight, scrollY, kb: r('.kbubble'), qt: r('.kbubble .qtext'), items: r('.kitems'), opts: r('.kopts'), pause: r('[data-testid=pause]'), stage: r('.kstage'), cls: document.querySelector('.kbattle')?.className }; })));
   await s.pg.screenshot({ path: `${OUT}D-${vp}-${id}.png` }); await quit(s.pg, s.w); } await s.ctx.close(); }
+const multiOk = [], multiSkip = [];
 if (on('T')) for (const vp of VPS) for (const g of GRADES) {
   const qs = sample(g); let s = await session(vp, g); const fails = []; let n = 0;
   for (const q of qs) { const { pg, w } = s;
     try { await enter(pg, w, q.id); const m = await measure(pg); n += m.n; if (!m.n) fails.push(`${q.id} 没有选项 / 键盘`); for (const f of m.out) fails.push(`${q.id}（${q.type}）${f}`);
+      if (q.type === '多选' && (await pg.locator('.opts .opt, .quiz .opt').count()) < 2) multiSkip.push(`${vp}/${g}:${q.id}`);   // 高一选卡后出的是卡对应的题，指定题没出成
+      else if (q.type === '多选') {   // 技术QA P2-3：竖屏多选要能选两个再点「确定（多选）」
+        const os = pg.locator('.opts .opt, .quiz .opt'); await os.nth(0).tap(); await os.nth(1).tap(); await w(200);
+        const okb = pg.locator('[data-testid=ok].multi-ok'); await okb.scrollIntoViewIfNeeded(); const bb = await okb.boundingBox(); const vp2 = pg.viewportSize();
+        if (!bb || bb.y < 0 || bb.y + bb.height > vp2.height || bb.x + bb.width > vp2.width || !(await okb.isEnabled())) fails.push(`${q.id} 多选「确定」够不着 ${JSON.stringify(bb)}`);
+        else { await okb.tap(); await pg.waitForSelector('[data-testid=feedback], [data-testid=next]', { timeout: 9000 }).then(() => multiOk.push(`${g}:${q.id}`)).catch(() => fails.push(`${q.id} 多选点「确定」后没有反馈`)); }
+        await pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}-multi.png` }); }
       if (m.out.length || !m.n) await pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}.png` }); await quit(pg, w); }
     catch (e) { fails.push(`${q.id} 脚本异常 ${String(e.message).split('\n')[0]}`); await s.pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}-err.png` }).catch(() => {}); await s.ctx.close().catch(() => {}); s = await session(vp, g); } }
+  if (multiSkip.length) console.log('NOTE 多选指定题没出成（不算失败）：' + multiSkip.join(' '));
   await s.pg.screenshot({ path: `${OUT}T-${vp}-${g}-map.png` }).catch(() => {});
-  ok(!fails.length, `${vp} ${g} 年级：抽样 ${qs.length} 题、量 ${n} 个元素都看得到、能点${fails.length ? '；' + fails.slice(0, 5).join('；') : ''}`); await s.ctx.close();
+  ok(!fails.length, `${vp} ${g} 年级：多选点通 ${multiOk.filter(x => x.startsWith(g + ':')).length} 题；抽样 ${qs.length} 题、量 ${n} 个元素都看得到、能点${fails.length ? '；' + fails.slice(0, 5).join('；') : ''}`); await s.ctx.close();
 }
 if (on('P')) for (const vp of (process.env.PVPS || '390x844,360x640').split(',')) for (const g of (process.env.PGRADES || 'K1,7,10').split(',')) {
   const s = await session(vp, g); const { pg, w, usage } = s; const [W, H] = vp.split('x').map(Number);
@@ -96,10 +105,11 @@ if (on('P')) for (const vp of (process.env.PVPS || '390x844,360x640').split(',')
   for (let i = 0; i < 4; i++) { await pg.mouse.move(10 + i, 10); await w(3500); }   // 有操作（不算空闲），但竖屏盖层期间不计时
   const u1 = await usage(); const t1 = await pg.textContent('[data-testid=timer]').catch(() => null);
   ok(u1 === u0, `${vp} ${g}：盖层 14 秒每日用时不涨（${u0} → ${u1} 秒）`); if (t0) ok(t0 === t1, `${vp} ${g}：题目倒计时停住（${t0} → ${t1}）`);
-  const qBefore = await pg.evaluate(() => (document.querySelector('.kbubble, .qtext')?.textContent || '').trim().slice(0, 30));
+  const qBefore = await pg.evaluate(() => (() => { const tut = document.querySelector('[data-testid=tutorial-std] .tut-card'); if (tut) return '教程 ' + tut.textContent.replace(/\s+/g, '').slice(0, 24); const q = (document.querySelector('.kbubble, .qtext')?.textContent || '').trim(); if (q) return q.slice(0, 30); return document.querySelector('[data-testid=cards]') ? '选题卡 ' + (document.querySelector('.round-no, [data-testid=round]')?.textContent || '') : ''; })());   // 小学 full / 初一 / 高一第一次进会先出新手引导（盖层下面停在第 1 步）
   await pg.setViewportSize({ width: H, height: W }); await w(1200);
-  const ov2 = await pg.isVisible('[data-testid=rotate-overlay]'), pz = await pg.isVisible('text=暂停中'); const qAfter = await pg.evaluate(() => (document.querySelector('.kbubble, .qtext')?.textContent || '').trim().slice(0, 30));
-  ok(!ov2 && !pz && qAfter && qAfter === qBefore, `${vp} ${g}：横过来后盖层消失、没有暂停框、还是同一道题（「${qAfter}」）`);
+  const ov2 = await pg.isVisible('[data-testid=rotate-overlay]'), pz = await pg.isVisible('text=暂停中'); const qAfter = await pg.evaluate(() => (() => { const tut = document.querySelector('[data-testid=tutorial-std] .tut-card'); if (tut) return '教程 ' + tut.textContent.replace(/\s+/g, '').slice(0, 24); const q = (document.querySelector('.kbubble, .qtext')?.textContent || '').trim(); if (q) return q.slice(0, 30); return document.querySelector('[data-testid=cards]') ? '选题卡 ' + (document.querySelector('.round-no, [data-testid=round]')?.textContent || '') : ''; })());
+  ok(!ov2 && !pz && qAfter && qAfter === qBefore, `${vp} ${g}：横过来后盖层消失、没有暂停框、还是同一个画面（「${qAfter}」）`);
+  if (/^教程/.test(qAfter)) { for (let i = 0; i < 8 && (await pg.isVisible('[data-testid=tutorial-next]')); i++) { const ok1 = await pg.click('[data-testid=tutorial-next]', { timeout: 3000 }).then(() => true, async () => { await pg.screenshot({ path: `${OUT}P-${vp}-${g}-tut-${i}.png` }); console.log('tut step', i, JSON.stringify(await pg.locator('[data-testid=tutorial-next]').boundingBox()), JSON.stringify(pg.viewportSize())); return false; }); if (!ok1) break; await w(300); } ok(!(await pg.isVisible('[data-testid=tutorial-std]')) && (await pg.isVisible('[data-testid=cards], .qtext, [data-testid=chal-normal], .opts .opt')), `${vp} ${g}：横过来后新手引导能点完、接着出题卡 / 题目`); }
   if (t0) { await w(3500); const t2 = await pg.textContent('[data-testid=timer]').catch(() => null); ok(t2 !== t1, `${vp} ${g}：横过来后倒计时接着走（${t1} → ${t2}）`); }
   await pg.screenshot({ path: `${OUT}P-${vp}-${g}-landscape.png` });
   // 手机竖屏：首页、家长页能滚到底

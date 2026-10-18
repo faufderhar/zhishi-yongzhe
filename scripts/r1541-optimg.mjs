@@ -21,7 +21,8 @@ const ALLVP = {
 };
 const VPS = (process.env.VP || Object.keys(ALLVP).join(',')).split(',');
 const E = /[\p{Extended_Pictographic}]/u;
-const bank = JSON.parse(readFileSync(new globalThis.URL('../public/banks/bank_K1.json', import.meta.url))).questions;
+const GRADE = process.env.GRADE || 'K1';   // r15.4.2：其它年级（1/2/3 年级题库里也有少量图 / emoji 选项题）
+const bank = JSON.parse(readFileSync(new globalThis.URL(`../public/banks/bank_${GRADE}.json`, import.meta.url))).questions;
 let QS = bank.filter(q => q.game_ready !== false && ((q.options || []).some(o => E.test(o.text || '') || o.image) || q.visual || E.test(q.question)));
 if (process.env.SAMPLE) { const n = +process.env.SAMPLE; QS = QS.filter((_, i) => i % n === 0); }   // 抽样：每 n 题测 1 题（竖屏三档全量太慢时用，报告里注明）
 if (process.env.IDS) { const s = process.env.IDS.split(','); QS = QS.filter(q => s.includes(q.id)); }
@@ -40,9 +41,9 @@ async function session(name) {
   const pinIn = async p => { for (const d of p) await pg.click(`[data-testid=pin-${d}]`); await pg.click('[data-testid=pin-ok]'); await w(250); };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
   await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(300);
-  await pg.fill('[data-testid=add-name]', 'r9'); await pg.click('[data-testid=home-grade-K1]'); await w(400);
+  await pg.fill('[data-testid=add-name]', 'r9'); await pg.click(`[data-testid=home-grade-${GRADE}]`); await w(400);
   await pg.click('text=r9'); await w(500); if (await pg.isVisible('[data-testid=pin-ok]')) await pinIn('2468');
-  for (let i = 0; i < 25 && !(await pg.isVisible('[data-testid=level-1]')); i++) { for (const sp of ['stage-pick', 'grade-pick']) if (await pg.isVisible(`[data-testid=${sp}]`)) await pg.click(`[data-testid=${sp}] .stage-btn.on, [data-testid=${sp}] .stage-btn >> nth=0`).catch(() => {}); if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm]) >> nth=0'); await w(200); await pg.click('[data-testid=char-confirm]'); } if (await pg.isVisible('.modal >> text=稍后')) await pg.click('.modal >> text=稍后'); await w(400); }
+  for (let i = 0; i < 25 && !(await pg.isVisible('[data-testid=level-1]')); i++) { for (const sp of ['stage-pick', 'grade-pick']) if (await pg.isVisible(`[data-testid=${sp}]`)) await pg.locator(`[data-testid=${sp}] .stage-btn.on`).first().click().catch(() => {}); if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm]) >> nth=0'); await w(200); await pg.click('[data-testid=char-confirm]'); } if (await pg.isVisible('.modal >> text=稍后')) await pg.click('.modal >> text=稍后'); await w(400); }
   return { ctx, pg, w };
 }
 const measure = pg => pg.evaluate(() => {
@@ -54,12 +55,13 @@ const measure = pg => pg.evaluate(() => {
       let p = 0; const all = []; for (const mk of marks) { if (mk[0] > p && s.slice(p, mk[0]).trim()) all.push([p, mk[0], 'text', s.slice(p, mk[0])]); all.push(mk); p = mk[1]; } if (p < s.length && s.slice(p).trim()) all.push([p, s.length, 'text', s.slice(p)]);
       for (const [a, z, k, t] of all) { const rg = document.createRange(); rg.setStart(n, a); rg.setEnd(n, z); const rr = rg.getBoundingClientRect(); if (rr.width > 0 && rr.height > 0) out.push({ k, t: t.trim(), r: R(rr) }); } }
     return out; };
-  const opts = [...document.querySelectorAll('.kopts .kopt')].filter(vis).map(card => {
+  const opts = [...document.querySelectorAll('.kopts .kopt, .opts .opt')].filter(vis).map(card => {
     const els = [...card.querySelectorAll('img, .shape-img, svg:not(.shape-img svg)')].filter(vis).map(e => ({ k: e.tagName === 'IMG' ? 'img' : 'shape', t: e.getAttribute('data-shape') || (e.getAttribute('src') || '').split('/').pop(), r: R(e.getBoundingClientRect()) }));
-    return { key: card.dataset.testid, r: R(card.getBoundingClientRect()), els: [...els, ...textRects(card)] }; });
+    return { key: card.dataset.testid || card.textContent.trim().slice(0, 6), r: R(card.getBoundingClientRect()), els: [...els, ...textRects(card)] }; });
+  const keys = [...document.querySelectorAll('.keypad-wrap button')].filter(vis).map(e => R(e.getBoundingClientRect()));
   const stem = [...document.querySelectorAll('.kbubble .kitem')].filter(vis).map(e => R(e.getBoundingClientRect()));
-  const bubble = document.querySelector('.kbubble'), busy = document.querySelector('[data-testid=kbusy]');
-  return { vw: innerWidth, vh: innerHeight, opts, stem, stemText: bubble?.innerText || '', tight: !!document.querySelector('.kbattle.ktight'), kfit: document.querySelector('.kstage')?.dataset.kfit,
+  const bubble = document.querySelector('.kbubble') || document.querySelector('.qtext'), busy = document.querySelector('[data-testid=kbusy]');
+  return { vw: innerWidth, vh: innerHeight, opts, keys, stem, stemText: bubble?.innerText || '', tight: !!document.querySelector('.kbattle.ktight'), kfit: document.querySelector('.kstage')?.dataset.kfit,
     busy: busy && vis(busy) ? R(busy.getBoundingClientRect()) : null, bubbleR: bubble ? R(bubble.getBoundingClientRect()) : null };
 });
 const T = 1;   // 容差 px
@@ -70,7 +72,7 @@ const quit = async (pg, w) => {
   await pg.waitForSelector('[data-testid=level-1]', { timeout: 8000 }).catch(() => {});
 };
 for (const vp of VPS) {
-  const file = `${OUT}res-${vp}.jsonl`; const done = new Set(existsSync(file) ? readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l).id) : []);
+  const file = `${OUT}res-${GRADE === 'K1' ? '' : GRADE + '-'}${vp}.jsonl`; const done = new Set(existsSync(file) ? readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l).id) : []);
   const todo = QS.filter(q => !done.has(q.id)); log(`== ${vp}: ${QS.length} 题，已测 ${QS.length - todo.length}，本次 ${todo.length}`);
   if (!todo.length) continue;
   let s = await session(vp);
@@ -81,7 +83,8 @@ for (const vp of VPS) {
       await pg.evaluate(id => { window.__zyForceQ = id; }, q.id);
       await pg.click('[data-testid=level-1]'); await w(900);
       for (let i = 0; i < 10; i++) { const t = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!t) break; await t.click().catch(() => {}); await w(300); }
-      await pg.waitForSelector('.kbattle .kopt', { timeout: 10000 }); await w(1400);
+      for (let i = 0; i < 20 && !(await pg.isVisible('.kbattle .kopt, .opts .opt, .keypad-wrap')); i++) { for (const sel of ['[data-testid=card-std]', '[data-testid=bet-go]', '[data-testid=chal-normal]']) if (await pg.isVisible(sel)) await pg.click(sel).catch(() => {}); await w(500); }
+      await pg.waitForSelector('.kbattle .kopt, .opts .opt, .keypad-wrap', { timeout: 10000 }); await w(1400);
       const m = await measure(pg); rec.tight = m.tight; rec.kfit = m.kfit;
       const want = strip(q.question).slice(0, 6);
       if (!strip(m.stemText).includes(want)) { rec.skip = `没出成指定题（题干「${m.stemText.trim().slice(0, 20)}」）`; skip++; }
@@ -94,7 +97,8 @@ for (const vp of VPS) {
             if (!inCard || !inVp) rec.fails.push(msg);   // r15.4.1：选项文字伸出卡片也算失败（KC-013「三角形」110px 换行出卡）
           }
         }
-        if (!m.opts.length) rec.fails.push('没有可见选项');
+        if (!m.opts.length && !m.keys.length) rec.fails.push('没有可见选项 / 键盘');
+        for (const r of m.keys) if (!inside(r, { l: 0, t: 0, r: m.vw, b: m.vh })) { rec.fails.push(`键盘按键出屏 ${Math.round(r.t)}–${Math.round(r.b)}`); break; }
         for (const r of m.stem) if (!inside(r, { l: 0, t: 0, r: m.vw, b: m.vh })) rec.fails.push(`题干数数图出屏 ${Math.round(r.b)}`);
         rec.n = m.opts.reduce((a, o) => a + o.els.filter(e => e.k !== 'text').length, 0);
       }
