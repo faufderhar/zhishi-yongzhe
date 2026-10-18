@@ -69,7 +69,7 @@ export interface RInput {
   challenge?: boolean;     // D14 初一挑战题：答对内层 ×1.5；答错不能闪避、反击 ×1.5
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; rage?: boolean }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
 
 /** D14：返回外层伤害（固定倍率 / 高一押注、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战，技能另乘后统一封顶 ×1.8） */
 export function calcParts(s: RState, c: Character, i: RInput) {
@@ -88,6 +88,7 @@ function hit(s: RState, d: number, pierce = false, o?: ROut) {
   if (o?.phaseShift) return 0;   // 本击已打破第一阶段：同一次攻击的后续段不再结算
   const ab = pierce ? 0 : Math.min(s.shield, d);
   if (!pierce) s.shield -= ab;
+  if (o && ab > 0) o.absorbed = (o.absorbed ?? 0) + ab;
   let dealt = d - ab;
   // 高一 Boss 两阶段（策划裁定 7）：第一阶段溢出伤害不带入第二阶段，第二阶段满 117 开始
   if (s.def.phases && phaseOf(s) === 0) { const floor = s.def.phases[1].hp; if (s.monsterHp - dealt <= floor) { dealt = s.monsterHp - floor; s.monsterHp = floor; if (o) o.phaseShift = true; s.shield = 0;
@@ -129,7 +130,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(outer * capM(m)), e === 'A13P', o); o.hits.push(d); o.dealt = d; }
       if (e !== 'A13P' && o.hits.length) s.shield = 0;   // 护盾挡完这一击（或多段）后清零，不叠加
       if (e === 'A125C') s.combo++;                        // 连击 +1 在本次伤害计算之后
-      o.text = o.dealt ? '⚔ 攻击命中！' : '⚔ 被护盾挡住了';
+      o.text = o.dealt ? (o.absorbed ? `⚔ 攻击命中！（怪物护盾挡掉 ${o.absorbed} 点）` : '⚔ 攻击命中！') : '⚔ 被护盾挡住了';   /* r15.4.1 学霸：写明护盾挡掉多少 */
     } else if (part) {   // 我方回合漏选：50% 伤害，不反击
       const d = hit(s, r1(calcD(s, c, i) * 0.5), false, o); o.hits.push(d); o.dealt = d; s.shield = 0;
       o.text = '漏选：只造成一半伤害，怪物没有反击';
