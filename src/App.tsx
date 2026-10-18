@@ -255,7 +255,10 @@ export default function App() {
   const graceOk = useRef(false);
   const overTime = myRemaining <= 0 && ANSWER_SCREENS.includes(screen.s);
   /* r15.4 小萌新：小班进入收尾时间时朗读一次（不识字的孩子看不懂横条） */
-  useEffect(() => { if (overTime && cfg?.band === 'K') speak(GRACE_VOICE); }, [overTime, cfg?.band]);
+  /* r15.4.2 小萌新：横条只从 6% 长到 8% 屏高，不够醒目——小班进入收尾时先在屏幕中间弹一张大卡片（伙伴 + 🥱 打哈欠 + ⏰，轻轻放大 / 摇一摇），
+     4 秒后缩回顶上的横条；卡片不挡点按（pointer-events:none）。录音和卡片同一刻开始 */
+  const [graceCard, setGraceCard] = useState(false);
+  useEffect(() => { if (overTime && cfg?.band === 'K') { speak(GRACE_VOICE, 'zh-CN', { prio: true }); setGraceCard(true); const id = window.setTimeout(() => setGraceCard(false), 4000); return () => clearTimeout(id); } setGraceCard(false); }, [overTime, cfg?.band]);
   // r11 技术QA R10-1：3 分钟收尾倒计时并进下面的游戏时钟（单调时钟、暂停/后台不走、只有一个计时源），不再用 Date.now + 固定 setTimeout
   const graceMs = useRef<number | null>(null);
   /* r15.3 较真家长：今天的上限秒数（含加时；不限 = Infinity）。用时永远 ≤ 上限 + 3 分钟收尾 */
@@ -605,6 +608,9 @@ export default function App() {
         ? <button className="grace-icon" data-testid="grace-icon" aria-label={GRACE_VOICE} onClick={() => speak(GRACE_VOICE)}>
             <span className="gi-clock" aria-hidden>⏰</span><span className="gi-track" aria-hidden><span className="gi-fill" style={{ width: `${Math.max(0, Math.min(100, graceLeft / 180 * 100))}%` }} /></span><span className="gi-sleep" aria-hidden>🛏️</span></button>
         : <div className="grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>)}
+      {overTime && cfg?.band === 'K' && graceCard && <div className="grace-pop" data-testid="grace-pop" aria-hidden><div className="gp-card">
+        <div className="gp-pup">{char && <img src={char.img} alt="" draggable={false} />}<span className="gp-yawn">🥱</span></div>
+        <div className="gp-clock">⏰</div><div className="gp-bed">🛏️</div></div></div>}
       {ttsIssue && <div className="sys-bar warn-bar inflow tts-bar" data-testid="tts-issue" onClick={() => setTtsIssue(null)}>🔇 {ttsIssue === 'blocked' ? '点一下屏幕就能听到朗读' : ttsIssue === 'novoice' ? '这台平板没有中文朗读语音，暂时不能朗读（家长可在系统设置 → 文字转语音 里下载中文语音）' : '这台平板暂时不能朗读（家长可在系统设置 → 文字转语音 里安装语音引擎并下载中文语音）'}（点此关闭）</div>}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">

@@ -76,17 +76,22 @@ let recEl: HTMLAudioElement | null = null; let recSeq = 0; let recSrc: AudioBuff
 /* r15.4：有已解锁的 AudioContext 时用 fetch + decodeAudioData 播（不发 Range 请求 → 整个 200 响应进 SW 缓存 zy-voice，离线也能播；
    停顿按毫秒准；和音效同一个已解锁的 context，不受 <audio> 自动播放限制）。没有 context 才退回 <audio>。 */
 const bufCache = new Map<string, Promise<AudioBuffer | null>>();
-const loadBuf = (url: string) => { const ctx = sfxCtx; if (!ctx || typeof fetch === 'undefined') return Promise.resolve(null); let p = bufCache.get(url); if (!p) { p = fetch(url).then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))).then(b => ctx.decodeAudioData(b)).catch(() => { bufCache.delete(url); return null; }); bufCache.set(url, p); if (bufCache.size > 60) bufCache.delete(bufCache.keys().next().value as string); } return p; };
-const playEl = (url: string, my: number) => new Promise<boolean>(res => { if (my !== recSeq) return res(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; el.onended = () => res(true); el.onerror = () => res(false); el.play().catch(() => res(false)); });
+const loadBuf = (url: string) => { const ctx = sfxCtx; if (!ctx || typeof fetch === 'undefined') return Promise.resolve(null); let p = bufCache.get(url); if (!p) { p = fetch(url).then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))).then(b => ctx.decodeAudioData(b)).then(d => { if (aLog) alog('decode', url, d.duration); return d; }).catch(() => { if (aLog) alog('decode-fail', url); bufCache.delete(url); return null; }); bufCache.set(url, p); if (bufCache.size > 60) bufCache.delete(bufCache.keys().next().value as string); } return p; };
+const playEl = (url: string, my: number) => new Promise<boolean>(res => { if (my !== recSeq) return res(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; el.onended = () => res(true); el.onerror = () => { if (aLog) alog('el-error', url); res(false); }; el.play().then(() => { if (aLog) alog('el-start', url); }, () => { if (aLog) alog('el-blocked', url); res(false); }); });
 const playOne = async (url: string, my: number): Promise<boolean> => {
   if (my !== recSeq) return false;
   const ctx = sfxCtx; if (!ctx || ctx.state !== 'running') return playEl(url, my);
   const buf = await loadBuf(url); if (my !== recSeq) return false; if (!buf) return playEl(url, my);
   return new Promise<boolean>(res => { const src = ctx.createBufferSource(), g = ctx.createGain(); g.gain.value = audioPrefs.volume; src.buffer = buf; src.connect(g).connect(ctx.destination);
-    recSrc = src; src.onended = () => { if (recSrc === src) recSrc = null; res(true); }; recLog?.push({ url, t: performance.now(), dur: buf.duration }); src.start(); });
+    recSrc = src; src.onended = () => { if (aLog) alog('end', url); if (recSrc === src) recSrc = null; res(true); }; recLog?.push({ url, t: performance.now(), dur: buf.duration }); src.start(); if (aLog) alog('start', url, buf.duration); });
 };
 const stopRec = () => { recEl?.pause(); try { recSrc?.stop(); } catch { /* */ } recSrc = null; };
 /* 仅测试构建：记录每段录音开始的时间（r154-nosynth 量停顿） */
+/* 仅测试构建（r15.4.2 小萌新）：每段录音的 解码 / 开始 / 结束（带 manifest 键和 AudioContext 状态），<audio> 退路的开始 / 失败 */
+type ALog = { ev: string; key: string; url: string; t: number; state: string; dur?: number };
+const aLog: ALog[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((window as unknown as { __zyAudioLog?: ALog[] }).__zyAudioLog = []) : null;
+const urlKey = new Map<string, string>();
+const alog = (ev: string, url: string, dur?: number) => { aLog?.push({ ev, key: urlKey.get(url) ?? '', url: url.split('/').pop() ?? url, t: performance.now(), state: sfxCtx?.state ?? 'none', dur }); };
 const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((window as unknown as { __zyRecLog?: { url: string; t: number; dur: number }[] }).__zyRecLog = []) : null;
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
@@ -94,7 +99,7 @@ export async function playRecorded(keys: string[], strict = false): Promise<bool
   if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
   const steps: { url: string; gap: number }[] = []; let prevKey = '';
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
-    fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
+    fs.forEach(f => { if (aLog) urlKey.set(vbase() + 'voice/' + f, k); }); fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
   if (!steps.length) return false;
   const my = ++recSeq; stopRec(); speakingFlag = true;
   steps.forEach(st => { void loadBuf(st.url); });   // 先并行取 / 解码，后面按顺序播
@@ -118,10 +123,18 @@ const keysFor = (text: string, o: { id?: string; keys?: string[]; alt?: string[]
    专门的测试设 __zyTestTtsDetect 才走检测 / 退路 */
 const testPlain = () => __TEST_HOOKS__ && typeof window !== 'undefined' && !!(window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts && !(window as unknown as { __zyTestTtsDetect?: boolean }).__zyTestTtsDetect;
 const canSystem = (lang: string) => testPlain() ? !!synth : !!synth && ttsState !== 'none' && ttsState !== 'broken' && !(ttsState === 'nozh' && !/^en/.test(lang));
-/** 朗读。o.id = 题号（有录音时用录音兜底） */
-export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[]; alt?: string[] /* keys 缺段时改放这几段 */ } = {}) {
+/* r15.4.2 小萌新：重要提示（小班收尾「时间到啦，打完这关就休息哦」）用 prio：它播的时候，别的朗读（答对表扬、下一题题干）不打断它，
+   而是等它播完再播最后那一句。以前孩子在横条出现的同时点了答案，表扬 / 下一题题干会把收尾提示切掉（录音 recSeq / 系统朗读 cancel）。 */
+let prioBusy = false; let prioPending: (() => void) | null = null; let prioSeq = 0;
+const prioDone = (my: number) => { if (my !== prioSeq || !prioBusy) return; prioBusy = false; const f = prioPending; prioPending = null; f?.(); };
+export const prioState = () => ({ busy: prioBusy, pending: !!prioPending });
+/** 朗读。o.id = 题号（有录音时用录音兜底）；o.prio = 重要提示，播完前别的朗读排队（只留最后一句） */
+export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[]; alt?: string[] /* keys 缺段时改放这几段 */; prio?: boolean } = {}) {
   if (!audioPrefs.tts) return;
-  const fallback = () => { void (o.alt ? playRecorded(keysFor(text, o), true).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id)).then(ok => { if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
+  if (prioBusy && !o.prio) { prioPending = () => speak(text, lang, o); return; }
+  const myPrio = o.prio ? ++prioSeq : 0; if (o.prio) { prioBusy = true; prioPending = null; setTimeout(() => prioDone(myPrio), 8000); }   // 兜底：最多挡 8 秒
+  const endPrio = () => { if (myPrio) prioDone(myPrio); };
+  const fallback = () => { void (o.alt ? playRecorded(keysFor(text, o), true).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id)).then(ok => { endPrio(); if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
   if (!canSystem(lang)) { fallback(); return; }
   synth!.cancel();
   const u = new SpeechSynthesisUtterance(speakable(text));
@@ -132,7 +145,7 @@ export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: str
   let started = false;
   speakingFlag = true; const done = () => { speakingFlag = false; };
   u.onstart = () => { started = true; ttsState = 'ok'; };
-  u.onend = done; u.onerror = (ev: SpeechSynthesisErrorEvent) => { done(); if (ev?.error === 'not-allowed') notify('blocked'); else if (!started && ev?.error !== 'interrupted' && ev?.error !== 'canceled') fallback(); };
+  u.onend = () => { done(); endPrio(); }; u.onerror = (ev: SpeechSynthesisErrorEvent) => { done(); if (ev?.error === 'not-allowed') { notify('blocked'); endPrio(); } else if (!started && ev?.error !== 'interrupted' && ev?.error !== 'canceled') fallback(); else endPrio(); };
   synth!.speak(u);
   // iOS Safari 偶发卡住：resume 兜底
   setTimeout(() => synth!.resume(), 250);
@@ -157,4 +170,4 @@ export function beep(good: boolean) {
 }
 
 /* 仅测试构建：r154-nosynth 用来读音频状态、直接触发朗读 */
-if (__TEST_HOOKS__ && typeof window !== 'undefined') Object.assign(window, { __zyAudio: audioState, __zySpeak: speak });
+if (__TEST_HOOKS__ && typeof window !== 'undefined') Object.assign(window, { __zyAudio: audioState, __zySpeak: speak, __zyPrio: prioState });
