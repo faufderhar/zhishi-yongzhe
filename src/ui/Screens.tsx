@@ -16,7 +16,7 @@ import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
 import { isDue, INTERVAL, type WrongEntry } from '../game/wrongbook';
-import { speak } from '../tts';
+import { speak, hasVoice } from '../tts';
 import { useForceEnd } from './Battle';
 import { answerFeedback } from '../feedback';
 
@@ -237,7 +237,7 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
     <div className="center-screen" data-ktime={kTime ? '1' : undefined}>
-      {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1><p data-testid="timeup">⏰ 今天的时间到啦</p></>
+      {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><div className="row gap16 kt-title"><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={() => speak(TIMEUP_K_TEXT)}>🔊</button>}</div><p data-testid="timeup">⏰ 今天的时间到啦</p></>
       : cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
@@ -284,7 +284,9 @@ function KinderSub({ k, total, extra }: { k?: { first: number }; total: number; 
   const t = kinderSubtitle(k, total);
   /* r15.4.1：时间到时接着读「今天玩够啦，明天见」（录音：两段拼起来；系统朗读：一句读完） */
   useEffect(() => { const id = setTimeout(() => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); }, 1500); return () => clearTimeout(id); }, [t, extra]);
-  return <p className="ksub" data-testid="kinder-sub">{t}</p>;
+  /* r15.4.2 较真家长 A：小班结算（含时间到）也有 🔊 再听一遍，和题目页的喇叭同款 */
+  const again = () => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); };
+  return <div className="row gap16 kt-title"><p className="ksub" data-testid="kinder-sub">{t}</p>{hasVoice() && extra && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={again}>🔊</button>}</div>;
 }
 function KinderLines({ k }: { k?: { first: number; retry: number; demo: number } }) {
   if (!k) return null;

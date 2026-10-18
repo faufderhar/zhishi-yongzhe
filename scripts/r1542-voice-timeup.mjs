@@ -99,6 +99,8 @@ if (on('A')) {
   const before = await log(S.pg); const lastRes = before.map((x, i) => [x, i]).filter(([x]) => x.ev === 'start' && /^p_res_k/.test(x.f)).pop();
   const et = await waitStart(S, /^p_timeup_k\./, Math.max(0, (lastRes?.[1] ?? i1) - 0), 9000, true);
   ok(/今天玩够啦，明天见/.test(txt) && good(et) && whole(et), `A(c) 收尾里打完的小班结算页（「${txt.slice(0, 40)}」）→ p:timeup_k 播出：${describe(et)}${await gameKeys(S, /timeup_k/)}`);
+  if (!process.env.NOREPLAY) { await S.w(3000); const i4 = (await log(S.pg)).length; const has = await S.tap('[data-testid=timeup-replay]'); const er = has ? await waitStart(S, /^p_timeup_k\./, i4, 8000, true) : null;
+    ok(has && good(er) && whole(er), `A(d) 收尾里打完的小班结算页 🔊 重放（副标题 + 今天玩够啦）：${er ? describe(er) : '没有按钮'}`); }
   // 睡觉云
   await S.w(4000); await S.tap('[data-testid=to-map]'); await S.w(1200); const i2 = (await log(S.pg)).length; await S.tap('[data-testid=level-1]'); await S.w(300);
   const sl = await S.vis('[data-testid=sleepy]'); await S.pg.screenshot({ path: OUT + `${TAG}-A3-sleepy.png` });
@@ -120,6 +122,9 @@ if (on('B')) {
   const ctxState = await S.pg.evaluate(() => window.__ctxs.map(c => c.state).join(','));
   const et = await waitStart(S, /^p_timeup_k\./, i0, 6000, true);
   ok(res && good(et) && whole(et), `B(c) 强制结算的小班结算页（最后一次点屏在 ${gap} 秒前，ctx=${ctxState}）→ p:timeup_k 播出：${describe(et)}${await gameKeys(S, /timeup_k/)}`);
+  // r15.4.2 较真家长 A：结算页 🔊 再听一遍（LIVE 包没有这个按钮：NOREPLAY=1 跳过）
+  if (process.env.NOREPLAY) console.log('SKIP B(d) 🔊 再听一遍（NOREPLAY）'); else { await S.w(4000); const i3 = (await log(S.pg)).length; const has = await S.tap('[data-testid=timeup-replay]');
+    const er = has ? await waitStart(S, /^p_timeup_k\./, i3, 5000, true) : null; ok(has && good(er) && whole(er), `B(d) 小班时间到结算页有 🔊，点了重放 p:timeup_k：${er ? describe(er) : '没有按钮'}`); await S.pg.screenshot({ path: OUT + `${TAG}-B-replay.png` }); }
   await S.ctx.close();
 }
 console.log(bad ? `r1542-voice-timeup FAIL ${bad}` : 'r1542-voice-timeup ALL PASS'); await b?.close(); process.exit(bad ? 1 : 0);

@@ -43,3 +43,10 @@ describe('r15.4.2 较真家长：取消确认框 + 「按现在的每日上限�
   it('加时已用旁边注明「按现在的每日上限计算」（时长页两处 + 编辑页）', () => { expect(src.match(/按现在的每日上限计算/g)!.length).toBeGreaterThanOrEqual(3); expect(src).toMatch(/bonus-basis-/); expect(src).toMatch(/bonus-note-basis/); });
   it('按钮上的时间每秒重算', () => { expect(src).toMatch(/setInterval\(\(\) => setTick\(x => x \+ 1\), 1000\)/); });
 });
+describe('r15.4.2 较真家长 A：小班时间到结算页 🔊', () => {
+  const src = readFileSync('src/ui/Screens.tsx', 'utf8');
+  it('强制结算页和收尾里打完的结算页都有 kspeaker 重放按钮', () => {
+    expect(src.match(/className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay"/g)!.length).toBe(2);
+    expect(src).toMatch(/data-testid="timeup-replay" onClick=\{\(\) => speak\(TIMEUP_K_TEXT\)\}/);
+  });
+});
