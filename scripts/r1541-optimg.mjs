@@ -14,11 +14,16 @@ const ALLVP = {
   '1280x800': { viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 },
   '1024x600': { viewport: { width: 1024, height: 600 }, deviceScaleFactor: 1 },
   '1180x820': { viewport: { width: 1180, height: 820 }, deviceScaleFactor: 2, hasTouch: true },   // iPad Air 横屏
+  // r15.4.2 技术QA P1-1：平板竖屏（短边 ≥ 600 不盖「横过来」，必须能玩）
+  '768x1024': { viewport: { width: 768, height: 1024 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA },
+  '800x1280': { viewport: { width: 800, height: 1280 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA },
+  '820x1180': { viewport: { width: 820, height: 1180 }, deviceScaleFactor: 2, hasTouch: true },   // iPad Air 竖屏
 };
 const VPS = (process.env.VP || Object.keys(ALLVP).join(',')).split(',');
 const E = /[\p{Extended_Pictographic}]/u;
 const bank = JSON.parse(readFileSync(new globalThis.URL('../public/banks/bank_K1.json', import.meta.url))).questions;
 let QS = bank.filter(q => q.game_ready !== false && ((q.options || []).some(o => E.test(o.text || '') || o.image) || q.visual || E.test(q.question)));
+if (process.env.SAMPLE) { const n = +process.env.SAMPLE; QS = QS.filter((_, i) => i % n === 0); }   // 抽样：每 n 题测 1 题（竖屏三档全量太慢时用，报告里注明）
 if (process.env.IDS) { const s = process.env.IDS.split(','); QS = QS.filter(q => s.includes(q.id)); }
 const SHOTS = new Set((process.env.SHOTS || 'K-037,K-038,K-039,K-040').split(','));
 const strip = t => t.replace(/[\p{Extended_Pictographic}\uFE0F\u200D\s，。？！、：；,.?!:;“”"'（）()]/gu, '');

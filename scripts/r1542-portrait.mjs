@@ -49,26 +49,31 @@ const enter = async (pg, w, id) => {
   if (!(await pg.isVisible('[data-testid=level-1]'))) { await pg.click('[data-testid=to-map]').catch(() => {}); await w(600); }
   await pg.evaluate(x => { window.__zyForceQ = x; }, id); await pg.click('[data-testid=level-1]'); await w(900);
   for (let i = 0; i < 10; i++) { const t = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!t) break; await t.click().catch(() => {}); await w(300); }
-  for (let i = 0; i < 40; i++) { if (await pg.isVisible('[data-testid=bet-go]')) await pg.click('[data-testid=bet-go]').catch(() => {}); if (await pg.isVisible('.kopt, .opts .opt, .keypad-wrap')) break; await w(500); }
+  for (let i = 0; i < 40; i++) { for (const sel of ['[data-testid=card-std]', '[data-testid=bet-go]', '[data-testid=chal-normal]']) if (await pg.isVisible(sel)) { await pg.click(sel, { timeout: 3000 }).catch(() => {}); await w(300); } if (await pg.isVisible('.kopt, .opts .opt, .quiz .opt, .keypad-wrap, .keypad')) break; await w(500); }
   await w(1300);
 };
 const quit = async (pg, w) => { const box = await pg.locator('[data-testid=pause]').boundingBox().catch(() => null); if (box) { await pg.mouse.move(box.x + box.width / 2, box.y + box.height / 2); await pg.mouse.down(); await w(2300); await pg.mouse.up(); }
   await pg.click('[data-testid=quit]', { timeout: 3000 }).catch(() => {}); await pg.click('[data-testid=quit-confirm]', { timeout: 3000 }).catch(() => {}); await pg.waitForSelector('[data-testid=level-1]', { timeout: 8000 }).catch(() => {}); };
 const measure = pg => pg.evaluate(async () => {
   const vw = innerWidth, vh = innerHeight; const out = []; const R = e => e.getBoundingClientRect();
-  const targets = [...document.querySelectorAll('.kopts .kopt, .opts .opt, .keypad-wrap button, .kbubble .kitem, .qtext')].filter(e => { const s = getComputedStyle(e), r = R(e); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 2 && r.height > 2; });
+  const targets = [...document.querySelectorAll('.kopts .kopt, .opts .opt, .quiz .opt, .keypad-wrap button, .keypad button, .kbubble .kitem, .qtext')].filter(e => { const s = getComputedStyle(e), r = R(e); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 2 && r.height > 2; });
   for (const e of targets) { const name = (e.dataset.testid || e.className.split(' ')[0]) + '「' + (e.textContent || '').trim().slice(0, 10) + '」';
     let r = R(e); if (r.left < -1 || r.right > vw + 1) { out.push(`${name} 横向出屏 ${Math.round(r.left)}–${Math.round(r.right)} / ${vw}`); continue; }
     if (r.top < -1 || r.bottom > vh + 1) { e.scrollIntoView({ block: 'nearest' }); await new Promise(z => setTimeout(z, 80)); r = R(e); if (r.top < -1 || r.bottom > vh + 1) out.push(`${name} 纵向出屏且滚不到 ${Math.round(r.top)}–${Math.round(r.bottom)} / ${vh}`); }
     if (!e.matches('.qtext') && e.scrollWidth > e.clientWidth + 2) out.push(`${name} 文字溢出 ${e.scrollWidth}>${e.clientWidth}`); }
+  for (const e of document.querySelectorAll('.hearts, .kbubble, .kmon, .kpup, .hud, .side-banner, .quiz, .unit-wrap img, .pause-btn')) { const r = R(e); if (r.width > 2 && (r.left < -1 || r.right > vw + 1)) out.push(`${e.className.split(' ')[0]} 被裁（横向 ${Math.round(r.left)}–${Math.round(r.right)} / ${vw}）`); }
   return { n: targets.length, out, vw, vh };
 });
+// 调试：PARTS=D IDS=K-049 GRADES=K1 VPS=768x1024 → 打印气泡 / 选项 / 暂停钮位置并截图
+if (on('D')) for (const vp of VPS) { const s = await session(vp, GRADES[0]); for (const id of (process.env.IDS || '').split(',')) { await enter(s.pg, s.w, id);
+  console.log(vp, id, JSON.stringify(await s.pg.evaluate(() => { const r = q => { const e = document.querySelector(q); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)]; }; const wide = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1).slice(0, 6).map(e => e.tagName + '.' + String(e.className).split(' ').slice(0, 2).join('.') + ':' + Math.round(e.getBoundingClientRect().width)); return { iw: innerWidth, sw: document.documentElement.scrollWidth, wide, scrollH: document.documentElement.scrollHeight, scrollY, kb: r('.kbubble'), qt: r('.kbubble .qtext'), items: r('.kitems'), opts: r('.kopts'), pause: r('[data-testid=pause]'), stage: r('.kstage'), cls: document.querySelector('.kbattle')?.className }; })));
+  await s.pg.screenshot({ path: `${OUT}D-${vp}-${id}.png` }); await quit(s.pg, s.w); } await s.ctx.close(); }
 if (on('T')) for (const vp of VPS) for (const g of GRADES) {
   const qs = sample(g); let s = await session(vp, g); const fails = []; let n = 0;
   for (const q of qs) { const { pg, w } = s;
     try { await enter(pg, w, q.id); const m = await measure(pg); n += m.n; if (!m.n) fails.push(`${q.id} 没有选项 / 键盘`); for (const f of m.out) fails.push(`${q.id}（${q.type}）${f}`);
       if (m.out.length || !m.n) await pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}.png` }); await quit(pg, w); }
-    catch (e) { fails.push(`${q.id} 脚本异常 ${String(e.message).split('\n')[0]}`); await s.ctx.close().catch(() => {}); s = await session(vp, g); } }
+    catch (e) { fails.push(`${q.id} 脚本异常 ${String(e.message).split('\n')[0]}`); await s.pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}-err.png` }).catch(() => {}); await s.ctx.close().catch(() => {}); s = await session(vp, g); } }
   await s.pg.screenshot({ path: `${OUT}T-${vp}-${g}-map.png` }).catch(() => {});
   ok(!fails.length, `${vp} ${g} 年级：抽样 ${qs.length} 题、量 ${n} 个元素都看得到、能点${fails.length ? '；' + fails.slice(0, 5).join('；') : ''}`); await s.ctx.close();
 }
