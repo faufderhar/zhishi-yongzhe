@@ -16,8 +16,8 @@ export function cleanProgress(x: unknown) {
   return { ...x, stars, plays, xp: num(x.xp, 0, XP_MAX, true) ?? 0, masteredStars: num(x.masteredStars, 0, MASTERED_MAX, true) ?? 0 };
 }
 export function cleanUsage(x: unknown) {
-  if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number }> = {};
-  for (const [d, v] of Object.entries(x)) { if (!isObj(v)) continue; const used = num(v.used, 0, DAY_SEC, true); if (used === undefined) continue; out[d] = { used, bonus: num(v.bonus, 0, DAY_SEC, true) ?? 0 }; }
+  if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number; wrap?: number }> = {};
+  for (const [d, v] of Object.entries(x)) { if (!isObj(v)) continue; const used = num(v.used, 0, DAY_SEC, true); if (used === undefined) continue; const wrap = num(v.wrap, 0, DAY_SEC, true); out[d] = { used, bonus: num(v.bonus, 0, DAY_SEC, true) ?? 0, ...(wrap !== undefined ? { wrap } : {}) }; }
   return out;
 }
 export function cleanSkills(x: unknown) {
@@ -25,8 +25,9 @@ export function cleanSkills(x: unknown) {
   for (const [s, v] of Object.entries(x)) { if (!isObj(v)) continue; const level = num(v.level, 1, 5, true); if (level === undefined) continue; out[s] = { level, right: num(v.right, 0, 1000, true) ?? 0, wrong: num(v.wrong, 0, 1000, true) ?? 0, ...(v.locked === true ? { locked: true } : {}) }; }
   return out;
 }
-const TS_MAX = 4102444800000;   // 2100-01-01
-export function cleanFlags(x: unknown) { if (!isObj(x)) return undefined; const out: Record<string, number> = {}; for (const [k, v] of Object.entries(x)) { const n = num(v, 0, TS_MAX); if (n !== undefined) out[k] = n; } return out; }
+/* r15.4.1 技术QA P4：时间戳最多到「现在」（以前夹到 2100-01-01，1e308 → 仍是未来时间） */
+const tsMax = () => Date.now();
+export function cleanFlags(x: unknown) { if (!isObj(x)) return undefined; const out: Record<string, number> = {}; for (const [k, v] of Object.entries(x)) { const n = num(v, 0, tsMax()); if (n !== undefined) out[k] = n; } return out; }
 /** kv 一行：按键名清洗；返回 undefined 表示这一行丢掉 */
 export function cleanKv(k: string, v: unknown): unknown {
   if (k.startsWith('progress:')) return cleanProgress(v);
@@ -46,10 +47,10 @@ export function cleanProfiles(x: unknown) {
     for (const k of ['weekday', 'weekend']) { const n = cleanLimitMin(p.limit[k]); if (n !== undefined) lim[k] = n; }
     return { ...p, limit: lim }; });
 }
-export function cleanAnswer(v: unknown) { if (!isObj(v)) return undefined; const at = num(v.at, 0, TS_MAX, true); return at === undefined ? undefined : { ...v, at, correct: v.correct === true }; }
+export function cleanAnswer(v: unknown) { if (!isObj(v)) return undefined; const at = num(v.at, 0, tsMax(), true); return at === undefined ? undefined : { ...v, at, correct: v.correct === true }; }
 export function cleanWrong(v: unknown) {
   if (!isObj(v)) return undefined; const box = num(v.box, 1, 3, true) ?? 1;
-  return { ...v, box, wrongCount: num(v.wrongCount, 0, 1e4, true) ?? 1, addedAt: num(v.addedAt, 0, TS_MAX, true) ?? 0, updatedAt: num(v.updatedAt, 0, TS_MAX, true) ?? 0, due: typeof v.due === 'string' ? v.due : '' };
+  return { ...v, box, wrongCount: num(v.wrongCount, 0, 1e4, true) ?? 1, addedAt: num(v.addedAt, 0, tsMax(), true) ?? 0, updatedAt: num(v.updatedAt, 0, tsMax(), true) ?? 0, due: typeof v.due === 'string' ? v.due : '' };
 }
 /** r15.4 技术QA P2-1：覆盖恢复、撤销恢复、合并共用这一个清洗（以前合并没走，错题本出现「第 NaN 盒」） */
 export function sanitizeData<T extends { kv?: unknown; answers?: unknown; wrong?: unknown }>(c: T): T {

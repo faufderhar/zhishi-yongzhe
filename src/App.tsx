@@ -9,7 +9,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
 import { loadFxManifests } from './fx/assets';
 import { prefetchAll } from './fx/sheets';
-import { cacheForOffline } from './offlineCache';
+import { cacheForOffline, cacheVoiceForOffline } from './offlineCache';
 import { multiBand, isMultiSel } from './game/multi';
 import { stageOf, needsGate, defaultPick, type StageId } from './game/stages';
 import { StagePick, GradePick } from './ui/StagePick';
@@ -222,8 +222,11 @@ export default function App() {
     const needs = bank ? [...new Set(profiles.map(x => x.grade))].map(g => ({ grade: g, subjects: [...new Set(questionsOfGrade(bank, g).map(q => q.subject))] })) : [];
     const noBg = __TEST_HOOKS__ && !!(window as unknown as { __zyNoOfflineCache?: boolean }).__zyNoOfflineCache;   // 仅测试构建：r5「按需懒加载」检查时关掉后台离线缓存
     const t = setTimeout(() => { if (noBg) return; void prefetchAll(undefined, kinds).catch(() => {}).then(() => cacheForOffline(needs)).catch(() => {}); }, 8000);
-    const on = () => { if (!noBg) void cacheForOffline(needs).catch(() => {}); }; window.addEventListener('online', on);
-    return () => { clearTimeout(t); window.removeEventListener('online', on); };
+    /* r15.4.1 技术QA P2-1：有小班档案 → 首屏后 3 秒起后台把全部小班录音放进 zy-voice（离线也能播） */
+    const hasK = profiles.some(x => bandConfig(x.grade).band === 'K');
+    const tv = setTimeout(() => { if (hasK && !noBg) void cacheVoiceForOffline().catch(() => {}); }, 3000);
+    const on = () => { if (!noBg) { void cacheForOffline(needs).catch(() => {}); if (hasK) void cacheVoiceForOffline().catch(() => {}); } }; window.addEventListener('online', on);
+    return () => { clearTimeout(t); clearTimeout(tv); window.removeEventListener('online', on); };
   }, [profiles.map(x => x.grade).join(), !!bank]);
   const replay = !!p && (!p.tutorialDone || !!settings.tutorialReplay?.[p.id]);
   // 老档案（看过旧引导）第一次进轮流回合战斗：只补弹第 3 张卡一次（规格 §10）
@@ -239,6 +242,7 @@ export default function App() {
   const [timeUpNote, setTimeUpNote] = useState(false);
   const [resetNoticeSeen, setResetNoticeSeen] = useState(false);   // r12：等待重设期间，每次启动全屏提示一次
   const [cancelBox, setCancelBox] = useState(false);   // r15.4：取消重设申请的输入框
+  const [cancelDone, setCancelDone] = useState(false);   // r15.4.1 较真家长：取消申请后要有「已取消申请」
   const [ttsIssue, setTtsIssue] = useState<string | null>(null);   // r15.4：朗读不可用时给看得见的提示（华为浏览器等）
   useEffect(() => { if (!ttsIssue) return; const t = window.setTimeout(() => setTtsIssue(null), 6000); return () => clearTimeout(t); }, [ttsIssue]);   // r15.4：朗读提示 6 秒后自己收起，不长期压住小班题目气泡
   useEffect(() => { const f = (e: Event) => setTtsIssue((e as CustomEvent).detail as string); window.addEventListener('zy-tts-issue', f); return () => window.removeEventListener('zy-tts-issue', f); }, []);
@@ -282,20 +286,20 @@ export default function App() {
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
       /* r15.4 技术QA P4-2：收尾走完的这一下，把还没结算的零头按收尾记上（向上取整，封顶在上限 + 3:00）。以前收尾结束后零头按「不在收尾」记，被夹掉 → 显示 2:59 */
-      if (graceDone) { graceDone = false; const sec = Math.ceil(acc / 1000 - 1e-6); acc = 0; if (sec > 0) setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), true); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; }); return; }
+      if (graceDone) { graceDone = false; const sec = Math.ceil(acc / 1000 - 1e-6); acc = 0; if (sec > 0) setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), true); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add, limitBase(pid, u)); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; }); return; }
       /* r15.3 较真家长：以前时间到之后，结算页 / 地图 / 错题本照样计时（r15 起所有登录界面都计时），收尾 3 分钟之外还在涨（5 分钟上限出现 8:25）。
          现在：超过上限的部分只在收尾进行中（战斗 / 复习里）才记，而且总数封顶在上限 + 3:00；离上限 6 秒以内每秒结算（收尾按时开始） */
       const base = limitBase(pid); const near = Number.isFinite(base) && base - ((usageRef.current[pid]?.[dayStr()]?.used ?? 0) + acc / 1000) <= 6;
       if (acc >= 5000 || (near && acc >= 1000)) {
         const sec = Math.floor(acc / 1000); acc -= sec * 1000; const inGrace = graceMs.current !== null;
-        setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), inGrace); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
+        setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), inGrace); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add, limitBase(pid, u)); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
       }
     }, 1000);
     return () => {
       clearInterval(t);
       const sec = Math.round(acc / 1000);   // 退出时把不足 5 秒的部分也记上
       const inGrace = graceMs.current !== null;
-      if (sec > 0) setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), inGrace); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
+      if (sec > 0) setUsageAll(u => { const d = dayStr(); const add = clampUsageAdd(u[pid]?.[d]?.used ?? 0, sec, limitBase(pid, u), inGrace); if (!add) return u; const nu = addUsage(u[pid] ?? {}, d, add, limitBase(pid, u)); S.saveUsage(pid, nu); return { ...u, [pid]: nu }; });
     };
   }, [playing, pid]);
 
@@ -587,10 +591,10 @@ export default function App() {
       {!tabActive && <div className="tab-inactive" data-testid="tab-inactive"><div className="p-card wide-panel"><h2>已在别处打开</h2><p>知识勇者在这台设备的另一个标签页 / 窗口里打开了。为了不把数据弄乱，这里先停下。</p><button className="btn big-sq" data-testid="tab-takeover" onClick={() => { claimTab(); logReload('tab-takeover', screenRef.current.s); location.reload(); }}>在这里继续</button></div></div>}
       {portrait && !tipGone && <div className="portrait-tip" onAnimationEnd={() => setTipGone(true)}>横过来玩更舒服哦 ↻</div>}
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
-      {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
+      {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar inflow" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
       {updateReady && ['profiles', 'map'].includes(screen.s) && <button className="sys-bar" data-testid="update-ready" onClick={() => updateReady()}>✨ 有新版本，点这里更新（不会丢进度）</button>}
-      {exitNote && (screen.s === 'profiles' || (screen.s === 'map' && !interrupted)) && <div className="sys-bar warn-bar" data-testid="exit-note" onClick={() => setExitNote(undefined)}>ℹ️ {exitNote}（点此关闭）</div>}
-      {interrupted && screen.s === 'map' && interrupted.pid === pid && <div className="sys-bar warn-bar" data-testid="interrupted">上次玩「{interrupted.name}」没有打完：{CAUSE_TEXT[interrupted.cause ?? 'navigate'] ?? CAUSE_TEXT.navigate}。{interrupted.n ? `已答的 ${interrupted.n} 道题记进了学习记录和错题本，` : ''}这一关的星星没有算。点〔重新开始这一关〕＝马上从第 1 题重新打；点〔知道了〕＝关掉这条提示，留在地图。
+      {exitNote && (screen.s === 'profiles' || (screen.s === 'map' && !interrupted)) && <div className="sys-bar warn-bar inflow" data-testid="exit-note" onClick={() => setExitNote(undefined)}>ℹ️ {exitNote}（点此关闭）</div>}
+      {interrupted && screen.s === 'map' && interrupted.pid === pid && <div className="sys-bar warn-bar inflow" data-testid="interrupted">上次玩「{interrupted.name}」没有打完：{CAUSE_TEXT[interrupted.cause ?? 'navigate'] ?? CAUSE_TEXT.navigate}。{interrupted.n ? `已答的 ${interrupted.n} 道题记进了学习记录和错题本，` : ''}这一关的星星没有算。点〔重新开始这一关〕＝马上从第 1 题重新打；点〔知道了〕＝关掉这条提示，留在地图。
         <button className="chip" data-testid="interrupted-again" onClick={() => { const l = chapters.flatMap(c => c.levels).find(x => x.id === interrupted.levelId); setInterrupted(null); if (l) startLevel(l); }}>重新开始这一关</button>
         <button className="chip" onClick={() => setInterrupted(null)}>知道了</button></div>}
       {/* r11：「没打完」只提示给那个孩子本人（进了他的地图才显示），首页不再显示别人的提示，也不会打断正在玩的孩子 */}
@@ -601,7 +605,7 @@ export default function App() {
         ? <button className="grace-icon" data-testid="grace-icon" aria-label={GRACE_VOICE} onClick={() => speak(GRACE_VOICE)}>
             <span className="gi-clock" aria-hidden>⏰</span><span className="gi-track" aria-hidden><span className="gi-fill" style={{ width: `${Math.max(0, Math.min(100, graceLeft / 180 * 100))}%` }} /></span><span className="gi-sleep" aria-hidden>🛏️</span></button>
         : <div className="grace-bar" data-testid="grace-bar">⏰ 今天的时间到啦 · 收尾时间 {Math.floor(graceLeft / 60)}:{String(graceLeft % 60).padStart(2, '0')}：打完这一关就休息（收尾最多 3 分钟，不是还能玩的时间）· 明天 0:00 重新计时</div>)}
-      {ttsIssue && <div className="sys-bar warn-bar" data-testid="tts-issue" onClick={() => setTtsIssue(null)}>🔇 {ttsIssue === 'blocked' ? '点一下屏幕就能听到朗读' : ttsIssue === 'novoice' ? '这台平板没有中文朗读语音，暂时不能朗读（家长可在系统设置 → 文字转语音 里下载中文语音）' : '这台平板暂时不能朗读'}（点此关闭）</div>}
+      {ttsIssue && <div className="sys-bar warn-bar inflow tts-bar" data-testid="tts-issue" onClick={() => setTtsIssue(null)}>🔇 {ttsIssue === 'blocked' ? '点一下屏幕就能听到朗读' : ttsIssue === 'novoice' ? '这台平板没有中文朗读语音，暂时不能朗读（家长可在系统设置 → 文字转语音 里下载中文语音）' : '这台平板暂时不能朗读（家长可在系统设置 → 文字转语音 里安装语音引擎并下载中文语音）'}（点此关闭）</div>}
       {resetCancelled && <div className="sys-bar warn-bar" data-testid="pin-reset-cancelled" onClick={() => setResetCancelled(false)}>⏰ 检测到平板时间被调过，正在进行的家长密码重设申请已自动取消。（点此关闭）</div>}
       {settings.pinReset && !resetNoticeSeen && screen.s !== 'loading' && <div className="fullscreen-notice" data-testid="pin-reset-notice-full" role="dialog"><div className="fs-card">
         <h1>有人申请重设家长密码</h1><ResetWhy testid="reset-rules" /><p data-testid="pin-reset-days">已申请 {Math.max(0, Math.floor((Date.now() - settings.pinReset.requestedAt) / 86400e3))} 天</p>{settings.pinReset.ready ? <p>已到期</p> : <p className="big-rule">已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}
@@ -609,7 +613,8 @@ export default function App() {
         <div className="row gap16"><button className="btn danger" data-testid="pin-reset-full-cancel" onClick={() => setCancelBox(true)}>{CANCEL_BTN}</button>{/* r15.4 策划定稿：取消要家长密码或恢复码 */}
           <button className="btn ghost" data-testid="pin-reset-full-ok" onClick={() => setResetNoticeSeen(true)}>知道了</button></div></div></div>}
       {settings.pinReset && ['profiles', 'map', 'stage', 'grade', 'char', 'wrongbook', 'result', 'review-done', 'parent', 'gate'].includes(screen.s) && <div className="sys-bar warn-bar" data-testid="pin-reset-pending">🔑 有人申请重设家长密码：{settings.pinReset.ready ? '已到期（还要回答找回问题或输入恢复码）' : <>已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72）· 已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</>}。<button className="chip" data-testid="pin-reset-cancel" onClick={() => setCancelBox(true)}>{CANCEL_BTN}</button></div>}
-      {settings.pinReset && cancelBox && <ResetCancelBox settings={settings} onBack={() => setCancelBox(false)} onCancelled={() => { setSettings({ ...settingsRef.current, pinReset: undefined }); setResetNoticeSeen(true); setCancelBox(false); }} />}
+      {settings.pinReset && cancelBox && <ResetCancelBox settings={settings} onBack={() => setCancelBox(false)} onCancelled={() => { setSettings({ ...settingsRef.current, pinReset: undefined }); setResetNoticeSeen(true); setCancelBox(false); setCancelDone(true); setTimeout(() => setCancelDone(false), 8000); }} />}
+      {cancelDone && <div className="sys-bar ok-bar" role="status" data-testid="reset-cancel-done" onClick={() => setCancelDone(false)}>✅ 已取消申请：家长密码没有变，还是原来的。（点此关闭）</div>}
       {warn3 && myRemaining > 0 && myRemaining <= 180 && <div className="sys-bar warn-bar" data-testid="warn3" onClick={() => setWarn3(false)}>⏳ 还有 {Math.ceil(myRemaining / 60)} 分钟就到今天的游戏时间了，准备收尾吧（点此关闭）</div>}
       {!warn3 && warnMini && myRemaining > 0 && myRemaining <= 180 && <div className="warn-mini" data-testid="warn3-mini" title="今天的游戏时间快到了">⏳ {Math.ceil(myRemaining / 60)} 分</div>}
       {timeUpNote && screen.s === 'map' && <div className="sys-bar warn-bar" data-testid="timeup-note" onClick={() => setTimeUpNote(false)}>⏰ 今天的时间用完啦，不能再答题了。<br />明天 0:00 重新计时。<br />（家长可在设置里加时间）</div>}

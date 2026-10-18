@@ -7,7 +7,8 @@ import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
-import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE } from '../game/playtime';
+import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT } from '../game/playtime';
+import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_K, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
@@ -231,13 +232,16 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
   const acc = total ? Math.round(correct / total * 100) : 0;
+  /* r15.4.1 较真家长：小班时间到（强制结算或在收尾里打完）——自动朗读「今天玩够啦，明天见」，不显示「这次 0★，没有超过最佳…」这类给大人看的星星比较 */
+  const kTime = cfg.band === 'K' && (timeUp || !!forcedTimeUp);
+  useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
-    <div className="center-screen">
-      {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl">⏰</div><h1>时间到</h1><p data-testid="timeup">今天的游戏时间到啦，明天接着打！</p></>
+    <div className="center-screen" data-ktime={kTime ? '1' : undefined}>
+      {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1><p data-testid="timeup">⏰ 今天的时间到啦</p></>
       : cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
-        <KinderSub k={kinder} total={total} />
+        <KinderSub k={kinder} total={total} extra={kTime ? TIMEUP_K_TEXT : undefined} />
       </> : <>
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
         <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '未通关 · 怪物溜走了，再来一次吧！') : win ? '胜利！' : `未通关 · ${endReason === 'reviveFail' ? '复活失败' : endReason === 'hp0' ? '血量归零' : '怪物还在'}`}</h1>
@@ -252,15 +256,15 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
       </>}
       {/* r14 小萌新：不加星时不显示大星星，只写原因和最佳 */}
       {/* r14.1 小萌新：重玩没拿到新星也不显示大星星 */}
-      {!capped && !(prevBest !== undefined && prevBest > 0 && stars <= prevBest) && <Stars n={stars} size={72} />}
-      {!capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">这次 {'★'.repeat(stars) || '0★'}，没有超过最佳 {'★'.repeat(prevBest)}，地图上的星星不变。</p>}
-      {capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
-      {!capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星）；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
-      {best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
+      {!(cfg.band === 'K' && forcedTimeUp) && !capped && !(prevBest !== undefined && prevBest > 0 && stars <= prevBest) && <Stars n={stars} size={72} />}
+      {!kTime && !capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">这次 {'★'.repeat(stars) || '0★'}，没有超过最佳 {'★'.repeat(prevBest)}，地图上的星星不变。</p>}
+      {!kTime && capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
+      {!kTime && !capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星）；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
+      {!kTime && best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       {chalHint && <p className="sub" data-testid="result-chal-hint">🔥 {CHAL_STAR_HINT}</p>}   {/* r15.2：只因没答对挑战题拿 2 星 */}
-      <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>
+      {!kTime && <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>}
       {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
-      {timeUp && <p className="warn">今天的时间用完啦，休息一下吧！明天 0:00 重新计时。</p>}
+      {timeUp && !(cfg.band === 'K' && forcedTimeUp) && <p className="warn">{kTime ? <>😴 {TIMEUP_K_TEXT}</> : '今天的时间用完啦，休息一下吧！明天 0:00 重新计时。'}</p>}
       <div className="row gap24">
         {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}
         {!timeUp && onNext && <button className="btn" data-testid="next-level" onClick={onNext}>下一关 ▶</button>}
@@ -275,9 +279,10 @@ export function kinderSubtitle(k: { first: number } | undefined, total: number) 
   const f = k?.first ?? 0;
   return f === 0 ? '每道题都认真学会啦！下次试试第一次就答对哦' : f / Math.max(1, total) < 0.6 ? '越来越棒啦！' : '太厉害啦！';
 }
-function KinderSub({ k, total }: { k?: { first: number }; total: number }) {
+function KinderSub({ k, total, extra }: { k?: { first: number }; total: number; extra?: string }) {
   const t = kinderSubtitle(k, total);
-  useEffect(() => { const id = setTimeout(() => speak(t), 1500); return () => clearTimeout(id); }, [t]);
+  /* r15.4.1：时间到时接着读「今天玩够啦，明天见」（录音：两段拼起来；系统朗读：一句读完） */
+  useEffect(() => { const id = setTimeout(() => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); }, 1500); return () => clearTimeout(id); }, [t, extra]);
   return <p className="ksub" data-testid="kinder-sub">{t}</p>;
 }
 function KinderLines({ k }: { k?: { first: number; retry: number; demo: number } }) {

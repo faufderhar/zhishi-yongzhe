@@ -98,7 +98,7 @@ export const loadProgress = (pid: string) => guarded<Progress>('progress:' + pid
 export const saveProgress = (pid: string, p: Progress) => setKV('progress:' + pid, p);
 export const loadSkills = (pid: string) => guarded<Skills>('skills:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { level?: number }).level))) as Skills : null, () => ({}));
 export const saveSkills = (pid: string, s: Skills) => setKV('skills:' + pid, s);
-export const loadUsage = (pid: string) => guarded<Usage>('usage:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { used?: number }).used)).map(([d, v]) => [d, { used: Number((v as { used: number }).used), bonus: Number((v as { bonus?: number }).bonus) || 0 }])) as Usage : null, () => ({}));
+export const loadUsage = (pid: string) => guarded<Usage>('usage:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { used?: number }).used)).map(([d, v]) => [d, { used: Number((v as { used: number }).used), bonus: Number((v as { bonus?: number }).bonus) || 0, ...(Number((v as { wrap?: number }).wrap) > 0 ? { wrap: Number((v as { wrap: number }).wrap) } : {}) }])) as Usage : null, () => ({}));
 export const saveUsage = (pid: string, u: Usage) => setKV('usage:' + pid, u);
 export const loadFlags = () => guarded<Record<string, number>>('flags', x => isObj(x) ? numRec(x) : null, () => ({}));
 export const saveFlags = (f: Record<string, number>) => setKV('flags', f);

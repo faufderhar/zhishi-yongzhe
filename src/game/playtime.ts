@@ -1,6 +1,7 @@
 /* 每日时长（GDD §8，本地）。用量按 档案×日期 记秒；limit=0 表示不限 */
 export interface TimeLimit { weekday: number; weekend: number }   // 分钟
-export interface Usage { [day: string]: { used: number; bonus: number } }  // 秒
+/** wrap（r15.4.1）：其中记在收尾时间里的秒数（超过当时上限、收尾进行中）。旧记录没有这个字段 */
+export interface Usage { [day: string]: { used: number; bonus: number; wrap?: number } }  // 秒
 export const isWeekend = (d = new Date()) => d.getDay() === 0 || d.getDay() === 6;
 export function limitMinutes(l: TimeLimit, d = new Date()) { return isWeekend(d) ? l.weekend : l.weekday; }
 /** 剩余秒数；Infinity = 不限 */
@@ -10,12 +11,14 @@ export function remainingSec(l: TimeLimit, u: Usage, day: string, d = new Date()
   const r = u[day] ?? { used: 0, bonus: 0 };
   return Math.max(0, m * 60 + r.bonus - r.used);
 }
-export function addUsage(u: Usage, day: string, sec: number): Usage {
+export function addUsage(u: Usage, day: string, sec: number, base = Infinity): Usage {
   const r = u[day] ?? { used: 0, bonus: 0 };
+  /* r15.4.1 较真家长：超过当时上限（含加时）的那部分按收尾记下来，家长页按记录显示收尾，不再用「已用 − 上限」倒推（上限改了 / 加时取消了就会算出 23 分钟收尾） */
+  const wInc = Number.isFinite(base) ? Math.max(0, Math.max(0, r.used + sec - base) - Math.max(0, r.used - base)) : 0;
   // 只保留最近 30 天
   const keep = Object.keys(u).sort().slice(-30);
   const out: Usage = {}; for (const k of keep) out[k] = u[k];
-  out[day] = { ...r, used: r.used + sec };
+  out[day] = { ...r, used: r.used + sec, ...(wInc > 0 ? { wrap: (r.wrap ?? 0) + wInc } : {}) };
   return out;
 }
 export function addBonus(u: Usage, day: string, sec: number): Usage {
@@ -31,8 +34,15 @@ export function hashPin(pin: string, salt = 'zsyz') {
 }
 export const validPin = (p: string) => /^\d{4,6}$/.test(p);
 
-/** r11：取消今天的临时加时 */
-export function cancelBonus(u: Usage, day: string): Usage { const r = u[day]; return r ? { ...u, [day]: { ...r, bonus: 0 } } : u; }
+/** r15.4.1 较真家长：今天的加时里已经用掉的部分（秒）。limitSec = 今天的每日上限秒数（不含加时；0 / Infinity = 不限） */
+export function bonusUsedSec(r: { used: number; bonus: number; wrap?: number } | undefined, limitSec: number): number {
+  if (!r || !(r.bonus > 0)) return 0; if (!(limitSec > 0) || !Number.isFinite(limitSec)) return 0;
+  const ex = Math.max(0, r.used - (limitSec + r.bonus)); const curWrap = Math.min(GRACE_SEC, ex, r.wrap ?? ex);   // 正在 / 刚走完的收尾不算用掉的加时
+  return Math.min(r.bonus, Math.max(0, r.used - curWrap - limitSec));
+}
+/** r11：取消今天的临时加时。r15.4.1 较真家长：只取消还没用的部分，已经用掉的加时留下（以前整笔清零，已玩的加时时间全被算成「收尾」，家长页出现「收尾 23:00」）。
+ *  limitSec = 取消时家长看到的每日上限秒数（不含加时）；不传 / 不限 = 整笔取消 */
+export function cancelBonus(u: Usage, day: string, limitSec = 0): Usage { const r = u[day]; return r ? { ...u, [day]: { ...r, bonus: bonusUsedSec(r, limitSec) } } : u; }
 /** r11：今天的临时加时（秒） */
 export const bonusToday = (u: Usage | undefined, day: string) => u?.[day]?.bonus ?? 0;
 
@@ -52,10 +62,12 @@ export function clampUsageAdd(used: number, add: number, base: number, inGrace: 
   const cap = inGrace ? base + GRACE_SEC : base;
   return Math.max(0, Math.min(add, cap - used));
 }
-/** 家长页拆分：已用（不超过上限） + 收尾（超过上限的部分，最多 3 分钟） */
-export function splitUsed(used: number, base: number): { play: number; wrap: number } {
-  if (!Number.isFinite(base)) return { play: used, wrap: 0 };
-  return { play: Math.min(used, base), wrap: Math.max(0, used - base) };
+/** 家长页拆分：已用 + 收尾（超过上限的部分里、真的记在收尾时间里的，永远 ≤ 3:00）。
+ *  r15.4.1：wrapRec = 记下的收尾秒数（旧记录没有时按超出部分算，同样封顶 3:00）；超出上限但不是收尾的（上限后来改小了）算在 play 里，over 给出超出多少 */
+export function splitUsed(used: number, base: number, wrapRec?: number): { play: number; wrap: number; over: number } {
+  if (!Number.isFinite(base)) return { play: used, wrap: 0, over: 0 };
+  const ex = Math.max(0, used - base); const wrap = Math.min(GRACE_SEC, ex, wrapRec ?? ex);
+  return { play: used - wrap, wrap, over: ex - wrap };
 }
 /** 收尾还能走多少毫秒：3 分钟，但已经计进去的超时部分要扣掉（用时每 5 秒结算一次，进入收尾时可能已多计了几秒） */
 export function graceBudgetMs(used: number, base: number, G = GRACE_MS): number {
@@ -69,3 +81,5 @@ export const GRACE_VOICE = '时间到啦，打完这关就休息哦';
 export const SLEEPY_TEXT = '今天玩够啦，明天再来';
 export const SLEEPY_RESET = '明天 0:00 重新计时';
 export const SLEEPY_VOICE = '今天玩够啦，明天再来哦。明天零点重新计时';
+/* r15.4.1 较真家长：小班时间到的结算页（自动朗读；不显示星星比较） */
+export const TIMEUP_K_TEXT = '今天玩够啦，明天见';

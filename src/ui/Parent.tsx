@@ -3,7 +3,7 @@ import { logReload } from '../swUpdate';
 import { ReduceToggle } from './Battle';
 import { prefetchAll } from '../fx/sheets';
 import { useState as useS } from 'react';
-import { offlineStatus, onOffline } from '../offlineCache';
+import { offlineStatus, onOffline, voiceStatus, onVoiceStatus, cacheVoiceForOffline } from '../offlineCache';
 import { BANK_VER, BANK_RELEASE } from '../bankStore';
 import { VERSION_LABEL } from '../version';
 import { useInstallPrompt, isStandalone, isIOS, IosSteps, promptInstall } from './Screens';
@@ -21,6 +21,15 @@ export function OfflineReady() {
     {ready ? '✅ 离线就绪：怪物动画、技能特效和音效都已缓存' : s ? `⏳ 离线素材缓存中 ${s.done}/${s.total}${s.failed ? `（${s.failed} 个暂未下载，联网后自动重试）` : ''}` : '⏳ 联网时会在后台缓存离线素材'}
     <br /><b data-testid="version-label">版本 {VERSION_LABEL}</b><br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'} · {typeof __BUILD_TIME__ === 'string' ? buildDate() : ''}</span></p>;
 }
+/** r15.4.1 技术QA P2-1：小班离线录音下载进度 + 手动「下载离线录音」 */
+export function VoiceOffline() {
+  const [s, setS] = useS(voiceStatus()); const [busy, setBusy] = useS(false);
+  useEffect(() => onVoiceStatus(setS), []);
+  const ready = !!s && s.total > 0 && s.done >= s.total && s.failed === 0;
+  return <p className="hint" data-testid="voice-offline" data-ready={ready ? '1' : '0'}>
+    {ready ? `✅ 小班离线录音已下载（${s.total} 段）` : s ? `⏳ 小班离线录音 ${s.done}/${s.total}${s.failed ? `（${s.failed} 段没下载成功）` : ''}` : '小班离线录音：有小班档案时联网会自动下载'}
+    {!ready && <> <button className="chip" data-testid="voice-offline-dl" disabled={busy} onClick={() => { setBusy(true); void cacheVoiceForOffline().finally(() => setBusy(false)); }}>⬇ 下载离线录音（约 4.5MB）</button></>}</p>;
+}
 function PrefetchAnim() {
   const [p, setP] = useS('');
   return <button className="chip" data-testid="prefetch-anim" onClick={() => { setP('0%'); void prefetchAll((d, t) => setP(Math.round(d / t * 100) + '%')).then(() => setP('已完成，可离线使用')); }}>⬇ 预下载战斗动画（约 4.3MB）{p && ' · ' + p}</button>;
@@ -30,7 +39,7 @@ import { Modal, PinPad, fmtMin } from './common';
 import { GRADE_LABEL, loadBank, countStatuses, type Bank, type GradeKey } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
-import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, splitUsed, fmtMS, type Usage } from '../game/playtime';
+import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, splitUsed, fmtMS, type Usage } from '../game/playtime';
 import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
@@ -146,7 +155,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
     <div className="center-screen"><div className="pinpad wide-panel forgot-page" data-testid="forgot-page"><h2>忘记家长密码了？选一种办法：</h2>
       <ol className="forgot-opts">
         <li data-testid="forgot-opt-rec"><p>① 我有恢复码：输入设置密码时保存的 8 位恢复码，马上设新密码。</p>{settings.pinRec ? recBox(false) : <p className="hint">这台平板还没有恢复码。</p>}</li>
-        <li data-testid="forgot-opt-backup"><p>② 我有备份文件：从备份恢复，密码会变回备份时的密码。</p>{restoreEntry}</li>
+        <li data-testid="forgot-opt-backup"><p>② 我有备份文件：从备份恢复。</p><ul className="forgot-backup-notes"><li data-testid="forgot-backup-pin">家长密码：会变回<b>备份时的</b>密码（不是现在的）。</li><li data-testid="forgot-backup-today">今天已经玩的时长：保留<b>这台平板</b>记的，不会被备份改掉。</li></ul>{restoreEntry}</li>
         <li data-testid="forgot-opt-reset"><p>③ 什么都没有：点「申请重设」。约 3 天后回到这里，答对找回问题，就能设新密码。等这几天，是为了防止孩子自己重设密码。</p>
           {pr && <div data-testid="reset-progress"><label className="pbar-row">已等 {waitedH} 小时 / 72<progress data-testid="reset-bar-hours" max={72} value={waitedH} /></label>
             <label className="pbar-row">已打开 {daysN} / 3 天<progress data-testid="reset-bar-days" max={3} value={daysN} /></label></div>}
@@ -232,12 +241,12 @@ export function ParentSettings(props: ParentProps) {
         <li>设置密码时给的 8 位恢复码请抄下或拍照保存：忘记密码时输入恢复码能马上重设（找回问题要等 72 小时）。可以在「🔑 密码」里重新生成恢复码（旧的作废）。</li>
         <li>忘记密码时：①有恢复码 → 马上重设（新密码和找回问题一起提交后，旧恢复码才作废并发新码）；②记得找回问题答案 → 只能提交 72 小时延时重设申请，到期后再答一次才能设新密码；③密码、找回问题、恢复码都忘了 → 在「备份/恢复」导入以前导出的备份，输入备份时的家长密码或那时的恢复码；④这些都没有 → 只能清除浏览器数据重新开始（进度会清掉）。</li>
         <li>旧的预设找回问题（小名 / 宠物 / 生日）孩子可能知道答案，已失效：家长页顶部会一直提示，点「现在更换」换个新问题；换之前忘记密码只能用恢复码或备份。</li>
-        <li>找回问题、恢复码连续错 5 次会锁 24 小时；导入备份时输错备份密码 / 恢复码也计入同一个锁。24 小时锁定只按游戏开着的时间算；72 小时延时重设：联网时按网络时间计算（网络时间和平板时间差 10 分钟以上会取消申请）；不联网时，关掉游戏的时间只有在上一次打开满 5 分钟时才算，每次关闭最多算 12 小时；另外要在至少 3 个不同的日子打开过游戏、游戏开着的时间一共满 30 分钟才生效；时钟往回调会取消申请，调快平板时间无效，换时区不算回调。取消申请要输入家长密码或恢复码，输错和恢复码共用同一个计数（连错 5 次锁 24 小时）。</li><li>恢复码显示后请再输入一遍确认已抄好（可以「稍后」）；没确认时家长页会提醒。「重新生成恢复码」要先输入现在的家长密码，旧码立即作废。</li>
+        <li>找回问题、恢复码连续错 5 次会锁 24 小时；导入备份时输错备份密码 / 恢复码也计入同一个锁。24 小时锁定只按游戏开着的时间算；72 小时延时重设：联网时按网络时间计算（网络时间和平板时间差 10 分钟以上会取消申请）；不联网时，关掉游戏的时间只有在上一次打开满 5 分钟时才算，每次关闭最多算 12 小时；另外要在至少 3 个不同的日子打开过游戏、游戏开着的时间一共满 30 分钟才生效；时钟往回调会取消申请，调快平板时间无效，换时区不算回调。取消申请要输入家长密码或恢复码；取消框单独计数（连错 5 次只锁取消框 24 小时，不影响用恢复码重设）。</li><li>恢复码显示后请再输入一遍确认已抄好（可以「稍后」）；没确认时家长页会提醒。「重新生成恢复码」要先输入现在的家长密码，旧码立即作废。</li>
         <li>iPad「添加到主屏幕」的 App 与 Safari 里的数据是分开的。</li></ul><button className="chip" onClick={() => setHelp(false)}>关闭</button></div>}
       <RecGen prompt settings={props.settings} setSettings={props.setSettings} />
       <ParentAlerts goBackup={() => setTab('backup')} />
       <div className="parent-body">
-        {tab === 'profiles' && <><div className="p-card" data-testid="overview-offline"><OfflineReady /></div><ProfilesTab {...props} /></>}
+        {tab === 'profiles' && <><div className="p-card" data-testid="overview-offline"><OfflineReady /><VoiceOffline /></div><ProfilesTab {...props} /></>}
         {tab === 'report' && <ReportTab {...props} />}
         {tab === 'bank' && <BankTab {...props} />}
         {tab === 'time' && <TimeTab {...props} />}
@@ -266,7 +275,7 @@ function ParentAlerts({ goBackup }: { goBackup: () => void }) {
   const days = last ? Math.floor((Date.now() - last) / 864e5) : null;
   return <>
     {usage !== undefined && usage > 0.8 && <div className="yellow-bar">保存失败风险：平板存储空间快满了（已用 {Math.round(usage * 100)}%），请导出备份</div>}
-    <p className="hint backup-age" data-testid="backup-age">上次备份：{last === undefined ? '…' : days === null ? '从未备份' : days === 0 ? '今天' : `${days} 天前`}</p>
+    <p className="hint backup-age" data-testid="backup-age">上次备份：{last === undefined ? '…' : days === null ? '从未备份' : `${days === 0 ? '今天' : `${days} 天前`}（${fmtBackupTime(last)}）`}</p>
     {nag && <Modal onClose={() => { setNag(false); void setKV('backupSnoozeUntil', Date.now() + 7 * 864e5); }}>
       <h2>该备份啦</h2><p>{days === null ? '这台平板还没有备份过。' : `已经 ${days} 天没有备份了。`}清理浏览器或换平板时，没有备份会丢失进度。</p>
       <div className="row gap16"><button className="btn" onClick={() => { setNag(false); void setKV('backupSnoozeUntil', Date.now() + 7 * 864e5); goBackup(); }}>立即备份</button>
@@ -298,11 +307,12 @@ function ProfilesTab({ profiles, setProfiles, bank, skills, usage, setUsage }: P
         <div className="row gap16"><button className="btn cancel-btn" data-testid="del-cancel" onClick={() => setDelId(undefined)}>取消，不删除</button>
           <HoldButton className="btn danger" label="长按 1.5 秒删除" testid="del-confirm" ms={1500} onDone={() => { setProfiles(profiles.filter(x => x.id !== delId)); setDelId(undefined); }}>长按删除</HoldButton></div>
       </Modal>; })()}
-      {edit && <ProfileEditor p={edit} bank={bank} onSave={save} onCancel={() => setEdit(null)} bonusSec={usage[edit.id]?.[dayStr()]?.bonus ?? 0} onCancelBonus={() => setUsage(edit.id, cancelBonus(usage[edit.id] ?? {}, dayStr()))} />}
+      {edit && <ProfileEditor p={edit} bank={bank} onSave={save} onCancel={() => setEdit(null)} day={usage[edit.id]?.[dayStr()]} onCancelBonus={(limitSec: number) => setUsage(edit.id, cancelBonus(usage[edit.id] ?? {}, dayStr(), limitSec))} />}
     </div>
   );
 }
-function ProfileEditor({ p, bank, onSave, onCancel, bonusSec = 0, onCancelBonus }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void; bonusSec?: number; onCancelBonus?: () => void }) {
+function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void; day?: { used: number; bonus: number }; onCancelBonus?: (limitSec: number) => void }) {
+  const bonusSec = day?.bonus ?? 0;
   // r10：未保存的表单草稿（超时退出后再进来还在）
   const DK = 'zy-draft-profile';
   const [f, setF0] = useState<Profile>(() => { try { const d = JSON.parse(sessionStorage.getItem(DK) ?? 'null'); if (d && d.id === p.id) return d; } catch { /* */ } return p; });
@@ -333,7 +343,8 @@ function ProfileEditor({ p, bank, onSave, onCancel, bonusSec = 0, onCancelBonus 
             <b data-testid={`limit-${k}-val`}>{f.unlimited?.[k] ? '不限' : Math.max(MIN_LIMIT, f.limit[k])}</b>
             <button className="chip" data-testid={`limit-${k}-plus`} disabled={!!f.unlimited?.[k]} onClick={() => step(k, 5)}>＋5</button>
             <label className={`chip unl-box ${f.unlimited?.[k] ? 'checked' : ''}`}><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限时长</label></span>)}</div>
-        {bonusSec > 0 && <p className="hint" data-testid="bonus-note">今天还有临时加时 {Math.round(bonusSec / 60)} 分钟（只在今天有效，会加在每日上限之外）。<button className="chip" data-testid="bonus-cancel" onClick={onCancelBonus}>取消今天的临时加时</button></p>}
+        {bonusSec > 0 && (() => { /* r15.4.1 较真家长：按表单里现在的上限算加时用掉多少；取消只取消没用的部分 */ const lim = limitMinutes(effLimit(f), new Date()) * 60; const bu = bonusUsedSec(day, lim); const left = bonusSec - bu;
+          return <p className="hint" data-testid="bonus-note">今天的临时加时 {fmtMS(bonusSec)}{bu > 0 ? <>，<span data-testid="bonus-note-used">加时已用 {fmtMS(bu)}</span></> : null}（只在今天有效，会加在每日上限之外）。{left > 0 ? <button className="chip" data-testid="bonus-cancel" onClick={() => onCancelBonus?.(lim)}>取消今天没用的加时 {fmtMS(left)}</button> : <span data-testid="bonus-all-used">已经全部用掉，没有可以取消的。</span>}</p>; })()}
         <div className="row gap16 wrap"><button className="chip" data-testid="reset-tips" disabled={!f.tips || !Object.keys(f.tips).length} onClick={() => setF({ ...f, tips: {} })}>💡 重置提示（首次提示再弹一次）</button></div>
         <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes)} onClick={() => { clearDraft(); onSave(f); }}>保存</button></div>
       </div>
@@ -441,14 +452,14 @@ function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock, resetTim
       {clockLocked && <div className="p-card wide"><b>⏰ 时间锁定中</b><p className="hint">检测到平板时间被调回，今天按「已用完」处理。确认时间正确后可解除。</p><button className="btn" data-testid="unlock-clock" onClick={unlockClock}>解除时间锁定</button></div>}
       <table className="tbl"><thead><tr><th>孩子</th><th>今日已玩</th><th>今日剩余</th><th>每日上限（上学日/周末）</th><th>临时加时</th></tr></thead>
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
-          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{(() => { const m = limitMinutes(effLimit(p), new Date()); const base = m ? m * 60 + r.bonus : Infinity; const sp = splitUsed(r.used, base);
+          return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{(() => { const m = limitMinutes(effLimit(p), new Date()); const base = m ? m * 60 + r.bonus : Infinity; const sp = splitUsed(r.used, base, r.wrap); const bu = bonusUsedSec(r, m * 60);
             /* r15.3 较真家长 / 小萌新：已用和收尾分开显示；上限（含加时）、剩余都精确到秒 */
-            return <><span data-testid={'used-' + p.id}>已用 {fmtMS(sp.play)}{sp.wrap > 0 ? <> + 收尾 {fmtMS(sp.wrap)}</> : null}</span> <small className="hint" data-testid={'idle-note-' + p.id}>（2 分钟没操作会暂停计时）</small>
-              {m ? <div><small data-testid={'limit-today-' + p.id}>今天上限 {fmtMS(base)}{r.bonus > 0 ? `（含加时 ${fmtMS(r.bonus)}）` : ''}{sp.wrap > 0 ? ' · 收尾最多 3:00，不算进上限' : ''}</small></div> : null}</>; })()}</td><td data-testid={'left-' + p.id} data-left-sec={(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? v : -1; })()}>{(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? fmtMS(v) : fmtMin(v); })()}{clockLocked ? '（时间锁定中）' : ''}</td><td data-testid={'limit-cfg-' + p.id}>{effLimit(p).weekday ? fmtMS(effLimit(p).weekday * 60) : '不限'} / {effLimit(p).weekend ? fmtMS(effLimit(p).weekend * 60) : '不限'}</td>
-            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => { if (clockLocked) unlockClock?.(); setUsage(p.id, addBonus(u, today, 600)); }}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? r.used - (m * 60 + r.bonus) : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {Math.floor(over / 60)}:{String(over % 60).padStart(2, '0')}（关卡收尾时间，最多 3 分钟），加的时间先抵掉超出的部分</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && <> <small data-testid={'bonus-now-' + p.id}>今天已加 {Math.round(r.bonus / 60)} 分钟</small> <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today))}>取消</button></>}</span></td></tr>; })}</tbody></table>
+            return <><span data-testid={'used-' + p.id}>已用 {fmtMS(sp.play)}{sp.wrap > 0 ? <> + 收尾 {fmtMS(sp.wrap)}</> : null}</span>{bu > 0 ? <small className="hint" data-testid={'bonus-used-' + p.id}>（其中加时已用 {fmtMS(bu)}）</small> : null}{sp.over > 0 ? <small className="hint" data-testid={'over-' + p.id}>（比现在的上限多玩了 {fmtMS(sp.over)}：上限是后来改小的）</small> : null} <small className="hint" data-testid={'idle-note-' + p.id}>（2 分钟没操作会暂停计时）</small>
+              {m ? <div><small data-testid={'limit-today-' + p.id}>今天上限 {fmtMS(base)}{r.bonus > 0 ? `（含加时 ${fmtMS(r.bonus)}）` : ''}</small>{sp.wrap > 0 ? <small className="hint" data-testid={'wrap-note-' + p.id}> · 收尾最多 3:00，不算进上限</small> : null}</div> : null}</>; })()}</td><td data-testid={'left-' + p.id} data-left-sec={(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? v : -1; })()}>{(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? fmtMS(v) : fmtMin(v); })()}{clockLocked ? '（时间锁定中）' : ''}</td><td data-testid={'limit-cfg-' + p.id}>{effLimit(p).weekday ? fmtMS(effLimit(p).weekday * 60) : '不限'} / {effLimit(p).weekend ? fmtMS(effLimit(p).weekend * 60) : '不限'}</td>
+            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => { if (clockLocked) unlockClock?.(); setUsage(p.id, addBonus(u, today, 600)); }}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? splitUsed(r.used, m * 60 + r.bonus, r.wrap).wrap : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {fmtMS(over)}（关卡收尾时间，最多 3 分钟），加的时间先抵掉超出的部分</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && (() => { const m = limitMinutes(effLimit(p), new Date()); const bu = bonusUsedSec(r, m * 60); return <> <small data-testid={'bonus-now-' + p.id}>今天已加 {r.bonus % 60 ? fmtMS(r.bonus) : `${r.bonus / 60} 分钟`}{bu > 0 ? `，已用 ${fmtMS(bu)}` : ''}</small> {r.bonus - bu > 0 ? <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today, m * 60))}>取消没用的 {fmtMS(r.bonus - bu)}</button> : <small className="hint">（已全部用掉，不能取消）</small>}</>; })()}</span></td></tr>; })}</tbody></table>
       {resetTiming && <div className="p-card wide" data-testid="reset-timing-box"><b>计时出错了？</b><p className="hint">把今天所有孩子的已玩时长和临时加时清零，并把时间基准重置为现在（解除时间锁定，删掉「今天之后」的时长记录）。</p>
         <button className="btn ghost" data-testid="reset-timing" onClick={() => { if (confirm('把今天的计时清零并重置时间基准？')) resetTiming(); }}>重置今天的计时</button></div>}
-      <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /></div>
+      <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /><VoiceOffline /></div>
       <ul className="hint time-rules" data-testid="time-rules"><li>每天的上限在「孩子档案 → 编辑」里改。</li><li>计时：选了孩子之后的游戏时间（地图、关卡、结算页、错题复习）。</li><li>不计时：家长页、密码页、选孩子页。</li><li>2 分钟没操作，或切到后台：暂停计时。</li><li>关卡进行中时间到了：让孩子打完这一关。</li><li>每天 0:00 重新计时。</li></ul>
     </div>
   );
@@ -478,13 +489,13 @@ function BackupTab() {
       {pending && <Modal onClose={() => setPending(null)}>
         <h2>用备份恢复？</h2><p data-testid="restore-when">备份时间：{fmtBackupTime(pending.exportedAt)}</p>
         {(() => { const v = validateBackup(pending).preview; return <p className="hint" data-testid="restore-preview">备份内容：孩子档案 {v.profiles} 个 · 设置/进度 {v.kv} 项 · 答题记录 {v.answers} 条 · 错题 {v.wrong} 条 · 导入题 {v.bank} 道{v.skipped ? ` · 跳过损坏行 ${v.skipped}` : ''}。恢复前会自动下载一份当前数据的快照。</p>; })()}
-        <p className="hint" data-testid="restore-pin-note">{needPin ? '验证：输入现在的家长密码，或者备份时的家长密码 / 恢复码（忘了现在的密码时用）。' : '这台平板还没有家长密码。'}</p>
+        <p className="hint" data-testid="restore-pin-note">{needPin ? '验证：下面两个框填一个就行——记得现在的密码填上面；忘了现在的密码，填下面（备份时的密码或那时的恢复码）。' : '这台平板还没有家长密码。'}</p>
         {(() => { const vault = !!backupVault(pending, validateBackup(pending).clean.kv as [string, unknown][]);   /* r15.4 较真家长：两张清单「会被替换」「会保留」，每类数据只出现一次，和 importAll 实际做的一致 */
           return <div className="hint restore-list" data-testid="restore-replace">
             <p data-testid="restore-will-replace"><b>会被替换：</b>孩子档案、关卡星星和进度、错题、答题记录、导入的题、每日时长上限、以前各天的游戏时长记录、其他设置{vault ? '、家长密码和恢复码（换成备份时的；现在的作废，等待中的重设申请也取消）' : ''}。</p>
-            <p data-testid="restore-will-keep"><b>会保留：</b>今天已经玩了多久（按这台平板记的）、平板时钟记录{vault ? '' : '、现在的家长密码和恢复码（备份里没有密码）'}。</p></div>; })()}
-        {needPin && <label className="row gap8">当前家长密码 <input type="password" inputMode="numeric" data-testid="restore-pin" value={rpin} onChange={e => setRpin(e.target.value)} /></label>}
-        {needPin && <div className="p-card" data-testid="restore-alt"><b>忘了当前密码？</b><p className="hint">输入<b>备份时</b>的家长密码或那时的恢复码也能恢复。连续错 5 次锁 24 小时。</p>
+            <p data-testid="restore-will-keep"><b>会保留：</b>今天已经玩了多久（按这台平板记的）、防改时间记录（游戏自己用来发现平板时间被往回调，家长不用管）{vault ? '' : '、现在的家长密码和恢复码（备份里没有密码）'}。</p></div>; })()}
+        {needPin && <label className="row gap8" data-testid="restore-pin-label">现在的家长密码（这台平板现在用的） <input type="password" inputMode="numeric" data-testid="restore-pin" value={rpin} onChange={e => setRpin(e.target.value)} /></label>}
+        {needPin && <div className="p-card" data-testid="restore-alt"><b>忘了现在的密码？</b><p className="hint">填<b>备份时</b>的家长密码（导出这份备份那天用的密码），或那时的 8 位恢复码。这个框连续错 5 次锁 24 小时。</p>
           <input className="name-input" data-testid="restore-bsec" disabled={ileft > 0} placeholder="备份时的家长密码 / 恢复码" value={bsec} onChange={e => setBsec(e.target.value)} />
           {ileft > 0 && <p className="warn" data-testid="restore-lock">错太多次了，请 {Math.ceil(ileft / 3600e3)} 小时后再试</p>}</div>}
         {mSum && <div className="p-card wide-panel" data-testid="merge-summary"><b>合并预览</b><p>新增孩子档案 {mSum.profilesAdded} 个 · 更新关卡星星 {mSum.levelsUpdated} 关 · 新增错题 {mSum.wrongAdded} 条 · 新增答题记录 {mSum.answersAdded} 条。</p><p className="hint">家长密码、时长设置和今天已用时长保持本机不变。合并前会自动保存当前数据的快照，之后可以「撤销」一次。</p>
@@ -636,10 +647,10 @@ export function GateRestore() {
   return <div className="gate-restore">
     <input ref={ref} type="file" accept=".json,application/json" hidden data-testid="gate-restore-file" onChange={async e => { const f = e.target.files?.[0]; if (!f) return; try { const d = JSON.parse(await f.text()); validateBackup(d); setData(d); setMsg(undefined); } catch (er) { setMsg(er instanceof SyntaxError ? '文件无法读取（不是 JSON）' : (er as Error).message); } e.target.value = ''; }} />
     <button className="link-btn" data-testid="gate-restore" onClick={() => ref.current?.click()}>📂 从备份恢复</button>
-    <p className="gate-restore-note" data-testid="gate-restore-note">忘了密码也能用：选备份文件，输入备份时的家长密码或恢复码，用备份覆盖这台设备的数据（今天已玩的时长保留本机的）。</p>
+    <p className="gate-restore-note" data-testid="gate-restore-note">忘了密码也能用：选备份文件，输入备份时的家长密码或恢复码，用备份覆盖这台设备的数据。</p>
     {msg && !data && <p className="warn" data-testid="gate-restore-msg">{msg}</p>}
     {data && <Modal onClose={() => setData(null)}><div data-testid="gate-restore-box"><h2>从备份恢复（覆盖）</h2>
-      <p data-testid="gate-restore-when">备份时间：{fmtBackupTime(data.exportedAt)}</p><p><b>会被替换：</b>孩子档案、星星和进度、错题、答题记录、导入的题、时长上限和以前的时长记录、其他设置、家长密码和恢复码（变成备份时的）。<br /><b>会保留：</b>今天已经玩了多久、平板时钟记录。</p><p className="hint">这里只能整份恢复；「合并」要先在家长页里输入现在的家长密码。</p>
+      <p data-testid="gate-restore-when">备份时间：{fmtBackupTime(data.exportedAt)}</p><p><b>会被替换：</b>孩子档案、星星和进度、错题、答题记录、导入的题、时长上限和以前的时长记录、其他设置、家长密码和恢复码（变成备份时的）。<br /><b>会保留：</b>今天已经玩了多久（按这台平板记的）、防改时间记录（游戏自己用来发现平板时间被往回调，家长不用管）。</p><p className="hint">这里只能整份恢复；「合并」要先在家长页里输入现在的家长密码。</p>
       <input className="name-input" data-testid="gate-restore-sec" disabled={left > 0} placeholder="备份时的家长密码 / 恢复码" value={sec} onChange={e => setSec(e.target.value)} />
       {left > 0 && <p className="warn" data-testid="gate-restore-lock">错太多次了，请 {Math.ceil(left / 3600e3)} 小时后再试（只算游戏开着的时间）</p>}
       {msg && <p className="warn" data-testid="gate-restore-msg">{msg}</p>}

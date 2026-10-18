@@ -805,6 +805,7 @@
   "p:stage_k": "p_stage_k.170dd11491.mp3",
   "p:stage_p": "p_stage_p.152baa7422.mp3",
   "p:think": "p_think.62eab4e47f.mp3",
+  "p:timeup_k": "p_timeup_k.1dd7fe24c0.mp3",
   "p:tut_done": "p_tut_done.95dfc18ce8.mp3",
   "p:tut_hi_abei": "p_tut_hi_abei.ec66dfdb64.mp3",
   "p:tut_hi_beibei": "p_tut_hi_beibei.fefbb7247b.mp3",
@@ -17568,6 +17569,30 @@
    "gr_flag": false,
    "norm": "linear",
    "resumed": true
+  },
+  "p:timeup_k": {
+   "file": "p_timeup_k.1dd7fe24c0.mp3",
+   "text": "今天玩够啦，明天见",
+   "segments": [
+    [
+     "zh",
+     "今天玩够啦，明天见"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.5,
+   "hash": "1dd7fe24c02b8cb95bcd79cca7e671af97028f6af4790befd7fa5769a26e38f6",
+   "phonemes": [
+    "zh|zf_002|1.5|ㄐ阴1ㄊ言1/万2ㄍㄡ4/ㄌㄚ5, ㄇ应2ㄊ言1/ㄐ言4"
+   ],
+   "synth_s": 2.75,
+   "duration": 1.656,
+   "lufs": -16.3,
+   "tp": -2.0,
+   "pregain_db": 6.8,
+   "limiter_gr_db": 1.44,
+   "gr_flag": false,
+   "norm": "linear"
   },
   "p:tut_done": {
    "file": "p_tut_done.95dfc18ce8.mp3",

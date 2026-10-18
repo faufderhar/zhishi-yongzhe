@@ -42,7 +42,7 @@ describe('r15.3 收尾封顶', () => {
   });
   it('家长页拆分：已用 5:00 + 收尾 3:00', () => {
     const s = splitUsed(480, 300); expect(`已用 ${fmtMS(s.play)} + 收尾 ${fmtMS(s.wrap)}`).toBe('已用 5:00 + 收尾 3:00');
-    expect(splitUsed(200, 300)).toEqual({ play: 200, wrap: 0 }); expect(splitUsed(5000, Infinity)).toEqual({ play: 5000, wrap: 0 });
+    expect(splitUsed(200, 300)).toEqual({ play: 200, wrap: 0, over: 0 }); expect(splitUsed(5000, Infinity)).toEqual({ play: 5000, wrap: 0, over: 0 });
     expect(fmtMS(552)).toBe('9:12');
   });
 });
