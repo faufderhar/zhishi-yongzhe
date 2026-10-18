@@ -19,16 +19,20 @@ export function OfflineReady() {
   const ready = !!s && s.total > 0 && s.done >= s.total && s.failed === 0;
   return <p className="hint" data-testid="offline-ready" data-ready={ready ? '1' : '0'}>
     {ready ? '✅ 离线就绪：怪物动画、技能特效和音效都已缓存' : s ? `⏳ 离线素材缓存中 ${s.done}/${s.total}${s.failed ? `（${s.failed} 个暂未下载，联网后自动重试）` : ''}` : '⏳ 联网时会在后台缓存离线素材'}
-    <br /><b data-testid="version-label">版本 {VERSION_LABEL}</b><br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'} · {typeof __BUILD_TIME__ === 'string' ? buildDate() : ''}</span></p>;
+    {/* r15.4.2 较真家长 D：题库指纹 / 构建号对家长没用，收进「技术信息」（反馈问题时展开给客服看） */}
+    <br /><details className="tech-info"><summary>技术信息</summary><b data-testid="version-label">版本 {VERSION_LABEL}</b><br /><span data-testid="build-info">题库 {BANK_RELEASE} · {BANK_VER} · 构建 {typeof __BUILD__ === 'string' ? __BUILD__ : 'dev'} · {typeof __BUILD_TIME__ === 'string' ? buildDate() : ''}</span></details></p>;
 }
 /** r15.4.1 技术QA P2-1：小班离线录音下载进度 + 手动「下载离线录音」 */
 export function VoiceOffline() {
   const [s, setS] = useS(voiceStatus()); const [busy, setBusy] = useS(false);
   useEffect(() => onVoiceStatus(setS), []);
   const ready = !!s && s.total > 0 && s.done >= s.total && s.failed === 0;
-  return <p className="hint" data-testid="voice-offline" data-ready={ready ? '1' : '0'}>
-    {ready ? `✅ 小班离线录音已下载（${s.total} 段）` : s ? `⏳ 小班离线录音 ${s.done}/${s.total}${s.failed ? `（${s.failed} 段没下载成功）` : ''}` : '小班离线录音：有小班档案时联网会自动下载'}
-    {!ready && <> <button className="chip" data-testid="voice-offline-dl" disabled={busy} onClick={() => { setBusy(true); void cacheVoiceForOffline().finally(() => setBusy(false)); }}>⬇ 下载离线录音（约 4.5MB）</button></>}</p>;
+  /* r15.4.2 较真家长 D / 技术QA P3-4：家长看得懂的说法——不写「507 段」；下载中显示真实已下载的比例；没下成功说清会自动重试 */
+  const state = !s ? 'none' : ready ? 'done' : s.state === 'running' || (s.done < s.total && !s.failed) ? 'running' : 'failed';
+  const pct = s && s.total ? Math.floor(((s.ok ?? Math.max(0, s.done - s.failed)) / s.total) * 100) : 0;
+  return <p className="hint" data-testid="voice-offline" data-ready={ready ? '1' : '0'} data-state={state}>
+    {state === 'done' ? '✅ 小班录音已下载，断网也能听' : state === 'running' ? <>⏳ 小班录音正在下载…已下载 <span data-testid="voice-offline-pct">{pct}%</span>（请保持联网）</> : state === 'failed' ? <>⚠️ 小班录音还差一点没下载完（已下载 <span data-testid="voice-offline-pct">{pct}%</span>），联网后会自动补全</> : '小班录音：有小班档案时，联网后会自动下载'}
+    {!ready && state !== 'running' && <> <button className="chip" data-testid="voice-offline-dl" disabled={busy} onClick={() => { setBusy(true); void cacheVoiceForOffline().finally(() => setBusy(false)); }}>{state === 'failed' ? '⟳ 现在重试' : '⬇ 现在下载（约 4.5MB）'}</button></>}</p>;
 }
 function PrefetchAnim() {
   const [p, setP] = useS('');

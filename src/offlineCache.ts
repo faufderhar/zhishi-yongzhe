@@ -66,7 +66,8 @@ export async function cacheForOffline(needs: Need[]) {
    （约 500 个 / 4.5 MB；不进 SW 安装预缓存，避免装 SW 时一次拉太多、拖慢首屏）。开始前等一次空闲，之后 4 路并发，已缓存的跳过。
    进度写 localStorage「zy-offline-voice」，家长页显示「小班离线录音 n/N」，也可手动点「下载离线录音」。 */
 const VKEY = 'zy-offline-voice';
-export interface VoiceStatus { done: number; total: number; failed: number; at: number }
+/** ok（r15.4.2）：真正在缓存里的段数（已下载 + 之前就有）；state：running 下载中 / done 全部好了 / failed 有没下成功的（会自动重试）；retryAt：下次自动重试时间 */
+export interface VoiceStatus { done: number; total: number; failed: number; at: number; ok?: number; state?: 'running' | 'done' | 'failed'; retryAt?: number }
 export const voiceStatus = (): VoiceStatus | null => { try { return JSON.parse(localStorage.getItem(VKEY) || 'null'); } catch { return null; } };
 const vListeners = new Set<(s: VoiceStatus) => void>();
 export const onVoiceStatus = (f: (s: VoiceStatus) => void) => { vListeners.add(f); return () => { vListeners.delete(f); }; };
@@ -74,19 +75,31 @@ const vSave = (s: VoiceStatus) => { try { localStorage.setItem(VKEY, JSON.string
 /** manifest items → 去重后的文件列表（值可以是文件名或分段文件名数组） */
 export const voiceFiles = (items: Record<string, string | string[]> | undefined) => [...new Set(Object.values(items ?? {}).flatMap(v => Array.isArray(v) ? v : [v]).filter(f => typeof f === 'string' && /\.(mp3|m4a)$/.test(f)))];
 let vRunning = false;
+/* r15.4.2 技术QA P3-4：没下成功的自动重试——退避 10 秒 → 30 秒 → 1.5 分钟 → 5 分钟（之后每 5 分钟）；联网事件也会立刻重试（App 里 online 监听） */
+export const VOICE_RETRY_MS = [10e3, 30e3, 90e3, 300e3];
+let vRetryN = 0, vRetryT: ReturnType<typeof setTimeout> | null = null;
+export const voiceRetryDelay = (n: number) => VOICE_RETRY_MS[Math.min(n, VOICE_RETRY_MS.length - 1)];
+function scheduleVoiceRetry(s: VoiceStatus) {
+  if (vRetryT) { clearTimeout(vRetryT); vRetryT = null; }
+  if (s.failed === 0) { vRetryN = 0; return s; }
+  const d = voiceRetryDelay(vRetryN++); vRetryT = setTimeout(() => { vRetryT = null; void cacheVoiceForOffline().catch(() => {}); }, d);
+  return { ...s, retryAt: Date.now() + d };
+}
 export async function cacheVoiceForOffline(): Promise<VoiceStatus | null> {
-  if (vRunning || typeof caches === 'undefined' || !navigator.onLine) return null; vRunning = true;
+  if (vRunning || typeof caches === 'undefined') return null;
+  if (!navigator.onLine) { const p = voiceStatus(); if (p && p.state === 'running') vSave({ ...p, state: 'failed', failed: Math.max(1, p.total - (p.ok ?? 0)) }); return null; }
+  vRunning = true;
   try {
     const base = new URL('voice/', document.baseURI).href;
     const man = await fetch(base + 'manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({})) as { items?: Record<string, string | string[]> };
     const files = voiceFiles(man.items); const c = await caches.open('zy-voice');
-    let done = 0, failed = 0; const total = files.length; const st = () => ({ done, total, failed, at: Date.now() });
+    let done = 0, failed = 0, ok = 0; const total = files.length; const st = (): VoiceStatus => ({ done, total, failed, ok, at: Date.now(), state: done < total ? 'running' : failed ? 'failed' : 'done' });
     if (!total) return null;
-    await idle(); let i = 0;   // 只在开始时等一次空闲：每个文件都等空闲时，动画页面上 500 个文件要好几分钟
+    vSave(st()); await idle(); let i = 0;   // 只在开始时等一次空闲：每个文件都等空闲时，动画页面上 500 个文件要好几分钟
     const worker = async () => { while (i < files.length) { const f = files[i++]; const url = base + f;
-      try { if (!(await c.match(url))) { if (!navigator.onLine) { failed++; done++; continue; } const r = await fetch(url); if (r.ok && r.status === 200) await c.put(url, r); else failed++; } } catch { failed++; }
-      done++; if (done % 20 === 0) vSave(st()); } };
+      try { if (await c.match(url)) ok++; else { if (!navigator.onLine) { failed++; done++; continue; } const r = await fetch(url); if (r.ok && r.status === 200) { await c.put(url, r); ok++; } else failed++; } } catch { failed++; }
+      done++; if (done % 10 === 0) vSave(st()); } };
     await Promise.all([worker(), worker(), worker(), worker()]);
-    const s = st(); vSave(s); return s;
+    const s = scheduleVoiceRetry(st()); vSave(s); return s;
   } finally { vRunning = false; }
 }

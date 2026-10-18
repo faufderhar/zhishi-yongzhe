@@ -30,7 +30,7 @@ export const audioState = () => ({ ctx: sfxCtx?.state ?? 'none', warmed, unlocke
 /** r15.4：朗读出问题时通知界面（没有中文语音 / 被浏览器拦了），不再静悄悄失败 */
 /* r15.4：每种问题本次打开只提示一次（不每题弹一次盖住题目）；提示条几秒后自己收起（App） */
 const told = new Set<string>();
-const notify = (kind: 'novoice' | 'blocked' | 'unavailable') => { if (told.has(kind)) return; told.add(kind); try { window.dispatchEvent(new CustomEvent('zy-tts-issue', { detail: kind })); } catch { /* */ } };
+const notify = (kind: 'novoice' | 'blocked' | 'unavailable' | 'missing') => { if (told.has(kind)) return; told.add(kind); try { window.dispatchEvent(new CustomEvent('zy-tts-issue', { detail: kind })); } catch { /* */ } };
 let noVoiceTold = false;
 export const ttsSupported = () => !!synth;
 /** 家长页「音效」「朗读」开关 + 音量（技术QA P3-4） */
@@ -94,6 +94,7 @@ const urlKey = new Map<string, string>();
 const alog = (ev: string, url: string, dur?: number) => { aLog?.push({ ev, key: urlKey.get(url) ?? '', url: url.split('/').pop() ?? url, t: performance.now(), state: sfxCtx?.state ?? 'none', dur }); };
 const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((window as unknown as { __zyRecLog?: { url: string; t: number; dur: number }[] }).__zyRecLog = []) : null;
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
+let recHad = false;
 export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
   const it = (await voiceManifest()).items ?? {};
   if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
@@ -101,6 +102,7 @@ export async function playRecorded(keys: string[], strict = false): Promise<bool
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
     fs.forEach(f => { if (aLog) urlKey.set(vbase() + 'voice/' + f, k); }); fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
   if (!steps.length) return false;
+  recHad = true;   // r15.4.2：有录音只是没放出来（多半是还没下载、又断网）→ 提示「联网后自动补全」而不是「安装语音引擎」
   const my = ++recSeq; stopRec(); speakingFlag = true;
   steps.forEach(st => { void loadBuf(st.url); });   // 先并行取 / 解码，后面按顺序播
   try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; const ok = await playOne(steps[i].url, my); if (my !== recSeq) return true; /* 被下一句打断不算失败 */ if (!ok && i === 0) return false; } return true; }
@@ -134,7 +136,7 @@ export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: str
   if (prioBusy && !o.prio) { prioPending = () => speak(text, lang, o); return; }
   const myPrio = o.prio ? ++prioSeq : 0; if (o.prio) { prioBusy = true; prioPending = null; setTimeout(() => prioDone(myPrio), 8000); }   // 兜底：最多挡 8 秒
   const endPrio = () => { if (myPrio) prioDone(myPrio); };
-  const fallback = () => { void (o.alt ? playRecorded(keysFor(text, o), true).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id)).then(ok => { endPrio(); if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
+  const fallback = () => { recHad = false; void (o.alt ? playRecorded(keysFor(text, o), true).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id)).then(ok => { endPrio(); if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(recHad ? 'missing' : ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
   if (!canSystem(lang)) { fallback(); return; }
   synth!.cancel();
   const u = new SpeechSynthesisUtterance(speakable(text));
