@@ -73,13 +73,13 @@ describe('r15.4.1 加时用完 → 改上限 → 取消加时', () => {
     // 家长把上限改回 15，取消加时
     // 不改上限直接取消：两次加时都用完了，什么都不取消；收尾 3:00 单独显示
     const c5 = cB(u, D, 300); expect(c5[D].bonus).toBe(1200); const s5 = sU(c5[D].used, 300 + 1200, c5[D].wrap); expect(`已用 ${fm(s5.play)} + 收尾 ${fm(s5.wrap)}`).toBe('已用 25:00 + 收尾 3:00');
-    const L = 15 * 60; expect(bU(u[D], L)).toBe(780);   // 按家长改后的 15 分钟上限算，加时用掉 13:00
-    const c = cB(u, D, L); expect(c[D].bonus).toBe(780); expect(c[D].used).toBe(1680);
+    const L = 15 * 60; expect(bU(u[D], L)).toBe(600);   // 按家长改后的 15 分钟上限算，加时用掉 10:00（r15.4.2：最后那段刚走完的收尾 3:00 不算加时）
+    const c = cB(u, D, L); expect(c[D].bonus).toBe(600); expect(c[D].used).toBe(1680);
     const sp = sU(c[D].used, L + c[D].bonus, c[D].wrap);
-    expect(sp.wrap).toBeLessThanOrEqual(180); expect(`已用 ${fm(sp.play)} · 加时已用 ${fm(bU(c[D], L))}`).toBe('已用 28:00 · 加时已用 13:00'); expect(sp.over).toBe(0);
+    expect(sp.wrap).toBeLessThanOrEqual(180); expect(`已用 ${fm(sp.play)} · 加时已用 ${fm(bU(c[D], L))}`).toBe('已用 25:00 · 加时已用 10:00'); expect(sp.over).toBe(0);
     expect(sU(u[D].used, L, u[D].wrap).wrap).toBe(180);   // 旧做法（整笔清零）现在也最多显示收尾 3:00，不再是 13:00 / 23:00
     // 再取消一次：没有可取消的了
-    expect(cB(c, D, L)[D].bonus).toBe(780);
+    expect(cB(c, D, L)[D].bonus).toBe(600);
   });
   it('没用的加时会取消：+10 只玩了 2 分钟就取消 → 剩下的 8 分钟没了', () => {
     let u: UT = {}; u = play(u, 5, 300, false); u = aB(u, D, 600); u = play(u, 5, 120, false);

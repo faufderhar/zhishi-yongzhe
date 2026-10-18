@@ -39,7 +39,7 @@ import { Modal, PinPad, fmtMin } from './common';
 import { GRADE_LABEL, loadBank, countStatuses, type Bank, type GradeKey } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
-import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, splitUsed, fmtMS, type Usage } from '../game/playtime';
+import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, cancelPreview, splitUsed, fmtMS, type Usage } from '../game/playtime';
 import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
 import { questionsOfGrade, type BankState } from '../bankStore';
@@ -311,10 +311,11 @@ function ProfilesTab({ profiles, setProfiles, bank, skills, usage, setUsage }: P
     </div>
   );
 }
-function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void; day?: { used: number; bonus: number }; onCancelBonus?: (limitSec: number) => void }) {
+function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void; day?: { used: number; bonus: number; wrap?: number }; onCancelBonus?: (limitSec: number) => void }) {
   const bonusSec = day?.bonus ?? 0;
   // r10：未保存的表单草稿（超时退出后再进来还在）
   const DK = 'zy-draft-profile';
+  const [askCancel, setAskCancel] = useState(false);   // r15.4.2 较真家长：取消加时先确认
   const [f, setF0] = useState<Profile>(() => { try { const d = JSON.parse(sessionStorage.getItem(DK) ?? 'null'); if (d && d.id === p.id) return d; } catch { /* */ } return p; });
   const setF = (x: Profile) => { setF0(x); try { sessionStorage.setItem(DK, JSON.stringify(x)); } catch { /* */ } };
   const clearDraft = () => { try { sessionStorage.removeItem(DK); } catch { /* */ } };
@@ -343,8 +344,10 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
             <b data-testid={`limit-${k}-val`}>{f.unlimited?.[k] ? '不限' : Math.max(MIN_LIMIT, f.limit[k])}</b>
             <button className="chip" data-testid={`limit-${k}-plus`} disabled={!!f.unlimited?.[k]} onClick={() => step(k, 5)}>＋5</button>
             <label className={`chip unl-box ${f.unlimited?.[k] ? 'checked' : ''}`}><input type="checkbox" data-testid={`limit-${k}-unl`} checked={!!f.unlimited?.[k]} onChange={e => setUnl(k, e.target.checked)} /> 不限时长</label></span>)}</div>
-        {bonusSec > 0 && (() => { /* r15.4.1 较真家长：按表单里现在的上限算加时用掉多少；取消只取消没用的部分 */ const lim = limitMinutes(effLimit(f), new Date()) * 60; const bu = bonusUsedSec(day, lim); const left = bonusSec - bu;
-          return <p className="hint" data-testid="bonus-note">今天的临时加时 {fmtMS(bonusSec)}{bu > 0 ? <>，<span data-testid="bonus-note-used">加时已用 {fmtMS(bu)}</span></> : null}（只在今天有效，会加在每日上限之外）。{left > 0 ? <button className="chip" data-testid="bonus-cancel" onClick={() => onCancelBonus?.(lim)}>取消今天没用的加时 {fmtMS(left)}</button> : <span data-testid="bonus-all-used">已经全部用掉，没有可以取消的。</span>}</p>; })()}
+        {bonusSec > 0 && (() => { /* r15.4.1 较真家长：按表单里现在的上限算加时用掉多少；取消只取消没用的部分 */ const lim = limitMinutes(effLimit(f), new Date()) * 60; const bu = bonusUsedSec(day, lim); const left = bonusSec - bu; const pv = cancelPreview(day, lim);
+          return <><p className="hint" data-testid="bonus-note">今天的临时加时 {fmtMS(bonusSec)}{bu > 0 ? <>，<span data-testid="bonus-note-used">加时已用 {fmtMS(bu)}</span><span data-testid="bonus-note-basis">（按现在的每日上限计算）</span></> : null}（只在今天有效，会加在每日上限之外）。{left > 0 ? <button className="chip" data-testid="bonus-cancel" onClick={() => setAskCancel(true)}>取消今天没用的加时 {fmtMS(left)}</button> : <span data-testid="bonus-all-used">已经全部用掉，没有可以取消的。</span>}</p>
+            {askCancel && left > 0 && <div className="p-card warn-box" data-testid="bonus-cancel-confirm"><b>取消没用的加时？</b><p className="hint" data-testid="bonus-cancel-text">会取消 {fmtMS(left)} 临时加时。取消后今天还能玩 <b data-testid="bonus-cancel-left">{Number.isFinite(pv.leftAfter) ? fmtMS(pv.leftAfter) : '不限'}</b>{Number.isFinite(pv.leftAfter) && pv.leftAfter >= 60 ? `（约 ${Math.floor(pv.leftAfter / 60)} 分钟）` : ''}（按这里现在的每日上限计算）。</p>
+              <div className="row gap16"><button className="btn" data-testid="bonus-cancel-ok" onClick={() => { setAskCancel(false); onCancelBonus?.(lim); }}>确定取消</button><button className="btn ghost" data-testid="bonus-cancel-no" onClick={() => setAskCancel(false)}>算了</button></div></div>}</>; })()}
         <div className="row gap16 wrap"><button className="chip" data-testid="reset-tips" disabled={!f.tips || !Object.keys(f.tips).length} onClick={() => setF({ ...f, tips: {} })}>💡 重置提示（首次提示再弹一次）</button></div>
         <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes)} onClick={() => { clearDraft(); onSave(f); }}>保存</button></div>
       </div>
@@ -447,6 +450,10 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
 
 function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock, resetTiming, remainingOf }: ParentProps) {
   const today = dayStr();
+  /* r15.4.2 较真家长：「取消没用的」先弹确认（说清取消后今天还能玩多久）；按钮上的时间每秒按最新记录重算 */
+  const [cc, setCc] = useState<{ pid: string; lim: number } | null>(null);
+  const [, setTick] = useState(0); useEffect(() => { const t = setInterval(() => setTick(x => x + 1), 1000); return () => clearInterval(t); }, []);
+  const ccInfo = cc ? cancelPreview((usage[cc.pid] ?? {})[today], cc.lim) : null; const ccName = cc ? profiles.find(x => x.id === cc.pid)?.name ?? '' : '';
   return (
     <div className="col gap16">
       {clockLocked && <div className="p-card wide"><b>⏰ 时间锁定中</b><p className="hint">检测到平板时间被调回，今天按「已用完」处理。确认时间正确后可解除。</p><button className="btn" data-testid="unlock-clock" onClick={unlockClock}>解除时间锁定</button></div>}
@@ -454,9 +461,12 @@ function TimeTab({ profiles, usage, setUsage, clockLocked, unlockClock, resetTim
         <tbody>{profiles.map(p => { const u = usage[p.id] ?? {}; const r = u[today] ?? { used: 0, bonus: 0 };
           return <tr key={p.id}><td>{p.avatar} {p.name}</td><td>{(() => { const m = limitMinutes(effLimit(p), new Date()); const base = m ? m * 60 + r.bonus : Infinity; const sp = splitUsed(r.used, base, r.wrap); const bu = bonusUsedSec(r, m * 60);
             /* r15.3 较真家长 / 小萌新：已用和收尾分开显示；上限（含加时）、剩余都精确到秒 */
-            return <><span data-testid={'used-' + p.id}>已用 {fmtMS(sp.play)}{sp.wrap > 0 ? <> + 收尾 {fmtMS(sp.wrap)}</> : null}</span>{bu > 0 ? <small className="hint" data-testid={'bonus-used-' + p.id}>（其中加时已用 {fmtMS(bu)}）</small> : null}{sp.over > 0 ? <small className="hint" data-testid={'over-' + p.id}>（比现在的上限多玩了 {fmtMS(sp.over)}：上限是后来改小的）</small> : null} <small className="hint" data-testid={'idle-note-' + p.id}>（2 分钟没操作会暂停计时）</small>
+            return <><span data-testid={'used-' + p.id}>已用 {fmtMS(sp.play)}{sp.wrap > 0 ? <> + 收尾 {fmtMS(sp.wrap)}</> : null}</span>{bu > 0 ? <small className="hint" data-testid={'bonus-used-' + p.id}>（其中加时已用 {fmtMS(bu)}，<span data-testid={'bonus-basis-' + p.id}>按现在的每日上限计算</span>）</small> : null}{sp.over > 0 ? <small className="hint" data-testid={'over-' + p.id}>（比现在的上限多玩了 {fmtMS(sp.over)}：上限是后来改小的）</small> : null} <small className="hint" data-testid={'idle-note-' + p.id}>（2 分钟没操作会暂停计时）</small>
               {m ? <div><small data-testid={'limit-today-' + p.id}>今天上限 {fmtMS(base)}{r.bonus > 0 ? `（含加时 ${fmtMS(r.bonus)}）` : ''}</small>{sp.wrap > 0 ? <small className="hint" data-testid={'wrap-note-' + p.id}> · 收尾最多 3:00，不算进上限</small> : null}</div> : null}</>; })()}</td><td data-testid={'left-' + p.id} data-left-sec={(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? v : -1; })()}>{(() => { const v = remainingOf ? remainingOf(p.id) : remainingSec(effLimit(p), u, today); return Number.isFinite(v) ? fmtMS(v) : fmtMin(v); })()}{clockLocked ? '（时间锁定中）' : ''}</td><td data-testid={'limit-cfg-' + p.id}>{effLimit(p).weekday ? fmtMS(effLimit(p).weekday * 60) : '不限'} / {effLimit(p).weekend ? fmtMS(effLimit(p).weekend * 60) : '不限'}</td>
-            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => { if (clockLocked) unlockClock?.(); setUsage(p.id, addBonus(u, today, 600)); }}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? splitUsed(r.used, m * 60 + r.bonus, r.wrap).wrap : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {fmtMS(over)}（关卡收尾时间，最多 3 分钟），加的时间先抵掉超出的部分</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && (() => { const m = limitMinutes(effLimit(p), new Date()); const bu = bonusUsedSec(r, m * 60); return <> <small data-testid={'bonus-now-' + p.id}>今天已加 {r.bonus % 60 ? fmtMS(r.bonus) : `${r.bonus / 60} 分钟`}{bu > 0 ? `，已用 ${fmtMS(bu)}` : ''}</small> {r.bonus - bu > 0 ? <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setUsage(p.id, cancelBonus(u, today, m * 60))}>取消没用的 {fmtMS(r.bonus - bu)}</button> : <small className="hint">（已全部用掉，不能取消）</small>}</>; })()}</span></td></tr>; })}</tbody></table>
+            <td><button className="chip" data-testid={'bonus-' + p.id} onClick={() => { if (clockLocked) unlockClock?.(); setUsage(p.id, addBonus(u, today, 600)); }}>＋10 分钟</button>{(() => { const m = limitMinutes(effLimit(p), new Date()); const over = m ? splitUsed(r.used, m * 60 + r.bonus, r.wrap).wrap : 0; return over > 0 ? <small className="warn" data-testid={'bonus-over-' + p.id}> 已超出 {fmtMS(over)}（关卡收尾时间，最多 3 分钟），加的时间先抵掉超出的部分</small> : null; })()}<span className="bonus-slot">{r.bonus > 0 && (() => { const m = limitMinutes(effLimit(p), new Date()); const bu = bonusUsedSec(r, m * 60); return <> <small data-testid={'bonus-now-' + p.id}>今天已加 {r.bonus % 60 ? fmtMS(r.bonus) : `${r.bonus / 60} 分钟`}{bu > 0 ? `，已用 ${fmtMS(bu)}（按现在的每日上限计算）` : ''}</small> {r.bonus - bu > 0 ? <button className="chip" data-testid={'bonus-cancel-' + p.id} onClick={() => setCc({ pid: p.id, lim: m * 60 })}>取消没用的 {fmtMS(r.bonus - bu)}</button> : <small className="hint">（已全部用掉，不能取消）</small>}</>; })()}</span></td></tr>; })}</tbody></table>
+      {cc && ccInfo && <Modal onClose={() => setCc(null)}><div className="col gap16" data-testid="bonus-cancel-confirm"><h2>取消{ccName}没用的加时？</h2>
+        <p data-testid="bonus-cancel-text">会取消 {fmtMS(ccInfo.cancel)} 临时加时（已用的部分按现在的每日上限计算，会留下）。<br />取消后{ccName}今天还能玩 <b data-testid="bonus-cancel-left">{Number.isFinite(ccInfo.leftAfter) ? fmtMS(ccInfo.leftAfter) : '不限'}</b>{Number.isFinite(ccInfo.leftAfter) && ccInfo.leftAfter >= 60 ? `（约 ${Math.floor(ccInfo.leftAfter / 60)} 分钟）` : ''}。</p>
+        <div className="row gap16"><button className="btn" data-testid="bonus-cancel-ok" onClick={() => { const c = cc; setCc(null); setUsage(c.pid, cancelBonus(usage[c.pid] ?? {}, today, c.lim)); }}>确定取消</button><button className="btn ghost" data-testid="bonus-cancel-no" onClick={() => setCc(null)}>算了</button></div></div></Modal>}
       {resetTiming && <div className="p-card wide" data-testid="reset-timing-box"><b>计时出错了？</b><p className="hint">把今天所有孩子的已玩时长和临时加时清零，并把时间基准重置为现在（解除时间锁定，删掉「今天之后」的时长记录）。</p>
         <button className="btn ghost" data-testid="reset-timing" onClick={() => { if (confirm('把今天的计时清零并重置时间基准？')) resetTiming(); }}>重置今天的计时</button></div>}
       <div className="p-card"><b>动画</b> <ReduceToggle /><p className="hint">系统开启「减弱动态效果」时也会自动减少动画。</p><PrefetchAnim /><p className="hint">动画素材平时在第一次进入战斗时下载；联网空闲时也会按孩子的年级和学科在后台缓存。</p><OfflineReady /><VoiceOffline /></div>

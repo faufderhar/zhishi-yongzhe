@@ -56,16 +56,47 @@ if (on('T')) {
   await toParent(); await pg.click('[data-testid=ptab-time]'); await w(300);
   const before = await pg.textContent(`[data-testid=used-${pid}]`); console.log('  取消前家长页：' + before + ' / ' + await pg.textContent(`[data-testid=bonus-now-${pid}]`));
   await setLimit(15); const note = await pg.textContent('[data-testid=bonus-note]'); console.log('  编辑页：' + note);
-  ok(/加时已用 13:00/.test(note) && await pg.isVisible('[data-testid=bonus-cancel]'), `改成 15 分钟后编辑页显示「加时已用 13:00」并可以取消没用的部分（${note}）`);
-  await pg.click('[data-testid=bonus-cancel]'); await w(300); await save();
+  // r15.4.2：最后那段刚走完的收尾 3:00 不算加时已用（技术QA P3-6）→ 15 分钟上限下加时已用 10:00；旁边注明「按现在的每日上限计算」
+  ok(/加时已用 10:00/.test(note) && /按现在的每日上限计算/.test(note) && await pg.isVisible('[data-testid=bonus-cancel]'), `改成 15 分钟后编辑页显示「加时已用 10:00（按现在的每日上限计算）」并可以取消没用的部分（${note}）`);
+  // r15.4.2 较真家长：取消先确认，写明取消后今天还能玩多久；点「算了」不生效
+  await pg.click('[data-testid=bonus-cancel]'); await w(300);
+  const ct = await pg.textContent('[data-testid=bonus-cancel-confirm]').catch(() => ''); ok(/会取消 10:00/.test(ct) && /取消后今天还能玩 0:00/.test(ct), `编辑页取消前弹确认：取消 10:00、取消后还能玩 0:00（${ct.replace(/\s+/g, ' ')}）`);
+  await pg.click('[data-testid=bonus-cancel-no]'); await w(300); ok((await usage()).bonus === 1200 && !(await pg.isVisible('[data-testid=bonus-cancel-confirm]')), '点「算了」不取消');
+  await pg.click('[data-testid=bonus-cancel]'); await w(300); await pg.click('[data-testid=bonus-cancel-ok]'); await w(300); await save();
   await pg.click('[data-testid=ptab-time]'); await w(400);
   const used = await pg.textContent(`[data-testid=used-${pid}]`); const bu = await pg.textContent(`[data-testid=bonus-used-${pid}]`).catch(() => ''); const row = await pg.textContent(`tr:has([data-testid=used-${pid}])`);
   const wrapM = used.match(/收尾 (\d+):(\d+)/); const wrapS = wrapM ? Number(wrapM[1]) * 60 + Number(wrapM[2]) : 0;
-  ok(wrapS <= 180, `取消后家长页收尾 ≤ 3:00（「${used}」）`); ok(/加时已用 13:00/.test(bu), `取消后单独显示「加时已用 13:00」（${bu}）`);
+  ok(wrapS <= 180, `取消后家长页收尾 ≤ 3:00（「${used}」）`); ok(/加时已用 10:00/.test(bu) && /按现在的每日上限计算/.test(bu), `取消后单独显示「加时已用 10:00，按现在的每日上限计算」（${bu}）`);
   ok(!/收尾 (2[0-9]|1[0-9]|[4-9]):/.test(row), `整行没有超过 3 分钟的收尾（${row.replace(/\s+/g, ' ').slice(0, 160)}）`);
   ok(Number(await pg.getAttribute(`[data-testid=left-${pid}]`, 'data-left-sec')) === 0, '取消后今天剩余 0（没有因为取消多出时间）');
-  const u = await usage(); ok(u.used === 1680 && u.bonus === 780, `记录：用时 ${u.used}（1680）、加时留下已用的 ${u.bonus}（780）、收尾记录 ${u.wrap}`);
+  const u = await usage(); ok(u.used === 1680 && u.bonus === 600, `记录：用时 ${u.used}（1680）、加时留下已用的 ${u.bonus}（600）、收尾记录 ${u.wrap}`);
   await pg.screenshot({ path: OUT + 'time-after-cancel.png', fullPage: true });
+  await S.ctx.close();
+}
+/* r15.4.2 技术QA P3-6：收尾 3:00 走完 → +10 → 立刻取消（时长页确认框）：回到「已用 5:00 + 收尾 3:00」，没有「加时已用」；反复 3 次用时不涨（以前每次 +1 秒） */
+if (on('B')) {
+  const S = await session('K1', { clock: true, noSynth: true }); const { pg, w, pid, usage, toParent, leaveParent, toMap } = S;
+  await toParent(); await pg.click('[data-testid=ptab-profiles]'); await w(300); await pg.click(`[data-testid=edit-${pid}]`); await w(400);
+  for (const k of ['weekday', 'weekend']) for (let i = 0; i < 8; i++) { const v = Number((await pg.textContent(`[data-testid=limit-${k}-val]`).catch(() => '')).match(/\d+/)?.[0]); if (!v || v === 5) break; await pg.click(`[data-testid=limit-${k}-minus]`); await w(150); }
+  await pg.click('[data-testid=profile-save]'); await w(500); await leaveParent();
+  await toMap(); await pg.click('[data-testid=level-1]'); await w(1500); for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-next], [data-testid=tutorial-skip]'); i++) { await pg.click('[data-testid=tutorial-skip], [data-testid=tutorial-next]').catch(() => {}); await w(300); }
+  for (let i = 0; i < 80 && !(await pg.isVisible('[data-testid=timeup], [data-testid=result-title]')); i++) { await pg.keyboard.press('Shift'); await w(20000); }
+  await w(2500); const u0 = await usage(); ok(u0?.used === 480 && u0?.wrap === 180, `5:00 + 收尾 3:00（${JSON.stringify(u0)}）`);
+  await toParent(); await pg.click('[data-testid=ptab-time]'); await w(300);
+  for (let n = 1; n <= 3; n++) {
+    await pg.click(`[data-testid=bonus-${pid}]`); await w(300);
+    const lab = await pg.textContent(`[data-testid=bonus-cancel-${pid}]`); ok(/取消没用的 10:00/.test(lab), `第 ${n} 次 +10：按钮「${lab}」（收尾不算用掉的加时）`);
+    await pg.click(`[data-testid=bonus-cancel-${pid}]`); await w(300);
+    const ct = (await pg.textContent('[data-testid=bonus-cancel-confirm]').catch(() => '')).replace(/\s+/g, ' '); ok(/会取消 10:00/.test(ct) && /今天还能玩 0:00/.test(ct), `确认框：${ct.slice(0, 90)}`);
+    if (n === 1) await pg.screenshot({ path: OUT + 'bonus-cancel-confirm.png' });
+    await pg.click('[data-testid=bonus-cancel-ok]'); await w(1500);
+    const used = await pg.textContent(`[data-testid=used-${pid}]`); const row = (await pg.textContent(`tr:has([data-testid=used-${pid}])`)).replace(/\s+/g, ' '); const u = await usage();
+    ok(/已用 5:00 \+ 收尾 3:00/.test(used) && !/加时已用/.test(row) && !/今天已加/.test(row), `第 ${n} 次立刻取消后回到「${used}」，没有「加时已用 / 今天已加」`);
+    ok(u.used === 480 && u.bonus === 0, `第 ${n} 次取消后记录 used ${u.used}（480，不 +1 秒）bonus ${u.bonus}（0）`);
+    ok(Number(await pg.getAttribute(`[data-testid=left-${pid}]`, 'data-left-sec')) === 0, `第 ${n} 次取消后剩余 0`);
+    if (n === 2) { await leaveParent(); await toMap(); await w(3000); await toParent(); await pg.click('[data-testid=ptab-time]'); await w(300); const u2 = await usage(); ok(u2.used === 480, `回地图再回来用时不涨（${u2.used}）`); }
+  }
+  await pg.screenshot({ path: OUT + 'bonus-cancel-after.png', fullPage: true });
   await S.ctx.close();
 }
 if (on('P')) {
