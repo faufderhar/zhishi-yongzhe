@@ -58,5 +58,8 @@ describe('r15.4.2 #1 收尾提示 prio：同一刻的表扬 / 下一题题干不
 });
 describe('r15.4.2 #3 / #4', () => {
   it('小班普通结算页不显示「这次…没有超过最佳」', () => { expect(rd('src/ui/Screens.tsx')).toMatch(/cfg\.band !== 'K' && !capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">/); });
-  it('伙伴说话气泡显示时不叠「在说话」提示', () => { expect(rd('src/ui/Battle.tsx')).toMatch(/\{busy && !say && <div key=\{nudge\} className=\{`kbusy/); });
+  it('伙伴说话气泡显示时不叠「在说话」提示；技能横幅在上、提示排到下面；说话气泡出现时横幅收起', () => {
+    expect(rd('src/ui/Battle.tsx')).toMatch(/\{busy && !say && <div key=\{nudge\} className=\{`kbusy/);
+    const css = rd('src/app.css'); expect(css).toMatch(/\.kstage:has\(>\.skill-banner\.kinder\)>\.kbusy\{top:96px\}/); expect(css).toMatch(/\.kstage:has\(\.ksay\)>\.skill-banner\.kinder\{opacity:0!important/);
+  });
 });

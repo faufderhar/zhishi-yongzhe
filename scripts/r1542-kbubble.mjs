@@ -23,13 +23,13 @@ for (const vp of VPS) {
       for (let t = 0; t < 70; t++) { if (t === 3) await pg.click('.kopt >> nth=0', { force: true }).catch(() => {});   // 锁定时再点一下：提示 / 气泡轻跳
         const m = await pg.evaluate(() => { const R = s => { const e = document.querySelector(s); if (!e) return null; const r = e.getBoundingClientRect(); return r.width > 2 && +getComputedStyle(e).opacity > 0.05 ? r : null; }; const k = R('[data-testid=kbusy]'), bub = R('.kbubble'), say = R('[data-testid=ksay]'), ban = R('[data-testid=skill-banner]');
           const inter = (x, y) => x && y ? Math.max(0, Math.min(x.right, y.right) - Math.max(x.left, y.left)) * Math.max(0, Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top)) : 0;
-          return { k: !!k, s: !!say, ban: !!ban, ovBan: inter(k, ban) + inter(say, ban), ov: inter(k, say), ovB: inter(k, bub) + inter(say, bub) * 0, sayTxt: say ? document.querySelector('[data-testid=ksay]').textContent : '', res: !!document.querySelector('[data-testid=kinder-sub]') }; });
-        if (m.res) break; r.n++; r.sawK ||= m.k; r.sawS ||= m.s; if (m.k && m.s) r.both++; if (m.ov > r.ov) { r.ov = m.ov; r.worst = m.sayTxt; } r.ovB = Math.max(r.ovB, m.ovB); r.ovBan = Math.max(r.ovBan, m.ovBan); r.sawBan ||= m.ban;
+          return { k: !!k, s: !!say, ban: !!ban, ovBan: inter(k, ban) + inter(say, ban), banWho: (inter(k, ban) ? 'kbusy' : '') + (inter(say, ban) ? 'ksay' : ''), rects: JSON.stringify([k, say, ban].map(x => x && [x.left, x.top, x.right, x.bottom].map(Math.round))), ov: inter(k, say), ovB: inter(k, bub) + inter(say, bub) * 0, sayTxt: say ? document.querySelector('[data-testid=ksay]').textContent : '', res: !!document.querySelector('[data-testid=kinder-sub]') }; });
+        if (m.res) break; r.n++; r.sawK ||= m.k; r.sawS ||= m.s; if (m.k && m.s) r.both++; if (m.ov > r.ov) { r.ov = m.ov; r.worst = m.sayTxt; } r.ovB = Math.max(r.ovB, m.ovB); if (m.ovBan > r.ovBan) r.banDbg = `${m.banWho} 提示/气泡/横幅 ${m.rects}`; r.ovBan = Math.max(r.ovBan, m.ovBan); r.sawBan ||= m.ban;
         if (!shot && m.s && /好朋友/.test(m.sayTxt)) { shot = true; await pg.screenshot({ path: `${OUT}L4-Q3-friend-${vp}.png` }); }
         await w(100); } }
     else await pg.waitForSelector('[data-testid=kbusy]', { state: 'detached', timeout: 8000 }).catch(() => {});
   }
-  ok(r && r.sawK && r.sawS && r.ov === 0 && r.ovB === 0 && r.ovBan === 0, `${vp} 第 4 关第 3 题答对后 ${r?.n} 次采样：「在说话」出现 ${r?.sawK}、说话气泡出现 ${r?.sawS}、同时出现 ${r?.both} 次；两者最大重叠 ${Math.round(r?.ov ?? -1)} px²${r?.worst ? `（气泡「${r.worst}」）` : ''}，提示压题干 ${Math.round(r?.ovB ?? -1)} px²；技能横幅出现 ${r?.sawBan}，和提示 / 气泡重叠 ${Math.round(r?.ovBan ?? -1)} px²`);
+  ok(r && r.sawK && r.sawS && r.ov === 0 && r.ovB === 0 && r.ovBan === 0, `${vp} 第 4 关第 3 题答对后 ${r?.n} 次采样：「在说话」出现 ${r?.sawK}、说话气泡出现 ${r?.sawS}、同时出现 ${r?.both} 次；两者最大重叠 ${Math.round(r?.ov ?? -1)} px²${r?.worst ? `（气泡「${r.worst}」）` : ''}，提示压题干 ${Math.round(r?.ovB ?? -1)} px²；技能横幅出现 ${r?.sawBan}，和提示 / 气泡重叠 ${Math.round(r?.ovBan ?? -1)} px²${r?.banDbg ? `（${r.banDbg}）` : ''}`);
   await ctx.close();
 }
 console.log(bad ? `r1542-kbubble FAIL ${bad}` : 'r1542-kbubble ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

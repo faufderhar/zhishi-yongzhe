@@ -833,5 +833,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @keyframes gp-fade{0%,85%{opacity:1}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){.grace-pop,.gp-card,.gp-yawn,.gp-clock{animation:none}}
 .reduce-motion .grace-pop,.reduce-motion .gp-card,.reduce-motion .gp-yawn,.reduce-motion .gp-clock{animation:none}
-/* r15.4.2 小萌新 #4：技能名横幅（0.6 秒，舞台顶部）出现时，「在说话」提示先让开，不和它叠在一起 */
-.kstage:has(>.skill-banner)>.kbusy{opacity:0}
+/* r15.4.2 小萌新 #4：舞台顶部三样东西排好上下：小班技能名横幅（停 4.5 秒）在最上面，「在说话」提示排到它下面；
+   伙伴说出「小七变成你的好朋友…」这类气泡时横幅先收起（气泡更要紧），「在说话」提示也不显示（Battle.tsx） */
+.kstage:has(>.skill-banner.kinder)>.kbusy{top:96px}
+.kstage:has(.ksay)>.skill-banner.kinder{opacity:0!important;pointer-events:none!important}
