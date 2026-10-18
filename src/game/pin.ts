@@ -24,6 +24,7 @@ export const normAnswer = (s: string) => s.normalize('NFKC').replace(/\s+/g, '')
     关掉 / 刷新期间不扣（无法可信地知道过了多久），重新打开后从剩余时间继续；seenAt 记录最后一次看到的墙钟，用于防回拨（D8）。 */
 export interface LockState { gapUsed?: number; fails: number; level: number; until: number; remain?: number; seenAt?: number; long?: boolean }
 const LK = 'zy.pinLock';
+export const LK_PIN = LK;
 /** r9：找回问题单独计错、单独锁定（以前和密码共用一个倒计时） */
 export const LK_HINT = 'zy.hintLock';
 export const LK_REC = 'zy.recLock';
@@ -62,10 +63,24 @@ export function tickLock(s: LockState, dt: number, now: number): LockState {
   const r = lockLeft(s, now); if (!r) return s.remain === 0 ? s : { ...s, remain: 0, seenAt: now };
   return { ...s, remain: Math.max(0, r - Math.min(2000, Math.max(0, dt))), seenAt: Math.max(s.seenAt ?? 0, now) };
 }
-const parse = (x: unknown): LockState | null => x && typeof x === 'object' && Number.isFinite((x as LockState).until) ? x as LockState : null;
+/* r15.4.2 技术QA P2-1：锁定值一律夹到合法范围——备份恢复 / 手改存储带进来的 1e308 不再把键盘锁死、提示「2.77e+301 小时」，刷新也照样夹。
+   remain ≤ 这种锁最长的时长（家长密码 15 分钟；找回问题 / 恢复码 / 取消框 / 导入 24 小时；长锁 24 小时）；until ∈ [now, now + 最长]（没锁时 0）；
+   seenAt ≤ now；fails 0–4、level 0–99、gapUsed 0–LOCK_GAP_TOTAL_MS */
+export const lockMaxMs = (key: string, long?: boolean) => key === LK && !long ? LOCK_STEPS[LOCK_STEPS.length - 1] : LONG_LOCK_MS;
+const fin = (v: unknown, lo: number, hi: number, d: number) => typeof v === 'number' && Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d;
+export function clampLock(x: unknown, key = LK, now = Date.now()): LockState | null {
+  if (!x || typeof x !== 'object') return null; const s = x as Record<string, unknown>;
+  if (typeof s.until !== 'number' && typeof s.remain !== 'number') return null;
+  const long = s.long === true; const max = lockMaxMs(key, long);
+  const remain = s.remain === undefined ? undefined : fin(s.remain, 0, max, 0);
+  const until0 = fin(s.until, 0, now + max, 0); const until = until0 > 0 ? Math.max(now, until0) : 0;
+  const left = remain ?? Math.max(0, until - now);
+  return { fails: Math.round(fin(s.fails, 0, 4, 0)), level: Math.round(fin(s.level, 0, 99, 0)), until: left > 0 ? Math.min(until || now + left, now + max) : 0, remain: left, seenAt: fin(s.seenAt, 0, now, now), ...(long ? { long: true } : {}), ...(s.gapUsed !== undefined ? { gapUsed: fin(s.gapUsed, 0, LOCK_GAP_TOTAL_MS, 0) } : {}) };
+}
+const parse = (x: unknown, key = LK): LockState | null => clampLock(x, key);
 export async function loadLock(key = LK): Promise<LockState> {
-  let a: LockState | null = null; try { a = parse(JSON.parse(localStorage.getItem(key) ?? 'null')); } catch { /* */ }
-  const b = parse(await getKV(key));
+  let a: LockState | null = null; try { a = parse(JSON.parse(localStorage.getItem(key) ?? 'null'), key); } catch { /* */ }
+  const b = parse(await getKV(key), key);
   const all = [a, b].filter((x): x is LockState => !!x);
   if (!all.length) return { fails: 0, level: 0, until: 0, remain: 0 };
   const now = Date.now();

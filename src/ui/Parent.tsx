@@ -114,7 +114,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       }}>用恢复码重设</button></div>;
   const restoreEntry = <GateRestore />;
   // r11：设好密码后生成 8 位恢复码，只显示这一次
-  const finishSet = async (pin: string, hint?: { q: string; a: string }) => { const c = makeRecoveryCode(); onSetPin(await makePinHash(pin), hint, await makePinHash(c)); markPinSet(); setCode(c); setMode('code'); };
+  const finishSet = async (pin: string, hint?: { q: string; a: string }) => { const c = makeRecoveryCode(); { const z = nextLock(lock, true, Date.now()); setLock(z); await saveLock(z); const zh = nextLock24(hlock, true, Date.now()); setHlock(zh); await saveLock(zh, LK_HINT); }   /* r15.4.2 技术QA P2-1：设了新密码（含恢复码 / 找回问题重设）→ 家长密码锁和找回问题锁清零 */ onSetPin(await makePinHash(pin), hint, await makePinHash(c)); markPinSet(); setCode(c); setMode('code'); };
   const resetBox = <div className="p-card" data-testid="reset-box"><b>没有恢复码？</b><p className="hint" data-testid="reset-box-text">约 3 天后答对找回问题即可重设。等待期间每次打开游戏都会提醒；不是你申请的，输入家长密码就能取消。时长限制照常生效。</p>
     {settings.pinReset && <ResetWhy open testid="reset-rules" />}{settings.pinReset ? <><p data-testid="reset-pending">{settings.pinReset.ready ? '申请已到期：请回答找回问题或输入恢复码来设新密码。两样都没有，只能导入备份文件或清除浏览器数据（会清掉进度），见 ❓ 说明。' : '已申请：约 3 天后到期（规则见上）；到期后还要答对找回问题或输入恢复码。'}</p>{settings.pinReset && <p className="big-rule" data-testid="reset-progress">已等 {Math.min(72, Math.floor(pendingWaitedMs(settings.pinReset) / 3600e3)) /* r15.4：和忘记密码页同一个数（联网申请按网络时间差），以前用本机累计 observed，两处显示会不一样 */} 小时（满 72 小时）<br />已打开 {Math.min(PEND_DAYS, pendingDays(settings.pinReset))}/{PEND_DAYS} 天</p>}</> : <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设密码（约 3 天后到期）</button>}</div>;
   if (mode === 'code') return (
