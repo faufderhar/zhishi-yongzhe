@@ -61,7 +61,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const [canNext, setCanNext] = useState(true);
   const [paused, setPaused] = useState(false);
   const [intentPop, setIntentPop] = useState(false);
-  usePauseOnHide(setPaused);
+  usePauseOnHide(setPaused, paused);
   const [input, setInput] = useState(''); const [multi, setMulti] = useState<string[]>([]); const [picked, setPicked] = useState<string>();
   const [flagged, setFlagged] = useState(false);
   const quitRef = useRef(() => {});

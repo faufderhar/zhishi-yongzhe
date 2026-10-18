@@ -1,6 +1,7 @@
 import { noAdjacent } from '../game/adaptive';
 import { TEST_DOM } from './common';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react';
+import { usePhonePortrait } from './Rotate';
 import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
 import { QImage, CountVisual } from './QImage';
@@ -142,7 +143,10 @@ export function useCountdown(active: boolean, paused: boolean, totalMs: number, 
   }, [active, paused, key]);
   return left;
 }
-export function usePauseOnHide(setPaused: (b: boolean) => void) {
+export function usePauseOnHide(setPaused: (b: boolean) => void, paused?: boolean) {
+  /* r15.4.2 技术QA P1-1：手机竖屏 → 暂停（盖「请把手机横过来」）；横回来时，如果是竖屏引起的暂停就自动继续 */
+  const portrait = usePhonePortrait(); const byRot = useRef(false); const pRef = useRef(paused); pRef.current = paused;
+  useEffect(() => { if (portrait) { if (!pRef.current) { byRot.current = true; setPaused(true); } } else if (byRot.current) { byRot.current = false; setPaused(false); } }, [portrait, setPaused]);
   useEffect(() => {
     const f = () => { if (document.visibilityState === 'hidden') setPaused(true); };
     const b = () => setPaused(true);   // r9：安卓返回键 / 返回手势 = 打开暂停
@@ -232,7 +236,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const wigT = useRef(0);
   const setWig = (k: string | null) => { clearTimeout(wigT.current); if (k === null) { setWig0(null); return; } setWig0(null); requestAnimationFrame(() => setWig0(k)); wigT.current = window.setTimeout(() => setWig0(null), 1000); };   // r9：点错的卡片轻摇（≤2 Hz，0.5 s）+ 伙伴摇头
   const [paused, setPaused] = useState(false);
-  usePauseOnHide(setPaused);
+  usePauseOnHide(setPaused, paused);
   const lock = useRef(false);
   const D = useDirector(true, c, 0.95, false, gskin0 ? { skin: gskin0, soft: true } : undefined);
   useKFit(D.stage);
@@ -402,7 +406,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
   const quitNow = () => { const st = stats.current; if (!st.total) { onQuit(); return; } onEnd({ win: false, quit: true, correct: st.correct, half: st.half, total: st.total, revived: bsRef.current.revived, wrongKeys: st.wrong }); };
   const [paused, setPaused] = useState(false);
   const [intentPop, setIntentPop] = useState(false);   // 报告 #7：点意图看说明
-  usePauseOnHide(setPaused);
+  usePauseOnHide(setPaused, paused);
   const [input, setInput] = useState('');
   const [multi, setMulti] = useState<string[]>([]);
   const [picked, setPicked] = useState<string>();

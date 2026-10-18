@@ -32,7 +32,8 @@ import * as S from './state';
 import type { Profile, Progress, Settings } from './state';
 import { KinderTutorial, StdTutorial } from './ui/Tutorial';
 import { RoundBattle } from './ui/RoundBattle';
-import { KinderBattle, StdBattle, FORCE_END, type BattleResult } from './ui/Battle';
+import { KinderBattle, StdBattle, FORCE_END, Sprite, type BattleResult } from './ui/Battle';
+import { usePhonePortrait, RotateOverlay } from './ui/Rotate';
 import { ProfileSelect, CharSelect, MapScreen, ResultScreen, WrongBookScreen, ReviewSession } from './ui/Screens';
 import { ParentGate, ParentSettings } from './ui/Parent';
 import { ResetWhy, ResetCancelBox, CANCEL_BTN } from './ui/ResetCancel';
@@ -63,6 +64,7 @@ const EXIT_TEXT: Record<string, string> = { quit: '刚才在暂停里点了〔�
 const allowedChars = (g: GradeKey) => { const c = bandConfig(g); const own = c.chars === 'scifi' ? SCIFI : PUPS; return c.band === 'K' ? own : [...PUPS, ...SCIFI]; };
 export default function App() {
   const [screen, setScreen0] = useState<Screen>({ s: 'loading' });
+  const phonePortrait = usePhonePortrait();   // r15.4.2 技术QA P1-1
   // r13 学霸：页面跳转日志 zy.navLog（from / to / reason / stack / 时间），只留最近 80 条，用来查「答题中被踢回首页」
   const screenRef = useRef<Screen>(screen); screenRef.current = screen;
   // r14：用户意图令牌——每次真实点按 +1；自动导航（启动恢复）和异步结果在用户点过之后一律作废，不能覆盖更新的导航
@@ -284,7 +286,7 @@ export default function App() {
       // r14.1 真正的误锁原因：以前「墙钟比单调时钟多走 10 分钟」也算调钟——电脑 / 平板休眠时 performance.now() 停住、Date.now() 照走，醒来就被锁。现在只有墙钟往回走才锁
       if (dw < -60e3 || dw < dp - 10 * 60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
       else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
-      const pausedNow = document.visibilityState !== 'visible' || Date.now() - lastInput.current > IDLE_MS || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused;
+      const pausedNow = document.visibilityState !== 'visible' || Date.now() - lastInput.current > IDLE_MS || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused || !!(window as unknown as { __zyRotate?: boolean }).__zyRotate;   // r15.4.2：手机竖屏盖层时不计时
       if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; graceDone = true; window.dispatchEvent(new Event(FORCE_END)); } }
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
@@ -668,6 +670,7 @@ export default function App() {
         newlyMastered={screen.mastered} timeUp={myRemaining <= 0} forcedTimeUp={!!screen.r.timeUp} onAgain={() => startLevel(screen.level)} onMap={() => setScreen({ s: 'map' })}
         onNext={screen.r.win && !screen.r.timeUp && nextLevelOf(screen.level) ? () => startLevel(nextLevelOf(screen.level)!) : undefined} />}
       {screen.s === 'wrongbook' && bank && <WrongBookScreen wrong={wrong} byKey={bank.byKey} onBack={() => setScreen({ s: 'map' })} onReview={startReview} timeUp={myRemaining <= 0} />}
+      {phonePortrait && (screen.s === 'battle' || screen.s === 'review') && <RotateOverlay kinder={cfg?.band === 'K'} pic={char ? <Sprite c={char} /> : undefined} />}
       {screen.s === 'review' && <ReviewSession key={screen.nonce} questions={screen.qs} onAnswer={(q, ok, a) => onAnswer(q, ok, a, true)}
         onDone={(right, total) => { if (masteredThisLevel.current && p) setProgress(pr => { const nx = { ...pr, masteredStars: pr.masteredStars + masteredThisLevel.current }; S.saveProgress(p.id, nx); return nx; }); setScreen({ s: 'review-done', right, total }); }} />}
       {screen.s === 'review-done' && <div className="center-screen"><div className="big-emoji xl">📕</div><h1>复习完成</h1><p className="sub" data-testid="review-stats">答对 {screen.right} / {screen.total} 题</p>

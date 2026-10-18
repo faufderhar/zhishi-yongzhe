@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
 const URL = process.env.URL || 'http://localhost:4305/'; const OUT = process.env.OUT || '/workspace/playtest/r1541-map/'; mkdirSync(OUT, { recursive: true });
 const b = await chromium.launch(); let bad = 0, n = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
-const VPS = (process.env.VPS || '1400x800,1180x820,1024x600').split(','); const ZS = [1, 1.15, 1.3];
+const VPS = (process.env.VPS || '1400x800,1400x840,1180x820,1024x600,920x1320').split(','); const ZS = [1, 1.15, 1.3];   // r15.4.2：加 1400×840、920×1320（技术QA P3-5）
 async function session(grade, W, H, z) {
   const ctx = await b.newContext({ viewport: { width: Math.round(W / z), height: Math.round(H / z) }, deviceScaleFactor: 2 * z }); const pg = await ctx.newPage(); pg.setDefaultTimeout(8000);
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; window.__zyUnlockAll = true; });
@@ -22,6 +22,20 @@ for (const vp of VPS) for (const z of ZS) for (const g of ['10', '7']) {
   const chs = await pg.$$eval('[data-testid^=chapter-]', es => es.map(e => e.getAttribute('data-testid')));
   const cut = []; let total = 0;
   for (const ch of chs) { await pg.click(`[data-testid="${ch}"]`).catch(() => {}); await w(250); for (const x of await names(pg)) { total++; if (x.over > 1 || x.sh > 2) cut.push(`${x.t}（${x.lines} 行，底部多 ${x.over}px，隐藏 ${x.sh}px）`); } }
+  /* r15.4.2 技术QA P3-4 / P3-5：左侧章节栏每张卡片文字不溢出、卡片之间不重叠；Boss / 精英标签完整、不压星星行 */
+  const side = await pg.evaluate(() => { const cs = [...document.querySelectorAll('.chapters .chapter')]; const out = [];
+    cs.forEach((c, i) => { const r = c.getBoundingClientRect(); const kids = [...c.querySelectorAll('b, small, .ch-icon')]; const kb = Math.max(...kids.map(k => k.getBoundingClientRect().bottom)), kt = Math.min(...kids.map(k => k.getBoundingClientRect().top));
+      if (kb > r.bottom + 1 || kt < r.top - 1) out.push(`${c.textContent.slice(0, 8)} 文字出卡片 ${Math.round(Math.max(kb - r.bottom, r.top - kt))}px`);
+      const nx = cs[i + 1]?.getBoundingClientRect(); if (nx && nx.top < r.bottom - 1) out.push(`${c.textContent.slice(0, 8)} 和下一张重叠 ${Math.round(r.bottom - nx.top)}px`); });
+    return { n: cs.length, bad: out }; });
+  ok(side.n > 0 && !side.bad.length, `${tag}：左侧 ${side.n} 张章节卡片文字都在卡片里、互不重叠${side.bad.length ? '；' + side.bad.slice(0, 4).join('、') : ''}`);
+  const tagBad = [];
+  for (const ch of chs) { await pg.click(`[data-testid="${ch}"]`).catch(() => {}); await w(200);
+    tagBad.push(...await pg.evaluate(() => [...document.querySelectorAll('.level .kind-tag')].flatMap(t => { const r = t.getBoundingClientRect(), L = t.closest('.level').getBoundingClientRect(); const st = t.closest('.level').querySelector('.stars')?.getBoundingClientRect(); const rg = document.createRange(); rg.selectNodeContents(t); const tb = Math.max(...[...rg.getClientRects()].map(x => x.bottom));
+      const p = []; if (tb > r.bottom + 1) p.push('字出标签 ' + Math.round(tb - r.bottom)); if (r.bottom > L.bottom + 1 || r.top < L.top - 1) p.push('标签出卡片'); if (st && st.top < r.bottom - 1 && st.bottom > r.top) p.push('星星压标签 ' + Math.round(r.bottom - st.top)); if (t.scrollHeight > t.clientHeight + 2) p.push('隐藏 ' + (t.scrollHeight - t.clientHeight));
+      return p.length ? [`${t.textContent}（${p.join('，')}）`] : []; }))); }
+  ok(!tagBad.length, `${tag}：Boss / 精英标签完整、不压星星${tagBad.length ? '；' + tagBad.slice(0, 4).join('、') : ''}`);
+  if (side.bad.length || tagBad.length) await pg.screenshot({ path: `${OUT}side-${g}-${vp}-z${Math.round(z * 100)}.png` });
   n += total; ok(total > 0 && !cut.length, `${tag}：${total} 个关卡名都完整显示${cut.length ? '；被裁：' + cut.slice(0, 6).join('、') : ''}`);
   if (cut.length || (z === 1 && g === '10')) await pg.screenshot({ path: `${OUT}names-${g}-${vp}-z${Math.round(z * 100)}.png` });
   if (z === 1 || z === 1.3) {   // 中途离开：进关后整页刷新 → 地图出红色提示条

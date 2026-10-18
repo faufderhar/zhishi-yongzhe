@@ -854,3 +854,15 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .sys-bar.tts-bar{padding:5px 12px;min-height:0;font-size:15px;line-height:1.35;border-width:1.5px;border-radius:10px}
 .sys-bar.tts-bar .tts-x{margin-left:6px;opacity:.8}
 @media (max-width:700px),(max-height:460px){.sys-bar.tts-bar{font-size:13px;padding:3px 10px;margin:2px auto}}
+/* r15.4.2 技术QA P1-1：手机竖屏「请把手机横过来」盖层（盖住暂停框，战斗在下面保持不动） */
+.rotate-overlay{position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;box-sizing:border-box;background:#1d2a5a;color:#fff;text-align:center}
+.rotate-overlay.kinder{background:#ffe9a8;color:#5a3a1a}
+.rotate-overlay h2{font-size:30px;margin:0}.rotate-overlay p{font-size:18px;margin:0;max-width:22em;opacity:.9}
+.rotate-overlay .rotate-phone{font-size:84px;line-height:1;animation:rotphone 2.2s ease-in-out infinite}
+.rotate-overlay .rotate-char{width:140px;height:140px;display:flex;align-items:center;justify-content:center}.rotate-overlay .rotate-char img,.rotate-overlay .rotate-char svg,.rotate-overlay .rotate-char>*{max-width:140px;max-height:140px}
+@keyframes rotphone{0%,25%{transform:rotate(0)}55%,85%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.rotate-overlay .rotate-phone{animation:none;transform:rotate(-90deg)}}
+/* r15.4.2 技术QA P3-4：章节栏是可滚动的 flex 列，卡片以前会被压到 76px 以下（10 章的高一），文字溢出、上下卡片叠在一起——卡片不收缩，栏自己滚 */
+.map .chapters .chapter{flex-shrink:0;min-height:76px;height:auto}
+.map .chapters .chapter>span:last-child{min-width:0}
+.map .chapters .chapter b{line-height:1.25;overflow-wrap:anywhere}.map .chapters .chapter small{display:block;line-height:1.3}

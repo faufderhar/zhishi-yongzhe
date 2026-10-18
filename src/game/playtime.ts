@@ -88,6 +88,8 @@ export const fmtMS = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s
 
 /* r15.4 小萌新：收尾 / 时间用完的朗读与提示文字（小班不识字时朗读） */
 export const GRACE_VOICE = '时间到啦，打完这关就休息哦';
+/** r15.4.2 技术QA P1-1：手机竖屏时小班的提示录音 */
+export const ROTATE_K_TEXT = '请把手机横过来，就能接着玩啦';
 export const SLEEPY_TEXT = '今天玩够啦，明天再来';
 export const SLEEPY_RESET = '明天 0:00 重新计时';
 export const SLEEPY_VOICE = '今天玩够啦，明天再来哦。明天零点重新计时';
