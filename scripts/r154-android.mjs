@@ -60,7 +60,8 @@ async function answerK(pg) { const l = pg.locator('.kopt[data-correct="1"]:not([
 async function answerStd(pg) {
   for (let i = 0; i < 3; i++) { if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await pg.waitForTimeout(300); } if (await pg.isVisible('[data-testid=card-std]')) { await pg.click('[data-testid=card-std]'); await pg.waitForTimeout(300); } if (await pg.isVisible('[data-testid=wager-sure]')) { await pg.click('[data-testid=wager-sure]'); await pg.waitForTimeout(300); } }
   const o = await pg.$('.quiz .opt[data-correct="1"]'); if (o) { await o.click(); await pg.click('[data-testid=ok]', { timeout: 300 }).catch(() => {}); return; }
-  if (await pg.$('.keypad')) { const a = String(await pg.evaluate(() => window.__zyAnswer?.())); for (const ch of a) await pg.click(`.keypad [data-key="${ch}"]`).catch(() => {}); await pg.click('[data-testid=ok]').catch(() => {}); }
+  /* 普通战斗（Battle.tsx）没有 __zyAnswer（r15.4 起就只有回合战斗有）→ 以前会逐字点 "undefined"，每键等 8 秒再超时；这里没有答案就填 0 交掉（本段只量选择题） */
+  if (await pg.$('.keypad')) { const a0 = await pg.evaluate(() => window.__zyAnswer?.()); const a = a0 == null ? '0' : String(a0); for (const ch of a) await pg.click(`.keypad [data-key="${ch}"]`, { timeout: 1500 }).catch(() => {}); await pg.click('[data-testid=ok]', { timeout: 1500 }).catch(() => {}); }
 }
 if (on('k1')) for (const cfg of MAIN) {
   const s = await session(cfg, 'K1'); const { pg, w } = s;
@@ -78,7 +79,7 @@ if (on('k1')) for (const cfg of MAIN) {
   }
   await s.ctx.close();
 }
-if (on('grades')) for (const cfg of MAIN.filter(c => ['1400x792-浏览器', '1400x792-浏览器-字130', '1244x690-显示放大+浏览器'].includes(c[0]))) for (const g of ['1', '2', '3', '7', '10']) {
+if (on('grades')) for (const cfg of MAIN.filter(c => ['1400x792-浏览器', '1400x792-浏览器-字130', '1244x690-显示放大+浏览器'].includes(c[0]))) for (const g of (process.env.GRADES || '1,2,3,7,10').split(',')) {
   const s = await session(cfg, g); const { pg, w } = s;
   for (const lv of g === '1' || g === '2' ? [1, 2, 3] : [1]) {
     if (!(await pg.isVisible(`[data-testid=level-${lv}]`))) { await pg.click('[data-testid=to-map]').catch(() => {}); await w(600); }
