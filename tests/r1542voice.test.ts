@@ -46,3 +46,10 @@ describe('r15.4.2 家长页文案', () => {
     expect(readFileSync('src/tts.ts', 'utf8')).toMatch(/notify\(recHad \? 'missing'/);
   });
 });
+describe('r15.4.2 技术QA P4：朗读提示条紧凑', () => {
+  it('文字短、用 ✕ 关闭；小屏字号 / 内边距更小', () => {
+    const app = readFileSync('src/App.tsx', 'utf8'); const css = readFileSync('src/app.css', 'utf8');
+    const line = app.split('\n').find(l => l.includes('tts-bar'))!; expect(line).not.toMatch(/点此关闭/); expect(line).toMatch(/className="tts-x"/); expect(app).not.toMatch(/安装语音引擎并下载中文语音/);
+    expect(css).toMatch(/@media \(max-width:700px\),\(max-height:460px\)\{\.sys-bar\.tts-bar\{font-size:13px/);
+  });
+});
