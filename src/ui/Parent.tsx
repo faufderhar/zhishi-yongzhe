@@ -502,14 +502,17 @@ function BackupTab() {
         <p className="hint" data-testid="restore-pin-note">{needPin ? '验证：下面两个框填一个就行——记得现在的密码填上面；忘了现在的密码，填下面（备份时的密码或那时的恢复码）。' : '这台平板还没有家长密码。'}</p>
         {(() => { const vault = !!backupVault(pending, validateBackup(pending).clean.kv as [string, unknown][]);   /* r15.4 较真家长：两张清单「会被替换」「会保留」，每类数据只出现一次，和 importAll 实际做的一致 */
           return <div className="hint restore-list" data-testid="restore-replace">
-            <p data-testid="restore-will-replace"><b>会被替换：</b>孩子档案、关卡星星和进度、错题、答题记录、导入的题、每日时长上限、以前各天的游戏时长记录、其他设置{vault ? '、家长密码和恢复码（换成备份时的；现在的作废，等待中的重设申请也取消）' : ''}。</p>
+            <p data-testid="restore-will-replace"><b>会被替换：</b>档案、星星和进度、错题和答题记录、导入的题、时长设置和以前的时长记录、其他设置{vault ? '、家长密码和恢复码（换成备份时的，重设申请也取消）' : ''}。</p>
             <p data-testid="restore-will-keep"><b>会保留：</b>今天已经玩了多久（按这台平板记的）、防改时间记录（游戏自己用来发现平板时间被往回调，家长不用管）{vault ? '' : '、现在的家长密码和恢复码（备份里没有密码）'}。</p></div>; })()}
         {needPin && <label className="row gap8" data-testid="restore-pin-label">现在的家长密码（这台平板现在用的） <input type="password" inputMode="numeric" data-testid="restore-pin" value={rpin} onChange={e => setRpin(e.target.value)} /></label>}
-        {needPin && <div className="p-card" data-testid="restore-alt"><b>忘了现在的密码？</b><p className="hint">填<b>备份时</b>的家长密码（导出这份备份那天用的密码），或那时的 8 位恢复码。这个框连续错 5 次锁 24 小时。</p>
-          <input className="name-input" data-testid="restore-bsec" disabled={ileft > 0} placeholder="备份时的家长密码 / 恢复码" value={bsec} onChange={e => setBsec(e.target.value)} />
+        {/* r15.4.2 较真家长 B：短句分行（不再在词中间断行），占位文字缩短、输入框占满整行 */}
+        {needPin && <div className="p-card restore-alt" data-testid="restore-alt"><b>忘了现在的密码？</b><p className="hint">填<b>备份时</b>的家长密码，或那时的 8 位恢复码。</p><p className="hint">连续错 5 次锁 24 小时。</p>
+          <input className="name-input restore-bsec" data-testid="restore-bsec" disabled={ileft > 0} placeholder="备份时的密码或恢复码" value={bsec} onChange={e => setBsec(e.target.value)} />
           {ileft > 0 && <p className="warn" data-testid="restore-lock">错太多次了，请 {Math.ceil(ileft / 3600e3)} 小时后再试</p>}</div>}
         {mSum && <div className="p-card wide-panel" data-testid="merge-summary"><b>合并预览</b><p>新增孩子档案 {mSum.profilesAdded} 个 · 更新关卡星星 {mSum.levelsUpdated} 关 · 新增错题 {mSum.wrongAdded} 条 · 新增答题记录 {mSum.answersAdded} 条。</p><p className="hint">家长密码、时长设置和今天已用时长保持本机不变。合并前会自动保存当前数据的快照，之后可以「撤销」一次。</p>
           <div className="row gap16"><button className="btn ghost" data-testid="merge-cancel" onClick={() => setMSum(null)}>取消</button><button className="btn" data-testid="merge-confirm" onClick={async () => { try { const r = await mergeAll(pending, { pin: rpin, today: dayStr() }); download(`知识勇者_合并前快照_${dayStr()}.json`, JSON.stringify(r.snapshot)); logReload('import-merge', 'parent'); setTimeout(() => location.reload(), 800); setMsg('已合并，正在重新打开…'); setMSum(null); setPending(null); } catch (e) { setMsg((e as Error).message); setMSum(null); setPending(null); } }}>确定合并</button></div></div>}
+        {/* r15.4.2 较真家长 B：两个按钮各一句「什么时候用」 */}
+        <div className="hint restore-when-use" data-testid="restore-when-use">{needPin && <p data-testid="when-merge"><b>合并：</b>这台平板上的进度也想留着，把备份里的加进来时用（要现在的密码）。</p>}<p data-testid="when-overwrite"><b>覆盖恢复：</b>换了新平板或数据丢了，想整个回到备份那天时用。</p></div>
         <div className="row gap16"><button className="btn ghost" onClick={() => setPending(null)}>取消</button>
           {needPin && <button className="btn" data-testid="merge-go" disabled={!curOk} title={curOk ? '' : '先输入现在的家长密码'} onClick={async () => setMSum(await mergePreview(pending, dayStr()))}>合并…</button>}
           <button className="btn danger" data-testid="restore-go" disabled={needPin && !rpin && (!bsec || ileft > 0)} onClick={async () => { try {
@@ -660,8 +663,8 @@ export function GateRestore() {
     <p className="gate-restore-note" data-testid="gate-restore-note">忘了密码也能用：选备份文件，输入备份时的家长密码或恢复码，用备份覆盖这台设备的数据。</p>
     {msg && !data && <p className="warn" data-testid="gate-restore-msg">{msg}</p>}
     {data && <Modal onClose={() => setData(null)}><div data-testid="gate-restore-box"><h2>从备份恢复（覆盖）</h2>
-      <p data-testid="gate-restore-when">备份时间：{fmtBackupTime(data.exportedAt)}</p><p><b>会被替换：</b>孩子档案、星星和进度、错题、答题记录、导入的题、时长上限和以前的时长记录、其他设置、家长密码和恢复码（变成备份时的）。<br /><b>会保留：</b>今天已经玩了多久（按这台平板记的）、防改时间记录（游戏自己用来发现平板时间被往回调，家长不用管）。</p><p className="hint">这里只能整份恢复；「合并」要先在家长页里输入现在的家长密码。</p>
-      <input className="name-input" data-testid="gate-restore-sec" disabled={left > 0} placeholder="备份时的家长密码 / 恢复码" value={sec} onChange={e => setSec(e.target.value)} />
+      <p data-testid="gate-restore-when">备份时间：{fmtBackupTime(data.exportedAt)}</p><p><b>会被替换：</b>档案、星星和进度、错题和答题记录、导入的题、时长设置和以前的时长记录、其他设置、家长密码和恢复码（换成备份时的）。<br /><b>会保留：</b>今天已经玩了多久（按这台平板记的）、防改时间记录（游戏自己用来发现平板时间被往回调，家长不用管）。</p><p className="hint">这里只能整份恢复；「合并」要先在家长页里输入现在的家长密码。</p>
+      <input className="name-input restore-bsec" data-testid="gate-restore-sec" disabled={left > 0} placeholder="备份时的密码或恢复码" value={sec} onChange={e => setSec(e.target.value)} />
       {left > 0 && <p className="warn" data-testid="gate-restore-lock">错太多次了，请 {Math.ceil(left / 3600e3)} 小时后再试（只算游戏开着的时间）</p>}
       {msg && <p className="warn" data-testid="gate-restore-msg">{msg}</p>}
       <div className="row gap16"><button className="btn ghost" onClick={() => setData(null)}>取消</button>

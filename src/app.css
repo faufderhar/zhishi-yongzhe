@@ -845,3 +845,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .bt-knob{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .15s}.bet-toggle.on .bt-knob{left:27px}
 .bet-hint{margin:0;max-width:min(92vw,640px);background:#fff8d6;color:#5a4300;border-radius:10px;padding:6px 12px;font-size:15px}
 .kt-title{align-items:center;justify-content:center;flex-wrap:wrap}.kt-title h1,.kt-title .ksub{margin:0}
+/* r15.4.2 较真家长 B：「忘了现在的密码？」框——短句不在词中间断行，输入框占满 */
+.restore-alt p,.restore-when-use p{text-wrap:pretty;word-break:keep-all;overflow-wrap:anywhere;margin:4px 0}
+.restore-alt .restore-bsec{width:100%;max-width:none;box-sizing:border-box;min-width:0}
+.modal .restore-bsec{width:100%;box-sizing:border-box}

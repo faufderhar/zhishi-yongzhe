@@ -50,3 +50,10 @@ describe('r15.4.2 较真家长 A：小班时间到结算页 🔊', () => {
     expect(src).toMatch(/data-testid="timeup-replay" onClick=\{\(\) => speak\(TIMEUP_K_TEXT\)\}/);
   });
 });
+describe('r15.4.2 较真家长 B：恢复确认框文案', () => {
+  const src = readFileSync('src/ui/Parent.tsx', 'utf8'); const css = readFileSync('src/app.css', 'utf8');
+  it('占位文字缩短、输入框占满；不再出现被截断的长占位', () => { expect(src).not.toMatch(/placeholder="备份时的家长密码 \/ 恢复码"/); expect(src.match(/placeholder="备份时的密码或恢复码"/g)!.length).toBe(2); expect(css).toMatch(/\.restore-alt \.restore-bsec\{width:100%/); });
+  it('「忘了现在的密码？」短句分行', () => { expect(src).toMatch(/忘了现在的密码？<\/b><p className="hint">填<b>备份时<\/b>的家长密码，或那时的 8 位恢复码。<\/p><p className="hint">连续错 5 次锁 24 小时。<\/p>/); });
+  it('「会被替换」缩短，仍不含今天时长', () => { const m = src.match(/restore-will-replace"><b>会被替换：<\/b>([^<{]*)/)![1]; expect(m.length).toBeLessThan(45); expect(m).not.toMatch(/今天/); });
+  it('合并 / 覆盖恢复各一句什么时候用', () => { expect(src).toMatch(/data-testid="when-merge"><b>合并：<\/b>[^<]*时用/); expect(src).toMatch(/data-testid="when-overwrite"><b>覆盖恢复：<\/b>[^<]*时用/); });
+});
