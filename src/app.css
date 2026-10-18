@@ -821,3 +821,17 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .levels .level>*{flex-shrink:0}
 .sys-bar.ok-bar{background:#1f6b3a;border-color:#8be0a4}
 .forgot-backup-notes{font-size:1em;margin:2px 0 8px;padding-left:1.4em;line-height:1.5}.forgot-backup-notes li{margin:2px 0}
+/* r15.4.2 小萌新：小班收尾大卡片（进入收尾时弹 4 秒，然后只留顶上的闹钟条）：伙伴 + 打哈欠 + 闹钟 + 小床；不挡点按 */
+.grace-pop{position:fixed;inset:0;z-index:65;display:flex;align-items:center;justify-content:center;pointer-events:none;background:#0004;animation:gp-fade 4s ease-in-out 1 forwards}
+.gp-card{display:flex;align-items:center;gap:min(4vw,36px);background:#fff8e6;border:6px solid #ffd54a;border-radius:36px;padding:min(3vh,28px) min(5vw,48px);box-shadow:0 10px 40px #0007;animation:gp-pop .6s cubic-bezier(.2,1.4,.4,1) 1,gp-sway 1.8s ease-in-out .6s 2}
+.gp-pup{position:relative}.gp-pup img{height:min(34vh,260px);width:auto;display:block}
+.gp-yawn{position:absolute;right:-18%;top:-6%;font-size:min(12vh,96px);animation:gp-yawn 1.6s ease-in-out .3s 2}
+.gp-clock{font-size:min(20vh,160px);line-height:1;animation:gi-wobble 1.2s ease-in-out infinite}.gp-bed{font-size:min(14vh,110px);line-height:1}
+@keyframes gp-pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes gp-sway{50%{transform:rotate(-2.5deg) scale(1.03)}}
+@keyframes gp-yawn{0%,100%{transform:scale(1)}50%{transform:scale(1.25) rotate(-8deg)}}
+@keyframes gp-fade{0%,85%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.grace-pop,.gp-card,.gp-yawn,.gp-clock{animation:none}}
+.reduce-motion .grace-pop,.reduce-motion .gp-card,.reduce-motion .gp-yawn,.reduce-motion .gp-clock{animation:none}
+/* r15.4.2 小萌新 #4：技能名横幅（0.6 秒，舞台顶部）出现时，「在说话」提示先让开，不和它叠在一起 */
+.kstage:has(>.skill-banner)>.kbusy{opacity:0}

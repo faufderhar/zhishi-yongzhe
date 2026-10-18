@@ -324,7 +324,8 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
         </div>
         <canvas className="fx-canvas" ref={D.canvas} />
         {/* r15.4.1 小萌新：「在说话」提示放在战斗区顶部（题目气泡下面），不再压住题干气泡上沿 */}
-        {busy && <div key={nudge} className={`kbusy ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
+        {/* r15.4.2 小萌新：伙伴头顶有说话气泡（如「小七变成你的好朋友…」）时不再叠一个「在说话」提示（两个气泡在顶部压在一起）——气泡本身就说明在说话，点屏时气泡会晃一下 */}
+        {busy && !say && <div key={nudge} className={`kbusy ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
       </div>
       <div className={`kopts ${busy ? 'kwait' : ''}`} data-testid="kopts">
         {choices.map((ch, _i, all) => { const fit = all.map(x => gridOf(emojiOnlyN(x.text))).reduce((a, g) => [Math.max(a[0], g[0]), Math.max(a[1], g[1])], [1, 1]);
