@@ -794,7 +794,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15.4.1 技术QA P3-3：360×640 这类小手机竖屏，长题时键盘最后一排出屏 54px、题干要在框里再滚 70px、预计伤害压在题型标签上。
    顶栏原来折成 4 行（209px）——压成 2 行：暂停 / ？ / 能量圈缩小、关名不在顶栏重复（地图和规则里有）；战斗区只留怪物名字 + 血条 + 意图；
    题干不再限高（不用在框里滚）；键盘每排 40px；题型标签和预计伤害各占一行 */
-@media (orientation:portrait) and (max-width:380px){
+@media (orientation:portrait) and (max-width:430px){
   .battle.rounds .hud{column-gap:8px;row-gap:2px;padding:4px 8px;font-size:15px}
   .battle.rounds .hud .lvl-title{display:none !important}
   .battle.rounds .hud .pause-btn{min-width:36px !important;min-height:36px !important;width:36px;height:36px;font-size:18px}
