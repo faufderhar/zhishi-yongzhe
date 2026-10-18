@@ -5,28 +5,28 @@ import { newRound, resolveRound, reviveRound, type RState } from '../src/game/ro
 import { type RoundMode, STAR3 } from '../src/game/balance';
 import { PUPS, SCIFI } from '../src/game/characters';
 function mk(seed: number) { return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2 ** 32; }; }
-export function simulate(mode: RoundMode, kind: 'normal' | 'elite' | 'boss', acc: number, n = 4000, seed = 2026, chal?: number) {
+export function simulate(mode: RoundMode, kind: 'normal' | 'elite' | 'boss', acc: number, n = 4000, seed = 2026, chal?: number, bet = false /* r15.4.2：高一我方回合全押注 */) {
   const R = mk(seed); const chars = (mode === 'h' ? SCIFI : PUPS).slice(0, 5);
-  let turns = 0, win = 0, norev = 0, ret = 0, hp = 0, s3 = 0, hits = 0; const secs: number[] = [];
+  let kills = 0, turns = 0, win = 0, norev = 0, ret = 0, hp = 0, s3 = 0, hits = 0; const secs: number[] = [];
   for (let k = 0; k < n; k++) {
     const c = chars[k % chars.length];
     let s: RState = newRound(mode, kind); let Q = 0, cor = 0, ans = 0;
     while (!s.over) {
       Q++; ans++; const ch = chal != null && s.side === 'P'; const correct = R() < (ch ? chal : acc); if (correct) cor++;
       const fast = s.side === 'M' && correct && R() < 0.5;
-      let o; [s, o] = resolveRound(s, c, { correct, subject: c.major, difficulty: ch ? 3 : 2, fast, rng: R, challenge: ch });
+      let o; [s, o] = resolveRound(s, c, { correct, subject: c.major, difficulty: ch ? 3 : 2, fast, rng: R, challenge: ch, wager: bet && s.side === 'P' });
       if (o.side === 'P' && o.dealt > 0) hits++;
       if (s.over === 'lose' && !s.revived) {
         let ok = 0, t = 0; while (ok < 2 && t < 4) { t++; Q++; if (R() < acc) ok++; }
         if (ok >= 2) s = reviveRound(s); else s = { ...s, revived: true };
       }
     }
-    turns += s.turn; let sec = 0; for (let q = 0; q < Q; q++) sec += 15 + 10 * R(); secs.push(sec / 60);
+    if (s.over === 'win') kills++; turns += s.turn; let sec = 0; for (let q = 0; q < Q; q++) sec += 15 + 10 * R(); secs.push(sec / 60);
     if (s.over !== 'lose') { win++; hp += s.playerHp / s.playerMax; if (!s.revived) norev++; if (s.over === 'retreat') ret++;
       if (s.over === 'win' && cor / ans >= STAR3.acc && !s.revived && s.playerHp / s.playerMax >= STAR3.hp) s3++; }
   }
   secs.sort((a, b) => a - b);
-  return { turns: turns / n, norev: norev / n, win: win / n, ret: ret / n, hp: hp / win, s3: s3 / n, hits: hits / n, min: secs.reduce((a, b) => a + b) / n, p90: secs[9 * n / 10] };
+  return { kill: kills / n, turns: turns / n, norev: norev / n, win: win / n, ret: ret / n, hp: hp / win, s3: s3 / n, hits: hits / n, min: secs.reduce((a, b) => a + b) / n, p90: secs[9 * n / 10] };
 }
 // D14 §8：[mode, kind, acc, 平均回合, 不复活通关, 含复活+撤退通关, 撤退, 3★, 胜者剩血, 时长]
 type Row = [RoundMode, 'normal' | 'elite' | 'boss', number, number, number, number, number, number, number, number];
