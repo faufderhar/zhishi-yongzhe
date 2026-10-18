@@ -26,7 +26,7 @@ for (const vp of VPS) for (const z of ZS) for (const g of ['10', '7']) {
   const side = await pg.evaluate(() => { const cs = [...document.querySelectorAll('.chapters .chapter')]; const out = [];
     cs.forEach((c, i) => { const r = c.getBoundingClientRect(); const kids = [...c.querySelectorAll('b, small, .ch-icon')]; const kb = Math.max(...kids.map(k => k.getBoundingClientRect().bottom)), kt = Math.min(...kids.map(k => k.getBoundingClientRect().top));
       if (kb > r.bottom + 1 || kt < r.top - 1) out.push(`${c.textContent.slice(0, 8)} 文字出卡片 ${Math.round(Math.max(kb - r.bottom, r.top - kt))}px`);
-      const nx = cs[i + 1]?.getBoundingClientRect(); if (nx && nx.top < r.bottom - 1) out.push(`${c.textContent.slice(0, 8)} 和下一张重叠 ${Math.round(r.bottom - nx.top)}px`); });
+      const nx = cs[i + 1]?.getBoundingClientRect(); const ox = nx ? Math.min(r.right, nx.right) - Math.max(r.left, nx.left) : 0, oy = nx ? Math.min(r.bottom, nx.bottom) - Math.max(r.top, nx.top) : 0; if (nx && ox > 1 && oy > 1) out.push(`${c.textContent.slice(0, 8)} 和下一张重叠 ${Math.round(Math.min(ox, oy))}px`); });   // 竖屏时章节栏横排：两个方向都相交才算重叠
     return { n: cs.length, bad: out }; });
   ok(side.n > 0 && !side.bad.length, `${tag}：左侧 ${side.n} 张章节卡片文字都在卡片里、互不重叠${side.bad.length ? '；' + side.bad.slice(0, 4).join('、') : ''}`);
   const tagBad = [];

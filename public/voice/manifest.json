@@ -816,7 +816,8 @@
   "p:tut_q2": "KD-002_stem.b953ed7034.mp3",
   "p:tut_q3": "KC-001_stem.e4f86560c3.mp3",
   "p:tut_s2": "p_tut_s2.3894682791.mp3",
-  "p:tut_s3": "p_tut_s3.1edf086464.mp3"
+  "p:tut_s3": "p_tut_s3.1edf086464.mp3",
+  "p:rotate_k": "p_rotate_k.feca7eb92c.mp3"
  },
  "meta": {
   "K-001#opt0": {
@@ -17814,6 +17815,30 @@
    "gr_flag": false,
    "norm": "linear",
    "resumed": true
+  },
+  "p:rotate_k": {
+   "file": "p_rotate_k.feca7eb92c.mp3",
+   "text": "请把手机横过来，就能接着玩啦",
+   "segments": [
+    [
+     "zh",
+     "请把手机横过来，就能接着玩啦"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.5,
+   "hash": "feca7eb92c5861d1f5a0c0915a9677f18c453ee987bad0db18edf9af69f3f116",
+   "phonemes": [
+    "zh|zf_002|1.5|ㄑ应2ㄅㄚ3/ㄕㄡ3ㄐㄧ1/ㄏㄥ2/ㄍ我4ㄌㄞ5, ㄐ又4/ㄋㄥ2/ㄐㄝ1ㄓㄜ5/万2/ㄌㄚ5"
+   ],
+   "synth_s": 2.16,
+   "duration": 2.304,
+   "lufs": -16.4,
+   "tp": -2.4,
+   "pregain_db": 7.68,
+   "limiter_gr_db": 1.2,
+   "gr_flag": false,
+   "norm": "linear"
   }
  },
  "removed_symbol_only": [

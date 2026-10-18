@@ -38,7 +38,7 @@ async function session(vp, grade, extra = {}) {
   await w(300); if (await pg.isVisible('.modal >> text=稍后')) await pg.click('.modal >> text=稍后');
   await pg.fill('[data-testid=add-name]', 'r9'); await pg.click(`[data-testid=home-grade-${grade}]`); await w(400);
   const toMap = async () => { await pg.click('text=r9').catch(() => {}); await w(400); for (let i = 0; i < 25 && !(await pg.isVisible('[data-testid=level-1]')); i++) { if (await pg.isVisible('[data-testid=pin-ok]')) await pinIn('2468');
-      for (const sp of ['stage-pick', 'grade-pick']) if (await pg.isVisible(`[data-testid=${sp}]`)) await pg.click(`[data-testid=${sp}] .stage-btn.on, [data-testid=${sp}] .stage-btn >> nth=0`).catch(() => {});
+      for (const sp of ['stage-pick', 'grade-pick']) if (await pg.isVisible(`[data-testid=${sp}]`)) { const on = pg.locator(`[data-testid=${sp}] .stage-btn.on`); await ((await on.count()) ? on.first() : pg.locator(`[data-testid=${sp}] .stage-btn`).first()).click().catch(() => {}); }
       if (await pg.isVisible('[data-testid=char-confirm]')) { await pg.click('[data-testid^=char-]:not([data-testid=char-confirm]):not([data-testid=charlist]) >> nth=0').catch(() => {}); await pg.click('[data-testid=char-confirm]').catch(() => {}); }
       await w(400); } };
   await toMap();
