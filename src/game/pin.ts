@@ -27,6 +27,7 @@ const LK = 'zy.pinLock';
 /** r9：找回问题单独计错、单独锁定（以前和密码共用一个倒计时） */
 export const LK_HINT = 'zy.hintLock';
 export const LK_REC = 'zy.recLock';
+export const LK_CANCEL = 'zy.cancelLock';   // r15.4.1 技术QA P3-1：「取消重设申请」框单独计错（以前和恢复码共用 LK_REC，孩子在提醒框乱输 5 次会把恢复码锁住）
 export const LK_IMPORT = 'zy.importLock';   // r13：导入备份时「备份密码 / 恢复码」共用的锁
 /** r12（策划）：找回问题、恢复码各自连错 5 次 → 锁 24 小时。按单调时钟扣（关掉期间：墙钟往前走的部分才算，往回调不算），刷新不清零 */
 export const LONG_LOCK_MS = 24 * 3600e3;

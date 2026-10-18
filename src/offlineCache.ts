@@ -60,3 +60,33 @@ export async function cacheForOffline(needs: Need[]) {
     save({ done, total, failed, at: Date.now(), key });
   } finally { running = false; }
 }
+
+/* r15.4.1 技术QA P2-1：小班录音离线也要能播——以前只在线听过的进运行时缓存 zy-voice。
+   录音文件本来就在 dist/voice（也在离线包里），这里在首次联网打开后（有小班档案时）后台把 manifest 里全部录音放进 zy-voice
+   （约 500 个 / 4.5 MB；不进 SW 安装预缓存，避免装 SW 时一次拉太多、拖慢首屏）。开始前等一次空闲，之后 4 路并发，已缓存的跳过。
+   进度写 localStorage「zy-offline-voice」，家长页显示「小班离线录音 n/N」，也可手动点「下载离线录音」。 */
+const VKEY = 'zy-offline-voice';
+export interface VoiceStatus { done: number; total: number; failed: number; at: number }
+export const voiceStatus = (): VoiceStatus | null => { try { return JSON.parse(localStorage.getItem(VKEY) || 'null'); } catch { return null; } };
+const vListeners = new Set<(s: VoiceStatus) => void>();
+export const onVoiceStatus = (f: (s: VoiceStatus) => void) => { vListeners.add(f); return () => { vListeners.delete(f); }; };
+const vSave = (s: VoiceStatus) => { try { localStorage.setItem(VKEY, JSON.stringify(s)); } catch { /* */ } vListeners.forEach(f => f(s)); };
+/** manifest items → 去重后的文件列表（值可以是文件名或分段文件名数组） */
+export const voiceFiles = (items: Record<string, string | string[]> | undefined) => [...new Set(Object.values(items ?? {}).flatMap(v => Array.isArray(v) ? v : [v]).filter(f => typeof f === 'string' && /\.(mp3|m4a)$/.test(f)))];
+let vRunning = false;
+export async function cacheVoiceForOffline(): Promise<VoiceStatus | null> {
+  if (vRunning || typeof caches === 'undefined' || !navigator.onLine) return null; vRunning = true;
+  try {
+    const base = new URL('voice/', document.baseURI).href;
+    const man = await fetch(base + 'manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({})) as { items?: Record<string, string | string[]> };
+    const files = voiceFiles(man.items); const c = await caches.open('zy-voice');
+    let done = 0, failed = 0; const total = files.length; const st = () => ({ done, total, failed, at: Date.now() });
+    if (!total) return null;
+    await idle(); let i = 0;   // 只在开始时等一次空闲：每个文件都等空闲时，动画页面上 500 个文件要好几分钟
+    const worker = async () => { while (i < files.length) { const f = files[i++]; const url = base + f;
+      try { if (!(await c.match(url))) { if (!navigator.onLine) { failed++; done++; continue; } const r = await fetch(url); if (r.ok && r.status === 200) await c.put(url, r); else failed++; } } catch { failed++; }
+      done++; if (done % 20 === 0) vSave(st()); } };
+    await Promise.all([worker(), worker(), worker(), worker()]);
+    const s = st(); vSave(s); return s;
+  } finally { vRunning = false; }
+}
