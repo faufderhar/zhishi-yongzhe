@@ -764,7 +764,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
    emoji 字形框（Range 量到的）约 1.17em 高、1.2em 宽，所以下面按 ÷1.3 留余量 */
 .kopt{container-type:size}
 .kcount{display:grid;grid-template-columns:repeat(var(--cols),auto);justify-content:center;align-content:center;gap:0 4px;width:100%;height:100%}
-.kcount-i{display:block;line-height:1.2;font-size:40px;font-size:min(calc(72cqw / var(--fc) / 1.3),calc(86cqh / var(--fr) / 1.3),110px)}  /* r15.4.1：88cqw 时一排 3 个苹果在 1180×820 伸出卡片右边 14px（选项框里还有内边距），改 72cqw */
+.kcount-i{display:block;line-height:1.2;font-size:40px;font-size:min(calc(84cqw / var(--fc) / 1.3),calc(86cqh / var(--fr) / 1.3),110px)}  /* r15.4.1：88cqw 时一排 3 个苹果在 1180×820 伸出卡片右边 14px（选项框里还有内边距），改 84cqw；另外 --fc 改为按本题各组最多的列数算 */
 .kopt-text.short{font-size:min(110px,66cqh,calc(86cqw / var(--len,3)));word-break:keep-all;white-space:nowrap}
 .kface-emo{font-size:min(calc(clamp(160px,26dvh,320px) * .45),calc(62cqh / 1.3),calc(88cqw / 1.3))}
 .kface-txt{font-size:min(32px,24cqh)}.kface-txt.small{font-size:min(26px,22cqh)}
