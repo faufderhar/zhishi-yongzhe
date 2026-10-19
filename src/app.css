@@ -951,3 +951,18 @@ body{font-size:clamp(18px,1.6vw,26px)}
 }
 /* r15.4.3 技术QA P2-2 / P2-1：居中页（首页、家长密码、设置页）内容比屏幕高时可以滚动，上沿不再被裁到屏外（justify-content:center 溢出时上半截滚不回来） */
 .center-screen{min-height:0;overflow-y:auto;overscroll-behavior:contain;justify-content:safe center;-webkit-overflow-scrolling:touch}
+/* r15.4.3 技术QA P2-1：手机横屏（高 ≤ 500）家长密码页改左右两栏：左边标题 / 圆点 / 提示 / 返回 / 从备份恢复，右边 3×4 小键盘，整页放得下（640×360 起） */
+@media (orientation:landscape) and (max-height:500px){
+  .center-screen:has(> .pinpad .pin-keys),.center-screen:has(.pinpad .pin-keys){padding:8px 16px;gap:8px}
+  .pinpad:has(> .pin-keys){display:grid;grid-template-columns:minmax(0,1fr) auto;grid-auto-flow:row dense;column-gap:28px;row-gap:6px;align-items:center;justify-items:center;width:min(100%,780px)}
+  .pinpad:has(> .pin-keys) > *{grid-column:1;margin:0}
+  .pinpad:has(> .pin-keys) > .pin-keys{grid-column:2;grid-row:1 / span 12;align-self:center}
+  .pinpad:has(> .pin-keys) h2{font-size:20px;line-height:1.25}
+  .pinpad:has(> .pin-keys) .pin-dots{gap:10px}.pinpad:has(> .pin-keys) .pin-dots span{width:16px;height:16px;border-width:2px}
+  .pinpad:has(> .pin-keys) .pin-hint,.pinpad:has(> .pin-keys) .pin-why,.pinpad:has(> .pin-keys) .warn{font-size:14px;line-height:1.3}
+  .pinpad:has(> .pin-keys) > .hint{font-size:12px;line-height:1.3;max-width:300px}
+  .pinpad:has(> .pin-keys) .btn{min-height:40px;padding:6px 16px;font-size:16px}
+  .pin-keys{grid-template-columns:repeat(3,64px);gap:8px}
+  .pin-keys button{height:min(58px,calc((100dvh - 48px) / 4));font-size:24px;border-radius:12px}
+  .pin-keys .ok{font-size:17px}
+}
