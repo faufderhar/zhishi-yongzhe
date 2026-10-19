@@ -105,8 +105,11 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
     for (const q of list) { const k = q.volume + '|' + (q.unit ?? ''); if (!firstSeen.has(k)) firstSeen.set(k, q.order); }
     const ck = (q: Question) => { const c = chapterOf(q.unit); return c ? unitKey(c.key) : unitKey(q.unit); };
     const secNum = (u?: string) => { const m = (u ?? '').split('·').pop()!.match(/^(\d+)\.(\d+)/); return m ? +m[1] * 1000 + +m[2] : null; };
+    const fs = (q: Question) => firstSeen.get(q.volume + '|' + (q.unit ?? ''))!;
+    const bankOrder = BANK_ORDER_GRADES.has(list[0]?.grade ?? '');
     list.sort((a, b) => {
       const v = volOrder.indexOf(a.volume) - volOrder.indexOf(b.volume); if (v) return v;
+      if (bankOrder) return (fs(a) - fs(b)) || a.order - b.order;   // r16：中班 / 初二 / 高二 册内小节按题库顺序（配合说明 v35–v41）
       const c = ck(a).localeCompare(ck(b)); if (c) return c;
       const sa = secNum(a.unit), sb = secNum(b.unit);
       if (sa !== null && sb !== null && sa !== sb) return sa - sb;
@@ -121,11 +124,17 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
     }
     // 小节题少也单独成关（不再并入相邻小节，避免「2.2 数轴」被吞进 2.1 关；审核 v8）
     // 2) 小节按「册别 + 章/单元号」合并成地图上的章节（2.1、2.2 → 第2章）；小节变成章内关卡顺序
-    const groups: { volume: string; title: string; subs: typeof subs }[] = [];
+    const groups: { volume: string; title: string; subs: typeof subs; tag?: string }[] = [];
     for (const sb of subs) {
       const ck = chapterOf(sb.units[0]); const last = groups[groups.length - 1];
       if (last && last.volume === sb.volume && ck && chapterOf(last.subs[0].units[0])?.key === ck.key) last.subs.push(sb);
       else groups.push({ volume: sb.volume, title: ck?.title || shortUnit(sb.units[0]) || sb.volume, subs: [sb] });
+    }
+    // r16：同一科目里无章号、同名的章（高二诗词「古诗词诵读」选必上 / 选必中）标出册别，避免两章、两组关卡同名
+    if (bankOrder) {
+      const vols = new Map<string, Set<string>>();
+      for (const g of groups) if (!chapterOf(g.subs[0].units[0])) (vols.get(g.title) ?? vols.set(g.title, new Set()).get(g.title)!).add(g.volume);
+      for (const g of groups) if ((vols.get(g.title)?.size ?? 0) > 1) { g.tag = `（${volShort(g.volume)}）`; g.title += g.tag; }
     }
     // 3) 每个小节每 8 题一个普通关；章内每 3 个普通关后加精英关；章 ≥12 题时以章节 Boss 收尾
     const levels: Level[] = [];
@@ -140,7 +149,7 @@ function buildChapters0(qs: Question[], volumes: string[] | null = null): Chapte
         // r8：多选题属于整个小节：先不参与分段，再加进本小节每个普通关的题池（是否出、出几道由战斗按回合规则定）
         const plain = sb.qs.filter(q => q.type !== '多选');
         chunks.push(...splitLesson(plain, LEGACY_SPLIT));
-        const nm = sb.units.map(u => shortUnit(u) || sb.volume).join(' + ');
+        const nm = sb.units.map(u => shortUnit(u) || sb.volume).join(' + ') + (g.tag ?? '');
         chunks.forEach((c, k) => normals.push({ c, name: chunks.length > 1 ? `${nm} ${k + 1}` : nm, sub: si }));
       }
       // 精英关只取本小节（同一课）的题，不跨课（策划 r6 裁定 2）：同一小节每 3 个普通关后 1 个精英关
@@ -220,7 +229,16 @@ export function linkShortChinese(chs: Chapter[], zero: Question[] = []): Chapter
   cn.levels = keep; return chs;
 }
 /** 上册 < 下册 < 第三册 < 通用 < 未标；其余按出现顺序 */
-function volRank(v: string) {
+/** r16：这些年级册内按题库顺序排小节（旧年级保持原排序，地图 / 解锁顺序不变） */
+export const BANK_ORDER_GRADES = new Set(['K2', '8', '11']);
+/** 册别短名：选择性必修上册 → 选必上，选择性必修第一册 → 选必一 */
+export const volShort = (v: string) => v.replace(/^选择性必修/, '选必').replace(/^必修/, '必修').replace(/第([一二三四])册$/, '$1').replace(/册$/, '');
+export function volRank(v: string) {
+  // r16 高二（设计 R-3）：必修四 → 选必一 / 上 → 选必二 / 中 → 选必三 / 下（须在通用规则之前，否则「选择性必修第一册」被当成上册）
+  if (/^必修第四册$/.test(v)) return 0.8;
+  if (/^选择性必修(第一册|上册)$/.test(v)) return 1.1;
+  if (/^选择性必修(第二册|中册)$/.test(v)) return 1.2;
+  if (/^选择性必修(第三册|下册)$/.test(v)) return 1.3;
   if (/上册|上$|第一册|7A|\(7A\)/.test(v)) return 1;
   if (/下册|下$|第二册|7B/.test(v)) return 2;
   if (/第三册/.test(v)) return 2.5;   // r15.4.4 题库 v32：政治必修3（必修第三册）排在第二册之后、通用 / 拓展复习之前
