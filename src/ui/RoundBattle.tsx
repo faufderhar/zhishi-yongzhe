@@ -468,8 +468,9 @@ export function hurtNote(o: ROut) { const h = o.hurtInfo; if (!h || !h.parts.len
 /** r15.4.2 游戏策划：押注开关（我方回合看题前，题卡旁边，默认关，点一下就押） */
 export const BET_LABEL = '押注：答对伤害 ×1.25，能量额外 +1；答错反击 ×1.25，且不能闪避';   // r15.4.3 学霸：押对能量 = 基础 +1 + 押注额外 +1
 /** r15.4.3：第一次出押注开关时的说明弹窗（每个档案 1 次，点〔知道了〕才算看过） */
+export const BET_RESET = '每回合重新选';   // r15.4.3 策划：开关每回合自动回到「关」（行为不变），写明
 export const BET_HINT_LINES = [
-  '题卡下面有个「押注」开关，默认是关的；有把握就点一下打开。',
+  '题卡下面有个「押注」开关，默认是关的；有把握就点一下打开。每回合重新选。',
   '押了：答对伤害 ×1.25，能量额外 +1；答错（半对也算错）反击 ×1.25，而且闪不开。',
   '押注的 ×1.25 也算在「加成上限 ×1.8」里。',
   '不押就照常答题，答错还有机会闪开。',
@@ -478,5 +479,6 @@ export const BET_HINT = BET_HINT_LINES.join('');
 function BetToggle({ on, set }: { on: boolean; set: (f: (x: boolean) => boolean) => void }) {
   return <div className="bet-wrap" data-testid="bet-wrap"><button className={`bet-toggle ${on ? 'on' : ''}`} role="switch" aria-checked={on} data-testid="bet-toggle" data-on={on ? '1' : '0'} onClick={() => set(x => !x)}>
     <span className="bt-sw" aria-hidden><span className="bt-knob" /></span><span className="bt-label">{BET_LABEL}</span></button>
+    <small className="bet-reset" data-testid="bet-reset">{BET_RESET}</small>
 </div>;
 }

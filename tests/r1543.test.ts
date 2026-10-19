@@ -79,3 +79,15 @@ describe('r15.4.3 ⑤ 押注说明弹窗', () => {
     expect(src).toContain('data-testid="bet-hint-ok"');
   });
 });
+
+describe('r15.4.3 ④ 押注开关每回合重新选（行为不变，写明）', () => {
+  it('开关旁、说明弹窗、？规则都有「每回合重新选」', async () => {
+    const { BET_RESET, BET_HINT_LINES } = await import('../src/ui/RoundBattle');
+    const { rulesFor } = await import('../src/ui/rules');
+    expect(BET_RESET).toBe('每回合重新选');
+    expect(BET_HINT_LINES.join('')).toContain('每回合重新选');
+    expect(rulesFor('h').find(r => r[0] === '押注')![1]).toContain('每回合重新选');
+    const src = (await import('node:fs')).readFileSync('src/ui/RoundBattle.tsx', 'utf8');
+    expect(src).toMatch(/setCard\('std'\); setWager\(false\)/);   // 每回合仍自动回到关
+  });
+});
