@@ -949,3 +949,5 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (orientation:landscape) and (max-height:500px){
   .battle .opts:not(.tf),.battle .quiz .opts:not(.tf){grid-template-columns:minmax(0,1fr)}
 }
+/* r15.4.3 技术QA P2-2 / P2-1：居中页（首页、家长密码、设置页）内容比屏幕高时可以滚动，上沿不再被裁到屏外（justify-content:center 溢出时上半截滚不回来） */
+.center-screen{min-height:0;overflow-y:auto;overscroll-behavior:contain;justify-content:safe center;-webkit-overflow-scrolling:touch}
