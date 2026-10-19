@@ -61,9 +61,9 @@ describe('r15.4.3 ③ 押错反击 ×1.25 真的乘上了，结果写明', () =>
     const sb = go('std', true), lb = go('light', true), hb = go('heavy', true), sn = go('std', false);
     expect([sb.taken, lb.taken, hb.taken, sn.taken]).toEqual([23, 18, 34, 18]);
     expect(sb.text).toContain('押注失手：反击 ×1.25'); expect(lb.text).toContain('押注失手：反击 ×1.25');
-    expect(hurtNote(lb)).toBe('（18 × 轻击卡 ×0.8 × 押注 ×1.25 = 18）');
-    expect(hurtNote(sb)).toBe('（18 × 押注 ×1.25 = 23）');
-    expect(hurtNote(hb)).toBe('（18 × 重击卡 ×1.5 × 押注 ×1.25 = 34）');
+    expect(hurtNote(lb)).toBe('（基础 18 × 轻击卡 ×0.8 × 押注 ×1.25 = 18）');
+    expect(hurtNote(sb)).toBe('（基础 18 × 押注 ×1.25 = 23）');
+    expect(hurtNote(hb)).toBe('（基础 18 × 重击卡 ×1.5 × 押注 ×1.25 = 34）');
     expect(hurtNote(sn)).toBe('');
     // 押注不能闪避：rng 再小也不闪
     const [, d] = resolveRound(s, bola, { correct: false, subject: '化学', difficulty: 2, card: 'std', wager: true, rng: () => 0 });

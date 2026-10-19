@@ -70,7 +70,7 @@ export interface RInput {
   challenge?: boolean;     // D14 初一挑战题：答对内层 ×1.5；答错不能闪避、反击 ×1.5
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; /** r15.4.3：我方回合答错反击的倍率明细（题卡 / 押注 / 挑战 / 护体） */ hurtInfo?: { base: number; parts: [string, number][] }; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { parts?: [string, number][]; raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; /** r15.4.3：我方回合答错反击的倍率明细（题卡 / 押注 / 挑战 / 护体） */ hurtInfo?: { base: number; parts: [string, number][] }; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
 
 /** D14：返回外层伤害（固定倍率、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战×押注，技能另乘后统一封顶 ×1.8）。r15.4.2：押注 ×1.25 改进内层，和重击卡一起也不超过 ×1.8 */
 export function calcParts(s: RState, c: Character, i: RInput) {
@@ -80,6 +80,17 @@ export function calcParts(s: RState, c: Character, i: RInput) {
   if (i.stepIndex != null) outer *= MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)];
   const inner = comboMult(s.combo) * (1 + FOCUS_DMG * s.focus) * cardOut(card.out, i.difficulty) * (i.challenge ? CHALLENGE.out : 1) * (i.wager && s.side === 'P' ? WAGER.out : 1) * (i.simSkillMult ?? 1);
   return { outer, inner };
+}
+/** r15.4.4 学霸：内层加成逐项写来源（结果里「加成：连击 ×1.4 × 重击卡 ×1.5 × 押注 ×1.25 = ×2.63，已到上限，按 ×1.8 算」）。乘积 = calcParts 的 inner（不含技能） */
+export function innerParts(s: RState, i: RInput): [string, number][] {
+  const card = CARDS[i.card ?? 'std']; const P: [string, number][] = [];
+  const cm = comboMult(s.combo); if (cm !== 1) P.push([`连击${s.combo}`, cm]);
+  if (s.focus) P.push([`专注${s.focus}`, 1 + FOCUS_DMG * s.focus]);
+  const co = cardOut(card.out, i.difficulty); if (co !== 1) P.push([card.label + '卡', co]);
+  if (i.challenge) P.push(['挑战', CHALLENGE.out]);
+  if (i.wager && s.side === 'P') P.push(['押注', WAGER.out]);
+  if (i.simSkillMult && i.simSkillMult !== 1) P.push(['技能', i.simSkillMult]);
+  return P;
 }
 /** 无技能时的伤害（封顶后） */
 export function calcD(s: RState, c: Character, i: RInput) { const { outer, inner } = calcParts(s, c, i); return outer * Math.min(INNER_CAP, inner); }
@@ -130,14 +141,14 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       const e = sk?.effect;
       /* r15.4.3 学霸：封顶只管内层（连击×专注×技能×题卡×挑战×押注）；难度、主修 ×1.2、算算/阿算数学 +10%、Boss 弱点 ×1.5 是外层，按 D14 规格不封顶。
          只有内层 × 技能真的超过 ×1.8 被截掉时才记 capped / capInfo（「加成到顶」提示只在这时弹） */
-      const capM = (m: number) => { const raw = inner * m; if (raw > INNER_CAP + 1e-9) { o.capped = true; o.capInfo = { raw: Math.max(raw, o.capInfo?.raw ?? 0), used: INNER_CAP }; } return Math.min(INNER_CAP, raw); };
+      const capM = (m: number) => { const raw = inner * m; if (raw > INNER_CAP + 1e-9) { o.capped = true; o.capInfo = { raw: Math.max(raw, o.capInfo?.raw ?? 0), used: INNER_CAP, parts: [...innerParts(s, i), ...(m !== 1 ? [[sk?.name ? `技能「${sk.name}」` : '技能', m] as [string, number]] : [])] }; } return Math.min(INNER_CAP, raw); };
       if (e === 'A2H') { for (let k = 0; k < 2; k++) { const d = hit(s, r1(outer * capM(SKILL.atk.A2H)), false, o); o.hits.push(d); o.dealt += d; } }
       else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(outer * capM(m)), e === 'A13P', o); o.hits.push(d); o.dealt = d; }
       if (e !== 'A13P' && o.hits.length) s.shield = 0;   // 护盾挡完这一击（或多段）后清零，不叠加
       if (e === 'A125C') s.combo++;                        // 连击 +1 在本次伤害计算之后
       o.text = o.dealt ? (o.absorbed ? `⚔ 攻击命中！（怪物护盾挡掉 ${o.absorbed} 点）` : '⚔ 攻击命中！') : '⚔ 被护盾挡住了';   /* r15.4.1 学霸：写明护盾挡掉多少 */
     } else if (part) {   // 我方回合漏选：50% 伤害，不反击
-      { const { inner } = calcParts(s, c, i); if (inner > INNER_CAP + 1e-9) { o.capped = true; o.capInfo = { raw: inner, used: INNER_CAP }; } }
+      { const { inner } = calcParts(s, c, i); if (inner > INNER_CAP + 1e-9) { o.capped = true; o.capInfo = { raw: inner, used: INNER_CAP, parts: innerParts(s, i) }; } }
       const d = hit(s, r1(calcD(s, c, i) * 0.5), false, o); o.hits.push(d); o.dealt = d; s.shield = 0;
       o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
@@ -169,8 +180,10 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       if (o.perfect) o.text = '完美闪避！' + o.text.replace('闪避成功！', '');
     } else {
       const m = part ? 0.5 : 1;   // 对方回合漏选：按答错结算，受到伤害减半
-      if (it === 'atk') { o.taken = takeHurt(monAtk(s), m); o.text = '被攻击了'; }
-      else if (it === 'heavy') { o.taken = takeHurt(s.chargeBroken ? monAtk(s) : 2 * s.def.atk, m); s.chargeBroken = false; o.text = '💥 被重击了'; }
+      /* r15.4.4 学霸：对方回合受到的伤害也逐项写来源（基础 = 意图上的数） */
+      const eParts = (): [string, number][] => [...(part ? [['漏选减半', 0.5] as [string, number]] : []), ...(s.guard ? [['护体', SKILL.guardHurt] as [string, number]] : [])];
+      if (it === 'atk') { const ep = eParts(); o.taken = takeHurt(monAtk(s), m); o.hurtInfo = { base: monAtk(s), parts: ep }; o.text = '被攻击了'; }
+      else if (it === 'heavy') { const ep = eParts(), full = !s.chargeBroken; o.taken = takeHurt(full ? 2 * s.def.atk : monAtk(s), m); o.hurtInfo = full ? { base: s.def.atk, parts: [['蓄力重击', 2], ...ep] } : { base: monAtk(s), parts: ep }; s.chargeBroken = false; o.text = '💥 被重击了'; }
       else if (it === 'charge') { s.chargeBroken = false; o.text = '⚡ 怪物蓄力成功，下次重击 ×2'; }
       else if (it === 'shield') { s.shield = s.shieldVal; o.gotShield = true; o.text = `🛡 怪物开了护盾：你下一次攻击少 ${s.shieldVal} 点伤害（这回合它没攻击）`; }
       else o.text = '💤 怪物在发呆，没有攻击';

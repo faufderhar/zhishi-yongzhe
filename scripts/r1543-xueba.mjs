@@ -93,7 +93,7 @@ ok(/每回合重新选/.test(R.popText || '') && /能量额外 \+1/.test(R.popTe
 ok(R.resetLine === R.setups && R.defaultOff === R.setups, `④每个选卡步都有「每回合重新选」（${R.resetLine}/${R.setups}），开关默认关（${R.defaultOff}/${R.setups}）`);
 ok(/能量额外 \+1/.test(R.label) && !/，能量 \+1/.test(R.label), `②开关文字：${R.label}`);
 ok(R.betRight.length >= 2 && R.betRight.every(r => r.e0 >= 4 || /能量 \+2（含押注额外 \+1）|能量 \+3（含押注额外 \+1）/.test(r.text) || /✨/.test(r.text)), `②押对能量写「+2（含押注额外 +1）」：${R.betRight.map(r => r.text).join(' | ')}`);
-ok(R.capped.length >= 1 && R.capped.every(r => /加成 ×\d+\.\d\d，已到上限，按 ×1\.8 算/.test(r.text)), `①到顶时写明封顶前倍率：${R.capped.map(r => r.text).join(' | ')}`);
-ok(R.betWrong.length >= 2 && R.betWrong.every(r => /押注失手：反击 ×1\.25/.test(r.text) && /受到 \d+（\d+( × [^）]*)? = \d+）/.test(r.text)), `③押错写倍率：${R.betWrong.map(r => r.text).join(' | ')}`);
+ok(R.capped.length >= 1 && R.capped.every(r => /加成：.*(重击卡|押注).* = ×\d+\.\d\d，已到上限，按 ×1\.8 算/.test(r.text)), `①到顶时写明封顶前倍率：${R.capped.map(r => r.text).join(' | ')}`);
+ok(R.betWrong.length >= 2 && R.betWrong.every(r => /押注失手：反击 ×1\.25/.test(r.text) && /受到 \d+（基础 \d+( × [^）]*)? = \d+）/.test(r.text) && (r.card === 'std' || /(轻击卡|重击卡) ×/.test(r.text)) && /押注 ×1\.25/.test(r.text)), `③押错写倍率：${R.betWrong.map(r => r.text).join(' | ')}`);
 ok(R.j.length >= 3 && R.j.every(x => x.sk), `⑥初一预计伤害旁都有「技能另算」（${R.j.length} 题；有护盾的 ${R.j.filter(x => x.sh).length} 题：${R.j.filter(x => x.sh).map(x => x.t).join(' | ')}）`);
 console.log(bad ? `r1543-xueba FAIL ${bad}` : 'r1543-xueba ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

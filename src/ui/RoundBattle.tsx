@@ -413,7 +413,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">
-            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.capInfo ? `（加成 ×${fb.o.capInfo.raw.toFixed(2)}，已到上限，按 ×${fb.o.capInfo.used} 算）` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
+            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{capNote(fb.o)}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
             {!fb.ok && <>
               {picked && <p>你的答案：{cq.type === '选择' || cq.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(cq)} /></b></p>
@@ -462,9 +462,15 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
 /** r15.4.3 学霸：主修科目外层加成（不算在 ×1.8 封顶里）：×1.2，阿算 / 算算数学再 ×1.1 */
 const PASSIVE_MATH = (c: { major: string }) => c.major === '数学';
 /** r15.4.3 学霸：反击倍率明细「（18 × 轻击卡 ×0.8 × 押注 ×1.25 = 18）」；没有额外倍率就不写 */
+/* r15.4.4 学霸：每个倍率都写来源，基础也写明「基础 18 × 轻击卡 ×0.8 × 押注 ×1.25 = 18」 */
+const fmtM = (m: number) => String(Math.round(m * 100) / 100);
 export function hurtNote(o: ROut) { const h = o.hurtInfo; if (!h || !h.parts.length || !o.taken) return '';
   const prod = h.parts.reduce((a, [, m]) => a * m, 1);
-  return `（${h.base}${h.parts.map(([n, m]) => ` × ${n} ×${m}`).join('')}${prod > HURT_CAP + 1e-9 ? `，最多 ×${HURT_CAP}` : ''} = ${o.taken}）`; }
+  return `（基础 ${h.base}${h.parts.map(([n, m]) => ` × ${n} ×${fmtM(m)}`).join('')}${prod > HURT_CAP + 1e-9 ? `，最多 ×${HURT_CAP}` : ''} = ${o.taken}）`; }
+/** r15.4.4 学霸：加成到顶时逐项写来源「（加成：连击2 ×1.1 × 重击卡 ×1.6 × 押注 ×1.25 = ×2.20，已到上限，按 ×1.8 算）」 */
+export function capNote(o?: ROut) { const c = o?.capInfo; if (!c) return '';
+  const ps = c.parts?.length ? `${c.parts.map(([n, m]) => `${n} ×${fmtM(m)}`).join(' × ')} = ` : '';
+  return `（加成${ps ? '：' + ps : ' '}×${c.raw.toFixed(2)}，已到上限，按 ×${c.used} 算）`; }
 /** r15.4.2 游戏策划：押注开关（我方回合看题前，题卡旁边，默认关，点一下就押） */
 export const BET_LABEL = '押注：答对伤害 ×1.25，能量额外 +1；答错反击 ×1.25，且不能闪避';   // r15.4.3 学霸：押对能量 = 基础 +1 + 押注额外 +1
 /** r15.4.3：第一次出押注开关时的说明弹窗（每个档案 1 次，点〔知道了〕才算看过） */
