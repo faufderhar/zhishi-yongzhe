@@ -396,7 +396,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {asking && cq && cq.type === '多选' && (
           <div className="opts">
             {cq.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} aria-pressed={multi.includes(ch.key)} data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (cq.answer.includes(ch.key) ? '1' : '0') : undefined}
-              onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{multi.includes(ch.key) ? '✔' : ch.key}</i><Tex text={ch.text} /></button>)}
+              onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{multi.includes(ch.key) ? '✔' : ch.key}</i><span className="opt-txt"><Tex text={ch.text} /></span></button>)}
             <button className="next multi-ok" disabled={!multi.length} data-testid="ok" onClick={() => submit(multi.join(''))}>确定（多选）</button>
           </div>
         )}
@@ -404,7 +404,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
           <div className={`opts ${cq.type === '判断' ? 'tf' : ''}`}>
             {choicesOf(cq).map(ch => <div key={ch.key} className="opt-wrap">
               <button className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (cq.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>
-                {cq.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button></div>)}
+                {cq.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<span className="opt-txt"><Tex text={ch.text} /></span>} /></button></div>)}
           </div>
         )}
         {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={v => submit(v)} />}

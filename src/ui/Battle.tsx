@@ -570,7 +570,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
         {asking && q.type === '多选' && (
           <div className="opts">
             {q.options.map(ch => <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} aria-pressed={multi.includes(ch.key)} data-testid={'opt-' + ch.key}
-              onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{multi.includes(ch.key) ? '✔' : ch.key}</i><Tex text={ch.text} /></button>)}
+              onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{multi.includes(ch.key) ? '✔' : ch.key}</i><span className="opt-txt"><Tex text={ch.text} /></span></button>)}
             <button className="next multi-ok" disabled={!multi.length} data-testid="ok" onClick={() => submit(multi.join(''))}>确定（多选）</button>
           </div>
         )}
@@ -579,7 +579,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
             {choicesOf(q).map(ch => (
               <div key={ch.key} className="opt-wrap">
                 <button className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (q.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>
-                  {q.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<Tex text={ch.text} />} /></button>
+                  {q.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<span className="opt-txt"><Tex text={ch.text} /></span>} /></button>
                 {cfg.optionSpeaker && q.type === '选择' && !ch.text.includes('$') && <button className="opt-spk" aria-label="读选项" onClick={() => speak(ch.text, 'zh-CN', { keys: [optVoiceKey(q, ch)] })}>🔈</button>}
               </div>))}
           </div>

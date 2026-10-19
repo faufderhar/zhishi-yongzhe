@@ -368,9 +368,9 @@ export function ReviewSession({ questions, onAnswer, onDone }: { questions: Ques
         <div className="qmeta">{q.subject} · {q.type}{tts && <button className="mini" onClick={() => speak(tts, q.subject === '英语' ? 'en' : 'zh-CN')}>🔊</button>}</div>
         <div className="qtext"><Tex text={q.question} /></div>
         {!res && (q.type === '选择' || q.type === '判断') && <div className={`opts ${q.type === '判断' ? 'tf' : ''}`}>{choicesOf(q).map(ch =>
-          <button key={ch.key} className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (q.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>{q.type === '选择' && <i>{ch.key}</i>}<Tex text={ch.text} /></button>)}</div>}
+          <button key={ch.key} className="opt" data-testid={'opt-' + ch.key} data-correct={TEST_DOM ? (q.answer.includes(ch.key) ? '1' : '0') : undefined} onClick={() => submit(ch.key)}>{q.type === '选择' && <i>{ch.key}</i>}<span className="opt-txt"><Tex text={ch.text} /></span></button>)}</div>}
         {!res && q.type === '多选' && <div className="opts">{q.options.map(ch =>
-          <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{ch.key}</i><Tex text={ch.text} /></button>)}
+          <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{ch.key}</i><span className="opt-txt"><Tex text={ch.text} /></span></button>)}
           <button className="next multi-ok" disabled={!multi.length} onClick={() => submit(multi.join(''))}>确定</button></div>}
         {!res && q.type === '填空' && <Keypad key={q.key} letters={q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a))} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {res && <div className={`feedback ${res.ok ? 'ok' : 'bad'}`}>
