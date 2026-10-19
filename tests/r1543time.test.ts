@@ -10,7 +10,7 @@ it('上限 5 分钟、加 10 分钟、玩了 9:14 → 取消没用的 5:46；之
   expect(bonusAllSpent(u[D])).toBe(true);
   expect(bonusUsedSec(u[D], 300)).toBe(254); expect(bonusUsedSec(u[D], 900)).toBe(254);   // 以前上限 15 时算成 0 →「取消没用的 4:14」
   expect(cancelPreview(u[D], 900).cancel).toBe(0);
-  expect(remainingSec(L5, u, D)).toBe(0); expect(remainingSec(L15, u, D)).toBe(900 + 254 - 554);   // 剩余时间算法不变（列给总管）
+  expect(remainingSec(L5, u, D)).toBe(0); expect(remainingSec(L15, u, D)).toBe(900 - 554);   // r16 较真家长 1：取消时上限 capAt = 5:00 + 4:14；改成 15 后今天上限 = max(15:00, 9:14) = 15:00（以前 15:00 + 4:14，多出 4:14）
 });
 it('取消后又加 10 分钟 → 新加的可以取消，留下的已用部分不变', () => {
   let u: Usage = addBonus({}, D, 600); u = addUsage(u, D, 554, 900); u = cancelBonus(u, D, 300); u = addBonus(u, D, 600);

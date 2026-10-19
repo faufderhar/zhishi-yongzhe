@@ -1,7 +1,7 @@
 import { roundModeOf } from './game/rounds';
 import { claimTab, onTabActive, isActiveTab } from './tabGuard';
 import { launchCause, markAlive, beat, setSafeScreen, logReload } from './swUpdate';
-import { bonusShown, tickGrace, GRACE_MS, GRACE_VOICE, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
+import { bonusShown, effBonus, tickGrace, GRACE_MS, GRACE_VOICE, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
 import { netCheck, pendingDays, pendingWaitedMs, PEND_DAYS, tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
@@ -268,7 +268,7 @@ export default function App() {
   // r11 技术QA R10-1：3 分钟收尾倒计时并进下面的游戏时钟（单调时钟、暂停/后台不走、只有一个计时源），不再用 Date.now + 固定 setTimeout
   const graceMs = useRef<number | null>(null);
   /* r15.3 较真家长：今天的上限秒数（含加时；不限 = Infinity）。用时永远 ≤ 上限 + 3 分钟收尾 */
-  const limitBase = (id: string, u: Record<string, Usage> = usageRef.current) => { const pp = profilesRef.current.find(x => x.id === id); if (!pp) return Infinity; const m = limitMinutes(S.effLimit(pp)); return m ? m * 60 + (u[id]?.[dayStr()]?.bonus ?? 0) : Infinity; };
+  const limitBase = (id: string, u: Record<string, Usage> = usageRef.current) => { const pp = profilesRef.current.find(x => x.id === id); if (!pp) return Infinity; const m = limitMinutes(S.effLimit(pp)); return m ? m * 60 + effBonus(u[id]?.[dayStr()], m * 60) : Infinity; };
   useEffect(() => { const G0 = (__TEST_HOOKS__ && (window as unknown as { __zyGraceMs?: number }).__zyGraceMs) || GRACE_MS;
     /* 收尾时长扣掉已经记进去的超时部分（用时按秒批量结算，进入收尾时可能已多记几秒；同一天第二次进入收尾也不会再给 3 分钟） */
     const G = overTime && pid ? graceBudgetMs(usageRef.current[pid]?.[dayStr()]?.used ?? 0, limitBase(pid), G0) : G0;
