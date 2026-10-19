@@ -146,7 +146,8 @@ img.unit{height:min(260px,30vh);width:auto;object-fit:contain;filter:drop-shadow
 .theme-g1 .hud{background:#fff6}.theme-g1 .feedback.ok{background:#bff0c9}.theme-g1 .feedback.bad{background:#ffd0d0}.theme-g1 .intent{background:#fff8}
 .opts.big .opt{min-height:120px;font-size:30px}
 .opt-wrap{position:relative;display:flex}.opt-wrap .opt{flex:1}
-.opt-spk{position:absolute;right:-8px;top:-8px;width:56px;height:56px;border-radius:50%;background:#ffd54a;font-size:24px}
+.opt-spk{position:absolute;right:0;top:-8px;width:56px;height:56px;border-radius:50%;background:#ffd54a;font-size:24px}
+/* r15.4.4 optimg-G1：小喇叭以前 right:-8px，右列伸出选项区 8px（M1-007 opts 横向溢出 644>636），改成贴卡片右边 */
 .opt-img{max-height:80px}
 .revive-banner{background:#ff8a3d;color:#fff;border-radius:12px;padding:8px 16px;font-weight:700}
 .fb-btns{justify-content:flex-end;align-items:center}
