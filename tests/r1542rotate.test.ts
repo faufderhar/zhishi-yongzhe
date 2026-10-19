@@ -20,3 +20,14 @@ describe('r15.4.2 竖屏', () => {
     const a = readFileSync('src/App.tsx', 'utf8'); expect(a).toMatch(/__zyRotate\?: boolean \}\)\.__zyRotate;/); expect(a).toMatch(/phonePortrait && \(screen\.s === 'battle' \|\| screen\.s === 'review'\) && <RotateOverlay/);
   });
 });
+describe('r15.4.2 最终回归：竖屏提示条不挡点按', () => {
+  it('portrait-tip：pointer-events:none；7 秒兜底移除；手机竖屏战斗（有「横过来」盖层）时不出', () => {
+    const css = readFileSync('src/app.css', 'utf8'); expect(css).toMatch(/\.portrait-tip\{pointer-events:none;/);
+    const a = readFileSync('src/App.tsx', 'utf8'); expect(a).toMatch(/setTimeout\(\(\) => setTipGone\(true\), 7000\)/);
+    expect(a).toMatch(/portrait && !tipGone && !\(phonePortrait && \(screen\.s === 'battle' \|\| screen\.s === 'review'\)\) && <div className="portrait-tip"/);
+  });
+  it('手机横屏（高 ≤ 500）有专门的紧凑排版（键盘 / 选项 / 小班顶栏）', () => {
+    const css = readFileSync('src/app.css', 'utf8'); expect(css.match(/@media \(orientation:landscape\) and \(max-height:500px\)\{/g)!.length).toBeGreaterThanOrEqual(3);
+    expect(css).toMatch(/\.ktop\{grid-template-columns:auto minmax\(0,1fr\) auto/);
+  });
+});

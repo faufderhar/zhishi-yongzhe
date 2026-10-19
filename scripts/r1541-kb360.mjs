@@ -1,4 +1,5 @@
 // r15.4.1 技术QA P3-3：360×640 小手机竖屏长题——数字键盘最后一排在屏内、题干不需要在题目框里再滚、预计伤害和题型标签不重叠。
+// r15.4.2：手机竖屏战斗现在是「请把手机横过来」盖层，所以 360×640 等先确认盖层，再横过来（640×360）量。
 // 也跑 375×667 / 390×844 / 1024×600 回归。用法：URL=… node scripts/r1541-kb360.mjs
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
@@ -19,16 +20,21 @@ for (const { W, H, q } of CASES) {
   await pg.click('[data-testid="chapter-数学"]').catch(() => {}); await w(300); await pg.click('[data-testid=level-1]'); await w(900);
   for (let i = 0; i < 8; i++) { const t = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!t) break; await t.click().catch(() => {}); await w(250); }
   for (let i = 0; i < 6 && !(await pg.isVisible('.keypad')); i++) { if (await pg.isVisible('[data-testid=chal-normal]')) await pg.click('[data-testid=chal-normal]'); await w(500); }
+  // r15.4.2 技术QA P1-1：手机竖屏（短边 < 600）战斗改成全屏「请把手机横过来」；确认盖层后横过来（宽高互换）再量键盘
+  let VW = W, VH = H; if (H > W && W < 600) { await w(800); ok(await pg.isVisible('[data-testid=rotate-overlay]'), `${W}×${H} ${q}：手机竖屏战斗出「请把手机横过来」`); await pg.screenshot({ path: `${OUT}rot-${W}x${H}-${q}.png` }); await pg.setViewportSize({ width: H, height: W }); VW = H; VH = W; await w(1200);
+    for (let i = 0; i < 8; i++) { const t = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!t) break; await t.click().catch(() => {}); await w(250); }
+    for (let i = 0; i < 6 && !(await pg.isVisible('.keypad')); i++) { if (await pg.isVisible('[data-testid=chal-normal]')) await pg.click('[data-testid=chal-normal]'); await w(500); } }
   await w(7000);   // 开局提示气泡（约 6 秒）收起后再量
   const m = await pg.evaluate(() => { const R = e => e ? e.getBoundingClientRect() : null; const keys = [...document.querySelectorAll('.keypad button')].map(e => e.getBoundingClientRect().bottom);
     const qt = document.querySelector('.battle .qtext'); const tr = e => { if (!e) return null; const rg = document.createRange(); rg.selectNodeContents(e); return rg.getBoundingClientRect(); }; const meta = document.querySelector('.battle .qmeta'), dmg = document.querySelector('[data-testid=q-dmg]');   /* 文字实际占的框（Range），不是元素框 */
     const inter = (a, b) => a && b ? Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left)) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top)) : 0;
-    return { vh: innerHeight, maxKey: Math.max(...keys), nKeys: keys.length, qScroll: qt ? qt.scrollHeight - qt.clientHeight : -1, ov: inter(tr(meta), tr(dmg)), stem: qt?.innerText.slice(0, 20), docScroll: document.scrollingElement.scrollHeight - innerHeight, intent: (() => { const i = document.querySelector('[data-testid=intent]'), a = document.querySelector('.battle .arena'); if (!i || !a) return 'none'; const r = i.getBoundingClientRect(), ar = a.getBoundingClientRect(); const cs = getComputedStyle(i); return cs.display !== 'none' && cs.visibility !== 'hidden' && r.height > 10 && r.top >= ar.top - 1 && r.bottom <= ar.bottom + 1 ? 'ok' : `clip ${Math.round(r.top)}-${Math.round(r.bottom)} in ${Math.round(ar.top)}-${Math.round(ar.bottom)}`; })() }; });
-  const tag = `${W}×${H} ${q}`; await pg.screenshot({ path: `${OUT}kb-${W}x${H}-${q}.png` });
+    const pz = document.querySelector('[data-testid=pause]')?.getBoundingClientRect(); return { pause: pz ? { l: pz.left, r: pz.right, t: pz.top, b: pz.bottom, vw: innerWidth } : null, vh: innerHeight, maxKey: Math.max(...keys), nKeys: keys.length, qScroll: qt ? qt.scrollHeight - qt.clientHeight : -1, ov: inter(tr(meta), tr(dmg)), stem: qt?.innerText.slice(0, 20), docScroll: document.scrollingElement.scrollHeight - innerHeight, intent: (() => { const i = document.querySelector('[data-testid=intent]'), a = document.querySelector('.battle .arena'); if (!i || !a) return 'none'; const r = i.getBoundingClientRect(), ar = a.getBoundingClientRect(); const cs = getComputedStyle(i); return cs.display !== 'none' && cs.visibility !== 'hidden' && r.height > 10 && r.top >= ar.top - 1 && r.bottom <= ar.bottom + 1 ? 'ok' : `clip ${Math.round(r.top)}-${Math.round(r.bottom)} in ${Math.round(ar.top)}-${Math.round(ar.bottom)}`; })() }; });
+  const tag = `${VW}×${VH}${VW !== W ? '（横过来）' : ''} ${q}`; await pg.screenshot({ path: `${OUT}kb-${VW}x${VH}-${q}.png` });
   if (!m.nKeys) { ok(false, `${tag}：没遇到数字键盘`); await ctx.close(); continue; }
   ok(m.maxKey <= m.vh + 0.5, `${tag}：键盘最后一排在屏内（最下 ${Math.round(m.maxKey)} / 视口 ${m.vh}）`);
   ok(m.qScroll <= 2, `${tag}：题干不用在题目框里再滚（内部多出 ${m.qScroll}px）「${m.stem}」`);
   ok(m.ov < 1, `${tag}：预计伤害和题型标签不重叠（重叠 ${Math.round(m.ov)} px²）`);
+  ok(m.pause && m.pause.l >= 0 && m.pause.r <= m.pause.vw + 0.5 && m.pause.t >= 0 && m.pause.b <= m.vh + 0.5, `${tag}：暂停按钮完整在屏内（${m.pause ? Math.round(m.pause.l) + '–' + Math.round(m.pause.r) + ' / ' + m.pause.vw : '没有'}）`);
   ok(m.intent === 'ok', `${tag}：怪物意图标签完整可见（${m.intent}）`);
   await ctx.close();
 }

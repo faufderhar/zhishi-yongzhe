@@ -20,7 +20,7 @@ button:disabled{opacity:.4}
 .tag{background:#ffd54a;color:#333;border-radius:99px;padding:2px 12px;font-size:15px}
 .back{position:absolute;left:24px;top:24px;width:72px;height:72px;border-radius:50%;background:rgba(0,0,0,.2);font-size:36px}
 .warn{color:#ffb3b3}
-.portrait-tip{animation:tipfade .4s 6s forwards;position:fixed;top:0;left:0;right:0;background:#ffd54a;color:#333;text-align:center;padding:8px;z-index:9;font-size:18px}
+.portrait-tip{pointer-events:none;animation:tipfade .4s 6s forwards;position:fixed;top:0;left:0;right:0;background:#ffd54a;color:#333;text-align:center;padding:8px;z-index:9;font-size:18px}
 /* battle layout: 左战斗 右答题 */
 .battle{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;min-height:0}
 .battle.kinder{grid-template-rows:1fr}
@@ -883,3 +883,66 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15.4.2 技术QA P1-1：手机横过来后（844×390 等矮屏）新手引导第 2 / 4 步卡片 margin-top:30%（按宽度算 ≈250px）被推出屏幕、点不到「下一步」。矮屏不下移，盖层可滚 */
 .tut-overlay{overflow-y:auto}
 @media (max-height:600px){.tut-card.at-m,.tut-card.at-h{margin-top:0}.tut-card{padding:28px 24px 16px;gap:10px;font-size:clamp(18px,4.6dvh,26px)}}
+/* r15.4.2 最终回归（optimg 竖屏 KC-013）：题干带图（太阳）时气泡 413px 高，舞台固定 35dvh → 选项被挤出屏幕底。
+   平板竖屏改成舞台占剩下的空间（立绘按 --kfit 等比缩），选项行按内容；题干图再矮一点 */
+@media (orientation:portrait) and (min-width:600px){
+  .kbattle{grid-template-rows:auto minmax(140px,1fr) auto;height:100dvh;max-height:100dvh}
+  .kbattle .kbubble .q-img{max-height:16dvh}
+}
+/* r15.4.2 技术QA P1-1：手机竖屏战斗现在要求横过来，所以手机横屏（短边 < 500，如 640×360 / 667×375 / 844×390）必须能玩：
+   以前这档没专门排过——HUD / 横幅 / 立绘按平板尺寸，题目栏只剩半屏宽，初一数字键盘最下一排在 881px（视口 360）。
+   紧凑排版：左 36% 战场（立绘缩小）、右 64% 题目；HUD / 横幅 / 题型行缩字；题干 17px；键盘 4 排压到 ~170px；题目栏仍可滚动兜底 */
+@media (orientation:landscape) and (max-height:500px){
+  .battle{grid-template-columns:36% 64%;height:100dvh;max-height:100dvh}
+  .battle .hud,.battle.rounds .hud{gap:8px;padding:2px 8px;font-size:13px;flex-wrap:nowrap;overflow:hidden;height:32px;min-height:0}
+  .battle .hud *{font-size:inherit}
+  .battle .hud > *{max-height:28px}
+  .battle .hud .bar,.battle .hud [class*=bar]{flex:0 1 110px;min-width:60px}
+  .battle .hud .lvl-title{display:none}
+  .battle .hud > *{flex-shrink:1;min-width:0}
+  .battle .hud .pause-btn,.battle .hud .rules-btn,.battle .hud .energy-ring{flex-shrink:0}
+  .battle .hud svg,.battle .hud img,.battle .hud canvas{height:22px !important;width:auto !important}
+  .battle .hud button{width:28px !important;height:28px !important;min-width:0 !important;min-height:0 !important;padding:0 !important;font-size:14px !important}
+  .battle .side-banner,.battle.rounds .side-banner{font-size:13px;padding:1px 0;grid-column:1 !important;grid-row:2}
+  .battle.rounds{grid-template-rows:auto auto 1fr}
+  .battle.rounds .quiz{grid-column:2;grid-row:2 / 4}
+  .battle.rounds .arena{grid-column:1;grid-row:3}
+  .battle .arena{padding:2px 4px;overflow:hidden}
+  .battle .arena .stage,.battle .stage{height:auto !important;min-height:0;flex:1}
+  .battle .arena .unit-wrap{zoom:.55}
+  .battle .hero-name,.battle .mon-info{font-size:12px}
+  .battle .quiz{padding:3px 10px 4px;gap:3px}
+  .battle .qmeta,.battle .q-dmg{font-size:11px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0}
+  .battle .qtext,.theme-std .battle .qtext,.theme-hs .battle .qtext,.theme-g1 .battle .qtext,.battle.rounds .quiz:has(.keypad-wrap) .qtext{font-size:15px;line-height:1.3;max-height:none !important;overflow:visible}
+  .battle .input-box{min-height:30px !important;height:30px;padding:0 10px !important;font-size:16px !important}
+  .battle .keypad-wrap{gap:3px}
+  .battle .keypad{gap:3px !important}
+  .battle .keypad button,.battle.rounds .keypad.num3 button,.battle.rounds .keypad.num button{min-height:30px !important;height:30px !important;font-size:17px !important;padding:0 !important}
+  .battle .keypad.num3 .kp-side .ok,.battle.rounds .keypad.num3 .kp-side .ok{min-height:0 !important;height:auto !important}
+  .battle .kp-digits,.battle .kp-side,.battle.rounds .quiz:has(.keypad-wrap) .kp-digits,.battle.rounds .quiz:has(.keypad-wrap) .kp-side{gap:3px !important}
+  .battle .opts{gap:6px}
+  .battle .opts,.battle .quiz .opts{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .battle .opts .opt,.theme-std .battle .opt,.theme-hs .battle .opt,.theme-g1 .battle .opt,.opts.tf .opt,.battle .opts > *{min-width:0 !important;min-height:38px !important;padding:4px 10px;font-size:15px !important}
+}
+@media (orientation:landscape) and (max-height:370px){
+  .battle .keypad button,.battle.rounds .keypad.num3 button,.battle.rounds .keypad.num button{min-height:26px !important;height:26px !important;font-size:16px !important}
+  .battle .input-box{min-height:28px !important;height:28px}
+  .battle .quiz{gap:2px;padding-top:2px}
+}
+/* 手机横屏的小班：顶栏 1fr auto 1fr 时气泡又被挤窄（数数题图标一列竖排，选项压住气泡）。中间列占满剩余宽度，开心值缩小，数数图标缩小 */
+@media (orientation:landscape) and (max-height:500px){
+  .ktop{grid-template-columns:auto minmax(0,1fr) auto;gap:8px}
+  .ktop > .kbubble{max-width:none !important;justify-self:stretch}
+  .kbattle .hearts{font-size:22px;gap:2px}
+  .kbattle .hearts .hearts-label{font-size:12px}
+  .kbattle .hearts.smiles .ksmile{width:22px;height:22px;font-size:20px}
+  .kbattle.ktight .kitem,.kbattle .kitem{font-size:32px;min-width:40px;min-height:40px}
+  .kbattle .kitems{max-width:none;gap:2px;margin-top:2px}
+  .kbattle .kspeaker,.kbattle.ktight .kspeaker{width:52px;height:52px;font-size:28px}
+  .theme-kinder .kbattle .kq,.theme-kinder .kbattle.ktight .kq{font-size:22px}
+  .kbattle .kopt,.kbattle.ktight .kopt{height:clamp(96px,28dvh,140px);min-height:96px}
+  .kbattle .pause-btn{width:52px;height:52px}
+}
+@media (orientation:landscape) and (max-height:500px){
+  .battle .opts:not(.tf),.battle .quiz .opts:not(.tf){grid-template-columns:minmax(0,1fr)}
+}

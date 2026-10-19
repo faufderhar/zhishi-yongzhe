@@ -53,6 +53,7 @@ const enter = async (pg, w, id) => {
   await w(1300);
 };
 const quit = async (pg, w) => { const box = await pg.locator('[data-testid=pause]').boundingBox().catch(() => null); if (box) { await pg.mouse.move(box.x + box.width / 2, box.y + box.height / 2); await pg.mouse.down(); await w(2300); await pg.mouse.up(); }
+  for (let k = 0; k < 2 && box && !(await pg.isVisible('[data-testid=quit]')) && (await pg.isVisible('[data-testid=pause]')); k++) { const bx = await pg.locator('[data-testid=pause]').boundingBox(); if (!bx) break; await pg.mouse.move(bx.x + bx.width / 2, bx.y + bx.height / 2); await pg.mouse.down(); await w(3000); await pg.mouse.up(); await w(300); }   // r15.4.2：忙时按住不够 2 秒，重试
   await pg.click('[data-testid=quit]', { timeout: 3000 }).catch(() => {}); await pg.click('[data-testid=quit-confirm]', { timeout: 3000 }).catch(() => {}); await pg.waitForSelector('[data-testid=level-1]', { timeout: 8000 }).catch(() => {}); };
 const measure = pg => pg.evaluate(async () => {
   const vw = innerWidth, vh = innerHeight; const out = []; const R = e => e.getBoundingClientRect();
@@ -64,6 +65,23 @@ const measure = pg => pg.evaluate(async () => {
   for (const e of document.querySelectorAll('.hearts, .kbubble, .hud, .side-banner, .quiz, .unit-wrap, .pause-btn')) { const r = R(e); if (r.width > 2 && (r.left < -1 || r.right > vw + 1)) out.push(`${e.tagName}.${String(e.className).split(' ')[0]}${e.getAttribute('src') ? '[' + e.getAttribute('src').split('/').pop().slice(0, 24) + ']' : ''}（${e.closest('[data-testid]')?.dataset.testid || ''}） 被裁（横向 ${Math.round(r.left)}–${Math.round(r.right)} / ${vw}）`); }
   return { n: targets.length, out, vw, vh };
 });
+// 技术QA（r15.4.2 最终回归）：竖屏提示条「横过来玩更舒服哦」不能挡点按（kb360 曾报 intercepts pointer events），7 秒内一定消失
+if (on('TIP')) for (const vp of (process.env.TVPS || '360x640,390x844,768x1024,800x1280').split(',')) {
+  const [W, H] = vp.split('x').map(Number); const ctx = await b.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 2, hasTouch: true, isMobile: true, userAgent: UA }); const pg = await ctx.newPage(); pg.setDefaultTimeout(4000);
+  await pg.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; });
+  await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); const t0 = Date.now();
+  const tip = await pg.locator('.portrait-tip').boundingBox().catch(() => null);
+  const info = tip ? await pg.evaluate(r => { const tipEl = document.querySelector('.portrait-tip'); const cx = r.x + r.width / 2, cy = r.y + r.height / 2; const hit = document.elementFromPoint(cx, cy);
+      const under = [...document.querySelectorAll('button, [role=button], input')].find(e => { const q = e.getBoundingClientRect(); return q.width > 2 && q.left < r.x + r.width && q.right > r.x && q.top < r.y + r.height && q.bottom > r.y; });
+      if (under) under.setAttribute('data-under-tip', '1');
+      return { pe: getComputedStyle(tipEl).pointerEvents, hitIsTip: hit === tipEl || tipEl.contains(hit), under: under ? (under.dataset.testid || under.textContent.trim().slice(0, 10)) : null }; }, tip) : null;
+  let tapOk = null; if (info?.under) { tapOk = await pg.locator('[data-under-tip]').first().tap({ timeout: 3000, trial: true }).then(() => true, e => String(e.message).split('\n')[0]); }
+  // 首页 → 添加孩子按钮：提示条在的时候真点一下要能点开
+  const addOk = await pg.locator('[data-testid=add-child]').tap({ timeout: 3000 }).then(() => Date.now() - t0 < 6000 ? 'ok(<6s)' : 'ok(late)', e => String(e.message).split('\n')[0]);
+  await pg.waitForTimeout(Math.max(0, 7600 - (Date.now() - t0))); const still = await pg.locator('.portrait-tip').count();
+  ok(tip && info.pe === 'none' && !info.hitIsTip && (tapOk === null || tapOk === true) && /^ok/.test(addOk) && still === 0, `${vp}：竖屏提示条点击穿透（pointer-events ${info?.pe}，中心点命中提示条 ${info?.hitIsTip}，下面的按钮「${info?.under}」tap ${tapOk}，提示条在时点「添加孩子」${addOk}），7.6 秒后已移除（剩 ${still}）`);
+  await pg.screenshot({ path: `${OUT}TIP-${vp}.png` }); await ctx.close();
+}
 // 调试：PARTS=D IDS=K-049 GRADES=K1 VPS=768x1024 → 打印气泡 / 选项 / 暂停钮位置并截图
 if (on('D')) for (const vp of VPS) { const s = await session(vp, GRADES[0]); for (const id of (process.env.IDS || '').split(',')) { await enter(s.pg, s.w, id);
   console.log(vp, id, JSON.stringify(await s.pg.evaluate(() => { const r = q => { const e = document.querySelector(q); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)]; }; const wide = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1).slice(0, 6).map(e => e.tagName + '.' + String(e.className).split(' ').slice(0, 2).join('.') + ':' + Math.round(e.getBoundingClientRect().width)); return { iw: innerWidth, sw: document.documentElement.scrollWidth, wide, scrollH: document.documentElement.scrollHeight, scrollY, kb: r('.kbubble'), qt: r('.kbubble .qtext'), items: r('.kitems'), opts: r('.kopts'), pause: r('[data-testid=pause]'), stage: r('.kstage'), cls: document.querySelector('.kbattle')?.className }; })));
@@ -77,7 +95,7 @@ if (on('T')) for (const vp of VPS) for (const g of GRADES) {
       else if (q.type === '多选') {   // 技术QA P2-3：竖屏多选要能选两个再点「确定（多选）」
         const os = pg.locator('.opts .opt, .quiz .opt'); await os.nth(0).tap(); await os.nth(1).tap(); await w(200);
         const okb = pg.locator('[data-testid=ok].multi-ok'); await okb.scrollIntoViewIfNeeded(); const bb = await okb.boundingBox(); const vp2 = pg.viewportSize();
-        if (!bb || bb.y < 0 || bb.y + bb.height > vp2.height || bb.x + bb.width > vp2.width || !(await okb.isEnabled())) fails.push(`${q.id} 多选「确定」够不着 ${JSON.stringify(bb)}`);
+        if (!bb || bb.y < 0 || bb.y + bb.height > vp2.height + 1 || bb.x + bb.width > vp2.width + 1 || !(await okb.isEnabled())) fails.push(`${q.id} 多选「确定」够不着 ${JSON.stringify(bb)}`);
         else { await okb.tap(); await pg.waitForSelector('[data-testid=feedback], [data-testid=next]', { timeout: 9000 }).then(() => multiOk.push(`${g}:${q.id}`)).catch(() => fails.push(`${q.id} 多选点「确定」后没有反馈`)); }
         await pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}-multi.png` }); }
       if (m.out.length || !m.n) await pg.screenshot({ path: `${OUT}T-${vp}-${g}-${q.id}.png` }); await quit(pg, w); }

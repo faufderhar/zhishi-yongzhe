@@ -68,6 +68,7 @@ const T = 1;   // 容差 px
 const inside = (a, c) => a.l >= c.l - T && a.t >= c.t - T && a.r <= c.r + T && a.b <= c.b + T;
 const quit = async (pg, w) => {
   const box = await pg.locator('[data-testid=pause]').boundingBox(); if (box) { await pg.mouse.move(box.x + box.width / 2, box.y + box.height / 2); await pg.mouse.down(); await w(2300); await pg.mouse.up(); }
+  for (let k = 0; k < 2 && box && !(await pg.isVisible('[data-testid=quit]')) && (await pg.isVisible('[data-testid=pause]')); k++) { const bx = await pg.locator('[data-testid=pause]').boundingBox(); if (!bx) break; await pg.mouse.move(bx.x + bx.width / 2, bx.y + bx.height / 2); await pg.mouse.down(); await w(3000); await pg.mouse.up(); await w(300); }   // r15.4.2：忙时按住不够 2 秒，重试
   await pg.click('[data-testid=quit]', { timeout: 3000 }).catch(() => {}); await pg.click('[data-testid=quit-confirm]', { timeout: 3000 }).catch(() => {});
   await pg.waitForSelector('[data-testid=level-1]', { timeout: 8000 }).catch(() => {});
 };

@@ -100,6 +100,8 @@ export default function App() {
   const [storageErr, setStorageErr] = useState<string>();
   const [updateReady, setUpdateReady] = useState<null | (() => void)>(null);
   const [tipGone, setTipGone] = useState(false);
+  // r15.4.2 技术QA：竖屏提示条只是提示——点击穿透（CSS pointer-events:none）；动画被「减少动效」关掉或 animationend 没来时 7 秒后也一定移除
+  useEffect(() => { if (!portrait || tipGone) return; const t = setTimeout(() => setTipGone(true), 7000); return () => clearTimeout(t); }, [portrait, tipGone]);
   // 写入失败提示（技术QA P1-4）、新版本提示（P1-7：不在战斗中自动刷新）
   useEffect(() => {
     const f = (e: Event) => setStorageErr(String((e as CustomEvent).detail ?? ''));
@@ -594,7 +596,7 @@ export default function App() {
   return (
     <div className={`app ${theme}`} onPointerDown={e => unlockAudio(e.nativeEvent)}>
       {!tabActive && <div className="tab-inactive" data-testid="tab-inactive"><div className="p-card wide-panel"><h2>已在别处打开</h2><p>知识勇者在这台设备的另一个标签页 / 窗口里打开了。为了不把数据弄乱，这里先停下。</p><button className="btn big-sq" data-testid="tab-takeover" onClick={() => { claimTab(); logReload('tab-takeover', screenRef.current.s); location.reload(); }}>在这里继续</button></div></div>}
-      {portrait && !tipGone && <div className="portrait-tip" onAnimationEnd={() => setTipGone(true)}>横过来玩更舒服哦 ↻</div>}
+      {portrait && !tipGone && !(phonePortrait && (screen.s === 'battle' || screen.s === 'review')) && <div className="portrait-tip" data-testid="portrait-tip" aria-hidden onAnimationEnd={() => setTipGone(true)}>横过来玩更舒服哦 ↻</div>}
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
       {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar inflow" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
       {updateReady && ['profiles', 'map'].includes(screen.s) && <button className="sys-bar" data-testid="update-ready" onClick={() => updateReady()}>✨ 有新版本，点这里更新（不会丢进度）</button>}

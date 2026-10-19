@@ -266,7 +266,8 @@ if (on('allnodes')) {
         total++;
         if (!okB) { const why = await pg.isVisible('[data-testid=error-boundary]') ? 'boundary:' + (await pg.textContent('[data-testid=error-boundary]')).slice(0, 120) : await pg.isVisible('[data-testid=char-confirm]') ? 'char' : 'other'; badList.push(`${sub}#${i} ${why}`);
           await pg.screenshot({ path: OUT + `allnodes-${grade}-${sub}-${i}.png` }); await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]'); await pg.click('text=r9'); await w(500); for (const d of '2468') await pg.click(`[data-testid=pin-${d}]`).catch(() => {}); await pg.click('[data-testid=pin-ok]').catch(() => {}); await w(800); continue; }
-        await pg.click(SEL); await w(300); if (!(await pg.isVisible('[data-testid=quit]'))) { const bb = await pg.locator(SEL).boundingBox(); await pg.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.mouse.down(); await w(2400); await pg.mouse.up(); await w(300); }   /* 幼儿园：按住暂停 */
+        await pg.click(SEL); await w(300); for (let k = 0; k < 3 && !(await pg.isVisible('[data-testid=quit]')); k++) { const bb = await pg.locator(SEL).boundingBox(); await pg.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.mouse.down(); await w(2400 + 600 * k); await pg.mouse.up(); await w(400); }   /* r15.4.2：机器很忙时按住 2.4 秒偶尔不够，重试 */
+        if (!(await pg.isVisible('[data-testid=quit]'))) await pg.screenshot({ path: OUT + `allnodes-noquit-${grade}-${sub}-${i}.png` });   /* 幼儿园：按住暂停 */
         await pg.click('[data-testid=quit]'); await w(200); await pg.click('[data-testid=quit-confirm]'); await w(700);
       }
     }
