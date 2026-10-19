@@ -82,7 +82,7 @@ export interface RInput {
   challenge?: boolean;     // D14 初一挑战题：答对内层 ×1.5；答错不能闪避、反击 ×1.5
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { parts?: [string, number][]; raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; /** r15.4.3：我方回合答错反击的倍率明细（题卡 / 押注 / 挑战 / 护体） */ hurtInfo?: { base: number; parts: [string, number][] }; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { parts?: [string, number][]; raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; /** r15.4.3：我方回合答错反击的倍率明细（题卡 / 押注 / 挑战 / 护体） */ hurtInfo?: { base: number; parts: [string, number][] }; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */; /** r16 D15：我方答对命中的加成明细（只用于显示） */ dmg?: DmgInfo }
 
 /** D14：返回外层伤害（固定倍率、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战×押注，技能另乘后统一封顶 ×1.8）。r15.4.2：押注 ×1.25 改进内层，和重击卡一起也不超过 ×1.8 */
 export function calcParts(s: RState, c: Character, i: RInput) {
@@ -103,6 +103,27 @@ export function innerParts(s: RState, i: RInput): [string, number][] {
   if (i.wager && s.side === 'P') P.push(['押注', WAGER.out]);
   if (i.simSkillMult && i.simSkillMult !== 1) P.push(['技能', i.simSkillMult]);
   return P;
+}
+/** r16 D15：命中加成明细（只用于显示；数值来自 calcParts，和实际结算同一套）。
+    outer = 不封顶（主修 / 被动 / 克制 / 多步题；难度单列在 diff），inner = 封顶（连击 / 专注 / 题卡 / 挑战题 / 押注 / 技能）。
+    per = 每段护盾抵扣前的伤害（引擎同样 max(1, round)）；hits 段数；half 漏选 ×0.5 */
+export interface DmgInfo { atk: number; diff: number; outer: [string, number][]; base: number; inner: [string, number][]; innerRaw: number; innerUsed: number; capped: boolean; per: number; hits: number; half?: boolean; skill?: string }
+export function dmgInfo(s: RState, c: Character, i: RInput, skillM = 1, skillName?: string, hits = 1, half = false): DmgInfo {
+  const { outer, inner } = calcParts(s, c, i); const diff = DIFF_MULT[i.difficulty] ?? 1; const O: [string, number][] = [];
+  const math = PASSIVE.mathBonus(c) && i.subject === '数学';
+  if (i.subject === c.major) O.push(['主修', AFFINITY * (math ? 1.1 : 1)]); else if (math) O.push([c.name, 1.1]);   // 阿算 / 算算：数学被动并进「主修」（题卡上一直写「主修 ×1.32」）
+  if (weakOf(s) === i.subject) O.push(['克制', WEAK]);
+  if (i.stepIndex != null) { const m = MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)]; if (m !== 1) O.push(['多步题', m]); }
+  const card = CARDS[i.card ?? 'std']; const I: [string, number][] = [];
+  const cm = comboMult(s.combo); if (cm !== 1) I.push(['连击', cm]);
+  if (s.focus) I.push(['专注', 1 + FOCUS_DMG * s.focus]);
+  const co = cardOut(card.out, i.difficulty); if (co !== 1) I.push([card.label + '卡', co]);
+  if (i.challenge) I.push(['挑战题', CHALLENGE.out]);
+  if (i.wager && s.side === 'P') I.push(['押注', WAGER.out]);
+  if (i.simSkillMult && i.simSkillMult !== 1) I.push(['技能', i.simSkillMult]);
+  if (skillM !== 1) I.push(['技能', skillM]);
+  const raw = inner * skillM, used = Math.min(INNER_CAP, raw);
+  return { atk: s.atk, diff, outer: O, base: outer, inner: I, innerRaw: raw, innerUsed: used, capped: raw > INNER_CAP + 1e-9, per: half ? r1(outer * Math.min(INNER_CAP, inner) * 0.5) : r1(outer * used), hits, half: half || undefined, skill: skillName };
 }
 /** 无技能时的伤害（封顶后） */
 export function calcD(s: RState, c: Character, i: RInput) { const { outer, inner } = calcParts(s, c, i); return outer * Math.min(INNER_CAP, inner); }
@@ -154,6 +175,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       /* r15.4.3 学霸：封顶只管内层（连击×专注×技能×题卡×挑战×押注）；难度、主修 ×1.2、算算/阿算数学 +10%、Boss 弱点 ×1.5 是外层，按 D14 规格不封顶。
          只有内层 × 技能真的超过 ×1.8 被截掉时才记 capped / capInfo（「加成到顶」提示只在这时弹） */
       const capM = (m: number) => { const raw = inner * m; if (raw > INNER_CAP + 1e-9) { o.capped = true; o.capInfo = { raw: Math.max(raw, o.capInfo?.raw ?? 0), used: INNER_CAP, parts: [...innerParts(s, i), ...(m !== 1 ? [[sk?.name ? `技能「${sk.name}」` : '技能', m] as [string, number]] : [])] }; } return Math.min(INNER_CAP, raw); };
+      { const m = e === 'A2H' ? SKILL.atk.A2H : e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; o.dmg = dmgInfo(s, c, i, m, sk?.name, e === 'A2H' ? 2 : 1); }   // r16 D15
       if (e === 'A2H') { for (let k = 0; k < 2; k++) { const d = hit(s, r1(outer * capM(SKILL.atk.A2H)), false, o); o.hits.push(d); o.dealt += d; } }
       else { const m = e === 'A14' ? SKILL.atk.A14 : e === 'A13P' ? SKILL.atk.A13P : e === 'A125C' ? SKILL.atk.A125C : 1; const d = hit(s, r1(outer * capM(m)), e === 'A13P', o); o.hits.push(d); o.dealt = d; }
       if (e !== 'A13P' && o.hits.length) s.shield = 0;   // 护盾挡完这一击（或多段）后清零，不叠加
@@ -161,6 +183,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       o.text = o.dealt ? (o.absorbed ? `⚔ 攻击命中！（怪物护盾挡掉 ${o.absorbed} 点）` : '⚔ 攻击命中！') : '⚔ 被护盾挡住了';   /* r15.4.1 学霸：写明护盾挡掉多少 */
     } else if (part) {   // 我方回合漏选：50% 伤害，不反击
       { const { inner } = calcParts(s, c, i); if (inner > INNER_CAP + 1e-9) { o.capped = true; o.capInfo = { raw: inner, used: INNER_CAP, parts: innerParts(s, i) }; } }
+      o.dmg = dmgInfo(s, c, i, 1, undefined, 1, true);   // r16 D15
       const d = hit(s, r1(calcD(s, c, i) * 0.5), false, o); o.hits.push(d); o.dealt = d; s.shield = 0;
       o.text = '漏选：只造成一半伤害，怪物没有反击';
     } else {
@@ -238,4 +261,8 @@ export const roundsLeft = (s: RState) => s.cap - s.turn;
     押注（我方）、挑战、题卡、专注、被动加成、封顶、护盾抵扣、Boss 阶段下限）全算进去；只有技能是答完才随机判定，不含 */
 export function estimateDealt(s: RState, c: Character, i: Omit<RInput, 'correct'>): number {
   return resolveRound(s, c, { ...i, correct: true, partial: false, noSkill: true, rng: () => 0.999999 })[1].dealt;
+}
+/** r16 D15：预计伤害的加成明细（同 estimateDealt 的结算） */
+export function estimateInfo(s: RState, c: Character, i: Omit<RInput, 'correct'>): DmgInfo | undefined {
+  return resolveRound(s, c, { ...i, correct: true, partial: false, noSkill: true, rng: () => 0.999999 })[1].dmg;
 }

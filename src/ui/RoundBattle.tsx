@@ -11,9 +11,10 @@ import { choicesOf, correctText, judge, ttsText, type Question } from '../game/q
 import { drawNext, normStem } from '../game/draw';
 import { pickHarder, anyHarder } from '../game/harder';
 import { unseen, refill, REPEAT_CAP } from '../game/draw';
+import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
-import { calcD, estimateDealt, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { calcD, estimateDealt, estimateInfo, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
@@ -373,7 +374,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
               <b>{CARDS[k].label}</b><span>{cards[k].subject}{cards[k].subject === c.major ? <em className="card-major" data-testid={'card-major-' + k}>（主修 ×{+((PASSIVE_MATH(c) ? 1.32 : 1.2)).toFixed(2)}）</em> : null} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
               <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small>
-              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押注 ≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: true })}）` : ''}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
+              <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押注 ≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: true })}）` : ''}</small><DmgSum d={estimateInfo(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })} detail={false} tid={'card-sum-' + k} /></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
         )}
         {(phase === 'cards' || phase === 'bet') && hs && wagerOn && P && <BetToggle on={wager} set={setWager} />}
@@ -390,7 +391,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
             {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {P && phase === 'question' && (() => { const inp = { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std' as CardKind, wager: hs && wagerOn ? wager : false, challenge: chal && bs.mode === 'j' }; const est = estimateDealt(bs, c, inp), raw = bs.shield > 0 ? estimateDealt({ ...bs, shield: 0 }, c, inp) : est;
             /* r15.4.1 学霸：有护盾时写明「护盾挡掉 n」——预计伤害一直是挡完以后的数，以前只写「已含护盾」，看起来像护盾没挡 */
-            return <small className="q-dmg" data-testid="q-dmg" data-raw={raw} data-est={est}>本题答对预计伤害 ≈ {est}{raw > est && <b data-testid="q-dmg-shield">（护盾挡掉 {raw - est}，没有护盾是 {raw}）</b>}<em className="q-dmg-sk" data-testid="q-dmg-sk">技能另算</em><span className="hint">（已含连击{hs ? '、押注' : ''}{bs.mode === 'j' ? '、挑战' : ''}、被动、护盾；技能触发时另外乘）</span></small>; })()}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
+            return <small className="q-dmg" data-testid="q-dmg" data-raw={raw} data-est={est}>本题答对预计伤害 ≈ {est}{raw > est && <b data-testid="q-dmg-shield">（护盾挡掉 {raw - est}，没有护盾是 {raw}）</b>}<em className="q-dmg-sk" data-testid="q-dmg-sk">技能另算</em><span className="hint">（已含连击{hs ? '、押注' : ''}{bs.mode === 'j' ? '、挑战' : ''}、被动、护盾；技能触发时另外乘）</span><DmgSum d={estimateInfo(bs, c, inp)} detail={false} tid="q-sum" /></small>; })()}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
           <div className="qtext" data-ans={import.meta.env.DEV || (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest) ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
         </>}
@@ -414,7 +415,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">
-            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{capNote(fb.o)}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
+            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
+            {fb.o?.dmg && fb.o.dealt > 0 && <DmgSum d={fb.o.dmg} dealt={fb.o.dealt} absorbed={fb.o.absorbed} />}   {/* r16 D15：加成摘要 + 明细（原来的长括号说明删掉） */}
             {!fb.ok && <>
               {picked && <p>你的答案：{cq.type === '选择' || cq.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(cq)} /></b></p>

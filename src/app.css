@@ -1027,3 +1027,11 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .lock-hint{position:absolute;top:-34px;left:50%;transform:translateX(-50%);font-size:34px;animation:lockPoint .8s ease-in-out infinite;pointer-events:none;z-index:4}
 @keyframes lockTarget{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 @keyframes lockPoint{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+/* r16 D15：伤害加成摘要 / 明细 */
+.dmg-sum-wrap{position:relative;max-width:100%}
+.dmg-sum{display:flex;align-items:center;gap:8px;justify-content:center;max-width:100%;font-size:13px;color:#9aa3b5;line-height:1.4;font-weight:400}
+.dmg-sum-line{white-space:nowrap;overflow:hidden;text-overflow:clip;min-width:0}
+.dmg-cap{color:#ff9f43;font-weight:600}
+.dmg-more{flex:none;border:1px solid rgba(154,163,181,.5);background:transparent;color:inherit;border-radius:10px;padding:0 8px;font-size:12px;line-height:20px;cursor:pointer}
+.dmg-detail{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 6px);z-index:30;min-width:min(340px,92vw);max-width:94vw;text-align:left;font-size:13px;line-height:1.6;background:rgba(18,22,36,.96);color:#e8ecf6;border-radius:10px;padding:8px 12px;box-shadow:0 6px 18px rgba(0,0,0,.4);font-variant-numeric:tabular-nums}
+.qcard .dmg-sum{font-size:11px}
