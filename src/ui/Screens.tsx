@@ -7,7 +7,7 @@ import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
-import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT } from '../game/playtime';
+import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
@@ -158,6 +158,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   const due = wrong.filter(e => isDue(e)).length;
   // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
   const [tip, setTip] = useState<string>(); const [shake, setShake] = useState<string>();
+  const [lockHint, setLockHint] = useState<string>(); const lockHintT = useRef(0);   // r16 小萌新：点锁住的关 → 要先打的关跳动 + 👆
   const lp = useRef(0);
   const tipOff = useRef<(() => void) | undefined>(undefined); useEffect(() => () => tipOff.current?.(), []);
   /* r15.4.4：提示条（未解锁、Boss 提示）至少 4 秒，读完再收起（最多 9 秒） */
@@ -202,7 +203,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
             const head = !prev || prev.unit !== l.unit || prev.volume !== l.volume;
             return (<Fragment key={l.id}>
               {head && <div className="unit-head" data-testid="unit-head"><small>{l.volume}</small> {l.unit}</div>}
-              <button key={l.id} className={`level ${l.kind} ${open ? '' : 'locked'} ${s ? 'done' : ''} ${shake === l.id ? 'nudge' : ''}`} aria-disabled={!open || timeUp}
+              <button key={l.id} className={`level ${l.kind} ${open ? '' : 'locked'} ${s ? 'done' : ''} ${shake === l.id ? 'nudge' : ''} ${lockHint === l.id ? 'lock-target' : ''}`} aria-disabled={!open || timeUp}
                 data-testid={`level-${i + 1}`} data-locked={open ? '0' : '1'}
                 onPointerDown={() => { lp.current = window.setTimeout(() => { lp.current = -1; say('📖 ' + l.name, false); }, 550); }}
                 onPointerUp={() => { if (lp.current > 0) clearTimeout(lp.current); }} onPointerLeave={() => { if (lp.current > 0) clearTimeout(lp.current); }}
@@ -210,9 +211,11 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
                   if (timeUp) { showSleepy(); return; }
-                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const need = missingPrereqs(ch.levels, i, progress.stars).map(x => x.name); if (need.length && cfg.band === 'K') { say(`🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}`, false); speak(KINDER_LOCK_VOICE); } else say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }   // r15.4：小班朗读不念关名（关名没录音），屏幕上照样写
+                  if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const miss = missingPrereqs(ch.levels, i, progress.stars), need = miss.map(x => x.name); if (need.length && cfg.band === 'K') { say(`🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}`, false); speak(KINDER_LOCK_VOICE);
+                    setLockHint(miss[0].id); clearTimeout(lockHintT.current); lockHintT.current = window.setTimeout(() => setLockHint(undefined), 3500); /* r16 小萌新：要先打的那一关跳动 + 👆 */ } else say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }   // r15.4：小班朗读不念关名（关名没录音），屏幕上照样写
                   onLevel(l);
                 }}>
+                {lockHint === l.id && <span className="lock-hint" data-testid="lock-hint" aria-hidden>👆</span>}
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
                   : (() => { const bk = l.kind === 'boss' ? skinFor(ch.subject, 'boss', cfg.band, l.unit, { grade: l.pool[0]?.split(':')[0], volume: l.volume }) : null;   /* r15.3 学霸：Boss 标签（含锁着时）用这只 Boss 自己的主色，和战斗里的怪物同一个 hue-rotate */
@@ -245,12 +248,15 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
      以前「没超过最佳」也走这一页（r14.1 起重玩没超过最佳就不显示大星星），第 2 次全对也看不到星星 */
   const kNoStar = cfg.band === 'K' && !kTime && capped;
   const kAgain = cfg.band === 'K' && !kTime && !capped && playN === 2;
-  useEffect(() => { if (kNoStar) { const id = setTimeout(() => speak(K_NOSTAR_TEXT), 1200); return () => clearTimeout(id); } }, [kNoStar]);
+  const noStarSay = () => speak(`${K_NOSTAR_TEXT}。${K_NOSTAR_WHY}`, 'zh-CN', { keys: ['p:res_k_done', 'p:res_k_why'] });   // r16 小萌新：接着说原因
+  useEffect(() => { if (kNoStar) { const id = setTimeout(noStarSay, 1200); return () => clearTimeout(id); } }, [kNoStar]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
     <div className="center-screen" data-ktime={kTime ? '1' : undefined}>
       {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><div className="row gap16 kt-title"><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={() => speak(TIMEUP_K_TEXT)}>🔊</button>}</div><p data-testid="timeup">⏰ 今天的时间到啦</p></>
-      : kNoStar ? <><div className="big-emoji xl" aria-hidden data-testid="result-k-icon">🌈</div><div className="row gap16 kt-title"><h1 data-testid="result-k-done">{K_NOSTAR_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="result-k-replay" onClick={() => speak(K_NOSTAR_TEXT)}>🔊</button>}</div></>
+      : kNoStar ? <><div className="big-emoji xl" aria-hidden data-testid="result-k-icon">🌈</div><div className="row gap16 kt-title"><h1 data-testid="result-k-done">{K_NOSTAR_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="result-k-replay" onClick={noStarSay}>🔊</button>}</div>
+        {/* r16 小萌新：不认字也看得懂——今天玩了 3 次 → 月亮（睡一觉）→ 明天的星星 */}
+        <div className="knostar-why" data-testid="result-k-why" role="img" aria-label={K_NOSTAR_WHY}><span className="kplays">{[1, 2, 3].map(n => <b key={n}>{n}</b>)}</span><span className="karrow">➜</span><span>🌙</span><span className="karrow">➜</span><span className="kstar-tmr">⭐</span></div></>
       : cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
@@ -280,10 +286,11 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
       {!kTime && cfg.band !== 'K' && <p className="star-rules" data-testid="star-rules">{cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>}   {/* r15.4.3 小萌新：小班不显示「第一次就答对六成 / 八成」图例（规则在家长页） */}
       {kNoStar ? null : cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && !(cfg.band === 'K' && forcedTimeUp) && <p className="warn">{kTime ? <>😴 {TIMEUP_K_TEXT}</> : '今天的时间用完啦，休息一下吧！明天 0:00 重新计时。'}</p>}
-      <div className="row gap24">
-        {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}
-        {!timeUp && onNext && <button className="btn" data-testid="next-level" onClick={onNext}>下一关 ▶</button>}
-        <button className={`btn ${timeUp || !onNext ? '' : 'ghost'}`} data-testid="to-map" onClick={onMap}>回地图</button>
+      {/* r16 小萌新：按钮带图标；按钮行贴在屏幕底部（窗口矮时不用往下滚） */}
+      <div className="row gap24 result-actions" data-testid="result-actions">
+        {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}><span className="bicon" aria-hidden>🔁</span>再玩一次</button>}
+        {!timeUp && onNext && <button className="btn" data-testid="next-level" onClick={onNext}><span className="bicon" aria-hidden>⏩</span>下一关</button>}
+        <button className={`btn ${timeUp || !onNext ? '' : 'ghost'}`} data-testid="to-map" onClick={onMap}><span className="bicon" aria-hidden>🗺️</span>回地图</button>
       </div>
     </div>
   );
@@ -297,7 +304,11 @@ export function kinderSubtitle(k: { first: number } | undefined, total: number) 
 function KinderSub({ k, total, extra }: { k?: { first: number }; total: number; extra?: string }) {
   const t = kinderSubtitle(k, total);
   /* r15.4.1：时间到时接着读「今天玩够啦，明天见」（录音：两段拼起来；系统朗读：一句读完） */
-  useEffect(() => { const id = setTimeout(() => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); }, 1500); return () => clearTimeout(id); }, [t, extra]);
+  // r16 小萌新：接着读「自己答对 N 题」（时间到时不读）
+  const first = !extra || extra !== TIMEUP_K_TEXT ? (k?.first ?? 0) : 0;
+  const auto = () => { const parts = [t, ...(extra ? [extra] : []), ...(first > 0 ? [K_FIRST_LINE(first)] : [])]; const ks = parts.map(x => PROMPT_BY_TEXT[x]);
+    if (parts.length === 1) { speak(t); return; } speak(parts.join('。'), 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); };
+  useEffect(() => { const id = setTimeout(auto, 1500); return () => clearTimeout(id); }, [t, extra, first]);
   /* r15.4.2 较真家长 A：小班结算（含时间到）也有 🔊 再听一遍，和题目页的喇叭同款 */
   const again = () => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); };
   return <div className="row gap16 kt-title"><p className="ksub" data-testid="kinder-sub">{t}</p>{hasVoice() && extra && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={again}>🔊</button>}</div>;
@@ -305,7 +316,11 @@ function KinderSub({ k, total, extra }: { k?: { first: number }; total: number; 
 function KinderLines({ k }: { k?: { first: number; retry: number; demo: number } }) {
   if (!k) return null;
   const rows: [number, string][] = [[k.first, '🌟 自己答对'], [k.retry, '💪 再试一次答对'], [k.demo, '👀 看演示学会']];
-  return <div className="klines" data-testid="result-stats">{rows.filter(([n]) => n > 0).map(([n, l]) => <div key={l}>{l} {n} 题</div>)}</div>;
+  /* r16 小萌新：「自己答对 N 题」画成 N 颗星（不认字也数得出来），点一下朗读；自动朗读接在结算副标题后面（KinderSub） */
+  const sayFirst = () => speak(K_FIRST_LINE(k.first), 'zh-CN', k.first <= 10 ? { keys: ['p:res_k_first_' + k.first] } : {});
+  return <div className="klines" data-testid="result-stats">{rows.filter(([n]) => n > 0).map(([n, l]) => l.startsWith('🌟')
+    ? <button key={l} className="kfirst" data-testid="result-k-first" data-n={n} aria-label={K_FIRST_LINE(n)} onClick={sayFirst}><span className="kfirst-icons" aria-hidden>{'⭐'.repeat(Math.min(n, 10))}</span><span>{l} {n} 题</span><span className="kfirst-spk" aria-hidden>🔊</span></button>
+    : <div key={l}>{l} {n} 题</div>)}</div>;
 }
 
 /* ---------------- 错题本 ---------------- */

@@ -1010,3 +1010,20 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15.4.4 技术QA P4：挑战题长说明不盖住旁边的「普通题」卡 */
 .chal-pick .qcard{overflow:hidden;position:relative;z-index:0}.chal-pick .qcard.hot{z-index:0}.chal-pick .qcard.default{z-index:1}
 .chal-pick .qcard small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;text-overflow:ellipsis;max-width:100%;white-space:normal;line-height:1.3}
+
+/* r16 小萌新：结算页按钮带图标、贴在屏幕底部（1280×700 不用滚）；窗口矮时压缩上面的内容 */
+.result-actions{position:sticky;bottom:0;z-index:5;padding:8px 12px calc(8px + env(safe-area-inset-bottom));margin-top:auto;flex-wrap:wrap;justify-content:center}
+.btn .bicon{margin-right:.35em;font-size:1.1em}
+@media (max-height:760px){.center-screen .big-emoji.xl{font-size:64px;height:72px}.center-screen h1{font-size:clamp(22px,3.2vw,30px);margin:4px 0}.center-screen .row.friends img,.center-screen .row.friends .sprite{max-height:110px}.center-screen .stars{transform:scale(.8)}.center-screen>p,.center-screen .klines{margin:4px 0}}
+@media (max-height:480px){.center-screen{gap:6px;padding:6px 12px}.center-screen .row.friends{gap:12px}.center-screen .row.friends>*,.center-screen .row.friends img{max-height:76px;width:auto}.center-screen .row.friends .big-emoji{font-size:40px}
+  .center-screen h1{font-size:20px;margin:0}.center-screen .big-emoji.xl{font-size:48px;height:52px}.center-screen .stars{font-size:32px !important;line-height:1.1}.kfirst{padding:2px 12px}.kfirst-icons{font-size:22px}.knostar-why{font-size:30px;margin:0}.knostar-why .kplays b{width:34px;height:34px;font-size:20px}
+  .result-actions{padding-top:4px;padding-bottom:calc(4px + env(safe-area-inset-bottom))}.result-actions .btn{padding-top:8px;padding-bottom:8px}}
+.knostar-why{display:flex;align-items:center;gap:14px;font-size:44px;margin:6px 0 4px}
+.knostar-why .kplays{display:flex;gap:6px}.knostar-why .kplays b{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#ffd166;color:#7a4b00;font-size:26px;box-shadow:0 3px 0 #e0a800}
+.knostar-why .karrow{font-size:30px;color:#a07a50}.knostar-why .kstar-tmr{animation:crownBob 1.6s ease-in-out infinite}
+.kfirst{display:flex;align-items:center;gap:10px;margin:0 auto;border:0;background:#fff3c4;border-radius:16px;padding:6px 14px;font:inherit;color:inherit;box-shadow:0 2px 0 #e8cf7a}
+.kfirst-icons{font-size:30px;letter-spacing:2px}.kfirst-spk{font-size:22px;opacity:.75}
+.level.lock-target{animation:lockTarget .8s ease-in-out 4;outline:4px solid #ffb703;outline-offset:2px;position:relative}
+.lock-hint{position:absolute;top:-34px;left:50%;transform:translateX(-50%);font-size:34px;animation:lockPoint .8s ease-in-out infinite;pointer-events:none;z-index:4}
+@keyframes lockTarget{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes lockPoint{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}

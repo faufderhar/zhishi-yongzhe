@@ -106,3 +106,7 @@ export const TIMEUP_K_TEXT = '今天玩够啦，明天见';
 export const K_NOSTAR_TEXT = '今天玩得真棒，明天再来吧';
 /** r15.4.4：小班同一关今天第 2 次玩完（还能加星，可以接着玩）——不说「明天再来」（录音 p:res_k_again） */
 export const K_AGAIN_TEXT = '真棒！再玩一关吧';
+/** r16 小萌新：今天第 3 次起不加星时，图形旁边朗读的原因 */
+export const K_NOSTAR_WHY = '这一关今天玩了三次啦，星星明天再来拿哦';
+/** r16 小萌新：结算页「自己答对 N 题」朗读 */
+export const K_FIRST_LINE = (n: number) => `自己答对${n}题`;

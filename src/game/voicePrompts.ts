@@ -1,6 +1,6 @@
 /* r15.4 录音退路：共用提示语（文字 → 提示语 id；manifest 键「p:id」）。只登记固定的句子；
    带变量的句子见 voiceLines.ts（按数据展开成固定句子；speak() 整句查不到时按句子拼接）。 */
-import { GRACE_VOICE, SLEEPY_VOICE, TIMEUP_K_TEXT, ROTATE_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT } from './playtime';
+import { GRACE_VOICE, SLEEPY_VOICE, TIMEUP_K_TEXT, ROTATE_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from './playtime';
 import { dynamicPrompts } from './voiceLines';
 export const VOICE_PROMPTS: Record<string, string> = {
   dui: '对', cuo: '错',
@@ -14,6 +14,8 @@ export const VOICE_PROMPTS: Record<string, string> = {
   rotate_k: ROTATE_K_TEXT,   // r15.4.2：手机竖屏「请把手机横过来」
   res_k_done: K_NOSTAR_TEXT,   // r15.4.3 小萌新：小班没加星的结算页（r15.4.4 起只在今天第 3 次起）
   res_k_again: K_AGAIN_TEXT,   // r15.4.4：小班同一关今天第 2 次玩完
+  res_k_why: K_NOSTAR_WHY,   // r16 小萌新：第 3 次不加星的原因
+  ...Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`res_k_first_${i + 1}`, K_FIRST_LINE(i + 1)])),   // r16 小萌新：「自己答对 N 题」（幼儿园一关最多 5 题，留到 10）
   ...dynamicPrompts(),   // r15.4：小班带变量的句子（角色名、出发、技能、开心值、怪兽回家…）按数据展开；batch.py 用 --prompt-list 读导出的 JSON
 };
 /** speak() 用：文字 → id */

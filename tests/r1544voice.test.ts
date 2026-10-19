@@ -42,7 +42,7 @@ describe('r15.4.4 小班录音', () => {
   it('每句登记过的提示语都有录音（含新句 p:res_k_again）', () => {
     // r16：新开的三个年级名（年级选择里朗读）等录音——列在 /workspace/playtest/r16dev/new_voice_lines.md，录好后这里改回 []
     // r16 新句（/workspace/playtest/r16dev/new_voice_lines.md），等音频设计录：年级名 + 中班 23 只 Boss 的「回家 / 笑啦」
-    const PENDING = ['grade_k2', 'grade_8', 'grade_11', ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
+    const PENDING = ['grade_k2', 'grade_8', 'grade_11', 'res_k_why', ...Array.from({ length: 10 }, (_, i) => `res_k_first_${i + 1}`), ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
     const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss.sort()).toEqual(PENDING.sort());
   });
 });
