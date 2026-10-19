@@ -26,3 +26,13 @@ it('备份锁 -5（fails 4）→ 恢复后 fails 0', async () => {
   await importAll(bk, { pin: '2468' });
   expect(await getKV<any>('zy.pinLock')).toMatchObject({ fails: 0, level: 0, remain: 0 });
 });
+it('较真家长 P2-1：导出后（备份文件里还没有 lastBackupAt）再覆盖恢复 →「上次备份」保留本机记录，不变成从未备份', async () => {
+  await setKV('lastBackupAt', undefined as any); const bk = await exportAll(); await new Promise(r => setTimeout(r, 10)); const t = Date.now(); await setKV('lastBackupAt', t);
+  await importAll(bk, { pin: '2468' }); expect(await getKV<number>('lastBackupAt')).toBe(t);
+});
+it('较真家长 P2-1：本机没有记录 → 用这份备份的导出时间；未来的导出时间不采用', async () => {
+  await setKV('lastBackupAt', undefined as any); const bk = await exportAll();
+  await importAll(bk, { pin: '2468' }); expect(await getKV<number>('lastBackupAt')).toBe(Date.parse(bk.exportedAt));
+  const fut = { ...bk, exportedAt: new Date(Date.now() + 864e5).toISOString() }; await setKV('lastBackupAt', undefined as any);
+  await importAll(fut, { pin: '2468' }); expect(await getKV<number>('lastBackupAt')).toBeUndefined();
+});

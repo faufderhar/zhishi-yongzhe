@@ -168,6 +168,9 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     for (const k of keys) { const b = { ...((kvm.get(k) as Record<string, unknown>) ?? {}) }; const c = curKv.get(k) as Record<string, unknown> | undefined; if (c?.[td]) b[td] = c[td]; else delete b[td]; if (kvm.has(k) || c?.[td]) kvm.set(k, b); }
     // r14.1：时钟基准是设备状态，覆盖恢复也保留本机的（以前会写回备份里旧的 / 锁定的 clock）
     if (curKv.has('clock')) kvm.set('clock', curKv.get('clock')); else kvm.delete('clock');
+    /* r15.4.3 较真家长 P2-1：「上次备份」是本机做过的事，覆盖恢复不能退回「从未备份」——取本机记录、备份里的记录、这份备份的导出时间里最新的一个 */
+    { const ex = Date.parse(typeof data.exportedAt === 'string' ? data.exportedAt : ''); const num = (x: unknown) => typeof x === 'number' && Number.isFinite(x) && x > 0 && x <= Date.now() ? x : 0;
+      const t = Math.max(num(curKv.get('lastBackupAt')), num(kvm.get('lastBackupAt')), num(ex)); if (t > 0) kvm.set('lastBackupAt', t); }
     clean.kv = [...kvm.entries()]; }
   /* r15.3 技术QA R152-4：写库前清洗数字（星星 / 经验 / 时长 / 次数 / 难度 / 时间戳）；不合格的项丢掉 */
   { const sd = sanitizeData(clean); clean.kv = sd.kv; clean.answers = sd.answers; clean.wrong = sd.wrong; }   // r15.4：和合并共用
