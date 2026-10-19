@@ -365,7 +365,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'cards' && cards && (
           <div className="cards" data-testid="cards"><p>选一张题卡</p><div className="row gap16">
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
-              <b>{CARDS[k].label}</b><span>{cards[k].subject} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
+              <b>{CARDS[k].label}</b><span>{cards[k].subject}{cards[k].subject === c.major ? <em className="card-major" data-testid={'card-major-' + k}>（主修 ×{+((PASSIVE_MATH(c) ? 1.32 : 1.2)).toFixed(2)}）</em> : null} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
               <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small>
               <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押注 ≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: true })}）` : ''}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
@@ -408,7 +408,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">
-            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}` : ''}</h3>
+            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.capInfo ? `（加成 ×${fb.o.capInfo.raw.toFixed(2)} 到顶，按 ×${fb.o.capInfo.used} 算）` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}` : ''}</h3>
             {!fb.ok && <>
               {picked && <p>你的答案：{cq.type === '选择' || cq.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(cq)} /></b></p>
@@ -451,6 +451,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   );
 }
 
+/** r15.4.3 学霸：主修科目外层加成（不算在 ×1.8 封顶里）：×1.2，阿算 / 算算数学再 ×1.1 */
+const PASSIVE_MATH = (c: { major: string }) => c.major === '数学';
 /** r15.4.2 游戏策划：押注开关（我方回合看题前，题卡旁边，默认关，点一下就押） */
 export const BET_LABEL = '押注：答对伤害 ×1.25，能量 +1；答错反击 ×1.25，且不能闪避';
 export const BET_HINT = '💡 新玩法：有把握就点一下打开「押注」（默认不押）。不押就照常答题，答错还有机会闪开。';
