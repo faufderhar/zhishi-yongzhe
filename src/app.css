@@ -110,7 +110,7 @@ img.unit{height:min(260px,30vh);width:auto;object-fit:contain;filter:drop-shadow
 .screen-flash.good{background:radial-gradient(circle,#4cd96455,transparent 70%)}.screen-flash.bad{background:radial-gradient(circle,#ff3b3055,#ff3b3022 70%)}
 @keyframes flashA{from{opacity:1}to{opacity:0}}
 .modal-back{position:fixed;inset:0;background:#000a;display:grid;place-items:center;z-index:40}
-.modal{background:#26305e;color:#fff;border-radius:24px;padding:28px 32px;min-width:420px;max-width:90vw;max-height:88vh;overflow:auto;display:flex;flex-direction:column;gap:16px;align-items:center;box-shadow:0 20px 60px #0008}
+.modal{background:#26305e;color:#fff;border-radius:24px;padding:28px 32px;min-width:min(420px,calc(100vw - 24px));max-width:calc(100vw - 24px);width:100%;box-sizing:border-box;max-height:88vh;overflow:auto;display:flex;flex-direction:column;gap:16px;align-items:center;box-shadow:0 20px 60px #0008}
 .theme-kinder .modal{background:#fff8e6;color:#5a3a1a}
 .btn.danger,.chip.danger{background:#e5484d;color:#fff}
 .pause-btn{width:64px;height:64px;border-radius:50%;background:#0003;font-size:30px;flex:none}
@@ -220,7 +220,8 @@ img.unit.boss{height:min(300px,34vh)}
 @supports (mix-blend-mode:plus-lighter){.fx-sprite{mix-blend-mode:plus-lighter}}
 .afterimage.sheet-box{position:absolute}
 .add-card{border:3px dashed #fff8;background:rgba(255,255,255,.08)}
-.grade-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0}
+/* r15.4.4 技术QA P3：添加孩子选年级在 360/375 宽也不裁；auto-fill + 模态框 max-width:calc(100vw - 24px) */
+.grade-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:12px;margin:16px 0;width:100%}
 .grade-btn{min-height:64px;border-radius:16px;font-size:20px;background:#3c4f9c;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .grade-btn:disabled{opacity:.4;background:#555}.grade-btn small{font-size:12px}
 .name-input{font-size:22px;padding:10px 16px;border-radius:12px;border:0;width:min(360px,80%)}
@@ -904,7 +905,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle .hud *{font-size:inherit}
   .battle .hud > *{max-height:28px}
   .battle .hud .bar,.battle .hud [class*=bar]{flex:0 1 110px;min-width:60px}
-  .battle .hud .lvl-title{display:none}
+  .battle .hud .lvl-title,.battle.rounds .hud .lvl-title{display:none !important}   /* r15.4.4 P4：E7-001 顶栏关名折行被裁；短横屏直接藏，地图/规则里能看到 */
   .battle .hud > *{flex-shrink:1;min-width:0}
   .battle .hud .pause-btn,.battle .hud .rules-btn,.battle .hud .energy-ring{flex-shrink:0}
   .battle .hud svg,.battle .hud img,.battle .hud canvas{height:22px !important;width:auto !important}
@@ -993,3 +994,18 @@ body{font-size:clamp(18px,1.6vw,26px)}
 
 /* r15.4.4 技术QA P2-1：化学方程式按运算符切成的小块（Tex.tsx mathChunks）：块内不换行、块之间可以换行 */
 .tex-chunk{display:inline-block;white-space:nowrap;max-width:100%}
+
+/* r15.4.4 技术QA P4：800×280 极端矮横屏——键盘最后一排、押注说明、挑战/普通选题都不出屏 */
+@media (orientation:landscape) and (max-height:300px){
+  .battle .quiz:has(.keypad-wrap),.battle.rounds .quiz:has(.keypad-wrap){overflow-y:auto;overscroll-behavior:contain;gap:2px !important;padding:2px 8px !important}
+  .battle .quiz:has(.keypad-wrap) .keypad button,.battle.rounds .quiz:has(.keypad-wrap) .keypad .k,.battle.rounds .quiz:has(.keypad-wrap) .keypad button{min-height:28px !important;height:28px !important;font-size:16px}
+  .battle .quiz:has(.keypad-wrap) .input-box,.battle.rounds .quiz:has(.keypad-wrap) .input-box{min-height:28px !important;font-size:16px !important;padding:2px 8px !important}
+  .battle .quiz:has(.keypad-wrap) .qtext,.battle.rounds .quiz:has(.keypad-wrap) .qtext{max-height:2.8em;overflow-y:auto;font-size:14px !important}
+  .pinpad{transform:scale(.85);transform-origin:top center;max-height:100dvh;overflow-y:auto}
+  .bet-hint,.bet-toggle{font-size:13px;padding:4px 8px;max-height:40vh;overflow-y:auto}
+  .chal-pick .row{flex-direction:column;gap:6px}.chal-pick .qcard{min-height:48px;padding:4px 8px}
+  .chal-pick .qcard small{font-size:12px;line-height:1.25;max-height:2.6em;overflow:hidden}
+}
+/* r15.4.4 技术QA P4：挑战题长说明不盖住旁边的「普通题」卡 */
+.chal-pick .qcard{overflow:hidden;position:relative;z-index:0}.chal-pick .qcard.hot{z-index:0}.chal-pick .qcard.default{z-index:1}
+.chal-pick .qcard small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;text-overflow:ellipsis;max-width:100%;white-space:normal;line-height:1.3}

@@ -36,3 +36,29 @@ it('较真家长 P2-1：本机没有记录 → 用这份备份的导出时间；
   const fut = { ...bk, exportedAt: new Date(Date.now() + 864e5).toISOString() }; await setKV('lastBackupAt', undefined as any);
   await importAll(fut, { pin: '2468' }); expect(await getKV<number>('lastBackupAt')).toBeUndefined();
 });
+
+it('r15.4.4 技术QA P3：恢复后 1 秒内模拟密码页旧计时器 saveLock → 清零的锁不被盖回去（__zyRestoring）', async () => {
+  (globalThis as any).window ??= globalThis;   // node 里没有 window，importAll 要靠它挂 __zyRestoring
+  const h = await makePinHash('2468');
+  await setKV('settings', { includePending: false, pinHash: h }); await setKV('profiles', [{ id: 'a', name: '小明', avatar: '🧒', grade: '7', volumes: null, limit: { weekday: 30, weekend: 60 }, pin: '' }]);
+  for (const k of LOCK_KEYS_ALL) await setKV(k, { fails: 4, level: 3, until: Date.now() + 9e5, remain: 9e5, seenAt: Date.now() - 1e4 });
+  const bk = await exportAll();
+  for (const k of LOCK_KEYS_ALL) await setKV(k, { fails: 4, level: 3, until: Date.now() + 9e5, remain: 9e5, seenAt: Date.now() - 1e4 });
+  await importAll(bk, { pin: '2468' });
+  expect((globalThis as any).window.__zyRestoring).toBe(true);
+  const { saveLock } = await import('../src/game/pin');
+  for (const k of LOCK_KEYS_ALL) await saveLock({ fails: 4, level: 3, until: Date.now() + 9e5, remain: 9e5, seenAt: Date.now() }, k);
+  for (const k of LOCK_KEYS_ALL) {
+    const v = await getKV<any>(k); expect(v, k).toMatchObject({ fails: 0, level: 0, remain: 0 });
+  }
+});
+
+it('r15.4.4 技术QA P4：覆盖恢复后 backupSnoozeUntil 清空（按恢复时刻重算，不沿用备份里的稍后）', async () => {
+  const h = await makePinHash('2468');
+  await setKV('settings', { includePending: false, pinHash: h }); await setKV('profiles', [{ id: 'a', name: '小明', avatar: '🧒', grade: '7', volumes: null, limit: { weekday: 30, weekend: 60 }, pin: '' }]);
+  await setKV('backupSnoozeUntil', Date.now() + 7 * 864e5); await setKV('lastBackupAt', Date.now() - 20 * 864e5);
+  const bk = await exportAll();
+  await setKV('backupSnoozeUntil', Date.now() + 3 * 864e5);
+  await importAll(bk, { pin: '2468' });
+  expect(await getKV('backupSnoozeUntil')).toBeUndefined();
+});

@@ -171,6 +171,8 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     /* r15.4.3 较真家长 P2-1：「上次备份」是本机做过的事，覆盖恢复不能退回「从未备份」——取本机记录、备份里的记录、这份备份的导出时间里最新的一个 */
     { const ex = Date.parse(typeof data.exportedAt === 'string' ? data.exportedAt : ''); const num = (x: unknown) => typeof x === 'number' && Number.isFinite(x) && x > 0 && x <= Date.now() ? x : 0;
       const t = Math.max(num(curKv.get('lastBackupAt')), num(kvm.get('lastBackupAt')), num(ex)); if (t > 0) kvm.set('lastBackupAt', t); }
+      /* r15.4.4 技术QA P4：「该备份啦」稍后提醒按恢复时刻重算，不沿用备份里的 snooze（否则刚恢复就被压 7 天） */
+      kvm.delete('backupSnoozeUntil');
     clean.kv = [...kvm.entries()]; }
   /* r15.3 技术QA R152-4：写库前清洗数字（星星 / 经验 / 时长 / 次数 / 难度 / 时间戳）；不合格的项丢掉 */
   { const sd = sanitizeData(clean); clean.kv = sd.kv; clean.answers = sd.answers; clean.wrong = sd.wrong; }   // r15.4：和合并共用
@@ -178,8 +180,9 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
      家长刚用对的密码 / 备份密码授权了恢复，不能一恢复完就被锁 15 分钟、恢复码框锁 24 小时，也不能留着 fails 4。撤销恢复（trusted）照旧回到恢复前的快照 */
   const zeroLocks = !o.trusted ? freshLocks() : null;
   if (zeroLocks) clean.kv = [...(clean.kv as [string, unknown][]).filter(([k]) => !LOCK_KEYS_ALL.includes(k)), ...Object.entries(zeroLocks)];
+  /* r15.4.4 技术QA P3：先竖旗再写库——密码页 1 秒计时器在写锁清零和竖旗之间会把旧锁盖回去（忘记密码页复现） */
+  if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }
   const snapshot = await exportAll();
-  if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }   // r15：恢复写库到重载之间，页面不能把内存里的旧设置写回去
   const d = await db();
   const tx = d.transaction([...STORES], 'readwrite');
   for (const s of STORES) {

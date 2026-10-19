@@ -381,7 +381,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（选好才出题、才开始计时）</small></p>
           <div className="row gap16">
             <button className="qcard default" data-testid="chal-normal" autoFocus onClick={() => chooseChal(false)}><b>普通题 <span className="def-tag">默认</span></b><small>照常出题</small></button>
-            <button className={`qcard hot ${hardQ.current ? '' : 'grey'}`} data-testid="chal-on" aria-disabled={!hardQ.current} onClick={() => chooseChal(true)}><b>挑战题 🔥</b><small>{chalMsg || (hardQ.current ? '更难一档：答对伤害 ×1.5；答错反击 ×1.5，闪不开' : (chalWhy || '这一回合没有更难的题'))}</small></button>
+            <button className={`qcard hot ${hardQ.current ? '' : 'grey'}`} data-testid="chal-on" aria-disabled={!hardQ.current} onClick={() => chooseChal(true)}><b>挑战题 🔥</b><small>{chalMsg || (hardQ.current ? '更难：对 ×1.5 / 错反击 ×1.5' : (chalWhy || '这一回合没有更难的题'))}</small></button>
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}

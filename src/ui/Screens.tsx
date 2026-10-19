@@ -31,7 +31,7 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
   return (
     <Modal onClose={onClose}>
       <h2>添加孩子 · 选年级</h2>
-      <input className="name-input" data-testid="add-name" placeholder="名字（可不填）" value={name} maxLength={8} onChange={e => setName(e.target.value)} />
+      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="add-name" placeholder="名字（可不填）" value={name} maxLength={8} onChange={e => setName(e.target.value)} />
       <div className="grade-grid" data-testid="grade-list">
         {HOME_GRADES.map(({ g, open }) => (
           <button key={g} className="grade-btn" disabled={!open} data-testid={'home-grade-' + g}

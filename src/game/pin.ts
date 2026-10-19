@@ -92,7 +92,17 @@ export async function loadLock(key = LK): Promise<LockState> {
   if (all.length < 2 || JSON.stringify(a) !== JSON.stringify(b)) { try { localStorage.setItem(key, JSON.stringify(m)); } catch { /* */ } void setKV(key, m); }
   return resumeLong({ ...m, remain: lockLeft(m, now) }, now);   // 统一迁移到 remain；长锁补上关闭期间的墙钟流逝
 }
-export async function saveLock(s: LockState, key = LK) { try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s); }
+/* r15.4.4 技术QA P3：覆盖恢复把锁清零后、页面重载前，密码页 / 忘记密码页的 1 秒计时器还握着旧锁，会把 freshLocks 盖回去。
+   恢复写库时设了 window.__zyRestoring（约 15 秒）；这段时间 saveLock 不写。另外：存储里若已是「更新且更松」的锁（seenAt 更新、remain/fails/level 都更低），说明别处刚清过，丢掉手里的旧值。 */
+export async function saveLock(s: LockState, key = LK) {
+  const w = (typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : undefined) as { __zyRestoring?: boolean } | undefined;
+  if (w?.__zyRestoring) return;
+  try { const raw = localStorage.getItem(key); if (raw) { const cur = parse(JSON.parse(raw), key); const now = Date.now();
+    /* 刚被覆盖恢复清零（seenAt 很新、失败次数和剩余都是 0）→ 旧计时器手里的带锁定状态一律丢掉 */
+    if (cur && !lockLeft(cur, now) && !cur.fails && !cur.level && (cur.seenAt ?? 0) >= now - 30e3 && (lockLeft(s, now) > 0 || s.fails > 0 || s.level > 0)) return;
+    if (cur && (cur.seenAt ?? 0) > (s.seenAt ?? 0) && lockLeft(cur, now) <= lockLeft(s, now) && cur.fails <= s.fails && cur.level <= s.level) return; } } catch { /* */ }
+  try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s);
+}
 /** 曾经设置过密码的标记（密码数据丢失时不当成「首次使用」，技术QA P2-1） */
 export const PIN_MARK = 'zy.pinEverSet';
 export const markPinSet = () => { try { localStorage.setItem(PIN_MARK, '1'); } catch { /* */ } void setKV(PIN_MARK, 1); };

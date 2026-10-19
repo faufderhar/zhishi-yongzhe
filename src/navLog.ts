@@ -10,10 +10,12 @@ export function logNav(from: string, to: string, reason: string) {
   push('zy.navLog', e, 80);
   if ((from === 'battle' || from === 'review') && !['result', 'review-done', 'battle'].includes(to)) console.warn('[zy] 战斗中离开', e);
 }
+const benignErr = (msg: string) => /ResizeObserver loop (completed with undelivered notifications|limit exceeded)/i.test(msg);   // r15.4.4 技术QA P4：浏览器良性警告，不进家长可见的错误日志
 export function logErr(kind: string, msg: string, stk?: string) {
+  if (benignErr(String(msg))) return;
   push('zy.errLog', { kind, msg: String(msg).slice(0, 500), stack: (stk ?? '').slice(0, 1500), t: Date.now(), at: new Date().toISOString() }, 40);
 }
 export function installErrLog() {
-  window.addEventListener('error', e => logErr('error', e.message, e.error?.stack));
+  window.addEventListener('error', e => { if (benignErr(e.message)) { e.stopImmediatePropagation(); return; } logErr('error', e.message, e.error?.stack); });
   window.addEventListener('unhandledrejection', e => logErr('rejection', String((e.reason as Error)?.message ?? e.reason), (e.reason as Error)?.stack));
 }
