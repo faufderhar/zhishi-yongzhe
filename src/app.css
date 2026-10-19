@@ -975,3 +975,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle .opts .opt > i{width:28px !important;height:28px !important;min-width:28px;font-size:14px !important;flex-shrink:0}
   .battle .opts:not(.tf) .opt{padding:3px 8px !important;gap:8px}
 }
+/* r15.4.3 技术QA P4-3：手机横屏小班练习「跳过练习」压住第一张选项卡左下角——挪到右下空白处、缩小 */
+@media (orientation:landscape) and (max-height:500px){
+  .skip-corner{left:auto !important;right:8px !important;bottom:8px !important;font-size:13px !important;padding:4px 10px !important;min-height:0 !important}
+}
