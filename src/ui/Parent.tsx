@@ -240,6 +240,9 @@ export function ParentSettings(props: ParentProps) {
   return (
     <div className="parent">
       {props.settings.restoredFromAt && <div className="yellow-bar" data-testid="restored-from">✅ 已从{(() => { const d = new Date(props.settings.restoredFromAt!); return isNaN(+d) ? '一份' : `${d.getMonth() + 1}月${d.getDate()}日的`; })()}备份恢复，家长密码已变成备份时的密码。<button className="chip" data-testid="restored-ok" onClick={() => props.setSettings({ ...props.settings, restoredFromAt: undefined, restoredSeen: undefined })}>知道了</button><button className="chip bar-x" data-testid="restored-close" aria-label="关闭" onClick={() => props.setSettings({ ...props.settings, restoredFromAt: undefined, restoredSeen: undefined })}>✕</button></div>}
+      {/* r15.4.4：题库新增的册别已给保存过勾选的档案自动勾上——提示一次（点 ✕ 收起） */}
+      {props.profiles.filter(x => x.volNotice?.length).map(x => <div key={x.id} className="yellow-bar" data-testid="vol-new-notice">📚 {x.name}：题库新增了：{x.volNotice!.join('、')}，已自动勾上，不需要可以去掉（孩子档案 → 编辑 → 已学册别）
+        <button className="chip" data-testid="vol-new-close" aria-label="知道了" onClick={() => props.setProfiles(props.profiles.map(y => { if (y.id !== x.id) return y; const { volNotice: _n, ...rest } = y; return rest; }))}>✕</button></div>)}
       {oldHint && <div className="yellow-bar" data-testid="old-hint-prompt">🔑 你的找回问题已失效，忘记密码时只能用恢复码或备份 <button className="chip" data-testid="old-hint-now" onClick={() => setHintNow(true)}>现在更换</button></div>}
       {oldHint && hintNow && <HintEdit settings={props.settings} setSettings={s2 => { props.setSettings(s2); setHintNow(false); }} forced />}
       <div className="map-top">
@@ -362,7 +365,7 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
             {askCancel && left > 0 && <div className="p-card warn-box" data-testid="bonus-cancel-confirm"><b>取消没用的加时？</b><p className="hint" data-testid="bonus-cancel-text">会取消 {fmtMS(left)} 临时加时。取消后今天还能玩 <b data-testid="bonus-cancel-left">{Number.isFinite(pv.leftAfter) ? fmtMS(pv.leftAfter) : '不限'}</b>{Number.isFinite(pv.leftAfter) && pv.leftAfter >= 60 ? `（约 ${Math.floor(pv.leftAfter / 60)} 分钟）` : ''}（按这里现在的每日上限计算）。</p>
               <div className="row gap16"><button className="btn" data-testid="bonus-cancel-ok" onClick={() => { setAskCancel(false); onCancelBonus?.(lim); }}>确定取消</button><button className="btn ghost" data-testid="bonus-cancel-no" onClick={() => setAskCancel(false)}>算了</button></div></div>}</>; })()}
         <div className="row gap16 wrap"><button className="chip" data-testid="reset-tips" disabled={!f.tips || !Object.keys(f.tips).length} onClick={() => setF({ ...f, tips: {} })}>💡 重置提示（首次提示再弹一次）</button></div>
-        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes)} onClick={() => { clearDraft(); onSave(f); }}>保存</button></div>
+        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes)} onClick={() => { clearDraft(); const { volsKnown: _k, ...g } = f; onSave(f.volumes ? { ...g, volsKnown: vols.map(x => x[0]) } : g); }}>保存</button></div>
       </div>
     </Modal>
   );

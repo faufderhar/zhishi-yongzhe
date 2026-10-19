@@ -17,6 +17,7 @@ import { STORAGE_ERROR, deleteProfileData, compactAnswers, getKV, setKV } from '
 import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
+import { syncNewVolumes, volLabel } from './game/volumes';
 import { playable, isBossOnly, shuffle, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
 import { starOf, retreatCleared, buildChapters, levelStars, chalCostStar, bossPool, elitePool, assignedBefore, capMulti, lessonRank, levelsOfUnit, migrateStars, type Level } from './game/levels';
@@ -333,6 +334,17 @@ export default function App() {
     const ps = stamp(ps0, vaultOf(settingsRef.current)); profilesRef.current = ps;   // 新档案也带一份密码副本
     setProfilesState(ps); S.saveProfiles(ps);
   };
+  /* r15.4.4（总管）：题库新增的册别（v32 政治必修3 = 必修第三册）给保存过「已学册别」的档案自动勾上一次，家长页提示一次（见 game/volumes.ts） */
+  useEffect(() => {
+    if (!bank || !profiles.length) return; let ch = false;
+    const nx = profilesRef.current.map(x => {
+      const qs = questionsOfGrade(bank, x.grade); const vols = [...new Set(qs.map(q => q.volume))]; const r = syncNewVolumes(x, vols); if (!r) return x; ch = true;
+      const labels = r.added.map(v => volLabel(v, [...new Set(qs.filter(q => q.volume === v).map(q => q.subject))]));
+      const { volsKnown: _k, ...y } = x;
+      return { ...y, volumes: r.volumes, ...(r.volsKnown ? { volsKnown: r.volsKnown } : {}), ...(labels.length ? { volNotice: [...(x.volNotice ?? []), ...labels] } : {}) };
+    });
+    if (ch) setProfiles(nx);
+  }, [bank, profiles]);   // eslint-disable-line react-hooks/exhaustive-deps
   // r12：72 小时到期的重设：到点（时钟没被调过）只标记到期，不清密码
   // r12 技术QA R11-1：72 小时只按运行中观察到的单调时间 （r14：关闭期间完全不计）；运行中检测到时钟跳变 → 取消申请并提示
   const [resetCancelled, setResetCancelled] = useState(false);

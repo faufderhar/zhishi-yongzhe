@@ -22,7 +22,8 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   pinReset?: PendingReset                          // r11：等待生效的密码重设（24 小时）
   pinResetDoneAt?: number                          // r11：密码被重设的时间（家长页一直提示，点〔知道了〕清掉）
 }
-export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */; pinVault?: PinVault /* r11：家长密码副本 */; recHash?: string /* r12：恢复码哈希独立副本 */ }
+export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit;
+  volsKnown?: string[]   /* r15.4.4：保存「已学册别」时题库里有哪些册别（之后题库新增的册别自动勾上一次） */; volNotice?: string[]   /* r15.4.4：自动勾上的新册别（家长页提示一次） */; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */; pinVault?: PinVault /* r11：家长密码副本 */; recHash?: string /* r12：恢复码哈希独立副本 */ }
 /** 实际生效的每日时长（0 = 不限）：r9 起 limit 最少 5 分钟，不限由 unlimited 开关决定 */
 export const effLimit = (p: Pick<Profile, 'limit' | 'unlimited'>): TimeLimit => ({ weekday: p.unlimited?.weekday ? 0 : Math.max(MIN_LIMIT, p.limit.weekday), weekend: p.unlimited?.weekend ? 0 : Math.max(MIN_LIMIT, p.limit.weekend) });
 export const MIN_LIMIT = 5;
@@ -61,6 +62,9 @@ export function repairProfile(x: unknown): Profile | null {
   const lim = isObj(x.limit) ? x.limit : {};
   return { id: x.id, name: typeof x.name === 'string' && x.name ? x.name.slice(0, 16) : '小勇者', avatar: typeof x.avatar === 'string' && x.avatar ? x.avatar : '🧒', grade: grade as GradeKey,
     volumes: Array.isArray(x.volumes) ? migrateVolumes(grade as GradeKey, x.volumes.filter((v): v is string => typeof v === 'string')) : null,   // r10：v19 册别新写法
+    // r15.4.4：保存勾选时已知的册别 / 待提示的新册别（旧备份没有这两项 → 按 VOL_ADDED 推断，见 game/volumes.ts syncNewVolumes）
+    ...(Array.isArray(x.volumes) && Array.isArray(x.volsKnown) ? { volsKnown: x.volsKnown.filter((v): v is string => typeof v === 'string') } : {}),
+    ...(Array.isArray(x.volNotice) && x.volNotice.length ? { volNotice: x.volNotice.filter((v): v is string => typeof v === 'string').slice(0, 40) } : {}),
     ...(() => {   // r9 迁移：旧档案里的 0（不限）→ unlimited 开关 = 开，时长恢复默认值（最少 5 分钟）
       const un = isObj(x.unlimited) ? x.unlimited : {};
       const one = (k: 'weekday' | 'weekend') => { const v = typeof lim[k] === 'number' && Number.isFinite(lim[k]) && Number(lim[k]) >= 0 ? Math.min(240, Number(lim[k])) : def[k];   /* r15.4 技术QA P2-2：上限 240（家长页最多能设 240） */ return v === 0 && lim[k] === 0 ? { v: Math.max(MIN_LIMIT, def[k] || MIN_LIMIT), off: true } : { v: Math.max(MIN_LIMIT, v), off: un[k] === true }; };
