@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-4年级-v31（AI初审）",
- "version": "v31",
+ "bank_name": "三兄妹题库-4年级-v32（AI初审）",
+ "version": "v32",
  "questions": [
   {
    "id": "M4-001",
@@ -22962,31 +22962,6 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc0f905",
-   "change_tag": "新增",
-   "tags": [
-    "语文"
-   ]
-  },
-  {
-   "id": "Y4-179",
-   "status": "需家长确认",
-   "subject": "语文",
-   "grade": 4,
-   "textbook": "统编版",
-   "unit": "四下·天窗",
-   "type": "判断",
-   "question": "天窗的玻璃只有一小块，大约是一尺见方。",
-   "answer": "对",
-   "explanation": "原文。",
-   "difficulty": 2,
-   "source": "AI",
-   "volume": "四年级下册",
-   "knowledge_point": "语文",
-   "review_note": "未能核实《天窗》原文有“一尺见方”的说法，请家长对照课本",
-   "game_ready": false,
-   "review_changed": "是",
-   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
-   "template": "T23029d",
    "change_tag": "新增",
    "tags": [
     "语文"

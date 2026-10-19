@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初一-v31（AI初审）",
- "version": "v31",
+ "bank_name": "三兄妹题库-初一-v32（AI初审）",
+ "version": "v32",
  "questions": [
   {
    "id": "M7-001",
@@ -6958,76 +6958,6 @@
    ]
   },
   {
-   "id": "S7-029",
-   "status": "需家长确认",
-   "subject": "诗词",
-   "grade": 7,
-   "textbook": "统编版2024",
-   "unit": "拓展（非七上课文）",
-   "type": "判断",
-   "question": "“僵卧孤村不自哀”的作者是李白。",
-   "answer": "错",
-   "explanation": "作者是陆游，《十一月四日风雨大作》。",
-   "difficulty": 3,
-   "source": "AI",
-   "volume": "拓展复习（不分册）",
-   "knowledge_point": "十一月四日风雨大作",
-   "review_note": "单元归属存疑：《十一月四日风雨大作》在统编旧版七上第六单元“课外古诗词诵读”中，题库标为“拓展（非七上课文）”；请家长按孩子手上的 2024 新版七上目录确认是否仍在七上",
-   "game_ready": false,
-   "textbook_note": "国家统编教材，全国统一，无苏教版",
-   "template": "Tb65f77",
-   "change_tag": "未改",
-   "tags": [
-    "十一月四日风雨大作"
-   ]
-  },
-  {
-   "id": "S7-030",
-   "status": "需家长确认",
-   "subject": "诗词",
-   "grade": 7,
-   "textbook": "统编版2024",
-   "unit": "拓展（非七上课文）",
-   "type": "选择",
-   "question": "“夜阑卧听风吹雨，”下一句是？",
-   "options": [
-    {
-     "text": "铁马冰河入梦来",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "尚思为国戍轮台",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "王师北定中原日",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "僵卧孤村不自哀",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "A",
-   "explanation": "陆游《十一月四日风雨大作（其二）》。",
-   "difficulty": 3,
-   "source": "AI",
-   "volume": "拓展复习（不分册）",
-   "knowledge_point": "十一月四日风雨大作",
-   "review_note": "同 S7-029：《十一月四日风雨大作（其二）》单元归属需按 2024 新版七上目录确认",
-   "game_ready": false,
-   "textbook_note": "国家统编教材，全国统一，无苏教版",
-   "template": "T41f99a",
-   "change_tag": "未改",
-   "tags": [
-    "十一月四日风雨大作"
-   ]
-  },
-  {
    "id": "Y7-031",
    "status": "AI初审通过",
    "subject": "语文",
@@ -8843,52 +8773,6 @@
    "change_tag": "未改",
    "tags": [
     "北京人"
-   ]
-  },
-  {
-   "id": "H7-032",
-   "status": "需家长确认",
-   "subject": "历史",
-   "grade": 7,
-   "textbook": "统编版2024",
-   "unit": "七上·第一单元 史前时期：原始社会与中华文明的起源",
-   "type": "选择",
-   "question": "山顶洞人已经会？",
-   "options": [
-    {
-     "text": "冶铁",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "人工取火",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "制造青铜器",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "种植水稻",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "B",
-   "explanation": "山顶洞人会人工取火，使用骨针缝制衣服。",
-   "difficulty": 3,
-   "source": "AI",
-   "volume": "七年级上册",
-   "knowledge_point": "山顶洞人",
-   "review_note": "“山顶洞人会人工取火”为旧教材说法，2024新版历史七上是否保留需对照课本",
-   "game_ready": false,
-   "textbook_note": "国家统编教材，全国统一，无苏教版",
-   "template": "T74bdaa",
-   "change_tag": "未改",
-   "tags": [
-    "山顶洞人"
    ]
   },
   {
@@ -15651,60 +15535,6 @@
    ]
   },
   {
-   "id": "M7-205",
-   "status": "需家长确认",
-   "subject": "数学",
-   "grade": 7,
-   "textbook": "苏科版2024",
-   "unit": "七下·第12章 定义 命题 证明·12.4 定理",
-   "type": "填空",
-   "question": "三角形内角和定理：一个三角形两个内角分别是 $50^\\circ$、$60^\\circ$，第三个角是多少度？",
-   "tts_text": "-",
-   "answer": [
-    "70"
-   ],
-   "explanation": "$180-50-60=70$。",
-   "difficulty": 1,
-   "source": "AI",
-   "volume": "七年级下册",
-   "knowledge_point": "三角形内角和",
-   "review_note": "三角形内角和/外角在苏科版2024中的位置（七下12.4“定理”或八年级）需对照课本，防止超前",
-   "game_ready": false,
-   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
-   "template": "T526627",
-   "change_tag": "未改",
-   "tags": [
-    "三角形内角和"
-   ]
-  },
-  {
-   "id": "M7-206",
-   "status": "需家长确认",
-   "subject": "数学",
-   "grade": 7,
-   "textbook": "苏科版2024",
-   "unit": "七下·第12章 定义 命题 证明·12.4 定理",
-   "type": "填空",
-   "question": "三角形的一个外角等于 $110^\\circ$，与它不相邻的一个内角是 $45^\\circ$，另一个不相邻的内角是多少度？",
-   "tts_text": "-",
-   "answer": [
-    "65"
-   ],
-   "explanation": "外角等于不相邻两内角之和。",
-   "difficulty": 2,
-   "source": "AI",
-   "volume": "七年级下册",
-   "knowledge_point": "三角形外角",
-   "review_note": "三角形内角和/外角在苏科版2024中的位置（七下12.4“定理”或八年级）需对照课本，防止超前",
-   "game_ready": false,
-   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
-   "template": "T85a901",
-   "change_tag": "未改",
-   "tags": [
-    "三角形外角"
-   ]
-  },
-  {
    "id": "E7-051",
    "status": "AI初审通过",
    "subject": "英语",
@@ -19238,100 +19068,6 @@
    "volume": "七年级下册",
    "knowledge_point": "户外",
    "game_ready": true,
-   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
-   "template": "Tfb5cd1",
-   "change_tag": "未改",
-   "tags": [
-    "户外",
-    "词汇语法"
-   ]
-  },
-  {
-   "id": "E7-128",
-   "status": "需家长确认",
-   "subject": "英语",
-   "grade": 7,
-   "textbook": "译林版2024",
-   "unit": "7B Unit 7 Outdoor fun",
-   "type": "选择",
-   "question": "— What were you doing at 9 last night? — I ___ TV.",
-   "options": [
-    {
-     "text": "am watching",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "watch",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "watched",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "was watching",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "D",
-   "explanation": "过去进行时。",
-   "difficulty": 3,
-   "source": "AI",
-   "volume": "七年级下册",
-   "knowledge_point": "户外",
-   "review_note": "过去进行时在新版译林7B中的出现单元未核实，可能超前",
-   "game_ready": false,
-   "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
-   "template": "Tb6cc17",
-   "change_tag": "未改",
-   "tags": [
-    "户外",
-    "词汇语法"
-   ]
-  },
-  {
-   "id": "E7-129",
-   "status": "需家长确认",
-   "subject": "英语",
-   "grade": 7,
-   "textbook": "译林版2024",
-   "unit": "7B Unit 7 Outdoor fun",
-   "type": "选择",
-   "question": "It ___ when we arrived at the park.",
-   "options": [
-    {
-     "text": "was raining",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "rains",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "is raining",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "rain",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "A",
-   "explanation": "过去进行时作背景。",
-   "difficulty": 3,
-   "source": "AI",
-   "volume": "七年级下册",
-   "knowledge_point": "户外",
-   "review_note": "过去进行时在新版译林7B中的出现单元未核实，可能超前",
-   "game_ready": false,
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
    "change_tag": "未改",

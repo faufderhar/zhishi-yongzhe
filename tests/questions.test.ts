@@ -10,7 +10,7 @@ const base = { id: 'x', status: 'AI初审通过', subject: '数学', grade: 7, t
   options: [{ text: '1' }, { text: '2' }, { text: '3' }, { text: '4' }], answer: 'B', explanation: '', difficulty: 2, tags: [] };
 
 describe('内置题库（v5/v6）', () => {
-  const EXPECT: Record<string, number> = { K1: 258, 1: 985, 2: 684, 3: 1029, 4: 1069, 5: 1012, 6: 1041, 7: 1221, 10: 2047 };   // v25
+  const EXPECT: Record<string, number> = { K1: 258, 1: 985, 2: 684, 3: 1029, 4: 1069, 5: 1012, 6: 1041, 7: 1221, 10: 2887 };   // v25
   for (const g of Object.keys(EXPECT)) {
     it(`${g}：全部通过校验，可玩 ${EXPECT[g]} 题，年级来自文件/字段`, () => {
       const b = loadBank(pub(g), `bank_${g}.json`);
@@ -44,7 +44,7 @@ describe('内置题库（v5/v6）', () => {
     for (const g of Object.keys(EXPECT)) {
       const src = JSON.parse(readFileSync(SRC + `题库_${map[g] ?? g + '年级'}.json`, 'utf8'));
       if (src.version !== pub(g).version) continue;   // r12：题库源已在做下一版（版本号不同）时不比对
-      expect(pub(g).questions.length).toBe(src.questions.length);
+      expect(pub(g).questions.length).toBe(src.questions.filter((q: { status: string }) => q.status !== '需家长确认').length);   // r15.4.4：需家长确认的题导入时去掉
     }
   });
 });

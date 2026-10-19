@@ -219,10 +219,11 @@ export function linkShortChinese(chs: Chapter[], zero: Question[] = []): Chapter
   keep.forEach((l, i) => { l.index = i + 1; });
   cn.levels = keep; return chs;
 }
-/** 上册 < 下册 < 通用 < 未标；其余按出现顺序 */
+/** 上册 < 下册 < 第三册 < 通用 < 未标；其余按出现顺序 */
 function volRank(v: string) {
   if (/上册|上$|第一册|7A|\(7A\)/.test(v)) return 1;
   if (/下册|下$|第二册|7B/.test(v)) return 2;
+  if (/第三册/.test(v)) return 2.5;   // r15.4.4 题库 v32：政治必修3（必修第三册）排在第二册之后、通用 / 拓展复习之前
   if (/通用/.test(v)) return 3;
   if (/未标/.test(v)) return 9;
   return 5;

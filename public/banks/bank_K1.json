@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园小班-v31（AI初审）",
- "version": "v31",
+ "bank_name": "三兄妹题库-幼儿园小班-v32（AI初审）",
+ "version": "v32",
  "questions": [
   {
    "id": "K-001",
@@ -10051,48 +10051,6 @@
    ]
   },
   {
-   "id": "KG-032",
-   "status": "需家长确认",
-   "subject": "儿歌古诗",
-   "grade": "K1",
-   "unit": "儿歌",
-   "type": "选择",
-   "question": "“我有一个好爸爸”，下一句是？",
-   "tts_text": "“我有一个好爸爸”，下一句是？",
-   "options": [
-    {
-     "text": "哥哥哥哥好哥哥",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "爸爸爸爸好爸爸",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "妈妈妈妈好妈妈",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "B",
-   "explanation": "《好爸爸坏爸爸》常见唱法：我有一个好爸爸，爸爸爸爸好爸爸。",
-   "difficulty": 2,
-   "source": "AI",
-   "volume": "小班",
-   "knowledge_point": "儿歌",
-   "review_note": "儿歌有多种唱法，请按家里的唱法确认",
-   "assets_todo": "question_audio audio/k/KG-032.m4a（家长朗读/唱）",
-   "game_ready": false,
-   "review_changed": "是",
-   "template": "Teff155",
-   "change_tag": "修改",
-   "tags": [
-    "儿歌"
-   ]
-  },
-  {
    "id": "KG-033",
    "status": "AI初审通过",
    "subject": "儿歌古诗",
@@ -10128,48 +10086,6 @@
    "game_ready": true,
    "template": "Teff155",
    "change_tag": "未改",
-   "tags": [
-    "儿歌"
-   ]
-  },
-  {
-   "id": "KG-035",
-   "status": "需家长确认",
-   "subject": "儿歌古诗",
-   "grade": "K1",
-   "unit": "儿歌",
-   "type": "选择",
-   "question": "《两只老虎》里的老虎，一只没有什么？",
-   "tts_text": "两只老虎里的老虎，一只没有什么？",
-   "options": [
-    {
-     "text": "耳朵（或眼睛）",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "嘴巴",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "腿",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "answer": "A",
-   "explanation": "常见唱法：一只没有耳朵，一只没有尾巴。",
-   "difficulty": 2,
-   "source": "AI",
-   "volume": "小班",
-   "knowledge_point": "儿歌",
-   "review_note": "儿歌有多种唱法，请按家里的唱法确认",
-   "assets_todo": "question_audio audio/k/KG-035.m4a（家长朗读/唱）",
-   "game_ready": false,
-   "review_changed": "是",
-   "template": "T68ede0",
-   "change_tag": "修改",
    "tags": [
     "儿歌"
    ]

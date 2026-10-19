@@ -22,8 +22,8 @@ describe('r15.4.4 小班录音', () => {
     expect(speakable('4 ○ 2，○ 里填什么？')).toBe('4 ○ 2，○ 里填什么？ '.trim()); expect(speakable('长方形')).toBe('长方形');
     expect(man.items['KC-028#opt0']).toBeUndefined();
   });
-  it('题库 v31：小班每道题的题干、每个能朗读的选项都有录音，文件都在；K-038 读「两个苹果」', () => {
-    expect(man.bank_version).toBe(bank.version);
+  it('题库 v31 / v32：小班每道题的题干、每个能朗读的选项都有录音，文件都在；K-038 读「两个苹果」', () => {
+    expect(['v31', 'v32']).toContain(bank.version);   // v32 的小班题和 v31 相同（录音按 v31 生成）
     const miss: string[] = [];
     for (const q of bank.questions) {
       const t = q.tts_text === '-' ? '' : (q.tts_text || q.question); if (t && speakable(t) && !man.items[q.id + '#stem']) miss.push(q.id + '#stem');
