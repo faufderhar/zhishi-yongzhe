@@ -103,4 +103,22 @@ if (PARTS.includes('K')) for (const vp of ['640x360', '667x375']) {
   ok(ov !== 'no-skip' && !ov.hits.length, `P4-3 ${vp} 小班练习「跳过练习」不压选项卡 ${JSON.stringify(ov)}`);
   await ctx.close();
 }
+
+// P3-2 / P4-1 字体 130%（每 300 ms 把各元素原始计算字号 ×1.3 写回，同技术QA）：高一历史超长关卡名完整、初一 Boss 卡的星星行在卡片里
+const FZ = k => { const run = () => { const els = [...document.querySelectorAll('body, body *')]; els.forEach(e => { if (e.dataset.fzk) e.style.removeProperty('font-size'); }); const f = els.map(e => parseFloat(getComputedStyle(e).fontSize)); els.forEach((e, i) => { e.style.setProperty('font-size', (f[i] * k).toFixed(2) + 'px', 'important'); e.dataset.fzk = '1'; }); };
+  const go = () => { run(); setInterval(run, 300); }; if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go(); };
+if (PARTS.includes('FONT')) for (const vp of ['1400x800', '1400x840', '920x1320']) for (const [grade, subj] of [[10, '历史'], [7, null]]) {
+  const [W, H] = vp.split('x').map(Number); const ctx = await ctxNew(W, H, `(${FZ.toString()})(1.3)`);
+  await newKid(grade); await w(800);
+  const chs = await pg.$$eval('[data-testid^=chapter-]', a => a.map(x => x.getAttribute('data-testid')));
+  const cuts = [], over = [];
+  for (const ch of (subj ? chs.filter(c => c.includes(subj)) : chs)) { await tap(`[data-testid="${ch}"]`); await w(900);
+    const m = await pg.evaluate(() => ({ cut: [...document.querySelectorAll('.lv-name')].filter(e => e.scrollHeight > e.clientHeight + 2 || e.scrollWidth > e.clientWidth + 2).map(e => e.textContent),
+      over: [...document.querySelectorAll('.level')].filter(lv => { const b = lv.getBoundingClientRect(); return [...lv.querySelectorAll('*')].some(d => { const r = d.getBoundingClientRect(); return r.width && r.height && d.textContent.trim() && (r.bottom > b.bottom + 1 || r.top < b.top - 1); }); }).map(lv => lv.textContent.trim().slice(0, 24)) }));
+    cuts.push(...m.cut.map(t => ch + ':' + t)); over.push(...m.over.map(t => ch + ':' + t)); }
+  await pg.screenshot({ path: `${OUT}font130-${vp}-map-${grade}.png` });
+  if (grade === 10) ok(chs.some(c => c.includes(subj)) && !cuts.length, `P3-2 ${vp} 字体 130% 高一历史关卡名都完整（截断 ${cuts.length}：${cuts.slice(0, 3).join('；')}）`);
+  else ok(chs.length > 0 && !over.length, `P4-1 ${vp} 字体 130% 初一 ${chs.length} 个章节，卡片内容（含 Boss 星星行）都在卡片里（溢出 ${over.length}：${over.slice(0, 3).join('；')}）`);
+  await ctx.close();
+}
 console.log(bad ? `r1543-qa FAIL ${bad}` : 'r1543-qa ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

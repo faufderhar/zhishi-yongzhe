@@ -980,6 +980,10 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (orientation:landscape) and (max-height:500px){
   .skip-corner{left:auto !important;right:8px !important;bottom:8px !important;font-size:13px !important;padding:4px 10px !important;min-height:0 !important}
 }
+/* r15.4.3 技术QA P4-1：关卡卡片（<button> 在 grid 里）内容比 min-height 高时不撑高，字体 130% 时星星行 / 锁 / Boss 标签露出卡片——按内容撑高，min-height 不变 */
+.levels .level{height:max-content}
+/* r15.4.3 技术QA P3-2：超长关卡名（.long，如「三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展」）字体放大时第 3 行后被截——长名最多放 5 行 */
+.map .level .lv-name.long{-webkit-line-clamp:5 !important;max-height:calc(5 * 1.35em) !important}
 /* r15.4.3 较真家长 P2-3：改密码后的「原来的恢复码仍然有效」卡片太窄，两个大按钮横排溢出，「保留」被切到屏幕左边外。卡片占满一行、按钮可换行 */
 .p-card.rec-after{width:min(100%,640px);box-sizing:border-box}
 .p-card.rec-after > .row{flex-wrap:wrap;justify-content:center;max-width:100%}
