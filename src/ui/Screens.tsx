@@ -215,7 +215,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 }}>
                 <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
-                  : (() => { const bk = l.kind === 'boss' ? skinFor(ch.subject, 'boss', cfg.band, l.unit) : null;   /* r15.3 学霸：Boss 标签（含锁着时）用这只 Boss 自己的主色，和战斗里的怪物同一个 hue-rotate */
+                  : (() => { const bk = l.kind === 'boss' ? skinFor(ch.subject, 'boss', cfg.band, l.unit, { grade: l.pool[0]?.split(':')[0], volume: l.volume }) : null;   /* r15.3 学霸：Boss 标签（含锁着时）用这只 Boss 自己的主色，和战斗里的怪物同一个 hue-rotate */
                     return <span className={`kind-tag ${l.kind}`} data-testid="kind-tag" data-hue={bk?.hue ?? ''} style={bk?.hue ? { filter: `hue-rotate(${bk.hue}deg)` } : undefined}>{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${bk?.name ?? ch.subject}`}</span>; })()}
                 <Stars n={s} />
               </button></Fragment>

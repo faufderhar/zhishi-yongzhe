@@ -34,7 +34,7 @@ const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.
 export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem }: BattleProps & { prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
   const mon0 = MONSTERS[cfg.stats][kind];
-  const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit, { grade: questions[0]?.grade, volume: questions[0]?.volume });   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
   const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   // r10 同一局不重复：按题号和题面（去空格）去重；关外出过的题排在后面（Boss 优先没出过的）
   const pool = useRef<Question[]>((() => { const ks = new Set<string>(), ts = new Set<string>(), out: Question[] = [];

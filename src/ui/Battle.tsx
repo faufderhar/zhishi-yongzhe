@@ -405,7 +405,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
   useEffect(() => { preloadSkillArt(skillsFor(skSeg, c.major)); }, [c.major, skSeg]);
   const mode = cfg.stats;
   const mon0 = MONSTERS[mode][kind];
-  const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit);   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
+  const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit, { grade: questions[0]?.grade, volume: questions[0]?.volume });   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
   const mon = skin ? { ...mon0, name: skin.name, img: skin.img } : mon0;
   const [queue, setQueue] = useState<Question[]>(questions);
   const extraLeft = useRef(extra.filter(q => !questions.some(x => x.key === q.key)).slice(0, Math.ceil(questions.length * EXTRA_QUESTION_FACTOR)));
