@@ -16,7 +16,8 @@ import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
 import { speak, hasVoice, isSpeaking, voiceKey, afterVoice } from '../tts';
 /* r15.4.4：小班自动跳转等这句读完再走（录音 1.2 倍速变长）。上限（毫秒）：结算 / 时间到 5 s，下一题 3.5 s */
-export const K_WAIT = { endMax: 5000, nextMax: 3500 };
+/* r15.4.4：语速 1.2 后表扬+技能名+开心值可到 ~6 s（p:praise + p:sk_k_* + p:happy_*）；nextMax 太短会在开心值读到一半就出下一题把它切掉（voice-timeup N(c)(d)） */
+export const K_WAIT = { endMax: 10000, nextMax: 8000 };
 import { HAPPY_LINE } from '../game/voiceLines';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
@@ -297,20 +298,23 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
     }
     setKs({ ...ns, removed: r === 'demo' ? choices.filter(x => !q.answer.includes(x.key)).map(x => x.key) : cur.removed });
     setTimeout(() => setJustLit(ns.lit - 1), r === 'demo' ? 1800 : 600);
+    /* r15.4.4：从答对时刻起算最长等待（含 correctMs 动画），避免「先等 1.2 s 动画再开始 3.5 s 上限」把 6 s 的表扬链切掉 */
+    const waitFrom = performance.now(); const animMs = r === 'demo' ? T.demoMs : T.correctMs;
     setTimeout(async () => {
       setFx(''); setTilt(false);
+      const left = (cap: number) => Math.max(500, cap - (performance.now() - waitFrom));
       if (ns.done || idx + 1 >= questions.length) {
-        await afterVoice(0, K_WAIT.nextMax); if (!D.alive.current || forced.current) return;   // r15.4.4：最后一题的「开心值」读完再说「变成好朋友」
+        await afterVoice(0, left(K_WAIT.nextMax)); if (!D.alive.current || forced.current) return;   // r15.4.4：最后一题的「开心值」读完再说「变成好朋友」
         if (gentle) { talk(`${monName}变成你的好朋友，挥挥手回家啦！`, 3000); setMonFace('👋'); await sleep(400); setHome(true); await sleep(1600); }
         else { speak('小乌云变成你的好朋友啦！'); await Promise.race([D.dir.current?.kinderFinale(), sleep(2500)]); }   // r12：演出最多 2.5 s，后台/卡住也照样结算
-        await afterVoice(0, K_WAIT.endMax);   // r15.4.4：这句读完再进结算页（结算页的朗读会打断它）
+        await afterVoice(0, left(K_WAIT.endMax));   // r15.4.4：这句读完再进结算页（结算页的朗读会打断它）
         if (!D.alive.current || forced.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo } }); return;
       }
-      await afterVoice(0, K_WAIT.nextMax);   // r15.4.4：表扬 +「开心值两个」读完再出下一题（下一题题干会打断它）
+      await afterVoice(0, left(K_WAIT.nextMax));   // r15.4.4：表扬 + 技能名 +「开心值」读完再出下一题
       if (!D.alive.current || forced.current) return;
       setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false; setBusy(false);
-    }, r === 'demo' ? T.demoMs : T.correctMs);
+    }, animMs);
   };
   return (
     <div className="kbattle">

@@ -42,3 +42,12 @@ describe('r15.4.4 小班录音', () => {
     const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss).toEqual([]);
   });
 });
+
+import { K_WAIT } from '../src/ui/Battle';
+describe('r15.4.4 afterVoice 预算盖得住表扬+技能+开心值', () => {
+  it('nextMax / endMax ≥ 最长录音链（语速 1.2）', () => {
+    // p:praise4 1.18 + gap + p:sk_k_abei_1 2.54 + gap + p:happy_3_3 2.42 ≈ 6.3 s；从答对起算还要含 correctMs 动画
+    expect(K_WAIT.nextMax).toBeGreaterThanOrEqual(8000);
+    expect(K_WAIT.endMax).toBeGreaterThanOrEqual(10000);
+  });
+});
