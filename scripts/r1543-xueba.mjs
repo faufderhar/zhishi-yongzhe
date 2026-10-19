@@ -55,7 +55,7 @@ async function playH(lv, tag, plan, maxP) {
       await answer(p.right); const t = await fbText();
       const rec = { tag, turn: pTurn, card: key, e0, text: t };
       if (p.bet) { (p.right ? R.betRight : R.betWrong).push(rec); await pg.screenshot({ path: `${OUT}${tag}-fb-${pTurn}-${p.right ? 'right' : 'wrong'}.png` }); }
-      if (/到顶/.test(t)) { R.capped.push(rec); await pg.screenshot({ path: `${OUT}${tag}-capped-${pTurn}.png` }); }
+      if (/已到上限/.test(t)) { R.capped.push(rec); await pg.screenshot({ path: `${OUT}${tag}-capped-${pTurn}.png` }); }
       if (await vis('[data-testid=next]')) await tap('[data-testid=next]'); await w(300); continue;
     }
     if (await vis('.quiz .opt, .keypad')) { await answer(true); await fbText(); if (await vis('[data-testid=next]')) await tap('[data-testid=next]'); await w(300); continue; }
