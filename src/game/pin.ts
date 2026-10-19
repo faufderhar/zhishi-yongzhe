@@ -98,8 +98,9 @@ export async function saveLock(s: LockState, key = LK) {
   const w = (typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : undefined) as { __zyRestoring?: boolean } | undefined;
   if (w?.__zyRestoring) return;
   try { const raw = localStorage.getItem(key); if (raw) { const cur = parse(JSON.parse(raw), key); const now = Date.now();
-    /* 刚被覆盖恢复清零（seenAt 很新、失败次数和剩余都是 0）→ 旧计时器手里的带锁定状态一律丢掉 */
-    if (cur && !lockLeft(cur, now) && !cur.fails && !cur.level && (cur.seenAt ?? 0) >= now - 30e3 && (lockLeft(s, now) > 0 || s.fails > 0 || s.level > 0)) return;
+    /* r16 技术QA P3：删掉「清零后 30 秒内一律丢掉更严的写入」——它把正确 PIN / 新设 PIN / 恢复之后正常的输错计数也丢了（输错 5 次刷新不锁）。
+       现在只丢两种：恢复写库期间（上面的 __zyRestoring）；手里的状态是在清零之前看到的（seenAt 早于存储里那次清零 / 更新，下面这条）。
+       输错由 nextLock({ ...s, fails }) 算出，seenAt 沿用清零那一刻，所以不会被当成旧值 */
     if (cur && (cur.seenAt ?? 0) > (s.seenAt ?? 0) && lockLeft(cur, now) <= lockLeft(s, now) && cur.fails <= s.fails && cur.level <= s.level) return; } } catch { /* */ }
   try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s);
 }
