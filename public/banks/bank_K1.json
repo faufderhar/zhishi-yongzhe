@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园小班-v30（AI初审）",
- "version": "v30",
+ "bank_name": "三兄妹题库-幼儿园小班-v31（AI初审）",
+ "version": "v31",
  "questions": [
   {
    "id": "K-001",
@@ -4051,7 +4051,7 @@
    "unit": "数到5",
    "type": "选择",
    "question": "哪一组是 2 个？",
-   "tts_text": "哪一组是二个苹果？",
+   "tts_text": "哪一组是两个苹果？",
    "options": [
     {
      "text": "🍎",
@@ -10172,6 +10172,485 @@
    "change_tag": "修改",
    "tags": [
     "儿歌"
+   ]
+  },
+  {
+   "id": "KG-036",
+   "status": "AI初审通过",
+   "subject": "儿歌古诗",
+   "grade": "K1",
+   "unit": "儿歌",
+   "type": "选择",
+   "question": "“门前大桥下”，下一句是？",
+   "tts_text": "“门前大桥下”，下一句是？",
+   "options": [
+    {
+     "text": "两只耳朵竖起来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一闪一闪亮晶晶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "游过一群鸭",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "儿歌《数鸭子》：门前大桥下，游过一群鸭。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "儿歌",
+   "game_ready": true,
+   "template": "T2e1345",
+   "change_tag": "新增",
+   "tags": [
+    "儿歌",
+    "小白兔"
+   ]
+  },
+  {
+   "id": "KD-041",
+   "status": "AI初审通过",
+   "subject": "认识动物",
+   "grade": "K1",
+   "unit": "认识动物",
+   "type": "选择",
+   "question": "长长的鼻子，大大的耳朵，是谁呀？",
+   "tts_text": "长长的鼻子，大大的耳朵，是谁呀？",
+   "options": [
+    {
+     "text": "🐴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦒",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🐘",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "是大象，它有长长的鼻子、大大的耳朵。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "认识动物",
+   "game_ready": true,
+   "template": "T1ea4cc",
+   "change_tag": "新增",
+   "tags": [
+    "动物识图"
+   ]
+  },
+  {
+   "id": "KE-041",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "早饭吃的 bread，是哪一个？",
+   "tts_text": "早饭吃的 bread，是哪一个？",
+   "options": [
+    {
+     "text": "🍎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🥛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "bread 就是面包。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "水果食物",
+   "game_ready": true,
+   "template": "T8fa748",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-042",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·水果食物",
+   "type": "选择",
+   "question": "红红的 strawberry，是哪一个？",
+   "tts_text": "红红的 strawberry，是哪一个？",
+   "options": [
+    {
+     "text": "🍌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🍓",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "strawberry 就是草莓。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "水果食物",
+   "game_ready": true,
+   "template": "T1ca31d",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "食物"
+   ]
+  },
+  {
+   "id": "KE-043",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "purple 是什么颜色？找一找吧",
+   "tts_text": "purple 是什么颜色？找一找吧",
+   "options": [
+    {
+     "text": "🟢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🔴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "purple 是紫色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "template": "Te428d0",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-044",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "小朋友，brown 是哪个颜色呀？",
+   "tts_text": "小朋友，brown 是哪个颜色呀？",
+   "options": [
+    {
+     "text": "🔵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟤",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟡",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "brown 是棕色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "template": "T4c2801",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-045",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "pink 是什么颜色？",
+   "tts_text": "pink 是什么颜色？",
+   "options": [
+    {
+     "text": "💙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "💚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🩷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "pink 是粉色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "template": "Taeccd7",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-046",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·颜色",
+   "type": "选择",
+   "question": "小草是什么颜色？用英语怎么说？",
+   "tts_text": "小草是什么颜色？用英语怎么说？",
+   "options": [
+    {
+     "text": "🔴 red",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🟢 green",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "⚫ black",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "小草绿绿的，绿色是 green。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "颜色",
+   "game_ready": true,
+   "template": "T791d93",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "颜色"
+   ]
+  },
+  {
+   "id": "KE-047",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "摸摸你的 foot，foot 是哪里？",
+   "tts_text": "摸摸你的 foot，foot 是哪里？",
+   "options": [
+    {
+     "text": "✋ 手",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "👂 耳朵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "🦶 脚",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "foot 就是脚。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "身体和数字",
+   "game_ready": true,
+   "template": "T00274e",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-048",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·身体和数字",
+   "type": "选择",
+   "question": "小朋友，four 是数字几？",
+   "tts_text": "小朋友，four 是数字几？",
+   "options": [
+    {
+     "text": "4️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2️⃣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5️⃣",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "four 就是四。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "身体和数字",
+   "game_ready": true,
+   "template": "T5d4a58",
+   "change_tag": "新增",
+   "tags": [
+    "英语单词",
+    "身体数字"
+   ]
+  },
+  {
+   "id": "KE-049",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "好朋友过生日，可以说什么？🎂",
+   "tts_text": "好朋友过生日，可以说什么？",
+   "options": [
+    {
+     "text": "Happy birthday!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Good night!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Sorry!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "Happy birthday 是“生日快乐”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "打招呼",
+   "game_ready": true,
+   "template": "T4c97ba",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "日常用语"
+   ]
+  },
+  {
+   "id": "KE-050",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": "K1",
+   "unit": "英语单词·打招呼",
+   "type": "选择",
+   "question": "你说 Thank you，好朋友可以怎么回答？",
+   "tts_text": "你说 Thank you，好朋友可以怎么回答？",
+   "options": [
+    {
+     "text": "Good night!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Goodbye!",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "You're welcome!",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "You're welcome 是“不客气”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "小班",
+   "knowledge_point": "打招呼",
+   "game_ready": true,
+   "template": "T9cb0c1",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "日常用语"
    ]
   }
  ]

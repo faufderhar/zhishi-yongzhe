@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-2年级-v30（AI初审）",
- "version": "v30",
+ "bank_name": "三兄妹题库-2年级-v31（AI初审）",
+ "version": "v31",
  "questions": [
   {
    "id": "M2-001",
@@ -193,7 +193,7 @@
    "unit": "二上·二 1～6的表内除法",
    "type": "填空",
    "question": "12 个桃平均分给 3 只猴子，每只分几个？",
-   "tts_text": "12 个桃平均分给 3 只猴子，每只分几个？",
+   "tts_text": "12 个桃平均分给 3 个猴子，每个猴子分几个？",
    "answer": [
     "4"
    ],
@@ -203,6 +203,7 @@
    "volume": "二年级上册",
    "knowledge_point": "平均分",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T152962",
    "change_tag": "未改",
@@ -10055,7 +10056,7 @@
    "unit": "二下·四 数据分类（二）",
    "type": "填空",
    "question": "🐔🐔🐱🐔🐱 里，小鸡有几只？",
-   "tts_text": "里，小鸡有几只？",
+   "tts_text": "小鸡、小鸡、小猫、小鸡、小猫，里面小鸡有几个？",
    "answer": [
     "3"
    ],
@@ -10272,12 +10273,12 @@
    "textbook": "统编版",
    "unit": "二上·八角楼上",
    "type": "填空",
-   "question": "为了节约，毛主席的油灯只点一根____。",
-   "tts_text": "为了节约，毛主席的油灯只点一根____。",
+   "question": "毛主席右手握着笔，左手轻轻地拨了拨____，灯光更加明亮了。",
+   "tts_text": "毛主席右手握着笔，左手轻轻地拨了拨什么，灯光更加明亮了。",
    "answer": [
     "灯芯"
    ],
-   "explanation": "艰苦朴素。",
+   "explanation": "课文：他右手握着笔，左手轻轻地拨了拨灯芯，灯光更加明亮了。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -10891,12 +10892,12 @@
    "textbook": "统编版",
    "unit": "二上·寒号鸟",
    "type": "填空",
-   "question": "喜鹊劝寒号鸟：“趁着天晴，赶快____吧。”",
-   "tts_text": "喜鹊劝寒号鸟：“趁着天晴，赶快____吧。”",
+   "question": "喜鹊劝寒号鸟：“趁天晴，快____。现在懒惰，将来难过。”",
+   "tts_text": "喜鹊劝寒号鸟：“趁天晴，快什么。现在懒惰，将来难过。”",
    "answer": [
-    "垒窝"
+    "做窝"
    ],
-   "explanation": "原文意思。",
+   "explanation": "课文：喜鹊来到崖缝前劝寒号鸟：“趁天晴，快做窝。现在懒惰，将来难过。”",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -11427,7 +11428,7 @@
    "tts_text": "日月潭在台湾的哪里？",
    "options": [
     {
-     "text": "台中附近的高山上",
+     "text": "台湾省中部的山区",
      "image": "",
      "audio": ""
     },
@@ -11448,7 +11449,7 @@
     }
    ],
    "answer": "A",
-   "explanation": "台中附近的高山上。",
+   "explanation": "课文：日月潭是我国台湾省最大的一个湖。它在台湾省中部的山区。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -11561,7 +11562,7 @@
      "audio": ""
     },
     {
-     "text": "朱德记",
+     "text": "朱德的扁担",
      "image": "",
      "audio": ""
     },
@@ -11572,7 +11573,7 @@
     }
    ],
    "answer": "C",
-   "explanation": "朱德扁担。",
+   "explanation": "课文：朱德同志又找来一根扁担，写上“朱德的扁担”五个字。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -11646,12 +11647,12 @@
    "textbook": "统编版",
    "unit": "二上·朱德的扁担",
    "type": "填空",
-   "question": "扁担上写着“朱德记”，大家就不好意思再____了。",
-   "tts_text": "扁担上写着“朱德记”，大家就不好意思再____了。",
+   "question": "扁担上写着“朱德的扁担”，大家就不好意思再____他的扁担了。",
+   "tts_text": "扁担上写着“朱德的扁担”，大家就不好意思再什么他的扁担了。",
    "answer": [
     "藏"
    ],
-   "explanation": "朱德又做了一根扁担。",
+   "explanation": "课文：大家见了，越发敬爱朱德同志，不好意思再藏他的扁担了。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -12016,7 +12017,7 @@
      "audio": ""
     },
     {
-     "text": "荫房",
+     "text": "晾房",
      "image": "",
      "audio": ""
     },
@@ -12027,7 +12028,7 @@
     }
    ],
    "answer": "C",
-   "explanation": "荫房四壁有小孔，热风吹干葡萄。",
+   "explanation": "课文：有的运到晾房里制成葡萄干。晾房修在山坡上，四壁留着许多小孔。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -12574,8 +12575,8 @@
    "type": "判断",
    "question": "雪孩子是小白兔和妈妈一起堆的。",
    "tts_text": "雪孩子是小白兔和妈妈一起堆的。",
-   "answer": "对",
-   "explanation": "兔妈妈帮小白兔堆了雪孩子。",
+   "answer": "错",
+   "explanation": "课文：兔妈妈在门外的空地上给小白兔堆了个雪孩子。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -12773,12 +12774,13 @@
    "textbook": "统编版",
    "unit": "二上·雾在哪里",
    "type": "填空",
-   "question": "最后，雾把自己也藏了起来，于是什么都能看见了，这时雾____了。",
-   "tts_text": "最后，雾把自己也藏了起来，于是什么都能看见了，这时雾____了。",
+   "question": "雾说：“我要把自己藏起来。”不久，大海连同船只，天空连同太阳……都露出来了。雾呢？____了，不知到哪里去了。",
+   "tts_text": "雾说：“我要把自己藏起来。”不久，大海连同船只，天空连同太阳都露出来了。雾呢？什么了，不知到哪里去了。",
    "answer": [
+    "消失",
     "散"
    ],
-   "explanation": "雾散了，一切又出现了。",
+   "explanation": "课文：雾呢？消失了，不知到哪里去了。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级上册",
@@ -14324,10 +14326,10 @@
    "textbook": "统编版",
    "unit": "二下·小马过河",
    "type": "判断",
-   "question": "小马要把一袋麦子驮到磨坊去。",
-   "tts_text": "小马要把一袋麦子驮到磨坊去。",
+   "question": "小马要把麦子驮到磨坊去。",
+   "tts_text": "小马要把麦子驮到磨坊去。",
    "answer": "对",
-   "explanation": "妈妈让小马送麦子。",
+   "explanation": "课文：老马说：“你把这半口袋麦子驮到磨坊去吧。”",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级下册",
@@ -14527,8 +14529,8 @@
    "textbook": "统编版",
    "unit": "二下·开满鲜花的小路",
    "type": "选择",
-   "question": "鼹鼠先生的包裹是谁送来的？",
-   "tts_text": "鼹鼠先生的包裹是谁送来的？",
+   "question": "鼹鼠先生的包裹是谁寄来的？",
+   "tts_text": "鼹鼠先生的包裹是谁寄来的？",
    "options": [
     {
      "text": "大狗熊",
@@ -14541,7 +14543,7 @@
      "audio": ""
     },
     {
-     "text": "邮递员长颈鹿",
+     "text": "长颈鹿大叔",
      "image": "",
      "audio": ""
     },
@@ -14552,7 +14554,7 @@
     }
    ],
    "answer": "C",
-   "explanation": "长颈鹿大叔是邮递员。",
+   "explanation": "课文：邮递员黄狗在门口喊……原来，长颈鹿大叔给鼹鼠先生寄来了一个包裹。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级下册",
@@ -14599,12 +14601,12 @@
    "textbook": "统编版",
    "unit": "二下·开满鲜花的小路",
    "type": "填空",
-   "question": "鼹鼠先生的包裹破了一个____，花籽撒了一路。",
-   "tts_text": "鼹鼠先生的包裹破了一个____，花籽撒了一路。",
+   "question": "鼹鼠先生的包裹____了，里面的东西都漏在来时的路上。",
+   "tts_text": "鼹鼠先生的包裹什么了，里面的东西都漏在来时的路上。",
    "answer": [
-    "洞"
+    "破"
    ],
-   "explanation": "包裹破了个小洞。",
+   "explanation": "课文：原来，包裹破了，里面的东西不见了。看来都漏在来时的路上啦！",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级下册",
@@ -14951,12 +14953,12 @@
    "textbook": "统编版",
    "unit": "二下·羿射九日",
    "type": "填空",
-   "question": "羿拉开万斤力的弓，搭上千斤重的____，射下太阳。",
-   "tts_text": "羿拉开万斤力的弓，搭上千斤重的____，射下太阳。",
+   "question": "羿登上一座大山，搭上神箭，拉开神____，对准天上的一个太阳。",
+   "tts_text": "羿登上一座大山，搭上神箭，拉开神什么，对准天上的一个太阳。",
    "answer": [
-    "箭"
+    "弓"
    ],
-   "explanation": "课文：拉开万斤力的弓，搭上千斤重的箭。",
+   "explanation": "课文：他登上一座大山，搭上神箭，拉开神弓，对准天上的一个太阳，嗖地就是一箭。",
    "difficulty": 1,
    "source": "AI",
    "volume": "二年级下册",
@@ -15965,6 +15967,8802 @@
    "tags": [
     "诗词",
     "默写填空"
+   ]
+  },
+  {
+   "id": "M2-091",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·一 1～6的表内乘法",
+   "type": "填空",
+   "question": "3 × 6 = ?",
+   "tts_text": "3 乘 6 等于 多少",
+   "answer": [
+    "18"
+   ],
+   "explanation": "三六十八。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内乘法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tb22e0b",
+   "change_tag": "新增",
+   "tags": [
+    "认识乘法"
+   ]
+  },
+  {
+   "id": "M2-092",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·一 1～6的表内乘法",
+   "type": "选择",
+   "question": "4 个 5 相加，乘法算式是？",
+   "tts_text": "4 个 5 相加，乘法算式是？",
+   "options": [
+    {
+     "text": "4 × 4 = 16",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4 × 5 = 20",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5 + 5 = 10",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4 + 5 = 9",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "4 个 5 相加，可以写成 4 × 5 或 5 × 4。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内乘法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T0f891b",
+   "change_tag": "新增",
+   "tags": [
+    "认识乘法"
+   ]
+  },
+  {
+   "id": "M2-093",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·一 1～6的表内乘法",
+   "type": "填空",
+   "question": "每盘放 3 个桃，4 盘一共放几个？",
+   "tts_text": "每盘放 3 个桃，4 盘一共放几个？",
+   "answer": [
+    "12"
+   ],
+   "explanation": "3 × 4 = 12。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内乘法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tafed27",
+   "change_tag": "新增",
+   "tags": [
+    "认识乘法"
+   ]
+  },
+  {
+   "id": "M2-094",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·二 1～6的表内除法",
+   "type": "填空",
+   "question": "15 ÷ 5 = ?",
+   "tts_text": "15 除以 5 等于 多少",
+   "answer": [
+    "3"
+   ],
+   "explanation": "三五十五，商是 3。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tb01916",
+   "change_tag": "新增",
+   "tags": [
+    "平均分"
+   ]
+  },
+  {
+   "id": "M2-095",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·二 1～6的表内除法",
+   "type": "填空",
+   "question": "把 12 本书平均分给 4 个小朋友，每人分几本？",
+   "tts_text": "把 12 本书平均分给 4 个小朋友，每人分几本？",
+   "answer": [
+    "3"
+   ],
+   "explanation": "12 ÷ 4 = 3。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Ta4b3fc",
+   "change_tag": "新增",
+   "tags": [
+    "平均分"
+   ]
+  },
+  {
+   "id": "M2-096",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·二 1～6的表内除法",
+   "type": "选择",
+   "question": "“12 ÷ 2 = 6”读作？",
+   "tts_text": "“12 除以 2 等于 6”读作？",
+   "options": [
+    {
+     "text": "12 减 2 等于 6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2 除以 12 等于 6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "12 除以 2 等于 6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "12 乘 2 等于 6",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“÷”读作“除以”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Td80a70",
+   "change_tag": "新增",
+   "tags": [
+    "平均分"
+   ]
+  },
+  {
+   "id": "M2-097",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·二 1～6的表内除法",
+   "type": "填空",
+   "question": "有 18 个气球，每 6 个扎成一束，能扎几束？",
+   "tts_text": "有 18 个气球，每 6 个扎成一束，能扎几束？",
+   "answer": [
+    "3"
+   ],
+   "explanation": "18 ÷ 6 = 3。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "1～6的表内除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T027f60",
+   "change_tag": "新增",
+   "tags": [
+    "平均分"
+   ]
+  },
+  {
+   "id": "M2-098",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·四 认识三位数",
+   "type": "填空",
+   "question": "5 个百是多少？",
+   "tts_text": "5 个百是多少？",
+   "answer": [
+    "500"
+   ],
+   "explanation": "5 个百是 500。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "认识三位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tce188a",
+   "change_tag": "新增",
+   "tags": [
+    "三位数的组成"
+   ]
+  },
+  {
+   "id": "M2-099",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·四 认识三位数",
+   "type": "选择",
+   "question": "三位数 472 的百位上是几？",
+   "tts_text": "三位数 472 的百位上是几？",
+   "options": [
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "472 = 4 个百 + 7 个十 + 2 个一。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "认识三位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T7093b6",
+   "change_tag": "新增",
+   "tags": [
+    "三位数的组成"
+   ]
+  },
+  {
+   "id": "M2-100",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·四 认识三位数",
+   "type": "判断",
+   "question": "1000 是三位数。",
+   "tts_text": "1000 是三位数。",
+   "answer": "错",
+   "explanation": "1000 是四位数，最大的三位数是 999。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "认识三位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tb5d1df",
+   "change_tag": "新增",
+   "tags": [
+    "三位数的组成"
+   ]
+  },
+  {
+   "id": "M2-101",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·四 认识三位数",
+   "type": "填空",
+   "question": "写数：六百二十，写作多少？",
+   "tts_text": "写数：六百二十，写作多少？",
+   "answer": [
+    "620"
+   ],
+   "explanation": "六百二十写作 620。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "认识三位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T2037a9",
+   "change_tag": "新增",
+   "tags": [
+    "三位数的组成"
+   ]
+  },
+  {
+   "id": "M2-102",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·五 两位数加、减两位数",
+   "type": "填空",
+   "question": "56 + 37 = ?",
+   "tts_text": "56 加 37 等于 多少",
+   "answer": [
+    "93"
+   ],
+   "explanation": "个位 6 + 7 = 13，向十位进 1。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "两位数加、减两位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Td54a51",
+   "change_tag": "新增",
+   "tags": [
+    "两位数加两位数"
+   ]
+  },
+  {
+   "id": "M2-103",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·五 两位数加、减两位数",
+   "type": "填空",
+   "question": "91 - 46 = ?",
+   "tts_text": "91 减 46 等于 多少",
+   "answer": [
+    "45"
+   ],
+   "explanation": "个位不够减，从十位退 1。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "两位数加、减两位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tb77b07",
+   "change_tag": "新增",
+   "tags": [
+    "两位数加两位数"
+   ]
+  },
+  {
+   "id": "M2-104",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·五 两位数加、减两位数",
+   "type": "选择",
+   "question": "二（1）班有 28 个男生、25 个女生，一共有多少人？",
+   "tts_text": "二（1）班有 28 个男生、25 个女生，一共有多少人？",
+   "options": [
+    {
+     "text": "52 人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "43 人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3 人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "53 人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "28 + 25 = 53。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "两位数加、减两位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T1e7036",
+   "change_tag": "新增",
+   "tags": [
+    "两位数加两位数"
+   ]
+  },
+  {
+   "id": "M2-105",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·六 有余数的除法",
+   "type": "填空",
+   "question": "14 ÷ 4 = ?……2，商是几？",
+   "tts_text": "14 除以 4，余数是 2，商是几？",
+   "answer": [
+    "3"
+   ],
+   "explanation": "四三十二，14 - 12 = 2，商 3 余 2。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "有余数的除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Te6a5ce",
+   "change_tag": "新增",
+   "tags": [
+    "有余数的除法"
+   ]
+  },
+  {
+   "id": "M2-106",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·六 有余数的除法",
+   "type": "选择",
+   "question": "除数是 5，余数可能是几？",
+   "tts_text": "除数是 5，余数可能是几？",
+   "options": [
+    {
+     "text": "7",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "6",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "余数要比除数小。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "有余数的除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T66d60b",
+   "change_tag": "新增",
+   "tags": [
+    "有余数的除法"
+   ]
+  },
+  {
+   "id": "M2-107",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·六 有余数的除法",
+   "type": "填空",
+   "question": "有 22 支铅笔，每人分 5 支，最多可以分给几个人？",
+   "tts_text": "有 22 支铅笔，每人分 5 支，最多可以分给几个人？",
+   "answer": [
+    "4"
+   ],
+   "explanation": "22 ÷ 5 = 4……2，最多分给 4 人。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "有余数的除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T572088",
+   "change_tag": "新增",
+   "tags": [
+    "有余数的除法"
+   ]
+  },
+  {
+   "id": "M2-108",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二上·六 有余数的除法",
+   "type": "判断",
+   "question": "19 ÷ 3 = 6……1。",
+   "tts_text": "19 除以 3 等于 61。",
+   "answer": "对",
+   "explanation": "三六十八，19 - 18 = 1。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "有余数的除法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T8f6810",
+   "change_tag": "新增",
+   "tags": [
+    "有余数的除法"
+   ]
+  },
+  {
+   "id": "M2-109",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·一 厘米和米",
+   "type": "填空",
+   "question": "100 厘米 = ? 米",
+   "tts_text": "100 厘米 等于 多少 米",
+   "answer": [
+    "1"
+   ],
+   "explanation": "1 米 = 100 厘米。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "厘米和米",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T7fe7e3",
+   "change_tag": "新增",
+   "tags": [
+    "米和厘米"
+   ]
+  },
+  {
+   "id": "M2-110",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·一 厘米和米",
+   "type": "选择",
+   "question": "一张课桌大约高 70（ ）",
+   "tts_text": "一张课桌大约高 70（ ）",
+   "options": [
+    {
+     "text": "元",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "厘米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "克",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "课桌比 1 米矮，大约 70 厘米。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "厘米和米",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tdec99f",
+   "change_tag": "新增",
+   "tags": [
+    "米和厘米"
+   ]
+  },
+  {
+   "id": "M2-111",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·一 厘米和米",
+   "type": "判断",
+   "question": "量物体长度时，要把尺子的 0 刻度对准物体的一端。",
+   "tts_text": "量物体长度时，要把尺子的 0 刻度对准物体的一端。",
+   "answer": "对",
+   "explanation": "从 0 刻度量起，读数就是长度。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "厘米和米",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T9ac711",
+   "change_tag": "新增",
+   "tags": [
+    "米和厘米"
+   ]
+  },
+  {
+   "id": "M2-112",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·一 厘米和米",
+   "type": "填空",
+   "question": "一根绳子长 1 米，剪去 40 厘米，还剩多少厘米？",
+   "tts_text": "一根绳子长 1 米，剪去 40 厘米，还剩多少厘米？",
+   "answer": [
+    "60"
+   ],
+   "explanation": "1 米 = 100 厘米，100 - 40 = 60。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "厘米和米",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T8e2382",
+   "change_tag": "新增",
+   "tags": [
+    "米和厘米"
+   ]
+  },
+  {
+   "id": "M2-113",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·二 简单的数量关系（二）",
+   "type": "填空",
+   "question": "5 的 6 倍是多少？",
+   "tts_text": "5 的 6 倍是多少？",
+   "answer": [
+    "30"
+   ],
+   "explanation": "求 5 的 6 倍用乘法：5 × 6 = 30。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "简单的数量关系（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Td8af84",
+   "change_tag": "新增",
+   "tags": [
+    "乘法数量关系"
+   ]
+  },
+  {
+   "id": "M2-114",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·二 简单的数量关系（二）",
+   "type": "选择",
+   "question": "20 是 5 的几倍？",
+   "tts_text": "20 是 5 的几倍？",
+   "options": [
+    {
+     "text": "15 倍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "25 倍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5 倍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4 倍",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "20 ÷ 5 = 4。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "简单的数量关系（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tcacc60",
+   "change_tag": "新增",
+   "tags": [
+    "乘法数量关系"
+   ]
+  },
+  {
+   "id": "M2-115",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·二 简单的数量关系（二）",
+   "type": "填空",
+   "question": "小明有 3 本故事书，小红的故事书是小明的 2 倍，小红有几本？",
+   "tts_text": "小明有 3 本故事书，小红的故事书是小明的 2 倍，小红有几本？",
+   "answer": [
+    "6"
+   ],
+   "explanation": "3 × 2 = 6。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "简单的数量关系（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Teae6e7",
+   "change_tag": "新增",
+   "tags": [
+    "乘法数量关系"
+   ]
+  },
+  {
+   "id": "M2-116",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·二 简单的数量关系（二）",
+   "type": "判断",
+   "question": "把 24 个苹果平均分成 4 份，每份是 6 个。",
+   "tts_text": "把 24 个苹果平均分成 4 份，每份是 6 个。",
+   "answer": "对",
+   "explanation": "24 ÷ 4 = 6。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "简单的数量关系（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Te8af24",
+   "change_tag": "新增",
+   "tags": [
+    "乘法数量关系"
+   ]
+  },
+  {
+   "id": "M2-117",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·三 两位数乘、除以一位数",
+   "type": "填空",
+   "question": "84 ÷ 4 = ?",
+   "tts_text": "84 除以 4 等于 多少",
+   "answer": [
+    "21"
+   ],
+   "explanation": "8 个十除以 4 得 2 个十，4 除以 4 得 1。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "两位数乘、除以一位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T112c70",
+   "change_tag": "新增",
+   "tags": [
+    "两位数乘一位数（不进位）"
+   ]
+  },
+  {
+   "id": "M2-118",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·四 数据分类（二）",
+   "type": "选择",
+   "question": "按“有没有轮子”分，下面哪个和自行车是一类？",
+   "tts_text": "按“有没有轮子”分，下面哪个和自行车是一类？",
+   "options": [
+    {
+     "text": "小汽车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "书包",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小船",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小鸟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "自行车和小汽车都有轮子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "数据分类（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tcabc49",
+   "change_tag": "新增",
+   "tags": [
+    "按标准分类"
+   ]
+  },
+  {
+   "id": "M2-119",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·四 数据分类（二）",
+   "type": "判断",
+   "question": "按颜色分和按形状分，分类的结果一定相同。",
+   "tts_text": "按颜色分和按形状分，分类的结果一定相同。",
+   "answer": "错",
+   "explanation": "分类标准不同，结果可能不一样。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "数据分类（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T5d74e3",
+   "change_tag": "新增",
+   "tags": [
+    "按标准分类"
+   ]
+  },
+  {
+   "id": "M2-120",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·四 数据分类（二）",
+   "type": "选择",
+   "question": "一盒积木有红、黄、蓝三种颜色，要知道每种颜色有多少块，先要？",
+   "tts_text": "一盒积木有红、黄、蓝三种颜色，要知道每种颜色有多少块，先要？",
+   "options": [
+    {
+     "text": "全部倒掉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "随便拿几块",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按大小排队",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "按颜色分一分，再数一数",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "先按颜色分类，再分别数数量。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "数据分类（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Td5ea3a",
+   "change_tag": "新增",
+   "tags": [
+    "按标准分类"
+   ]
+  },
+  {
+   "id": "M2-121",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·四 数据分类（二）",
+   "type": "填空",
+   "question": "班里喜欢跳绳的有 12 人，喜欢踢球的有 8 人，喜欢跳绳的比喜欢踢球的多几人？",
+   "tts_text": "班里喜欢跳绳的有 12 人，喜欢踢球的有 8 人，喜欢跳绳的比喜欢踢球的多几人？",
+   "answer": [
+    "4"
+   ],
+   "explanation": "12 - 8 = 4。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "数据分类（二）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T63bc2f",
+   "change_tag": "新增",
+   "tags": [
+    "按标准分类"
+   ]
+  },
+  {
+   "id": "M2-122",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·五 认识四位数",
+   "type": "填空",
+   "question": "2 个千是多少？",
+   "tts_text": "2 个千是多少？",
+   "answer": [
+    "2000"
+   ],
+   "explanation": "2 个千是 2000。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "认识四位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T079ac7",
+   "change_tag": "新增",
+   "tags": [
+    "认识一千"
+   ]
+  },
+  {
+   "id": "M2-123",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·五 认识四位数",
+   "type": "选择",
+   "question": "7306 读作？",
+   "tts_text": "四位数 7、3、0、6，读作什么？",
+   "options": [
+    {
+     "text": "七千三百六",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "七百三十六",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "七千三百零六",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "七千零三百六",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "中间的 0 要读出来，末尾的 0 不读。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "认识四位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T3f6b27",
+   "change_tag": "新增",
+   "tags": [
+    "认识一千"
+   ]
+  },
+  {
+   "id": "M2-124",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·五 认识四位数",
+   "type": "判断",
+   "question": "9999 再添 1 是 10000。",
+   "tts_text": "9999 再添 1 是 10000。",
+   "answer": "对",
+   "explanation": "9999 + 1 = 10000。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "认识四位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T59d570",
+   "change_tag": "新增",
+   "tags": [
+    "认识一千"
+   ]
+  },
+  {
+   "id": "M2-125",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·五 认识四位数",
+   "type": "填空",
+   "question": "四位数 5832 的千位上是几？",
+   "tts_text": "四位数 5832 的千位上是几？",
+   "answer": [
+    "5"
+   ],
+   "explanation": "5832 的千位是 5。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "认识四位数",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T11a3a4",
+   "change_tag": "新增",
+   "tags": [
+    "认识一千"
+   ]
+  },
+  {
+   "id": "M2-126",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·六 两、三位数的加法和减法",
+   "type": "填空",
+   "question": "345 + 210 = ?",
+   "tts_text": "345 加 210 等于 多少",
+   "answer": [
+    "555"
+   ],
+   "explanation": "百位、十位、个位分别相加。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "两、三位数的加法和减法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Taa4241",
+   "change_tag": "新增",
+   "tags": [
+    "三位数加法"
+   ]
+  },
+  {
+   "id": "M2-127",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·六 两、三位数的加法和减法",
+   "type": "填空",
+   "question": "800 - 350 = ?",
+   "tts_text": "800 减 350 等于 多少",
+   "answer": [
+    "450"
+   ],
+   "explanation": "800 - 350 = 450。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "两、三位数的加法和减法",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T8f9be8",
+   "change_tag": "新增",
+   "tags": [
+    "三位数加法"
+   ]
+  },
+  {
+   "id": "M2-128",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·七 图形的初步认识（三）",
+   "type": "选择",
+   "question": "长方形的 4 个角都是？",
+   "tts_text": "长方形的 4 个角都是？",
+   "options": [
+    {
+     "text": "钝角",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆角",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "直角",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "锐角",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "长方形的 4 个角都是直角。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "图形的初步认识（三）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "Tf34487",
+   "change_tag": "新增",
+   "tags": [
+    "长方形和正方形"
+   ]
+  },
+  {
+   "id": "M2-129",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·七 图形的初步认识（三）",
+   "type": "判断",
+   "question": "角的两条边画得越长，角就越大。",
+   "tts_text": "角的两条边画得越长，角就越大。",
+   "answer": "错",
+   "explanation": "角的大小和边的长短没有关系。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "图形的初步认识（三）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T4956a2",
+   "change_tag": "新增",
+   "tags": [
+    "长方形和正方形"
+   ]
+  },
+  {
+   "id": "M2-130",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·七 图形的初步认识（三）",
+   "type": "选择",
+   "question": "一个角有几个顶点？",
+   "tts_text": "一个角有几个顶点？",
+   "options": [
+    {
+     "text": "没有",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1 个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "3 个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2 个",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "角有 1 个顶点和 2 条边。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "图形的初步认识（三）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T6ef6c1",
+   "change_tag": "新增",
+   "tags": [
+    "长方形和正方形"
+   ]
+  },
+  {
+   "id": "M2-131",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 2,
+   "textbook": "苏教版2024",
+   "unit": "二下·七 图形的初步认识（三）",
+   "type": "填空",
+   "question": "一个长方形长 5 厘米、宽 3 厘米，4 条边一共长多少厘米？",
+   "tts_text": "一个长方形长 5 厘米、宽 3 厘米，4 条边一共长多少厘米？",
+   "answer": [
+    "16"
+   ],
+   "explanation": "5 + 3 + 5 + 3 = 16。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "图形的初步认识（三）",
+   "game_ready": true,
+   "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+   "template": "T32e593",
+   "change_tag": "新增",
+   "tags": [
+    "长方形和正方形"
+   ]
+  },
+  {
+   "id": "S2-099",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《登鹳雀楼》",
+   "type": "填空",
+   "question": "补全诗句：“白日依山____。”",
+   "tts_text": "补全诗句：“白日依山什么。”",
+   "answer": [
+    "尽"
+   ],
+   "explanation": "白日依山尽：太阳靠着山落下去。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《登鹳雀楼》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T77744a",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-100",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《登鹳雀楼》",
+   "type": "选择",
+   "question": "《登鹳雀楼》里，诗人看到黄河向哪里流去？",
+   "tts_text": "登鹳雀楼里，诗人看到黄河向哪里流去？",
+   "options": [
+    {
+     "text": "大海",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小溪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "高山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "田野",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“黄河入海流”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《登鹳雀楼》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T524982",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-101",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《登鹳雀楼》",
+   "type": "判断",
+   "question": "《登鹳雀楼》里，诗人想看得更远，就要再登高一层楼。",
+   "tts_text": "登鹳雀楼里，诗人想看得更远，就要再登高一层楼。",
+   "answer": "对",
+   "explanation": "欲穷千里目，更上一层楼。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《登鹳雀楼》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T06bd80",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-102",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《登鹳雀楼》",
+   "type": "选择",
+   "question": "“更上一层楼”的上一句是？",
+   "tts_text": "“更上一层楼”的上一句是？",
+   "options": [
+    {
+     "text": "黄河入海流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "欲穷千里目",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疑是银河落九天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白日依山尽",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "欲穷千里目，更上一层楼。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《登鹳雀楼》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T685987",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-103",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《望庐山瀑布》",
+   "type": "填空",
+   "question": "补全诗句：“日照香炉生紫____。”",
+   "tts_text": "补全诗句：“日照香炉生紫什么。”",
+   "answer": [
+    "烟"
+   ],
+   "explanation": "日照香炉生紫烟。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《望庐山瀑布》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tc40e11",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-104",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《望庐山瀑布》",
+   "type": "选择",
+   "question": "《望庐山瀑布》里，诗人怀疑瀑布是从天上落下的什么？",
+   "tts_text": "望庐山瀑布里，诗人怀疑瀑布是从天上落下的什么？",
+   "options": [
+    {
+     "text": "大雨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "月光",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白云",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "银河",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“疑是银河落九天”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《望庐山瀑布》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tbbb94f",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-105",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《望庐山瀑布》",
+   "type": "判断",
+   "question": "《望庐山瀑布》里，诗人是在远处看瀑布的。",
+   "tts_text": "望庐山瀑布里，诗人是在远处看瀑布的。",
+   "answer": "对",
+   "explanation": "“遥看瀑布挂前川”，遥看就是从远处看。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《望庐山瀑布》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb50056",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-106",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《望庐山瀑布》",
+   "type": "选择",
+   "question": "“疑是银河落九天”的上一句是？",
+   "tts_text": "“疑是银河落九天”的上一句是？",
+   "options": [
+    {
+     "text": "黄河入海流",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "飞流直下三千尺",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "日照香炉生紫烟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遥看瀑布挂前川",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "飞流直下三千尺，疑是银河落九天。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《望庐山瀑布》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb39ea2",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-107",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《敕勒歌》",
+   "type": "填空",
+   "question": "补全诗句：“风吹草低见____。”",
+   "tts_text": "补全诗句：“风吹草低见什么。”",
+   "answer": [
+    "牛羊"
+   ],
+   "explanation": "风吹草低见牛羊。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《敕勒歌》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T3d617e",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-108",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《敕勒歌》",
+   "type": "选择",
+   "question": "《敕勒歌》里，天空像什么一样笼罩着四面的原野？",
+   "tts_text": "敕勒歌里，天空像什么一样笼罩着四面的原野？",
+   "options": [
+    {
+     "text": "帽子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "锅盖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大伞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "穹庐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“天似穹庐，笼盖四野”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《敕勒歌》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T0383fe",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-109",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《敕勒歌》",
+   "type": "判断",
+   "question": "《敕勒歌》里，风吹过，草低下去，露出了牛羊。",
+   "tts_text": "敕勒歌里，风吹过，草低下去，露出了牛羊。",
+   "answer": "对",
+   "explanation": "风吹草低见牛羊。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《敕勒歌》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T461154",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-110",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《敕勒歌》",
+   "type": "选择",
+   "question": "“笼盖四野”的上一句是？",
+   "tts_text": "“笼盖四野”的上一句是？",
+   "options": [
+    {
+     "text": "天似穹庐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天苍苍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "敕勒川",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "阴山下",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "天似穹庐，笼盖四野。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《敕勒歌》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T6780e6",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-111",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《咏柳》",
+   "type": "填空",
+   "question": "补全诗句：“碧玉妆成一树____。”",
+   "tts_text": "补全诗句：“碧玉妆成一树什么。”",
+   "answer": [
+    "高"
+   ],
+   "explanation": "碧玉妆成一树高。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《咏柳》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb35c34",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-112",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《咏柳》",
+   "type": "选择",
+   "question": "《咏柳》里，诗人问细细的柳叶是谁裁出来的，答案是？",
+   "tts_text": "咏柳里，诗人问细细的柳叶是谁裁出来的，答案是？",
+   "options": [
+    {
+     "text": "二月春风",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小朋友",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "妈妈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小剪刀",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“不知细叶谁裁出，二月春风似剪刀”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《咏柳》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T911ee7",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-113",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《咏柳》",
+   "type": "判断",
+   "question": "《咏柳》里，柳树垂下了万条绿丝绦。",
+   "tts_text": "咏柳里，柳树垂下了万条绿丝绦。",
+   "answer": "对",
+   "explanation": "万条垂下绿丝绦，写柳枝又多又长。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《咏柳》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T0246a7",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-114",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《咏柳》",
+   "type": "选择",
+   "question": "“二月春风似剪刀”的上一句是？",
+   "tts_text": "“二月春风似剪刀”的上一句是？",
+   "options": [
+    {
+     "text": "碧玉妆成一树高",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "万条垂下绿丝绦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不知细叶谁裁出",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "草长莺飞二月天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "不知细叶谁裁出，二月春风似剪刀。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《咏柳》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tefc8d5",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-115",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《村居》",
+   "type": "填空",
+   "question": "补全诗句：“草长莺飞二月____。”",
+   "tts_text": "补全诗句：“草长莺飞二月什么。”",
+   "answer": [
+    "天"
+   ],
+   "explanation": "草长莺飞二月天。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《村居》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T2d1e93",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-116",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《村居》",
+   "type": "选择",
+   "question": "《村居》里，孩子们放学回来得怎么样？",
+   "tts_text": "村居里，孩子们放学回来得怎么样？",
+   "options": [
+    {
+     "text": "很早",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "没回来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "很慢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "很晚",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“儿童散学归来早”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《村居》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Ted3954",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-117",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《村居》",
+   "type": "判断",
+   "question": "《村居》里，孩子们趁着东风放风筝。",
+   "tts_text": "村居里，孩子们趁着东风放风筝。",
+   "answer": "对",
+   "explanation": "“忙趁东风放纸鸢”，纸鸢就是风筝。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《村居》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Te5a26e",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-118",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《村居》",
+   "type": "选择",
+   "question": "“忙趁东风放纸鸢”的上一句是？",
+   "tts_text": "“忙趁东风放纸鸢”的上一句是？",
+   "options": [
+    {
+     "text": "草长莺飞二月天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "二月春风似剪刀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "拂堤杨柳醉春烟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "儿童散学归来早",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "儿童散学归来早，忙趁东风放纸鸢。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《村居》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T9fcfd3",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-119",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《赋得古原草送别》",
+   "type": "填空",
+   "question": "补全诗句：“野火烧不____。”",
+   "tts_text": "补全诗句：“野火烧不什么。”",
+   "answer": [
+    "尽"
+   ],
+   "explanation": "野火烧不尽。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《赋得古原草送别》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb859ff",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-120",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《赋得古原草送别》",
+   "type": "选择",
+   "question": "《赋得古原草送别》里，野火烧过后，春风一吹，小草怎么样了？",
+   "tts_text": "赋得古原草送别里，野火烧过后，春风一吹，小草怎么样了？",
+   "options": [
+    {
+     "text": "被吹走了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "变黄了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "全死了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "又长出来了",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“野火烧不尽，春风吹又生”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《赋得古原草送别》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T44f784",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-121",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《赋得古原草送别》",
+   "type": "判断",
+   "question": "“一岁一枯荣”是说原上的草每年枯萎一次、茂盛一次。",
+   "tts_text": "“一岁一枯荣”是说原上的草每年枯萎一次、茂盛一次。",
+   "answer": "对",
+   "explanation": "一岁一枯荣。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《赋得古原草送别》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T85bd24",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-122",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《赋得古原草送别》",
+   "type": "选择",
+   "question": "“一岁一枯荣”的上一句是？",
+   "tts_text": "“一岁一枯荣”的上一句是？",
+   "options": [
+    {
+     "text": "离离原上草",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "野火烧不尽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "草长莺飞二月天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春风吹又生",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "离离原上草，一岁一枯荣。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《赋得古原草送别》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tcfc3b0",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-123",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《晓出净慈寺送林子方》",
+   "type": "填空",
+   "question": "补全诗句：“映日荷花别样____。”",
+   "tts_text": "补全诗句：“映日荷花别样什么。”",
+   "answer": [
+    "红"
+   ],
+   "explanation": "映日荷花别样红。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《晓出净慈寺送林子方》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T989796",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-124",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《晓出净慈寺送林子方》",
+   "type": "选择",
+   "question": "《晓出净慈寺送林子方》写的是哪里的景色？",
+   "tts_text": "晓出净慈寺送林子方写的是哪里的景色？",
+   "options": [
+    {
+     "text": "西湖",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "江南的小池",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "庐山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黄河",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“毕竟西湖六月中”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《晓出净慈寺送林子方》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tc9545b",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-125",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《晓出净慈寺送林子方》",
+   "type": "判断",
+   "question": "《晓出净慈寺送林子方》里，莲叶一望无际，好像和天连在一起。",
+   "tts_text": "晓出净慈寺送林子方里，莲叶一望无际，好像和天连在一起。",
+   "answer": "对",
+   "explanation": "接天莲叶无穷碧。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《晓出净慈寺送林子方》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb82124",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-126",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《晓出净慈寺送林子方》",
+   "type": "选择",
+   "question": "“映日荷花别样红”的上一句是？",
+   "tts_text": "“映日荷花别样红”的上一句是？",
+   "options": [
+    {
+     "text": "毕竟西湖六月中",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "接天莲叶无穷碧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "风光不与四时同",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小荷才露尖尖角",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "接天莲叶无穷碧，映日荷花别样红。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《晓出净慈寺送林子方》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Ta7888b",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-127",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《忆江南》",
+   "type": "填空",
+   "question": "补全诗句：“春来江水绿如____。”",
+   "tts_text": "补全诗句：“春来江水绿如什么。”",
+   "answer": [
+    "蓝"
+   ],
+   "explanation": "春来江水绿如蓝。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《忆江南》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T95625a",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-128",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《忆江南》",
+   "type": "选择",
+   "question": "《忆江南》里，太阳出来时，江边的花比什么还要红？",
+   "tts_text": "忆江南里，太阳出来时，江边的花比什么还要红？",
+   "options": [
+    {
+     "text": "苹果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "火",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "血",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“日出江花红胜火”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《忆江南》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T1c827a",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-129",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《忆江南》",
+   "type": "判断",
+   "question": "《忆江南》的最后一句是“能不忆江南？”",
+   "tts_text": "忆江南的最后一句是“能不忆江南？”",
+   "answer": "对",
+   "explanation": "能不忆江南？",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《忆江南》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T7833d1",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-130",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《忆江南》",
+   "type": "选择",
+   "question": "“风景旧曾谙”的上一句是？",
+   "tts_text": "“风景旧曾谙”的上一句是？",
+   "options": [
+    {
+     "text": "能不忆江南",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "江南好",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春来江水绿如蓝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "日出江花红胜火",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "江南好，风景旧曾谙。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《忆江南》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T25fb52",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-131",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《小儿垂钓》",
+   "type": "填空",
+   "question": "补全诗句：“蓬头稚子学垂____。”",
+   "tts_text": "补全诗句：“蓬头稚子学垂什么。”",
+   "answer": [
+    "纶"
+   ],
+   "explanation": "蓬头稚子学垂纶：头发蓬乱的小孩在学钓鱼。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《小儿垂钓》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T6c63d9",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-132",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《小儿垂钓》",
+   "type": "选择",
+   "question": "《小儿垂钓》里，有路人来问路，小孩怎么做？",
+   "tts_text": "小儿垂钓里，有路人来问路，小孩怎么做？",
+   "options": [
+    {
+     "text": "把鱼竿扔掉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跑过去带路",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大声回答",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "远远地招手",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“路人借问遥招手”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《小儿垂钓》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T1e52b8",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-133",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《小儿垂钓》",
+   "type": "判断",
+   "question": "《小儿垂钓》里，小孩怕把鱼吓跑，所以不回答路人。",
+   "tts_text": "小儿垂钓里，小孩怕把鱼吓跑，所以不回答路人。",
+   "answer": "对",
+   "explanation": "怕得鱼惊不应人。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《小儿垂钓》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tc14002",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-134",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《小儿垂钓》",
+   "type": "选择",
+   "question": "“怕得鱼惊不应人”的上一句是？",
+   "tts_text": "“怕得鱼惊不应人”的上一句是？",
+   "options": [
+    {
+     "text": "蓬头稚子学垂纶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "儿童散学归来早",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "路人借问遥招手",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "侧坐莓苔草映身",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "路人借问遥招手，怕得鱼惊不应人。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《小儿垂钓》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T3fed12",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-135",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "综合",
+   "type": "选择",
+   "question": "下面哪首诗写的是柳树？",
+   "tts_text": "下面哪首诗写的是柳树？",
+   "options": [
+    {
+     "text": "《敕勒歌》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《梅花》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《咏柳》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《江雪》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "《咏柳》写的是春天的柳树。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tc57664",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-136",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "综合",
+   "type": "选择",
+   "question": "《江雪》和《梅花》写的都是哪个季节？",
+   "tts_text": "江雪和梅花写的都是哪个季节？",
+   "options": [
+    {
+     "text": "春天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "夏天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冬天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "独钓寒江雪；凌寒独自开。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T0c7a2e",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-137",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "综合",
+   "type": "判断",
+   "question": "《赋得古原草送别》和《忆江南》的作者都是白居易。",
+   "tts_text": "赋得古原草送别和忆江南的作者都是白居易。",
+   "answer": "对",
+   "explanation": "两首诗都是唐代诗人白居易写的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T8e1719",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-138",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "综合",
+   "type": "选择",
+   "question": "下面哪一句写的是春天？",
+   "tts_text": "下面哪一句写的是春天？",
+   "options": [
+    {
+     "text": "独钓寒江雪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "草长莺飞二月天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "千山鸟飞绝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "墙角数枝梅",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "草长莺飞二月天出自《村居》，写的是春天。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "综合",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T743ecd",
+   "change_tag": "新增",
+   "tags": [
+    "诗词"
+   ]
+  },
+  {
+   "id": "S2-139",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《江雪》",
+   "type": "填空",
+   "question": "补全诗句：“独钓寒江____。”",
+   "tts_text": "补全诗句：“独钓寒江什么。”",
+   "answer": [
+    "雪"
+   ],
+   "explanation": "独钓寒江雪。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《江雪》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T446922",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-140",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《江雪》",
+   "type": "选择",
+   "question": "《江雪》里，老渔翁坐在什么上钓鱼？",
+   "tts_text": "江雪里，老渔翁坐在什么上钓鱼？",
+   "options": [
+    {
+     "text": "石头",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "岸边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孤舟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "桥上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“孤舟蓑笠翁”，他坐在一条小船上。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《江雪》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T803a70",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-141",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《江雪》",
+   "type": "判断",
+   "question": "《江雪》里，山上的鸟都飞走了，路上也看不见人。",
+   "tts_text": "江雪里，山上的鸟都飞走了，路上也看不见人。",
+   "answer": "对",
+   "explanation": "千山鸟飞绝，万径人踪灭。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《江雪》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb74ef8",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-142",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《江雪》",
+   "type": "选择",
+   "question": "“独钓寒江雪”的上一句是？",
+   "tts_text": "“独钓寒江雪”的上一句是？",
+   "options": [
+    {
+     "text": "墙角数枝梅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "万径人踪灭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孤舟蓑笠翁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "千山鸟飞绝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "孤舟蓑笠翁，独钓寒江雪。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《江雪》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T74b1cf",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-143",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《绝句》（两个黄鹂）",
+   "type": "填空",
+   "question": "补全诗句：“门泊东吴万里____。”",
+   "tts_text": "补全诗句：“门泊东吴万里什么。”",
+   "answer": [
+    "船"
+   ],
+   "explanation": "门泊东吴万里船。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《绝句》（两个黄鹂）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb10b20",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-144",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《绝句》（两个黄鹂）",
+   "type": "选择",
+   "question": "《绝句》里，飞上青天的是？",
+   "tts_text": "绝句里，飞上青天的是？",
+   "options": [
+    {
+     "text": "一行白鹭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一群大雁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两个黄鹂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "几只燕子",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“一行白鹭上青天”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《绝句》（两个黄鹂）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tf103b5",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-145",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《绝句》（两个黄鹂）",
+   "type": "判断",
+   "question": "《绝句》里，两个黄鹂在翠绿的柳树上鸣叫。",
+   "tts_text": "绝句里，两个黄鹂在翠绿的柳树上鸣叫。",
+   "answer": "对",
+   "explanation": "两个黄鹂鸣翠柳。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《绝句》（两个黄鹂）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T060a12",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-146",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《绝句》（两个黄鹂）",
+   "type": "选择",
+   "question": "“门泊东吴万里船”的上一句是？",
+   "tts_text": "“门泊东吴万里船”的上一句是？",
+   "options": [
+    {
+     "text": "窗含西岭千秋雪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孤舟蓑笠翁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两个黄鹂鸣翠柳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一行白鹭上青天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "窗含西岭千秋雪，门泊东吴万里船。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《绝句》（两个黄鹂）",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T7337f3",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-147",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《悯农（其一）》",
+   "type": "填空",
+   "question": "补全诗句：“秋收万颗____。”",
+   "tts_text": "补全诗句：“秋收万颗什么。”",
+   "answer": [
+    "子"
+   ],
+   "explanation": "秋收万颗子。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《悯农（其一）》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T4ce1b7",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-148",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《悯农（其一）》",
+   "type": "选择",
+   "question": "《悯农（其一）》里，春天种下的是一粒什么？",
+   "tts_text": "悯农（其一）里，春天种下的是一粒什么？",
+   "options": [
+    {
+     "text": "麦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "豆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "粟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“春种一粒粟”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《悯农（其一）》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb78300",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-149",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《悯农（其一）》",
+   "type": "判断",
+   "question": "《悯农（其一）》里，天下没有一块田是空着不种的。",
+   "tts_text": "悯农（其一）里，天下没有一块田是空着不种的。",
+   "answer": "对",
+   "explanation": "四海无闲田。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《悯农（其一）》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T92fc84",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-150",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《悯农（其一）》",
+   "type": "选择",
+   "question": "“农夫犹饿死”的上一句是？",
+   "tts_text": "“农夫犹饿死”的上一句是？",
+   "options": [
+    {
+     "text": "粒粒皆辛苦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋收万颗子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "四海无闲田",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春种一粒粟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "四海无闲田，农夫犹饿死。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《悯农（其一）》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tc437fa",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-151",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《梅花》",
+   "type": "填空",
+   "question": "补全诗句：“为有暗香____。”",
+   "tts_text": "补全诗句：“为有暗香什么。”",
+   "answer": [
+    "来"
+   ],
+   "explanation": "为有暗香来。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《梅花》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tcfe980",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-152",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《梅花》",
+   "type": "选择",
+   "question": "《梅花》里，梅花开在什么地方？",
+   "tts_text": "梅花里，梅花开在什么地方？",
+   "options": [
+    {
+     "text": "山顶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "墙角",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "花盆里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“墙角数枝梅”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《梅花》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T6794c2",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-153",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《梅花》",
+   "type": "判断",
+   "question": "《梅花》里，梅花冒着严寒独自开放。",
+   "tts_text": "梅花里，梅花冒着严寒独自开放。",
+   "answer": "对",
+   "explanation": "凌寒独自开。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《梅花》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "T4bf2bf",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "S2-154",
+   "status": "AI初审通过",
+   "subject": "诗词",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "《梅花》",
+   "type": "选择",
+   "question": "“凌寒独自开”的上一句是？",
+   "tts_text": "“凌寒独自开”的上一句是？",
+   "options": [
+    {
+     "text": "墙角数枝梅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "为有暗香来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "遥知不是雪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "千山鸟飞绝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "墙角数枝梅，凌寒独自开。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级（上下册通用）",
+   "knowledge_point": "《梅花》",
+   "game_ready": true,
+   "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+   "template": "Tb307c2",
+   "change_tag": "新增",
+   "tags": [
+    "上下句"
+   ]
+  },
+  {
+   "id": "Y2-259",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·小蝌蚪找妈妈",
+   "type": "选择",
+   "question": "小蝌蚪刚出生时，身子是什么颜色的？",
+   "tts_text": "小蝌蚪刚出生时，身子是什么颜色的？",
+   "options": [
+    {
+     "text": "雪白色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黑灰色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金黄色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "碧绿色",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“大大的脑袋，黑灰色的身子”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "小蝌蚪找妈妈",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc4c1e6",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-260",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·小蝌蚪找妈妈",
+   "type": "选择",
+   "question": "小蝌蚪先遇到了谁，向它问妈妈在哪里？",
+   "tts_text": "小蝌蚪先遇到了谁，向它问妈妈在哪里？",
+   "options": [
+    {
+     "text": "小鸭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "乌龟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "青蛙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "鲤鱼妈妈",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "小蝌蚪先看见鲤鱼妈妈在教小鲤鱼捕食，就迎上去问。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "小蝌蚪找妈妈",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T4b2539",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-261",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·小蝌蚪找妈妈",
+   "type": "判断",
+   "question": "鲤鱼妈妈告诉小蝌蚪：“你们的妈妈四条腿，宽嘴巴。”",
+   "tts_text": "鲤鱼妈妈告诉小蝌蚪：“你们的妈妈四条腿，宽嘴巴。”",
+   "answer": "对",
+   "explanation": "这是鲤鱼妈妈说的话。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "小蝌蚪找妈妈",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tf50002",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-262",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·小蝌蚪找妈妈",
+   "type": "填空",
+   "question": "青蛙妈妈披着碧绿的衣裳，露着雪白的____。",
+   "tts_text": "青蛙妈妈披着碧绿的衣裳，露着雪白的什么。",
+   "answer": [
+    "肚皮"
+   ],
+   "explanation": "“披着碧绿的衣裳，露着雪白的肚皮”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "小蝌蚪找妈妈",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tda7b26",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-263",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我是什么",
+   "type": "选择",
+   "question": "“我”在池子里做什么？",
+   "tts_text": "“我”在池子里做什么？",
+   "options": [
+    {
+     "text": "奔跑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "跳舞",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "散步",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "睡觉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“平常我在池子里睡觉，在小溪里散步”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我是什么",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T618d38",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-264",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我是什么",
+   "type": "填空",
+   "question": "“我”在江河里____，在海洋里跳舞，唱歌，开大会。",
+   "tts_text": "“我”在江河里什么，在海洋里跳舞，唱歌，开大会。",
+   "answer": [
+    "奔跑"
+   ],
+   "explanation": "“在江河里奔跑，在海洋里跳舞”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我是什么",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T17c924",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-265",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我是什么",
+   "type": "选择",
+   "question": "下面哪件是“我”做过的好事？",
+   "tts_text": "下面哪件是“我”做过的好事？",
+   "options": [
+    {
+     "text": "冲毁房屋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "灌溉田地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "淹没庄稼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "给人们带来灾害",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "我做过许多好事，灌溉田地，发动机器，帮助人们工作。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我是什么",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te15178",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-266",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我是什么",
+   "type": "判断",
+   "question": "早晨和傍晚，“我”把红袍披在身上。",
+   "tts_text": "早晨和傍晚，“我”把红袍披在身上。",
+   "answer": "对",
+   "explanation": "“早晨和傍晚我又把红袍披在身上”，说的是朝霞和晚霞时的云。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我是什么",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T225bb7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-267",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·植物妈妈有办法",
+   "type": "选择",
+   "question": "苍耳的孩子靠挂住什么去田野、山洼？",
+   "tts_text": "苍耳的孩子靠挂住什么去田野、山洼？",
+   "options": [
+    {
+     "text": "流水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "动物的皮毛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小鸟的翅膀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大风",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“只要挂住动物的皮毛，孩子们就能去田野、山洼”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "植物妈妈有办法",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Ta148cf",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-268",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·植物妈妈有办法",
+   "type": "选择",
+   "question": "课文开头说：牛马有脚，鸟有什么？",
+   "tts_text": "课文开头说：牛马有脚，鸟有什么？",
+   "options": [
+    {
+     "text": "铠甲",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "尾巴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "翅膀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "降落伞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“牛马有脚，鸟有翅膀，植物旅行又用什么办法？”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "植物妈妈有办法",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb4547c",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-269",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·植物妈妈有办法",
+   "type": "判断",
+   "question": "豌豆妈妈让豆荚晒在太阳底下，豆荚啪的一声炸开。",
+   "tts_text": "豌豆妈妈让豆荚晒在太阳底下，豆荚啪的一声炸开。",
+   "answer": "对",
+   "explanation": "啪的一声，豆荚炸开。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "植物妈妈有办法",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T98569f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-270",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·植物妈妈有办法",
+   "type": "填空",
+   "question": "植物妈妈的办法很多很多，不信你就仔细____。",
+   "tts_text": "植物妈妈的办法很多很多，不信你就仔细什么。",
+   "answer": [
+    "观察"
+   ],
+   "explanation": "“不信你就仔细观察”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "植物妈妈有办法",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T4dc38e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-271",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 登鹳雀楼",
+   "type": "选择",
+   "question": "“鹳雀楼”的“楼”是什么偏旁？",
+   "tts_text": "“鹳雀楼”的“楼”是什么偏旁？",
+   "options": [
+    {
+     "text": "三点水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "提手旁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "单人旁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木字旁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“楼”是木字旁。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 登鹳雀楼",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T532e92",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-272",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 登鹳雀楼",
+   "type": "选择",
+   "question": "《登鹳雀楼》一共有几句？",
+   "tts_text": "登鹳雀楼一共有几句？",
+   "options": [
+    {
+     "text": "6 句",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "8 句",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4 句",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2 句",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "白日依山尽，黄河入海流。欲穷千里目，更上一层楼。共 4 句。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 登鹳雀楼",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tae1320",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-273",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 登鹳雀楼",
+   "type": "判断",
+   "question": "“白日依山尽”写的是太阳快要落山的景色。",
+   "tts_text": "“白日依山尽”写的是太阳快要落山的景色。",
+   "answer": "对",
+   "explanation": "太阳靠着山慢慢落下去。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 登鹳雀楼",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T90f907",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-274",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 登鹳雀楼",
+   "type": "选择",
+   "question": "《登鹳雀楼》里，前两句写的是诗人看到的什么？",
+   "tts_text": "登鹳雀楼里，前两句写的是诗人看到的什么？",
+   "options": [
+    {
+     "text": "柳树和花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "月亮和星星",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "太阳和黄河",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小鸟和鱼",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "白日依山尽，黄河入海流。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 登鹳雀楼",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbd8f3b",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-275",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 望庐山瀑布",
+   "type": "选择",
+   "question": "《望庐山瀑布》写的是哪座山上的瀑布？",
+   "tts_text": "望庐山瀑布写的是哪座山上的瀑布？",
+   "options": [
+    {
+     "text": "庐山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "泰山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黄山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "华山",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "题目是《望庐山瀑布》。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 望庐山瀑布",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T03c7a3",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-276",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 望庐山瀑布",
+   "type": "选择",
+   "question": "“飞流直下三千尺”是说瀑布怎么样？",
+   "tts_text": "“飞流直下三千尺”是说瀑布怎么样？",
+   "options": [
+    {
+     "text": "又高又急",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一动不动",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "又小又慢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "又宽又平",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "飞流直下，写出瀑布从高处急急冲下来。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 望庐山瀑布",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T4fe28e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-277",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 望庐山瀑布",
+   "type": "判断",
+   "question": "“遥看瀑布挂前川”里的“挂”，写出瀑布像一条白布挂在山前。",
+   "tts_text": "“遥看瀑布挂前川”里的“挂”，写出瀑布像一条白布挂在山前。",
+   "answer": "对",
+   "explanation": "远远望去，瀑布像挂在山前一样。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 望庐山瀑布",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T317341",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-278",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·古诗 望庐山瀑布",
+   "type": "选择",
+   "question": "下面哪个字在“日照香炉生紫烟”里表示颜色？",
+   "tts_text": "下面哪个字在“日照香炉生紫烟”里表示颜色？",
+   "options": [
+    {
+     "text": "香",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "紫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "日",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "烟",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "紫是颜色。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "古诗 望庐山瀑布",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T89718d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-279",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·黄山奇石",
+   "type": "选择",
+   "question": "黄山风景区在我国哪个省的南部？",
+   "tts_text": "黄山风景区在我国哪个省的南部？",
+   "options": [
+    {
+     "text": "浙江省",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "安徽省",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "新疆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "台湾省",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“黄山风景区在我国安徽省南部”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "黄山奇石",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T68d4a5",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-280",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·黄山奇石",
+   "type": "选择",
+   "question": "“猴子观海”里，“猴子”望着什么？",
+   "tts_text": "“猴子观海”里，“猴子”望着什么？",
+   "options": [
+    {
+     "text": "蓝蓝的大海",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山下的树林",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "翻滚的云海",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天上的太阳",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“望着翻滚的云海”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "黄山奇石",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T54d51a",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-281",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·黄山奇石",
+   "type": "判断",
+   "question": "每当太阳升起，有座山峰上的几块巨石，就变成了金光闪闪的雄鸡。",
+   "tts_text": "每当太阳升起，有座山峰上的几块巨石，就变成了金光闪闪的雄鸡。",
+   "answer": "对",
+   "explanation": "这就是“金鸡叫天都”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "黄山奇石",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T996d69",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-282",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·黄山奇石",
+   "type": "填空",
+   "question": "黄山的奇石还有很多，如“天狗望月”“狮子抢球”“仙女弹____”。",
+   "tts_text": "黄山的奇石还有很多，如“天狗望月”“狮子抢球”“仙女弹什么”。",
+   "answer": [
+    "琴"
+   ],
+   "explanation": "课文最后一段写到了仙女弹琴。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "黄山奇石",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3e219b",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-283",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·日月潭",
+   "type": "选择",
+   "question": "日月潭是我国台湾省最大的一个什么？",
+   "tts_text": "日月潭是我国台湾省最大的一个什么？",
+   "options": [
+    {
+     "text": "井",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "海",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "湖",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“日月潭是我国台湾省最大的一个湖”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "日月潭",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T16dca8",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-284",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·日月潭",
+   "type": "选择",
+   "question": "日月潭湖中央有什么？",
+   "tts_text": "日月潭湖中央有什么？",
+   "options": [
+    {
+     "text": "一个美丽的小岛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一座高山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一棵大树",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一条大船",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“湖中央有个美丽的小岛，把湖水分成两半”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "日月潭",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T03d267",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-285",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·日月潭",
+   "type": "判断",
+   "question": "清晨，日月潭湖面上飘着薄薄的雾。",
+   "tts_text": "清晨，日月潭湖面上飘着薄薄的雾。",
+   "answer": "对",
+   "explanation": "清晨，湖面上飘着薄薄的雾。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "日月潭",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T05ac77",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-286",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·日月潭",
+   "type": "填空",
+   "question": "日月潭风光秀丽，吸引了许许多多的中外____。",
+   "tts_text": "日月潭风光秀丽，吸引了许许多多的中外什么。",
+   "answer": [
+    "游客"
+   ],
+   "explanation": "“吸引了许许多多的中外游客”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "日月潭",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc09869",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-287",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·葡萄沟",
+   "type": "选择",
+   "question": "葡萄沟的葡萄种在哪里？",
+   "tts_text": "葡萄沟的葡萄种在哪里？",
+   "options": [
+    {
+     "text": "河边的沙滩上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大棚里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山坡的梯田上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "城市的公园里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“葡萄种在山坡的梯田上”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "葡萄沟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc44efe",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-288",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·葡萄沟",
+   "type": "选择",
+   "question": "葡萄沟里，五月有什么水果？",
+   "tts_text": "葡萄沟里，五月有什么水果？",
+   "options": [
+    {
+     "text": "西瓜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "苹果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "葡萄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "桑葚",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“五月有桑葚，六月有杏子、无花果”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "葡萄沟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb60b34",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-289",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·葡萄沟",
+   "type": "判断",
+   "question": "葡萄成熟时，茂密的枝叶就像搭起了一个个绿色的凉棚。",
+   "tts_text": "葡萄成熟时，茂密的枝叶就像搭起了一个个绿色的凉棚。",
+   "answer": "对",
+   "explanation": "茂密的枝叶向四面展开，就像搭起了一个个绿色的凉棚。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "葡萄沟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tabd37d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-290",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·葡萄沟",
+   "type": "填空",
+   "question": "葡萄沟的葡萄干颜色鲜，味道____，非常有名。",
+   "tts_text": "葡萄沟的葡萄干颜色鲜，味道什么，非常有名。",
+   "answer": [
+    "甜"
+   ],
+   "explanation": "“这里生产的葡萄干颜色鲜，味道甜，非常有名”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "葡萄沟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc3edcb",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-291",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·坐井观天",
+   "type": "选择",
+   "question": "青蛙认为天有多大？",
+   "tts_text": "青蛙认为天有多大？",
+   "options": [
+    {
+     "text": "像大海那么大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "井口那么大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "无边无际",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "像山那么大",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "青蛙说：“天不过井口那么大。”",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "坐井观天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Td15277",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-292",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·坐井观天",
+   "type": "选择",
+   "question": "小鸟说自己飞了多远？",
+   "tts_text": "小鸟说自己飞了多远？",
+   "options": [
+    {
+     "text": "一千多里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一百多里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "十多里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一万多里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“我从天上来，飞了一百多里”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "坐井观天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T101270",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-293",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·坐井观天",
+   "type": "判断",
+   "question": "小鸟落在井沿上，是因为口渴了，想找点儿水喝。",
+   "tts_text": "小鸟落在井沿上，是因为口渴了，想找点儿水喝。",
+   "answer": "对",
+   "explanation": "“口渴了，下来找点儿水喝”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "坐井观天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc9d230",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-294",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·坐井观天",
+   "type": "填空",
+   "question": "小鸟说：“天无边无际，大得很____！”",
+   "tts_text": "小鸟说：“天无边无际，大得很什么！”",
+   "answer": [
+    "哪"
+   ],
+   "explanation": "“天无边无际，大得很哪！”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "坐井观天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T874ceb",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-295",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·寒号鸟",
+   "type": "选择",
+   "question": "喜鹊住在哪里？",
+   "tts_text": "喜鹊住在哪里？",
+   "options": [
+    {
+     "text": "草地上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "井里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "崖缝里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河边的大杨树上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“河边有一棵大杨树，杨树上住着喜鹊”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "寒号鸟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbeb4e4",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-296",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·寒号鸟",
+   "type": "选择",
+   "question": "寒号鸟冻得直打哆嗦时，不停地叫着什么？",
+   "tts_text": "寒号鸟冻得直打哆嗦时，不停地叫着什么？",
+   "options": [
+    {
+     "text": "咕咕咕，我饿了",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "哆啰啰，寒风冻死我",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "叽叽喳喳，早上好",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "呱呱呱，真快乐",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“哆啰啰，哆啰啰，寒风冻死我，明天就做窝。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "寒号鸟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T077860",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-297",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·寒号鸟",
+   "type": "判断",
+   "question": "喜鹊劝寒号鸟：“现在懒惰，将来难过。”",
+   "tts_text": "喜鹊劝寒号鸟：“现在懒惰，将来难过。”",
+   "answer": "对",
+   "explanation": "这是喜鹊第二次劝寒号鸟时说的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "寒号鸟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T724b98",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-298",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·寒号鸟",
+   "type": "填空",
+   "question": "寒冬腊月，大雪纷飞，北风像____一样狂吼。",
+   "tts_text": "寒冬腊月，大雪纷飞，北风像什么一样狂吼。",
+   "answer": [
+    "狮子"
+   ],
+   "explanation": "“北风像狮子一样狂吼”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "寒号鸟",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T24c3b7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-299",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我要的是葫芦",
+   "type": "选择",
+   "question": "葫芦藤上开出了几朵什么颜色的小花？",
+   "tts_text": "葫芦藤上开出了几朵什么颜色的小花？",
+   "options": [
+    {
+     "text": "火红",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "粉红",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雪白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金黄",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“开出了几朵雪白的小花”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我要的是葫芦",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbf6ef6",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-300",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我要的是葫芦",
+   "type": "选择",
+   "question": "那个人希望小葫芦长得赛过什么？",
+   "tts_text": "那个人希望小葫芦长得赛过什么？",
+   "options": [
+    {
+     "text": "大冬瓜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大南瓜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大苹果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大西瓜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“长得赛过大南瓜才好呢”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我要的是葫芦",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Td90eb8",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-301",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我要的是葫芦",
+   "type": "判断",
+   "question": "是邻居提醒种葫芦的人：叶子上生了蚜虫，快治一治。",
+   "tts_text": "是邻居提醒种葫芦的人：叶子上生了蚜虫，快治一治。",
+   "answer": "对",
+   "explanation": "一个邻居看见了，对他说：“你别光盯着葫芦了，叶子上生了蚜虫，快治一治吧！”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我要的是葫芦",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T346565",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-302",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·我要的是葫芦",
+   "type": "填空",
+   "question": "没过几天，小葫芦慢慢地变____了，一个一个都落了。",
+   "tts_text": "没过几天，小葫芦慢慢地变什么了，一个一个都落了。",
+   "answer": [
+    "黄"
+   ],
+   "explanation": "“小葫芦慢慢地变黄了，一个一个都落了”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "我要的是葫芦",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc92be6",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-303",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·八角楼上",
+   "type": "选择",
+   "question": "毛主席住在井冈山茅坪村的什么地方？",
+   "tts_text": "毛主席住在井冈山茅坪村的什么地方？",
+   "options": [
+    {
+     "text": "八角楼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "竹林",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "茅草屋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山洞",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“毛主席住在茅坪村的八角楼”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "角楼上",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbce3f8",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-304",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·八角楼上",
+   "type": "选择",
+   "question": "寒冬腊月的深夜，毛主席坐在什么上写文章？",
+   "tts_text": "寒冬腊月的深夜，毛主席坐在什么上写文章？",
+   "options": [
+    {
+     "text": "竹椅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木床",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "草地",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "石头",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“坐在竹椅上写文章”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "角楼上",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T57a64d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-305",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·八角楼上",
+   "type": "判断",
+   "question": "毛主席在沉思，连毯子滑落下来也没有察觉到。",
+   "tts_text": "毛主席在沉思，连毯子滑落下来也没有察觉到。",
+   "answer": "对",
+   "explanation": "课文这样写。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "角楼上",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc143c5",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-306",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·八角楼上",
+   "type": "填空",
+   "question": "毛主席穿着单军衣，披着薄____，坐在竹椅上写文章。",
+   "tts_text": "毛主席穿着单军衣，披着薄什么，坐在竹椅上写文章。",
+   "answer": [
+    "毯子"
+   ],
+   "explanation": "“穿着单军衣，披着薄毯子”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "角楼上",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tdf08fb",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-307",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·朱德的扁担",
+   "type": "选择",
+   "question": "朱德同志挑粮时，头上戴着什么？",
+   "tts_text": "朱德同志挑粮时，头上戴着什么？",
+   "options": [
+    {
+     "text": "草帽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "头巾",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "军帽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "斗笠",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“他穿着草鞋，戴着斗笠”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "朱德的扁担",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Ta8a2f9",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-308",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·朱德的扁担",
+   "type": "选择",
+   "question": "从井冈山到茅坪，来回有多少里路？",
+   "tts_text": "从井冈山到茅坪，来回有多少里路？",
+   "options": [
+    {
+     "text": "十几里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五六十里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一百多里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一两里",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“从井冈山到茅坪，来回有五六十里”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "朱德的扁担",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T01b133",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-309",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·朱德的扁担",
+   "type": "判断",
+   "question": "朱德同志白天挑粮爬山，晚上还常常整夜整夜地研究怎样跟敌人打仗。",
+   "tts_text": "朱德同志白天挑粮爬山，晚上还常常整夜整夜地研究怎样跟敌人打仗。",
+   "answer": "对",
+   "explanation": "课文里这样写。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "朱德的扁担",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T7cb70b",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-310",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·朱德的扁担",
+   "type": "填空",
+   "question": "大家把朱德的扁担藏了起来，他又找来一根扁担，写上“朱德的扁担”____个字。",
+   "tts_text": "大家把朱德的扁担藏了起来，他又找来一根扁担，写上“朱德的扁担”什么个字。",
+   "answer": [
+    "五"
+   ],
+   "explanation": "“写上‘朱德的扁担’五个字”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "朱德的扁担",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T1b9aec",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-311",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·难忘的泼水节",
+   "type": "选择",
+   "question": "泼水节时，什么花开了？",
+   "tts_text": "泼水节时，什么花开了？",
+   "options": [
+    {
+     "text": "桃花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "凤凰花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "梅花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "荷花",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“火红火红的凤凰花开了”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "难忘的泼水节",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T08db7f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-312",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·难忘的泼水节",
+   "type": "选择",
+   "question": "周总理和傣族人民一起过的是哪一年的泼水节？",
+   "tts_text": "周总理和傣族人民一起过的是哪一年的泼水节？",
+   "options": [
+    {
+     "text": "1976 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1961 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1949 年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2000 年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“1961年的泼水节”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "难忘的泼水节",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T1b2ace",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-313",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·难忘的泼水节",
+   "type": "判断",
+   "question": "周总理泼水时，一手端着银碗，一手拿着柏树枝。",
+   "tts_text": "周总理泼水时，一手端着银碗，一手拿着柏树枝。",
+   "answer": "对",
+   "explanation": "一手端着盛满清水的银碗，一手拿着柏树枝蘸了水。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "难忘的泼水节",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T7cd5ca",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-314",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·难忘的泼水节",
+   "type": "填空",
+   "question": "为了欢迎周总理，人们在地上撒满了凤凰花的花瓣，好像铺上了鲜红的____。",
+   "tts_text": "为了欢迎周总理，人们在地上撒满了凤凰花的花瓣，好像铺上了鲜红的什么。",
+   "answer": [
+    "地毯"
+   ],
+   "explanation": "“好像铺上了鲜红的地毯”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "难忘的泼水节",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T78ee04",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-315",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雾在哪里",
+   "type": "选择",
+   "question": "雾第一个藏起来的是？",
+   "tts_text": "雾第一个藏起来的是？",
+   "options": [
+    {
+     "text": "太阳",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大海",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小黑猫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "城市",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "雾飞到海上，先把大海藏了起来。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雾在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb13988",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-316",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雾在哪里",
+   "type": "选择",
+   "question": "雾最后要把谁藏起来？",
+   "tts_text": "雾最后要把谁藏起来？",
+   "options": [
+    {
+     "text": "自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "海岸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大海",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "天空",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“我要把自己藏起来。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雾在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T5ffd7b",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-317",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雾在哪里",
+   "type": "判断",
+   "question": "雾把海岸藏起来的时候，同时也把城市藏了起来。",
+   "tts_text": "雾把海岸藏起来的时候，同时也把城市藏了起来。",
+   "answer": "对",
+   "explanation": "雾把海岸藏了起来，同时也把城市藏了起来。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雾在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Td47dc2",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-318",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雾在哪里",
+   "type": "填空",
+   "question": "雾不见以后，小黑猫也出现了，它摇着黑尾巴，悠闲地____。",
+   "tts_text": "雾不见以后，小黑猫也出现了，它摇着黑尾巴，悠闲地什么。",
+   "answer": [
+    "散步"
+   ],
+   "explanation": "“它摇着黑尾巴，悠闲地散步”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雾在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T7a1e07",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-319",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雪孩子",
+   "type": "选择",
+   "question": "雪孩子是谁给小白兔堆的？",
+   "tts_text": "雪孩子是谁给小白兔堆的？",
+   "options": [
+    {
+     "text": "兔妈妈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小猴子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小山羊",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小白兔自己",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“兔妈妈在门外的空地上给小白兔堆了个雪孩子”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雪孩子",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T40e128",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-320",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雪孩子",
+   "type": "选择",
+   "question": "小白兔玩累了，回家后做了什么？",
+   "tts_text": "小白兔玩累了，回家后做了什么？",
+   "options": [
+    {
+     "text": "到树林里玩",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "出门堆雪人",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "去找妈妈",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "往火堆里添柴，然后睡午觉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "小白兔添了柴，就回家去睡午觉。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雪孩子",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T984713",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-321",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雪孩子",
+   "type": "判断",
+   "question": "雪孩子是从窗户里冒出的黑烟发现小白兔家着火的。",
+   "tts_text": "雪孩子是从窗户里冒出的黑烟发现小白兔家着火的。",
+   "answer": "对",
+   "explanation": "雪孩子看见从小白兔家的窗户里冒出黑烟，蹿出火星。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雪孩子",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T997658",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-322",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·雪孩子",
+   "type": "填空",
+   "question": "雪孩子变成了水汽，飞上天空，变成了一朵美丽的____。",
+   "tts_text": "雪孩子变成了水汽，飞上天空，变成了一朵美丽的什么。",
+   "answer": [
+    "白云"
+   ],
+   "explanation": "“变成了一朵白云，一朵美丽的白云”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "雪孩子",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T5ab137",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-323",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·纸船和风筝",
+   "type": "选择",
+   "question": "松鼠放在纸船里送给小熊的是？",
+   "tts_text": "松鼠放在纸船里送给小熊的是？",
+   "options": [
+    {
+     "text": "一块蛋糕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个小松果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一封信",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个草莓",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“纸船里放着一个小松果”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "纸船和风筝",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T7e8b4f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-324",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·纸船和风筝",
+   "type": "选择",
+   "question": "小熊的风筝上挂着什么？",
+   "tts_text": "小熊的风筝上挂着什么？",
+   "options": [
+    {
+     "text": "一朵花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个草莓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个小松果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个苹果",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“风筝上挂着一个草莓”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "纸船和风筝",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc82fe1",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-325",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·纸船和风筝",
+   "type": "判断",
+   "question": "风筝的翅膀上写着：“祝你幸福！”",
+   "tts_text": "风筝的翅膀上写着：“祝你幸福！”",
+   "answer": "对",
+   "explanation": "小熊的风筝翅膀上写着“祝你幸福！”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "纸船和风筝",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tf0f970",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-326",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·纸船和风筝",
+   "type": "填空",
+   "question": "吵架后，小熊不好意思把风筝放起来，就把风筝挂在高高的____上。",
+   "tts_text": "吵架后，小熊不好意思把风筝放起来，就把风筝挂在高高的什么上。",
+   "answer": [
+    "树枝"
+   ],
+   "explanation": "“就把风筝挂在高高的树枝上”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "纸船和风筝",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T12f66e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-327",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 村居",
+   "type": "选择",
+   "question": "《村居》的作者高鼎是哪个朝代的人？",
+   "tts_text": "村居的作者高鼎是哪个朝代的人？",
+   "options": [
+    {
+     "text": "明朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "清朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宋朝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "唐朝",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "《村居》是清代诗人高鼎写的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 村居",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T7bff32",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-328",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 村居",
+   "type": "选择",
+   "question": "“草长莺飞二月天”里，“莺”是一种什么？",
+   "tts_text": "“草长莺飞二月天”里，“莺”是一种什么？",
+   "options": [
+    {
+     "text": "鸟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "草",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "虫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "莺是一种鸟，“莺飞”就是黄莺在飞。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 村居",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb7e8c8",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-329",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 村居",
+   "type": "判断",
+   "question": "“纸鸢”的“鸢”字下面是“鸟”字。",
+   "tts_text": "“纸鸢”的“鸢”字下面是“鸟”字。",
+   "answer": "对",
+   "explanation": "“鸢”是上下结构，下面是“鸟”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 村居",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc5aa76",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-330",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 村居",
+   "type": "选择",
+   "question": "《村居》后两句写的是谁？",
+   "tts_text": "村居后两句写的是谁？",
+   "options": [
+    {
+     "text": "农夫",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "渔翁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "儿童",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诗人自己",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "儿童散学归来早，忙趁东风放纸鸢。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 村居",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T6c6694",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-331",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 咏柳",
+   "type": "选择",
+   "question": "《咏柳》的作者是唐代的哪位诗人？",
+   "tts_text": "咏柳的作者是唐代的哪位诗人？",
+   "options": [
+    {
+     "text": "李白",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "王之涣",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "贺知章",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "杜甫",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "《咏柳》是唐代诗人贺知章写的。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 咏柳",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te1ac7d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-332",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 咏柳",
+   "type": "选择",
+   "question": "《咏柳》里，“绿丝绦”指的是？",
+   "tts_text": "咏柳里，“绿丝绦”指的是？",
+   "options": [
+    {
+     "text": "绿色的丝带衣服",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小草",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "柳树的枝条",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "诗人把垂下的柳枝比作绿色的丝带。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 咏柳",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb1cba7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-333",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 咏柳",
+   "type": "判断",
+   "question": "《咏柳》里的“碧玉”说的是柳树翠绿的颜色。",
+   "tts_text": "咏柳里的“碧玉”说的是柳树翠绿的颜色。",
+   "answer": "对",
+   "explanation": "碧玉妆成一树高，用碧玉比喻柳树的翠绿。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 咏柳",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Ta26f58",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-334",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·古诗 咏柳",
+   "type": "选择",
+   "question": "“不知细叶谁裁出”里的“细叶”指的是？",
+   "tts_text": "“不知细叶谁裁出”里的“细叶”指的是？",
+   "options": [
+    {
+     "text": "桃花",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "柳叶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "剪刀",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小草",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "细细的柳叶。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "古诗 咏柳",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T67fb34",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-335",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·找春天",
+   "type": "选择",
+   "question": "孩子们去寻找春天时，奔向了哪里？",
+   "tts_text": "孩子们去寻找春天时，奔向了哪里？",
+   "options": [
+    {
+     "text": "学校",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "商店",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "田野",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "公园",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“冲出家门，奔向田野，去寻找春天”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "找春天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Td22812",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-336",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·找春天",
+   "type": "选择",
+   "question": "课文里，解冻的小溪叮叮咚咚，那是春天的什么？",
+   "tts_text": "课文里，解冻的小溪叮叮咚咚，那是春天的什么？",
+   "options": [
+    {
+     "text": "琴声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "眼睛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "眉毛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "音符",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“解冻的小溪叮叮咚咚，那是春天的琴声吧？”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "找春天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T0737c6",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-337",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·找春天",
+   "type": "判断",
+   "question": "春天在柳枝上荡秋千，在风筝尾巴上摇哇摇。",
+   "tts_text": "春天在柳枝上荡秋千，在风筝尾巴上摇哇摇。",
+   "answer": "对",
+   "explanation": "课文最后一段这样写。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "找春天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tac482d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-338",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·找春天",
+   "type": "填空",
+   "question": "春天在喜鹊、杜鹃嘴里叫，在桃花、杏花枝头____。",
+   "tts_text": "春天在喜鹊、杜鹃嘴里叫，在桃花、杏花枝头什么。",
+   "answer": [
+    "笑"
+   ],
+   "explanation": "“在桃花、杏花枝头笑”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "找春天",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T6674e3",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-339",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·开满鲜花的小路",
+   "type": "选择",
+   "question": "邮递员是谁？",
+   "tts_text": "邮递员是谁？",
+   "options": [
+    {
+     "text": "狐狸太太",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刺猬太太",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "松鼠太太",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "黄狗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“邮递员黄狗在门口喊”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "开满鲜花的小路",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T8ddbb2",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-340",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·开满鲜花的小路",
+   "type": "选择",
+   "question": "鼹鼠先生骑着什么去邮局领包裹？",
+   "tts_text": "鼹鼠先生骑着什么去邮局领包裹？",
+   "options": [
+    {
+     "text": "自行车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小马",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汽车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "摩托车",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“鼹鼠先生赶紧骑着摩托车，到邮局去领包裹”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "开满鲜花的小路",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T6f1dc7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-341",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·开满鲜花的小路",
+   "type": "判断",
+   "question": "是松鼠太太最后猜出：长颈鹿大叔寄来的是花籽。",
+   "tts_text": "是松鼠太太最后猜出：长颈鹿大叔寄来的是花籽。",
+   "answer": "对",
+   "explanation": "松鼠太太说：“我知道了，去年长颈鹿大叔寄给你的是花籽。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "开满鲜花的小路",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T5f0c04",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-342",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·开满鲜花的小路",
+   "type": "填空",
+   "question": "包裹破了，里面的东西漏在来时的路上，鼹鼠先生很____。",
+   "tts_text": "包裹破了，里面的东西漏在来时的路上，鼹鼠先生很什么。",
+   "answer": [
+    "懊丧"
+   ],
+   "explanation": "“鼹鼠先生很懊丧”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "开满鲜花的小路",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te487e5",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-343",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·雷锋叔叔，你在哪里",
+   "type": "选择",
+   "question": "课文开头，“我们”沿着什么寻找雷锋的足迹？",
+   "tts_text": "课文开头，“我们”沿着什么寻找雷锋的足迹？",
+   "options": [
+    {
+     "text": "高高的山",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "宽宽的公路",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "长长的小溪",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蓝蓝的大海",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“沿着长长的小溪，寻找雷锋的足迹”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "雷锋叔叔，你在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc0df44",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-344",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·雷锋叔叔，你在哪里",
+   "type": "选择",
+   "question": "小路说，那花瓣上晶莹的露珠，就是雷锋叔叔洒下的什么？",
+   "tts_text": "小路说，那花瓣上晶莹的露珠，就是雷锋叔叔洒下的什么？",
+   "options": [
+    {
+     "text": "脚印",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汗滴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雨水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "眼泪",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“那花瓣上晶莹的露珠，就是他洒下的汗滴”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "雷锋叔叔，你在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T45471e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-345",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·雷锋叔叔，你在哪里",
+   "type": "判断",
+   "question": "雷锋叔叔冒着蒙蒙的细雨，抱着迷路的孩子。",
+   "tts_text": "雷锋叔叔冒着蒙蒙的细雨，抱着迷路的孩子。",
+   "answer": "对",
+   "explanation": "小溪说的就是这件事。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "雷锋叔叔，你在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T594e9c",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-346",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·雷锋叔叔，你在哪里",
+   "type": "填空",
+   "question": "乘着温暖的____，我们四处寻觅。",
+   "tts_text": "乘着温暖的什么，我们四处寻觅。",
+   "answer": [
+    "春风"
+   ],
+   "explanation": "“乘着温暖的春风，我们四处寻觅”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "雷锋叔叔，你在哪里",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3ae418",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-347",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·一匹出色的马",
+   "type": "选择",
+   "question": "一家人到郊外散步是在什么季节？",
+   "tts_text": "一家人到郊外散步是在什么季节？",
+   "options": [
+    {
+     "text": "夏天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "冬天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "春天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "秋天",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“一个春天的傍晚”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "匹出色的马",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T03a05b",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-348",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·一匹出色的马",
+   "type": "选择",
+   "question": "课文把路边的田野比作什么？",
+   "tts_text": "课文把路边的田野比作什么？",
+   "options": [
+    {
+     "text": "一条丝带",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一片柔软的绿毯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一面镜子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一幅画",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“像一片柔软的绿毯”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "匹出色的马",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T8752f1",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-349",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·一匹出色的马",
+   "type": "判断",
+   "question": "妹妹求妈妈抱她，妈妈说自己也很累，抱不动了。",
+   "tts_text": "妹妹求妈妈抱她，妈妈说自己也很累，抱不动了。",
+   "answer": "对",
+   "explanation": "妈妈摇摇头说：“不行啊，我也很累，抱不动你了。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "匹出色的马",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T899e8f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-350",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·一匹出色的马",
+   "type": "填空",
+   "question": "等我们回到家时，妹妹已经在门口迎接我们，笑着说：“我早回来____！”",
+   "tts_text": "等我们回到家时，妹妹已经在门口迎接我们，笑着说：“我早回来什么！”",
+   "answer": [
+    "啦"
+   ],
+   "explanation": "“我早回来啦！”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "匹出色的马",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T43a9e6",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-351",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·千人糕",
+   "type": "选择",
+   "question": "爸爸端来的千人糕，原来就是平常吃的什么糕？",
+   "tts_text": "爸爸端来的千人糕，原来就是平常吃的什么糕？",
+   "options": [
+    {
+     "text": "蛋糕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "绿豆糕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "米糕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "年糕",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“这就是平常吃过的米糕嘛！”",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "千人糕",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te33228",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-352",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·千人糕",
+   "type": "选择",
+   "question": "课文里说，糖是用什么熬出来的？",
+   "tts_text": "课文里说，糖是用什么熬出来的？",
+   "options": [
+    {
+     "text": "甘蔗汁或者甜菜汁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蜂蜜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "牛奶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西瓜汁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“糖呢，是用甘蔗汁或者甜菜汁熬出来的”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "千人糕",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T064cc4",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-353",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·千人糕",
+   "type": "判断",
+   "question": "孩子一开始以为千人糕特别大，也许比桌子还大。",
+   "tts_text": "孩子一开始以为千人糕特别大，也许比桌子还大。",
+   "answer": "对",
+   "explanation": "孩子想：这糕一定特别大，也许比桌子还大吧？",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "千人糕",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te3573e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-354",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·千人糕",
+   "type": "填空",
+   "question": "大米是用农民种的____加工出来的。",
+   "tts_text": "大米是用农民种的什么加工出来的。",
+   "answer": [
+    "稻子"
+   ],
+   "explanation": "“大米是用农民种的稻子加工出来的”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "千人糕",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb90a74",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-355",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 亡羊补牢",
+   "type": "选择",
+   "question": "养羊人的羊是被谁叼走的？",
+   "tts_text": "养羊人的羊是被谁叼走的？",
+   "options": [
+    {
+     "text": "狐狸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "狼",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老虎",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老鹰",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“夜里狼从窟窿钻进去，把羊叼走了”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 亡羊补牢",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T5d4da4",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-356",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 亡羊补牢",
+   "type": "选择",
+   "question": "第一次丢羊后，养羊人是怎么回答街坊的？",
+   "tts_text": "第一次丢羊后，养羊人是怎么回答街坊的？",
+   "options": [
+    {
+     "text": "我马上就修",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "羊已经丢了，还修羊圈干什么",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我去把狼赶走",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我再买几只羊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "他说：“羊已经丢了，还修羊圈干什么？”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 亡羊补牢",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T94bb43",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-357",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 亡羊补牢",
+   "type": "判断",
+   "question": "养羊人把羊圈修好后，他的羊再也没丢过。",
+   "tts_text": "养羊人把羊圈修好后，他的羊再也没丢过。",
+   "answer": "对",
+   "explanation": "从此，他的羊再也没丢过。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 亡羊补牢",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T0b04bc",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-358",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 亡羊补牢",
+   "type": "填空",
+   "question": "养羊人很后悔没有听街坊的劝告，心想，现在修还不____。",
+   "tts_text": "养羊人很后悔没有听街坊的劝告，心想，现在修还不什么。",
+   "answer": [
+    "晚"
+   ],
+   "explanation": "“现在修还不晚”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 亡羊补牢",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T12f288",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-359",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 揠苗助长",
+   "type": "选择",
+   "question": "那个人天天到哪里去看禾苗？",
+   "tts_text": "那个人天天到哪里去看禾苗？",
+   "options": [
+    {
+     "text": "集市",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "田边",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“天天到田边去看”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 揠苗助长",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc3e823",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-360",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 揠苗助长",
+   "type": "选择",
+   "question": "那个人拔禾苗，从什么时候一直忙到太阳落山？",
+   "tts_text": "那个人拔禾苗，从什么时候一直忙到太阳落山？",
+   "options": [
+    {
+     "text": "傍晚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "中午",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "半夜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "早上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“从中午一直忙到太阳落山”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 揠苗助长",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3c5a75",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-361",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 揠苗助长",
+   "type": "判断",
+   "question": "第二天，是他的儿子跑到田里，看见禾苗都枯死了。",
+   "tts_text": "第二天，是他的儿子跑到田里，看见禾苗都枯死了。",
+   "answer": "对",
+   "explanation": "他的儿子第二天跑到田里一看，禾苗都枯死了。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 揠苗助长",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Ta63b63",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-362",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·寓言 揠苗助长",
+   "type": "填空",
+   "question": "他回到家里，一边喘气一边说：“今天可把我累____了！”",
+   "tts_text": "他回到家里，一边喘气一边说：“今天可把我累什么了！”",
+   "answer": [
+    "坏"
+   ],
+   "explanation": "“今天可把我累坏了！”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "寓言 揠苗助长",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Ta269d7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-363",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·画杨桃",
+   "type": "选择",
+   "question": "老师把几个杨桃摆在讲桌上？",
+   "tts_text": "老师把几个杨桃摆在讲桌上？",
+   "options": [
+    {
+     "text": "一个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "五个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "三个",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“老师把两个杨桃摆在讲桌上”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "画杨桃",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T06d6ab",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-364",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·画杨桃",
+   "type": "选择",
+   "question": "“我”的座位在教室的什么地方？",
+   "tts_text": "“我”的座位在教室的什么地方？",
+   "options": [
+    {
+     "text": "正中间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "最后一排",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "前排靠边的地方",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "窗户外面",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“我的座位在教室前排靠边的地方”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "画杨桃",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3b019f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-365",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·画杨桃",
+   "type": "判断",
+   "question": "老师说，看见别人把杨桃画成五角星时，不要忙着发笑。",
+   "tts_text": "老师说，看见别人把杨桃画成五角星时，不要忙着发笑。",
+   "answer": "对",
+   "explanation": "老师说：“不要忙着发笑，要看看人家是从什么角度看的。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "画杨桃",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T5fac2c",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-366",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·画杨桃",
+   "type": "填空",
+   "question": "老师说：“看的____不同，杨桃的样子也就不一样。”",
+   "tts_text": "老师说：“看的什么不同，杨桃的样子也就不一样。”",
+   "answer": [
+    "角度"
+   ],
+   "explanation": "“看的角度不同，杨桃的样子也就不一样”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "画杨桃",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T4be119",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-367",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·小马过河",
+   "type": "选择",
+   "question": "老马让小马把什么驮到磨坊去？",
+   "tts_text": "老马让小马把什么驮到磨坊去？",
+   "options": [
+    {
+     "text": "一筐苹果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一袋大米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "半口袋麦子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一捆柴",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“你把这半口袋麦子驮到磨坊去吧”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "小马过河",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T429199",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-368",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·小马过河",
+   "type": "选择",
+   "question": "老牛说，河水有多深？",
+   "tts_text": "老牛说，河水有多深？",
+   "options": [
+    {
+     "text": "刚没小腿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "没过头顶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "到肚子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一点儿水也没有",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "老牛说：“水很浅，刚没小腿，能蹚过去。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "小马过河",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T89471a",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-369",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·小马过河",
+   "type": "判断",
+   "question": "松鼠是从树上跳下来拦住小马的。",
+   "tts_text": "松鼠是从树上跳下来拦住小马的。",
+   "answer": "对",
+   "explanation": "“突然，从树上跳下一只松鼠，拦住他大叫”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "小马过河",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tdf434a",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-370",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·小马过河",
+   "type": "填空",
+   "question": "妈妈说：“孩子，光听别人说，自己不动脑筋，不去____，是不行的。”",
+   "tts_text": "妈妈说：“孩子，光听别人说，自己不动脑筋，不去什么，是不行的。”",
+   "answer": [
+    "试试"
+   ],
+   "explanation": "“光听别人说，自己不动脑筋，不去试试，是不行的”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "小马过河",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T7cc560",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-371",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大象的耳朵",
+   "type": "选择",
+   "question": "第一个说大象耳朵出毛病的是谁？",
+   "tts_text": "第一个说大象耳朵出毛病的是谁？",
+   "options": [
+    {
+     "text": "小兔子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小鹿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小老鼠",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小羊",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "大象在路上遇到了小兔子，小兔子先这样说。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大象的耳朵",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T641ff8",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-372",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大象的耳朵",
+   "type": "选择",
+   "question": "大象用什么把耳朵撑起来？",
+   "tts_text": "大象用什么把耳朵撑起来？",
+   "options": [
+    {
+     "text": "两根竹竿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一根绳子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两根木棍",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "两片树叶",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“就用两根竹竿把耳朵撑起来”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大象的耳朵",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T0f47e0",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-373",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大象的耳朵",
+   "type": "判断",
+   "question": "大象耳朵撑起来以后，小虫子飞进耳朵眼儿里，吵得他又头痛，又心烦。",
+   "tts_text": "大象耳朵撑起来以后，小虫子飞进耳朵眼儿里，吵得他又头痛，又心烦。",
+   "answer": "对",
+   "explanation": "课文里这样写。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大象的耳朵",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Ta1093c",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-374",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大象的耳朵",
+   "type": "填空",
+   "question": "大象的耳朵耷拉着，有虫子来时，把大耳朵一____，就能把它们赶跑。",
+   "tts_text": "大象的耳朵耷拉着，有虫子来时，把大耳朵一什么，就能把它们赶跑。",
+   "answer": [
+    "扇"
+   ],
+   "explanation": "“大象只要把他的大耳朵一扇，就能把他们赶跑”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大象的耳朵",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tfa8558",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-375",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·蜘蛛开店",
+   "type": "选择",
+   "question": "蜘蛛的店，每位顾客需要付多少钱？",
+   "tts_text": "蜘蛛的店，每位顾客需要付多少钱？",
+   "options": [
+    {
+     "text": "五角钱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "十元钱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一元钱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不要钱",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“每位顾客只需付一元钱”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "蜘蛛开店",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3af046",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-376",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·蜘蛛开店",
+   "type": "选择",
+   "question": "蜘蛛给长颈鹿织围巾，用了多长时间？",
+   "tts_text": "蜘蛛给长颈鹿织围巾，用了多长时间？",
+   "options": [
+    {
+     "text": "一整天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个星期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个月",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一个小时",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“足足忙了一个星期，才织完那条长长的围巾”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "蜘蛛开店",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tdbd8e0",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-377",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·蜘蛛开店",
+   "type": "判断",
+   "question": "蜘蛛看到蜈蚣后，吓得匆忙跑回网上。",
+   "tts_text": "蜘蛛看到蜈蚣后，吓得匆忙跑回网上。",
+   "answer": "对",
+   "explanation": "原来那位顾客竟是一条蜈蚣。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "蜘蛛开店",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tc35876",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-378",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·蜘蛛开店",
+   "type": "填空",
+   "question": "蜘蛛给河马织口罩，用了一____的工夫。",
+   "tts_text": "蜘蛛给河马织口罩，用了一什么的工夫。",
+   "answer": [
+    "整天"
+   ],
+   "explanation": "“蜘蛛用了一整天的工夫，终于织完了”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "蜘蛛开店",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T69bb02",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-379",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·青蛙卖泥塘",
+   "type": "选择",
+   "question": "青蛙在泥塘边竖起的牌子上写着哪三个字？",
+   "tts_text": "青蛙在泥塘边竖起的牌子上写着哪三个字？",
+   "options": [
+    {
+     "text": "小青蛙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "好地方",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "买泥塘",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "卖泥塘",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“上面写着‘卖泥塘’三个字”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "青蛙卖泥塘",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T50c5e1",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-380",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·青蛙卖泥塘",
+   "type": "选择",
+   "question": "青蛙用什么把泉水引到泥塘里？",
+   "tts_text": "青蛙用什么把泉水引到泥塘里？",
+   "options": [
+    {
+     "text": "水管",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "破开的竹子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水桶",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "荷叶",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "青蛙砍了些竹子，把竹子破开，一根一根接起来，把水引到泥塘里来。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "青蛙卖泥塘",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tfae1eb",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-381",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·青蛙卖泥塘",
+   "type": "判断",
+   "question": "野鸭说，这地方好是好，就是塘里的水太少了。",
+   "tts_text": "野鸭说，这地方好是好，就是塘里的水太少了。",
+   "answer": "对",
+   "explanation": "这是野鸭说的话。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "青蛙卖泥塘",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T2473c2",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-382",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·青蛙卖泥塘",
+   "type": "填空",
+   "question": "青蛙想卖掉泥塘，换一些钱搬到____里住。",
+   "tts_text": "青蛙想卖掉泥塘，换一些钱搬到什么里住。",
+   "answer": [
+    "城"
+   ],
+   "explanation": "“想把泥塘卖掉，换一些钱搬到城里住”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "青蛙卖泥塘",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tb724e3",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-383",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·羿射九日",
+   "type": "选择",
+   "question": "在世界最东边的海上，生长着一棵叫什么的大树？",
+   "tts_text": "在世界最东边的海上，生长着一棵叫什么的大树？",
+   "options": [
+    {
+     "text": "梧桐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扶桑",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大榕树",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "银杏",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“生长着一棵大树叫扶桑”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "羿射九日",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbb6c06",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-384",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·羿射九日",
+   "type": "选择",
+   "question": "十个太阳一齐出来后，羿翻过了多少座高山去射太阳？",
+   "tts_text": "十个太阳一齐出来后，羿翻过了多少座高山去射太阳？",
+   "options": [
+    {
+     "text": "九座",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "十座",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一百座",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "九十九座",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“他翻过九十九座高山，跨过九十九条大河”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "羿射九日",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tee6ce7",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-385",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·羿射九日",
+   "type": "判断",
+   "question": "最后一个太阳害怕极了，慌慌张张地躲进了大海里。",
+   "tts_text": "最后一个太阳害怕极了，慌慌张张地躲进了大海里。",
+   "answer": "对",
+   "explanation": "课文里这样写。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "羿射九日",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3b2159",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-386",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·羿射九日",
+   "type": "填空",
+   "question": "从此，太阳每天从____方升起，到西方落下。",
+   "tts_text": "从此，太阳每天从什么方升起，到西方落下。",
+   "answer": [
+    "东"
+   ],
+   "explanation": "“太阳每天从东方升起，到西方落下”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "羿射九日",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbd6810",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-387",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大禹治水",
+   "type": "选择",
+   "question": "鲧治水时，只知道用什么办法？",
+   "tts_text": "鲧治水时，只知道用什么办法？",
+   "options": [
+    {
+     "text": "筑坝挡水",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "挖井",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "疏通河道",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "造船",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“他只知道筑坝挡水”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大禹治水",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T2cb995",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-388",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大禹治水",
+   "type": "选择",
+   "question": "鲧治水过了几年，洪水仍然没有消退？",
+   "tts_text": "鲧治水过了几年，洪水仍然没有消退？",
+   "options": [
+    {
+     "text": "一年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "三年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "九年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "十三年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“九年过去了，洪水仍然没有消退”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大禹治水",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tdc0faf",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-389",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大禹治水",
+   "type": "判断",
+   "question": "禹继续治水时，离开家乡一去就是十三年。",
+   "tts_text": "禹继续治水时，离开家乡一去就是十三年。",
+   "answer": "对",
+   "explanation": "“禹离开了家乡，一去就是十三年。”",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大禹治水",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3cefe8",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-390",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·大禹治水",
+   "type": "填空",
+   "question": "禹吸取了鲧治水失败的____，用疏导的办法治水。",
+   "tts_text": "禹吸取了鲧治水失败的什么，用疏导的办法治水。",
+   "answer": [
+    "教训"
+   ],
+   "explanation": "“禹吸取了鲧治水失败的教训”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "大禹治水",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tefb751",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-391",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·语文园地",
+   "type": "选择",
+   "question": "下面哪个词语和“高兴”意思相近？",
+   "tts_text": "下面哪个词语和“高兴”意思相近？",
+   "options": [
+    {
+     "text": "生气",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "害怕",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "快乐",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "难过",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "高兴和快乐意思相近。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te6abfc",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-392",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·语文园地",
+   "type": "选择",
+   "question": "“又细又长”里用了“又……又……”，下面哪个也是这样的词语？",
+   "tts_text": "“又细又长”里用了“又又”，下面哪个也是这样的词语？",
+   "options": [
+    {
+     "text": "很圆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "又大又圆",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圆圆的大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大大的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“又大又圆”也是“又……又……”的说法。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te57d41",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-393",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·语文园地",
+   "type": "判断",
+   "question": "“深”的反义词是“浅”。",
+   "tts_text": "“深”的反义词是“浅”。",
+   "answer": "对",
+   "explanation": "深和浅意思相反，《小马过河》里就说到河水是深还是浅。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T338cfc",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-394",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·语文园地",
+   "type": "填空",
+   "question": "“蹦蹦跳跳”是 AABB 式的词语，“高高____”也是，横线上填两个字。",
+   "tts_text": "“蹦蹦跳跳”是 AABB 式的词语，“高高什么”也是，横线上填两个字。",
+   "answer": [
+    "兴兴"
+   ],
+   "explanation": "高高兴兴也是 AABB 式。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tde6631",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-395",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·语文园地",
+   "type": "选择",
+   "question": "“树”字的部首是？",
+   "tts_text": "“树”字的部首是？",
+   "options": [
+    {
+     "text": "寸",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "又",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“树”是木字旁。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T67a027",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-396",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·语文园地",
+   "type": "选择",
+   "question": "用音序查字法查“花”字，先查哪个大写字母？",
+   "tts_text": "用音序查字法查“花”字，先查哪个大写字母？",
+   "options": [
+    {
+     "text": "K",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "H",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "F",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "A",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“花”的拼音是 huā，音序是 H。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T2548ae",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-397",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·语文园地",
+   "type": "判断",
+   "question": "“妈妈”“姐姐”“妹妹”的偏旁都是女字旁。",
+   "tts_text": "“妈妈”“姐姐”“妹妹”的偏旁都是女字旁。",
+   "answer": "对",
+   "explanation": "这些字都和女性有关，都是女字旁。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T362843",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-398",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·语文园地",
+   "type": "填空",
+   "question": "“一____帆船”，横线上填一个量词。（《场景歌》里用的量词）",
+   "tts_text": "“一什么帆船”，横线上填一个量词。（场景歌里用的量词）",
+   "answer": [
+    "条"
+   ],
+   "explanation": "《场景歌》：一只海鸥，一条帆船。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "语文园地",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Teefcd0",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-399",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·写话",
+   "type": "选择",
+   "question": "写话时，一句话写完了，句末常用什么标点？",
+   "tts_text": "写话时，一句话写完了，句末常用什么标点？",
+   "options": [
+    {
+     "text": "冒号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "句号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "逗号",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "顿号",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "一句话说完了，用句号。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "写话",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T22012e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-400",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·写话",
+   "type": "选择",
+   "question": "写自己的好朋友，下面哪一句最好？",
+   "tts_text": "写自己的好朋友，下面哪一句最好？",
+   "options": [
+    {
+     "text": "我有朋友。",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "她很好很好很好。",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "好朋友。",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "我的好朋友叫小红，她圆圆的脸上有一双大眼睛。",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "写清楚是谁、长什么样，读的人才能明白。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "写话",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T198359",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-401",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·写话",
+   "type": "判断",
+   "question": "写话时，问别人问题的句子，句末要用问号。",
+   "tts_text": "写话时，问别人问题的句子，句末要用问号。",
+   "answer": "对",
+   "explanation": "问句后面用问号“？”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "写话",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T57637b",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-402",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·写话",
+   "type": "选择",
+   "question": "写“我的一天”，按什么顺序写比较清楚？",
+   "tts_text": "写“我的一天”，按什么顺序写比较清楚？",
+   "options": [
+    {
+     "text": "中午、晚上、早上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "想到哪里写哪里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "晚上、早上、中午",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "早上、中午、晚上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "按时间先后顺序写，读的人更容易明白。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "写话",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T3b697e",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-403",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·识字",
+   "type": "选择",
+   "question": "《树之歌》里，梧桐树的叶子像什么？",
+   "tts_text": "树之歌里，梧桐树的叶子像什么？",
+   "options": [
+    {
+     "text": "小船",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "扇子",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "手掌",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "星星",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“梧桐树叶像手掌”。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "识字",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te51dfb",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-404",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·识字",
+   "type": "选择",
+   "question": "《树之歌》里，耐寒、守在北疆的树是？",
+   "tts_text": "树之歌里，耐寒、守在北疆的树是？",
+   "options": [
+    {
+     "text": "榕树",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "桦树",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "木棉",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "金桂",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“木棉喜暖在南方，桦树耐寒守北疆”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "识字",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T4023ce",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-405",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·识字",
+   "type": "判断",
+   "question": "《拍手歌》里，“天空雁群会写字”，说的是大雁排成“人”字或“一”字飞。",
+   "tts_text": "拍手歌里，“天空雁群会写字”，说的是大雁排成“人”字或“一”字飞。",
+   "answer": "对",
+   "explanation": "大雁飞的时候常常排成“人”字或“一”字，像在写字。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "识字",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T0d6b65",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-406",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二上·识字",
+   "type": "填空",
+   "question": "《场景歌》：一____军舰，一处港湾。",
+   "tts_text": "场景歌：一什么军舰，一处港湾。",
+   "answer": [
+    "艘"
+   ],
+   "explanation": "“一艘军舰，一处港湾”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级上册",
+   "knowledge_point": "识字",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tfe2c6a",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-407",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·阅读",
+   "type": "选择",
+   "question": "读寓言故事，读完后最好想一想什么？",
+   "tts_text": "读寓言故事，读完后最好想一想什么？",
+   "options": [
+    {
+     "text": "封面是什么颜色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "书有多重",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "故事有多少个字",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "故事告诉我们什么道理",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "寓言故事里藏着道理。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "阅读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Te64897",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-408",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·阅读",
+   "type": "选择",
+   "question": "读《小马过河》这样的故事时，下面哪种做法好？",
+   "tts_text": "读小马过河这样的故事时，下面哪种做法好？",
+   "options": [
+    {
+     "text": "想一想小马为什么一开始过不了河",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "边读边吃东西",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "读一半就放下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只看图不看字",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "边读边想，才能读懂故事。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "阅读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T9f7a6f",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-409",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·阅读",
+   "type": "判断",
+   "question": "读书时遇到不认识的字，可以查字典。",
+   "tts_text": "读书时遇到不认识的字，可以查字典。",
+   "answer": "对",
+   "explanation": "查字典能帮我们认识生字。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "阅读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "Tbe67e6",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y2-410",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 2,
+   "textbook": "统编版",
+   "unit": "二下·阅读",
+   "type": "填空",
+   "question": "默读时，眼睛看，心里想，嘴里不出____。",
+   "tts_text": "默读时，眼睛看，心里想，嘴里不出什么。",
+   "answer": [
+    "声"
+   ],
+   "explanation": "默读不出声，不指读。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "二年级下册",
+   "knowledge_point": "阅读",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T8ed64d",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
    ]
   }
  ]
