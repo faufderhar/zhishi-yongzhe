@@ -70,7 +70,7 @@ await pg.tap('[data-testid=to-map]').catch(() => {}); await w(1500);
 const gentleLv = await pg.$$eval('[data-testid^=level-]', es => { const e = es.find(x => /⚡|👑/.test(x.textContent || '')); return e ? e.getAttribute('data-testid') : null; });
 ok(!!gentleLv, '地图上找到温和关（⚡/👑）：' + gentleLv);
 if (gentleLv) { await pg.tap(`[data-testid="${gentleLv}"]`); await w(1500); await skipTut(pg, w); ok(await playLevel(pg, w, gentleLv), `温和关 ${gentleLv} 打到结算（怪兽变朋友回家）`); }
-for (const t of ['还要先打赢前面的关，才能打开这一关哦', '真棒！开心值2个，一共3个。']) await pg.evaluate(t => window.__zySpeak(t), t);
+for (const t of ['还要先打赢前面的关，才能打开这一关哦', '真棒！开心值两个，一共3个。']) await pg.evaluate(t => window.__zySpeak(t), t);
 await w(3000);
 const pl = await pg.evaluate(() => [...new Set(window.__zyRecLog.map(x => x.url.split('/').pop().replace(/\.[0-9a-f]{10}\.mp3$/, '')))]);
 console.log('  放过的录音（' + pl.length + '）：' + pl.filter(x => x.startsWith('p_')).join(' '));

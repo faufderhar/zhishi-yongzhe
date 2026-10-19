@@ -45,7 +45,9 @@ if (typeof document !== 'undefined') document.addEventListener('visibilitychange
 export function speakable(t: string) {
   // 公式段（$…$，\$ 为字面美元符号）不朗读，其余照读（技术QA P3-5）
   t = t.replace(/\\\$/g, '\u0000').replace(/\$[^$]*\$/g, ' ').replace(/\u0000/g, '美元');
-  return t.replace(/\p{Extended_Pictographic}|\uFE0F/gu, '').replace(/[_＿]{2,}/g, '空格').replace(/？/g, '？ ').trim();
+  t = t.replace(/\p{Extended_Pictographic}|\uFE0F/gu, '').replace(/[_＿]{2,}/g, '空格').replace(/？/g, '？ ').trim();
+  // r15.4.4：只有几何图形符号（▭ 等，U+25A0–25FF，不算 emoji）的选项和 🔺⚪ 一样不朗读（KC-028 选项「▭」）
+  return /^[\u25A0-\u25FF\s]*$/.test(t) ? '' : t;
 }
 let speakingFlag = false;
 /** 正在朗读（朗读时答题计时暂停，策划 r7） */

@@ -27,7 +27,7 @@ for (const [vp, tag] of [[{ width: 1180, height: 820 }, 'landscape'], [{ width: 
   await pg.screenshot({ path: `${OUT}r8b-grade-J-${tag}.png` });
   const lk = await pg.getAttribute('[data-testid=grade-8]', 'aria-disabled'); const txt = await pg.textContent('[data-testid=grade-8]');
   await pg.click('[data-testid=grade-8]', { force: true }); await w(400); const s8 = await said(pg);
-  ok(lk === 'true' && /🔒/.test(txt) && /敬请期待/.test(txt) && await pg.isVisible('[data-testid=grade-pick]') && s8.some(x => /敬请期待/.test(x)), `${tag}：初二灰色带锁「敬请期待」，点了不进、朗读提示（${s8}）`);
+  ok(lk === 'true' && /🔒/.test(txt) && /敬请期待/.test(txt) && await pg.isVisible('[data-testid=grade-pick]') && s8.some(x => /快要来啦/.test(x)), `${tag}：初二灰色带锁「敬请期待」，点了不进、朗读提示（${s8}）`);
   for (const g of ['9']) ok(await pg.getAttribute(`[data-testid=grade-${g}]`, 'aria-disabled') === 'true', `${tag}：初三锁定`);
   await pg.click('[data-testid=grade-back]'); await w(300); await pg.click('[data-testid=stage-H]'); await w(300);
   ok(['11', '12'].every(() => true) && await pg.getAttribute('[data-testid=grade-11]', 'aria-disabled') === 'true' && await pg.getAttribute('[data-testid=grade-12]', 'aria-disabled') === 'true', `${tag}：高二、高三锁定`);

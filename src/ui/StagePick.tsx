@@ -1,6 +1,7 @@
 /* r8b 两级入口：第 1 级选学段（大按钮 + 图标，点按朗读，小班不识字也能用）；第 2 级选年级（总是显示），再进该年级地图 */
 import { STAGES, stageOf, type StageId } from '../game/stages';
 import { speak } from '../tts';
+import { SOON_LINE } from '../game/voiceLines';
 import type { GradeKey } from '../game/questions';
 export function StagePick({ current, profileGrade, onPick, onBack, who }: { current: GradeKey; profileGrade: GradeKey; onPick: (s: StageId) => void; onBack: () => void; who?: string }) {
   const cur = stageOf(current);
@@ -27,7 +28,7 @@ export function GradePick({ stage, current, profileGrade, onPick, onBack }: { st
               onClick={() => { speak(g.label); onPick(g.grade!); }}>
               {g.icon && <span className="stage-icon" aria-hidden data-testid={'grade-icon-' + g.key}>{g.icon}</span>}<span className="stage-label">{g.label}</span>{g.grade === profileGrade && <small className="mine">我的年级</small>}</button>
           : <button key={g.key} className="stage-btn grade locked" data-testid={'grade-' + g.key} aria-disabled="true" aria-label={`${g.label}，敬请期待`}
-              onClick={() => speak(`${g.label}还在准备中，敬请期待`)}>
+              onClick={() => speak(SOON_LINE(g.label))}>
               <span className="stage-label">🔒 {g.label}</span><small>敬请期待</small></button>)}
       </div>
       <button className="btn ghost" data-testid="grade-back" onClick={onBack}>返回选学段</button>

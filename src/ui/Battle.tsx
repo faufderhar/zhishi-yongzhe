@@ -15,6 +15,7 @@ import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '.
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
 import { speak, hasVoice, isSpeaking, voiceKey } from '../tts';
+import { HAPPY_LINE } from '../game/voiceLines';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
 import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
@@ -288,7 +289,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
       const [nr, k] = rollSkill(skRoll.current, { seg: 'K', major: c.major, side: 'P', correct: true, rng: Math.random }); skRoll.current = nr;
       const k2 = k ?? (gentle ? (() => { const ks2 = skillsFor('K', c.major); return ks2[Math.floor(Math.random() * ks2.length)]; })() : null);   // 温和战斗：每次答对都放一个可爱技能
       if (gentle) { setMonFace('😆'); setTimeout(() => setMonFace(null), 1100); }
-      speak(praise + (k2 ? `${k2.char}的${k2.name}！` : '') + `开心值${ns.lit}个，一共${ns.hearts}个。`);   // r11：朗读开心值   // r10：技能名也朗读
+      speak(praise + (k2 ? `${k2.char}的${k2.name}！` : '') + HAPPY_LINE(ns.lit, ns.hearts));   // r11：朗读开心值   // r10：技能名也朗读
       if (k2 && D.dir.current) { const k = k2; lastSkill.current = k.id; void D.dir.current.playSkill(k, { kinder: true, maxMs: 1000 }); } else D.dir.current?.kinderCorrect();
     }
     setKs({ ...ns, removed: r === 'demo' ? choices.filter(x => !q.answer.includes(x.key)).map(x => x.key) : cur.removed });
