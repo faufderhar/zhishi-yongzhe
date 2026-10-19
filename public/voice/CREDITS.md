@@ -43,3 +43,8 @@ Intended for the 知识勇者 family learning game (non-commercial family use). 
 - Content: 中班 question stems / options (pack built from 题库 v36; game bank v42) + 小班 + prompts — combined pack, 2004 keys / 1162 mp3 (10.4 MB); identical texts share one file
 - Pronunciation: /workspace/tts/pron_zh.tsv + K2 overrides (才露 = lù, 先长出 = zhǎng, confirmed by 题库审核)
 - Pending: K2E-016#opt0–2 (options became text in a later bank version; system voice fallback until added)
+
+## r16 — full pack incl. 大班 (K3) (2026-10-19 16:06 PDT, 音频设计)
+- Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3253 keys / 1862 mp3 (16.9 MB); pack banks K1 v34 · K2 v42 · K3 v43 (game bank v43; K1/K2 question content unchanged v42→v43)
+- Same model (Kokoro-82M-v1.1-zh, Apache-2.0; Chinese data © LongMaoData per model card), voices `zf_002` / `af_maple`, speed 1.2, post chain as above; pron_zh.tsv 57 overrides
+- Adds K2E-016#opt0–2 (no longer pending), new renders of p:retry / p:think, and 大班 keys (大班 is hidden in r16; mp3s are runtime-cached only, so they are never downloaded until K3 opens)
