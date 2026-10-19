@@ -33,7 +33,7 @@ const INIT = test => {
   window.__realSetTimeout = setTimeout;   // page.clock 装上之前的真定时器（量 currentTime 用）
   const op = HTMLMediaElement.prototype.play; HTMLMediaElement.prototype.play = function () { const f = (this.currentSrc || this.src || '').split('/').pop(); const p = op.call(this); p.then(() => L.push({ ev: 'el-start', f, t: now() }), err => L.push({ ev: 'el-blocked', f, t: now(), err: String(err?.name) })); return p; };
 };
-async function session(name, noLimit = false) {
+async function session(name, noLimit = false, realClock = false) {   // realClock（场景 N）：不装假时钟——录音按真时间播完，假时钟一跳就把游戏里「最多等 n 秒」跳过去了
   const opt = { viewport: { width: 1393, height: 901 }, hasTouch: true };
   const ctx = AUDIBLE ? await chromium.launchPersistentContext('/tmp/r1542-vt-' + name + '-' + Date.now(), { ...opt, channel: 'chromium', headless: false, args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, '--autoplay-policy=user-gesture-required'] }) : await b.newContext(opt);
   let sw = null; if (AUDIBLE) { sw = ctx.serviceWorkers().find(x => x.url().startsWith('chrome-extension://')) ?? await ctx.waitForEvent('serviceworker', { timeout: 10000 }); }
@@ -65,7 +65,7 @@ async function session(name, noLimit = false) {
   const n = await pg.evaluate(async () => (await (await caches.open('zy-voice')).keys()).length);
   ok(!!st && st.done === st.total && n >= st.total, `${name}：上限 ${lim}；录音预缓存 ${JSON.stringify(st)}，zy-voice ${n} 条`);
   // 断网 → 装假时钟 → 重开（新文档：没有任何用户激活）
-  await ctx.setOffline(true); await pg.clock.install(); clock = true; await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]', { timeout: 20000 }); await w(800);
+  await ctx.setOffline(true); if (!realClock) { await pg.clock.install(); clock = true; } await pg.reload(); await pg.waitForSelector('[data-testid^=profile-]', { timeout: 20000 }); await w(800);
   ok(await pg.evaluate(() => !window.speechSynthesis && !!navigator.serviceWorker?.controller), `${name}：断网重开后页面没有 speechSynthesis、SW 接管`);
   await toMap();
   return { ctx, pg, w, tap, vis, pid, audible };
@@ -160,9 +160,9 @@ if (on('C')) {
 if (on('N')) {
   // r15.4.4：录音 1.2 倍速变长后，自动跳转不能切掉正在读的话：新手引导「练习完成」→ 进关、每题的表扬 +「开心值」→ 下一题、
   // 最后一题 →「变成好朋友」→ 结算页、结算页副标题、点锁住的关卡。像乖孩子一样：每句读完、选项能点了才点。被切掉 = 播放结束时 played < 时长 × 0.9
-  const S = await session('rn', true);
+  const S = await session('rn', true, true);
   const corr = TEST ? '.kopt[data-correct="1"]:not([disabled])' : '.kopt:not([disabled])';
-  const quiet = async (max = 20000) => { const t0 = Date.now(); while (Date.now() - t0 < max) { const L = await log(S.pg); if (L.filter(x => x.ev === 'start').every(x => x.played !== undefined)) return true; await S.w(200); } return false; };
+  const quiet = async (max = 20000) => { const t0 = Date.now(); let q0 = 0; while (Date.now() - t0 < max) { const L = await log(S.pg); const q = L.filter(x => x.ev === 'start').every(x => x.played !== undefined); if (!q) q0 = 0; else if (!q0) q0 = Date.now(); else if (Date.now() - q0 >= 900) return true; await S.w(150); } return false; };   // 连续 0.9 s 没有在播的录音（下一句还在解码时不算安静）
   const cut = L => L.filter(x => x.ev === 'start' && x.f && x.played !== undefined && x.played < x.dur * 0.9);
   const i0 = (await log(S.pg)).length;
   await S.tap('[data-testid=level-1]'); await S.w(1500);

@@ -300,6 +300,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
     setTimeout(async () => {
       setFx(''); setTilt(false);
       if (ns.done || idx + 1 >= questions.length) {
+        await afterVoice(0, K_WAIT.nextMax); if (!D.alive.current || forced.current) return;   // r15.4.4：最后一题的「开心值」读完再说「变成好朋友」
         if (gentle) { talk(`${monName}变成你的好朋友，挥挥手回家啦！`, 3000); setMonFace('👋'); await sleep(400); setHome(true); await sleep(1600); }
         else { speak('小乌云变成你的好朋友啦！'); await Promise.race([D.dir.current?.kinderFinale(), sleep(2500)]); }   // r12：演出最多 2.5 s，后台/卡住也照样结算
         await afterVoice(0, K_WAIT.endMax);   // r15.4.4：这句读完再进结算页（结算页的朗读会打断它）
