@@ -646,7 +646,7 @@ function ReportTab(props: ParentProps) {
             <tbody>{ms.flatMap(mo => Object.entries(m[mo]).map(([sub, e]) => <tr key={mo + sub}><td>{mo}</td><td>{sub}</td><td>{e.n}</td><td>{pct(e.ok, e.n)}</td></tr>))}</tbody></table> : <p>暂无</p>; })()}
         <p className="hint">答题明细保留 180 天，更早的按月份×科目汇总保存。</p>
         {/* r15.4.3 小萌新：小班结算页不再写星星规则（孩子看不懂），规则放在家长页 */}
-        {profiles.find(x => x.id === pid)?.grade === 'K1' && <div className="p-card" data-testid="report-star-rules-k"><b>⭐ 小班的星星怎么得</b>
+        {profiles.find(x => x.id === pid)?.grade.startsWith('K') && <div className="p-card" data-testid="report-star-rules-k"><b>⭐ {GRADE_LABEL[profiles.find(x => x.id === pid)!.grade].replace('幼儿园', '')}的星星怎么得</b>
           <p className="hint">{STAR_RULES_K.replace(/　/g, '；')}（「第一次就答对」= 这道题第一次就点对；点错后再试对的、看了示范的不算）。</p>
           <p className="hint">同一关每天从第 3 次起不再加星，地图上保留这一关的最佳星星（只升不降）。这时结算页只说一句「{K_NOSTAR_TEXT}」，不写规则；同一关第 2 次玩完照常加星，结算页说「{K_AGAIN_TEXT}」。</p></div>}
       </>}

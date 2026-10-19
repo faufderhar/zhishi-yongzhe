@@ -6,16 +6,16 @@ import { BUILTIN_GRADES } from '../src/bankStore';
 import { SKILL_DATA as SKILLS } from '../src/game/skills.data';
 import { isSkillSfxId } from '../src/fx/assets';
 describe('r8b 学段 → 年级', () => {
-  it('4 个学段；有题库的年级可进，初二/初三/高二/高三锁定', () => {
+  it('4 个学段；有题库的年级可进，初三/高三锁定（r16 开初二、高二）', () => {
     expect(STAGES.map(s => s.label)).toEqual(['幼儿园', '小学', '初中', '高中']);
     const all = STAGES.flatMap(s => s.grades);
     expect(all.filter(g => g.grade).map(g => g.grade).sort()).toEqual([...BUILTIN_GRADES].sort());
-    expect(all.filter(g => !g.grade).map(g => g.label)).toEqual(['初二', '初三', '高二', '高三']);
+    expect(all.filter(g => !g.grade).map(g => g.label)).toEqual(['初三', '高三']);
     for (const g of BUILTIN_GRADES) expect(existsSync(new URL(`../public/banks/bank_${g}.json`, import.meta.url))).toBe(true);
   });
   it('学段归属、默认选择、家长确认', () => {
     expect(['K1', '3', '7', '10'].map(stageOf)).toEqual(['K', 'P', 'J', 'H']);
-    expect(defaultPick('5')).toBe('5'); expect(defaultPick('5', '10')).toBe('10'); expect(defaultPick('5', '8')).toBe('5');   // 锁定年级不会成为默认
+    expect(defaultPick('5')).toBe('5'); expect(defaultPick('5', '10')).toBe('10'); expect(defaultPick('5', '9')).toBe('5');   // 锁定年级不会成为默认（r16：初二开了，用初三测）
     expect(needsGate('5', '5')).toBe(false); expect(needsGate('5', '10')).toBe(true);
   });
 });

@@ -31,7 +31,10 @@ export function bandOf(g: GradeKey): Band {
 }
 export const bandConfig = (g: GradeKey) => BANDS[bandOf(g)];
 /** 可选的档案年级（有题库的年级） */
-export const PROFILE_GRADES: GradeKey[] = ['K1', '1', '2', '3', '4', '5', '6', '7', '10'];
+export const PROFILE_GRADES: GradeKey[] = ['K1', 'K2', '1', '2', '3', '4', '5', '6', '7', '8', '10', '11'];   // r16 R-1：+中班 K2、初二 8、高二 11（大班 / 初三 / 高三 r17）
+/** r16（总管）：教材版本还没确认的科目先不开——初二生物 / 地理、高二物理。题库里有这些题也不进地图、推荐、复习（加载题库时就去掉） */
+export const HIDDEN_SUBJECTS: Partial<Record<GradeKey, string[]>> = { '8': ['生物', '地理'], '11': ['物理'] };
+export const isHiddenSubject = (q: { grade: GradeKey; subject: string }) => !!HIDDEN_SUBJECTS[q.grade]?.includes(q.subject);
 
 const READING_SUBJECTS = new Set(['语文', '英语', '历史', '道德与法治', '政治', '地理']);
 export const isReading = (q: Question) => READING_SUBJECTS.has(q.subject) && q.question.replace(/\$[^$]*\$/g, 'x').length >= 40;
