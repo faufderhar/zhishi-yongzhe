@@ -36,3 +36,10 @@ Intended for the 知识勇者 family learning game (non-commercial family use). 
 - Whole pack (834 keys / 529 mp3, 4.18 MB) regenerated at speed 1.2 per user request; replaces the 1.5 pack and the interim 1.2 p:res_k_again clip. Includes all 题库审核 pronunciation corrections, bank v31 content and the new 第二局 line (p:res_k_again).
 - Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2` (content-hashed file names, so old cached clips are never reused; stale zy-voice cache entries are pruned on update).
 - Browser speechSynthesis fallback for 小班 scales its rate with the pack speed (×1.2).
+
+## r16 — 幼儿园中班 (K2) pack (2026-10-19, 音频设计)
+- Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`
+- Same model (Kokoro-82M-v1.1-zh, Apache-2.0; Chinese data © LongMaoData per model card), voices `zf_002` / `af_maple`, speed 1.2 and post chain as the 小班 pack above
+- Content: 中班 question stems / options (pack built from 题库 v36; game bank v42) + 小班 + prompts — combined pack, 2004 keys / 1162 mp3 (10.4 MB); identical texts share one file
+- Pronunciation: /workspace/tts/pron_zh.tsv + K2 overrides (才露 = lù, 先长出 = zhǎng, confirmed by 题库审核)
+- Pending: K2E-016#opt0–2 (options became text in a later bank version; system voice fallback until added)
