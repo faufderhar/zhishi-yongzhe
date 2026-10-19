@@ -9,20 +9,21 @@ const bare = (n: string) => n.replace(/^[^·]+·/, '');
 // r15.4.4：题库 v32 新增的高一章节（生物必修2、政治必修3、历史纲要下、地理必修第二册、化学专题8–9）还没有策划给的 Boss 名（R-5，r16 补），
 // 暂用本科目通用 Boss 名——这些章不参加重名 / 主色检查，数量钉死（补名后改成 0）。
 // v33：纲要上第六、第八单元补题后够 12 题，第一次有章节 Boss，同样暂用通用名（+2）
-const GENERIC_OK: Record<string, number> = { '7': 0, '10': 32 };
+// r16：高一 v39 对照表补了 31 个（剩纲要上第六、第八单元 2 个仍用通用名，v39 没给）；初二 v36 / 高二 v37 对照表全部有名
+const GENERIC_OK: Record<string, number> = { '7': 0, '10': 2, '8': 0, '11': 0 };
 const NEW_V32 = (s: string, v: string, u: string) => (s === '生物' && v === '必修第二册') || (s === '政治' && v === '必修第三册') || (s === '历史' && v === '必修下册') || (s === '地理' && v === '必修第二册') || (s === '化学' && /^专题[89]/.test(u))
   || (s === '历史' && v === '必修上册' && /^第[六八]单元/.test(u));   // v33
-for (const [g, band, label] of [['7', 'J', '初一'], ['10', 'H', '高一']] as const) {
+for (const [g, band, label] of [['7', 'J', '初一'], ['10', 'H', '高一'], ['8', 'J', '初二'], ['11', 'H', '高二']] as const) {
   it(`${label}：章节 Boss 不重名、不和其他怪物重名、同一美术主色各不相同`, () => {
     const all = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const qs = playable(all, false);
     const names: string[] = []; const hues = new Map<string, string[]>(); let generic = 0;
     for (const ch of buildChapters(qs, null, all)) for (const l of ch.levels.filter(l => l.kind === 'boss')) {
-      const sk = skinFor(ch.subject, 'boss', band, l.unit)!; expect(sk, `${ch.subject} ${l.unit}`).toBeTruthy();
-      if (!chapterBoss(band, ch.subject, l.unit) && NEW_V32(ch.subject, l.volume, l.unit)) { generic++; continue; }
+      const ctx = { grade: g, volume: l.volume }; const sk = skinFor(ch.subject, 'boss', band, l.unit, ctx)!; expect(sk, `${ch.subject} ${l.unit}`).toBeTruthy();
+      if (!chapterBoss(band, ch.subject, l.unit, ctx) && (g === '7' || g === '10' ? NEW_V32(ch.subject, l.volume, l.unit) : true)) { generic++; continue; }
       names.push(bare(sk.name));
       const k = sk.art.id; hues.set(k, [...(hues.get(k) ?? []), String(sk.hue ?? 0)]);
       // 战斗里用题目路径取名也一样（关卡没传 unit 时的回退）
-      const q0 = qs.find(q => q.key === l.pool[0]); if (q0?.unit?.includes(l.unit.split(' ')[0])) expect(skinFor(ch.subject, 'boss', band, q0.unit)!.name).toBe(sk.name);
+      const q0 = qs.find(q => q.key === l.pool[0]); if (q0?.unit?.includes(l.unit.split(' ')[0])) expect(skinFor(ch.subject, 'boss', band, q0.unit, ctx)!.name).toBe(sk.name);
     }
     expect(generic, '没有专属名字的章节 Boss（R-5）').toBe(GENERIC_OK[g]);
     const dup = names.filter((n, i) => names.indexOf(n) !== i); expect(dup, '重名').toEqual([]);

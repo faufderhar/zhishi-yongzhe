@@ -31,14 +31,18 @@ let LEGACY_SPLIT = false;
 const SUBJECT_ORDER = ['数数', '颜色形状', '认识动物', '生活常识', '儿歌古诗', '数学', '语文', '英语', '诗词', '科学', '历史', '道德与法治', '地理', '政治', '物理', '化学', '生物'];
 
 /** 按「·」分段，但书名号《》里的不算 */
-export function splitDot(u: string): string[] {
+export function splitDot(u: string, parens?: boolean): string[] {
   const out: string[] = []; let cur = '', depth = 0;
-  for (const ch of u) { if (ch === '《') depth++; if (ch === '》') depth = Math.max(0, depth - 1); if (ch === '·' && !depth) { out.push(cur); cur = ''; } else cur += ch; }
+  // r16：新年级（初二 / 高二路径）括号里的「·」也不拆（初二物理引言「走进物理世界（奇妙的物理现象·物理学与科技强国·体验科学探究）」）；
+  // 旧年级保持原拆法（初一「基础积累（字词·病句）」、高一「拓展（课外·毛泽东诗词）」的章名 / 关名不变）
+  const par = parens ?? /^(八[上下]|选择性必修)/.test(u);
+  for (const ch of u) { if (ch === '《' || (par && ch === '（')) depth++; if (ch === '》' || (par && ch === '）')) depth = Math.max(0, depth - 1);
+    if (ch === '·' && !depth) { out.push(cur); cur = ''; } else cur += ch; }
   out.push(cur); return out;
 }
 export function shortUnit(u?: string) {
   if (!u) return '';
-  const parts = splitDot(u);   // 书名号里的「·」（《清平乐·村居》）不拆
+  const parts = splitDot(u);   // 书名号 / 括号里的「·」（《清平乐·村居》）不拆
   return (parts[parts.length - 1] || u).replace(/^第[一二三四五六七八九十\d]+(?:单元|[章课节])\s*/, '');
 }
 

@@ -4,6 +4,7 @@
 import type { LevelKind } from './grades';
 import MANIFEST from './monsters.manifest.json';
 import GEN from './chapterBoss.gen.json';
+import { chapterOf, splitDot } from './levels';
 export type MonTheme = 'number' | 'ink' | 'letter' | 'flask' | 'gear' | 'plant' | 'fossil' | 'mist';
 export type MonAnim = 'idle' | 'attack' | 'hit' | 'defeat';
 export interface MonArt { id: string; name: string; theme: MonTheme; tier: LevelKind; pool_cn: string[]; dir: string; anims: Record<MonAnim, { json: string; soft: string; hit_frame?: number | null }> }
@@ -118,11 +119,21 @@ export interface BossCtx { grade?: string; volume?: string }
   for (const ix of g.values()) ix.forEach((i, j) => { CHAPTER_BOSS[i][5] = Math.round(360 * (j + 1) / (ix.length + 1)); }); }
 const segMatch = (seg: string, no: string, name: string) => (no === '—' ? seg === name : seg.startsWith(no) && (name === no || seg.includes(name)) && !/^\d/.test(seg.slice(no.length)));
 /* 册别行（对照表）：章/单元原文 = 章节路径开头的若干段（如「八上·第一单元」「第1章 遗传因子的发现」）；章号 no 为空 */
-const volMatch = (unit: string, ch: string) => { const u = unit.replace(/\s+/g, ''), c = ch.replace(/\s+/g, ''); return u === c || u.startsWith(c + '·') || u.startsWith(c + ' ') || (u.startsWith(c) && !/^[\d\u4e00-\u9fa5A-Za-z]/.test(u.slice(c.length))); };
+/** 无章号的章比最后一段（splitDot：书名号 / 括号里的「·」不拆），去掉空白和 r16 同名章的册别标记（「（选必上）」） */
+const bare = (s: string) => (splitDot(s, true).pop() ?? '').replace(/\s+/g, '').replace(/（选必[^）]*）$/, '');
+/* 关卡的 unit 是章标题（如「第三单元」「8A Unit 3 …」「古诗词诵读（选必上）」），对照表是章节路径（「八上·第三单元」）：
+   原文前缀相同；或两边都有章号（第N单元 / 第N章 / 第N课 / Unit N / 专题N）时章号相同；都没有章号时去掉册别后文字相同（册别另由 ctx.volume 限定） */
+const volMatch = (unit: string, ch: string, byKey: boolean) => {
+  const u = unit.replace(/\s+/g, ''), c = ch.replace(/\s+/g, '');
+  if (u === c || u.startsWith(c + '·') || (u.startsWith(c) && !/^[\d\u4e00-\u9fa5A-Za-z]/.test(u.slice(c.length)))) return true;
+  if (!byKey) return false;   // 没传册别时只认原文前缀（章号在不同册会重复）
+  const ku = chapterOf(unit)?.key, kc = chapterOf(ch)?.key;
+  return ku && kc ? ku === kc : !ku && !kc && bare(unit) === bare(ch);
+};
 export function chapterBoss(band: string | undefined, subject: string | undefined, unit: string | undefined, ctx: BossCtx = {}): { name: string; hue: number } | undefined {
   const grade = ctx.grade ?? (band ? BAND_GRADE[band] : undefined);
   if (!unit || !subject || !grade) return undefined; const segs = [unit, ...unit.split('·')];
-  const m = CHAPTER_BOSS.find(r => r[0] === grade && r[1] === subject && (r[6] !== undefined ? (!ctx.volume || ctx.volume === r[6]) && volMatch(unit, r[3]) : segs.some(x => segMatch(x.trim(), r[2], r[3]))));
+  const m = CHAPTER_BOSS.find(r => r[0] === grade && r[1] === subject && (r[6] !== undefined ? (!ctx.volume || ctx.volume === r[6]) && volMatch(unit, r[3], !!ctx.volume) : segs.some(x => segMatch(x.trim(), r[2], r[3]))));
   return m ? { name: m[4], hue: m[5] } : undefined;
 }
 export function skinFor(subject: string | undefined, kind: LevelKind, band?: string, unit?: string, ctx: BossCtx = {}): MonSkin | null {

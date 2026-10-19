@@ -5,7 +5,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { loadBank, playable } from '../src/game/questions';
 import { buildChapters } from '../src/game/levels';
-import { chapterBoss } from '../src/game/monsterSkin';
+import { chapterBoss, CHAPTER_BOSS } from '../src/game/monsterSkin';
 import { syncNewVolumes, VOL_ADDED } from '../src/game/volumes';
 import { repairProfile, loadProfiles } from '../src/state';
 import { importAll, exportAll, setKV } from '../src/db';
@@ -36,15 +36,18 @@ describe('题库 v32 / v33 / v34 导入', () => {
     const all = new Set(G.flatMap(g => raw(g).questions.map((q: { id: string }) => q.id)));
     expect(ids.filter(i => all.has(i))).toEqual([]);
   });
-  it('高一：v32 30 个 + v33 2 个新章节 Boss 用通用名，已有 39 个章节 Boss 名字不变、不重名', () => {
+  it('高一：已有 39 个章节 Boss 名字不变、不重名；r16 高一Boss名对照_v39 补上 v32 新章（30 个，纲要下第九单元不够 12 题没有 Boss 关）', () => {
     const b = loadBank(raw('10'), 'bank_10.json');
-    const boss = buildChapters(playable(b.all, false), null, b.all).flatMap(c => c.levels.filter(l => l.kind === 'boss').map(l => ({ s: c.subject, v: l.volume, u: l.unit, n: chapterBoss('H', c.subject, l.unit)?.name })));
+    const boss = buildChapters(playable(b.all, false), null, b.all).flatMap(c => c.levels.filter(l => l.kind === 'boss').map(l => ({ s: c.subject, v: l.volume, u: l.unit, n: chapterBoss('H', c.subject, l.unit, { grade: '10', volume: l.volume })?.name })));
+    const v39 = new Set(CHAPTER_BOSS.filter(r => r[0] === '10' && r[6]).map(r => r[4]));
     expect(boss.length).toBe(88);   // v32 86 + v33 纲要上第六、第八单元（够 12 题，第一次有章节 Boss，通用名）
-    expect(boss.filter(x => !x.n).length).toBe(49);   // 没有章节专属名：v32 47（含 17 个本来就沿用学段默认名的）+ v33 2
-    const named = boss.filter(x => x.n).map(x => x.n);
+    expect(boss.filter(x => !x.n).length).toBe(19);   // 没有章节专属名：数学 15（按章名 hMathBoss）+ 英语 / 诗词沿用学段默认名 + 纲要上第六、第八单元（v39 没给名）
+    expect(boss.filter(x => x.n && v39.has(x.n)).length).toBe(30);
+    const named = boss.filter(x => x.n && !v39.has(x.n)).map(x => x.n);
     expect(named).toEqual(["橘子洲诗龙", "劝学师说翁", "荷塘月色仙", "华夏一统王", "盛唐交融使", "晚清觉醒狮", "宇宙星轨使", "大气环流精", "水循环精灵", "地貌雕刻师", "森林沃土王", "防灾预警官", "空想科学使", "星火燎原使", "改革开放舵手", "复兴梦想舟", "公有制基石", "市场调控师", "高质量引擎", "分配保障官", "位移速度侠", "匀变速飞车", "三力平衡师", "牛顿惯性王", "抛物线射手", "向心力陀螺", "摩尔计量师", "过滤蒸馏师", "海盐氯钠龙", "硫黄酸雨精", "元素周期表王", "原电池火花", "固氮循环王", "显微探秘者", "分子拼图后", "细胞城堡主", "细胞膜门卫", "能量工坊魔", "分裂镜像女王"]);
-    // 生物必修2 的「第1章」不能拿到必修1 第1章的名字
-    expect(boss.filter(x => x.s === '生物' && x.v === '必修第二册').every(x => !x.n)).toBe(true);
+    // 生物必修2 的「第1章」不能拿到必修1 第1章的名字：只用 v39 对照表的名字
+    expect(boss.filter(x => x.s === '生物' && x.v === '必修第二册').map(x => x.n)).toEqual(['豌豆杂交仙', '减数纺锤丝', '双螺旋阶梯', '密码翻译官', '变异万花筒', '自然选择鸟']);
+    expect(new Set(boss.filter(x => x.n).map(x => x.n)).size).toBe(boss.filter(x => x.n).length);
     expect(new Set(named).size).toBe(named.length);
   });
 });
