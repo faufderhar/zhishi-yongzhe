@@ -30,7 +30,7 @@ describe('r15.4.2 P3-6 收尾不算加时已用', () => {
   });
   it('没用完就 +10，取消后剩余 = 原上限 - 已用', () => { let u: UT = {}; u = play(u, 5, 200, false); u = aB(u, D, 600); expect(cP(u[D], L)).toEqual({ cancel: 600, leftAfter: 100 }); });
   it('不限：取消后剩余不限', () => { expect(cP({ used: 100, bonus: 600 }, 0).leftAfter).toBe(Infinity); });
-  it('wrapTail 清洗 0–180；读取也封顶', () => { expect((cleanUsage({ [D]: { used: 1, bonus: 0, wrapTail: 1e308 } }) as any)[D].wrapTail).toBe(180); expect(readFileSync('src/state.ts', 'utf8')).toMatch(/wrapTail: Math\.min\(180/); });
+  it('wrapTail 清洗 0–180；读取也封顶', () => { expect((cleanUsage({ [D]: { used: 1, bonus: 0, wrapTail: 1e308 } }) as any)[D].wrapTail).toBe(180); expect(readFileSync('src/state.ts', 'utf8')).toMatch(/loadUsage = [^\n]*cleanUsage\(x\)/); });   // r16：读取也走 cleanUsage（wrapTail 封顶 180）
 });
 describe('r15.4.2 较真家长：取消确认框', () => {
   const src = readFileSync('src/ui/Parent.tsx', 'utf8');

@@ -2,7 +2,13 @@ import { MASTERED_MAX, XP_MAX } from './game/limits';
 import type { PinVault, PendingReset } from './game/pinVault';
 import { migrateVolumes } from './game/volumeMigrate';
 /* 应用级数据：设置、档案、进度（KV 存 IndexedDB） */
-import { getKV, setKV } from './db';
+import { getKV, setKV as rawSetKV } from './db';
+import { cleanUsage } from './game/sanitize';
+/** r16 较真家长 2：覆盖恢复 / 合并写库期间（db.importAll 竖 __zyRestoring，约 15 秒，之后 reload）state.ts 的保存一律不写，
+    免得内存里的旧状态盖回刚恢复的数据。不加在 db.setKV 上——importAll 自己还要用它写 snapshot:last / writeRec */
+export const restoring = () => !!(globalThis as { __zyRestoring?: boolean }).__zyRestoring;
+const saveKV = (k: string, v: unknown) => restoring() ? Promise.resolve() : rawSetKV(k, v);
+const setKV = rawSetKV;
 import type { GradeKey } from './game/questions';
 import { bandConfig } from './game/grades';
 import type { TimeLimit, Usage } from './game/playtime';
@@ -81,7 +87,7 @@ export function repairProfile(x: unknown): Profile | null {
     ...(isObj(x.pinVault) && typeof x.pinVault.pinHash === 'string' && x.pinVault.pinHash ? { pinVault: x.pinVault as unknown as PinVault } : {}), ...(typeof x.recHash === 'string' && x.recHash ? { recHash: x.recHash } : {}) };   // r11：家长密码副本
 }
 export const loadSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await guarded<Partial<Settings>>('settings', x => isObj(x) ? x as Partial<Settings> : null, () => ({}))) });
-export const saveSettings = (s: Settings) => setKV('settings', s);
+export const saveSettings = (s: Settings) => saveKV('settings', s);
 export async function loadProfiles(): Promise<Profile[]> {
   const raw = await getKV<unknown>('profiles');
   if (raw === undefined) { const d = DEFAULT_PROFILES(); await setKV('profiles', d); return d; }
@@ -93,7 +99,7 @@ export async function loadProfiles(): Promise<Profile[]> {
   else if (JSON.stringify(uniq) !== JSON.stringify(raw)) await setKV('profiles', uniq);
   return uniq.length ? uniq : DEFAULT_PROFILES();
 }
-export const saveProfiles = (p: Profile[]) => setKV('profiles', p);
+export const saveProfiles = (p: Profile[]) => saveKV('profiles', p);
 const starRec = (x: unknown) => Object.fromEntries(Object.entries(numRec(x)).map(([k, v]) => [k, Math.min(3, Math.max(0, v))]));
 const numRec = (x: unknown) => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => Number.isFinite(v))) as Record<string, number> : {};
 /** r15 技术QA R141-5：导入 / 读取时数字夹到 [0, max] */
@@ -101,17 +107,18 @@ const clampN = (v: unknown, max: number) => Number.isFinite(v) ? Math.min(max, M
 export const loadProgress = (pid: string) => guarded<Progress>('progress:' + pid, x => isObj(x) ? {
   stars: starRec(x.stars), plays: isObj(x.plays) ? x.plays as Progress['plays'] : {},
   masteredStars: clampN(x.masteredStars, MASTERED_MAX), xp: clampN(x.xp, XP_MAX) } : null, emptyProgress);
-export const saveProgress = (pid: string, p: Progress) => setKV('progress:' + pid, p);
+export const saveProgress = (pid: string, p: Progress) => saveKV('progress:' + pid, p);
 export const loadSkills = (pid: string) => guarded<Skills>('skills:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { level?: number }).level))) as Skills : null, () => ({}));
-export const saveSkills = (pid: string, s: Skills) => setKV('skills:' + pid, s);
-export const loadUsage = (pid: string) => guarded<Usage>('usage:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { used?: number }).used)).map(([d, v]) => [d, { used: Number((v as { used: number }).used), bonus: Number((v as { bonus?: number }).bonus) || 0, ...(Number((v as { wrap?: number }).wrap) > 0 ? { wrap: Number((v as { wrap: number }).wrap) } : {}), ...(Number((v as { wrapTail?: number }).wrapTail) > 0 ? { wrapTail: Math.min(180, Number((v as { wrapTail: number }).wrapTail)) } : {}) }])) as Usage : null, () => ({}));
-export const saveUsage = (pid: string, u: Usage) => setKV('usage:' + pid, u);
+export const saveSkills = (pid: string, s: Skills) => saveKV('skills:' + pid, s);
+/* r16 较真家长 2：加载和恢复 / 合并用同一套字段表（sanitize.cleanUsage，保留 spent / wrapTail / capAt）；以前这里自己重建，漏了 spent → 取消的加时刷新后又复活 */
+export const loadUsage = (pid: string) => guarded<Usage>('usage:' + pid, x => cleanUsage(x) ?? null, () => ({}));
+export const saveUsage = (pid: string, u: Usage) => saveKV('usage:' + pid, u);
 export const loadFlags = () => guarded<Record<string, number>>('flags', x => isObj(x) ? numRec(x) : null, () => ({}));
-export const saveFlags = (f: Record<string, number>) => setKV('flags', f);
+export const saveFlags = (f: Record<string, number>) => saveKV('flags', f);
 /** 设备级时钟守卫（GDD §8.2）：记录见过的最大时间戳；发现倒退 > 10 分钟 → 锁定今日（家长密码解除） */
 export interface ClockState { maxSeen: number; locked: boolean; lockedAt?: number; staleReset?: number }
 export const loadClock = () => guarded<ClockState>('clock', x => isObj(x) && Number.isFinite(x.maxSeen) ? { maxSeen: Number(x.maxSeen), locked: !!x.locked, lockedAt: Number(x.lockedAt) || undefined } : null, () => ({ maxSeen: 0, locked: false }));
-export const saveClock = (c: ClockState) => setKV('clock', c);
+export const saveClock = (c: ClockState) => saveKV('clock', c);
 /** r14.1：记下的「见过的最晚时间」比现在还晚 1 天以上——多半是别人把系统时钟调快过（共用设备 / 测试），基准作废、不上锁 */
 export const STALE_AHEAD_MS = 24 * 3600e3;
 export function checkClock(c: ClockState, now: number): ClockState {
