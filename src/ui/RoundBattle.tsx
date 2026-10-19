@@ -106,7 +106,12 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const tip = (k: TipKey) => { if (seenTip.current[k]) return; seenTip.current[k] = true; onTip?.(k); setTipNow({ k, t: TIP_TEXT[k] }); setTimeout(() => setTipNow(x => x?.k === k ? null : x), 2500); };
   const [rules, setRules] = useState(false);
   useEffect(() => { const show = (phase === 'cards' || phase === 'bet') && hs && wagerOn && bs.side === 'P';
-    if (show && !seenTip.current.betHint) { setBetHint(true); markTip('betHint'); } else if (!show) setBetHint(false); }, [phase]);
+    /* r15.4.3 学霸：以前是开关下面一行黄字、显示那一刻就记「看过」，测试员档案里记了看过却没注意到。现在改成弹窗，点〔知道了〕才记看过
+       （选卡 / 押注这一步还没出题、不计时，弹窗不影响答题时间）；中途刷新 / 退出没点的，下次第一次出开关时再弹 */
+    /* 旧的自动化脚本不认识这个弹窗：测试构建里设了 __zyTest 却没设 __zyTestBetPop 时不弹（正式构建没有这段） */
+    const testSkip = __TEST_HOOKS__ && !!(window as unknown as { __zyTest?: boolean }).__zyTest && !(window as unknown as { __zyTestBetPop?: boolean }).__zyTestBetPop;
+    if (show && !seenTip.current.betHint && !testSkip) setBetHint(true); }, [phase]);
+  const closeBetHint = () => { setBetHint(false); markTip('betHint'); };
   const [rageAnim, setRageAnim] = useState(false);
   // D14 初一挑战题：只在初一我方回合，默认普通题，每回合结束回到普通题
   const [chal, setChal] = useState(false);
@@ -370,7 +375,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
               <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押注 ≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: true })}）` : ''}</small></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
         )}
-        {(phase === 'cards' || phase === 'bet') && hs && wagerOn && P && <BetToggle on={wager} set={setWager} hint={betHint} />}
+        {(phase === 'cards' || phase === 'bet') && hs && wagerOn && P && <BetToggle on={wager} set={setWager} />}
         {phase === 'bet' && <div className="cards" data-testid="bet-phase"><p>这一回合是多步题</p><button className="next" data-testid="bet-go" onClick={() => setPhase('question')}>出题 ▶</button></div>}
         {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（选好才出题、才开始计时）</small></p>
           <div className="row gap16">
@@ -446,6 +451,9 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
       {rules && <Modal onClose={() => setRules(false)}><h2>规则说明</h2>
         <ol className="rules-list" data-testid="rules-pop">{rulesFor(bs.mode).map((r, i) => <li key={i}><b>{r[0]}</b>：{r[1]}</li>)}</ol>
         <button className="btn" data-testid="rules-ok" onClick={() => setRules(false)}>知道了</button></Modal>}
+      {betHint && (phase === 'cards' || phase === 'bet') && <Modal onClose={closeBetHint}><h2>新玩法：押注</h2>
+        <ul className="rules-list bet-hint-pop" data-testid="bet-hint">{BET_HINT_LINES.map((t, i) => <li key={i}>{t}</li>)}</ul>
+        <button className="btn" data-testid="bet-hint-ok" onClick={closeBetHint}>知道了</button></Modal>}
       {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={quitNow} />}
     </div>
   );
@@ -459,9 +467,16 @@ export function hurtNote(o: ROut) { const h = o.hurtInfo; if (!h || !h.parts.len
   return `（${h.base}${h.parts.map(([n, m]) => ` × ${n} ×${m}`).join('')}${prod > HURT_CAP + 1e-9 ? `，最多 ×${HURT_CAP}` : ''} = ${o.taken}）`; }
 /** r15.4.2 游戏策划：押注开关（我方回合看题前，题卡旁边，默认关，点一下就押） */
 export const BET_LABEL = '押注：答对伤害 ×1.25，能量额外 +1；答错反击 ×1.25，且不能闪避';   // r15.4.3 学霸：押对能量 = 基础 +1 + 押注额外 +1
-export const BET_HINT = '💡 新玩法：有把握就点一下打开「押注」（默认不押）。不押就照常答题，答错还有机会闪开。';
-function BetToggle({ on, set, hint }: { on: boolean; set: (f: (x: boolean) => boolean) => void; hint: boolean }) {
+/** r15.4.3：第一次出押注开关时的说明弹窗（每个档案 1 次，点〔知道了〕才算看过） */
+export const BET_HINT_LINES = [
+  '题卡下面有个「押注」开关，默认是关的；有把握就点一下打开。',
+  '押了：答对伤害 ×1.25，能量额外 +1；答错（半对也算错）反击 ×1.25，而且闪不开。',
+  '押注的 ×1.25 也算在「加成上限 ×1.8」里。',
+  '不押就照常答题，答错还有机会闪开。',
+];
+export const BET_HINT = BET_HINT_LINES.join('');
+function BetToggle({ on, set }: { on: boolean; set: (f: (x: boolean) => boolean) => void }) {
   return <div className="bet-wrap" data-testid="bet-wrap"><button className={`bet-toggle ${on ? 'on' : ''}`} role="switch" aria-checked={on} data-testid="bet-toggle" data-on={on ? '1' : '0'} onClick={() => set(x => !x)}>
     <span className="bt-sw" aria-hidden><span className="bt-knob" /></span><span className="bt-label">{BET_LABEL}</span></button>
-    {hint && <p className="bet-hint" data-testid="bet-hint">{BET_HINT}</p>}</div>;
+</div>;
 }

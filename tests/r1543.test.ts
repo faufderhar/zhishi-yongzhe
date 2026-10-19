@@ -70,3 +70,12 @@ describe('r15.4.3 ③ 押错反击 ×1.25 真的乘上了，结果写明', () =>
     expect(d.dodged).toBe(false); expect(d.taken).toBe(23);
   });
 });
+
+describe('r15.4.3 ⑤ 押注说明弹窗', () => {
+  it('弹窗点〔知道了〕才记看过（不再是显示那一刻就记）', async () => {
+    const src = (await import('node:fs')).readFileSync('src/ui/RoundBattle.tsx', 'utf8');
+    expect(src).toMatch(/const closeBetHint = \(\) => \{ setBetHint\(false\); markTip\('betHint'\); \}/);
+    expect(src).not.toMatch(/setBetHint\(true\); markTip\('betHint'\)/);
+    expect(src).toContain('data-testid="bet-hint-ok"');
+  });
+});
