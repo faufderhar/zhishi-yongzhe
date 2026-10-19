@@ -18,8 +18,8 @@ export function cleanProgress(x: unknown) {
   return { ...x, stars, plays, xp: num(x.xp, 0, XP_MAX, true) ?? 0, masteredStars: num(x.masteredStars, 0, MASTERED_MAX, true) ?? 0 };
 }
 export function cleanUsage(x: unknown) {
-  if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number; wrap?: number; wrapTail?: number }> = {};
-  for (const [d, v] of Object.entries(x)) { if (!isObj(v)) continue; const used = num(v.used, 0, DAY_SEC, true); if (used === undefined) continue; const wrap = num(v.wrap, 0, DAY_SEC, true); const wrapTail = num(v.wrapTail, 0, 180, true); out[d] = { used, bonus: num(v.bonus, 0, DAY_SEC, true) ?? 0, ...(wrap !== undefined ? { wrap } : {}), ...(wrapTail ? { wrapTail } : {}) }; }
+  if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number }> = {};
+  for (const [d, v] of Object.entries(x)) { if (!isObj(v)) continue; const used = num(v.used, 0, DAY_SEC, true); if (used === undefined) continue; const wrap = num(v.wrap, 0, DAY_SEC, true); const wrapTail = num(v.wrapTail, 0, 180, true); const spent = num(v.spent, 0, DAY_SEC, true); out[d] = { used, bonus: num(v.bonus, 0, DAY_SEC, true) ?? 0, ...(wrap !== undefined ? { wrap } : {}), ...(wrapTail ? { wrapTail } : {}), ...(spent ? { spent } : {}) }; }
   return out;
 }
 export function cleanSkills(x: unknown) {
@@ -86,7 +86,7 @@ export function cleanRollup(x: unknown) {
 /** r15.4.2：备份里所有数字 / 时间字段和清洗规则（报告与测试用这张表） */
 export const BACKUP_NUMERIC_FIELDS: [string, string][] = [
   ['progress:<档案>.stars.*', '0–3 整数'], ['progress:<档案>.plays.*.count', '0–999 整数'], ['progress:<档案>.xp', `0–${XP_MAX}`], ['progress:<档案>.masteredStars', `0–${MASTERED_MAX}`],
-  ['usage:<档案>.<日期>.used / bonus / wrap', '0–86400 秒整数'], ['usage:<档案>.<日期>.wrapTail', '0–180 秒'], ['skills:<档案>.*.level', '1–5'], ['skills:<档案>.*.right / wrong', '0–1000'],
+  ['usage:<档案>.<日期>.used / bonus / wrap', '0–86400 秒整数'], ['usage:<档案>.<日期>.wrapTail', '0–180 秒'], ['usage:<档案>.<日期>.spent', '0–86400 秒整数'], ['skills:<档案>.*.level', '1–5'], ['skills:<档案>.*.right / wrong', '0–1000'],
   ['flags.*（时间戳）', '0–现在'], ['profiles[].limit.weekday / weekend', '5–240 分钟（0 = 旧版不限）'],
   ['zy.pinLock', 'remain 0–15 分钟（长锁 24 小时）；until 现在–现在+最长；seenAt ≤ 现在；fails 0–4；level 0–99'],
   ['zy.hintLock / zy.recLock / zy.cancelLock / zy.importLock', 'remain 0–24 小时；until 现在–现在+24 小时；其余同上'],

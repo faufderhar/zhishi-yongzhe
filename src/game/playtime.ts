@@ -2,7 +2,8 @@
 export interface TimeLimit { weekday: number; weekend: number }   // 分钟
 /** wrap（r15.4.1）：其中记在收尾时间里的秒数（超过当时上限、收尾进行中）。旧记录没有这个字段 */
 /** wrapTail（r15.4.2）：最近一段收尾的秒数——收尾之后又正常玩了（用上了加时）就清零。只有这段「刚走完、后面还没玩」的收尾不算加时已用 */
-export interface Usage { [day: string]: { used: number; bonus: number; wrap?: number; wrapTail?: number } }  // 秒
+/** spent（r15.4.3）：取消加时时留下的「已用掉的加时」秒数——之后改每日上限也不再重算成「没用的、可以取消」 */
+export interface Usage { [day: string]: { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number } }  // 秒
 export const isWeekend = (d = new Date()) => d.getDay() === 0 || d.getDay() === 6;
 export function limitMinutes(l: TimeLimit, d = new Date()) { return isWeekend(d) ? l.weekend : l.weekday; }
 /** 剩余秒数；Infinity = 不限 */
@@ -38,21 +39,25 @@ export function hashPin(pin: string, salt = 'zsyz') {
 export const validPin = (p: string) => /^\d{4,6}$/.test(p);
 
 /** r15.4.1 较真家长：今天的加时里已经用掉的部分（秒）。limitSec = 今天的每日上限秒数（不含加时；0 / Infinity = 不限） */
-export function bonusUsedSec(r: { used: number; bonus: number; wrap?: number; wrapTail?: number } | undefined, limitSec: number): number {
-  if (!r || !(r.bonus > 0)) return 0; if (!(limitSec > 0) || !Number.isFinite(limitSec)) return 0;
+export function bonusUsedSec(r: { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number } | undefined, limitSec: number): number {
+  if (!r || !(r.bonus > 0)) return 0;
+  /* r15.4.3 较真家长 P2-4：取消时已经认定用掉的那部分加时固定下来（上限改大后不再变回「没用的 4:14，可以取消」） */
+  const sp = Math.min(r.bonus, Math.max(0, r.spent ?? 0)); if (!(limitSec > 0) || !Number.isFinite(limitSec)) return sp;
   /* r15.4.2 技术QA P3-6：刚走完、之后还没继续玩的那段收尾（wrapTail）不算「加时已用」——收尾走完后 +10 再立刻取消，
      以前会把「收尾 3:00」改记成「加时已用 3:00」。收尾之后孩子又用加时玩了，那段收尾已经按「加的时间先抵掉超出的部分」用掉了加时，照旧算 */
   const ex = Math.max(0, r.used - (limitSec + r.bonus)); const curWrap = Math.max(Math.min(GRACE_SEC, ex, r.wrap ?? ex), Math.min(GRACE_SEC, r.wrapTail ?? 0));
-  return Math.min(r.bonus, Math.max(0, r.used - curWrap - limitSec));
+  return Math.max(sp, Math.min(r.bonus, Math.max(0, r.used - curWrap - limitSec)));
 }
 /** r11：取消今天的临时加时。r15.4.1 较真家长：只取消还没用的部分，已经用掉的加时留下（以前整笔清零，已玩的加时时间全被算成「收尾」，家长页出现「收尾 23:00」）。
  *  limitSec = 取消时家长看到的每日上限秒数（不含加时）；不传 / 不限 = 整笔取消 */
 /** r15.4.2 较真家长：取消确认框用——这次会取消多少、取消后今天还能玩多久（秒；Infinity = 不限） */
-export function cancelPreview(r: { used: number; bonus: number; wrap?: number; wrapTail?: number } | undefined, limitSec: number): { cancel: number; leftAfter: number } {
+export function cancelPreview(r: { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number } | undefined, limitSec: number): { cancel: number; leftAfter: number } {
   if (!r) return { cancel: 0, leftAfter: limitSec > 0 ? limitSec : Infinity }; const bu = bonusUsedSec(r, limitSec);
   return { cancel: Math.max(0, r.bonus - bu), leftAfter: limitSec > 0 && Number.isFinite(limitSec) ? Math.max(0, limitSec + bu - r.used) : Infinity };
 }
-export function cancelBonus(u: Usage, day: string, limitSec = 0): Usage { const r = u[day]; return r ? { ...u, [day]: { ...r, bonus: bonusUsedSec(r, limitSec) } } : u; }
+export function cancelBonus(u: Usage, day: string, limitSec = 0): Usage { const r = u[day]; if (!r) return u; const bu = bonusUsedSec(r, limitSec); const { spent: _s, ...r0 } = r; void _s; return { ...u, [day]: { ...r0, bonus: bu, ...(bu > 0 ? { spent: bu } : {}) } }; }
+/** r15.4.3 较真家长 P2-4：今天的加时是不是全是「取消后留下的已用部分」（显示「加时已取消」而不是「今天已加」） */
+export const bonusAllSpent = (r: { bonus: number; spent?: number } | undefined) => !!r && r.bonus > 0 && (r.spent ?? 0) >= r.bonus;
 /** r11：今天的临时加时（秒） */
 export const bonusToday = (u: Usage | undefined, day: string) => u?.[day]?.bonus ?? 0;
 
