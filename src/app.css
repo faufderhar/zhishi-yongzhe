@@ -990,3 +990,6 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .p-card.rec-after{width:min(100%,640px);box-sizing:border-box}
 .p-card.rec-after > .row{flex-wrap:wrap;justify-content:center;max-width:100%}
 .p-card.rec-after .btn{min-width:min(140px,100%);max-width:100%}
+
+/* r15.4.4 技术QA P2-1：化学方程式按运算符切成的小块（Tex.tsx mathChunks）：块内不换行、块之间可以换行 */
+.tex-chunk{display:inline-block;white-space:nowrap;max-width:100%}

@@ -18,17 +18,23 @@ const ALLVP = {
   '768x1024': { viewport: { width: 768, height: 1024 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA },
   '800x1280': { viewport: { width: 800, height: 1280 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA },
   '820x1180': { viewport: { width: 820, height: 1180 }, deviceScaleFactor: 2, hasTouch: true },   // iPad Air 竖屏
+  // r15.4.4 技术QA P2-1：高一化学方程式选项（华为 MatePad 1400×840 / 平板 1280×800 / 竖屏 800×1280 两列；手机横屏 640×360 单列）
+  '1400x840': { viewport: { width: 1400, height: 840 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA },
+  '640x360': { viewport: { width: 640, height: 360 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, userAgent: UA },
 };
+/* r15.4.4：ZOOM=1.3 模拟系统「显示大小 / 字体」放大（和 r1541-map 一样：CSS 视口 = 屏幕 / 倍数，像素密度 × 倍数） */
+const ZOOM = +(process.env.ZOOM || 1);
+if (ZOOM !== 1) for (const k of Object.keys(ALLVP)) { const v = ALLVP[k]; ALLVP[k] = { ...v, viewport: { width: Math.round(v.viewport.width / ZOOM), height: Math.round(v.viewport.height / ZOOM) }, deviceScaleFactor: (v.deviceScaleFactor || 1) * ZOOM }; }
 const VPS = (process.env.VP || Object.keys(ALLVP).join(',')).split(',');
 const E = /[\p{Extended_Pictographic}]/u;
 const GRADE = process.env.GRADE || 'K1';   // r15.4.2：其它年级（1/2/3 年级题库里也有少量图 / emoji 选项题）
 const bank = JSON.parse(readFileSync(new globalThis.URL(`../public/banks/bank_${GRADE}.json`, import.meta.url))).questions;
 let QS = bank.filter(q => q.game_ready !== false && ((q.options || []).some(o => E.test(o.text || '') || o.image) || q.visual || E.test(q.question)));
 if (process.env.SAMPLE) { const n = +process.env.SAMPLE; QS = QS.filter((_, i) => i % n === 0); }   // 抽样：每 n 题测 1 题（竖屏三档全量太慢时用，报告里注明）
-if (process.env.IDS) { const s = process.env.IDS.split(','); QS = QS.filter(q => s.includes(q.id)); }
+if (process.env.IDS) { const s = process.env.IDS.split(','); QS = bank.filter(q => s.includes(q.id)); }   // r15.4.4：指定题号时不限「带图 / emoji」（公式题也能测）
 const SHOTS = new Set((process.env.SHOTS || 'K-037,K-038,K-039,K-040').split(','));
 const strip = t => t.replace(/[\p{Extended_Pictographic}\uFE0F\u200D\s，。？！、：；,.?!:;“”"'（）()]/gu, '');
-const b = await chromium.launch(); let bad = 0, pass = 0, warn = 0, skip = 0;
+const skipped = new Set(); const b = await chromium.launch(); let bad = 0, pass = 0, warn = 0, skip = 0;
 const log = m => console.log(m);
 
 async function session(name) {
@@ -51,7 +57,7 @@ const measure = pg => pg.evaluate(() => {
   const R = r => ({ l: r.left, t: r.top, r: r.right, b: r.bottom });
   const vis = e => { const s = getComputedStyle(e), r = e.getBoundingClientRect(); return s.visibility !== 'hidden' && s.display !== 'none' && +s.opacity > 0.05 && r.width > 2 && r.height > 2; };
   const textRects = root => { const out = []; const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n;
-    while ((n = tw.nextNode())) { const s = n.nodeValue; if (!s.trim()) continue; const marks = []; for (const m of s.matchAll(EMO)) marks.push([m.index, m.index + m[0].length, 'emoji', m[0]]);
+    while ((n = tw.nextNode())) { const s = n.nodeValue; if (!s.trim() || n.parentElement?.closest('.katex-mathml')) continue;   /* r15.4.4：KaTeX 给读屏的隐藏 MathML 不算 */ const marks = []; for (const m of s.matchAll(EMO)) marks.push([m.index, m.index + m[0].length, 'emoji', m[0]]);
       let p = 0; const all = []; for (const mk of marks) { if (mk[0] > p && s.slice(p, mk[0]).trim()) all.push([p, mk[0], 'text', s.slice(p, mk[0])]); all.push(mk); p = mk[1]; } if (p < s.length && s.slice(p).trim()) all.push([p, s.length, 'text', s.slice(p)]);
       for (const [a, z, k, t] of all) { const rg = document.createRange(); rg.setStart(n, a); rg.setEnd(n, z); const rr = rg.getBoundingClientRect(); if (rr.width > 0 && rr.height > 0) out.push({ k, t: t.trim(), r: R(rr) }); } }
     return out; };
@@ -61,7 +67,9 @@ const measure = pg => pg.evaluate(() => {
   const keys = [...document.querySelectorAll('.keypad-wrap button')].filter(vis).map(e => R(e.getBoundingClientRect()));
   const stem = [...document.querySelectorAll('.kbubble .kitem')].filter(vis).map(e => R(e.getBoundingClientRect()));
   const bubble = document.querySelector('.kbubble') || document.querySelector('.qtext'), busy = document.querySelector('[data-testid=kbusy]');
-  return { vw: innerWidth, vh: innerHeight, opts, keys, stem, stemText: bubble?.innerText || '', tight: !!document.querySelector('.kbattle.ktight'), kfit: document.querySelector('.kstage')?.dataset.kfit,
+  /* r15.4.4 技术QA P2-1：640×360 答题区左边被裁——答题区 / 选项区不许横向溢出（溢出时居中排版会把左边推出去） */
+  const hx = [...document.querySelectorAll('.quiz, .opts, .kopts')].filter(vis).filter(e => e.scrollWidth > e.clientWidth + 1 || e.scrollLeft > 0).map(e => `${e.className.split(' ')[0]} 横向溢出 ${e.scrollWidth}>${e.clientWidth}`);
+  return { hx, vw: innerWidth, vh: innerHeight, opts, keys, stem, stemText: bubble?.innerText || '', tight: !!document.querySelector('.kbattle.ktight'), kfit: document.querySelector('.kstage')?.dataset.kfit,
     busy: busy && vis(busy) ? R(busy.getBoundingClientRect()) : null, bubbleR: bubble ? R(bubble.getBoundingClientRect()) : null };
 });
 const T = 1;   // 容差 px
@@ -73,11 +81,12 @@ const quit = async (pg, w) => {
   await pg.waitForSelector('[data-testid=level-1]', { timeout: 8000 }).catch(() => {});
 };
 for (const vp of VPS) {
-  const file = `${OUT}res-${GRADE === 'K1' ? '' : GRADE + '-'}${vp}.jsonl`; const done = new Set(existsSync(file) ? readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l).id) : []);
+  const file = `${OUT}res-${GRADE === 'K1' ? '' : GRADE + '-'}${vp}${ZOOM !== 1 ? '-z' + Math.round(ZOOM * 100) : ''}.jsonl`; const done = new Set(existsSync(file) ? readFileSync(file, 'utf8').split('\n').filter(Boolean).map(l => JSON.parse(l).id) : []);
   const todo = QS.filter(q => !done.has(q.id)); log(`== ${vp}: ${QS.length} 题，已测 ${QS.length - todo.length}，本次 ${todo.length}`);
   if (!todo.length) continue;
   let s = await session(vp);
-  for (const q of todo) {
+  for (const q0 of todo.flatMap(q => [q, { ...q, retry: true }])) {
+    const q = q0; if (q.retry && !skipped.has(q.id)) continue; skipped.delete(q.id);
     const { pg, w } = s; const rec = { id: q.id, vp, fails: [], warns: [] };
     try {
       if (!(await pg.isVisible('[data-testid=level-1]'))) { await pg.click('[data-testid=to-map]').catch(() => {}); await w(600); }
@@ -87,9 +96,13 @@ for (const vp of VPS) {
       for (let i = 0; i < 20 && !(await pg.isVisible('.kbattle .kopt, .opts .opt, .keypad-wrap')); i++) { for (const sel of ['[data-testid=card-std]', '[data-testid=bet-go]', '[data-testid=chal-normal]']) if (await pg.isVisible(sel)) await pg.click(sel).catch(() => {}); await w(500); }
       await pg.waitForSelector('.kbattle .kopt, .opts .opt, .keypad-wrap', { timeout: 10000 }); await w(1400);
       const m = await measure(pg); rec.tight = m.tight; rec.kfit = m.kfit;
-      const want = strip(q.question).slice(0, 6);
-      if (!strip(m.stemText).includes(want)) { rec.skip = `没出成指定题（题干「${m.stemText.trim().slice(0, 20)}」）`; skip++; }
+      const want = strip(q.question.replace(/\$[^$]*\$/g, ' ')).slice(0, 6);   // r15.4.4：题干里的 $…$ 公式渲染后文字不同，只比普通文字
+      if (!strip(m.stemText).includes(want)) { rec.skip = `没出成指定题（题干「${m.stemText.trim().slice(0, 20).replace(/\s+/g, ' ')}」）`; if (!q.retry) skipped.add(q.id); else skip++; }   // r15.4.4：没出成时退出重进再试一次（新会话第一关偶尔不出指定题）
       else {
+        /* r15.4.4：字号放大后选项比屏幕高时，答题区可以上下滚动——卡片在屏幕外的，先滚到它（scrollIntoView）再量；滚了也看不全才算失败 */
+        for (let i = 0; i < m.opts.length; i++) { const o = m.opts[i]; if (inside(o.r, { l: 0, t: 0, r: m.vw, b: m.vh })) continue;
+          await pg.evaluate(k => { const c = [...document.querySelectorAll('.kopts .kopt, .opts .opt')].filter(e => e.getBoundingClientRect().width > 2)[k]; c?.scrollIntoView({ block: 'nearest', inline: 'nearest' }); }, i); await w(250);
+          const m2 = await measure(pg); if (m2.opts[i]) { m.opts[i] = m2.opts[i]; rec.scrolled = (rec.scrolled ?? 0) + 1; } }
         for (const o of m.opts) {
           if (!inside(o.r, { l: 0, t: 0, r: m.vw, b: m.vh })) rec.fails.push(`${o.key} 卡片出屏 ${JSON.stringify(o.r, (k, v) => typeof v === 'number' ? Math.round(v) : v)}`);
           for (const e of o.els) {
@@ -98,18 +111,20 @@ for (const vp of VPS) {
             if (!inCard || !inVp) rec.fails.push(msg);   // r15.4.1：选项文字伸出卡片也算失败（KC-013「三角形」110px 换行出卡）
           }
         }
+        rec.fails.push(...m.hx);
         if (!m.opts.length && !m.keys.length) rec.fails.push('没有可见选项 / 键盘');
         for (const r of m.keys) if (!inside(r, { l: 0, t: 0, r: m.vw, b: m.vh })) { rec.fails.push(`键盘按键出屏 ${Math.round(r.t)}–${Math.round(r.b)}`); break; }
         for (const r of m.stem) if (!inside(r, { l: 0, t: 0, r: m.vw, b: m.vh })) rec.fails.push(`题干数数图出屏 ${Math.round(r.b)}`);
         rec.n = m.opts.reduce((a, o) => a + o.els.filter(e => e.k !== 'text').length, 0);
       }
-      if (SHOTS.has(q.id)) await pg.screenshot({ path: `${OUT}${q.id}-${vp}.png` });
+      if (SHOTS.has(q.id)) await pg.screenshot({ path: `${OUT}${q.id}-${vp}${ZOOM !== 1 ? '-z' + Math.round(ZOOM * 100) : ''}.png` });
       await quit(pg, w);
     } catch (e) { rec.fails.push('脚本异常 ' + String(e.message || e).split('\n')[0]); await pg.screenshot({ path: `${OUT}err-${q.id}-${vp}.png` }).catch(() => {});
       await s.ctx.close().catch(() => {}); s = await session(vp); }
+    if (rec.skip && !q.retry) { log(`RETRY ${vp} ${q.id} ${rec.skip}`); continue; }
     if (rec.skip) log(`SKIP ${vp} ${q.id} ${rec.skip}`);
     else if (rec.fails.length) { bad++; log(`FAIL ${vp} ${q.id}：${rec.fails.join('；')}`); if (!SHOTS.has(q.id)) await s.pg.screenshot({ path: `${OUT}fail-${q.id}-${vp}.png` }).catch(() => {}); }
-    else { pass++; log(`PASS ${vp} ${q.id}（${rec.n} 个图/emoji 都在卡片和屏幕里${rec.tight ? '，紧凑排版' : ''}）`); }
+    else { pass++; log(`PASS ${vp} ${q.id}（${rec.n} 个图/emoji 都在卡片和屏幕里${rec.tight ? '，紧凑排版' : ''}${rec.scrolled ? `，${rec.scrolled} 张卡要滚动才看到` : ''}）`); }
     if (rec.warns.length) { warn++; log(`WARN ${vp} ${q.id} 文字：${rec.warns.join('；')}`); }
     appendFileSync(file, JSON.stringify(rec) + '\n');
   }

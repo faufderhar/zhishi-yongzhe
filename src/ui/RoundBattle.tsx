@@ -178,7 +178,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     const g = reviewGate(pool.current.filter(x => !isMultiSel(x)), x => revSet.has(x.key), reviewAllowed(shownN.current, lastRev.current), unseenOf([...(reserve ?? []), ...(adj ?? []).flat()]).filter(x => !isMultiSel(x) && !isMulti(x)));
     if (g.borrowed) pool.current = [...pool.current, g.borrowed];
     const rest = g.list; const unseenH = (xs: Question[]) => { const u = xs.filter(x => !seen?.has(x.key)); return u.length ? u : xs; };
-    const base = pickByTier(unseenH(rest.filter(x => !isMulti(x))), tierRef.current) ?? rest[0]; if (!base) return null;
+    const fq = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyForceQ?: string }).__zyTest) ? pool.current.find(x => x.id === (window as unknown as { __zyForceQ?: string }).__zyForceQ) : undefined;   /* 仅测试构建：指定题也走选卡（r15.4.4：以前高一选卡不看指定题，C10-044 难度 4 出不成） */
+    const base = fq ?? pickByTier(unseenH(rest.filter(x => !isMulti(x))), tierRef.current) ?? rest[0]; if (!base) return null;
     const near = (d: number, used: string[]) => rest.filter(x => !used.includes(x.key) && !isMulti(x)).sort((a, b) => Math.abs(a.difficulty - d) - Math.abs(b.difficulty - d))[0];
     const light = near(base.difficulty - 1, [base.key]) ?? base;
     // r12：重击卡不再因没有更难题而缺位：先多步题，再更难一档（含前序小节），都没有就用当前难度的题（倍率按难度挂钩公式自然变小）
