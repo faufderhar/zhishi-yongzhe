@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-v42（AI初审）",
- "version": "v42",
+ "bank_name": "三兄妹题库-高一-v43（AI初审）",
+ "version": "v43",
  "questions": [
   {
    "id": "Y10-001",
@@ -752,7 +752,7 @@
      "audio": ""
     },
     {
-     "text": "《红楼梦》",
+     "text": "《文化苦旅》",
      "image": "",
      "audio": ""
     },
@@ -774,9 +774,10 @@
    "volume": "必修上册",
    "knowledge_point": "整本书阅读",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tfa4a55",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "整本书阅读",
     "乡土中国"
@@ -1119,7 +1120,7 @@
      "audio": ""
     },
     {
-     "text": "《七律·长征》",
+     "text": "《七律·人民解放军占领南京》",
      "image": "",
      "audio": ""
     },
@@ -1144,7 +1145,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc2bac5",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "文学常识",
     "拓展"
@@ -2788,7 +2789,7 @@
      "audio": ""
     },
     {
-     "text": "朱棣",
+     "text": "朱允炆",
      "image": "",
      "audio": ""
     },
@@ -2810,9 +2811,10 @@
    "volume": "必修上册",
    "knowledge_point": "明",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td39b11",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "明",
     "君主专制"
@@ -5676,18 +5678,19 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第3章 不等式·3.2 基本不等式",
    "type": "判断",
-   "question": "对任意实数 $a,b$，都有 $a^2+b^2\\ge2ab$。",
+   "question": "对任意实数 $a,b$，都有 $a^2+b^2>2ab$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$(a-b)^2\\ge0$。",
+   "answer": "错",
+   "explanation": "错。由 $(a-b)^2\\ge0$ 只能得到 $a^2+b^2\\ge2ab$，当 $a=b$ 时等号成立，不能写成“$>$”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
    "knowledge_point": "基本不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "Ta26396",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "基本不等式"
    ]
@@ -10657,7 +10660,7 @@
    "question": "《百合花》的作者是？",
    "options": [
     {
-     "text": "孙犁",
+     "text": "王安忆",
      "image": "",
      "audio": ""
     },
@@ -10684,9 +10687,10 @@
    "volume": "必修上册",
    "knowledge_point": "文学常识",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b98f",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "文学常识",
     "百合花"
@@ -10759,7 +10763,7 @@
      "audio": ""
     },
     {
-     "text": "发卡",
+     "text": "塑料发卡",
      "image": "",
      "audio": ""
     },
@@ -10776,9 +10780,10 @@
    "volume": "必修上册",
    "knowledge_point": "内容理解",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T3c5c5e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "内容理解",
     "哦香雪"
@@ -12979,7 +12984,7 @@
      "audio": ""
     },
     {
-     "text": "刘备",
+     "text": "司马懿",
      "image": "",
      "audio": ""
     },
@@ -12996,6 +13001,7 @@
    "volume": "必修上册",
    "knowledge_point": "魏晋",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8ec737",
    "change_tag": "修改",
@@ -16006,17 +16012,18 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第9章 平面向量·9.1 向量概念",
    "type": "判断",
-   "question": "零向量与任意向量平行。",
-   "answer": "对",
-   "explanation": "规定零向量与任意向量共线。",
+   "question": "零向量没有方向，所以零向量与任何向量都不平行。",
+   "answer": "错",
+   "explanation": "错。零向量的方向是任意的，规定零向量与任意向量平行（共线）。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "向量概念",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "Tdeabdd",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "向量概念"
    ]
@@ -17193,17 +17200,18 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第13章 立体几何初步·13.2 基本图形位置关系",
    "type": "判断",
-   "question": "垂直于同一平面的两条直线平行。",
-   "answer": "对",
-   "explanation": "线面垂直的性质定理。",
+   "question": "垂直于同一平面的两个平面互相平行。",
+   "answer": "错",
+   "explanation": "错。垂直于同一平面的两个平面可能相交，如教室墙角相邻的两面墙都垂直于地面；垂直于同一平面的两条直线才平行。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "线面垂直",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "template": "Tfb1cc8",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "线面垂直"
    ]
@@ -21426,7 +21434,7 @@
      "audio": ""
     },
     {
-     "text": "橘黄色",
+     "text": "橘黄色沉淀",
      "image": "",
      "audio": ""
     },
@@ -21615,7 +21623,7 @@
      "audio": ""
     },
     {
-     "text": "甲状腺肿",
+     "text": "地方性甲状腺肿",
      "image": "",
      "audio": ""
     },
@@ -21896,7 +21904,7 @@
      "audio": ""
     },
     {
-     "text": "磷酸化",
+     "text": "形成磷酸二酯键",
      "image": "",
      "audio": ""
     }
@@ -22157,7 +22165,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "蛋白质分子",
+     "text": "两层蛋白质分子",
      "image": "",
      "audio": ""
     },
@@ -22208,7 +22216,7 @@
      "audio": ""
     },
     {
-     "text": "具有选择透过性",
+     "text": "具有一定的选择透过性",
      "image": "",
      "audio": ""
     },
@@ -23225,7 +23233,7 @@
      "audio": ""
     },
     {
-     "text": "水和二氧化碳",
+     "text": "乳酸和二氧化碳",
      "image": "",
      "audio": ""
     },
@@ -23644,7 +23652,7 @@
      "audio": ""
     },
     {
-     "text": "遗传物质改变",
+     "text": "细胞内遗传物质改变",
      "image": "",
      "audio": ""
     }
@@ -23818,7 +23826,7 @@
      "audio": ""
     },
     {
-     "text": "落在地面上的陨石",
+     "text": "陈列在博物馆里的陨石",
      "image": "",
      "audio": ""
     },
@@ -24104,7 +24112,7 @@
      "audio": ""
     },
     {
-     "text": "使地球停止自转",
+     "text": "使地球公转速度明显加快",
      "image": "",
      "audio": ""
     }
@@ -24227,7 +24235,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "人口统计",
+     "text": "古代文献记载",
      "image": "",
      "audio": ""
     },
@@ -24273,7 +24281,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "中生代",
+     "text": "中生代白垩纪晚期",
      "image": "",
      "audio": ""
     },
@@ -24825,7 +24833,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "地形起伏",
+     "text": "地转偏向力的作用",
      "image": "",
      "audio": ""
     },
@@ -24917,7 +24925,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "地转偏向力",
+     "text": "地转偏向力的作用",
      "image": "",
      "audio": ""
     },
@@ -25438,7 +25446,7 @@
      "audio": ""
     },
     {
-     "text": "风沙地貌",
+     "text": "流水堆积地貌",
      "image": "",
      "audio": ""
     }
@@ -25530,7 +25538,7 @@
      "audio": ""
     },
     {
-     "text": "冲积扇",
+     "text": "山前冲积扇地貌",
      "image": "",
      "audio": ""
     }
@@ -25612,7 +25620,7 @@
      "audio": ""
     },
     {
-     "text": "海浪侵蚀地貌",
+     "text": "海浪侵蚀形成的地貌",
      "image": "",
      "audio": ""
     },
@@ -25745,7 +25753,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "荒漠",
+     "text": "温带落叶阔叶林",
      "image": "",
      "audio": ""
     },
@@ -25837,7 +25845,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "亚寒带针叶林",
+     "text": "亚热带常绿硬叶林",
      "image": "",
      "audio": ""
     },
@@ -26542,7 +26550,7 @@
      "audio": ""
     },
     {
-     "text": "原始的生产资料公有制",
+     "text": "生产资料公有制",
      "image": "",
      "audio": ""
     }
@@ -26578,7 +26586,7 @@
      "audio": ""
     },
     {
-     "text": "阶级斗争",
+     "text": "阶级矛盾激化",
      "image": "",
      "audio": ""
     },
@@ -26711,7 +26719,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "《资本论》出版",
+     "text": "《资本论》第一卷出版",
      "image": "",
      "audio": ""
     },
@@ -26987,7 +26995,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "抗日战争胜利",
+     "text": "抗日战争取得全面胜利",
      "image": "",
      "audio": ""
     },
@@ -27452,7 +27460,7 @@
      "audio": ""
     },
     {
-     "text": "市场经济",
+     "text": "社会主义市场经济",
      "image": "",
      "audio": ""
     },
@@ -27503,7 +27511,7 @@
      "audio": ""
     },
     {
-     "text": "无产阶级和资产阶级的矛盾",
+     "text": "人民日益增长的物质文化需要和不平衡不充分的发展之间的矛盾",
      "image": "",
      "audio": ""
     },
@@ -27830,7 +27838,7 @@
      "audio": ""
     },
     {
-     "text": "依靠对外扩张的现代化",
+     "text": "依靠对外扩张掠夺的现代化",
      "image": "",
      "audio": ""
     }
@@ -28147,7 +28155,7 @@
      "audio": ""
     },
     {
-     "text": "公有制经济",
+     "text": "混合所有制经济",
      "image": "",
      "audio": ""
     },
@@ -28607,7 +28615,7 @@
      "audio": ""
     },
     {
-     "text": "低速增长阶段",
+     "text": "低速稳定增长阶段",
      "image": "",
      "audio": ""
     },
@@ -28888,7 +28896,7 @@
      "audio": ""
     },
     {
-     "text": "私营企业主的利润",
+     "text": "私营企业主获得的利润",
      "image": "",
      "audio": ""
     }
@@ -32673,9 +32681,9 @@
    "textbook": "苏教版2019",
    "unit": "必修一·专题4 硫与环境保护·第三单元 防治二氧化硫对环境的污染",
    "type": "判断",
-   "question": "正常雨水因溶有 CO₂，pH 约为 5.6。",
-   "answer": "对",
-   "explanation": "pH<5.6 的降水才叫酸雨。",
+   "question": "pH 小于 7 的雨水就是酸雨。",
+   "answer": "错",
+   "explanation": "错。正常雨水因溶有 CO₂，pH 约为 5.6；pH 小于 5.6 的降水才叫酸雨。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -33120,12 +33128,12 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "volume": "必修第二册",
    "unit": "必修二·专题6 化学反应与能量变化·第一单元 化学反应速率与反应限度",
-   "question": "催化剂能改变化学反应速率，但不能改变平衡时反应物的转化率。",
-   "explanation": "催化剂同等程度改变正逆反应速率，平衡不移动。",
+   "question": "催化剂能提高平衡时反应物的转化率。",
+   "explanation": "错。催化剂同等程度地改变正、逆反应速率，只能缩短到达平衡的时间，不能改变平衡转化率。",
    "difficulty": 2,
    "knowledge_point": "反应速率",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T509c3c",
    "change_tag": "新增",
@@ -33236,12 +33244,12 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "volume": "必修第二册",
    "unit": "必修二·专题6 化学反应与能量变化·第三单元 化学能与电能的转化",
-   "question": "原电池的负极发生氧化反应。",
-   "explanation": "负极失去电子，发生氧化反应。",
+   "question": "原电池的负极发生还原反应。",
+   "explanation": "错。原电池负极失去电子，发生氧化反应；正极得到电子，发生还原反应。",
    "difficulty": 2,
    "knowledge_point": "原电池",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tfb2ceb",
    "change_tag": "新增",
@@ -33744,9 +33752,9 @@
    "textbook": "统编版2019",
    "unit": "拓展·纲要下",
    "type": "判断",
-   "question": "美国《独立宣言》发表于 1776 年。",
-   "answer": "对",
-   "explanation": "1776 年 7 月 4 日发表。",
+   "question": "美国《独立宣言》发表于 1789 年。",
+   "answer": "错",
+   "explanation": "错。《独立宣言》发表于 1776 年 7 月 4 日；1789 年美国联邦政府成立，华盛顿就任总统。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
@@ -33834,7 +33842,7 @@
      "audio": ""
     },
     {
-     "text": "哥伦布",
+     "text": "亚美利哥",
      "image": "",
      "audio": ""
     }
@@ -33934,9 +33942,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统",
    "type": "判断",
-   "question": "秦朝在地方推行郡县制。",
-   "answer": "对",
-   "explanation": "郡县长官由皇帝直接任免。",
+   "question": "秦朝在地方推行分封制。",
+   "answer": "错",
+   "explanation": "错。秦朝在地方推行郡县制，郡县长官由皇帝直接任免；分封制是西周的制度。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修上册",
@@ -34169,9 +34177,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第2课 诸侯纷争与变法运动",
    "type": "判断",
-   "question": "儒家学派的创始人是孔子。",
-   "answer": "对",
-   "explanation": "孔子提出“仁”的学说。",
+   "question": "道家学派的创始人是孔子。",
+   "answer": "错",
+   "explanation": "错。孔子是儒家学派的创始人，道家学派的创始人是老子。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修上册",
@@ -34360,9 +34368,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第一单元 从中华文明起源到秦汉大一统·第4课 西汉与东汉——统一多民族封建国家的巩固",
    "type": "判断",
-   "question": "汉武帝采纳董仲舒的建议，“罢黜百家，独尊儒术”。",
-   "answer": "对",
-   "explanation": "儒学成为正统思想。",
+   "question": "汉武帝采纳李斯的建议，“罢黜百家，独尊儒术”。",
+   "answer": "错",
+   "explanation": "错。汉武帝采纳的是董仲舒的建议；李斯是秦朝丞相。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -34594,9 +34602,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第三单元 辽宋夏金多民族政权的并立与元朝的统一",
    "type": "判断",
-   "question": "北宋时期出现了世界上最早的纸币“交子”。",
-   "answer": "对",
-   "explanation": "交子出现于北宋前期的四川地区。",
+   "question": "世界上最早的纸币“交子”出现于唐朝。",
+   "answer": "错",
+   "explanation": "错。“交子”出现于北宋前期的四川地区。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -34832,7 +34840,7 @@
    "question": "1956 年三大改造基本完成后，我国进入了？",
    "options": [
     {
-     "text": "新民主主义社会",
+     "text": "社会主义高级阶段",
      "image": "",
      "audio": ""
     },
@@ -34921,9 +34929,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
    "type": "判断",
-   "question": "隋朝开创的科举制以考试成绩选拔官员。",
-   "answer": "对",
-   "explanation": "科举制打破了门阀士族对官位的垄断。",
+   "question": "科举制创立于唐朝。",
+   "answer": "错",
+   "explanation": "错。科举制创立于隋朝，唐朝进一步完善。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -34992,9 +35000,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展·第5课 三国两晋南北朝的政权更迭与民族交融",
    "type": "判断",
-   "question": "三国中由孙权建立的政权是吴。",
-   "answer": "对",
-   "explanation": "魏、蜀、吴分别由曹丕、刘备、孙权建立。",
+   "question": "三国中由刘备建立的政权是吴。",
+   "answer": "错",
+   "explanation": "错。魏、蜀、吴分别由曹丕、刘备、孙权建立，刘备建立的是蜀（汉）。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -35183,9 +35191,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·两次鸦片战争",
    "type": "判断",
-   "question": "《南京条约》规定割让香港岛给英国。",
-   "answer": "对",
-   "explanation": "1842 年中英《南京条约》。",
+   "question": "《南京条约》规定割让九龙司地方一区给英国。",
+   "answer": "错",
+   "explanation": "错。1842 年《南京条约》割让香港岛；割让九龙司地方一区是 1860 年《北京条约》的规定。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -35327,9 +35335,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第五单元 晚清时期的内忧外患与救亡图存·国家出路的探索与列强侵略的加剧",
    "type": "判断",
-   "question": "太平天国颁布的纲领性文件是《天朝田亩制度》。",
-   "answer": "对",
-   "explanation": "1853 年颁布。",
+   "question": "太平天国后期颁布的纲领性文件是《天朝田亩制度》。",
+   "answer": "错",
+   "explanation": "错。《天朝田亩制度》是 1853 年前期颁布的；后期洪仁玕提出的是《资政新篇》。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -35407,7 +35415,7 @@
      "audio": ""
     },
     {
-     "text": "旅顺",
+     "text": "旅顺口",
      "image": "",
      "audio": ""
     },
@@ -35701,9 +35709,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第六单元 辛亥革命与中华民国的建立·辛亥革命",
    "type": "判断",
-   "question": "武昌起义爆发于 1911 年。",
-   "answer": "对",
-   "explanation": "1911 年 10 月 10 日。",
+   "question": "武昌起义爆发于 1912 年。",
+   "answer": "错",
+   "explanation": "错。武昌起义爆发于 1911 年 10 月 10 日；1912 年中华民国成立。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修上册",
@@ -35820,9 +35828,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第六单元 辛亥革命与中华民国的建立·辛亥革命",
    "type": "判断",
-   "question": "《中华民国临时约法》是中国历史上第一部资产阶级共和国性质的宪法文件。",
-   "answer": "对",
-   "explanation": "1912 年 3 月公布。",
+   "question": "《中华民国临时约法》是中国历史上第一部社会主义类型的宪法文件。",
+   "answer": "错",
+   "explanation": "错。《临时约法》是中国历史上第一部资产阶级共和国性质的宪法文件；我国第一部社会主义类型的宪法是 1954 年宪法。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -36007,9 +36015,9 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第十单元 改革开放与社会主义现代化建设新时期·中国特色社会主义道路的开辟与发展",
    "type": "判断",
-   "question": "1997 年香港回归祖国。",
-   "answer": "对",
-   "explanation": "1997 年 7 月 1 日。",
+   "question": "1999 年香港回归祖国。",
+   "answer": "错",
+   "explanation": "错。香港于 1997 年 7 月 1 日回归；1999 年 12 月 20 日回归的是澳门。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修上册",
@@ -36106,7 +36114,7 @@
    "question": "明清科举考试的文体是？",
    "options": [
     {
-     "text": "骈文",
+     "text": "骈体文",
      "image": "",
      "audio": ""
     },
@@ -36200,12 +36208,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第一章 宇宙中的地球·第一节 地球的宇宙环境",
-   "question": "太阳系中质量最大的天体是太阳。",
-   "explanation": "太阳质量约占太阳系总质量的 99.86%。",
+   "question": "太阳系中质量最大的行星是土星。",
+   "explanation": "错。太阳系中质量最大的行星是木星；整个太阳系中质量最大的天体是太阳。",
    "difficulty": 1,
    "knowledge_point": "天体系统",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T0aad7e",
    "change_tag": "新增",
@@ -36386,12 +36394,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第一章 宇宙中的地球·第二节 太阳对地球的影响",
-   "question": "耀斑出现在太阳大气的色球层。",
-   "explanation": "耀斑是色球层上突然增亮的斑块。",
+   "question": "耀斑出现在太阳大气的光球层。",
+   "explanation": "错。耀斑出现在色球层；光球层上出现的是黑子。",
    "difficulty": 2,
    "knowledge_point": "太阳辐射",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T88fa9d",
    "change_tag": "新增",
@@ -36456,12 +36464,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第一章 宇宙中的地球·第四节 地球的圈层结构",
-   "question": "软流层一般被认为是岩浆的发源地。",
-   "explanation": "软流层位于上地幔上部。",
+   "question": "软流层位于下地幔。",
+   "explanation": "错。软流层位于上地幔上部，一般被认为是岩浆的发源地。",
    "difficulty": 2,
    "knowledge_point": "内部圈层",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T9a5af3",
    "change_tag": "新增",
@@ -36828,12 +36836,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第二章 地球上的大气·第一节 大气的组成和垂直分层",
-   "question": "平流层的气温随高度增加而升高。",
-   "explanation": "平流层中臭氧吸收紫外线。",
+   "question": "平流层的气温随高度增加而降低。",
+   "explanation": "错。平流层中臭氧吸收紫外线，气温随高度增加而升高；对流层气温才随高度增加而降低。",
    "difficulty": 2,
    "knowledge_point": "大气组成",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tf983ed",
    "change_tag": "新增",
@@ -37176,7 +37184,7 @@
      "audio": ""
     },
     {
-     "text": "地下室",
+     "text": "附近的地下室",
      "image": "",
      "audio": ""
     },
@@ -37278,7 +37286,7 @@
      "audio": ""
     },
     {
-     "text": "手电筒",
+     "text": "备用手电筒和电池",
      "image": "",
      "audio": ""
     }
@@ -37478,12 +37486,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第六章 自然灾害·第四节 地理信息技术在防灾减灾中的应用",
-   "question": "遥感（RS）主要用于获取地表信息。",
-   "explanation": "遥感可大范围、快速获取地表信息。",
+   "question": "遥感（RS）主要用于定位和导航。",
+   "explanation": "错。定位和导航主要靠全球卫星导航系统（GNSS），遥感主要用于获取地表信息。",
    "difficulty": 1,
    "knowledge_point": "地理信息技术",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Te147d1",
    "change_tag": "新增",
@@ -37594,12 +37602,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第四章 地貌·第一节 常见地貌类型",
-   "question": "风蚀蘑菇是风力侵蚀形成的地貌。",
-   "explanation": "多见于干旱地区。",
+   "question": "风蚀蘑菇是流水侵蚀形成的地貌。",
+   "explanation": "错。风蚀蘑菇是风力侵蚀形成的地貌，多见于干旱地区。",
    "difficulty": 2,
    "knowledge_point": "喀斯特地貌",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tfc2b2f",
    "change_tag": "新增",
@@ -37850,12 +37858,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第一册",
    "unit": "必修1·第一课 社会主义从空想到科学、从理论到实践的发展·1.2 科学社会主义的理论与实践",
-   "question": "《共产党宣言》发表于 1848 年。",
-   "explanation": "它的发表标志着科学社会主义的诞生。",
+   "question": "《共产党宣言》的发表标志着空想社会主义的诞生。",
+   "explanation": "错。1848 年《共产党宣言》的发表标志着科学社会主义的诞生；空想社会主义早在 16 世纪就出现了。",
    "difficulty": 1,
    "knowledge_point": "科学社会主义",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T882bdb",
    "change_tag": "新增",
@@ -38053,7 +38061,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "市场经济",
+     "text": "社会主义市场经济",
      "image": "",
      "audio": ""
     },
@@ -38133,7 +38141,7 @@
      "audio": ""
     },
     {
-     "text": "封建社会",
+     "text": "独立的封建专制社会",
      "image": "",
      "audio": ""
     },
@@ -38193,7 +38201,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "和平赎买",
+     "text": "国家和平赎买",
      "image": "",
      "audio": ""
     },
@@ -38386,12 +38394,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第二册",
    "unit": "必修2·第一课 我国的生产资料所有制·1.1 公有制为主体 多种所有制经济共同发展",
-   "question": "国有经济是国民经济的主导力量。",
-   "explanation": "国有经济控制国民经济命脉。",
+   "question": "非公有制经济是国民经济的主导力量。",
+   "explanation": "错。国有经济是国民经济的主导力量；非公有制经济是社会主义市场经济的重要组成部分。",
    "difficulty": 2,
    "knowledge_point": "基本经济制度",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tba3170",
    "change_tag": "新增",
@@ -38473,7 +38481,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "限制、取缔",
+     "text": "限制、利用、改造",
      "image": "",
      "audio": ""
     },
@@ -38524,7 +38532,7 @@
      "audio": ""
     },
     {
-     "text": "私营经济",
+     "text": "非公有制经济",
      "image": "",
      "audio": ""
     },
@@ -38666,12 +38674,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第二册",
    "unit": "必修2·第三课 我国的经济发展·3.2 建设现代化经济体系",
-   "question": "实体经济是建设现代化经济体系的着力点。",
-   "explanation": "要把发展经济的着力点放在实体经济上。",
+   "question": "虚拟经济是建设现代化经济体系的着力点。",
+   "explanation": "错。实体经济是建设现代化经济体系的着力点。",
    "difficulty": 2,
    "knowledge_point": "新发展格局",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tbdc863",
    "change_tag": "新增",
@@ -38852,12 +38860,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第二册",
    "unit": "必修2·第二课 我国的社会主义市场经济体制·2.2 更好发挥政府作用",
-   "question": "国家宏观调控以经济手段和法律手段为主，辅之以必要的行政手段。",
-   "explanation": "这是宏观调控手段的基本要求。",
+   "question": "国家宏观调控以行政手段为主，辅之以经济手段和法律手段。",
+   "explanation": "错。宏观调控以经济手段和法律手段为主，辅之以必要的行政手段。",
    "difficulty": 2,
    "knowledge_point": "宏观调控",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tbb9fdd",
    "change_tag": "新增",
@@ -38968,12 +38976,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第二册",
    "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.2 我国的社会保障",
-   "question": "社会保险包括养老、医疗、失业、工伤和生育保险。",
-   "explanation": "社会保险是社会保障体系的核心部分。",
+   "question": "社会救助是社会保障体系的核心部分。",
+   "explanation": "错。社会保险是社会保障体系的核心部分，包括养老、医疗、失业、工伤和生育保险。",
    "difficulty": 2,
    "knowledge_point": "社会保障",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tfc799a",
    "change_tag": "新增",
@@ -39081,10 +39089,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第1章 集合·1.1 集合的概念与表示",
    "type": "判断",
-   "question": "$0\\in\\mathbb N$。",
+   "question": "$0\\in\\mathbb N^*$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "自然数集包含 0。",
+   "answer": "错",
+   "explanation": "错。$\\mathbb N^*$（或 $\\mathbb N_+$）是正整数集，不含 0；0 属于自然数集 $\\mathbb N$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -39277,10 +39285,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第2章 常用逻辑用语·2.1 命题、定理、定义",
    "type": "判断",
-   "question": "命题“若 $x^2=1$，则 $x=1$”是假命题。",
+   "question": "命题“若 $x^2=1$，则 $x=1$”是真命题。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "反例：$x=-1$。",
+   "answer": "错",
+   "explanation": "错。反例：$x=-1$ 时 $x^2=1$，但 $x\\neq1$，所以是假命题。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -39302,10 +39310,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第2章 常用逻辑用语·2.2 充分条件、必要条件、充要条件",
    "type": "判断",
-   "question": "“$x>2$”是“$x>1$”的充分条件。",
+   "question": "“$x>1$”是“$x>2$”的充分条件。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$x>2\\Rightarrow x>1$。",
+   "answer": "错",
+   "explanation": "错。由 $x>1$ 推不出 $x>2$（如 $x=1.5$），它是“$x>2$”的必要条件；“$x>2$”才是“$x>1$”的充分条件。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -39450,10 +39458,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第3章 不等式·3.1 不等式的基本性质",
    "type": "判断",
-   "question": "若 $a>b>0$，则 $\\dfrac1a<\\dfrac1b$。",
+   "question": "若 $a>b$，则 $\\dfrac1a<\\dfrac1b$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "两边同除以正数 $ab$。",
+   "answer": "错",
+   "explanation": "错。要求 $a,b$ 同号（$ab>0$）；如 $a=1,\\ b=-1$ 时，$\\dfrac1a=1>\\dfrac1b=-1$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -39475,10 +39483,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第3章 不等式·3.1 不等式的基本性质",
    "type": "判断",
-   "question": "若 $a>b$，$c>d$，则 $a+c>b+d$。",
+   "question": "若 $a>b$，$c>d$，则 $a-c>b-d$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "同向不等式可以相加。",
+   "answer": "错",
+   "explanation": "错。同向不等式只能相加，不能相减；如 $a=3,b=2,c=5,d=1$ 时，$a-c=-2<b-d=1$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -39500,10 +39508,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第4章 指数与对数·4.2 对数",
    "type": "判断",
-   "question": "$\\log_a 1=0$（$a>0$ 且 $a\\ne1$）。",
+   "question": "$\\log_a(M+N)=\\log_aM+\\log_aN$（$a>0$ 且 $a\\ne1$，$M,N>0$）。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "因为 $a^0=1$。",
+   "answer": "错",
+   "explanation": "错。正确的运算性质是 $\\log_a(MN)=\\log_aM+\\log_aN$；如 $M=N=1$ 时左边 $\\log_a2\\neq0$，右边为 0。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -39689,10 +39697,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第5章 函数概念与性质·5.3 函数的单调性",
    "type": "判断",
-   "question": "函数 $f(x)=\\dfrac1x$ 在 $(0,+\\infty)$ 上单调递减。",
+   "question": "函数 $f(x)=\\dfrac1x$ 在它的定义域上单调递减。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$x$ 增大时 $\\dfrac1x$ 减小。",
+   "answer": "错",
+   "explanation": "错。它在 $(-\\infty,0)$ 和 $(0,+\\infty)$ 上分别单调递减，但在整个定义域上不是减函数，如 $f(-1)=-1<f(1)=1$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -39788,10 +39796,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第5章 函数概念与性质·5.4 函数的奇偶性",
    "type": "判断",
-   "question": "偶函数的图象关于 $y$ 轴对称。",
+   "question": "奇函数的图象一定经过原点。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "奇函数图象关于原点对称。",
+   "answer": "错",
+   "explanation": "错。奇函数在 $x=0$ 处有定义时才有 $f(0)=0$；如 $y=\\dfrac1x$ 是奇函数，图象不过原点。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -39932,10 +39940,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第6章 幂函数、指数函数和对数函数·6.1 幂函数",
    "type": "判断",
-   "question": "幂函数 $y=x^\\alpha$ 的图象都经过点 $(1,1)$。",
+   "question": "幂函数 $y=x^\\alpha$ 的图象都经过点 $(0,0)$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$1^\\alpha=1$。",
+   "answer": "错",
+   "explanation": "错。$\\alpha<0$ 时，如 $y=x^{-1}$ 在 $x=0$ 处无定义，图象不过原点；幂函数的图象都经过的是点 $(1,1)$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -40029,10 +40037,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第6章 幂函数、指数函数和对数函数·6.2 指数函数",
    "type": "判断",
-   "question": "指数函数 $y=2^x$ 在 $\\mathbb R$ 上单调递增。",
+   "question": "指数函数 $y=a^x$（$a>0$ 且 $a\\ne1$）在 $\\mathbb R$ 上都单调递增。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "底数大于 1 时递增。",
+   "answer": "错",
+   "explanation": "错。$a>1$ 时递增，$0<a<1$ 时递减，如 $y=\\left(\\dfrac12\\right)^x$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -40128,10 +40136,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第6章 幂函数、指数函数和对数函数·6.3 对数函数",
    "type": "判断",
-   "question": "对数函数 $y=\\log_2 x$ 的图象过点 $(1,0)$。",
+   "question": "对数函数 $y=\\log_2 x$ 的图象过点 $(0,1)$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$\\log_2 1=0$。",
+   "answer": "错",
+   "explanation": "错。对数函数定义域是 $x>0$，$x$ 取不到 0；因为 $\\log_21=0$，图象过的是点 $(1,0)$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -40203,10 +40211,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第7章 三角函数·7.3 三角函数的图象和性质",
    "type": "判断",
-   "question": "$y=\\cos x$ 是偶函数。",
+   "question": "$y=\\sin x$ 是偶函数。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$\\cos(-x)=\\cos x$。",
+   "answer": "错",
+   "explanation": "错。$\\sin(-x)=-\\sin x$，$y=\\sin x$ 是奇函数；$y=\\cos x$ 才是偶函数。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -40274,10 +40282,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第8章 函数应用·8.1 二分法与求方程近似解",
    "type": "判断",
-   "question": "函数的零点就是函数图象与 $x$ 轴交点的横坐标。",
+   "question": "函数的零点是函数图象与 $x$ 轴的交点。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "零点是使 $f(x)=0$ 的实数 $x$。",
+   "answer": "错",
+   "explanation": "错。零点是使 $f(x)=0$ 的实数 $x$，即交点的横坐标，是一个数，不是点。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -40326,10 +40334,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第8章 函数应用·8.1 二分法与求方程近似解",
    "type": "判断",
-   "question": "若 $f(x)$ 在 $[a,b]$ 上的图象连续不断，且 $f(a)f(b)<0$，则 $f(x)$ 在 $(a,b)$ 内至少有一个零点。",
+   "question": "若连续函数 $f(x)$ 在 $(a,b)$ 内有零点，则一定有 $f(a)f(b)<0$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "函数零点存在定理。",
+   "answer": "错",
+   "explanation": "错。零点存在定理反过来不成立；如 $f(x)=x^2$ 在 $(-1,1)$ 内有零点 0，但 $f(-1)f(1)=1>0$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -40500,10 +40508,10 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第10章 三角恒等变换·10.1 两角和与差的三角函数",
    "type": "判断",
-   "question": "$\\cos(\\alpha-\\beta)=\\cos\\alpha\\cos\\beta+\\sin\\alpha\\sin\\beta$。",
+   "question": "$\\cos(\\alpha-\\beta)=\\cos\\alpha\\cos\\beta-\\sin\\alpha\\sin\\beta$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "两角差的余弦公式。",
+   "answer": "错",
+   "explanation": "错。两角差的余弦是 $\\cos(\\alpha-\\beta)=\\cos\\alpha\\cos\\beta+\\sin\\alpha\\sin\\beta$；题中是 $\\cos(\\alpha+\\beta)$ 的展开式。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -40671,10 +40679,10 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第11章 解三角形·11.1 余弦定理",
    "type": "判断",
-   "question": "在 $\\triangle ABC$ 中，若 $a^2=b^2+c^2$，则 $A=90^\\circ$。",
+   "question": "在 $\\triangle ABC$ 中，若 $a^2>b^2+c^2$，则 $\\triangle ABC$ 是锐角三角形。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "由余弦定理 $\\cos A=0$。",
+   "answer": "错",
+   "explanation": "错。由余弦定理 $\\cos A=\\dfrac{b^2+c^2-a^2}{2bc}<0$，$A$ 是钝角，三角形是钝角三角形。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -41081,10 +41089,10 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第12章 复数·12.1 复数的概念",
    "type": "判断",
-   "question": "$i^2=-1$。",
+   "question": "$i^3=i$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "虚数单位的定义。",
+   "answer": "错",
+   "explanation": "错。$i^3=i^2\\cdot i=-i$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第二册",
@@ -41258,9 +41266,9 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第12章 复数·12.3 复数的几何意义",
    "type": "判断",
-   "question": "复平面内，实轴上的点都表示实数。",
-   "answer": "对",
-   "explanation": "虚轴上除原点外的点表示纯虚数。",
+   "question": "复平面内，虚轴上的点都表示纯虚数。",
+   "answer": "错",
+   "explanation": "错。虚轴上的原点表示实数 0，不是纯虚数；虚轴上除原点外的点才表示纯虚数。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -41477,9 +41485,9 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第13章 立体几何初步·13.1 基本立体图形",
    "type": "判断",
-   "question": "用一个平行于棱锥底面的平面去截棱锥，底面与截面之间的部分是棱台。",
-   "answer": "对",
-   "explanation": "棱台的定义。",
+   "question": "用一个平面去截棱锥，底面与截面之间的部分是棱台。",
+   "answer": "错",
+   "explanation": "错。截面必须平行于棱锥的底面，底面与截面之间的部分才是棱台。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -41791,9 +41799,9 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第14章 统计·14.1 获取数据的基本途径及相关概念",
    "type": "判断",
-   "question": "样本容量没有单位。",
-   "answer": "对",
-   "explanation": "样本容量是个体的数目。",
+   "question": "从 500 名学生中抽取 50 名学生调查身高，这个调查的样本是这 50 名学生。",
+   "answer": "错",
+   "explanation": "错。考察对象是身高，样本是这 50 名学生的身高，不是学生本人。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第二册",
@@ -42027,9 +42035,9 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第14章 统计·14.3 统计图表",
    "type": "判断",
-   "question": "频率分布直方图中，各小矩形的面积之和等于 1。",
-   "answer": "对",
-   "explanation": "每个小矩形面积表示该组频率。",
+   "question": "频率分布直方图中，各小矩形的高之和等于 1。",
+   "answer": "错",
+   "explanation": "错。小矩形的高是“频率/组距”，各小矩形的面积之和才等于 1。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -42367,10 +42375,10 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第15章 概率·15.3 互斥事件和独立事件",
    "type": "判断",
-   "question": "若事件 $A$、$B$ 互斥，则 $P(A\\cup B)=P(A)+P(B)$。",
+   "question": "若事件 $A$、$B$ 互斥，则 $P(A)+P(B)=1$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "互斥事件概率加法公式。",
+   "answer": "错",
+   "explanation": "错。只有 $A$、$B$ 对立时才有 $P(A)+P(B)=1$；互斥事件不一定对立，只有 $P(A\\cup B)=P(A)+P(B)$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -42583,9 +42591,9 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第9章 平面向量·9.1 向量概念",
    "type": "判断",
-   "question": "长度相等且方向相同的向量叫做相等向量。",
-   "answer": "对",
-   "explanation": "相等向量的定义。",
+   "question": "长度相等的向量叫做相等向量。",
+   "answer": "错",
+   "explanation": "错。相等向量要求长度相等并且方向相同。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第二册",
@@ -42633,10 +42641,10 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第9章 平面向量·9.2 向量运算",
    "type": "判断",
-   "question": "$\\overrightarrow{AB}+\\overrightarrow{BC}=\\overrightarrow{AC}$。",
+   "question": "在 $\\triangle ABC$ 中，向量 $\\overrightarrow{AB}$ 与 $\\overrightarrow{BC}$ 的和等于 $\\overrightarrow{CA}$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "向量加法的三角形法则。",
+   "answer": "错",
+   "explanation": "错。首尾相接的两个向量相加，$\\overrightarrow{AB}+\\overrightarrow{BC}=\\overrightarrow{AC}$；$\\overrightarrow{CA}$ 是它的相反向量。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -42732,10 +42740,10 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第9章 平面向量·9.2 向量运算",
    "type": "判断",
-   "question": "若非零向量 $\\vec a,\\vec b$ 满足 $\\vec a\\cdot\\vec b=0$，则 $\\vec a\\perp\\vec b$。",
+   "question": "若 $\\vec a\\cdot\\vec b=\\vec a\\cdot\\vec c$ 且 $\\vec a\\neq\\vec 0$，则 $\\vec b=\\vec c$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "数量积为 0 的非零向量互相垂直。",
+   "answer": "错",
+   "explanation": "错。数量积不满足消去律，只能得到 $\\vec a\\cdot(\\vec b-\\vec c)=0$，即 $\\vec a\\perp(\\vec b-\\vec c)$，$\\vec b$ 不一定等于 $\\vec c$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -43038,9 +43046,9 @@
    "textbook": "人教版2019",
    "unit": "必修一·第三章 相互作用——力·3 牛顿第三定律",
    "type": "判断",
-   "question": "作用力和反作用力总是同时产生、同时消失。",
-   "answer": "对",
-   "explanation": "牛顿第三定律。",
+   "question": "作用力和反作用力大小相等、方向相反，所以它们的作用效果可以相互抵消。",
+   "answer": "错",
+   "explanation": "错。作用力和反作用力作用在两个不同的物体上，不能相互抵消；能抵消的是作用在同一物体上的一对平衡力。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -43178,9 +43186,9 @@
    "textbook": "人教版2019",
    "unit": "必修一·第四章 运动和力的关系·1 牛顿第一定律",
    "type": "判断",
-   "question": "物体的运动状态发生改变，一定受到了力的作用。",
-   "answer": "对",
-   "explanation": "力是改变物体运动状态的原因。",
+   "question": "物体受到力的作用，运动状态一定改变。",
+   "answer": "错",
+   "explanation": "错。物体所受合力为零（如受一对平衡力）时，运动状态不变；合力不为零时运动状态才改变。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -43364,9 +43372,9 @@
    "textbook": "人教版2019",
    "unit": "必修一·第四章 运动和力的关系·4 力学单位制",
    "type": "判断",
-   "question": "在国际单位制中，力的单位“牛顿”是导出单位。",
-   "answer": "对",
-   "explanation": "$1\\,\\mathrm N=1\\,\\mathrm{kg\\cdot m/s^2}$。",
+   "question": "在国际单位制中，力的单位“牛顿”是基本单位。",
+   "answer": "错",
+   "explanation": "错。力学的基本单位是千克、米、秒；牛顿是导出单位，$1\\,\\mathrm N=1\\,\\mathrm{kg\\cdot m/s^2}$。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
@@ -43536,12 +43544,12 @@
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "volume": "必修第二册",
    "unit": "必修二·第五章 抛体运动·1 曲线运动",
-   "question": "曲线运动一定是变速运动。",
-   "explanation": "速度方向时刻改变。",
+   "question": "变速运动一定是曲线运动。",
+   "explanation": "错。曲线运动一定是变速运动，但变速运动不一定是曲线运动，如匀加速直线运动。",
    "difficulty": 2,
    "knowledge_point": "曲线运动",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T94cea1",
    "change_tag": "新增",
@@ -44011,12 +44019,12 @@
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "volume": "必修第二册",
    "unit": "必修二·第五章 抛体运动·4 抛体运动的规律",
-   "question": "平抛运动的加速度为重力加速度 $g$。",
-   "explanation": "只受重力。",
+   "question": "平抛运动的加速度方向始终与速度方向垂直。",
+   "explanation": "错。平抛运动的加速度是 $g$，方向竖直向下；速度方向时刻改变，只有在抛出点时才与加速度垂直。",
    "difficulty": 2,
    "knowledge_point": "平抛运动",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T10baec",
    "change_tag": "新增",
@@ -44561,12 +44569,12 @@
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "volume": "必修第二册",
    "unit": "必修二·第六章 圆周运动·3 向心加速度",
-   "question": "匀速圆周运动的向心加速度大小不变、方向时刻改变。",
-   "explanation": "所以匀速圆周运动是变加速运动。",
+   "question": "匀速圆周运动是匀变速运动。",
+   "explanation": "错。匀速圆周运动的向心加速度大小不变、方向时刻改变，是变加速运动。",
    "difficulty": 2,
    "knowledge_point": "向心加速度",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T5e2388",
    "change_tag": "新增",
@@ -44682,12 +44690,12 @@
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "volume": "必修第二册",
    "unit": "必修二·第六章 圆周运动·4 生活中的圆周运动",
-   "question": "在轨道上绕地球运行的航天员处于完全失重状态。",
-   "explanation": "重力全部用来提供向心力。",
+   "question": "在轨道上绕地球运行的航天员不受重力。",
+   "explanation": "错。航天员仍受重力，重力全部用来提供做圆周运动的向心力，所以处于完全失重状态。",
    "difficulty": 2,
    "knowledge_point": "火车转弯",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T3451fe",
    "change_tag": "新增",
@@ -44769,7 +44777,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "生物之间的差异性",
+     "text": "动物和植物细胞的差异性",
      "image": "",
      "audio": ""
     },
@@ -44938,12 +44946,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第2章 组成细胞的分子·第1节 细胞中的元素和化合物",
-   "question": "组成细胞的元素中，C、H、O、N 含量最多。",
-   "explanation": "这四种元素是基本元素。",
+   "question": "在细胞鲜重中，含量最多的元素是 C。",
+   "explanation": "错。细胞鲜重中含量最多的元素是 O（细胞中水最多），细胞干重中含量最多的才是 C。",
    "difficulty": 2,
    "knowledge_point": "元素",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Td4c5df",
    "change_tag": "新增",
@@ -45124,12 +45132,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第2章 组成细胞的分子·第3节 细胞中的糖类和脂质",
-   "question": "脂肪是细胞内良好的储能物质。",
-   "explanation": "同质量的脂肪比糖类储存更多能量。",
+   "question": "脂肪是细胞内的主要能源物质。",
+   "explanation": "错。糖类是主要的能源物质，脂肪是细胞内良好的储能物质。",
    "difficulty": 2,
    "knowledge_point": "糖类",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T396299",
    "change_tag": "新增",
@@ -45264,12 +45272,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第2章 组成细胞的分子·第5节 核酸是遗传信息的携带者",
-   "question": "真核细胞的 DNA 主要分布在细胞核中。",
-   "explanation": "线粒体、叶绿体中也含少量 DNA。",
+   "question": "真核细胞的 DNA 全部分布在细胞核中。",
+   "explanation": "错。真核细胞的 DNA 主要分布在细胞核中，线粒体、叶绿体中也含有少量 DNA。",
    "difficulty": 2,
    "knowledge_point": "核酸",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T405f2e",
    "change_tag": "新增",
@@ -45636,12 +45644,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第4章 细胞的物质输入和输出·第1节 被动运输",
-   "question": "自由扩散不需要转运蛋白，也不消耗能量。",
-   "explanation": "顺浓度梯度运输。",
+   "question": "自由扩散和协助扩散都不需要转运蛋白。",
+   "explanation": "错。自由扩散不需要转运蛋白；协助扩散需要载体蛋白或通道蛋白，二者都不消耗能量。",
    "difficulty": 2,
    "knowledge_point": "渗透作用",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tad5985",
    "change_tag": "新增",
@@ -45663,7 +45671,7 @@
      "audio": ""
     },
     {
-     "text": "细胞质",
+     "text": "全部细胞质",
      "image": "",
      "audio": ""
     },
@@ -45752,12 +45760,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第4章 细胞的物质输入和输出·第2节 主动运输与胞吞、胞吐",
-   "question": "主动运输需要载体蛋白，并消耗能量。",
-   "explanation": "可逆浓度梯度运输。",
+   "question": "主动运输需要载体蛋白，但不消耗能量。",
+   "explanation": "错。主动运输既需要载体蛋白，又要消耗细胞代谢释放的能量，可以逆浓度梯度运输。",
    "difficulty": 2,
    "knowledge_point": "主动运输",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T6272a8",
    "change_tag": "新增",
@@ -45820,7 +45828,7 @@
      "audio": ""
     },
     {
-     "text": "选择透过性",
+     "text": "一定的选择透过性",
      "image": "",
      "audio": ""
     },
@@ -45914,12 +45922,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第5章 细胞的能量供应和利用·第1节 降低化学反应活化能的酶",
-   "question": "酶具有高效性、专一性，作用条件较温和。",
-   "explanation": "酶的特性。",
+   "question": "酶在低温下会因空间结构被破坏而永久失活。",
+   "explanation": "错。低温只是抑制酶的活性，空间结构稳定，温度回升后活性可以恢复；高温、过酸、过碱才会破坏空间结构使酶永久失活。",
    "difficulty": 2,
    "knowledge_point": "酶",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T60002c",
    "change_tag": "新增",
@@ -46104,12 +46112,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第5章 细胞的能量供应和利用·第3节 细胞呼吸的原理和应用",
-   "question": "有氧呼吸的主要场所是线粒体。",
-   "explanation": "第一阶段在细胞质基质中进行。",
+   "question": "有氧呼吸的全过程都在线粒体中进行。",
+   "explanation": "错。有氧呼吸第一阶段在细胞质基质中进行，第二、三阶段在线粒体中进行，线粒体是主要场所。",
    "difficulty": 1,
    "knowledge_point": "有氧呼吸",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T768de5",
    "change_tag": "新增",
@@ -46174,12 +46182,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第5章 细胞的能量供应和利用·第4节 光合作用与能量转化",
-   "question": "暗反应的场所是叶绿体基质。",
-   "explanation": "光反应在类囊体薄膜上进行。",
+   "question": "暗反应的场所是类囊体薄膜。",
+   "explanation": "错。光反应在类囊体薄膜上进行，暗反应在叶绿体基质中进行。",
    "difficulty": 1,
    "knowledge_point": "光合作用",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T9371fe",
    "change_tag": "新增",
@@ -46290,12 +46298,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第6章 细胞的生命历程·第1节 细胞的增殖",
-   "question": "有丝分裂间期主要完成 DNA 的复制和有关蛋白质的合成。",
-   "explanation": "为分裂期做物质准备。",
+   "question": "有丝分裂前期完成 DNA 的复制和有关蛋白质的合成。",
+   "explanation": "错。DNA 的复制和有关蛋白质的合成在分裂间期完成；前期出现染色体和纺锤体、核膜核仁消失。",
    "difficulty": 2,
    "knowledge_point": "有丝分裂",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tec5963",
    "change_tag": "新增",
@@ -46428,7 +46436,7 @@
      "audio": ""
     },
     {
-     "text": "只能分裂不能分化的细胞",
+     "text": "只能分裂、不能分化的细胞",
      "image": "",
      "audio": ""
     },
@@ -46522,12 +46530,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第6章 细胞的生命历程·第2节 细胞的分化",
-   "question": "同一个体不同体细胞中的遗传物质一般相同。",
-   "explanation": "都来自受精卵的有丝分裂。",
+   "question": "同一个体不同体细胞中的 mRNA 和蛋白质都相同。",
+   "explanation": "错。同一个体不同体细胞的遗传物质一般相同，但基因选择性表达，mRNA 和蛋白质不完全相同。",
    "difficulty": 2,
    "knowledge_point": "细胞分化",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T6877e5",
    "change_tag": "新增",
@@ -46546,12 +46554,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第6章 细胞的生命历程·第3节 细胞的衰老和死亡",
-   "question": "衰老细胞内水分减少，细胞体积变小。",
-   "explanation": "衰老细胞的特征之一。",
+   "question": "衰老细胞内所有酶的活性都升高。",
+   "explanation": "错。衰老细胞内多种酶的活性降低，如酪氨酸酶活性降低，头发变白。",
    "difficulty": 2,
    "knowledge_point": "细胞凋亡",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T16c7fa",
    "change_tag": "新增",
@@ -46616,12 +46624,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修1·第6章 细胞的生命历程·第3节 细胞的衰老和死亡",
-   "question": "细胞凋亡对生物体是有利的。",
-   "explanation": "有利于个体发育和维持内部环境稳定。",
+   "question": "细胞凋亡是由外界不利因素引起的细胞被动死亡。",
+   "explanation": "错。细胞凋亡是由基因决定的细胞自动结束生命的过程；不利因素引起的被动死亡叫细胞坏死。",
    "difficulty": 2,
    "knowledge_point": "细胞凋亡",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T10c873",
    "change_tag": "新增",
@@ -46917,9 +46925,9 @@
    "textbook": "统编版2019",
    "unit": "必修上·第七单元·14.1 故都的秋",
    "type": "判断",
-   "question": "郁达夫的代表作有小说《沉沦》。",
-   "answer": "对",
-   "explanation": "郁达夫是现代作家，创造社成员。",
+   "question": "郁达夫的代表作有小说集《呐喊》。",
+   "answer": "错",
+   "explanation": "错。《呐喊》是鲁迅的小说集；郁达夫的代表作有小说《沉沦》。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -47265,9 +47273,9 @@
    "textbook": "统编版2019",
    "unit": "必修上·第七单元·15 我与地坛（节选）",
    "type": "判断",
-   "question": "史铁生另一篇怀念母亲的散文是《秋天的怀念》。",
-   "answer": "对",
-   "explanation": "初中语文七上课文。",
+   "question": "史铁生另一篇怀念母亲的散文是《背影》。",
+   "answer": "错",
+   "explanation": "错。《背影》是朱自清写父亲的散文；史铁生怀念母亲的另一篇散文是《秋天的怀念》。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -47549,9 +47557,9 @@
    "textbook": "统编版2019",
    "unit": "必修上·第七单元·赤壁赋",
    "type": "判断",
-   "question": "《赤壁赋》作于苏轼被贬黄州期间。",
-   "answer": "对",
-   "explanation": "元丰五年作于黄州。",
+   "question": "《赤壁赋》作于苏轼被贬惠州期间。",
+   "answer": "错",
+   "explanation": "错。《赤壁赋》作于元丰五年苏轼被贬黄州期间。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -47648,9 +47656,9 @@
    "textbook": "统编版2019",
    "unit": "必修上·第二单元 劳动光荣",
    "type": "判断",
-   "question": "《插秧歌》的作者杨万里是南宋诗人。",
-   "answer": "对",
-   "explanation": "杨万里与陆游、范成大、尤袤并称“中兴四大诗人”。",
+   "question": "《插秧歌》的作者杨万里是唐代诗人。",
+   "answer": "错",
+   "explanation": "错。杨万里是南宋诗人，与陆游、范成大、尤袤并称“中兴四大诗人”。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -47886,9 +47894,9 @@
    "textbook": "统编版2019",
    "unit": "必修上·第八单元 词语积累与语言运用",
    "type": "判断",
-   "question": "“差强人意”的意思是大体上还能使人满意。",
-   "answer": "对",
-   "explanation": "不是“不能让人满意”。",
+   "question": "“差强人意”的意思是不能让人满意。",
+   "answer": "错",
+   "explanation": "错。“差强人意”的意思是大体上还能使人满意，“差”是“稍微、比较”的意思。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -48186,7 +48194,7 @@
      "audio": ""
     },
     {
-     "text": "粪土当年万户侯",
+     "text": "问苍茫大地，谁主沉浮",
      "image": "",
      "audio": ""
     }
@@ -48262,9 +48270,9 @@
    "textbook": "统编版2019",
    "unit": "拓展（课外·毛泽东诗词）",
    "type": "判断",
-   "question": "“红军不怕远征难”的下一句是“万水千山只等闲”。",
-   "answer": "对",
-   "explanation": "毛泽东《七律·长征》。",
+   "question": "“红军不怕远征难”的下一句是“更喜岷山千里雪”。",
+   "answer": "错",
+   "explanation": "错。《七律·长征》首联是“红军不怕远征难，万水千山只等闲”；“更喜岷山千里雪”是尾联的上句。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
@@ -64490,7 +64498,7 @@
      "audio": ""
     },
     {
-     "text": "贾母的吝啬",
+     "text": "贾府的勤俭节约",
      "image": "",
      "audio": ""
     },
@@ -64507,6 +64515,7 @@
    "volume": "必修下册",
    "knowledge_point": "必修下 整本书阅读《红楼梦》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te2ab60",
    "change_tag": "新增",
@@ -65808,7 +65817,7 @@
      "audio": ""
     },
     {
-     "text": "结束了半殖民地半封建社会",
+     "text": "结束了半殖民地半封建社会性质",
      "image": "",
      "audio": ""
     },
@@ -65825,6 +65834,7 @@
    "volume": "必修上册",
    "knowledge_point": "五四运动与中国共产党的诞生",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tf783c9",
    "change_tag": "新增",
@@ -66433,7 +66443,7 @@
      "audio": ""
     },
     {
-     "text": "离体的叶绿体在一定条件下能释放氧气",
+     "text": "离体的叶绿体在一定条件下仍能释放出氧气",
      "image": "",
      "audio": ""
     },
@@ -66449,6 +66459,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-135",
    "subject": "生物",
    "grade": 10,
@@ -66623,12 +66634,13 @@
      "audio": ""
     },
     {
-     "text": "Ca、Mg、K",
+     "text": "Ca、Mg、K、Na",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-139",
    "subject": "生物",
    "grade": 10,
@@ -67443,7 +67455,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "蛋白质和蛋白酶",
+     "text": "蛋白质和胰蛋白酶溶液",
      "image": "",
      "audio": ""
     },
@@ -67464,6 +67476,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-158",
    "subject": "生物",
    "grade": 10,
@@ -67498,7 +67511,7 @@
      "audio": ""
     },
     {
-     "text": "酶的氨基酸种类改变",
+     "text": "酶的氨基酸种类和数目改变",
      "image": "",
      "audio": ""
     },
@@ -67509,6 +67522,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-159",
    "subject": "生物",
    "grade": 10,
@@ -68023,12 +68037,13 @@
      "audio": ""
     },
     {
-     "text": "银河系",
+     "text": "可观测宇宙",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-124",
    "subject": "地理",
    "grade": 10,
@@ -68683,7 +68698,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "干旱",
+     "text": "干旱少雨",
      "image": "",
      "audio": ""
     },
@@ -68704,6 +68719,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-139",
    "subject": "地理",
    "grade": 10,
@@ -68783,7 +68799,7 @@
      "audio": ""
     },
     {
-     "text": "梅雨洪涝",
+     "text": "持续梅雨和洪涝",
      "image": "",
      "audio": ""
     },
@@ -68794,6 +68810,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-141",
    "subject": "地理",
    "grade": 10,
@@ -68833,12 +68850,13 @@
      "audio": ""
     },
     {
-     "text": "春季干旱时",
+     "text": "春季干旱少雨时",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-142",
    "subject": "地理",
    "grade": 10,
@@ -69008,7 +69026,7 @@
      "audio": ""
     },
     {
-     "text": "全球卫星导航系统（如北斗）",
+     "text": "卫星导航（GNSS）",
      "image": "",
      "audio": ""
     },
@@ -69019,6 +69037,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-146",
    "subject": "地理",
    "grade": 10,
@@ -69723,7 +69742,7 @@
      "audio": ""
     },
     {
-     "text": "价格与供求无关",
+     "text": "商品价格与供求关系无关",
      "image": "",
      "audio": ""
     },
@@ -69739,6 +69758,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-132",
    "subject": "政治",
    "grade": 10,
@@ -75766,7 +75786,7 @@
    "question": "欧洲文艺复兴最早兴起于？",
    "options": [
     {
-     "text": "法国",
+     "text": "尼德兰",
      "image": "",
      "audio": ""
     },
@@ -75793,6 +75813,7 @@
    "volume": "必修下册",
    "knowledge_point": "纲要下",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T613300",
    "change_tag": "新增",
@@ -76228,7 +76249,7 @@
      "audio": ""
     },
     {
-     "text": "战国时期",
+     "text": "南北朝时期",
      "image": "",
      "audio": ""
     },
@@ -76250,6 +76271,7 @@
    "volume": "必修上册",
    "knowledge_point": "第5课 三国两晋南北朝的政权更迭与民族交融",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8d9478",
    "change_tag": "新增",
@@ -77496,12 +77518,13 @@
      "audio": ""
     },
     {
-     "text": "CO₂ 和 H₂O",
+     "text": "CO₂、H₂O 和 ADP",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-186",
    "subject": "生物",
    "grade": 10,
@@ -78391,7 +78414,7 @@
      "audio": ""
     },
     {
-     "text": "撒哈拉沙漠",
+     "text": "撒哈拉沙漠南缘",
      "image": "",
      "audio": ""
     },
@@ -78402,6 +78425,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-162",
    "subject": "地理",
    "grade": 10,
@@ -78786,7 +78810,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "地主阶级和农民阶级的矛盾",
+     "text": "封建地主阶级和农民阶级的矛盾",
      "image": "",
      "audio": ""
     },
@@ -78807,6 +78831,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-135",
    "subject": "政治",
    "grade": 10,
@@ -79866,7 +79891,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "第三次分配",
+     "text": "按劳分配中的劳动收入",
      "image": "",
      "audio": ""
     },
@@ -79887,6 +79912,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-159",
    "subject": "政治",
    "grade": 10,
@@ -79961,7 +79987,7 @@
      "audio": ""
     },
     {
-     "text": "器官",
+     "text": "系统",
      "image": "",
      "audio": ""
     },
@@ -79971,12 +79997,13 @@
      "audio": ""
     },
     {
-     "text": "系统",
+     "text": "器官",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-191",
    "subject": "生物",
    "grade": 10,
@@ -79989,7 +80016,7 @@
    "difficulty": 2,
    "knowledge_point": "细胞是生命活动的基本单位",
    "type": "选择",
-   "answer": "D",
+   "answer": "B",
    "game_ready": true,
    "template": "Tfc37d7",
    "change_tag": "新增",
@@ -80046,7 +80073,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "差异性",
+     "text": "统一性",
      "image": "",
      "audio": ""
     },
@@ -80056,7 +80083,7 @@
      "audio": ""
     },
     {
-     "text": "统一性",
+     "text": "差异性",
      "image": "",
      "audio": ""
     },
@@ -80067,6 +80094,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-193",
    "subject": "生物",
    "grade": 10,
@@ -80079,7 +80107,7 @@
    "difficulty": 2,
    "knowledge_point": "细胞中的元素和化合物",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T7d0111",
    "change_tag": "新增",
@@ -80096,7 +80124,7 @@
      "audio": ""
     },
     {
-     "text": "遗传信息的载体",
+     "text": "良好的溶剂",
      "image": "",
      "audio": ""
     },
@@ -80106,12 +80134,13 @@
      "audio": ""
     },
     {
-     "text": "良好的溶剂",
+     "text": "遗传信息的载体",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-194",
    "subject": "生物",
    "grade": 10,
@@ -80124,7 +80153,7 @@
    "difficulty": 2,
    "knowledge_point": "细胞中的无机物",
    "type": "选择",
-   "answer": "D",
+   "answer": "B",
    "game_ready": true,
    "template": "T42b947",
    "change_tag": "新增",
@@ -80141,7 +80170,7 @@
      "audio": ""
     },
     {
-     "text": "植物细胞壁中",
+     "text": "甲壳类动物和昆虫的外骨骼中",
      "image": "",
      "audio": ""
     },
@@ -80151,12 +80180,13 @@
      "audio": ""
     },
     {
-     "text": "甲壳类动物和昆虫的外骨骼中",
+     "text": "植物细胞壁中",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-195",
    "subject": "生物",
    "grade": 10,
@@ -80169,7 +80199,7 @@
    "difficulty": 2,
    "knowledge_point": "细胞中的糖类和脂质",
    "type": "选择",
-   "answer": "D",
+   "answer": "B",
    "game_ready": true,
    "template": "Tdc7637",
    "change_tag": "新增",
@@ -80316,7 +80346,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "细胞器膜和染色体",
+     "text": "细胞膜、核膜和细胞器膜",
      "image": "",
      "audio": ""
     },
@@ -80326,7 +80356,7 @@
      "audio": ""
     },
     {
-     "text": "细胞膜、核膜和细胞器膜",
+     "text": "细胞器膜和染色体",
      "image": "",
      "audio": ""
     },
@@ -80337,6 +80367,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-199",
    "subject": "生物",
    "grade": 10,
@@ -80349,7 +80380,7 @@
    "difficulty": 2,
    "knowledge_point": "细胞器之间的分工合作",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T0a55b2",
    "change_tag": "新增",
@@ -80366,7 +80397,7 @@
      "audio": ""
     },
     {
-     "text": "DNA 和磷脂",
+     "text": "DNA 和磷脂分子",
      "image": "",
      "audio": ""
     },
@@ -80382,6 +80413,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-200",
    "subject": "生物",
    "grade": 10,
@@ -80421,12 +80453,13 @@
      "audio": ""
     },
     {
-     "text": "具有半透膜，且膜两侧溶液存在浓度差",
+     "text": "有半透膜，膜两侧溶液有浓度差",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-201",
    "subject": "生物",
    "grade": 10,
@@ -80496,7 +80529,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "DNA",
+     "text": "RNA",
      "image": "",
      "audio": ""
     },
@@ -80506,7 +80539,7 @@
      "audio": ""
     },
     {
-     "text": "RNA",
+     "text": "DNA",
      "image": "",
      "audio": ""
     },
@@ -80517,6 +80550,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-203",
    "subject": "生物",
    "grade": 10,
@@ -80529,7 +80563,7 @@
    "difficulty": 2,
    "knowledge_point": "降低化学反应活化能的酶",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Td48495",
    "change_tag": "新增",
@@ -80541,7 +80575,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "元素组成变为核酸",
+     "text": "空间结构发生变化，活性也被改变",
      "image": "",
      "audio": ""
     },
@@ -80551,7 +80585,7 @@
      "audio": ""
     },
     {
-     "text": "空间结构发生变化，活性也被改变",
+     "text": "元素组成变为核酸",
      "image": "",
      "audio": ""
     },
@@ -80562,6 +80596,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-204",
    "subject": "生物",
    "grade": 10,
@@ -80574,7 +80609,7 @@
    "difficulty": 3,
    "knowledge_point": "细胞的能量“货币”ATP",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Te6a0d2",
    "change_tag": "新增",
@@ -80652,6 +80687,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-206",
    "subject": "生物",
    "grade": 10,
@@ -80660,7 +80696,7 @@
    "volume": "必修第一册",
    "unit": "必修1·第5章 细胞的能量供应和利用·第3节 细胞呼吸的原理和应用",
    "question": "1 分子葡萄糖经有氧呼吸彻底氧化分解，产生的 CO₂ 分子数是？",
-   "explanation": "$\\ce{C6H12O6 + 6H2O + 6O2 -> 6CO2 + 12H2O}$ + 能量。",
+   "explanation": "有氧呼吸总反应：C₆H₁₂O₆ + 6H₂O + 6O₂ → 6CO₂ + 12H₂O + 能量。",
    "difficulty": 2,
    "knowledge_point": "细胞呼吸的原理和应用",
    "type": "选择",
@@ -80681,7 +80717,7 @@
      "audio": ""
     },
     {
-     "text": "CO₂→C₅→（CH₂O）",
+     "text": "CO₂→C₃→（CH₂O）",
      "image": "",
      "audio": ""
     },
@@ -80691,12 +80727,13 @@
      "audio": ""
     },
     {
-     "text": "CO₂→C₃→（CH₂O）",
+     "text": "CO₂→C₅→（CH₂O）",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-207",
    "subject": "生物",
    "grade": 10,
@@ -80709,7 +80746,7 @@
    "difficulty": 3,
    "knowledge_point": "光合作用与能量转化",
    "type": "选择",
-   "answer": "D",
+   "answer": "B",
    "game_ready": true,
    "template": "Te42d54",
    "change_tag": "新增",
@@ -80771,7 +80808,7 @@
      "audio": ""
     },
     {
-     "text": "细胞癌变",
+     "text": "细胞分化",
      "image": "",
      "audio": ""
     },
@@ -80781,12 +80818,13 @@
      "audio": ""
     },
     {
-     "text": "细胞分化",
+     "text": "细胞癌变",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-209",
    "subject": "生物",
    "grade": 10,
@@ -80799,7 +80837,7 @@
    "difficulty": 1,
    "knowledge_point": "细胞的分化",
    "type": "选择",
-   "answer": "D",
+   "answer": "B",
    "game_ready": true,
    "template": "T262422",
    "change_tag": "新增",
@@ -80856,7 +80894,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "豌豆是异花传粉植物",
+     "text": "豌豆是自花传粉、闭花受粉植物，自然状态下一般是纯种",
      "image": "",
      "audio": ""
     },
@@ -80866,7 +80904,7 @@
      "audio": ""
     },
     {
-     "text": "豌豆是自花传粉、闭花受粉植物，自然状态下一般是纯种",
+     "text": "豌豆是异花传粉植物",
      "image": "",
      "audio": ""
     },
@@ -80877,6 +80915,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-211",
    "subject": "生物",
    "grade": 10,
@@ -80889,7 +80928,7 @@
    "difficulty": 1,
    "knowledge_point": "孟德尔的豌豆杂交实验（一）",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T708ac3",
    "change_tag": "新增",
@@ -80901,7 +80940,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "豌豆的高茎和圆粒",
+     "text": "豌豆的高茎和矮茎",
      "image": "",
      "audio": ""
     },
@@ -80911,7 +80950,7 @@
      "audio": ""
     },
     {
-     "text": "豌豆的高茎和矮茎",
+     "text": "豌豆的高茎和圆粒",
      "image": "",
      "audio": ""
     },
@@ -80922,6 +80961,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-212",
    "subject": "生物",
    "grade": 10,
@@ -80934,7 +80974,7 @@
    "difficulty": 2,
    "knowledge_point": "孟德尔的豌豆杂交实验（一）",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T9bb929",
    "change_tag": "新增",
@@ -80946,7 +80986,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "显性∶隐性 = 1∶2∶1",
+     "text": "全为显性性状",
      "image": "",
      "audio": ""
     },
@@ -80967,6 +81007,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-213",
    "subject": "生物",
    "grade": 10,
@@ -80996,7 +81037,7 @@
      "audio": ""
     },
     {
-     "text": "显性纯合子",
+     "text": "隐性纯合子",
      "image": "",
      "audio": ""
     },
@@ -81006,12 +81047,13 @@
      "audio": ""
     },
     {
-     "text": "隐性纯合子",
+     "text": "显性纯合子",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-214",
    "subject": "生物",
    "grade": 10,
@@ -81024,7 +81066,7 @@
    "difficulty": 2,
    "knowledge_point": "孟德尔的豌豆杂交实验（一）",
    "type": "选择",
-   "answer": "D",
+   "answer": "B",
    "game_ready": true,
    "template": "T107d64",
    "change_tag": "新增",
@@ -81059,27 +81101,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "Dd∶dd = 1∶1",
+     "text": "1/2",
      "image": "",
      "audio": ""
     },
     {
-     "text": "DD∶Dd∶dd = 1∶2∶1",
+     "text": "1/4",
      "image": "",
      "audio": ""
     },
     {
-     "text": "DD∶Dd = 1∶1",
+     "text": "3/4",
      "image": "",
      "audio": ""
     },
     {
-     "text": "DD∶dd = 3∶1",
+     "text": "1/8",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-216",
    "subject": "生物",
    "grade": 10,
@@ -81087,9 +81130,9 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第1章 遗传因子的发现·第1节 孟德尔的豌豆杂交实验（一）",
-   "question": "Dd 自交，后代的基因型及比例为？",
-   "explanation": "雌雄配子 D、d 各占 1/2，随机结合。",
-   "difficulty": 2,
+   "question": "Dd 连续自交两代，第二次自交得到的后代中，杂合子所占的比例为？",
+   "explanation": "每自交一代，杂合子比例变为上一代的 1/2：第一次自交后 Dd 占 1/2，第二次自交后占 $\\dfrac12\\times\\dfrac12=\\dfrac14$。",
+   "difficulty": 3,
    "knowledge_point": "孟德尔的豌豆杂交实验（一）",
    "type": "选择",
    "answer": "B",
@@ -81174,7 +81217,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "1/8",
+     "text": "1/4",
      "image": "",
      "audio": ""
     },
@@ -81184,7 +81227,7 @@
      "audio": ""
     },
     {
-     "text": "1/4",
+     "text": "1/8",
      "image": "",
      "audio": ""
     },
@@ -81195,6 +81238,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-219",
    "subject": "生物",
    "grade": 10,
@@ -81207,7 +81251,7 @@
    "difficulty": 3,
    "knowledge_point": "孟德尔的豌豆杂交实验（一）",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T963003",
    "change_tag": "新增",
@@ -81309,7 +81353,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "Yy∶Rr = 1∶1",
+     "text": "YR∶Yr∶yR∶yr = 1∶1∶1∶1",
      "image": "",
      "audio": ""
     },
@@ -81319,7 +81363,7 @@
      "audio": ""
     },
     {
-     "text": "YR∶Yr∶yR∶yr = 1∶1∶1∶1",
+     "text": "Yy∶Rr = 1∶1",
      "image": "",
      "audio": ""
     },
@@ -81330,6 +81374,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-222",
    "subject": "生物",
    "grade": 10,
@@ -81342,7 +81387,7 @@
    "difficulty": 2,
    "knowledge_point": "孟德尔的豌豆杂交实验（二）",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T14747a",
    "change_tag": "新增",
@@ -81369,12 +81414,13 @@
      "audio": ""
     },
     {
-     "text": "同一条染色体上的基因",
+     "text": "同一条染色体上的非等位基因",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-223",
    "subject": "生物",
    "grade": 10,
@@ -81421,6 +81467,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-225",
    "subject": "生物",
    "grade": 10,
@@ -81428,7 +81475,7 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第1章 遗传因子的发现·第2节 孟德尔的豌豆杂交实验（二）",
-   "question": "YyRr 自交（两对基因独立遗传），F₂ 中纯合子所占的比例是多少（用分数表示）？",
+   "question": "YyRr 自交（两对基因独立遗传），后代中纯合子所占的比例是多少（用分数表示）？",
    "explanation": "每对基因纯合的概率都是 1/2，1/2 × 1/2 = 1/4。",
    "difficulty": 3,
    "knowledge_point": "孟德尔的豌豆杂交实验（二）",
@@ -81875,7 +81922,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "2 个卵细胞和 2 个极体",
+     "text": "1 个卵细胞和 3 个极体",
      "image": "",
      "audio": ""
     },
@@ -81885,7 +81932,7 @@
      "audio": ""
     },
     {
-     "text": "1 个卵细胞和 3 个极体",
+     "text": "2 个卵细胞和 2 个极体",
      "image": "",
      "audio": ""
     },
@@ -81896,6 +81943,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-236",
    "subject": "生物",
    "grade": 10,
@@ -81908,7 +81956,7 @@
    "difficulty": 2,
    "knowledge_point": "减数分裂和受精作用",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T88bd43",
    "change_tag": "新增",
@@ -81968,27 +82016,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "维持每种生物前后代体细胞中染色体数目的恒定",
+     "text": "维持前后代体细胞中染色体数目恒定",
      "image": "",
      "audio": ""
     },
     {
-     "text": "使后代染色体数目逐代加倍",
+     "text": "减数分裂使染色体加倍，受精使其减半",
      "image": "",
      "audio": ""
     },
     {
-     "text": "使后代与亲代完全相同",
+     "text": "保证后代与亲代的遗传物质完全相同",
      "image": "",
      "audio": ""
     },
     {
-     "text": "使生物不发生任何变异",
+     "text": "使配子含有亲代体细胞的全部染色体",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-239",
    "subject": "生物",
    "grade": 10,
@@ -81997,7 +82046,7 @@
    "volume": "必修第二册",
    "unit": "必修2·第2章 基因和染色体的关系·第1节 减数分裂和受精作用",
    "question": "减数分裂和受精作用对有性生殖的生物的意义是？",
-   "explanation": "二者对生物的遗传和变异都十分重要。",
+   "explanation": "减数分裂使配子染色体数目减半，受精作用使受精卵恢复到体细胞的数目，从而维持前后代染色体数目恒定；二者也带来基因重组，后代并不与亲代完全相同。",
    "difficulty": 3,
    "knowledge_point": "减数分裂和受精作用",
    "type": "选择",
@@ -82013,7 +82062,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "减数分裂Ⅱ后期",
+     "text": "减数分裂Ⅰ前期（四分体时期）",
      "image": "",
      "audio": ""
     },
@@ -82023,7 +82072,7 @@
      "audio": ""
     },
     {
-     "text": "减数分裂Ⅰ前期（四分体时期）",
+     "text": "减数分裂Ⅱ后期",
      "image": "",
      "audio": ""
     },
@@ -82034,6 +82083,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-240",
    "subject": "生物",
    "grade": 10,
@@ -82046,7 +82096,7 @@
    "difficulty": 3,
    "knowledge_point": "减数分裂和受精作用",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Te6eb68",
    "change_tag": "新增",
@@ -82058,7 +82108,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "发现了 DNA 双螺旋结构",
+     "text": "基因和染色体的行为存在明显的平行关系",
      "image": "",
      "audio": ""
     },
@@ -82068,7 +82118,7 @@
      "audio": ""
     },
     {
-     "text": "基因和染色体的行为存在明显的平行关系",
+     "text": "发现了 DNA 双螺旋结构",
      "image": "",
      "audio": ""
     },
@@ -82079,6 +82129,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-241",
    "subject": "生物",
    "grade": 10,
@@ -82091,7 +82142,7 @@
    "difficulty": 1,
    "knowledge_point": "基因在染色体上",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T9c76a5",
    "change_tag": "新增",
@@ -82148,7 +82199,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "豌豆",
+     "text": "果蝇",
      "image": "",
      "audio": ""
     },
@@ -82158,7 +82209,7 @@
      "audio": ""
     },
     {
-     "text": "果蝇",
+     "text": "豌豆",
      "image": "",
      "audio": ""
     },
@@ -82169,6 +82220,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-243",
    "subject": "生物",
    "grade": 10,
@@ -82181,7 +82233,7 @@
    "difficulty": 2,
    "knowledge_point": "基因在染色体上",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T24e2b7",
    "change_tag": "新增",
@@ -82276,12 +82328,13 @@
      "audio": ""
     },
     {
-     "text": "同源染色体上的非等位基因自由组合",
+     "text": "一对同源染色体上的非等位基因自由组合",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-246",
    "subject": "生物",
    "grade": 10,
@@ -82395,6 +82448,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-249",
    "subject": "生物",
    "grade": 10,
@@ -82404,7 +82458,7 @@
    "unit": "必修2·第2章 基因和染色体的关系·第2节 基因在染色体上",
    "question": "果蝇体细胞中有几对染色体？",
    "explanation": "果蝇有 4 对染色体，其中 3 对常染色体、1 对性染色体。",
-   "difficulty": 3,
+   "difficulty": 1,
    "knowledge_point": "基因在染色体上",
    "type": "填空",
    "answer": [
@@ -82623,6 +82677,7 @@
   },
   {
    "status": "AI初审通过",
+   "tts_text": "-",
    "options": [
     {
      "text": "$X^BX^B$",
@@ -82635,17 +82690,13 @@
      "audio": ""
     },
     {
-     "text": "$X^bY$",
-     "image": "",
-     "audio": ""
-    },
-    {
      "text": "$X^bX^b$",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-255",
    "subject": "生物",
    "grade": 10,
@@ -82669,6 +82720,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-256",
    "subject": "生物",
    "grade": 10,
@@ -82676,12 +82728,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第2章 基因和染色体的关系·第3节 伴性遗传",
-   "question": "男性的红绿色盲基因只能从母亲那里传来，以后只能传给女儿。",
-   "explanation": "这是伴 X 染色体隐性遗传的交叉遗传特点。",
+   "question": "男性的红绿色盲基因可能来自他的父亲。",
+   "explanation": "错。男性的 X 染色体来自母亲，父亲只传给他 Y 染色体，所以男性的色盲基因只能来自母亲。",
    "difficulty": 2,
    "knowledge_point": "伴性遗传",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T5b1ea4",
    "change_tag": "新增",
@@ -82943,7 +82995,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "蛋白质外壳",
+     "text": "DNA",
      "image": "",
      "audio": ""
     },
@@ -82953,7 +83005,7 @@
      "audio": ""
     },
     {
-     "text": "DNA",
+     "text": "蛋白质外壳",
      "image": "",
      "audio": ""
     },
@@ -82964,6 +83016,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-263",
    "subject": "生物",
    "grade": 10,
@@ -82976,7 +83029,7 @@
    "difficulty": 2,
    "knowledge_point": "DNA是主要的遗传物质",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Te04479",
    "change_tag": "新增",
@@ -83032,6 +83085,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-265",
    "subject": "生物",
    "grade": 10,
@@ -83039,12 +83093,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第3章 基因的本质·第1节 DNA是主要的遗传物质",
-   "question": "噬菌体侵染细菌的实验证明了 DNA 是遗传物质。",
-   "explanation": "进入细菌的是噬菌体的 DNA，子代噬菌体由它指导合成。",
+   "question": "用 ³²P 标记的噬菌体侵染细菌，若保温时间过短，离心后上清液中的放射性会降低。",
+   "explanation": "错。保温时间过短，部分噬菌体还没把 DNA 注入细菌，离心后留在上清液中，上清液放射性会升高；保温时间过长，子代噬菌体释放出来，上清液放射性也会升高。",
    "difficulty": 2,
    "knowledge_point": "DNA是主要的遗传物质",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T16abb3",
    "change_tag": "新增",
@@ -83106,7 +83160,7 @@
      "audio": ""
     },
     {
-     "text": "所有生物的遗传物质都是 DNA",
+     "text": "所有生物的遗传物质都是 DNA 分子",
      "image": "",
      "audio": ""
     },
@@ -83122,6 +83176,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-267",
    "subject": "生物",
    "grade": 10,
@@ -83236,27 +83291,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "整个噬菌体",
+     "text": "上清液中放射性偏高",
      "image": "",
      "audio": ""
     },
     {
-     "text": "噬菌体的 DNA",
+     "text": "沉淀物中放射性偏高",
      "image": "",
      "audio": ""
     },
     {
-     "text": "噬菌体的 RNA",
+     "text": "子代噬菌体中检测到 ³⁵S",
      "image": "",
      "audio": ""
     },
     {
-     "text": "噬菌体的蛋白质外壳",
+     "text": "沉淀物中检测不到放射性",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-270",
    "subject": "生物",
    "grade": 10,
@@ -83264,8 +83320,8 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第3章 基因的本质·第1节 DNA是主要的遗传物质",
-   "question": "噬菌体侵染细菌时，进入细菌细胞内的是？",
-   "explanation": "蛋白质外壳留在细菌外。",
+   "question": "用 ³⁵S 标记的噬菌体侵染细菌时，若搅拌不充分，会出现？",
+   "explanation": "搅拌是为了使吸附在细菌上的蛋白质外壳与细菌分离。搅拌不充分，部分带 ³⁵S 的外壳仍附着在细菌上，随细菌进入沉淀物，使沉淀物放射性偏高；³⁵S 不进入子代噬菌体。",
    "difficulty": 3,
    "knowledge_point": "DNA是主要的遗传物质",
    "type": "选择",
@@ -83281,7 +83337,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "孟德尔和摩尔根",
+     "text": "沃森和克里克",
      "image": "",
      "audio": ""
     },
@@ -83291,7 +83347,7 @@
      "audio": ""
     },
     {
-     "text": "沃森和克里克",
+     "text": "孟德尔和摩尔根",
      "image": "",
      "audio": ""
     },
@@ -83302,6 +83358,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-271",
    "subject": "生物",
    "grade": 10,
@@ -83314,7 +83371,7 @@
    "difficulty": 1,
    "knowledge_point": "DNA的结构",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Tbd9df4",
    "change_tag": "新增",
@@ -83555,7 +83612,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "五碳糖的种类很多",
+     "text": "碱基对的排列顺序千变万化",
      "image": "",
      "audio": ""
     },
@@ -83565,7 +83622,7 @@
      "audio": ""
     },
     {
-     "text": "碱基对的排列顺序千变万化",
+     "text": "五碳糖的种类很多",
      "image": "",
      "audio": ""
     },
@@ -83576,6 +83633,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-278",
    "subject": "生物",
    "grade": 10,
@@ -83588,7 +83646,7 @@
    "difficulty": 2,
    "knowledge_point": "DNA的结构",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T8465f2",
    "change_tag": "新增",
@@ -83713,7 +83771,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "¹⁴C",
+     "text": "¹⁵N",
      "image": "",
      "audio": ""
     },
@@ -83723,7 +83781,7 @@
      "audio": ""
     },
     {
-     "text": "¹⁵N",
+     "text": "¹⁴C",
      "image": "",
      "audio": ""
     },
@@ -83734,6 +83792,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-282",
    "subject": "生物",
    "grade": 10,
@@ -83746,7 +83805,7 @@
    "difficulty": 2,
    "knowledge_point": "DNA的复制",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T3cfb5e",
    "change_tag": "新增",
@@ -83915,6 +83974,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-287",
    "subject": "生物",
    "grade": 10,
@@ -83924,7 +83984,7 @@
    "unit": "必修2·第3章 基因的本质·第3节 DNA的复制",
    "question": "一个 DNA 分子连续复制 3 次，可形成多少个 DNA 分子？",
    "explanation": "2³ = 8。",
-   "difficulty": 3,
+   "difficulty": 1,
    "knowledge_point": "DNA的复制",
    "type": "填空",
    "answer": [
@@ -84036,7 +84096,7 @@
      "audio": ""
     },
     {
-     "text": "减数分裂Ⅱ中期",
+     "text": "减数分裂Ⅱ的中期",
      "image": "",
      "audio": ""
     },
@@ -84052,6 +84112,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-290",
    "subject": "生物",
    "grade": 10,
@@ -84091,12 +84152,13 @@
      "audio": ""
     },
     {
-     "text": "DNA 分子的任意片段",
+     "text": "DNA 分子上的任意一个片段",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-291",
    "subject": "生物",
    "grade": 10,
@@ -84324,7 +84386,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "2ⁿ 种",
+     "text": "4ⁿ 种",
      "image": "",
      "audio": ""
     },
@@ -84334,7 +84396,7 @@
      "audio": ""
     },
     {
-     "text": "4ⁿ 种",
+     "text": "2ⁿ 种",
      "image": "",
      "audio": ""
     },
@@ -84345,6 +84407,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-297",
    "subject": "生物",
    "grade": 10,
@@ -84357,7 +84420,7 @@
    "difficulty": 3,
    "knowledge_point": "基因通常是有遗传效应的DNA片段",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T8c2221",
    "change_tag": "新增",
@@ -84617,7 +84680,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "DNA",
+     "text": "tRNA",
      "image": "",
      "audio": ""
     },
@@ -84627,7 +84690,7 @@
      "audio": ""
     },
     {
-     "text": "tRNA",
+     "text": "DNA",
      "image": "",
      "audio": ""
     },
@@ -84638,6 +84701,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-304",
    "subject": "生物",
    "grade": 10,
@@ -84650,7 +84714,7 @@
    "difficulty": 2,
    "knowledge_point": "基因指导蛋白质的合成",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T219607",
    "change_tag": "新增",
@@ -84706,6 +84770,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-306",
    "subject": "生物",
    "grade": 10,
@@ -84713,12 +84778,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第4章 基因的表达·第1节 基因指导蛋白质的合成",
-   "question": "一种氨基酸可能由几种不同的密码子决定。",
-   "explanation": "这叫密码子的简并。",
+   "question": "每种氨基酸都只由一种密码子决定。",
+   "explanation": "错。多数氨基酸由几种不同的密码子决定，这叫密码子的简并。",
    "difficulty": 2,
    "knowledge_point": "基因指导蛋白质的合成",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T4e8f1a",
    "change_tag": "新增",
@@ -84800,7 +84865,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "解旋酶和 DNA 聚合酶",
+     "text": "RNA 聚合酶",
      "image": "",
      "audio": ""
     },
@@ -84810,7 +84875,7 @@
      "audio": ""
     },
     {
-     "text": "RNA 聚合酶",
+     "text": "解旋酶和 DNA 聚合酶",
      "image": "",
      "audio": ""
     },
@@ -84821,6 +84886,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-309",
    "subject": "生物",
    "grade": 10,
@@ -84833,7 +84899,7 @@
    "difficulty": 2,
    "knowledge_point": "基因指导蛋白质的合成",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T0dc963",
    "change_tag": "新增",
@@ -84890,7 +84956,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "通过改变染色体数目控制性状",
+     "text": "通过控制酶的合成来控制代谢过程，进而控制性状",
      "image": "",
      "audio": ""
     },
@@ -84900,7 +84966,7 @@
      "audio": ""
     },
     {
-     "text": "通过控制酶的合成来控制代谢过程，进而控制性状",
+     "text": "通过改变染色体数目控制性状",
      "image": "",
      "audio": ""
     },
@@ -84911,6 +84977,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-311",
    "subject": "生物",
    "grade": 10,
@@ -84923,7 +84990,7 @@
    "difficulty": 2,
    "knowledge_point": "基因表达与性状的关系",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T830518",
    "change_tag": "新增",
@@ -84935,7 +85002,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "糖类的合成",
+     "text": "糖类的合成过程",
      "image": "",
      "audio": ""
     },
@@ -84956,6 +85023,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-312",
    "subject": "生物",
    "grade": 10,
@@ -85024,6 +85092,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-314",
    "subject": "生物",
    "grade": 10,
@@ -85031,12 +85100,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第4章 基因的表达·第2节 基因表达与性状的关系",
-   "question": "表观遗传中，基因的碱基序列保持不变，但基因表达和表型发生可遗传的变化。",
-   "explanation": "DNA 甲基化、组蛋白修饰等都会影响基因表达。",
+   "question": "表观遗传现象只与 DNA 甲基化有关。",
+   "explanation": "错。除 DNA 甲基化外，构成染色体的组蛋白发生甲基化、乙酰化等修饰，也会影响基因表达，属于表观遗传。",
    "difficulty": 2,
    "knowledge_point": "基因表达与性状的关系",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Ta97fa3",
    "change_tag": "新增",
@@ -85048,7 +85117,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "性状只由环境决定",
+     "text": "生物的性状是基因和环境共同作用的结果",
      "image": "",
      "audio": ""
     },
@@ -85058,7 +85127,7 @@
      "audio": ""
     },
     {
-     "text": "生物的性状是基因和环境共同作用的结果",
+     "text": "性状只由环境决定",
      "image": "",
      "audio": ""
     },
@@ -85069,6 +85138,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-315",
    "subject": "生物",
    "grade": 10,
@@ -85081,7 +85151,7 @@
    "difficulty": 2,
    "knowledge_point": "基因表达与性状的关系",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "T2e75e6",
    "change_tag": "新增",
@@ -85093,27 +85163,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "破坏了核糖体",
+     "text": "一个基因只能控制一种性状",
      "image": "",
      "audio": ""
     },
     {
-     "text": "影响了基因的表达",
+     "text": "一个性状可以受多个基因的影响",
      "image": "",
      "audio": ""
     },
     {
-     "text": "改变了 DNA 的碱基序列",
+     "text": "生物的性状完全由基因决定，与环境无关",
      "image": "",
      "audio": ""
     },
     {
-     "text": "改变了染色体数目",
+     "text": "基因都通过控制酶的合成间接控制性状",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-316",
    "subject": "生物",
    "grade": 10,
@@ -85121,8 +85192,8 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第4章 基因的表达·第2节 基因表达与性状的关系",
-   "question": "DNA 甲基化会影响生物的表型，主要是因为它？",
-   "explanation": "甲基化不改变碱基序列。",
+   "question": "下列关于基因与性状关系的叙述，正确的是？",
+   "explanation": "基因与性状不是简单的一一对应：一个性状可受多个基因影响，一个基因也可影响多个性状；性状还受环境影响；基因还能通过控制蛋白质结构直接控制性状。",
    "difficulty": 3,
    "knowledge_point": "基因表达与性状的关系",
    "type": "选择",
@@ -85251,7 +85322,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只影响当代、不影响基因表达",
+     "text": "这类变化可能遗传给后代，属于表观遗传",
      "image": "",
      "audio": ""
     },
@@ -85261,7 +85332,7 @@
      "audio": ""
     },
     {
-     "text": "这类变化可能遗传给后代，属于表观遗传",
+     "text": "只影响当代、不影响基因表达",
      "image": "",
      "audio": ""
     },
@@ -85272,6 +85343,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-320",
    "subject": "生物",
    "grade": 10,
@@ -85284,7 +85356,7 @@
    "difficulty": 3,
    "knowledge_point": "基因表达与性状的关系",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Te0a091",
    "change_tag": "新增",
@@ -85311,12 +85383,13 @@
      "audio": ""
     },
     {
-     "text": "血红蛋白数量增多",
+     "text": "血红蛋白的数量明显增多",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-321",
    "subject": "生物",
    "grade": 10,
@@ -85346,7 +85419,7 @@
      "audio": ""
     },
     {
-     "text": "环境影响了血红蛋白",
+     "text": "环境影响了血红蛋白结构",
      "image": "",
      "audio": ""
     },
@@ -85362,6 +85435,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-322",
    "subject": "生物",
    "grade": 10,
@@ -85430,6 +85504,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-324",
    "subject": "生物",
    "grade": 10,
@@ -85437,12 +85512,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第5章 基因突变及其他变异·第1节 基因突变和基因重组",
-   "question": "基因突变是生物变异的根本来源。",
-   "explanation": "基因突变能产生新基因。",
+   "question": "基因重组是生物变异的根本来源。",
+   "explanation": "错。基因突变能产生新基因，是生物变异的根本来源；基因重组是生物变异的重要来源。",
    "difficulty": 2,
    "knowledge_point": "基因突变和基因重组",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T4c3487",
    "change_tag": "新增",
@@ -85454,7 +85529,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "DNA 复制时",
+     "text": "减数分裂过程中",
      "image": "",
      "audio": ""
     },
@@ -85464,7 +85539,7 @@
      "audio": ""
     },
     {
-     "text": "减数分裂过程中",
+     "text": "DNA 复制时",
      "image": "",
      "audio": ""
     },
@@ -85475,6 +85550,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-325",
    "subject": "生物",
    "grade": 10,
@@ -85487,7 +85563,7 @@
    "difficulty": 2,
    "knowledge_point": "基因突变和基因重组",
    "type": "选择",
-   "answer": "C",
+   "answer": "A",
    "game_ready": true,
    "template": "Tf8bd89",
    "change_tag": "新增",
@@ -85509,7 +85585,7 @@
      "audio": ""
     },
     {
-     "text": "碱基类似物",
+     "text": "5-溴尿嘧啶等碱基类似物",
      "image": "",
      "audio": ""
     },
@@ -85520,6 +85596,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-326",
    "subject": "生物",
    "grade": 10,
@@ -85549,12 +85626,12 @@
      "audio": ""
     },
     {
-     "text": "血红蛋白基因",
+     "text": "原癌基因和抑癌基因",
      "image": "",
      "audio": ""
     },
     {
-     "text": "原癌基因和抑癌基因",
+     "text": "血红蛋白基因",
      "image": "",
      "audio": ""
     },
@@ -85565,6 +85642,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-327",
    "subject": "生物",
    "grade": 10,
@@ -85577,7 +85655,7 @@
    "difficulty": 3,
    "knowledge_point": "基因突变和基因重组",
    "type": "选择",
-   "answer": "C",
+   "answer": "B",
    "game_ready": true,
    "template": "Tbaa8fd",
    "change_tag": "新增",
@@ -85837,27 +85915,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "抑制纺锤体的形成，使染色体数目加倍",
+     "text": "3 个",
      "image": "",
      "audio": ""
     },
     {
-     "text": "促进着丝粒分裂",
+     "text": "2 个",
      "image": "",
      "audio": ""
     },
     {
-     "text": "促进 DNA 复制",
+     "text": "4 个",
      "image": "",
      "audio": ""
     },
     {
-     "text": "破坏细胞膜",
+     "text": "6 个",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-334",
    "subject": "生物",
    "grade": 10,
@@ -85865,9 +85944,9 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第5章 基因突变及其他变异·第2节 染色体变异",
-   "question": "秋水仙素诱导多倍体形成的原理是？",
-   "explanation": "染色体不能移向两极，细胞内染色体数目加倍。",
-   "difficulty": 2,
+   "question": "四倍体西瓜（♀）与二倍体西瓜（♂）杂交，所得种子长成的植株，体细胞中含有几个染色体组？",
+   "explanation": "四倍体产生含 2 个染色体组的卵细胞，二倍体产生含 1 个染色体组的精子，受精卵含 3 个染色体组，是三倍体；三倍体减数分裂时联会紊乱，不能形成正常配子，所以结出无子西瓜。",
+   "difficulty": 3,
    "knowledge_point": "染色体变异",
    "type": "选择",
    "answer": "A",
@@ -86000,12 +86079,12 @@
      "audio": ""
     },
     {
-     "text": "三倍体",
+     "text": "单倍体",
      "image": "",
      "audio": ""
     },
     {
-     "text": "单倍体",
+     "text": "三倍体",
      "image": "",
      "audio": ""
     },
@@ -86016,6 +86095,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-338",
    "subject": "生物",
    "grade": 10,
@@ -86028,7 +86108,7 @@
    "difficulty": 3,
    "knowledge_point": "染色体变异",
    "type": "选择",
-   "answer": "C",
+   "answer": "B",
    "game_ready": true,
    "template": "T976552",
    "change_tag": "新增",
@@ -86085,12 +86165,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "果实一定变大",
+     "text": "植株茎秆粗壮，果实和种子都较大",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一定产生新基因",
+     "text": "能产生新的基因，创造新性状",
      "image": "",
      "audio": ""
     },
@@ -86100,12 +86180,13 @@
      "audio": ""
     },
     {
-     "text": "植株高大",
+     "text": "能把不同品种的优良性状集中到一起",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-340",
    "subject": "生物",
    "grade": 10,
@@ -86114,7 +86195,7 @@
    "volume": "必修第二册",
    "unit": "必修2·第5章 基因突变及其他变异·第2节 染色体变异",
    "question": "单倍体育种的突出优点是？",
-   "explanation": "单倍体经秋水仙素处理后得到的都是纯合子。",
+   "explanation": "单倍体育种：花药离体培养得到单倍体，再用秋水仙素处理得到纯合子，能明显缩短育种年限。茎秆粗壮是多倍体的特点，产生新基因是诱变育种，集中优良性状是杂交育种。",
    "difficulty": 3,
    "knowledge_point": "染色体变异",
    "type": "选择",
@@ -86135,7 +86216,7 @@
      "audio": ""
     },
     {
-     "text": "单基因遗传病",
+     "text": "常染色体单基因遗传病",
      "image": "",
      "audio": ""
     },
@@ -86151,6 +86232,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-341",
    "subject": "生物",
    "grade": 10,
@@ -86310,12 +86392,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只选女性",
+     "text": "在人群中随机抽样调查",
      "image": "",
      "audio": ""
     },
     {
-     "text": "随机选取的路人",
+     "text": "只调查患者本人",
      "image": "",
      "audio": ""
     },
@@ -86325,12 +86407,13 @@
      "audio": ""
     },
     {
-     "text": "一所学校的全部学生",
+     "text": "只调查家族中的健康成员",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-345",
    "subject": "生物",
    "grade": 10,
@@ -86339,7 +86422,7 @@
    "volume": "必修第二册",
    "unit": "必修2·第5章 基因突变及其他变异·第3节 人类遗传病",
    "question": "若要弄清某种遗传病的遗传方式，调查的对象应是？",
-   "explanation": "通过绘制系谱图分析遗传方式。",
+   "explanation": "调查遗传方式要在患者家系中调查，绘制系谱图分析；在人群中随机抽样是调查发病率的方法。",
    "difficulty": 2,
    "knowledge_point": "人类遗传病",
    "type": "选择",
@@ -86354,6 +86437,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-346",
    "subject": "生物",
    "grade": 10,
@@ -86361,12 +86445,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第5章 基因突变及其他变异·第3节 人类遗传病",
-   "question": "禁止近亲结婚可以降低隐性遗传病的发病率。",
-   "explanation": "近亲携带相同隐性致病基因的可能性较大。",
+   "question": "禁止近亲结婚可以杜绝遗传病的发生。",
+   "explanation": "错。禁止近亲结婚只能降低隐性遗传病的发病率，不能杜绝遗传病。",
    "difficulty": 2,
    "knowledge_point": "人类遗传病",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T2bc4e5",
    "change_tag": "新增",
@@ -86378,12 +86462,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "测量血压",
+     "text": "测量孕妇血压",
      "image": "",
      "audio": ""
     },
     {
-     "text": "听诊胎儿心率",
+     "text": "遗传咨询",
      "image": "",
      "audio": ""
     },
@@ -86393,12 +86477,13 @@
      "audio": ""
     },
     {
-     "text": "B 超测量身高",
+     "text": "B 超检查",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-347",
    "subject": "生物",
    "grade": 10,
@@ -86407,7 +86492,7 @@
    "volume": "必修第二册",
    "unit": "必修2·第5章 基因突变及其他变异·第3节 人类遗传病",
    "question": "产前诊断中，能检查胎儿细胞染色体是否异常的手段是？",
-   "explanation": "此外还有孕妇血细胞检查、基因检测等。",
+   "explanation": "羊水检查可取胎儿脱落的细胞做染色体分析；B 超检查只能看胎儿外形和器官，看不到染色体；遗传咨询是优生措施，不是检查手段。此外还有孕妇血细胞检查、基因检测等。",
    "difficulty": 2,
    "knowledge_point": "人类遗传病",
    "type": "选择",
@@ -86719,27 +86804,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "它们的体型越大",
+     "text": "黑猩猩与人是同一物种",
      "image": "",
      "audio": ""
     },
     {
-     "text": "它们与人的亲缘关系越近",
+     "text": "二者的亲缘关系很近",
      "image": "",
      "audio": ""
     },
     {
-     "text": "它们出现得越早",
+     "text": "人是由现代黑猩猩进化来的",
      "image": "",
      "audio": ""
     },
     {
-     "text": "它们越低等",
+     "text": "二者所有基因的碱基序列都相同",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-356",
    "subject": "生物",
    "grade": 10,
@@ -86747,8 +86833,8 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第6章 生物的进化·第1节 生物有共同祖先的证据",
-   "question": "不同生物与人的细胞色素 c 的氨基酸序列差异越小，说明？",
-   "explanation": "黑猩猩与人的细胞色素 c 氨基酸序列差异为 0。",
+   "question": "黑猩猩与人的细胞色素 c 的氨基酸序列差异为 0，这说明？",
+   "explanation": "细胞色素 c 序列差异越小，亲缘关系越近；差异为 0 只说明这一种蛋白质相同，黑猩猩与人仍是不同物种，二者有共同祖先，人不是由现代黑猩猩进化来的。",
    "difficulty": 3,
    "knowledge_point": "生物有共同祖先的证据",
    "type": "选择",
@@ -87056,6 +87142,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-364",
    "subject": "生物",
    "grade": 10,
@@ -87063,12 +87150,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第6章 生物的进化·第2节 自然选择与适应的形成",
-   "question": "适应是自然选择的结果。",
-   "explanation": "具有有利变异的个体更容易生存和繁殖后代。",
+   "question": "适应的形成是因为生物为了适应环境而主动产生了有利变异。",
+   "explanation": "错。变异是不定向的，在自然选择作用下，具有有利变异的个体更容易生存和繁殖，适应才逐渐形成。",
    "difficulty": 2,
    "knowledge_point": "自然选择与适应的形成",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T063d81",
    "change_tag": "新增",
@@ -87125,27 +87212,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "生物适应一种环境后就不会被淘汰",
+     "text": "北极熊皮下脂肪厚，能抵御北极的严寒",
      "image": "",
      "audio": ""
     },
     {
-     "text": "适应和环境没有关系",
+     "text": "仙人掌的叶退化成刺，可减少水分散失",
      "image": "",
      "audio": ""
     },
     {
-     "text": "枯叶蝶伪装得像枯叶，但仍可能被视力敏锐的天敌发现",
+     "text": "枯叶蝶形似枯叶，但仍会被眼尖的天敌发现",
      "image": "",
      "audio": ""
     },
     {
-     "text": "所有适应永远有效",
+     "text": "桦尺蛾在污染区多为黑色，在清洁区多为浅色",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-366",
    "subject": "生物",
    "grade": 10,
@@ -87154,7 +87242,7 @@
    "volume": "必修第二册",
    "unit": "必修2·第6章 生物的进化·第2节 自然选择与适应的形成",
    "question": "适应具有相对性，下列能说明这一点的是？",
-   "explanation": "环境改变时，原来的适应可能变成不适应。",
+   "explanation": "适应的相对性是指适应只在一定程度、一定环境下有效。枯叶蝶伪装得好仍会被天敌发现，说明适应不是绝对的；其余三项只说明生物适应环境。",
    "difficulty": 2,
    "knowledge_point": "自然选择与适应的形成",
    "type": "选择",
@@ -87215,7 +87303,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "个体的基因型",
+     "text": "种群中个体的基因型",
      "image": "",
      "audio": ""
     },
@@ -87236,6 +87324,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-368",
    "subject": "生物",
    "grade": 10,
@@ -87259,6 +87348,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-369",
    "subject": "生物",
    "grade": 10,
@@ -87266,12 +87356,12 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修2·第6章 生物的进化·第2节 自然选择与适应的形成",
-   "question": "拉马克认为生物各种适应性特征的形成，是由于用进废退和获得性遗传。",
-   "explanation": "这一观点缺少科学证据。",
+   "question": "拉马克认为，长颈鹿的长颈是自然选择的结果。",
+   "explanation": "错。拉马克用「用进废退和获得性遗传」解释：长颈鹿经常伸长脖子吃高处的树叶，颈越来越长并遗传下去；用自然选择解释的是达尔文。",
    "difficulty": 2,
    "knowledge_point": "自然选择与适应的形成",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tc0b297",
    "change_tag": "新增",
@@ -87985,27 +88075,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "使生物不再发生突变",
+     "text": "使基因突变的频率比无性生殖时大大提高",
      "image": "",
      "audio": ""
     },
     {
-     "text": "减少了生物的变异",
+     "text": "后代都能保持亲本的优良性状",
      "image": "",
      "audio": ""
     },
     {
-     "text": "使生物只能无性繁殖",
+     "text": "产生的后代数量比无性生殖多",
      "image": "",
      "audio": ""
     },
     {
-     "text": "实现了基因重组，增强了生物变异的多样性",
+     "text": "实现了基因重组，使变异更加多样",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-387",
    "subject": "生物",
    "grade": 10,
@@ -88014,7 +88105,7 @@
    "volume": "必修第二册",
    "unit": "必修2·第6章 生物的进化·第4节 协同进化与生物多样性的形成",
    "question": "有性生殖出现以后，生物进化的速度明显加快，原因是？",
-   "explanation": "有性生殖为自然选择提供了更丰富的原材料。",
+   "explanation": "有性生殖通过减数分裂和受精作用实现了基因重组，使后代变异更多样，为自然选择提供了更丰富的原材料；它并不提高突变频率，后代也不一定保持亲本性状。",
    "difficulty": 3,
    "knowledge_point": "协同进化与生物多样性的形成",
    "type": "选择",
@@ -88158,12 +88249,13 @@
      "audio": ""
     },
     {
-     "text": "独立的封建国家",
+     "text": "独立的资本主义国家",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-161",
    "subject": "政治",
    "grade": 10,
@@ -88396,7 +88488,7 @@
      "audio": ""
     },
     {
-     "text": "依靠外国援助",
+     "text": "依靠苏联等外国援助",
      "image": "",
      "audio": ""
     },
@@ -88412,6 +88504,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-167",
    "subject": "政治",
    "grade": 10,
@@ -88762,7 +88855,7 @@
      "audio": ""
     },
     {
-     "text": "西方现代化",
+     "text": "照搬西方现代化模式",
      "image": "",
      "audio": ""
     },
@@ -88773,6 +88866,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-176",
    "subject": "政治",
    "grade": 10,
@@ -88982,7 +89076,7 @@
      "audio": ""
     },
     {
-     "text": "实现共产主义",
+     "text": "实现共产主义远大理想",
      "image": "",
      "audio": ""
     },
@@ -88998,6 +89092,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-181",
    "subject": "政治",
    "grade": 10,
@@ -89032,7 +89127,7 @@
      "audio": ""
     },
     {
-     "text": "只代表工人阶级的组织",
+     "text": "只代表工人阶级根本利益的组织",
      "image": "",
      "audio": ""
     },
@@ -89043,6 +89138,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-182",
    "subject": "政治",
    "grade": 10,
@@ -89428,7 +89524,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "西方政治制度",
+     "text": "西方近代政治学说",
      "image": "",
      "audio": ""
     },
@@ -89449,6 +89545,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-192",
    "subject": "政治",
    "grade": 10,
@@ -89601,12 +89698,13 @@
      "audio": ""
     },
     {
-     "text": "依靠英明的领袖",
+     "text": "依靠英明的领袖人物",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-196",
    "subject": "政治",
    "grade": 10,
@@ -89721,7 +89819,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "利益和财富",
+     "text": "规模和党员数量",
      "image": "",
      "audio": ""
     },
@@ -89742,6 +89840,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-199",
    "subject": "政治",
    "grade": 10,
@@ -89794,7 +89893,7 @@
      "audio": ""
     },
     {
-     "text": "外部条件",
+     "text": "重要的外部条件",
      "image": "",
      "audio": ""
     },
@@ -89810,6 +89909,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-201",
    "subject": "政治",
    "grade": 10,
@@ -90127,7 +90227,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "各级党组织各自为政",
+     "text": "各级党组织自主决策、各自为政",
      "image": "",
      "audio": ""
     },
@@ -90148,6 +90248,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-209",
    "subject": "政治",
    "grade": 10,
@@ -90556,27 +90657,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "党要事无巨细直接管理所有企业",
+     "text": "党的领导就是党直接管理所有事务",
      "image": "",
      "audio": ""
     },
     {
-     "text": "党不需要接受监督",
+     "text": "党的领导主要体现在经济领域",
      "image": "",
      "audio": ""
     },
     {
-     "text": "党可以凌驾于宪法和法律之上",
+     "text": "坚持党的领导，就要以党代政",
      "image": "",
      "audio": ""
     },
     {
-     "text": "要不断提高党的执政能力和领导水平",
+     "text": "要不断提高党的执政和领导水平",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-220",
    "subject": "政治",
    "grade": 10,
@@ -90585,7 +90687,7 @@
    "volume": "必修第三册",
    "unit": "必修3·第三课 坚持和加强党的全面领导·3.2 巩固党的执政地位",
    "question": "新时代坚持和加强党的全面领导，下列说法正确的是？",
-   "explanation": "党必须在宪法和法律的范围内活动。",
+   "explanation": "党的领导是全面的，但不是包办一切、以党代政；党必须在宪法和法律的范围内活动，要不断提高执政能力和领导水平。",
    "difficulty": 3,
    "knowledge_point": "巩固党的执政地位",
    "type": "选择",
@@ -90646,27 +90748,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "少数人当家作主",
+     "text": "国家权力由少数精英掌握",
      "image": "",
      "audio": ""
     },
     {
-     "text": "人民当家作主",
+     "text": "人民通过人大行使国家权力",
      "image": "",
      "audio": ""
     },
     {
-     "text": "专政多于民主",
+     "text": "公民的一切权利都不受任何限制",
      "image": "",
      "audio": ""
     },
     {
-     "text": "党员当家作主",
+     "text": "对一切人都实行专政",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-222",
    "subject": "政治",
    "grade": 10,
@@ -90674,8 +90777,8 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第四课 人民民主专政的社会主义国家·4.1 人民民主专政的本质：人民当家作主",
-   "question": "人民民主专政的本质是？",
-   "explanation": "我国的一切权力属于人民。",
+   "question": "人民民主专政的本质是人民当家作主，下列能体现这一点的是？",
+   "explanation": "我国一切权力属于人民，人民通过全国人民代表大会和地方各级人民代表大会行使国家权力；公民行使权利要在法律范围内，专政只对极少数敌对分子。",
    "difficulty": 2,
    "knowledge_point": "人民民主专政的本质：人民当家作主",
    "type": "选择",
@@ -90854,7 +90957,7 @@
      "audio": ""
     },
     {
-     "text": "工人阶级（通过中国共产党实现领导）",
+     "text": "工人阶级",
      "image": "",
      "audio": ""
     },
@@ -90864,12 +90967,13 @@
      "audio": ""
     },
     {
-     "text": "资产阶级",
+     "text": "民族资产阶级",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-227",
    "subject": "政治",
    "grade": 10,
@@ -90878,7 +90982,7 @@
    "volume": "必修第三册",
    "unit": "必修3·第四课 人民民主专政的社会主义国家·4.1 人民民主专政的本质：人民当家作主",
    "question": "我国人民民主专政的领导力量是？",
-   "explanation": "工农联盟是阶级基础。",
+   "explanation": "人民民主专政由工人阶级（通过中国共产党）领导；工农联盟是阶级基础。",
    "difficulty": 3,
    "knowledge_point": "人民民主专政的本质：人民当家作主",
    "type": "选择",
@@ -91592,6 +91696,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-245",
    "subject": "政治",
    "grade": 10,
@@ -91599,12 +91704,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第五课 我国的根本政治制度·5.1 人民代表大会：我国的国家权力机关",
-   "question": "全国人民代表大会常务委员会是全国人民代表大会的常设机关。",
-   "explanation": "全国人大常委会在全国人大闭会期间行使国家权力。",
+   "question": "全国人民代表大会常务委员会是最高国家权力机关。",
+   "explanation": "错。全国人民代表大会是最高国家权力机关，全国人大常委会是它的常设机关。",
    "difficulty": 2,
    "knowledge_point": "人民代表大会：我国的国家权力机关",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T4046f4",
    "change_tag": "新增",
@@ -91626,7 +91731,7 @@
      "audio": ""
     },
     {
-     "text": "全国人大常委会",
+     "text": "全国人大常务委员会",
      "image": "",
      "audio": ""
     },
@@ -91637,6 +91742,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-246",
    "subject": "政治",
    "grade": 10,
@@ -91795,6 +91901,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-250",
    "subject": "政治",
    "grade": 10,
@@ -91802,12 +91909,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第五课 我国的根本政治制度·5.1 人民代表大会：我国的国家权力机关",
-   "question": "县级以上地方各级人大都设立常务委员会，乡镇人大不设常委会。",
-   "explanation": "这是我国地方国家权力机关的组织特点。",
+   "question": "乡镇人民代表大会也设立常务委员会。",
+   "explanation": "错。县级以上地方各级人大设立常务委员会，乡镇人大不设常委会。",
    "difficulty": 3,
    "knowledge_point": "人民代表大会：我国的国家权力机关",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T67f1c9",
    "change_tag": "新增",
@@ -92195,12 +92302,13 @@
      "audio": ""
     },
     {
-     "text": "多党轮流执政",
+     "text": "多党轮流执政的原则",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-260",
    "subject": "政治",
    "grade": 10,
@@ -92939,12 +93047,13 @@
      "audio": ""
     },
     {
-     "text": "使少数民族地区脱离国家",
+     "text": "使各少数民族地区享有完全独立的主权",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-278",
    "subject": "政治",
    "grade": 10,
@@ -92969,27 +93078,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "58 个",
+     "text": "自治区、自治市、自治乡",
      "image": "",
      "audio": ""
     },
     {
-     "text": "50 个",
+     "text": "自治省、自治州、自治县",
      "image": "",
      "audio": ""
     },
     {
-     "text": "56 个",
+     "text": "自治区、自治州、自治县",
      "image": "",
      "audio": ""
     },
     {
-     "text": "55 个",
+     "text": "自治区、自治县、民族乡",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-279",
    "subject": "政治",
    "grade": 10,
@@ -92997,8 +93107,8 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第六课 我国的基本政治制度·6.2 民族区域自治制度",
-   "question": "我国共有多少个民族？",
-   "explanation": "我国是统一的多民族国家。",
+   "question": "我国的民族自治地方分为？",
+   "explanation": "民族自治地方分为自治区、自治州、自治县（旗）三级；民族乡不是民族自治地方。",
    "difficulty": 2,
    "knowledge_point": "民族区域自治制度",
    "type": "选择",
@@ -93205,7 +93315,7 @@
      "audio": ""
     },
     {
-     "text": "股东大会",
+     "text": "股东代表大会",
      "image": "",
      "audio": ""
     },
@@ -93216,6 +93326,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-285",
    "subject": "政治",
    "grade": 10,
@@ -93909,12 +94020,13 @@
      "audio": ""
     },
     {
-     "text": "坚持司法独立于党",
+     "text": "坚持司法独立于党的领导",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-302",
    "subject": "政治",
    "grade": 10,
@@ -94052,17 +94164,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只要求政府依法行政",
+     "text": "坚持立法、执法、司法、守法分开推进",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只要求公民守法",
+     "text": "坚持法治国家、法治政府、法治社会各自建设",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只要求法院依法审判",
+     "text": "坚持依法治国和以德治国相分离",
      "image": "",
      "audio": ""
     },
@@ -94073,6 +94185,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-306",
    "subject": "政治",
    "grade": 10,
@@ -94081,7 +94194,7 @@
    "volume": "必修第三册",
    "unit": "必修3·第七课 治国理政的基本方式·7.2 全面依法治国的总目标与原则",
    "question": "全面依法治国的工作布局是？",
-   "explanation": "还要坚持法治国家、法治政府、法治社会一体建设。",
+   "explanation": "工作布局是坚持依法治国、依法执政、依法行政共同推进，坚持法治国家、法治政府、法治社会一体建设；依法治国和以德治国要相结合。",
    "difficulty": 3,
    "knowledge_point": "全面依法治国的总目标与原则",
    "type": "选择",
@@ -94413,7 +94526,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "权力集中于个人",
+     "text": "权力高度集中于个人",
      "image": "",
      "audio": ""
     },
@@ -94434,6 +94547,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-315",
    "subject": "政治",
    "grade": 10,
@@ -94795,6 +94909,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-324",
    "subject": "政治",
    "grade": 10,
@@ -94802,12 +94917,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第八课 法治中国建设·8.2 法治政府",
-   "question": "对于公民来说，“法无禁止即可为”。",
-   "explanation": "而对于政府来说，“法无授权不可为”“法定职责必须为”。",
+   "question": "对于政府来说，“法无禁止即可为”。",
+   "explanation": "错。对公民来说“法无禁止即可为”；对政府来说是“法无授权不可为”“法定职责必须为”。",
    "difficulty": 2,
    "knowledge_point": "法治政府",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T3891c8",
    "change_tag": "新增",
@@ -95032,7 +95147,7 @@
      "audio": ""
     },
     {
-     "text": "三权分立改革",
+     "text": "推行三权分立式改革",
      "image": "",
      "audio": ""
     },
@@ -95043,6 +95158,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-330",
    "subject": "政治",
    "grade": 10,
@@ -95067,27 +95183,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "法治建设的主体",
+     "text": "政府向社会公布权力清单和责任清单",
      "image": "",
      "audio": ""
     },
     {
-     "text": "构筑法治国家的基础",
+     "text": "村民依法制定村规民约、调解纠纷",
      "image": "",
      "audio": ""
     },
     {
-     "text": "法治建设的目标",
+     "text": "全国人大常委会审议通过新的法律",
      "image": "",
      "audio": ""
     },
     {
-     "text": "与法治无关",
+     "text": "人民法院推行立案登记制改革",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-331",
    "subject": "政治",
    "grade": 10,
@@ -95095,8 +95212,8 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第八课 法治中国建设·8.3 法治社会",
-   "question": "在法治中国建设中，法治社会是？",
-   "explanation": "法治社会是法治国家、法治政府建设的基础。",
+   "question": "下列做法中，属于建设法治社会的是？",
+   "explanation": "法治社会建设包括推进社会治理法治化、发挥村规民约等社会规范的作用、依法调解纠纷；公布权责清单属于法治政府建设，立法和司法改革不属于社会层面的法治建设。",
    "difficulty": 1,
    "knowledge_point": "法治社会",
    "type": "选择",
@@ -95117,7 +95234,7 @@
      "audio": ""
     },
     {
-     "text": "只遵守部分法律",
+     "text": "只遵守与自己有关的法律",
      "image": "",
      "audio": ""
     },
@@ -95133,6 +95250,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-332",
    "subject": "政治",
    "grade": 10,
@@ -95167,7 +95285,7 @@
      "audio": ""
     },
     {
-     "text": "让法律越来越多",
+     "text": "让法律条文越来越多",
      "image": "",
      "audio": ""
     },
@@ -95178,6 +95296,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-333",
    "subject": "政治",
    "grade": 10,
@@ -95721,27 +95840,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "针对人工智能、数据安全等新问题及时制定和完善法律",
+     "text": "针对人工智能等新问题及时立法、修法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "法律一旦制定永远不改",
+     "text": "为了保持法律稳定，新出现的问题暂不立法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只制定一部法律管所有问题",
+     "text": "照搬外国法律条文，加快立法速度",
      "image": "",
      "audio": ""
     },
     {
-     "text": "立法不考虑社会发展",
+     "text": "法律条文越多越细越好",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-347",
    "subject": "政治",
    "grade": 10,
@@ -95750,7 +95870,7 @@
    "volume": "必修第三册",
    "unit": "必修3·第九课 全面依法治国的基本要求·9.1 科学立法",
    "question": "科学立法要求立法适应经济社会发展的需要，下列做法体现这一要求的是？",
-   "explanation": "法律要与时俱进。",
+   "explanation": "科学立法要求立法从国情实际出发、适应经济社会发展需要，法律要与时俱进；法律稳定不等于不立新法，也不能照搬外国或一味求多。",
    "difficulty": 3,
    "knowledge_point": "科学立法",
    "type": "选择",
@@ -95781,12 +95901,13 @@
      "audio": ""
     },
     {
-     "text": "审判刑事案件",
+     "text": "审判刑事和民事案件",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-348",
    "subject": "政治",
    "grade": 10,
@@ -96127,27 +96248,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "尊重当事人人格，采用人性化方式执法",
+     "text": "尊重当事人人格，执法方式人性化",
      "image": "",
      "audio": ""
     },
     {
-     "text": "执法不讲方法",
+     "text": "严格执法时不必考虑执法的方式方法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "执法时可以辱骂当事人",
+     "text": "为提高效率，可以简化法定执法程序",
      "image": "",
      "audio": ""
     },
     {
-     "text": "可以暴力执法",
+     "text": "对违法者一律从重处罚，以儆效尤",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-357",
    "subject": "政治",
    "grade": 10,
@@ -96156,7 +96278,7 @@
    "volume": "必修第三册",
    "unit": "必修3·第九课 全面依法治国的基本要求·9.2 严格执法",
    "question": "文明执法要求执法人员？",
-   "explanation": "文明执法与严格执法并不矛盾。",
+   "explanation": "文明执法要求尊重当事人人格、方式人性化，它与严格执法并不矛盾；执法必须遵守法定程序，处罚要过罚相当，不能一律从重。",
    "difficulty": 3,
    "knowledge_point": "严格执法",
    "type": "选择",
@@ -96182,7 +96304,7 @@
      "audio": ""
     },
     {
-     "text": "违法必究失效",
+     "text": "违法必究原则失效",
      "image": "",
      "audio": ""
     },
@@ -96193,6 +96315,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-358",
    "subject": "政治",
    "grade": 10,
@@ -96285,27 +96408,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "前提",
+     "text": "推进科学立法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "基础",
+     "text": "推进严格执法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "生命线",
+     "text": "促进公正司法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "目标",
+     "text": "实现全民守法",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-361",
    "subject": "政治",
    "grade": 10,
@@ -96313,8 +96437,8 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第九课 全面依法治国的基本要求·9.3 公正司法",
-   "question": "公正是法治的？",
-   "explanation": "司法公正对社会公正具有重要引领作用。",
+   "question": "某法院推行庭审网络直播，让司法在阳光下运行，这主要有利于？",
+   "explanation": "司法公开、接受社会监督，能促进公正司法；公正是法治的生命线。",
    "difficulty": 1,
    "knowledge_point": "公正司法",
    "type": "选择",
@@ -96419,6 +96543,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-364",
    "subject": "政治",
    "grade": 10,
@@ -96426,12 +96551,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第九课 全面依法治国的基本要求·9.3 公正司法",
-   "question": "我国人民法院审判案件实行两审终审制。",
-   "explanation": "一般案件经过两级人民法院审判即终结。",
+   "question": "我国人民法院审判案件实行三审终审制。",
+   "explanation": "错。我国实行两审终审制，一般案件经过两级人民法院审判即终结。",
    "difficulty": 2,
    "knowledge_point": "公正司法",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Td1ec6b",
    "change_tag": "新增",
@@ -96691,27 +96816,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "关键环节",
+     "text": "推进科学立法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "前提条件",
+     "text": "推进严格执法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "生命线",
+     "text": "推进公正司法",
      "image": "",
      "audio": ""
     },
     {
-     "text": "基础工程",
+     "text": "推进全民守法",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-371",
    "subject": "政治",
    "grade": 10,
@@ -96719,8 +96845,8 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第三册",
    "unit": "必修3·第九课 全面依法治国的基本要求·9.4 全民守法",
-   "question": "在全面依法治国的基本要求中，全民守法是？",
-   "explanation": "法律的权威源自人民的内心拥护和真诚信仰。",
+   "question": "某社区开设“法律明白人”培训班，引导居民遇事找法、解决问题靠法，这主要体现了？",
+   "explanation": "引导群众尊法学法守法用法、遇事找法，体现的是全民守法；全民守法是全面依法治国的基础工程。",
    "difficulty": 1,
    "knowledge_point": "全民守法",
    "type": "选择",
@@ -97029,7 +97155,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "遇到侵害就私自报复",
+     "text": "遇到侵害就私自报复对方",
      "image": "",
      "audio": ""
     },
@@ -97050,6 +97176,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-379",
    "subject": "政治",
    "grade": 10,
@@ -97119,7 +97246,7 @@
      "audio": ""
     },
     {
-     "text": "《民法大全》",
+     "text": "《查士丁尼法典》",
      "image": "",
      "audio": ""
     }
@@ -97131,6 +97258,7 @@
    "volume": "必修下册",
    "knowledge_point": "文明的产生与早期发展",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T47b8fc",
    "change_tag": "新增",
@@ -97848,33 +97976,34 @@
    "question": "古代帝国（如波斯、罗马）对文明交流的影响是？",
    "options": [
     {
-     "text": "完全阻断了文明交流",
+     "text": "统一了语言和宗教，消除了文明差异",
      "image": "",
      "audio": ""
     },
     {
-     "text": "与文明交流无关",
+     "text": "只促进交流，并未给被征服地区带来破坏",
      "image": "",
      "audio": ""
     },
     {
-     "text": "既造成破坏，客观上也推动了不同文明之间的交流",
+     "text": "既有破坏，客观上也促进了交流",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有破坏没有交流",
+     "text": "使各地文明彼此隔绝，交流中断",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "帝国扩张伴随着征服，也带来了交流。",
+   "explanation": "帝国扩张伴随征服和破坏，客观上也促进了不同文明之间的交流；但它没有消除各地文明的差异。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "古代世界的帝国与文明的交流",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T06914e",
    "change_tag": "新增",
@@ -98254,12 +98383,12 @@
    "question": "西欧中古时期出现的大学，最早的是？",
    "options": [
     {
-     "text": "中国的京师大学堂",
+     "text": "法国的巴黎大学",
      "image": "",
      "audio": ""
     },
     {
-     "text": "美国的哈佛大学",
+     "text": "英国的牛津大学",
      "image": "",
      "audio": ""
     },
@@ -98269,18 +98398,19 @@
      "audio": ""
     },
     {
-     "text": "英国的伦敦大学",
+     "text": "英国的剑桥大学",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "大学的出现促进了知识传播。",
+   "explanation": "意大利的博洛尼亚大学通常被认为是西欧最早的大学，此后巴黎大学、牛津大学、剑桥大学等相继出现，促进了知识传播。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "中古时期的欧洲",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T3d4446",
    "change_tag": "新增",
@@ -98525,7 +98655,7 @@
    "question": "印度德里苏丹国和莫卧儿帝国的统治者信仰？",
    "options": [
     {
-     "text": "印度教",
+     "text": "婆罗门教",
      "image": "",
      "audio": ""
     },
@@ -98552,6 +98682,7 @@
    "volume": "必修下册",
    "knowledge_point": "中古时期的亚洲",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta7f719",
    "change_tag": "新增",
@@ -99311,14 +99442,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第三单元 走向整体的世界·第6课 全球航路的开辟",
    "type": "判断",
-   "question": "麦哲伦船队的环球航行证明了地球是一个球体。",
-   "answer": "对",
-   "explanation": "环球航行证明了地圆学说。",
+   "question": "哥伦布船队的环球航行证明了地球是一个球体。",
+   "answer": "错",
+   "explanation": "错。完成环球航行的是麦哲伦船队；哥伦布航行到达的是美洲。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "全球航路的开辟",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td65393",
    "change_tag": "新增",
@@ -99487,7 +99619,7 @@
      "audio": ""
     },
     {
-     "text": "法国",
+     "text": "意大利",
      "image": "",
      "audio": ""
     }
@@ -99499,6 +99631,7 @@
    "volume": "必修下册",
    "knowledge_point": "全球航路的开辟",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T343580",
    "change_tag": "新增",
@@ -100154,7 +100287,7 @@
      "audio": ""
     },
     {
-     "text": "洛克",
+     "text": "约翰·洛克",
      "image": "",
      "audio": ""
     },
@@ -100176,6 +100309,7 @@
    "volume": "必修下册",
    "knowledge_point": "欧洲的思想解放运动",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2972c2",
    "change_tag": "新增",
@@ -100529,14 +100663,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第四单元 资本主义制度的确立·第9课 资产阶级革命与资本主义制度的确立",
    "type": "判断",
-   "question": "1861 年，俄国沙皇亚历山大二世宣布废除农奴制。",
-   "answer": "对",
-   "explanation": "这是俄国走上资本主义道路的转折点。",
+   "question": "1861 年，俄国沙皇尼古拉二世宣布废除农奴制。",
+   "answer": "错",
+   "explanation": "错。1861 年宣布废除农奴制的是亚历山大二世。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "资产阶级革命与资本主义制度的确立",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8d1fc2",
    "change_tag": "新增",
@@ -100732,14 +100867,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第四单元 资本主义制度的确立·第9课 资产阶级革命与资本主义制度的确立",
    "type": "判断",
-   "question": "英国是世界上第一个确立君主立宪制的国家。",
-   "answer": "对",
-   "explanation": "光荣革命和《权利法案》奠定了英国君主立宪制的基础。",
+   "question": "法国是世界上第一个确立君主立宪制的国家。",
+   "answer": "错",
+   "explanation": "错。英国是第一个确立君主立宪制的国家，光荣革命和《权利法案》奠定了基础。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "资产阶级革命与资本主义制度的确立",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Ta1a799",
    "change_tag": "新增",
@@ -101138,14 +101274,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第五单元 工业革命与马克思主义的诞生·第10课 影响世界的工业革命",
    "type": "判断",
-   "question": "第一次工业革命首先发生在棉纺织业。",
-   "answer": "对",
-   "explanation": "棉纺织业的技术革新引发了一系列机器的发明。",
+   "question": "第一次工业革命首先发生在法国。",
+   "answer": "错",
+   "explanation": "错。第一次工业革命首先发生在英国，从棉纺织业开始。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "影响世界的工业革命",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2126fe",
    "change_tag": "新增",
@@ -102559,14 +102696,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第七单元 两次世界大战、十月革命与国际秩序的演变·第14课 第一次世界大战与战后国际秩序",
    "type": "判断",
-   "question": "1917 年，美国加入第一次世界大战，站在协约国一边。",
-   "answer": "对",
-   "explanation": "美国参战加速了同盟国的失败。",
+   "question": "1917 年，美国加入第一次世界大战，站在同盟国一边。",
+   "answer": "错",
+   "explanation": "错。美国站在协约国一边参战，加速了同盟国的失败。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "第一次世界大战与战后国际秩序",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T79cc27",
    "change_tag": "新增",
@@ -102965,14 +103103,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第七单元 两次世界大战、十月革命与国际秩序的演变·第15课 十月革命的胜利与苏联的社会主义实践",
    "type": "判断",
-   "question": "新经济政策的核心是以粮食税代替余粮收集制。",
-   "answer": "对",
-   "explanation": "允许农民自由出售余粮。",
+   "question": "新经济政策的核心是实行余粮收集制。",
+   "answer": "错",
+   "explanation": "错。余粮收集制是战时共产主义政策；新经济政策的核心是以粮食税代替余粮收集制。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "十月革命的胜利与苏联的社会主义实践",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T961351",
    "change_tag": "新增",
@@ -103777,14 +103916,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第七单元 两次世界大战、十月革命与国际秩序的演变·第17课 第二次世界大战与战后国际秩序的形成",
    "type": "判断",
-   "question": "1944 年 6 月，盟军在诺曼底登陆，开辟了欧洲第二战场。",
-   "answer": "对",
-   "explanation": "加速了德国法西斯的灭亡。",
+   "question": "1944 年 6 月，盟军在西西里岛登陆，开辟了欧洲第二战场。",
+   "answer": "错",
+   "explanation": "错。1944 年 6 月盟军在法国诺曼底登陆，开辟了欧洲第二战场；西西里岛登陆在 1943 年。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "第二次世界大战与战后国际秩序的形成",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T35846e",
    "change_tag": "新增",
@@ -104183,14 +104323,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第八单元 20世纪下半叶世界的新变化·第18课 冷战与国际格局的演变",
    "type": "判断",
-   "question": "1961 年，不结盟运动正式形成。",
-   "answer": "对",
-   "explanation": "第一次不结盟国家首脑会议在贝尔格莱德召开。",
+   "question": "1961 年，不结盟运动在万隆正式形成。",
+   "answer": "错",
+   "explanation": "错。1961 年第一次不结盟国家首脑会议在贝尔格莱德召开，不结盟运动形成；万隆会议是 1955 年的亚非会议。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "冷战与国际格局的演变",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0baf28",
    "change_tag": "新增",
@@ -104995,14 +105136,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第八单元 20世纪下半叶世界的新变化·第20课 社会主义国家的发展与变化",
    "type": "判断",
-   "question": "苏联解体是两极格局结束的标志。",
-   "answer": "对",
-   "explanation": "世界格局进入新旧交替时期。",
+   "question": "柏林墙倒塌是两极格局结束的标志。",
+   "answer": "错",
+   "explanation": "错。1991 年苏联解体是两极格局结束的标志；柏林墙在 1989 年倒塌。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "社会主义国家的发展与变化",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T733c1b",
    "change_tag": "新增",
@@ -105807,14 +105949,15 @@
    "textbook": "统编版2019",
    "unit": "纲要下·第九单元 当代世界发展的特点与主要趋势·第22课 世界多极化与经济全球化",
    "type": "判断",
-   "question": "上海合作组织成立于 2001 年。",
-   "answer": "对",
-   "explanation": "成员国包括中国、俄罗斯等。",
+   "question": "上海合作组织成立于 1991 年。",
+   "answer": "错",
+   "explanation": "错。上海合作组织成立于 2001 年。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修下册",
    "knowledge_point": "世界多极化与经济全球化",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb071c6",
    "change_tag": "新增",
@@ -106208,6 +106351,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-175",
    "subject": "地理",
    "grade": 10,
@@ -106215,12 +106359,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第一章 人口·第一节 人口分布",
-   "question": "“胡焕庸线”以东南地区人口稠密。",
-   "explanation": "东南半壁以约 36% 的国土面积养育了约 96% 的人口（1935 年数据）。",
+   "question": "“胡焕庸线”以西北地区人口稠密。",
+   "explanation": "错。胡焕庸线东南半壁以约 36% 的国土面积养育了约 96% 的人口，西北半壁人口稀疏。",
    "difficulty": 2,
    "knowledge_point": "人口分布",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Td245ec",
    "change_tag": "新增",
@@ -106322,7 +106466,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "地形因素",
+     "text": "地形和气候因素",
      "image": "",
      "audio": ""
     },
@@ -106343,6 +106487,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-178",
    "subject": "地理",
    "grade": 10,
@@ -107426,6 +107571,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-205",
    "subject": "地理",
    "grade": 10,
@@ -107433,12 +107579,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第二章 乡村和城镇·第一节 乡村和城镇空间结构",
-   "question": "工业区一般分布在城市外缘，并有向郊区迁移的趋势。",
-   "explanation": "城市外缘地价较低、交通便利、污染影响较小。",
+   "question": "工业区一般分布在城市中心，并有向市中心集中的趋势。",
+   "explanation": "错。工业区一般分布在城市外缘，并有向郊区迁移的趋势（外缘地价低、交通便利、环境影响小）。",
    "difficulty": 2,
    "knowledge_point": "乡村和城镇空间结构",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Td2097c",
    "change_tag": "新增",
@@ -107764,6 +107910,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-213",
    "subject": "地理",
    "grade": 10,
@@ -107771,8 +107918,8 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第二章 乡村和城镇·第二节 城镇化",
-   "question": "发达国家出现城市人口向郊区和乡村迁移的现象，这被称为？",
-   "explanation": "主要原因是城市环境质量下降、交通改善等。",
+   "question": "发达国家一些大城市出现人口从城市中心区越过郊区、迁往乡村和小城镇的现象，这被称为？",
+   "explanation": "人口从市中心迁往郊区叫郊区城镇化；越过郊区迁往乡村和小城镇、城市中心区人口减少，叫逆城镇化。主要原因是城市环境质量下降、交通和通信改善等。",
    "difficulty": 2,
    "knowledge_point": "城镇化",
    "type": "选择",
@@ -107946,27 +108093,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "把所有工厂都建在市中心",
+     "text": "大量拓宽市中心道路，鼓励私家车出行",
      "image": "",
      "audio": ""
     },
     {
-     "text": "限制所有人口进城",
+     "text": "在市中心集中新建大型商场和写字楼",
      "image": "",
      "audio": ""
     },
     {
-     "text": "取消城市绿地",
+     "text": "将城市绿地改建为停车场",
      "image": "",
      "audio": ""
     },
     {
-     "text": "发展公共交通、建设卫星城、加强环境治理",
+     "text": "发展公共交通、建设卫星城",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-218",
    "subject": "地理",
    "grade": 10,
@@ -107975,8 +108123,8 @@
    "volume": "必修第二册",
    "unit": "必修第二册·第二章 乡村和城镇·第二节 城镇化",
    "question": "缓解“城市病”的合理措施是？",
-   "explanation": "要合理规划城市发展。",
-   "difficulty": 3,
+   "explanation": "发展公共交通、建设卫星城能疏散中心城区人口和交通压力；鼓励私家车会加剧拥堵，在市中心集中建商场会吸引更多人流，绿地改停车场会恶化环境。",
+   "difficulty": 2,
    "knowledge_point": "城镇化",
    "type": "选择",
    "answer": "D",
@@ -108035,6 +108183,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-220",
    "subject": "地理",
    "grade": 10,
@@ -108042,12 +108191,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第二章 乡村和城镇·第二节 城镇化",
-   "question": "发达国家的城镇化水平总体上高于发展中国家。",
-   "explanation": "发达国家城镇化起步早、水平高。",
+   "question": "发展中国家的城镇化水平总体上高于发达国家。",
+   "explanation": "错。发达国家城镇化起步早、水平高；发展中国家起步晚、水平较低但速度较快。",
    "difficulty": 3,
    "knowledge_point": "城镇化",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T6d88ba",
    "change_tag": "新增",
@@ -109021,12 +109170,13 @@
      "audio": ""
     },
     {
-     "text": "劳动力导向型工业",
+     "text": "劳动力导向型",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-244",
    "subject": "地理",
    "grade": 10,
@@ -109050,6 +109200,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-245",
    "subject": "地理",
    "grade": 10,
@@ -109057,12 +109208,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第三章 产业区位因素·第二节 工业区位因素及其变化",
-   "question": "集成电路等高新技术产业一般布局在高等院校和科研机构集中的地区。",
-   "explanation": "属于技术导向型工业。",
+   "question": "集成电路等高新技术产业一般布局在原料产地。",
+   "explanation": "错。集成电路属于技术导向型产业，一般布局在高等院校和科研机构集中的地区。",
    "difficulty": 2,
    "knowledge_point": "工业区位因素及其变化",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T59bc25",
    "change_tag": "新增",
@@ -109079,7 +109230,7 @@
      "audio": ""
     },
     {
-     "text": "服装加工",
+     "text": "服装和鞋帽加工",
      "image": "",
      "audio": ""
     },
@@ -109095,6 +109246,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-246",
    "subject": "地理",
    "grade": 10,
@@ -109230,6 +109382,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-249",
    "subject": "地理",
    "grade": 10,
@@ -109237,7 +109390,7 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第三章 产业区位因素·第二节 工业区位因素及其变化",
-   "question": "有大气污染的工厂，一般布局在？",
+   "question": "在盛行单一风向的地区，有大气污染的工厂一般布局在？",
    "explanation": "减少对城市居民区的大气污染。",
    "difficulty": 2,
    "knowledge_point": "工业区位因素及其变化",
@@ -109728,27 +109881,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "管道运输",
+     "text": "深水区风浪小，不需要修防波堤",
      "image": "",
      "audio": ""
     },
     {
-     "text": "水路运输",
+     "text": "深水区海水盐度低，船舶不容易被腐蚀",
      "image": "",
      "audio": ""
     },
     {
-     "text": "铁路运输",
+     "text": "深水岸线附近的人口一定最稠密",
      "image": "",
      "audio": ""
     },
     {
-     "text": "航空运输",
+     "text": "大型船舶吃水深，需要深水泊位",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-262",
    "subject": "地理",
    "grade": 10,
@@ -109756,8 +109910,8 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第四章 交通运输布局与区域发展·第一节 区域发展对交通运输布局的影响",
-   "question": "速度最快、但运量小、运费高的运输方式是？",
-   "explanation": "适合急需、贵重、数量不大的货物。",
+   "question": "港口一般选址在深水岸线附近，主要是因为？",
+   "explanation": "大型船舶吃水深，港口需要有足够水深的航道和泊位；港口选址还要考虑避风、腹地经济等条件。",
    "difficulty": 2,
    "knowledge_point": "区域发展对交通运输布局的影响",
    "type": "选择",
@@ -109773,27 +109927,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "水路运输",
+     "text": "优先修建输油管道运送铁矿石",
      "image": "",
      "audio": ""
     },
     {
-     "text": "航空运输",
+     "text": "增加客运班车，不新增货运线路",
      "image": "",
      "audio": ""
     },
     {
-     "text": "公路运输",
+     "text": "修建铁路专用线和货运码头",
      "image": "",
      "audio": ""
     },
     {
-     "text": "管道运输",
+     "text": "改建机场，以航空货运为主",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-263",
    "subject": "地理",
    "grade": 10,
@@ -109801,9 +109956,9 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第四章 交通运输布局与区域发展·第一节 区域发展对交通运输布局的影响",
-   "question": "机动灵活、可以实现“门到门”运输的运输方式是？",
-   "explanation": "适合短途运输。",
-   "difficulty": 2,
+   "question": "某地新建一个大型钢铁厂后，当地交通运输布局最可能出现的变化是？",
+   "explanation": "钢铁厂原料和产品都是大宗、笨重货物，需要修建铁路专用线、货运码头；管道只适合流体，航空运费高、运量小。",
+   "difficulty": 3,
    "knowledge_point": "区域发展对交通运输布局的影响",
    "type": "选择",
    "answer": "C",
@@ -109818,27 +109973,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "管道运输",
+     "text": "由点线状发展为网状",
      "image": "",
      "audio": ""
     },
     {
-     "text": "水路运输",
+     "text": "由网状退化为少数干线",
      "image": "",
      "audio": ""
     },
     {
-     "text": "公路运输",
+     "text": "线路数量和密度明显减少",
      "image": "",
      "audio": ""
     },
     {
-     "text": "航空运输",
+     "text": "各种运输方式不再衔接",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-264",
    "subject": "地理",
    "grade": 10,
@@ -109846,8 +110002,8 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第四章 交通运输布局与区域发展·第一节 区域发展对交通运输布局的影响",
-   "question": "运送石油、天然气，最适宜的运输方式是？",
-   "explanation": "管道运输连续性强、损耗少。",
+   "question": "区域由农业为主转向工业化、城镇化后，交通运输布局的变化趋势一般是？",
+   "explanation": "工业化、城镇化使客货运输需求增加，交通线路由稀疏的点、线逐步发展成密集的网，各种运输方式衔接更紧密。",
    "difficulty": 2,
    "knowledge_point": "区域发展对交通运输布局的影响",
    "type": "选择",
@@ -109886,27 +110042,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "公路运输",
+     "text": "靠近居民区，方便零售",
      "image": "",
      "audio": ""
     },
     {
-     "text": "铁路运输",
+     "text": "交通便利，且地价较低",
      "image": "",
      "audio": ""
     },
     {
-     "text": "管道运输",
+     "text": "远离交通线，减少噪声",
      "image": "",
      "audio": ""
     },
     {
-     "text": "航空运输",
+     "text": "靠近市中心，客流量大",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-266",
    "subject": "地理",
    "grade": 10,
@@ -109914,8 +110071,8 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第四章 交通运输布局与区域发展·第一节 区域发展对交通运输布局的影响",
-   "question": "运量大、速度较快、连续性好，适合大宗货物中长途运输的方式是？",
-   "explanation": "铁路是我国最主要的长途运输方式之一。",
+   "question": "城市的物流中心、批发市场一般布局在城市边缘、靠近高速公路出入口，主要原因是？",
+   "explanation": "物流中心、批发市场占地大、货运量大，布局在城市边缘、高速公路出入口附近，交通便利且地价较低。",
    "difficulty": 2,
    "knowledge_point": "区域发展对交通运输布局的影响",
    "type": "选择",
@@ -109976,27 +110133,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "区域发展只影响航空运输",
+     "text": "交通运输布局只取决于地形、气候等自然条件",
      "image": "",
      "audio": ""
     },
     {
-     "text": "交通运输与区域发展无关",
+     "text": "经济越发达，交通线路越少越集中",
      "image": "",
      "audio": ""
     },
     {
-     "text": "区域发展阶段不同，交通运输布局的重点和方式不同",
+     "text": "发展阶段不同，交通布局的重点不同",
      "image": "",
      "audio": ""
     },
     {
-     "text": "所有区域交通布局完全相同",
+     "text": "各区域都应优先发展航空运输",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-268",
    "subject": "地理",
    "grade": 10,
@@ -110005,7 +110163,7 @@
    "volume": "必修第二册",
    "unit": "必修第二册·第四章 交通运输布局与区域发展·第一节 区域发展对交通运输布局的影响",
    "question": "区域发展对交通运输布局的影响，主要体现在？",
-   "explanation": "发达地区交通网密集。",
+   "explanation": "区域发展阶段不同，对交通运输的需求不同，交通布局的重点和方式也不同；经济越发达，交通网通常越密集，自然条件只是影响因素之一。",
    "difficulty": 3,
    "knowledge_point": "区域发展对交通运输布局的影响",
    "type": "选择",
@@ -110352,12 +110510,13 @@
      "audio": ""
     },
     {
-     "text": "使农产品价格必然下降",
+     "text": "使农产品价格必然大幅下降",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-277",
    "subject": "地理",
    "grade": 10,
@@ -110382,27 +110541,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "交通与致富无关",
+     "text": "区域经济发展完全取决于交通条件",
      "image": "",
      "audio": ""
     },
     {
-     "text": "修路就一定能致富",
+     "text": "修了路区域经济就一定能快速发展",
      "image": "",
      "audio": ""
     },
     {
-     "text": "交通运输对区域经济发展有重要作用",
+     "text": "交通运输能促进区域经济发展",
      "image": "",
      "audio": ""
     },
     {
-     "text": "道路越多越好",
+     "text": "交通建设应超前于一切其他建设",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-278",
    "subject": "地理",
    "grade": 10,
@@ -110411,8 +110571,8 @@
    "volume": "必修第二册",
    "unit": "必修第二册·第四章 交通运输布局与区域发展·第二节 交通运输布局对区域发展的影响",
    "question": "“要想富，先修路”，说明了？",
-   "explanation": "交通是区域发展的先行条件。",
-   "difficulty": 3,
+   "explanation": "交通是区域发展的先行条件，能促进区域经济发展；但区域发展还受资源、市场、技术、政策等多种因素影响，修路不等于一定致富。",
+   "difficulty": 2,
    "knowledge_point": "交通运输布局对区域发展的影响",
    "type": "选择",
    "answer": "C",
@@ -110540,7 +110700,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "海平面下降",
+     "text": "全球海平面下降",
      "image": "",
      "audio": ""
     },
@@ -110561,6 +110721,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-282",
    "subject": "地理",
    "grade": 10,
@@ -110743,7 +110904,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "自然灾害频发",
+     "text": "自然灾害频繁发生",
      "image": "",
      "audio": ""
     },
@@ -110764,6 +110925,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-287",
    "subject": "地理",
    "grade": 10,
@@ -110838,7 +111000,7 @@
      "audio": ""
     },
     {
-     "text": "臭氧层空洞",
+     "text": "平流层臭氧空洞",
      "image": "",
      "audio": ""
     },
@@ -110854,6 +111016,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-289",
    "subject": "地理",
    "grade": 10,
@@ -110877,6 +111040,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-290",
    "subject": "地理",
    "grade": 10,
@@ -110886,7 +111050,7 @@
    "unit": "必修第二册·第五章 环境与发展·第一节 人类面临的主要环境问题",
    "question": "环境问题只在发展中国家存在。",
    "explanation": "发达国家和发展中国家都面临环境问题。",
-   "difficulty": 3,
+   "difficulty": 1,
    "knowledge_point": "人类面临的主要环境问题",
    "type": "判断",
    "answer": "错",
@@ -110946,7 +111110,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "《联合国宪章》",
+     "text": "《人类环境宣言》",
      "image": "",
      "audio": ""
     },
@@ -110967,6 +111131,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-292",
    "subject": "地理",
    "grade": 10,
@@ -111036,7 +111201,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "产品—废弃物—填埋",
+     "text": "资源—产品—废弃物—填埋",
      "image": "",
      "audio": ""
     },
@@ -111057,6 +111222,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-294",
    "subject": "地理",
    "grade": 10,
@@ -111149,27 +111315,28 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "2100 年",
+     "text": "立即关停全部燃煤电厂",
      "image": "",
      "audio": ""
     },
     {
-     "text": "2030 年",
+     "text": "把高耗能企业迁往欠发达地区",
      "image": "",
      "audio": ""
     },
     {
-     "text": "2060 年",
+     "text": "发展风能、太阳能等可再生能源",
      "image": "",
      "audio": ""
     },
     {
-     "text": "2050 年",
+     "text": "增加化石燃料补贴，降低用能成本",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-297",
    "subject": "地理",
    "grade": 10,
@@ -111177,9 +111344,9 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第五章 环境与发展·第二节 走向人地协调——可持续发展",
-   "question": "我国提出力争在什么时间前实现碳中和？",
-   "explanation": "“双碳”目标是我国的庄严承诺。",
-   "difficulty": 3,
+   "question": "为实现“双碳”目标，下列措施最合理的是？",
+   "explanation": "发展可再生能源能减少碳排放；立即关停全部煤电不现实，能源转型要先立后破；把高耗能企业迁走不减少总排放；补贴化石燃料会增加排放。",
+   "difficulty": 2,
    "knowledge_point": "走向人地协调——可持续发展",
    "type": "选择",
    "answer": "C",
@@ -111307,7 +111474,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "扩大北京的城市规模",
+     "text": "扩大北京的城市人口规模",
      "image": "",
      "audio": ""
     },
@@ -111328,6 +111495,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-301",
    "subject": "地理",
    "grade": 10,
@@ -111397,7 +111565,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "沿海经济带",
+     "text": "沿海港口城市经济带",
      "image": "",
      "audio": ""
     },
@@ -111418,6 +111586,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-303",
    "subject": "地理",
    "grade": 10,
@@ -111442,7 +111611,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "城市的历史长短",
+     "text": "城市建设的历史长短",
      "image": "",
      "audio": ""
     },
@@ -111463,6 +111632,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-304",
    "subject": "地理",
    "grade": 10,
@@ -111486,6 +111656,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-305",
    "subject": "地理",
    "grade": 10,
@@ -111493,12 +111664,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第二册",
    "unit": "必修第二册·第五章 环境与发展·第三节 中国国家发展战略举例",
-   "question": "国家级自然保护区属于禁止开发区域。",
-   "explanation": "禁止开发区域要依法实施强制性保护。",
+   "question": "国家级自然保护区属于重点开发区域。",
+   "explanation": "错。国家级自然保护区属于禁止开发区域，要依法实施强制性保护。",
    "difficulty": 2,
    "knowledge_point": "中国国家发展战略举例",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Taa5ca4",
    "change_tag": "新增",
@@ -111928,7 +112099,7 @@
      "audio": ""
     },
     {
-     "text": "核变化",
+     "text": "与石油裂化一样属于化学变化",
      "image": "",
      "audio": ""
     },
@@ -111944,12 +112115,13 @@
     }
    ],
    "answer": "D",
-   "explanation": "分馏是利用各组分沸点不同进行分离。",
+   "explanation": "分馏是利用各组分沸点不同进行分离，没有新物质生成，属于物理变化；裂化、裂解才是化学变化。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 化石燃料与有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "Tebde09",
    "change_tag": "新增",
@@ -112014,12 +112186,12 @@
    "question": "苯分子中 6 个碳原子之间的键是？",
    "options": [
     {
-     "text": "6 个碳碳三键",
+     "text": "6 个碳碳单键",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一种介于单键和双键之间的独特的键",
+     "text": "介于单键和双键之间的独特的键",
      "image": "",
      "audio": ""
     },
@@ -112029,18 +112201,19 @@
      "audio": ""
     },
     {
-     "text": "3 个单键和 3 个双键交替",
+     "text": "3 个碳碳单键和 3 个碳碳双键交替",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "B",
-   "explanation": "苯不能使溴的四氯化碳溶液因加成而褪色。",
+   "explanation": "苯分子中 6 个碳碳键完全相同，是一种介于单键和双键之间的独特的键，所以苯不能使溴的四氯化碳溶液因加成而褪色。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 化石燃料与有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "Tc5f838",
    "change_tag": "新增",
@@ -112328,6 +112501,7 @@
    "unit": "必修二·专题8 有机化合物的获得与应用·第二单元 食品中的有机化合物",
    "type": "选择",
    "question": "葡萄糖的分子式是？",
+   "tts_text": "-",
    "options": [
     {
      "text": "$\\ce{C2H4O2}$",
@@ -112351,12 +112525,13 @@
     }
    ],
    "answer": "D",
-   "explanation": "葡萄糖与新制的氢氧化铜悬浊液共热生成砖红色沉淀。",
+   "explanation": "葡萄糖的分子式为 $\\ce{C6H12O6}$，属于单糖，不能再水解；它与新制的氢氧化铜悬浊液共热生成砖红色沉淀。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 食品中的有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "Tf15e54",
    "change_tag": "新增",
@@ -112441,12 +112616,13 @@
     }
    ],
    "answer": "C",
-   "explanation": "淀粉遇碘变蓝。",
+   "explanation": "淀粉在酸或酶的作用下逐步水解，先生成糊精、麦芽糖等，最终产物是葡萄糖。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 食品中的有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T7c0daf",
    "change_tag": "新增",
@@ -112486,12 +112662,13 @@
     }
    ],
    "answer": "A",
-   "explanation": "油脂水解生成高级脂肪酸（盐）和甘油。",
+   "explanation": "蛋白质水解先生成多肽，最终产物是氨基酸；油脂水解才生成高级脂肪酸（盐）和甘油。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 食品中的有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T811959",
    "change_tag": "新增",
@@ -112554,12 +112731,13 @@
     }
    ],
    "answer": "B",
-   "explanation": "$n\\ce{CH2=CH2}$ 发生加聚反应生成聚乙烯 $\\left[ \\ce{CH2-CH2} \\right]_n$。",
+   "explanation": "$n\\ce{CH2=CH2}$ 发生加聚反应生成聚乙烯 $\\ce{-[CH2-CH2]_{n}-}$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 人工合成有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "Tc2e5ea",
    "change_tag": "新增",
@@ -112823,36 +113001,37 @@
    "textbook": "苏教版2019",
    "unit": "必修二·专题8 有机化合物的获得与应用·第三单元 人工合成有机化合物",
    "type": "选择",
-   "question": "有机高分子化合物一般相对分子质量？",
+   "question": "有机高分子化合物的相对分子质量一般？",
    "options": [
     {
-     "text": "很大（一般在一万以上）",
+     "text": "在一万以上",
      "image": "",
      "audio": ""
     },
     {
-     "text": "小于 100",
+     "text": "为几百",
      "image": "",
      "audio": ""
     },
     {
-     "text": "等于 100",
+     "text": "为几千",
      "image": "",
      "audio": ""
     },
     {
-     "text": "与小分子相同",
+     "text": "在一百以内",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "A",
-   "explanation": "高分子由许多重复的结构单元组成。",
+   "explanation": "高分子由许多重复的结构单元组成，相对分子质量一般在一万以上，常达几万到几百万。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 人工合成有机化合物",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "Tfde62c",
    "change_tag": "新增",
@@ -113071,7 +113250,7 @@
    "textbook": "苏教版2019",
    "unit": "必修二·专题9 金属与人类文明·第一单元 金属的冶炼方法",
    "type": "选择",
-   "question": "铁、铜等较活泼的金属一般用什么方法冶炼？",
+   "question": "锌、铁、铜等活动性居中的金属一般用什么方法冶炼？",
    "options": [
     {
      "text": "热还原法",
@@ -113095,12 +113274,13 @@
     }
    ],
    "answer": "A",
-   "explanation": "常用的还原剂有 C、CO、$\\ce{H2}$ 和活泼金属等。",
+   "explanation": "金属活动性顺序中位于 Zn 到 Cu 之间的金属，一般用热还原法冶炼，常用还原剂有 C、CO、$\\ce{H2}$ 和活泼金属等；K～Al 用电解法，Hg、Ag 用热分解法。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 金属的冶炼方法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T2c7cac",
    "change_tag": "新增",
@@ -113116,14 +113296,15 @@
    "textbook": "苏教版2019",
    "unit": "必修二·专题9 金属与人类文明·第一单元 金属的冶炼方法",
    "type": "判断",
-   "question": "工业上用电解熔融氧化铝的方法冶炼铝。",
-   "answer": "对",
-   "explanation": "电解熔融氧化铝：$\\ce{2Al2O3 ->[\\text{电解}][\\text{冰晶石}] 4Al + 3O2 ^}$",
+   "question": "工业上用电解熔融氯化铝的方法冶炼铝。",
+   "answer": "错",
+   "explanation": "错。氯化铝是共价化合物，熔融状态不导电；工业上电解的是熔融的氧化铝（加冰晶石降低熔点）。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 金属的冶炼方法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "Tc895f6",
    "change_tag": "新增",
@@ -113805,7 +113986,7 @@
    "question": "生铁和钢的主要区别是？",
    "options": [
     {
-     "text": "密度完全不同",
+     "text": "密度不同",
      "image": "",
      "audio": ""
     },
@@ -113820,7 +114001,7 @@
      "audio": ""
     },
     {
-     "text": "含铁量相同",
+     "text": "所含金属元素种类不同",
      "image": "",
      "audio": ""
     }
@@ -113832,6 +114013,7 @@
    "volume": "必修第二册",
    "knowledge_point": "元 金属材料的性能及应用",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T1944c1",
    "change_tag": "新增",
@@ -114005,36 +114187,37 @@
    "textbook": "苏教版2019",
    "unit": "必修二·专题9 金属与人类文明·第三单元 金属材料的性能及应用",
    "type": "选择",
-   "question": "下列措施中，能防止钢铁生锈的是？",
+   "question": "下列防止钢铁生锈的做法中，合理的是？",
    "options": [
     {
-     "text": "把铁制品放在潮湿处",
+     "text": "铁锅用完后用盐水浸泡",
      "image": "",
      "audio": ""
     },
     {
-     "text": "用盐水清洗铁制品",
+     "text": "自行车链条擦净后不再涂油",
      "image": "",
      "audio": ""
     },
     {
-     "text": "在铁制品表面刷油漆",
+     "text": "在铁栏杆表面刷油漆",
      "image": "",
      "audio": ""
     },
     {
-     "text": "在铁制品表面喷水",
+     "text": "把铁件和铜片接触放置",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "隔绝氧气和水可防锈。",
-   "difficulty": 3,
+   "explanation": "刷油漆能隔绝氧气和水，可防锈；盐水（电解质溶液）会加快铁生锈；链条应涂油防锈；铁与铜接触时形成原电池，铁作负极，腐蚀更快。",
+   "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 金属材料的性能及应用",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T033a01",
    "change_tag": "新增",
@@ -114050,36 +114233,37 @@
    "textbook": "苏教版2019",
    "unit": "必修二·专题9 金属与人类文明·第三单元 金属材料的性能及应用",
    "type": "选择",
-   "question": "废旧金属回收利用的意义是？",
+   "question": "关于废旧金属的回收利用，下列说法正确的是？",
    "options": [
     {
-     "text": "没有意义",
+     "text": "回收的金属纯度太低，不能再冶炼利用",
      "image": "",
      "audio": ""
     },
     {
-     "text": "浪费能源",
+     "text": "回收利用比从矿石冶炼更耗费能源",
      "image": "",
      "audio": ""
     },
     {
-     "text": "增加环境污染",
+     "text": "只有金、银等贵重金属才值得回收",
      "image": "",
      "audio": ""
     },
     {
-     "text": "节约金属资源、减少环境污染",
+     "text": "既节约金属资源，又减少冶炼带来的污染",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "D",
-   "explanation": "回收利用是保护金属资源的重要途径。",
-   "difficulty": 3,
+   "explanation": "回收废旧金属能节约矿产资源和能源，减少冶炼带来的污染；回收的铁、铝、铜等常见金属同样可以重新冶炼利用。",
+   "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "元 金属材料的性能及应用",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T4e1802",
    "change_tag": "新增",
@@ -114164,6 +114348,7 @@
    "unit": "必修一·专题3 从海水中获得的化学物质·第二单元 金属钠及钠的化合物·离子反应",
    "type": "选择",
    "question": "下列反应中，属于离子反应的是？",
+   "tts_text": "-",
    "options": [
     {
      "text": "氢气还原灼热的氧化铜",
@@ -114171,7 +114356,7 @@
      "audio": ""
     },
     {
-     "text": "NaCl 溶液与 $\\ce{AgNO3}$ 溶液反应",
+     "text": "$\\ce{NaCl}$ 溶液与 $\\ce{AgNO3}$ 溶液反应",
      "image": "",
      "audio": ""
     },
@@ -114193,6 +114378,7 @@
    "volume": "必修第一册",
    "knowledge_point": "离子反应",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "template": "T3f242c",
    "change_tag": "新增",
@@ -114502,14 +114688,15 @@
    "textbook": "统编版2019",
    "unit": "纲要上·第二单元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
    "type": "判断",
-   "question": "唐朝中央实行三省六部制，其中尚书省负责执行政令。",
-   "answer": "对",
-   "explanation": "中书省起草政令，门下省审核政令，尚书省执行政令。",
+   "question": "唐朝三省六部制中，尚书省负责起草政令。",
+   "answer": "错",
+   "explanation": "错。中书省起草政令，门下省审议，尚书省负责执行。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
    "knowledge_point": "元 三国两晋南北朝的民族交融与隋唐统一多民族封建国家的发展",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T231614",
    "change_tag": "新增",
@@ -114588,18 +114775,19 @@
      "audio": ""
     },
     {
-     "text": "杨坚（隋文帝）",
+     "text": "杨坚",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "D",
-   "explanation": "581 年杨坚建立隋朝，589 年隋灭陈，统一全国。",
+   "explanation": "581 年杨坚（隋文帝）建立隋朝，589 年隋灭陈，统一全国；杨广是隋炀帝，李渊、李世民是唐朝的皇帝。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
    "knowledge_point": "从隋唐盛世到五代十国",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T44a2cc",
    "change_tag": "新增",
@@ -114708,7 +114896,7 @@
    "question": "1851 年，洪秀全领导发动的农民起义是？",
    "options": [
     {
-     "text": "金田起义（太平天国运动）",
+     "text": "金田起义",
      "image": "",
      "audio": ""
     },
@@ -114729,12 +114917,13 @@
     }
    ],
    "answer": "A",
-   "explanation": "太平天国运动是中国历史上规模最大的农民战争之一。",
+   "explanation": "1851 年洪秀全在广西桂平金田村发动起义，太平天国运动由此开始，是中国历史上规模最大的农民战争之一。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
    "knowledge_point": "国家出路的探索与列强侵略的加剧",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T219243",
    "change_tag": "新增",
@@ -115083,6 +115272,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-313",
    "subject": "地理",
    "grade": 10,
@@ -115090,12 +115280,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第一章 宇宙中的地球·第二节 太阳对地球的影响",
-   "question": "煤炭、石油等化石燃料中的能量，归根到底来自太阳辐射。",
-   "explanation": "它们是地质历史时期生物固定的太阳能。",
+   "question": "煤炭、石油等化石燃料中的能量，主要来自地球内部的热能。",
+   "explanation": "错。化石燃料是地质历史时期生物固定的太阳能，能量归根到底来自太阳辐射。",
    "difficulty": 2,
    "knowledge_point": "太阳对地球的影响",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T80a2c3",
    "change_tag": "新增",
@@ -115196,6 +115386,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-316",
    "subject": "地理",
    "grade": 10,
@@ -115203,12 +115394,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第三章 地球上的水·第三节 海水的运动",
-   "question": "寒流对沿岸气候有降温减湿的作用。",
-   "explanation": "暖流增温增湿，寒流降温减湿。",
+   "question": "秘鲁沿岸荒漠的形成与沿岸暖流有关。",
+   "explanation": "错。秘鲁沿岸受秘鲁寒流影响，寒流降温减湿，使沿岸更加干燥，形成荒漠；暖流才增温增湿。",
    "difficulty": 2,
    "knowledge_point": "海水的运动",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "Tf40297",
    "change_tag": "新增",
@@ -115423,7 +115614,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "气候",
+     "text": "当地的气候条件",
      "image": "",
      "audio": ""
     },
@@ -115444,6 +115635,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-322",
    "subject": "地理",
    "grade": 10,
@@ -115557,6 +115749,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "D10-325",
    "subject": "地理",
    "grade": 10,
@@ -115564,12 +115757,12 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "volume": "必修第一册",
    "unit": "必修第一册·第六章 自然灾害·第三节 防灾减灾",
-   "question": "发生火灾时，应用湿毛巾捂住口鼻，弯腰低姿沿疏散通道撤离，不乘坐电梯。",
-   "explanation": "火灾时电梯可能断电或成为烟道。",
+   "question": "发生火灾时，应乘坐电梯迅速撤离。",
+   "explanation": "错。火灾时可能断电，电梯井还会进烟，不能乘电梯；应用湿毛巾捂住口鼻，弯腰低姿沿疏散通道撤离。",
    "difficulty": 2,
    "knowledge_point": "防灾减灾",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T122c11",
    "change_tag": "新增",
@@ -116083,7 +116276,7 @@
      "audio": ""
     },
     {
-     "text": "个体工商户",
+     "text": "个体工商户经营的小店",
      "image": "",
      "audio": ""
     },
@@ -116099,6 +116292,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-389",
    "subject": "政治",
    "grade": 10,
@@ -116190,6 +116384,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-392",
    "subject": "政治",
    "grade": 10,
@@ -116197,12 +116392,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第二册",
    "unit": "必修2·第三课 我国的经济发展·3.1 坚持新发展理念",
-   "question": "协调发展注重的是解决发展不平衡的问题。",
-   "explanation": "创新解决动力问题，协调解决不平衡问题，绿色解决人与自然和谐问题。",
+   "question": "协调发展注重的是解决发展动力问题。",
+   "explanation": "错。创新注重解决发展动力问题，协调注重解决发展不平衡问题。",
    "difficulty": 2,
    "knowledge_point": "坚持新发展理念",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T00ae70",
    "change_tag": "新增",
@@ -116394,6 +116589,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "Z10-398",
    "subject": "政治",
    "grade": 10,
@@ -116401,12 +116597,12 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "必修第二册",
    "unit": "必修2·第四课 我国的个人收入分配与社会保障·4.1 我国的个人收入分配",
-   "question": "初次分配和再分配都要兼顾效率和公平，再分配更加注重公平。",
-   "explanation": "这是我国处理效率与公平关系的要求。",
+   "question": "初次分配和再分配都要兼顾效率和公平，初次分配更加注重公平。",
+   "explanation": "错。初次分配和再分配都要兼顾效率和公平，再分配更加注重公平。",
    "difficulty": 2,
    "knowledge_point": "我国的个人收入分配",
    "type": "判断",
-   "answer": "对",
+   "answer": "错",
    "game_ready": true,
    "template": "T7d08e3",
    "change_tag": "新增",
@@ -116653,7 +116849,7 @@
    "question": "电梯加速下降时，站在电梯里的人处于？",
    "options": [
     {
-     "text": "完全失重状态（一定）",
+     "text": "完全失重状态",
      "image": "",
      "audio": ""
     },
@@ -116680,6 +116876,7 @@
    "volume": "必修第一册",
    "knowledge_point": "6 超重和失重",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，用江苏13市实际使用的人教版2019替代",
    "template": "T627f47",
    "change_tag": "新增",

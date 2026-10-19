@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高二-v42（AI初审）",
- "version": "v42",
+ "bank_name": "三兄妹题库-高二-v43（AI初审）",
+ "version": "v43",
  "questions": [
   {
    "id": "Y11-001",
@@ -555,7 +555,7 @@
    "question": "红军长征开始于？",
    "options": [
     {
-     "text": "1945 年 8 月",
+     "text": "1935 年 10 月",
      "image": "",
      "audio": ""
     },
@@ -583,6 +583,7 @@
    "knowledge_point": "长征胜利万岁",
    "game_ready": true,
    "template": "T1c5b1f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "长征胜利万岁"
@@ -650,7 +651,7 @@
      "audio": ""
     },
     {
-     "text": "贵州遵义",
+     "text": "陕北的吴起镇",
      "image": "",
      "audio": ""
     },
@@ -673,6 +674,7 @@
    "knowledge_point": "长征胜利万岁",
    "game_ready": true,
    "template": "T87a2a6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "长征胜利万岁"
@@ -1133,7 +1135,7 @@
      "audio": ""
     },
     {
-     "text": "一首插在电影中的歌",
+     "text": "一首插在电影中间的歌曲",
      "image": "",
      "audio": ""
     }
@@ -1146,6 +1148,7 @@
    "knowledge_point": "大战中的插曲",
    "game_ready": true,
    "template": "T8b01c1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "大战中的插曲"
@@ -1178,7 +1181,7 @@
      "audio": ""
     },
     {
-     "text": "八路军总司令",
+     "text": "八路军前方总司令",
      "image": "",
      "audio": ""
     }
@@ -1191,6 +1194,7 @@
    "knowledge_point": "大战中的插曲",
    "game_ready": true,
    "template": "T680e1c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "大战中的插曲"
@@ -1686,7 +1690,7 @@
      "audio": ""
     },
     {
-     "text": "只写个人感受",
+     "text": "只写个人的主观感受",
      "image": "",
      "audio": ""
     },
@@ -1709,6 +1713,7 @@
    "knowledge_point": "别了，“不列颠尼亚”",
    "game_ready": true,
    "template": "T5f235d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "别了，“不列颠尼亚”"
@@ -1907,15 +1912,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第二单元·《论语》十二章",
    "type": "判断",
-   "question": "《论语》是记录孔子及其弟子言行的语录体著作。",
-   "answer": "对",
-   "explanation": "由孔子的弟子及再传弟子编撰。",
+   "question": "《论语》是孔子本人撰写的著作。",
+   "answer": "错",
+   "explanation": "错。《论语》是孔子的弟子及再传弟子编撰的，记录孔子及其弟子的言行。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "《论语》十二章",
    "game_ready": true,
    "template": "Tc91cc3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "《论语》十二章"
@@ -3154,7 +3160,7 @@
    "question": "孟子的主要思想主张是？",
    "options": [
     {
-     "text": "兼爱和非攻",
+     "text": "兼爱、非攻和尚贤",
      "image": "",
      "audio": ""
     },
@@ -3182,6 +3188,7 @@
    "knowledge_point": "人皆有不忍人之心",
    "game_ready": true,
    "template": "T2027d2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人皆有不忍人之心"
@@ -3241,15 +3248,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第二单元·《老子》四章",
    "type": "判断",
-   "question": "《老子》又称《道德经》，是道家的经典著作。",
-   "answer": "对",
-   "explanation": "相传为老子所著。",
+   "question": "《老子》又称《南华经》。",
+   "answer": "错",
+   "explanation": "错。《老子》又称《道德经》；《南华经》是《庄子》的别称。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "《老子》四章",
    "game_ready": true,
    "template": "T4136ba",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "《老子》四章"
@@ -3720,15 +3728,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第二单元·五石之瓠",
    "type": "判断",
-   "question": "《五石之瓠》节选自《庄子·逍遥游》。",
-   "answer": "对",
-   "explanation": "记叙了庄子与惠子关于\"大瓠\"的对话。",
+   "question": "《五石之瓠》节选自《孟子》。",
+   "answer": "错",
+   "explanation": "错。《五石之瓠》节选自《庄子·逍遥游》。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "石之瓠",
    "game_ready": true,
    "template": "Tb83ca1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "石之瓠"
@@ -4128,15 +4137,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第二单元·兼爱",
    "type": "判断",
-   "question": "\"兼爱\"是墨家学派的核心主张之一。",
-   "answer": "对",
-   "explanation": "墨子主张人与人之间不分亲疏地相爱。",
+   "question": "“兼爱”是儒家学派的核心主张之一。",
+   "answer": "错",
+   "explanation": "错。“兼爱”是墨家学派的核心主张之一，墨子主张人与人之间不分亲疏地相爱。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "兼爱",
    "game_ready": true,
    "template": "T3e8976",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "兼爱"
@@ -4700,15 +4710,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第三单元·大卫·科波菲尔（节选）",
    "type": "判断",
-   "question": "《大卫·科波菲尔》的作者狄更斯是英国作家。",
-   "answer": "对",
-   "explanation": "19 世纪英国批判现实主义作家。",
+   "question": "《大卫·科波菲尔》的作者狄更斯是法国作家。",
+   "answer": "错",
+   "explanation": "错。狄更斯是 19 世纪英国批判现实主义作家。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "科波菲尔（节选）",
    "game_ready": true,
    "template": "T733988",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "科波菲尔（节选）"
@@ -5128,15 +5139,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第三单元·复活（节选）",
    "type": "判断",
-   "question": "《复活》的作者是列夫·托尔斯泰。",
-   "answer": "对",
-   "explanation": "他是 19 世纪俄国作家。",
+   "question": "《复活》的作者是陀思妥耶夫斯基。",
+   "answer": "错",
+   "explanation": "错。《复活》的作者是列夫·托尔斯泰。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "复活（节选）",
    "game_ready": true,
    "template": "Td5270d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "复活（节选）"
@@ -5199,7 +5211,7 @@
    "question": "《复活》的男主人公是？",
    "options": [
     {
-     "text": "圣地亚哥",
+     "text": "安德烈公爵",
      "image": "",
      "audio": ""
     },
@@ -5227,6 +5239,7 @@
    "knowledge_point": "复活（节选）",
    "game_ready": true,
    "template": "T751b66",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "复活（节选）"
@@ -5244,7 +5257,7 @@
    "question": "《复活》的女主人公是？",
    "options": [
     {
-     "text": "娜拉",
+     "text": "安娜·卡列尼娜",
      "image": "",
      "audio": ""
     },
@@ -5272,6 +5285,7 @@
    "knowledge_point": "复活（节选）",
    "game_ready": true,
    "template": "Tc15615",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "复活（节选）"
@@ -5389,7 +5403,7 @@
      "audio": ""
     },
     {
-     "text": "《草叶集》",
+     "text": "《巴黎圣母院》",
      "image": "",
      "audio": ""
     },
@@ -5407,6 +5421,7 @@
    "knowledge_point": "复活（节选）",
    "game_ready": true,
    "template": "T6006cf",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "复活（节选）"
@@ -5424,7 +5439,7 @@
    "question": "聂赫留朵夫到监狱探望玛丝洛娃的主要动机是？",
    "options": [
     {
-     "text": "向她讨债",
+     "text": "向她讨回旧债",
      "image": "",
      "audio": ""
     },
@@ -5452,6 +5467,7 @@
    "knowledge_point": "复活（节选）",
    "game_ready": true,
    "template": "T0b7492",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "复活（节选）"
@@ -5556,15 +5572,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修上·第三单元·老人与海（节选）",
    "type": "判断",
-   "question": "《老人与海》的作者海明威是美国作家。",
-   "answer": "对",
-   "explanation": "他于 1954 年获诺贝尔文学奖。",
+   "question": "《老人与海》的作者海明威是英国作家。",
+   "answer": "错",
+   "explanation": "错。海明威是美国作家，1954 年获诺贝尔文学奖。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修上册",
    "knowledge_point": "老人与海（节选）",
    "game_ready": true,
    "template": "Tf79b49",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "老人与海（节选）"
@@ -5677,7 +5694,7 @@
      "audio": ""
     },
     {
-     "text": "船只沉没",
+     "text": "船只触礁沉没",
      "image": "",
      "audio": ""
     },
@@ -5700,6 +5717,7 @@
    "knowledge_point": "老人与海（节选）",
    "game_ready": true,
    "template": "T5810fc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "老人与海（节选）"
@@ -6767,7 +6785,7 @@
      "audio": ""
     },
     {
-     "text": "论点、论据和论证",
+     "text": "论点、论据和论证方法",
      "image": "",
      "audio": ""
     },
@@ -6785,6 +6803,7 @@
    "knowledge_point": "逻辑的力量",
    "game_ready": true,
    "template": "T8e244a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "逻辑的力量"
@@ -9194,15 +9213,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修中·第二单元·记念刘和珍君",
    "type": "判断",
-   "question": "《记念刘和珍君》的作者是鲁迅。",
-   "answer": "对",
-   "explanation": "写于 1926 年 4 月 1 日。",
+   "question": "《记念刘和珍君》的作者是郁达夫。",
+   "answer": "错",
+   "explanation": "错。《记念刘和珍君》的作者是鲁迅，写于 1926 年。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修中册",
    "knowledge_point": "记念刘和珍君",
    "game_ready": true,
    "template": "T7b7f7d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "记念刘和珍君"
@@ -9220,7 +9240,7 @@
    "question": "《记念刘和珍君》是为悼念哪一事件中的遇难者而写的？",
    "options": [
     {
-     "text": "皖南事变",
+     "text": "四一二政变",
      "image": "",
      "audio": ""
     },
@@ -9248,6 +9268,7 @@
    "knowledge_point": "记念刘和珍君",
    "game_ready": true,
    "template": "T0fb906",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "记念刘和珍君"
@@ -9360,7 +9381,7 @@
    "question": "《记念刘和珍君》收入鲁迅的哪部文集？",
    "options": [
     {
-     "text": "《朝花夕拾》",
+     "text": "《且介亭杂文》",
      "image": "",
      "audio": ""
     },
@@ -9388,6 +9409,7 @@
    "knowledge_point": "记念刘和珍君",
    "game_ready": true,
    "template": "T6a53d1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "记念刘和珍君"
@@ -9672,15 +9694,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修中·第二单元·包身工",
    "type": "判断",
-   "question": "《包身工》的作者是夏衍。",
-   "answer": "对",
-   "explanation": "写于 1935 年。",
+   "question": "《包身工》的作者是孙犁。",
+   "answer": "错",
+   "explanation": "错。《包身工》的作者是夏衍；孙犁的代表作是《荷花淀》。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修中册",
    "knowledge_point": "包身工",
    "game_ready": true,
    "template": "Tcbc4d0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "包身工"
@@ -9698,7 +9721,7 @@
    "question": "《包身工》的体裁是？",
    "options": [
     {
-     "text": "散文诗",
+     "text": "新闻特写",
      "image": "",
      "audio": ""
     },
@@ -9726,6 +9749,7 @@
    "knowledge_point": "包身工",
    "game_ready": true,
    "template": "T80170d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "包身工"
@@ -9798,7 +9822,7 @@
      "audio": ""
     },
     {
-     "text": "北京的钢铁厂",
+     "text": "天津的英商纱厂",
      "image": "",
      "audio": ""
     },
@@ -9816,6 +9840,7 @@
    "knowledge_point": "包身工",
    "game_ready": true,
    "template": "T63c633",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "包身工"
@@ -10993,7 +11018,7 @@
      "audio": ""
     },
     {
-     "text": "被秦国杀害",
+     "text": "被秦国俘虏杀害",
      "image": "",
      "audio": ""
     },
@@ -11016,6 +11041,7 @@
    "knowledge_point": "屈原列传",
    "game_ready": true,
    "template": "Tcb9b8e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "屈原列传"
@@ -11190,15 +11216,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修中·第三单元·苏武传",
    "type": "判断",
-   "question": "《苏武传》的作者是班固。",
-   "answer": "对",
-   "explanation": "选自《汉书》。",
+   "question": "《苏武传》的作者是司马迁。",
+   "answer": "错",
+   "explanation": "错。《苏武传》选自《汉书》，作者是东汉的班固。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修中册",
    "knowledge_point": "苏武传",
    "game_ready": true,
    "template": "Td1dd0a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏武传"
@@ -11216,7 +11243,7 @@
    "question": "《汉书》的体例是？",
    "options": [
     {
-     "text": "编年体通史",
+     "text": "编年体断代史",
      "image": "",
      "audio": ""
     },
@@ -11244,6 +11271,7 @@
    "knowledge_point": "苏武传",
    "game_ready": true,
    "template": "T932ac3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏武传"
@@ -11708,15 +11736,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修中·第三单元·过秦论",
    "type": "判断",
-   "question": "《过秦论》的作者是贾谊。",
-   "answer": "对",
-   "explanation": "西汉政论家、文学家。",
+   "question": "《过秦论》的作者是东汉的贾谊。",
+   "answer": "错",
+   "explanation": "错。贾谊是西汉的政论家、文学家。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修中册",
    "knowledge_point": "过秦论",
    "game_ready": true,
    "template": "T93eeb6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "过秦论"
@@ -12370,15 +12399,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修中·第四单元·玩偶之家（节选）",
    "type": "判断",
-   "question": "《玩偶之家》的作者易卜生是挪威剧作家。",
-   "answer": "对",
-   "explanation": "被称为\"现代戏剧之父\"。",
+   "question": "《玩偶之家》的作者易卜生是德国剧作家。",
+   "answer": "错",
+   "explanation": "错。易卜生是挪威剧作家，被称为“现代戏剧之父”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修中册",
    "knowledge_point": "玩偶之家（节选）",
    "game_ready": true,
    "template": "Tc74f1a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "玩偶之家（节选）"
@@ -13226,15 +13256,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修中·第四单元·致大海",
    "type": "判断",
-   "question": "《致大海》的作者普希金是俄国诗人。",
-   "answer": "对",
-   "explanation": "被誉为\"俄国文学之父\"。",
+   "question": "《致大海》的作者普希金是英国诗人。",
+   "answer": "错",
+   "explanation": "错。普希金是俄国诗人，被誉为“俄国文学之父”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修中册",
    "knowledge_point": "致大海",
    "game_ready": true,
    "template": "T19cf55",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "致大海"
@@ -15971,16 +16002,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第1章 直线与方程·1.2 直线的方程",
    "type": "判断",
-   "question": "直线 $x=3$ 与 x 轴垂直。",
+   "question": "直线 $x=3$ 的斜率为 0。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "x=3 上各点横坐标都是 3，是一条与 x 轴垂直的直线。",
+   "answer": "错",
+   "explanation": "错。直线 $x=3$ 与 $x$ 轴垂直，倾斜角为 $90^\\circ$，斜率不存在；斜率为 0 的是与 $x$ 轴平行的直线。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "直线的方程",
    "game_ready": true,
    "template": "T910731",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "直线的方程"
@@ -16487,16 +16519,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第1章 直线与方程·1.3 两条直线的平行与垂直",
    "type": "判断",
-   "question": "两条直线斜率都存在时，它们互相垂直的充要条件是斜率之积为 $-1$。",
+   "question": "两条直线互相垂直的充要条件是它们的斜率之积为 $-1$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$l_1\\perp l_2\\iff k_1k_2=-1$（两斜率都存在时）。",
+   "answer": "错",
+   "explanation": "错。一条直线斜率不存在（竖直）、另一条斜率为 0 时也互相垂直；只有两条直线斜率都存在时，垂直才等价于斜率之积为 $-1$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "两条直线的平行与垂直",
    "game_ready": true,
    "template": "Tcfef19",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "两条直线的平行与垂直"
@@ -17049,15 +17082,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第1章 直线与方程·1.4 两条直线的交点",
    "type": "判断",
-   "question": "两条直线的方程联立后无解，则这两条直线平行。",
-   "answer": "对",
-   "explanation": "无公共点即平行。",
+   "question": "两条直线的方程联立后有无数组解，则这两条直线平行。",
+   "answer": "错",
+   "explanation": "错。联立后有无数组解说明两条直线重合；无解时才平行。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "两条直线的交点",
    "game_ready": true,
    "template": "T79a21e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "两条直线的交点"
@@ -18354,16 +18388,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第2章 圆与方程·2.1 圆的方程",
    "type": "判断",
-   "question": "点 $(1,1)$ 在圆 $x^2+y^2=4$ 的内部。",
+   "question": "点 $(1,2)$ 在圆 $x^2+y^2=4$ 的内部。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$1^2+1^2=2<4$，点在圆内。",
+   "answer": "错",
+   "explanation": "错。$1^2+2^2=5>4$，点在圆的外部。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "圆的方程",
    "game_ready": true,
    "template": "T22b1a3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "圆的方程"
@@ -19542,15 +19577,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第2章 圆与方程·2.3 圆与圆的位置关系",
    "type": "判断",
-   "question": "两圆内含时没有公共点。",
-   "answer": "对",
-   "explanation": "内含时一个圆在另一个圆内部，没有公共点。",
+   "question": "两圆没有公共点时，一定是外离。",
+   "answer": "错",
+   "explanation": "错。两圆没有公共点时，可能外离，也可能内含。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "圆与圆的位置关系",
    "game_ready": true,
    "template": "Tdad27d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "圆与圆的位置关系"
@@ -19949,15 +19985,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第3章 圆锥曲线与方程·3.1 椭圆",
    "type": "判断",
-   "question": "平面内与两个定点距离之和等于常数（大于两定点间距离）的点的轨迹是椭圆。",
-   "answer": "对",
-   "explanation": "这是椭圆的定义。",
+   "question": "平面内与两个定点距离之和等于常数的点的轨迹一定是椭圆。",
+   "answer": "错",
+   "explanation": "错。常数必须大于两定点间的距离；等于时轨迹是线段，小于时没有轨迹。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "椭圆",
    "game_ready": true,
    "template": "T0bb43a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "椭圆"
@@ -21496,15 +21533,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第3章 圆锥曲线与方程·3.3 抛物线",
    "type": "判断",
-   "question": "抛物线的离心率等于 1。",
-   "answer": "对",
-   "explanation": "抛物线上点到焦点与到准线的距离之比为 1。",
+   "question": "抛物线的离心率大于 1。",
+   "answer": "错",
+   "explanation": "错。抛物线的离心率 $e=1$；离心率大于 1 的是双曲线。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "抛物线",
    "game_ready": true,
    "template": "T7f8f4c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "抛物线"
@@ -22349,15 +22387,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第4章 数列·4.2 等差数列",
    "type": "判断",
-   "question": "常数列是等差数列。",
-   "answer": "对",
-   "explanation": "公差为 0 的等差数列。",
+   "question": "常数列一定是等比数列。",
+   "answer": "错",
+   "explanation": "错。常数列一定是等差数列（公差为 0），但 $0,0,0,\\cdots$ 不是等比数列，因为等比数列各项不能为 0。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "等差数列",
    "game_ready": true,
    "template": "Ta9d047",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "等差数列"
@@ -22818,15 +22857,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第4章 数列·4.3 等比数列",
    "type": "判断",
-   "question": "等比数列中任何一项都不为 0。",
-   "answer": "对",
-   "explanation": "等比数列各项及公比都不为 0。",
+   "question": "等比数列的公比可以为 0。",
+   "answer": "错",
+   "explanation": "错。等比数列中各项及公比都不能为 0。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "等比数列",
    "game_ready": true,
    "template": "Tb38f5d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "等比数列"
@@ -24343,16 +24383,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修一·第5章 导数及其应用·5.3 导数在研究函数中的应用",
    "type": "判断",
-   "question": "在某区间内 $f'(x)>0$，则 $f(x)$ 在这个区间上单调递增。",
+   "question": "若 $f(x)$ 在某区间上单调递增，则在该区间内 $f'(x)>0$ 恒成立。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "导数符号与单调性的关系。",
+   "answer": "错",
+   "explanation": "错。如 $f(x)=x^3$ 在 $\\mathbb R$ 上递增，但 $f'(0)=0$；单调递增只能得到 $f'(x)\\ge0$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "导数在研究函数中的应用",
    "game_ready": true,
    "template": "T43d59e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "导数在研究函数中的应用"
@@ -25153,15 +25194,16 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修二·第6章 空间向量与立体几何·6.1 空间向量及其运算",
    "type": "判断",
-   "question": "空间中任意两个向量都是共面向量。",
-   "answer": "对",
-   "explanation": "任意两个向量平移到同一起点后，总在同一个平面内。",
+   "question": "空间中任意三个向量都是共面向量。",
+   "answer": "错",
+   "explanation": "错。空间中任意两个向量一定共面，三个向量不一定共面，如正方体从同一顶点出发的三条棱对应的向量。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "空间向量及其运算",
    "game_ready": true,
    "template": "T68552b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "空间向量及其运算"
@@ -27978,16 +28020,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修二·第7章 计数原理·7.4 二项式定理",
    "type": "判断",
-   "question": "$(a+b)^n$ 展开式的二项式系数之和为 $2^n$。",
+   "question": "$(1+2x)^n$ 展开式的各项系数之和为 $2^n$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$C_n^0+C_n^1+\\cdots+C_n^n=2^n$。",
+   "answer": "错",
+   "explanation": "错。令 $x=1$，各项系数之和为 $3^n$；$2^n$ 是二项式系数之和。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "二项式定理",
    "game_ready": true,
    "template": "Tad7e5a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "二项式定理"
@@ -29205,16 +29248,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修二·第8章 概率·8.3 正态分布",
    "type": "判断",
-   "question": "正态曲线关于直线 $x=\\mu$ 对称。",
+   "question": "正态曲线关于直线 $x=\\sigma$ 对称。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "正态密度曲线的性质。",
+   "answer": "错",
+   "explanation": "错。正态曲线关于直线 $x=\\mu$ 对称，$\\sigma$ 决定曲线的“胖瘦”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "正态分布",
    "game_ready": true,
    "template": "Tfa33f4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "正态分布"
@@ -29892,16 +29936,17 @@
    "textbook_note": "苏教版2019（注：无锡、苏州部分学校用人教A版）",
    "unit": "选择性必修二·第9章 统计·9.1 线性回归分析",
    "type": "判断",
-   "question": "相关系数 r 的取值范围是 $[-1,1]$。",
+   "question": "相关系数 $r$ 越大，两个变量的线性相关程度越强。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "$\\lvert r\\rvert\\le1$。",
+   "answer": "错",
+   "explanation": "错。是 $\\lvert r\\rvert$ 越接近 1，线性相关程度越强；如 $r=-0.9$ 比 $r=0.5$ 的相关程度强。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "线性回归分析",
    "game_ready": true,
    "template": "Te192d0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "线性回归分析"
@@ -32093,9 +32138,9 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "unit": "选择性必修一 Unit 2 The universal language",
    "type": "判断",
-   "question": "动名词短语作主语时，谓语动词一般用单数。",
-   "answer": "对",
-   "explanation": "如 Playing the guitar is fun.",
+   "question": "动名词短语作主语时，谓语动词一般用复数。",
+   "answer": "错",
+   "explanation": "错。动名词短语作主语时，谓语动词一般用单数，如 Playing the guitar is fun.",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
@@ -32103,6 +32148,7 @@
    "review_note": "大纲单元名大小写与课本目录不同，已按课本写法（大纲原写法：选择性必修一 Unit 2 The Universal Language）",
    "game_ready": true,
    "template": "Taf86e6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The universal language"
@@ -32984,15 +33030,16 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "unit": "选择性必修一 Unit 3 The art of painting",
    "type": "判断",
-   "question": "作表语的 -ed 形式通常表示人\"感到……\"的状态。",
-   "answer": "对",
-   "explanation": "如 I am excited. 而 -ing 形式多表示事物的特征，如 It is exciting.",
+   "question": "作表语的 -ed 形式通常表示事物“令人……”的特征。",
+   "answer": "错",
+   "explanation": "错。-ed 形式通常表示人“感到……”的状态，如 I am excited.；表示事物“令人……”的特征用 -ing 形式，如 The game is exciting.",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "The art of painting",
    "game_ready": true,
    "template": "T298d85",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The art of painting"
@@ -35585,15 +35632,16 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "unit": "选择性必修二 Unit 2 Sports culture",
    "type": "判断",
-   "question": "过去进行时的被动语态结构是 was/were being + 过去分词。",
-   "answer": "对",
-   "explanation": "如 The road was being repaired.",
+   "question": "过去进行时的被动语态结构是 was/were been + 过去分词。",
+   "answer": "错",
+   "explanation": "错。过去进行时的被动语态结构是 was/were being + 过去分词，如 The road was being repaired.",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "Sports culture",
    "game_ready": true,
    "template": "Tbbc074",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Sports culture"
@@ -37313,9 +37361,9 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "unit": "选择性必修二 Unit 4 Living with technology",
    "type": "判断",
-   "question": "将来进行时的结构是 will/shall be + 现在分词。",
-   "answer": "对",
-   "explanation": "如 I will be waiting for you.",
+   "question": "将来进行时的结构是 will be + 过去分词。",
+   "answer": "错",
+   "explanation": "错。将来进行时的结构是 will/shall be + 现在分词，如 I will be waiting for you.；will be + 过去分词是一般将来时的被动语态。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第二册",
@@ -37323,6 +37371,7 @@
    "review_note": "大纲单元名大小写与课本目录不同，已按课本写法（大纲原写法：选择性必修二 Unit 4 Living with Technology）",
    "game_ready": true,
    "template": "T4c7b9d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Living with technology"
@@ -37801,16 +37850,17 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题1 化学反应与能量变化·第一单元 化学反应的热效应",
    "type": "判断",
-   "question": "放热反应的焓变 $\\Delta H<0$。",
+   "question": "放热反应的焓变 $\\Delta H>0$。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "放热反应体系能量降低，$\\Delta H$ 为负值。",
+   "answer": "错",
+   "explanation": "错。放热反应体系能量降低，$\\Delta H<0$；吸热反应 $\\Delta H>0$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第一单元 化学反应的热效应",
    "game_ready": true,
    "template": "T8e5a9e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第一单元 化学反应的热效应"
@@ -38341,15 +38391,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题1 化学反应与能量变化·第二单元 化学能与电能的转化",
    "type": "判断",
-   "question": "电解池中，阳极发生氧化反应。",
-   "answer": "对",
-   "explanation": "阳极失电子发生氧化反应，阴极得电子发生还原反应。",
+   "question": "电解池中，阳极发生还原反应。",
+   "answer": "错",
+   "explanation": "错。电解池阳极失电子发生氧化反应，阴极得电子发生还原反应。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第二单元 化学能与电能的转化",
    "game_ready": true,
    "template": "T3fc865",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 化学能与电能的转化"
@@ -39780,15 +39831,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第一单元 化学反应速率",
    "type": "判断",
-   "question": "改变压强只对有气体参加的反应的速率有影响。",
-   "answer": "对",
-   "explanation": "压强通过改变气体浓度影响速率。",
+   "question": "增大压强一定能加快化学反应速率。",
+   "answer": "错",
+   "explanation": "错。压强只影响有气体参加的反应；恒容时充入不参加反应的气体，各物质浓度不变，速率也不变。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第一单元 化学反应速率",
    "game_ready": true,
    "template": "T711430",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第一单元 化学反应速率"
@@ -40083,15 +40135,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第二单元 化学反应的方向与限度",
    "type": "判断",
-   "question": "化学平衡是一种动态平衡。",
-   "answer": "对",
-   "explanation": "平衡时正、逆反应仍在进行，速率相等。",
+   "question": "化学平衡状态时，正、逆反应都停止了。",
+   "answer": "错",
+   "explanation": "错。化学平衡是动态平衡，正、逆反应仍在进行，只是速率相等。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第二单元 化学反应的方向与限度",
    "game_ready": true,
    "template": "T659dd3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 化学反应的方向与限度"
@@ -40334,15 +40387,17 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第二单元 化学反应的方向与限度",
    "type": "判断",
-   "question": "对于给定的可逆反应，平衡常数 K 只受温度影响。",
-   "answer": "对",
-   "explanation": "与浓度、压强、催化剂无关。",
+   "question": "平衡常数 $K$ 随反应物浓度增大而增大。",
+   "tts_text": "-",
+   "answer": "错",
+   "explanation": "错。对于给定的可逆反应，$K$ 只受温度影响，与浓度、压强、催化剂无关。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第二单元 化学反应的方向与限度",
    "game_ready": true,
    "template": "T55e825",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 化学反应的方向与限度"
@@ -40685,15 +40740,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第三单元 化学平衡的移动",
    "type": "判断",
-   "question": "使用催化剂不能使化学平衡发生移动。",
-   "answer": "对",
-   "explanation": "催化剂同等程度地改变正、逆反应速率。",
+   "question": "使用催化剂可以使化学平衡向正反应方向移动。",
+   "answer": "错",
+   "explanation": "错。催化剂同等程度地改变正、逆反应速率，不能使平衡移动。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第三单元 化学平衡的移动",
    "game_ready": true,
    "template": "T1080ae",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第三单元 化学平衡的移动"
@@ -42096,16 +42152,17 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题3 水溶液中的离子反应·第二单元 溶液的酸碱性",
    "type": "判断",
-   "question": "溶液的酸碱性取决于 $c(\\ce{H+})$ 与 $c(\\ce{OH-})$ 的相对大小。",
+   "question": "pH=7 的溶液一定呈中性。",
    "tts_text": "-",
-   "answer": "对",
-   "explanation": "pH=7 只在 25 ℃ 时表示中性。",
+   "answer": "错",
+   "explanation": "错。只有 25 ℃ 时 pH=7 才呈中性；溶液的酸碱性取决于 $c(\\ce{H+})$ 与 $c(\\ce{OH-})$ 的相对大小。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第二单元 溶液的酸碱性",
    "game_ready": true,
    "template": "Tfb2687",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 溶液的酸碱性"
@@ -42609,15 +42666,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修1·专题3 水溶液中的离子反应·第三单元 盐类的水解",
    "type": "判断",
-   "question": "NaCl 是强酸强碱盐，不水解，溶液呈中性。",
-   "answer": "对",
-   "explanation": "$\\ce{Na+}$、$\\ce{Cl-}$ 都不与水电离出的离子结合。",
+   "question": "盐的水溶液都呈中性。",
+   "answer": "错",
+   "explanation": "错。强酸弱碱盐（如 $\\ce{NH4Cl}$）水解后溶液呈酸性，强碱弱酸盐（如 $\\ce{CH3COONa}$）呈碱性，强酸强碱盐（如 NaCl）才呈中性。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "第三单元 盐类的水解",
    "game_ready": true,
    "template": "T5d7005",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第三单元 盐类的水解"
@@ -44496,15 +44554,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修2·专题2 原子结构与元素性质·第一单元 原子核外电子的运动",
    "type": "判断",
-   "question": "s 能级的电子云轮廓图呈球形。",
-   "answer": "对",
-   "explanation": "s 轨道球形对称，p 轨道呈哑铃形。",
+   "question": "p 能级的电子云轮廓图呈球形。",
+   "answer": "错",
+   "explanation": "错。s 能级的电子云轮廓图呈球形，p 能级呈哑铃形。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "第一单元 原子核外电子的运动",
    "game_ready": true,
    "template": "T429b2f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第一单元 原子核外电子的运动"
@@ -45024,15 +45083,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修2·专题2 原子结构与元素性质·第二单元 元素性质的递变规律",
    "type": "判断",
-   "question": "同周期主族元素从左到右，第一电离能总体上呈增大趋势。",
-   "answer": "对",
-   "explanation": "但有反常，如 Mg>Al、N>O。",
+   "question": "同周期主族元素从左到右，第一电离能逐渐增大，没有例外。",
+   "answer": "错",
+   "explanation": "错。总体呈增大趋势，但有反常：如第一电离能 N>O、Mg>Al。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "第二单元 元素性质的递变规律",
    "game_ready": true,
    "template": "Ta1c462",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 元素性质的递变规律"
@@ -47044,15 +47104,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修2·专题3 微粒间作用力与物质性质·第四单元 分子间作用力 分子晶体",
    "type": "判断",
-   "question": "干冰属于分子晶体。",
-   "answer": "对",
-   "explanation": "干冰由 $\\ce{CO2}$ 分子通过分子间作用力构成。",
+   "question": "干冰属于共价晶体。",
+   "answer": "错",
+   "explanation": "错。干冰由 $\\ce{CO2}$ 分子通过分子间作用力构成，属于分子晶体。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "第四单元 分子间作用力 分子晶体",
    "game_ready": true,
    "template": "T0fd0fc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第四单元 分子间作用力 分子晶体"
@@ -47346,15 +47407,16 @@
    "textbook_note": "苏教版2019（注：南京、无锡、苏州部分学校用人教版）",
    "unit": "选择性必修2·专题3 微粒间作用力与物质性质·第四单元 分子间作用力 分子晶体",
    "type": "判断",
-   "question": "氢键不属于化学键。",
-   "answer": "对",
-   "explanation": "氢键是一种较强的分子间作用力（也可存在于分子内）。",
+   "question": "氢键属于化学键。",
+   "answer": "错",
+   "explanation": "错。氢键不属于化学键，是一种较强的分子间作用力（也可存在于分子内）。",
    "difficulty": 3,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "第四单元 分子间作用力 分子晶体",
    "game_ready": true,
    "template": "T58c87b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第四单元 分子间作用力 分子晶体"
@@ -48326,15 +48388,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第1章 人体的内环境与稳态·第1节 细胞生活的环境",
    "type": "判断",
-   "question": "内环境是指由细胞外液构成的液体环境。",
-   "answer": "对",
-   "explanation": "血浆、组织液、淋巴液等细胞外液构成内环境。",
+   "question": "内环境是指由细胞内液构成的液体环境。",
+   "answer": "错",
+   "explanation": "错。内环境是由细胞外液（血浆、组织液、淋巴液等）构成的液体环境。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "细胞生活的环境",
    "game_ready": true,
    "template": "Tc010d4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "细胞生活的环境"
@@ -48352,7 +48415,7 @@
    "question": "人体体液中含量最多的是？",
    "options": [
     {
-     "text": "组织液",
+     "text": "细胞外液",
      "image": "",
      "audio": ""
     },
@@ -48380,6 +48443,7 @@
    "knowledge_point": "细胞生活的环境",
    "game_ready": true,
    "template": "T17fef7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "细胞生活的环境"
@@ -48442,7 +48506,7 @@
    "question": "毛细淋巴管壁细胞直接生活的环境是？",
    "options": [
     {
-     "text": "血浆和淋巴液",
+     "text": "血浆、淋巴液和组织液",
      "image": "",
      "audio": ""
     },
@@ -48470,6 +48534,7 @@
    "knowledge_point": "细胞生活的环境",
    "game_ready": true,
    "template": "T4f8491",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "细胞生活的环境"
@@ -48537,7 +48602,7 @@
      "audio": ""
     },
     {
-     "text": "尿素",
+     "text": "血浆蛋白",
      "image": "",
      "audio": ""
     },
@@ -48560,6 +48625,7 @@
    "knowledge_point": "细胞生活的环境",
    "game_ready": true,
    "template": "Tb45dbe",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "细胞生活的环境"
@@ -48925,7 +48991,7 @@
      "audio": ""
     },
     {
-     "text": "血细胞的作用",
+     "text": "血细胞的调节作用",
      "image": "",
      "audio": ""
     },
@@ -48943,6 +49009,7 @@
    "knowledge_point": "内环境的稳态",
    "game_ready": true,
    "template": "Tcc44bd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "内环境的稳态"
@@ -49182,15 +49249,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第1章 人体的内环境与稳态·第2节 内环境的稳态",
    "type": "判断",
-   "question": "内环境稳态是一种动态平衡。",
-   "answer": "对",
-   "explanation": "各成分和理化性质在一定范围内波动。",
+   "question": "内环境稳态是指内环境的成分和理化性质恒定不变。",
+   "answer": "错",
+   "explanation": "错。稳态是一种动态平衡，各成分和理化性质在一定范围内波动，不是恒定不变。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "内环境的稳态",
    "game_ready": true,
    "template": "T351a29",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "内环境的稳态"
@@ -49611,7 +49679,7 @@
      "audio": ""
     },
     {
-     "text": "大脑和脑干",
+     "text": "大脑、小脑和脑干",
      "image": "",
      "audio": ""
     }
@@ -49624,6 +49692,7 @@
    "knowledge_point": "神经调节的结构基础",
    "game_ready": true,
    "template": "T1a126a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "神经调节的结构基础"
@@ -50314,15 +50383,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第2章 神经调节·第2节 神经调节的基本方式",
    "type": "判断",
-   "question": "完成反射活动需要完整的反射弧。",
-   "answer": "对",
-   "explanation": "反射弧任一环节受损，反射都不能完成。",
+   "question": "刺激传出神经引起效应器收缩，也属于反射。",
+   "answer": "错",
+   "explanation": "错。反射必须经过完整的反射弧；只刺激传出神经引起的反应没有经过完整反射弧，不叫反射。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "神经调节的基本方式",
    "game_ready": true,
    "template": "T6d7331",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "神经调节的基本方式"
@@ -50540,15 +50610,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第2章 神经调节·第3节 神经冲动的产生和传导",
    "type": "判断",
-   "question": "兴奋在神经纤维上以电信号的形式传导。",
-   "answer": "对",
-   "explanation": "这种电信号也叫神经冲动。",
+   "question": "兴奋在突触处以电信号的形式传递。",
+   "answer": "错",
+   "explanation": "错。兴奋在神经纤维上以电信号传导；在突触处要经过“电信号→化学信号→电信号”的转换。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "神经冲动的产生和传导",
    "game_ready": true,
    "template": "T204b7d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "神经冲动的产生和传导"
@@ -50703,7 +50774,7 @@
    "question": "在离体神经纤维中段给予适宜刺激，兴奋传导的方向是？",
    "options": [
     {
-     "text": "只向一端传导",
+     "text": "只向一端单向传导",
      "image": "",
      "audio": ""
     },
@@ -50731,6 +50802,7 @@
    "knowledge_point": "神经冲动的产生和传导",
    "game_ready": true,
    "template": "Te649ec",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "神经冲动的产生和传导"
@@ -51868,7 +51940,7 @@
      "audio": ""
     },
     {
-     "text": "听不懂话",
+     "text": "听不懂别人讲话",
      "image": "",
      "audio": ""
     }
@@ -51881,6 +51953,7 @@
    "knowledge_point": "人脑的高级功能",
    "game_ready": true,
    "template": "T3c9d91",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人脑的高级功能"
@@ -52283,15 +52356,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第3章 体液调节·第1节 激素与内分泌系统",
    "type": "判断",
-   "question": "促胰液素是人们发现的第一种激素。",
-   "answer": "对",
-   "explanation": "由斯他林和贝利斯发现。",
+   "question": "促胰液素是由胰腺分泌的。",
+   "answer": "错",
+   "explanation": "错。促胰液素由小肠黏膜分泌，作用于胰腺，促进胰液分泌。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "激素与内分泌系统",
    "game_ready": true,
    "template": "Tdcfaff",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "激素与内分泌系统"
@@ -52309,7 +52383,7 @@
    "question": "促胰液素是由哪里分泌的？",
    "options": [
     {
-     "text": "胃黏膜",
+     "text": "胃黏膜细胞",
      "image": "",
      "audio": ""
     },
@@ -52337,6 +52411,7 @@
    "knowledge_point": "激素与内分泌系统",
    "game_ready": true,
    "template": "T96b1c6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "激素与内分泌系统"
@@ -52364,7 +52439,7 @@
      "audio": ""
     },
     {
-     "text": "促进胆汁分泌",
+     "text": "促进肝脏分泌胆汁",
      "image": "",
      "audio": ""
     },
@@ -52382,6 +52457,7 @@
    "knowledge_point": "激素与内分泌系统",
    "game_ready": true,
    "template": "Ta61925",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "激素与内分泌系统"
@@ -53387,15 +53463,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第3章 体液调节·第3节 体液调节与神经调节的关系",
    "type": "判断",
-   "question": "与神经调节相比，体液调节的作用范围较广泛，作用时间比较长。",
-   "answer": "对",
-   "explanation": "神经调节迅速、准确、时间短暂、范围局限。",
+   "question": "与神经调节相比，体液调节反应速度更快。",
+   "answer": "错",
+   "explanation": "错。体液调节反应速度较缓慢，作用范围较广泛，作用时间比较长；神经调节反应迅速。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "体液调节与神经调节的关系",
    "game_ready": true,
    "template": "Tcee7fa",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "体液调节与神经调节的关系"
@@ -53830,7 +53907,7 @@
      "audio": ""
     },
     {
-     "text": "免疫调节",
+     "text": "神经—免疫调节",
      "image": "",
      "audio": ""
     },
@@ -53848,6 +53925,7 @@
    "knowledge_point": "体液调节与神经调节的关系",
    "game_ready": true,
    "template": "T982c6b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "体液调节与神经调节的关系"
@@ -53910,7 +53988,7 @@
    "question": "下列关于下丘脑功能的叙述，错误的是？",
    "options": [
     {
-     "text": "能合成抗利尿激素",
+     "text": "能合成和分泌抗利尿激素",
      "image": "",
      "audio": ""
     },
@@ -53939,6 +54017,7 @@
    "game_ready": true,
    "template": "T3edd82",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "体液调节与神经调节的关系"
@@ -54451,15 +54530,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第4章 免疫调节·第1节 免疫系统的组成和功能",
    "type": "判断",
-   "question": "唾液中的溶菌酶杀灭病菌属于人体的第一道防线。",
-   "answer": "对",
-   "explanation": "唾液、泪液等是黏膜的分泌物，其中的杀菌物质属于第一道防线；体液中的溶菌酶才属于第二道防线。",
+   "question": "唾液中的溶菌酶杀灭病菌属于人体的第二道防线。",
+   "answer": "错",
+   "explanation": "错。唾液、泪液属于黏膜的分泌物，是第一道防线；体液中的杀菌物质（如血浆中的溶菌酶）才是第二道防线。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "免疫系统的组成和功能",
    "game_ready": true,
    "template": "Td021fa",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "免疫系统的组成和功能"
@@ -54609,15 +54689,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第4章 免疫调节·第2节 特异性免疫",
    "type": "判断",
-   "question": "体液免疫主要依靠抗体发挥作用。",
-   "answer": "对",
-   "explanation": "细胞免疫主要靠细胞毒性 T 细胞直接接触靶细胞。",
+   "question": "体液免疫主要依靠细胞毒性 T 细胞直接裂解靶细胞。",
+   "answer": "错",
+   "explanation": "错。体液免疫主要依靠抗体发挥作用；细胞毒性 T 细胞裂解靶细胞属于细胞免疫。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "特异性免疫",
    "game_ready": true,
    "template": "T3434ac",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "特异性免疫"
@@ -55285,15 +55366,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第4章 免疫调节·第3节 免疫失调",
    "type": "判断",
-   "question": "过敏反应是已免疫的机体再次接受相同抗原时发生的反应。",
-   "answer": "对",
-   "explanation": "引起过敏反应的抗原叫过敏原。",
+   "question": "过敏反应是机体第一次接触过敏原时发生的反应。",
+   "answer": "错",
+   "explanation": "错。过敏反应是已免疫的机体再次接受相同抗原时发生的反应。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "免疫失调",
    "game_ready": true,
    "template": "T24927b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "免疫失调"
@@ -55591,7 +55673,7 @@
      "audio": ""
     },
     {
-     "text": "抗体直接破坏血管",
+     "text": "抗体直接破坏血管壁细胞",
      "image": "",
      "audio": ""
     },
@@ -55609,6 +55691,7 @@
    "knowledge_point": "免疫失调",
    "game_ready": true,
    "template": "Tfa9b59",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "免疫失调"
@@ -55874,7 +55957,7 @@
    "question": "器官移植后，病人需要长期使用免疫抑制剂，目的是？",
    "options": [
     {
-     "text": "促进器官生长",
+     "text": "促进移植器官的生长",
      "image": "",
      "audio": ""
     },
@@ -55902,6 +55985,7 @@
    "knowledge_point": "免疫学的应用",
    "game_ready": true,
    "template": "Tde5e8d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "免疫学的应用"
@@ -56037,7 +56121,7 @@
      "audio": ""
     },
     {
-     "text": "起效慢，维持时间长",
+     "text": "起效慢，但维持时间长",
      "image": "",
      "audio": ""
     },
@@ -56060,6 +56144,7 @@
    "knowledge_point": "免疫学的应用",
    "game_ready": true,
    "template": "T5121af",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "免疫学的应用"
@@ -56087,7 +56172,7 @@
      "audio": ""
     },
     {
-     "text": "免疫力增强",
+     "text": "免疫力会明显增强",
      "image": "",
      "audio": ""
     },
@@ -56105,6 +56190,7 @@
    "knowledge_point": "免疫学的应用",
    "game_ready": true,
    "template": "T2bca07",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "免疫学的应用"
@@ -56479,7 +56565,7 @@
      "audio": ""
     },
     {
-     "text": "向放尖端的一侧弯曲",
+     "text": "向放尖端的一侧弯曲生长",
      "image": "",
      "audio": ""
     }
@@ -56492,6 +56578,7 @@
    "knowledge_point": "植物生长素",
    "game_ready": true,
    "template": "Td8cb75",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "植物生长素"
@@ -56889,15 +56976,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第5章 植物生命活动的调节·第2节 其他植物激素",
    "type": "判断",
-   "question": "赤霉素能促进细胞伸长，从而引起植株增高。",
-   "answer": "对",
-   "explanation": "赤霉素还能促进细胞分裂与分化。",
+   "question": "赤霉素的主要作用是促进果实成熟。",
+   "answer": "错",
+   "explanation": "错。促进果实成熟的是乙烯；赤霉素能促进细胞伸长，引起植株增高。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "其他植物激素",
    "game_ready": true,
    "template": "T3ac125",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "其他植物激素"
@@ -56960,7 +57048,7 @@
    "question": "主要促进细胞质分裂，促进芽的分化、侧枝发育和叶绿素合成的植物激素是？",
    "options": [
     {
-     "text": "赤霉素",
+     "text": "油菜素内酯",
      "image": "",
      "audio": ""
     },
@@ -56988,6 +57076,7 @@
    "knowledge_point": "其他植物激素",
    "game_ready": true,
    "template": "T4a23bc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "其他植物激素"
@@ -57185,7 +57274,7 @@
    "question": "乙烯的合成部位是？",
    "options": [
     {
-     "text": "只在果实",
+     "text": "只在成熟的果实",
      "image": "",
      "audio": ""
     },
@@ -57213,6 +57302,7 @@
    "knowledge_point": "其他植物激素",
    "game_ready": true,
    "template": "Tdb305b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "其他植物激素"
@@ -57385,15 +57475,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第5章 植物生命活动的调节·第3节 植物生长调节剂的应用",
    "type": "判断",
-   "question": "植物生长调节剂是由人工合成的，对植物的生长、发育有调节作用的化学物质。",
-   "answer": "对",
-   "explanation": "它们具有与植物激素相似或相反的生理效应。",
+   "question": "植物生长调节剂是植物体内合成的激素。",
+   "answer": "错",
+   "explanation": "错。植物生长调节剂是人工合成的，对植物生长发育有调节作用的化学物质，不是植物体内产生的。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "植物生长调节剂的应用",
    "game_ready": true,
    "template": "T8861e4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "植物生长调节剂的应用"
@@ -57827,7 +57918,7 @@
      "audio": ""
     },
     {
-     "text": "蓝光和紫光",
+     "text": "蓝光和紫外光",
      "image": "",
      "audio": ""
     },
@@ -57845,6 +57936,7 @@
    "knowledge_point": "环境因素参与调节植物的生命活动",
    "game_ready": true,
    "template": "T8200db",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "环境因素参与调节植物的生命活动"
@@ -58007,7 +58099,7 @@
      "audio": ""
     },
     {
-     "text": "种子萌发的过程",
+     "text": "种子萌发和休眠的过程",
      "image": "",
      "audio": ""
     },
@@ -58025,6 +58117,7 @@
    "knowledge_point": "环境因素参与调节植物的生命活动",
    "game_ready": true,
    "template": "Tcef669",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "环境因素参与调节植物的生命活动"
@@ -58210,7 +58303,7 @@
      "audio": ""
     },
     {
-     "text": "背光弯曲生长",
+     "text": "向背光一侧弯曲生长",
      "image": "",
      "audio": ""
     },
@@ -58229,6 +58322,7 @@
    "game_ready": true,
    "template": "T4dcb57",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "环境因素参与调节植物的生命活动"
@@ -58741,15 +58835,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修2·第1章 种群及其动态·第1节 种群的数量特征",
    "type": "判断",
-   "question": "一块草地上所有的蒲公英构成一个种群。",
-   "answer": "对",
-   "explanation": "种群是一定空间内同种生物所有个体的集合。",
+   "question": "一块草地上所有的草构成一个种群。",
+   "answer": "错",
+   "explanation": "错。“草”包括许多物种，种群是一定空间内同种生物所有个体的集合；所有的蒲公英才构成一个种群。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "种群的数量特征",
    "game_ready": true,
    "template": "Te061a2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "种群的数量特征"
@@ -59232,7 +59327,7 @@
      "audio": ""
     },
     {
-     "text": "只吸取上层液体",
+     "text": "只吸取试管上层的液体",
      "image": "",
      "audio": ""
     },
@@ -59250,6 +59345,7 @@
    "knowledge_point": "种群数量的变化",
    "game_ready": true,
    "template": "T67177f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "种群数量的变化"
@@ -59895,7 +59991,7 @@
      "audio": ""
     },
     {
-     "text": "种内竞争最激烈",
+     "text": "种内竞争最为激烈",
      "image": "",
      "audio": ""
     }
@@ -59909,6 +60005,7 @@
    "game_ready": true,
    "template": "T98b8ce",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "影响种群数量变化的因素"
@@ -60072,7 +60169,7 @@
      "audio": ""
     },
     {
-     "text": "优势种的大小",
+     "text": "优势种个体的大小",
      "image": "",
      "audio": ""
     },
@@ -60095,6 +60192,7 @@
    "knowledge_point": "群落的结构",
    "game_ready": true,
    "template": "T139b24",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "群落的结构"
@@ -60297,7 +60395,7 @@
      "audio": ""
     },
     {
-     "text": "温度",
+     "text": "温度高低",
      "image": "",
      "audio": ""
     },
@@ -60320,6 +60418,7 @@
    "knowledge_point": "群落的结构",
    "game_ready": true,
    "template": "T14ed5f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "群落的结构"
@@ -60870,7 +60969,7 @@
      "audio": ""
     },
     {
-     "text": "吸收热量",
+     "text": "吸收更多热量",
      "image": "",
      "audio": ""
     }
@@ -60883,6 +60982,7 @@
    "knowledge_point": "群落的主要类型",
    "game_ready": true,
    "template": "Tac0fcd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "群落的主要类型"
@@ -62121,15 +62221,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修2·第3章 生态系统及其稳定性·第2节 生态系统的能量流动",
    "type": "判断",
-   "question": "生态系统中能量流动的特点是单向流动、逐级递减。",
-   "answer": "对",
-   "explanation": "这是能量流动的两个特点。",
+   "question": "生态系统中能量流动的特点是循环流动、逐级递减。",
+   "answer": "错",
+   "explanation": "错。能量流动的特点是单向流动、逐级递减；循环的是物质。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "生态系统的能量流动",
    "game_ready": true,
    "template": "Taf8a37",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生态系统的能量流动"
@@ -62648,15 +62749,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修2·第3章 生态系统及其稳定性·第3节 生态系统的物质循环",
    "type": "判断",
-   "question": "生态系统的物质循环具有全球性。",
-   "answer": "对",
-   "explanation": "物质循环的范围是生物圈。",
+   "question": "生态系统的物质循环只在一个生态系统内部进行。",
+   "answer": "错",
+   "explanation": "错。物质循环的范围是生物圈，具有全球性。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "生态系统的物质循环",
    "game_ready": true,
    "template": "T7fc872",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生态系统的物质循环"
@@ -64235,15 +64337,16 @@
    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修2·第4章 人与环境·第1节 人类活动对生态环境的影响",
    "type": "判断",
-   "question": "生态足迹的值越大，代表人类所需的资源越多，对生态和环境的影响就越大。",
-   "answer": "对",
-   "explanation": "生态足迹是维持某一人口单位生存所需的生产资源和吸纳废物的土地及水域面积。",
+   "question": "生态足迹的值越大，对生态和环境的影响越小。",
+   "answer": "错",
+   "explanation": "错。生态足迹越大，代表人类所需的资源越多，对生态和环境的影响就越大。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "人类活动对生态环境的影响",
    "game_ready": true,
    "template": "Ted144e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人类活动对生态环境的影响"
@@ -65841,15 +65944,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第一单元 政治制度·第1课 中国古代政治制度的形成与发展",
    "type": "判断",
-   "question": "秦朝建立了以皇帝制度为核心的中央集权制度。",
-   "answer": "对",
-   "explanation": "秦始皇确立了皇帝制度、三公九卿制和郡县制。",
+   "question": "汉朝建立了以皇帝制度为核心的中央集权制度。",
+   "answer": "错",
+   "explanation": "错。秦朝建立了以皇帝制度为核心的中央集权制度，汉承秦制。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "中国古代政治制度的形成与发展",
    "game_ready": true,
    "template": "T1d874d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代政治制度的形成与发展"
@@ -66359,15 +66463,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第一单元 政治制度·第2课 西方国家古代和近代政治制度的演变",
    "type": "判断",
-   "question": "古代雅典实行的是直接民主制。",
-   "answer": "对",
-   "explanation": "公民直接参与国家事务的讨论和决策。",
+   "question": "古代雅典实行的是代议制民主。",
+   "answer": "错",
+   "explanation": "错。古代雅典实行的是直接民主制，公民直接参与国家事务；代议制是近代西方的民主形式。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "西方国家古代和近代政治制度的演变",
    "game_ready": true,
    "template": "Te97d80",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方国家古代和近代政治制度的演变"
@@ -66832,15 +66937,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第一单元 政治制度·第2课 西方国家古代和近代政治制度的演变",
    "type": "判断",
-   "question": "在英国君主立宪制下，国王\"统而不治\"。",
-   "answer": "对",
-   "explanation": "国王是国家元首，但实权在议会和内阁。",
+   "question": "在英国君主立宪制下，国王掌握国家最高行政权。",
+   "answer": "错",
+   "explanation": "错。英国国王“统而不治”，是国家元首但没有实权，行政权由内阁掌握。",
    "difficulty": 3,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "西方国家古代和近代政治制度的演变",
    "game_ready": true,
    "template": "T949eb8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方国家古代和近代政治制度的演变"
@@ -67373,15 +67479,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第一单元 政治制度·第4课 中国历代变法和改革",
    "type": "判断",
-   "question": "商鞅变法是在战国时期的秦国进行的。",
-   "answer": "对",
-   "explanation": "秦孝公任用商鞅进行变法。",
+   "question": "商鞅变法是在战国时期的魏国进行的。",
+   "answer": "错",
+   "explanation": "错。商鞅变法是秦孝公时在秦国进行的；魏国进行的是李悝变法。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T0124a0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -68075,15 +68182,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第二单元 官员的选拔与管理·第5课 中国古代官员的选拔与管理",
    "type": "判断",
-   "question": "科举制创立于隋朝。",
-   "answer": "对",
-   "explanation": "隋炀帝时设进士科。",
+   "question": "科举制创立于宋朝。",
+   "answer": "错",
+   "explanation": "错。科举制创立于隋朝，隋炀帝时设进士科。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "中国古代官员的选拔与管理",
    "game_ready": true,
    "template": "T20eccb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代官员的选拔与管理"
@@ -68999,15 +69107,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第二单元 官员的选拔与管理·第7课 近代以来中国的官员选拔与管理",
    "type": "判断",
-   "question": "1905 年，清政府宣布废除科举制。",
-   "answer": "对",
-   "explanation": "延续一千三百多年的科举制退出历史舞台。",
+   "question": "1911 年，清政府宣布废除科举制。",
+   "answer": "错",
+   "explanation": "错。清政府在 1905 年宣布废除科举制。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "近代以来中国的官员选拔与管理",
    "game_ready": true,
    "template": "T2504c4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "近代以来中国的官员选拔与管理"
@@ -70513,15 +70622,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第三单元 法律与教化·第10课 当代中国的法治与精神文明建设",
    "type": "判断",
-   "question": "1999 年，\"依法治国\"被写入宪法。",
-   "answer": "对",
-   "explanation": "宪法修正案规定\"中华人民共和国实行依法治国，建设社会主义法治国家\"。",
+   "question": "1997 年，“依法治国”被写入宪法。",
+   "answer": "错",
+   "explanation": "错。1997 年党的十五大提出依法治国基本方略；1999 年宪法修正案才把“依法治国”写入宪法。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "当代中国的法治与精神文明建设",
    "game_ready": true,
    "template": "Tfdf43d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "当代中国的法治与精神文明建设"
@@ -71084,15 +71194,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第四单元 民族关系与国家关系·第11课 中国古代的民族关系与对外交往",
    "type": "判断",
-   "question": "张骞出使西域是在西汉时期。",
-   "answer": "对",
-   "explanation": "汉武帝时张骞两次出使西域。",
+   "question": "张骞出使西域是在东汉时期。",
+   "answer": "错",
+   "explanation": "错。张骞出使西域是在西汉汉武帝时期；东汉出使西域的是班超。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "中国古代的民族关系与对外交往",
    "game_ready": true,
    "template": "T655b37",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代的民族关系与对外交往"
@@ -71602,15 +71713,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第四单元 民族关系与国家关系·第12课 近代西方民族国家与国际法的发展",
    "type": "判断",
-   "question": "1648 年签订的《威斯特伐利亚和约》，标志着近代国际法的产生。",
-   "answer": "对",
-   "explanation": "它确立了国家主权等原则。",
+   "question": "1648 年签订的《凡尔赛和约》，标志着近代国际法的产生。",
+   "answer": "错",
+   "explanation": "错。标志着近代国际法产生的是 1648 年的《威斯特伐利亚和约》；《凡尔赛和约》是 1919 年一战后签订的。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "近代西方民族国家与国际法的发展",
    "game_ready": true,
    "template": "Tf30738",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "近代西方民族国家与国际法的发展"
@@ -73007,15 +73119,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第五单元 货币与赋税制度·第15课 货币的使用与世界货币体系的形成",
    "type": "判断",
-   "question": "世界上最早的纸币\"交子\"出现在北宋时期的四川地区。",
-   "answer": "对",
-   "explanation": "它产生于四川地区。",
+   "question": "世界上最早的纸币“交子”出现在南宋时期。",
+   "answer": "错",
+   "explanation": "错。“交子”出现在北宋时期的四川地区。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "货币的使用与世界货币体系的形成",
    "game_ready": true,
    "template": "T244bda",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "货币的使用与世界货币体系的形成"
@@ -73525,15 +73638,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第五单元 货币与赋税制度·第16课 中国赋税制度的演变",
    "type": "判断",
-   "question": "春秋时期鲁国实行了\"初税亩\"。",
-   "answer": "对",
-   "explanation": "按土地面积征税。",
+   "question": "春秋时期秦国实行了“初税亩”。",
+   "answer": "错",
+   "explanation": "错。“初税亩”是春秋时期鲁国实行的，按土地面积征税。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "中国赋税制度的演变",
    "game_ready": true,
    "template": "Td65e2f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国赋税制度的演变"
@@ -74723,15 +74837,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第六单元 基层治理与社会保障·第18课 世界主要国家的基层治理与社会保障",
    "type": "判断",
-   "question": "德国是最早建立现代社会保险制度的国家。",
-   "answer": "对",
-   "explanation": "19 世纪 80 年代，俾斯麦政府推行社会保险立法。",
+   "question": "英国是最早建立现代社会保险制度的国家。",
+   "answer": "错",
+   "explanation": "错。德国是最早建立现代社会保险制度的国家，19 世纪 80 年代俾斯麦政府颁布了一系列社会保险法。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "世界主要国家的基层治理与社会保障",
    "game_ready": true,
    "template": "T990520",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "世界主要国家的基层治理与社会保障"
@@ -75719,15 +75834,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第一单元 食物生产与社会生活·第2课 新航路开辟后的食物物种交流",
    "type": "判断",
-   "question": "玉米原产于美洲。",
-   "answer": "对",
-   "explanation": "新航路开辟后传播到世界各地。",
+   "question": "玉米原产于亚洲。",
+   "answer": "错",
+   "explanation": "错。玉米原产于美洲，新航路开辟后传播到世界各地。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "新航路开辟后的食物物种交流",
    "game_ready": true,
    "template": "Ta4cb40",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "新航路开辟后的食物物种交流"
@@ -77143,15 +77259,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第二单元 生产工具与劳作方式·第5课 工业革命与工厂制度",
    "type": "判断",
-   "question": "第一次工业革命首先发生在英国。",
-   "answer": "对",
-   "explanation": "18 世纪 60 年代开始。",
+   "question": "第一次工业革命首先发生在美国。",
+   "answer": "错",
+   "explanation": "错。第一次工业革命 18 世纪 60 年代首先发生在英国。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "工业革命与工厂制度",
    "game_ready": true,
    "template": "T717e94",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "工业革命与工厂制度"
@@ -78791,15 +78908,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第三单元 商业贸易与日常生活·第8课 世界市场与商业贸易",
    "type": "判断",
-   "question": "新航路开辟后，世界市场开始出现。",
-   "answer": "对",
-   "explanation": "世界各地的经济联系逐渐加强。",
+   "question": "新航路开辟后，世界市场最终形成。",
+   "answer": "错",
+   "explanation": "错。新航路开辟后世界市场开始出现；第二次工业革命后世界市场才最终形成。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "世界市场与商业贸易",
    "game_ready": true,
    "template": "T63008b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "世界市场与商业贸易"
@@ -79197,15 +79315,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第三单元 商业贸易与日常生活·第9课 20世纪以来人类的经济与生活",
    "type": "判断",
-   "question": "1929 年，资本主义世界爆发了严重的经济危机。",
-   "answer": "对",
-   "explanation": "危机首先在美国爆发。",
+   "question": "1929 年，资本主义世界经济危机首先在英国爆发。",
+   "answer": "错",
+   "explanation": "错。1929 年的经济危机首先在美国爆发，迅速席卷整个资本主义世界。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "20世纪以来人类的经济与生活",
    "game_ready": true,
    "template": "T30742c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "20世纪以来人类的经济与生活"
@@ -79787,15 +79906,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第四单元 村落、城镇与居住环境·第10课 古代的村落、集镇和城市",
    "type": "判断",
-   "question": "陕西西安半坡遗址是一处原始村落遗址。",
-   "answer": "对",
-   "explanation": "距今约六七千年。",
+   "question": "陕西西安半坡遗址是一处商朝都城遗址。",
+   "answer": "错",
+   "explanation": "错。半坡遗址是一处原始村落遗址，距今约六七千年。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "古代的村落、集镇和城市",
    "game_ready": true,
    "template": "Tca8267",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "古代的村落、集镇和城市"
@@ -80873,15 +80993,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第五单元 交通与社会变迁·第12课 水陆交通的变迁",
    "type": "判断",
-   "question": "隋朝开通了大运河。",
-   "answer": "对",
-   "explanation": "隋炀帝时开通。",
+   "question": "唐朝开通了大运河。",
+   "answer": "错",
+   "explanation": "错。大运河是隋朝隋炀帝时开通的。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "水陆交通的变迁",
    "game_ready": true,
    "template": "T7005a8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "水陆交通的变迁"
@@ -81391,15 +81512,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第五单元 交通与社会变迁·第13课 现代交通运输的新变化",
    "type": "判断",
-   "question": "1903 年，美国莱特兄弟制造的飞机试飞成功。",
-   "answer": "对",
-   "explanation": "人类进入航空时代。",
+   "question": "1903 年，美国爱迪生制造的飞机试飞成功。",
+   "answer": "错",
+   "explanation": "错。1903 年试飞成功的是美国莱特兄弟制造的飞机。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "现代交通运输的新变化",
    "game_ready": true,
    "template": "T76767e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "现代交通运输的新变化"
@@ -81981,15 +82103,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第六单元 医疗与公共卫生·第14课 历史上的疫病与医学成就",
    "type": "判断",
-   "question": "东汉张仲景著有《伤寒杂病论》。",
-   "answer": "对",
-   "explanation": "被后世尊为\"医圣\"。",
+   "question": "东汉华佗著有《伤寒杂病论》。",
+   "answer": "错",
+   "explanation": "错。《伤寒杂病论》是东汉张仲景所著，他被后世尊为“医圣”。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "历史上的疫病与医学成就",
    "game_ready": true,
    "template": "T8fc17f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "历史上的疫病与医学成就"
@@ -82499,15 +82622,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修2·第六单元 医疗与公共卫生·第15课 现代医疗卫生体系与社会生活",
    "type": "判断",
-   "question": "世界卫生组织成立于 1948 年。",
-   "answer": "对",
-   "explanation": "是联合国下属的专门机构。",
+   "question": "世界卫生组织成立于 1945 年。",
+   "answer": "错",
+   "explanation": "错。世界卫生组织成立于 1948 年；1945 年成立的是联合国。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "现代医疗卫生体系与社会生活",
    "game_ready": true,
    "template": "Tfa8f7b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "现代医疗卫生体系与社会生活"
@@ -83089,15 +83213,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第一章 地球的运动·第一节 地球的自转和公转",
    "type": "判断",
-   "question": "地球自转的方向是自西向东。",
-   "answer": "对",
-   "explanation": "从北极上空看呈逆时针，从南极上空看呈顺时针。",
+   "question": "地球自转的方向是自东向西。",
+   "answer": "错",
+   "explanation": "错。地球自转方向是自西向东，从北极上空看呈逆时针。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "地球的自转和公转",
    "game_ready": true,
    "template": "Tff1137",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球的自转和公转"
@@ -83607,15 +83732,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第一章 地球的运动·第一节 地球的自转和公转",
    "type": "判断",
-   "question": "除南北两极点外，地球表面各处的自转角速度都相等。",
-   "answer": "对",
-   "explanation": "约为每小时 15°。",
+   "question": "地球表面各处的自转线速度都相等。",
+   "answer": "错",
+   "explanation": "错。除南北两极点外，各处自转角速度相等；线速度由赤道向两极递减。",
    "difficulty": 3,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "地球的自转和公转",
    "game_ready": true,
    "template": "Ta18a84",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球的自转和公转"
@@ -83675,15 +83801,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第一章 地球的运动·第二节 地球运动的地理意义",
    "type": "判断",
-   "question": "地球自转产生了昼夜交替现象。",
-   "answer": "对",
-   "explanation": "昼夜交替的周期是一个太阳日，即 24 小时。",
+   "question": "地球自转产生了四季更替现象。",
+   "answer": "错",
+   "explanation": "错。地球自转产生昼夜交替；四季更替是地球公转（黄赤交角）造成的。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "地球运动的地理意义",
    "game_ready": true,
    "template": "T7bfe04",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球运动的地理意义"
@@ -83861,15 +83988,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第一章 地球的运动·第二节 地球运动的地理意义",
    "type": "判断",
-   "question": "受地转偏向力影响，南半球水平运动的物体向左偏。",
-   "answer": "对",
-   "explanation": "北半球向右偏，南半球向左偏。",
+   "question": "受地转偏向力影响，南半球水平运动的物体向右偏。",
+   "answer": "错",
+   "explanation": "错。南半球向左偏，北半球向右偏，赤道上不偏。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "地球运动的地理意义",
    "game_ready": true,
    "template": "Tf74147",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球运动的地理意义"
@@ -84462,15 +84590,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第二章 地表形态的塑造·第一节 塑造地表形态的力量",
    "type": "判断",
-   "question": "内力作用的能量主要来自地球内部的热能。",
-   "answer": "对",
-   "explanation": "内力作用表现为地壳运动、岩浆活动、变质作用。",
+   "question": "内力作用的能量主要来自太阳辐射能。",
+   "answer": "错",
+   "explanation": "错。内力作用的能量主要来自地球内部的热能；外力作用的能量主要来自太阳辐射能。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "塑造地表形态的力量",
    "game_ready": true,
    "template": "T6d6cb5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "塑造地表形态的力量"
@@ -84958,15 +85087,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第二章 地表形态的塑造·第二节 构造地貌的形成",
    "type": "判断",
-   "question": "褶皱的基本形态是背斜和向斜。",
-   "answer": "对",
-   "explanation": "岩层在挤压下发生弯曲变形。",
+   "question": "背斜一定形成山岭，向斜一定形成谷地。",
+   "answer": "错",
+   "explanation": "错。背斜顶部受张力易被侵蚀，可能形成谷地；向斜槽部受挤压不易被侵蚀，可能形成山岭（“背斜成谷，向斜成山”）。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "构造地貌的形成",
    "game_ready": true,
    "template": "T48c4a1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构造地貌的形成"
@@ -86200,15 +86330,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第三章 大气的运动·第一节 常见天气系统",
    "type": "判断",
-   "question": "冷锋过境时常出现大风、降温和雨雪天气。",
-   "answer": "对",
-   "explanation": "冷气团主动向暖气团移动。",
+   "question": "冷锋过境后，气温升高、气压降低。",
+   "answer": "错",
+   "explanation": "错。冷锋过境后，冷气团控制，气温降低、气压升高、天气转晴。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "常见天气系统",
    "game_ready": true,
    "template": "T21432c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "常见天气系统"
@@ -87416,15 +87547,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第三章 大气的运动·第三节 气压带和风带对气候的影响",
    "type": "判断",
-   "question": "终年受赤道低气压带控制的地区降水丰富。",
-   "answer": "对",
-   "explanation": "盛行上升气流。",
+   "question": "终年受副热带高气压带控制的地区降水丰富。",
+   "answer": "错",
+   "explanation": "错。副热带高气压带盛行下沉气流，降水稀少，形成热带沙漠气候；终年受赤道低气压带控制的地区才降水丰富。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "气压带和风带对气候的影响",
    "game_ready": true,
    "template": "Tcbedd7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带对气候的影响"
@@ -88569,15 +88701,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第四章 水的运动·第一节 陆地水体及其相互关系",
    "type": "判断",
-   "question": "黄河下游\"地上河\"河段，河水补给两岸的地下水。",
-   "answer": "对",
-   "explanation": "河床高于两岸地面，河水水位高于地下水位。",
+   "question": "黄河下游“地上河”河段，地下水补给河水。",
+   "answer": "错",
+   "explanation": "错。地上河河床高于两岸地面，是河水补给两岸的地下水。",
    "difficulty": 3,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "陆地水体及其相互关系",
    "game_ready": true,
    "template": "T1cee2d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "陆地水体及其相互关系"
@@ -90376,15 +90509,16 @@
    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
    "unit": "选择性必修1·第五章 自然环境的整体性与差异性·第二节 自然环境的地域差异性",
    "type": "判断",
-   "question": "由赤道到两极的地域分异，是以热量为基础的。",
-   "answer": "对",
-   "explanation": "自然带沿纬度方向更替。",
+   "question": "由赤道到两极的地域分异，是以水分为基础的。",
+   "answer": "错",
+   "explanation": "错。由赤道到两极的地域分异以热量为基础；从沿海到内陆的地域分异才以水分为基础。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "自然环境的地域差异性",
    "game_ready": true,
    "template": "T0d331b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的地域差异性"
@@ -96592,7 +96726,7 @@
      "audio": ""
     },
     {
-     "text": "世界观与方法论毫无关系",
+     "text": "世界观与方法论各自独立、毫无关系",
      "image": "",
      "audio": ""
     },
@@ -96610,6 +96744,7 @@
    "knowledge_point": "时代精神的精华",
    "game_ready": true,
    "template": "T3914b3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "时代精神的精华"
@@ -97052,15 +97187,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "必修4·第一单元 探索世界与把握规律·第二课 探究世界的本质",
    "type": "判断",
-   "question": "世界的本原是物质。",
-   "answer": "对",
-   "explanation": "世界的真正统一性在于它的物质性。",
+   "question": "世界的本原是意识。",
+   "answer": "错",
+   "explanation": "错。世界的本原是物质，世界的真正统一性在于它的物质性。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第四册",
    "knowledge_point": "探究世界的本质",
    "game_ready": true,
    "template": "T495297",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "探究世界的本质"
@@ -97078,7 +97214,7 @@
    "question": "物质的唯一特性是？",
    "options": [
     {
-     "text": "运动性",
+     "text": "绝对运动性",
      "image": "",
      "audio": ""
     },
@@ -97106,6 +97242,7 @@
    "knowledge_point": "探究世界的本质",
    "game_ready": true,
    "template": "Te0f50c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "探究世界的本质"
@@ -97543,7 +97680,7 @@
      "audio": ""
     },
     {
-     "text": "只承认静止，否认运动",
+     "text": "只承认绝对静止，否认运动",
      "image": "",
      "audio": ""
     }
@@ -97556,6 +97693,7 @@
    "knowledge_point": "探究世界的本质",
    "game_ready": true,
    "template": "T86b513",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "探究世界的本质"
@@ -97570,15 +97708,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "必修4·第一单元 探索世界与把握规律·第三课 把握世界的规律",
    "type": "判断",
-   "question": "世界上的一切事物都处在普遍联系之中。",
-   "answer": "对",
-   "explanation": "联系具有普遍性。",
+   "question": "世界上有些事物是孤立存在的，与周围事物没有联系。",
+   "answer": "错",
+   "explanation": "错。联系具有普遍性，世界上没有孤立存在的事物。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第四册",
    "knowledge_point": "把握世界的规律",
    "game_ready": true,
    "template": "T886a90",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "把握世界的规律"
@@ -97871,7 +98010,7 @@
      "audio": ""
     },
     {
-     "text": "量变不会引起质变",
+     "text": "量变不会引起任何质变",
      "image": "",
      "audio": ""
     },
@@ -97894,6 +98033,7 @@
    "knowledge_point": "把握世界的规律",
    "game_ready": true,
    "template": "T089771",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "把握世界的规律"
@@ -98273,7 +98413,7 @@
    "question": "被称为\"马克思主义活的灵魂\"的是？",
    "options": [
     {
-     "text": "一切从实际出发",
+     "text": "一切从客观实际出发",
      "image": "",
      "audio": ""
     },
@@ -98302,6 +98442,7 @@
    "game_ready": true,
    "template": "Tcfeaea",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "把握世界的规律"
@@ -98324,7 +98465,7 @@
      "audio": ""
     },
     {
-     "text": "质变不需要量变",
+     "text": "质变不需要量的积累",
      "image": "",
      "audio": ""
     },
@@ -98348,6 +98489,7 @@
    "game_ready": true,
    "template": "T8e2821",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "把握世界的规律"
@@ -98362,15 +98504,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "必修4·第二单元 认识社会与价值选择·第四课 探索认识的奥秘",
    "type": "判断",
-   "question": "实践是认识的基础。",
-   "answer": "对",
-   "explanation": "实践对认识起决定作用。",
+   "question": "认识是实践的基础。",
+   "answer": "错",
+   "explanation": "错。实践是认识的基础，实践对认识起决定作用。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第四册",
    "knowledge_point": "探索认识的奥秘",
    "game_ready": true,
    "template": "T2bd176",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "探索认识的奥秘"
@@ -98793,7 +98936,7 @@
    "question": "真理和谬误的关系是？",
    "options": [
     {
-     "text": "真理永远不会变成谬误",
+     "text": "真理在任何条件下都不会变成谬误",
      "image": "",
      "audio": ""
     },
@@ -98821,6 +98964,7 @@
    "knowledge_point": "探索认识的奥秘",
    "game_ready": true,
    "template": "T694ad6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "探索认识的奥秘"
@@ -98858,15 +99002,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "必修4·第二单元 认识社会与价值选择·第五课 寻觅社会的真谛",
    "type": "判断",
-   "question": "社会存在决定社会意识。",
-   "answer": "对",
-   "explanation": "这是历史唯物主义的基本观点。",
+   "question": "社会意识决定社会存在。",
+   "answer": "错",
+   "explanation": "错。社会存在决定社会意识，社会意识对社会存在有反作用。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第四册",
    "knowledge_point": "寻觅社会的真谛",
    "game_ready": true,
    "template": "Td5068d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "寻觅社会的真谛"
@@ -99079,7 +99224,7 @@
      "audio": ""
     },
     {
-     "text": "个别英雄人物",
+     "text": "个别英雄人物的意志",
      "image": "",
      "audio": ""
     }
@@ -99092,6 +99237,7 @@
    "knowledge_point": "寻觅社会的真谛",
    "game_ready": true,
    "template": "T9ff85b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "寻觅社会的真谛"
@@ -99996,7 +100142,7 @@
      "audio": ""
     },
     {
-     "text": "获得财富",
+     "text": "获得大量财富",
      "image": "",
      "audio": ""
     },
@@ -100020,6 +100166,7 @@
    "game_ready": true,
    "template": "Tdad678",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实现人生的价值"
@@ -100566,7 +100713,7 @@
      "audio": ""
     },
     {
-     "text": "人类文明的障碍",
+     "text": "人类文明发展的障碍",
      "image": "",
      "audio": ""
     },
@@ -100584,6 +100731,7 @@
    "knowledge_point": "学习借鉴外来文化的有益成果",
    "game_ready": true,
    "template": "Tdb5743",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "学习借鉴外来文化的有益成果"
@@ -100606,7 +100754,7 @@
      "audio": ""
     },
     {
-     "text": "民族文化与世界文化无关",
+     "text": "民族文化与世界文化毫无关系",
      "image": "",
      "audio": ""
     },
@@ -100629,6 +100777,7 @@
    "knowledge_point": "学习借鉴外来文化的有益成果",
    "game_ready": true,
    "template": "T0ec655",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "学习借鉴外来文化的有益成果"
@@ -101327,7 +101476,7 @@
      "audio": ""
     },
     {
-     "text": "为金钱服务、为个人服务",
+     "text": "为金钱服务、为个人利益服务",
      "image": "",
      "audio": ""
     },
@@ -101350,6 +101499,7 @@
    "knowledge_point": "发展中国特色社会主义文化",
    "game_ready": true,
    "template": "T1c659f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "发展中国特色社会主义文化"
@@ -101867,7 +102017,7 @@
    "question": "政体是指？",
    "options": [
     {
-     "text": "国家的结构形式",
+     "text": "国家整体与部分的结构形式",
      "image": "",
      "audio": ""
     },
@@ -101895,6 +102045,7 @@
    "knowledge_point": "国体与政体",
    "game_ready": true,
    "template": "T5fedd3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国体与政体"
@@ -102224,15 +102375,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第一单元 各具特色的国家·第二课 国家的结构形式",
    "type": "判断",
-   "question": "国家的结构形式主要分为单一制和复合制。",
-   "answer": "对",
-   "explanation": "复合制的主要形式是联邦制。",
+   "question": "国家的结构形式主要分为君主制和共和制。",
+   "answer": "错",
+   "explanation": "错。君主制和共和制是政体；国家的结构形式主要分为单一制和复合制。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "国家的结构形式",
    "game_ready": true,
    "template": "T6a8296",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家的结构形式"
@@ -102575,7 +102727,7 @@
      "audio": ""
     },
     {
-     "text": "邦联制",
+     "text": "民族自决和邦联制",
      "image": "",
      "audio": ""
     },
@@ -102593,6 +102745,7 @@
    "knowledge_point": "国家的结构形式",
    "game_ready": true,
    "template": "Tbb540d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家的结构形式"
@@ -102904,15 +103057,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第二单元 世界多极化·第三课 多极化趋势",
    "type": "判断",
-   "question": "世界多极化是当今世界政治格局的发展趋势。",
-   "answer": "对",
-   "explanation": "多极化在曲折中发展。",
+   "question": "世界单极化是当今世界政治格局的发展趋势。",
+   "answer": "错",
+   "explanation": "错。世界多极化是当今世界政治格局的发展趋势。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "多极化趋势",
    "game_ready": true,
    "template": "T3e8cd1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "多极化趋势"
@@ -103400,15 +103554,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第二单元 世界多极化·第四课 和平与发展",
    "type": "判断",
-   "question": "和平与发展是当今时代的主题。",
-   "answer": "对",
-   "explanation": "但和平与发展问题还没有得到根本解决。",
+   "question": "和平与发展问题已经得到根本解决。",
+   "answer": "错",
+   "explanation": "错。和平与发展是当今时代的主题，但和平与发展问题还没有得到根本解决。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "和平与发展",
    "game_ready": true,
    "template": "T6bf029",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "和平与发展"
@@ -104044,7 +104199,7 @@
      "audio": ""
     },
     {
-     "text": "\"求同存异\"",
+     "text": "“求同存异”的方针",
      "image": "",
      "audio": ""
     },
@@ -104062,6 +104217,7 @@
    "knowledge_point": "中国的外交",
    "game_ready": true,
    "template": "Ta760a2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国的外交"
@@ -104224,7 +104380,7 @@
      "audio": ""
     },
     {
-     "text": "结盟、对抗",
+     "text": "结盟、对抗、遏制",
      "image": "",
      "audio": ""
     },
@@ -104242,6 +104398,7 @@
    "knowledge_point": "中国的外交",
    "game_ready": true,
    "template": "T921712",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国的外交"
@@ -104684,7 +104841,7 @@
      "audio": ""
     },
     {
-     "text": "联合国",
+     "text": "世界贸易组织",
      "image": "",
      "audio": ""
     }
@@ -104697,6 +104854,7 @@
    "knowledge_point": "走进经济全球化",
    "game_ready": true,
    "template": "T2fa4d3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "走进经济全球化"
@@ -104864,7 +105022,7 @@
      "audio": ""
     },
     {
-     "text": "贸易自由化",
+     "text": "贸易和投资自由化",
      "image": "",
      "audio": ""
     }
@@ -104877,6 +105035,7 @@
    "knowledge_point": "走进经济全球化",
    "game_ready": true,
    "template": "Tec7dfd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "走进经济全球化"
@@ -105440,7 +105599,7 @@
      "audio": ""
     },
     {
-     "text": "更高水平的对外开放",
+     "text": "更高水平对外开放",
      "image": "",
      "audio": ""
     },
@@ -105463,6 +105622,7 @@
    "knowledge_point": "经济全球化与中国",
    "game_ready": true,
    "template": "Tde16bb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "经济全球化与中国"
@@ -106210,7 +106370,7 @@
      "audio": ""
     },
     {
-     "text": "东非国家联盟",
+     "text": "东北亚国家联盟",
      "image": "",
      "audio": ""
     },
@@ -106233,6 +106393,7 @@
    "knowledge_point": "主要的国际组织",
    "game_ready": true,
    "template": "T5e95ff",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "主要的国际组织"
@@ -106521,7 +106682,7 @@
    "question": "目前中国是联合国的？",
    "options": [
     {
-     "text": "最小会费国",
+     "text": "第一大会费国",
      "image": "",
      "audio": ""
     },
@@ -106549,6 +106710,7 @@
    "knowledge_point": "中国与国际组织",
    "game_ready": true,
    "template": "T0b90e8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国与国际组织"
@@ -106666,7 +106828,7 @@
      "audio": ""
     },
     {
-     "text": "以某一大国为核心的体系",
+     "text": "以某一个大国为核心的体系",
      "image": "",
      "audio": ""
     },
@@ -106684,6 +106846,7 @@
    "knowledge_point": "中国与国际组织",
    "game_ready": true,
    "template": "T7c0c63",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国与国际组织"
@@ -107391,7 +107554,7 @@
      "audio": ""
     },
     {
-     "text": "必须出生后才能主张",
+     "text": "必须等出生后才能主张权利",
      "image": "",
      "audio": ""
     },
@@ -107409,6 +107572,7 @@
    "knowledge_point": "在生活中学民法用民法",
    "game_ready": true,
    "template": "Te6fa66",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在生活中学民法用民法"
@@ -107854,7 +108018,7 @@
    "question": "拾得他人遗失物，应当？",
    "options": [
     {
-     "text": "据为己有",
+     "text": "据为个人所有",
      "image": "",
      "audio": ""
     },
@@ -107882,6 +108046,7 @@
    "knowledge_point": "依法有效保护财产权",
    "game_ready": true,
    "template": "Td20eb6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "依法有效保护财产权"
@@ -108901,7 +109066,7 @@
      "audio": ""
     },
     {
-     "text": "承担一半责任",
+     "text": "承担一半民事责任",
      "image": "",
      "audio": ""
     },
@@ -108919,6 +109084,7 @@
    "knowledge_point": "侵权责任与权利界限",
    "game_ready": true,
    "template": "T77c26c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "侵权责任与权利界限"
@@ -110082,7 +110248,7 @@
      "audio": ""
     },
     {
-     "text": "夫妻共同财产",
+     "text": "夫妻双方共同财产",
      "image": "",
      "audio": ""
     }
@@ -110095,6 +110261,7 @@
    "knowledge_point": "珍惜婚姻关系",
    "game_ready": true,
    "template": "Ta23553",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "珍惜婚姻关系"
