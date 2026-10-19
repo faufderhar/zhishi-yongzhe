@@ -22,3 +22,11 @@ it('P3 文案：用完时不再写「还能玩 0 分钟（含今天临时加时�
   expect(timeLeftText(0, 254)).toBe('今天的时间已用完（其中临时加时 4 分钟也已用完）');
   expect(timeLeftText(0, 0)).toBe('今天还能玩 0 分钟'); expect(timeLeftText(600, 600)).toBe('今天还能玩 10 分钟（含今天临时加时 10 分钟）');
 });
+it('r15.4.4 较真家长：加时取消后（只剩取消前已用的部分）首页 / 地图不再写「含今天临时加时」；取消后再加 10 分钟照常写', async () => {
+  const { bonusShown, cancelBonus, addBonus } = await import('../src/game/playtime');
+  const day = '2026-10-19'; const u0 = { [day]: { used: 611, bonus: 600 } } as any;
+  expect(bonusShown(u0, day)).toBe(600);
+  const u1 = cancelBonus(u0, day, 300); expect(u1[day].bonus).toBe(311); expect(bonusShown(u1, day)).toBe(0);
+  const { timeLeftText } = await import('../src/ui/Screens'); expect(timeLeftText(600, bonusShown(u1, day))).toBe('今天还能玩 10 分钟');
+  const u2 = addBonus(u1, day, 600); expect(bonusShown(u2, day)).toBe(911);
+});

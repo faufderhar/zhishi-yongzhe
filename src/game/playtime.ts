@@ -60,6 +60,8 @@ export function cancelBonus(u: Usage, day: string, limitSec = 0): Usage { const 
 export const bonusAllSpent = (r: { bonus: number; spent?: number } | undefined) => !!r && r.bonus > 0 && (r.spent ?? 0) >= r.bonus;
 /** r11：今天的临时加时（秒） */
 export const bonusToday = (u: Usage | undefined, day: string) => u?.[day]?.bonus ?? 0;
+/** r15.4.4 较真家长：首页卡片 / 地图「（含今天临时加时 n 分钟）」用——加时已取消（剩下的只是取消前已用掉的部分）就不写 */
+export const bonusShown = (u: Usage | undefined, day: string) => bonusAllSpent(u?.[day]) ? 0 : bonusToday(u, day);
 
 /** r11 技术QA R10-1：时间到后的收尾（3 分钟）。每秒由游戏时钟调用一次：暂停 / 后台不走；单次最多走 2 秒（防卡顿跳秒、调时钟） */
 export const GRACE_MS = 3 * 60e3;

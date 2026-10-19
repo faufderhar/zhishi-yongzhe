@@ -32,7 +32,7 @@ describe('r15.4.2 P3-6 收尾不算加时已用', () => {
   it('不限：取消后剩余不限', () => { expect(cP({ used: 100, bonus: 600 }, 0).leftAfter).toBe(Infinity); });
   it('wrapTail 清洗 0–180；读取也封顶', () => { expect((cleanUsage({ [D]: { used: 1, bonus: 0, wrapTail: 1e308 } }) as any)[D].wrapTail).toBe(180); expect(readFileSync('src/state.ts', 'utf8')).toMatch(/wrapTail: Math\.min\(180/); });
 });
-describe('r15.4.2 较真家长：取消确认框 + 「按现在的每日上限计算」', () => {
+describe('r15.4.2 较真家长：取消确认框', () => {
   const src = readFileSync('src/ui/Parent.tsx', 'utf8');
   it('时长页「取消没用的」先弹确认，确认框写取消后今天还能玩多久', () => {
     expect(src).toMatch(/data-testid=\{'bonus-cancel-' \+ p\.id\} onClick=\{\(\) => setCc\(/);
@@ -40,7 +40,7 @@ describe('r15.4.2 较真家长：取消确认框 + 「按现在的每日上限�
     expect(src).toMatch(/bonus-cancel-ok[^\n]*cancelBonus\(usage\[c\.pid\]/);
   });
   it('编辑页「取消今天没用的加时」也先确认', () => { expect(src).toMatch(/data-testid="bonus-cancel" onClick=\{\(\) => setAskCancel\(true\)\}/); expect(src).toMatch(/bonus-cancel-ok" onClick=\{\(\) => \{ setAskCancel\(false\); onCancelBonus/); });
-  it('加时已用旁边注明「按现在的每日上限计算」（时长页两处 + 编辑页）', () => { expect(src.match(/按现在的每日上限计算/g)!.length).toBeGreaterThanOrEqual(3); expect(src).toMatch(/bonus-basis-/); expect(src).toMatch(/bonus-note-basis/); });
+  it('r15.4.4 较真家长：「按现在的每日上限计算」删掉了（上限改大后加时已用数不变，这半句反而让人误会）', () => { expect(src).not.toMatch(/按现在的每日上限/); expect(src).toContain('（已经用掉的部分会留下）'); });
   it('按钮上的时间每秒重算', () => { expect(src).toMatch(/setInterval\(\(\) => setTick\(x => x \+ 1\), 1000\)/); });
 });
 describe('r15.4.2 较真家长 A：小班时间到结算页 🔊', () => {

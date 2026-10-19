@@ -56,8 +56,8 @@ if (on('T')) {
   await toParent(); await pg.click('[data-testid=ptab-time]'); await w(300);
   const before = await pg.textContent(`[data-testid=used-${pid}]`); console.log('  取消前家长页：' + before + ' / ' + await pg.textContent(`[data-testid=bonus-now-${pid}]`));
   await setLimit(15); const note = await pg.textContent('[data-testid=bonus-note]'); console.log('  编辑页：' + note);
-  // r15.4.2：最后那段刚走完的收尾 3:00 不算加时已用（技术QA P3-6）→ 15 分钟上限下加时已用 10:00；旁边注明「按现在的每日上限计算」
-  ok(/加时已用 10:00/.test(note) && /按现在的每日上限计算/.test(note) && await pg.isVisible('[data-testid=bonus-cancel]'), `改成 15 分钟后编辑页显示「加时已用 10:00（按现在的每日上限计算）」并可以取消没用的部分（${note}）`);
+  // r15.4.2：最后那段刚走完的收尾 3:00 不算加时已用（技术QA P3-6）→ 15 分钟上限下加时已用 10:00；（r15.4.4 删掉了旁边的「按现在的每日上限计算」）
+  ok(/加时已用 10:00/.test(note) && !/按现在的每日上限/.test(note) && await pg.isVisible('[data-testid=bonus-cancel]'), `改成 15 分钟后编辑页显示「加时已用 10:00（按现在的每日上限计算）」并可以取消没用的部分（${note}）`);
   // r15.4.2 较真家长：取消先确认，写明取消后今天还能玩多久；点「算了」不生效
   await pg.click('[data-testid=bonus-cancel]'); await w(300);
   const ct = await pg.textContent('[data-testid=bonus-cancel-confirm]').catch(() => ''); ok(/会取消 10:00/.test(ct) && /取消后今天还能玩 0:00/.test(ct), `编辑页取消前弹确认：取消 10:00、取消后还能玩 0:00（${ct.replace(/\s+/g, ' ')}）`);
@@ -66,7 +66,7 @@ if (on('T')) {
   await pg.click('[data-testid=ptab-time]'); await w(400);
   const used = await pg.textContent(`[data-testid=used-${pid}]`); const bu = await pg.textContent(`[data-testid=bonus-used-${pid}]`).catch(() => ''); const row = await pg.textContent(`tr:has([data-testid=used-${pid}])`);
   const wrapM = used.match(/收尾 (\d+):(\d+)/); const wrapS = wrapM ? Number(wrapM[1]) * 60 + Number(wrapM[2]) : 0;
-  ok(wrapS <= 180, `取消后家长页收尾 ≤ 3:00（「${used}」）`); ok(/加时已用 10:00/.test(bu) && /按现在的每日上限计算/.test(bu), `取消后单独显示「加时已用 10:00，按现在的每日上限计算」（${bu}）`);
+  ok(wrapS <= 180, `取消后家长页收尾 ≤ 3:00（「${used}」）`); ok(/加时已用 10:00/.test(bu) && !/按现在的每日上限/.test(bu), `取消后单独显示「加时已用 10:00，按现在的每日上限计算」（${bu}）`);
   ok(!/收尾 (2[0-9]|1[0-9]|[4-9]):/.test(row), `整行没有超过 3 分钟的收尾（${row.replace(/\s+/g, ' ').slice(0, 160)}）`);
   ok(Number(await pg.getAttribute(`[data-testid=left-${pid}]`, 'data-left-sec')) === 0, '取消后今天剩余 0（没有因为取消多出时间）');
   const u = await usage(); ok(u.used === 1680 && u.bonus === 600, `记录：用时 ${u.used}（1680）、加时留下已用的 ${u.bonus}（600）、收尾记录 ${u.wrap}`);
