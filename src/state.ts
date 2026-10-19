@@ -15,6 +15,7 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   pinNudged?: boolean                              // r15：没密码时第一次换档案已提示过设密码
   recConfirmed?: boolean                           // r15 R141-2：家长把恢复码打回来确认过已抄好
   recPrompted?: boolean                            // r12：升级前设的密码：已提示过生成恢复码
+  restoredSeen?: boolean                           // r15.4.3 较真家长 P3：恢复提示已在一次家长页里显示过，下次进家长页自动收起
   restoredFromAt?: string                          // r13：用备份密码 / 恢复码恢复后，家长页提示「已从X月X日的备份恢复」
   switchNoPin?: boolean                            // r12：切换档案不用密码（默认关）
   pinRec?: string                                  // r11：恢复码哈希

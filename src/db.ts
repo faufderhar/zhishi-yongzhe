@@ -159,7 +159,7 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
   /* r15.3 技术QA R152-3：撤销恢复要连家长密码、恢复码（4 处副本）和等待中的重设一起回到恢复前（以前保留了恢复后的密码，和确认框说的不一样） */
   if (o.trusted && bv) { const st = (clean.kv as [string, any][]).find(r => r[0] === 'settings')?.[1]; cur = { vault: null, pinReset: st?.pinReset, pinResetDoneAt: undefined }; }
   const m = mergePin(clean.kv as [string, unknown][], cur, bv); clean.kv = m.kv;
-  if (!o.trusted && bv) clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => k === 'settings' && v && typeof v === 'object' ? [k, { ...(v as object), restoredFromAt: data.exportedAt ?? 'unknown' }] : [k, v]);
+  if (!o.trusted && bv) clean.kv = (clean.kv as [string, unknown][]).map(([k, v]): [string, unknown] => k === 'settings' && v && typeof v === 'object' ? [k, { ...(v as object), restoredFromAt: data.exportedAt ?? 'unknown', restoredSeen: undefined }] : [k, v]);
   // r14.1：覆盖恢复也保留本机「今天已玩」的时长（和合并一致），防止用旧备份把今天的用时清零
   if (!o.trusted) { const td = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; })();
     const curKv = new Map<string, unknown>(); { const d0 = await db(); const ks = await d0.getAllKeys('kv'); const vs = await d0.getAll('kv'); ks.forEach((k, i) => curKv.set(String(k), vs[i])); }

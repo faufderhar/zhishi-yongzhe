@@ -15,7 +15,8 @@ const later = async () => { if (await vis('.modal >> text=稍后')) { await tap(
 const home = async () => { for (let i = 0; i < 12 && !(await vis('[data-testid=add-child]')); i++) { await later(); if (await vis('[data-testid=parent-close]')) await tap('[data-testid=parent-close]'); else if (await vis('[data-testid=map-back]')) await tap('[data-testid=map-back]'); else if (await vis('[data-testid=grade-back]')) await tap('[data-testid=grade-back]'); else if (await vis('text=返回')) await tap('text=返回'); await w(500); } };
 const kv = k => pg.evaluate(k => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get(k); g.onsuccess = () => { r.result.close(); res(g.result); }; }; }), k);
 async function lockTry(tag, P = NEW) { await home(); await tap('[data-testid=parent]'); await w(500); await pin(P); await later(); const okIn = await vis('[data-testid=parent-close]'); const e = await pg.textContent('[data-testid=pin-error]').catch(() => null);
-  await pg.screenshot({ path: `${OUT}${tag}.png` }); const st = await kv('settings'); return { okIn, e, hash: st?.pinHash?.slice(0, 12) }; }
+  const banner = okIn && await vis('[data-testid=restored-from]');
+  await pg.screenshot({ path: `${OUT}${tag}.png` }); const st = await kv('settings'); return { okIn, e, banner, hash: st?.pinHash?.slice(0, 12) }; }
 async function recReset(code, tag) {
   await home(); await tap('[data-testid=parent]'); await w(400); await tap('[data-testid=forgot]'); await w(400);
   await typeIn('[data-testid=rec-input]', code); await tap('[data-testid=rec-ok]'); await w(600);
@@ -74,6 +75,7 @@ res.rounds.forEach((x, i) => ok(x.okIn && x.v.every(v => v === NEW), `恢复码�
 res.gate.forEach((x, i) => ok(x.okIn, `锁屏从备份恢复 / 再重设 #${i + 1} 后锁屏 ${NEW} 一次通过 ${JSON.stringify({ okIn: x.okIn, e: x.e })}`));
 ok(!!res_self.err && res_self.stay && !res_self.code, `自检失败时报错、停在设新密码页、不发恢复码 ${JSON.stringify(res_self.err)}`);
 ok(res_self.retryCode && res_self.lock?.okIn, '自检恢复正常后再点确定 → 发新码，锁屏 2468 通过');
+ok(res.restore1.banner === true && res_self.lock?.banner === false, `P3 「已从备份恢复」横幅：恢复后第一次进家长页显示（${res.restore1.banner}），下次进家长页自动收起（${res_self.lock?.banner}）`);
 ok(!!res.lastAfterRestore.after, `P2-1 覆盖恢复后「上次备份」还在（导出后 ${res.lastAfterRestore.before} → 恢复后 ${res.lastAfterRestore.after}）`);
 ok(!errs.filter(e => !/pin-stale/.test(e)).length, `没有页面错误 ${errs.slice(0, 4).join(' | ')}`);
 if (errs.length) console.log('LOG', errs.join(' | '));

@@ -230,12 +230,14 @@ export function ParentSettings(props: ParentProps) {
     return () => { clearInterval(iv); ev.forEach(e => window.removeEventListener(e, poke, true)); };
   }, []);
   const tabs: [Tab, string][] = [['profiles', '👪 孩子档案'], ['report', '📊 学习报告'], ['bank', '📚 题库'], ['time', '⏳ 时长'], ['backup', '💾 备份/恢复'], ['pin', '🔑 密码']];
+  /* r15.4.3 较真家长 P3：「已从备份恢复」以前要点「知道了」才消失——现在第一次进家长页显示，下次再进家长页自动收起（也可以点 ✕ / 知道了） */
+  useEffect(() => { const s0 = props.settings; if (!s0.restoredFromAt) return; props.setSettings(s0.restoredSeen ? { ...s0, restoredFromAt: undefined, restoredSeen: undefined } : { ...s0, restoredSeen: true }); }, []);   // eslint-disable-line react-hooks/exhaustive-deps
   const oldHint = !!props.settings.pinHint && OLD_HINT_QUESTIONS.includes(props.settings.pinHint.q);
   // r14 技术QA：孩子能猜到的旧预设问题（小名 / 宠物 / 生日）已不能用来找回；r14.1 策划：不再拦住家长页，只常驻提示「已失效」+「现在更换」，直到换了新问题
   const [hintNow, setHintNow] = useState(false);
   return (
     <div className="parent">
-      {props.settings.restoredFromAt && <div className="yellow-bar" data-testid="restored-from">✅ 已从{(() => { const d = new Date(props.settings.restoredFromAt!); return isNaN(+d) ? '一份' : `${d.getMonth() + 1}月${d.getDate()}日的`; })()}备份恢复，家长密码已变成备份时的密码。<button className="chip" onClick={() => props.setSettings({ ...props.settings, restoredFromAt: undefined })}>知道了</button></div>}
+      {props.settings.restoredFromAt && <div className="yellow-bar" data-testid="restored-from">✅ 已从{(() => { const d = new Date(props.settings.restoredFromAt!); return isNaN(+d) ? '一份' : `${d.getMonth() + 1}月${d.getDate()}日的`; })()}备份恢复，家长密码已变成备份时的密码。<button className="chip" data-testid="restored-ok" onClick={() => props.setSettings({ ...props.settings, restoredFromAt: undefined, restoredSeen: undefined })}>知道了</button><button className="chip bar-x" data-testid="restored-close" aria-label="关闭" onClick={() => props.setSettings({ ...props.settings, restoredFromAt: undefined, restoredSeen: undefined })}>✕</button></div>}
       {oldHint && <div className="yellow-bar" data-testid="old-hint-prompt">🔑 你的找回问题已失效，忘记密码时只能用恢复码或备份 <button className="chip" data-testid="old-hint-now" onClick={() => setHintNow(true)}>现在更换</button></div>}
       {oldHint && hintNow && <HintEdit settings={props.settings} setSettings={s2 => { props.setSettings(s2); setHintNow(false); }} forced />}
       <div className="map-top">
