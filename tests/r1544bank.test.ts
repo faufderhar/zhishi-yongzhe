@@ -13,11 +13,10 @@ const G = ['K1', '1', '2', '3', '4', '5', '6', '7', '10'];
 const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8'));
 const LIST = '/workspace/questions/需家长确认清单_v34.csv';   // v34：v32 的 44 题 + 曹冲称象 Y6-070 / Y6-128 / Y6-131 = 47
 describe('题库 v32 / v33 / v34 导入', () => {
-  it('v34 新增的幼儿园中班 K2 不进 r15.4.4 的游戏题库（r16 接入）：没有 bank_K2、没有 K2 题号、档案年级里没有 K2', async () => {
-    expect(existsSync('public/banks/bank_K2.json')).toBe(false);
-    for (const g of G) expect(raw(g).questions.filter((q: { id: string }) => /^K2[NCDLGEZ]-/.test(q.id)).length, g).toBe(0);
-    const { PROFILE_GRADES } = await import('../src/game/grades') as { PROFILE_GRADES?: string[] };
-    if (PROFILE_GRADES) expect(PROFILE_GRADES).not.toContain('K2');
+  it('r16：中班 K2 / 初二 8 / 高二 11 进游戏题库；大班 K3 / 初三 9 / 高三 12 不进（r17）', () => {
+    for (const g of ['K2', '8', '11']) expect(existsSync(`public/banks/bank_${g}.json`), g).toBe(true);
+    for (const g of ['K3', '9', '12']) expect(existsSync(`public/banks/bank_${g}.json`), g).toBe(false);
+    for (const g of G) expect(raw(g).questions.filter((q: { id: string }) => /^K[23][NCDLGEZ]-/.test(q.id)).length, g).toBe(0);
   });
   it('r15.4.3 正式版（题库 v30）的每个关卡 id 在现在的题库里都还在，或者是某关的别名（星星不丢；v34 曹冲称象首题 Y6-070 改需家长确认 → 别名）', () => {
     const old: string[] = JSON.parse(readFileSync('tests/fixtures/level_ids_r1543.json', 'utf8'));
