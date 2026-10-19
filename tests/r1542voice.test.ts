@@ -9,7 +9,7 @@ beforeEach(() => {
   vi.stubGlobal('navigator', { get onLine() { return online; } });
   vi.stubGlobal('document', { baseURI: 'http://x/' });
   vi.stubGlobal('window', { requestIdleCallback: (f: () => void) => setTimeout(f, 0) });
-  vi.stubGlobal('caches', { open: async () => ({ match: async (u: string) => store.get(u), put: async (u: string, r: unknown) => { store.set(u, r); } }) });
+  vi.stubGlobal('caches', { open: async () => ({ match: async (u: string) => store.get(u), put: async (u: string, r: unknown) => { store.set(u, r); }, keys: async () => [...store.keys()].map(url => ({ url })), delete: async (r: { url: string }) => store.delete(r.url) }) });
   vi.stubGlobal('fetch', async (u: string) => { if (u.endsWith('manifest.json')) return { ok: true, json: async () => ({ items: { a: 'a.mp3', b: ['b1.mp3', 'b2.mp3'], c: 'c.mp3' } }) };
     fetchN++; const f = u.split('/').pop()!; return failSet.has(f) ? { ok: false, status: 503 } : { ok: true, status: 200 }; });
 });
@@ -51,5 +51,13 @@ describe('r15.4.2 技术QA P4：朗读提示条紧凑', () => {
     const app = readFileSync('src/App.tsx', 'utf8'); const css = readFileSync('src/app.css', 'utf8');
     const line = app.split('\n').find(l => l.includes('tts-bar'))!; expect(line).not.toMatch(/点此关闭/); expect(line).toMatch(/className="tts-x"/); expect(app).not.toMatch(/安装语音引擎并下载中文语音/);
     expect(css).toMatch(/@media \(max-width:700px\),\(max-height:460px\)\{\.sys-bar\.tts-bar\{font-size:13px/);
+  });
+});
+describe('r15.4.4 换录音包：zy-voice 里不在当前 manifest 里的旧录音删掉', () => {
+  it('旧包文件（同目录、mp3）删掉；新包文件、别的缓存条目不动；然后照常补齐', async () => {
+    store.set('http://x/voice/a.mp3', 1); store.set('http://x/voice/old_a.1234567890.mp3', 1); store.set('http://x/voice/old_b.abcdef0123.mp3?v=1', 1); store.set('http://x/voice/manifest.json', 1); store.set('http://x/other/z.mp3', 1);
+    const m = await import('../src/offlineCache'); const p = m.cacheVoiceForOffline(); await vi.advanceTimersByTimeAsync(50); const s = await p;
+    expect(s).toMatchObject({ total: 4, done: 4, failed: 0, ok: 4, state: 'done' });
+    expect([...store.keys()].sort()).toEqual(['http://x/other/z.mp3', 'http://x/voice/a.mp3', 'http://x/voice/b1.mp3', 'http://x/voice/b2.mp3', 'http://x/voice/c.mp3', 'http://x/voice/manifest.json']);
   });
 });

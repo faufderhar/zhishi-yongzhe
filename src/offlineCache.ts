@@ -85,6 +85,14 @@ function scheduleVoiceRetry(s: VoiceStatus) {
   const d = voiceRetryDelay(vRetryN++); vRetryT = setTimeout(() => { vRetryT = null; void cacheVoiceForOffline().catch(() => {}); }, d);
   return { ...s, retryAt: Date.now() + d };
 }
+/* r15.4.4 音频设计换整包（语速 1.5 → 1.2）：录音文件名带内容哈希（K-001_stem.<hash>.mp3），新包 = 新网址，CacheFirst 不会再拿旧文件；
+   voice/manifest.json 在 SW 预缓存里（内容变了 revision 就变，新 SW 装好后给新 manifest）。
+   这里把 zy-voice 里不在当前 manifest 里的旧录音删掉（不然旧包 ~500 个文件一直占着空间）。返回删掉的个数 */
+export async function pruneVoiceCache(c: Cache, base: string, files: string[]) {
+  const keep = new Set(files.map(f => base + f)); let n = 0;
+  try { for (const req of await c.keys()) { const u = req.url.split('?')[0]; if (u.startsWith(base) && /\.(mp3|m4a)$/.test(u) && !keep.has(u)) { await c.delete(req); n++; } } } catch { /* 清理失败不影响下载 */ }
+  return n;
+}
 export async function cacheVoiceForOffline(): Promise<VoiceStatus | null> {
   if (vRunning || typeof caches === 'undefined') return null;
   if (!navigator.onLine) { const p = voiceStatus(); if (p && p.state === 'running') vSave({ ...p, state: 'failed', failed: Math.max(1, p.total - (p.ok ?? 0)) }); return null; }
@@ -95,6 +103,7 @@ export async function cacheVoiceForOffline(): Promise<VoiceStatus | null> {
     const files = voiceFiles(man.items); const c = await caches.open('zy-voice');
     let done = 0, failed = 0, ok = 0; const total = files.length; const st = (): VoiceStatus => ({ done, total, failed, ok, at: Date.now(), state: done < total ? 'running' : failed ? 'failed' : 'done' });
     if (!total) return null;
+    await pruneVoiceCache(c, base, files);
     vSave(st()); await idle(); let i = 0;   // 只在开始时等一次空闲：每个文件都等空闲时，动画页面上 500 个文件要好几分钟
     const worker = async () => { while (i < files.length) { const f = files[i++]; const url = base + f;
       try { if (await c.match(url)) ok++; else { if (!navigator.onLine) { failed++; done++; continue; } const r = await fetch(url); if (r.ok && r.status === 200) { await c.put(url, r); ok++; } else failed++; } } catch { failed++; }
