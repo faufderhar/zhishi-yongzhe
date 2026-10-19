@@ -20,6 +20,7 @@ button:disabled{opacity:.4}
 .tag{background:#ffd54a;color:#333;border-radius:99px;padding:2px 12px;font-size:15px}
 .back{position:absolute;left:24px;top:24px;width:72px;height:72px;border-radius:50%;background:rgba(0,0,0,.2);font-size:36px}
 .warn{color:#ffb3b3}
+.pinpad > p.warn[data-testid=pin-error]{margin:0;font-size:17px}   /* r15.4.3 较真家长 P1：报错行和提示行一样高，输错后键盘不再下移几像素（避免下一次点偏） */
 .portrait-tip{pointer-events:none;animation:tipfade .4s 6s forwards;position:fixed;top:0;left:0;right:0;background:#ffd54a;color:#333;text-align:center;padding:8px;z-index:9;font-size:18px}
 /* battle layout: 左战斗 右答题 */
 .battle{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;min-height:0}

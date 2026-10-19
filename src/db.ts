@@ -1,7 +1,7 @@
 /* IndexedDB：kv（设置/档案/进度/时长）、wrong（错题本）、answers（答题记录）、bank（家长导入的题，覆盖内置题） */
 import { openDB, type IDBPDatabase } from 'idb';
 import type { WrongEntry } from './game/wrongbook';
-import { findVault, findRec, writeRec, writeLocal, writeCache, normCode, type PinVault } from './game/pinVault';
+import { findVault, findRec, writeRec, writeLocal, writeCache, readLocal, normCode, type PinVault } from './game/pinVault';
 import { backupVault, mergePin } from './game/backupPin';
 import { sanitizeData } from './game/sanitize';
 import { verifyPin, freshLocks, LOCK_KEYS_ALL } from './game/pin';
@@ -100,6 +100,23 @@ export async function currentPin() {
   const st = await getKV<any>('settings'); const ps = await getKV<any[]>('profiles');
   const vault: PinVault | null = await findVault(st && typeof st === 'object' ? st : undefined, Array.isArray(ps) ? ps : []);
   return { vault, pinReset: st?.pinReset, pinResetDoneAt: st?.pinResetDoneAt };
+}
+/** r15.4.3 较真家长 P1：设好新密码后马上自检——库里的设置、localStorage 副本、每个档案里的副本、锁屏实际会用的那份，都要能用刚输入的密码通过。
+ *  写库是异步的，最多等约 1.5 秒；返回对不上的副本名（settings / local / profile / vault） */
+export async function checkPinSaved(pin: string, tries = 10, gap = 150): Promise<{ ok: boolean; bad: string[] }> {
+  let bad: string[] = [];
+  for (let i = 0; i < tries; i++) {
+    bad = [];
+    if (__TEST_HOOKS__ && typeof window !== 'undefined' && (window as unknown as { __zyTestPinSaveFail?: boolean }).__zyTestPinSaveFail) bad.push('test');
+    const st = await getKV<any>('settings'); const ps = (await getKV<any[]>('profiles')) ?? []; const loc = readLocal();
+    if (!(await verifyPin(pin, st?.pinHash))) bad.push('settings');
+    if (loc && !(await verifyPin(pin, loc.pinHash))) bad.push('local');
+    for (const p of Array.isArray(ps) ? ps : []) if (p?.pinVault?.pinHash && !(await verifyPin(pin, p.pinVault.pinHash))) { bad.push('profile'); break; }
+    const v = await findVault(st && typeof st === 'object' ? st : undefined, Array.isArray(ps) ? ps : []); if (!v || !(await verifyPin(pin, v.pinHash))) bad.push('vault');
+    if (!bad.length) return { ok: true, bad };
+    if (i < tries - 1) await new Promise(r => setTimeout(r, gap));
+  }
+  return { ok: false, bad };
 }
 export class NeedPinError extends Error { constructor(m = '要先输入当前的家长密码才能恢复') { super(m); } }
 /** 恢复前校验（技术QA P1-3）：格式、各表行结构；返回预览和清洗后的数据；不合格抛出中文错误 */
