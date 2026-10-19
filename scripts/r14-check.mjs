@@ -352,7 +352,7 @@ if (process.env.MEASURE) {
 }
 if (on('r15kbnum')) {
   // r15.1 技术QA R15-3：数字键盘最后一排「- 0 .」和确定也在 375×667 第一屏（多看几道题）
-  const vp = { width: 375, height: 667 }; const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
+  const vp = { width: 667, height: 375 }; const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);   // r15.4.2：手机竖屏战斗改成「请把手机横过来」，键盘在手机横屏量
   const tab = await pg.$('.chapter:has-text("数学")'); if (tab) { await tab.click(); await w(500); }
   let seen = 0, bads = 0;
   for (let lv = 1; lv <= 4 && seen < 4; lv++) {
@@ -367,7 +367,7 @@ if (on('r15kbnum')) {
     else if (await pg.isVisible('[data-testid=result-title]')) { await pg.click('[data-testid=result-map], text=回地图').catch(() => {}); await w(700); }
     const t2 = await pg.$('.chapter:has-text("数学")'); if (t2) { await t2.click().catch(() => {}); await w(400); }
   }
-  ok(seen > 0 && bads === 0, `375×667 数字 / 字母键盘每排都在第一屏（看了 ${seen} 道，超出 ${bads}）`); await ctx.close();
+  ok(seen > 0 && bads === 0, `667×375（手机横屏）数字 / 字母键盘每排都在第一屏（看了 ${seen} 道，超出 ${bads}）`); await ctx.close();
   /* r15.4：首题随机后抽到 KaTeX 三行题干 M7-353（1+3+5+…+19）时最后一排曾出屏——强制出这道再看 */
   { const { ctx, pg, w } = await session('7', { __zyUnlockAll: true, __zyForceQ: 'M7-353' }, vp); await enterMap(pg, w);
     const tab = await pg.$('.chapter:has-text("数学")'); if (tab) { await tab.click(); await w(500); }
@@ -376,10 +376,10 @@ if (on('r15kbnum')) {
     await pg.waitForSelector('.keypad', { timeout: 8000 }).catch(() => {}); await w(300);
     const has = await pg.isVisible('.keypad'); const a = has && await inVp(pg, '.keypad button');
     if (!a) await pg.screenshot({ path: OUT + 'r154-kbnum-M7-353-bad.png' });
-    ok(has && a, `375×667（长题干 M7-353）：数字键盘每排都在第一屏`); await ctx.close(); }
+    ok(has && a, `667×375（手机横屏，长题干 M7-353）：数字键盘每排都在第一屏`); await ctx.close(); }
 }
 if (on('r15kb')) {
-  for (const vp of [{ width: 375, height: 667 }, { width: 414, height: 896 }]) {
+  for (const vp of [{ width: 667, height: 375 }, { width: 896, height: 414 }]) {   // r15.4.2：手机横屏
     const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
     const tab = await pg.$('.chapter:has-text("英语")'); if (tab) { await tab.click(); await w(500); }
     let found = false;
