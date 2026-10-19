@@ -30,7 +30,17 @@ for g, name in GR.items():
     assert not left, left
     open(os.path.join(a.out, f'bank_{g}.json'), 'w', encoding='utf-8').write(json.dumps(d, ensure_ascii=False, indent=1))
     tot_ex += len(ex); rows.append((g, len(qs), len(d['questions']), ex))
+# r15.4.4（总管）：v34 新增的幼儿园中班 K2 在 r16 才接入游戏——这里不导入，清单里属于没导入年级的题也不算「找不到」
+known = {f'题库_{n}.json' for n in GR.values()}
+skipped = sorted(os.path.basename(f) for f in glob.glob(os.path.join(a.src, '题库_*.json')) if not os.path.basename(f).startswith('题库_游戏可用_') and os.path.basename(f) not in known)
+skip_ids = set()
+for f in skipped:
+    sq = json.load(open(os.path.join(a.src, f), encoding='utf-8'))['questions']; skip_ids |= {q['id'] for q in sq}
+    print(f'不导入 {f}（{len(sq)} 题，r16 接入）', file=sys.stderr)
+listed -= skip_ids
 miss = listed - {i for r in rows for i in r[3]}
 if miss: sys.exit(f'清单里的题在题库里找不到：{sorted(miss)}')
 for g, n0, n1, ex in rows: print(f'bank_{g}.json {ver}: {n0} 题 → 导入 {n1}（去掉需家长确认 {len(ex)}{"：" + ",".join(ex) if ex else ""}）')
-print(f'合计去掉需家长确认 {tot_ex} 题（清单 {len(listed)} 题）')
+print(f'合计去掉需家长确认 {tot_ex} 题（清单里属于导入年级的 {len(listed)} 题）')
+extra = sorted(set(os.listdir(a.out)) - {f'bank_{g}.json' for g in GR} - {'release.json'})
+if extra: sys.exit(f'public/banks 里有不该有的文件：{extra}')

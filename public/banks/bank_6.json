@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-6年级-v33（AI初审）",
- "version": "v33",
+ "bank_name": "三兄妹题库-6年级-v34（AI初审）",
+ "version": "v34",
  "questions": [
   {
    "id": "M6-001",
@@ -12910,52 +12910,6 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "把大象切开来称",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "让大象自己站上秤",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "称一称船上装的东西，就知道大象的重量",
-     "image": "",
-     "audio": ""
-    },
-    {
-     "text": "用大秤直接称大象",
-     "image": "",
-     "audio": ""
-    }
-   ],
-   "source": "AI",
-   "review_changed": "是",
-   "id": "Y6-070",
-   "subject": "语文",
-   "grade": 6,
-   "textbook": "统编版",
-   "textbook_note": "国家统编教材，全国统一，无苏教版",
-   "volume": "六年级上册",
-   "unit": "六上·文言文 曹冲称象",
-   "question": "《曹冲称象》中，“称物以载之”的意思是？",
-   "explanation": "把东西装上船，直到水痕到刻痕处，再称这些东西就行了。",
-   "difficulty": 3,
-   "knowledge_point": "曹冲称象",
-   "type": "选择",
-   "answer": "C",
-   "game_ready": true,
-   "template": "T330012",
-   "change_tag": "新增",
-   "tags": [
-    "曹冲称象"
-   ]
-  },
-  {
-   "status": "AI初审通过",
-   "options": [
-    {
      "text": "下雨，好穿上新雨衣",
      "image": "",
      "audio": ""
@@ -18981,32 +18935,6 @@
   },
   {
    "status": "AI初审通过",
-   "source": "AI",
-   "review_changed": "是",
-   "id": "Y6-128",
-   "subject": "语文",
-   "grade": 6,
-   "textbook": "统编版",
-   "textbook_note": "国家统编教材，全国统一，无苏教版",
-   "volume": "六年级上册",
-   "unit": "六上·文言文 曹冲称象",
-   "question": "曹冲“置象大船之上，而刻其水痕所____”。",
-   "explanation": "原文。",
-   "difficulty": 2,
-   "knowledge_point": "曹冲称象",
-   "type": "填空",
-   "answer": [
-    "至"
-   ],
-   "game_ready": true,
-   "template": "Tcafd38",
-   "change_tag": "新增",
-   "tags": [
-    "曹冲称象"
-   ]
-  },
-  {
-   "status": "AI初审通过",
    "options": [
     {
      "text": "把大象切开称",
@@ -19070,30 +18998,6 @@
    "answer": "对",
    "game_ready": true,
    "template": "Tb185e5",
-   "change_tag": "新增",
-   "tags": [
-    "曹冲称象"
-   ]
-  },
-  {
-   "status": "AI初审通过",
-   "source": "AI",
-   "review_changed": "是",
-   "id": "Y6-131",
-   "subject": "语文",
-   "grade": 6,
-   "textbook": "统编版",
-   "textbook_note": "国家统编教材，全国统一，无苏教版",
-   "volume": "六年级上册",
-   "unit": "六上·文言文 曹冲称象",
-   "question": "“称物以载之，则校可知矣”中“校”的意思是比较。",
-   "explanation": "校：比较。",
-   "difficulty": 2,
-   "knowledge_point": "曹冲称象",
-   "type": "判断",
-   "answer": "对",
-   "game_ready": true,
-   "template": "T3504b7",
    "change_tag": "新增",
    "tags": [
     "曹冲称象"
@@ -40261,6 +40165,277 @@
    "change_tag": "新增",
    "tags": [
     "语文"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "诸葛亮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "刘备",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曹冲",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "曹操",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y6-463",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "《曹冲称象》里，想知道大象有多重的人是谁？",
+   "explanation": "是曹操想知道大象的重量，曹冲想出了办法。",
+   "difficulty": 1,
+   "knowledge_point": "曹冲称象",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T2078cd",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "秤上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "河边的树下",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山坡上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大船上",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y6-464",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "曹冲称象时，先把大象赶到了哪里？",
+   "explanation": "先把大象赶到大船上，看船下沉到哪里。",
+   "difficulty": 2,
+   "knowledge_point": "曹冲称象",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "Tb9b867",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "船帆上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水面到达船身的地方",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "船底下面",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "船头最高的地方",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y6-465",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "大象站在船上时，要在船身的什么地方做记号？",
+   "explanation": "在水面齐到的地方刻上记号，才能知道船下沉了多少。",
+   "difficulty": 2,
+   "knowledge_point": "曹冲称象",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "Tc2e526",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "source": "AI",
+   "id": "Y6-466",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "曹冲让人把大象牵下船，再往船上装别的东西，一直装到船沉到记号那里为止。",
+   "explanation": "船沉到同一个记号，说明装的东西和大象一样重。",
+   "difficulty": 2,
+   "knowledge_point": "曹冲称象",
+   "type": "判断",
+   "answer": "对",
+   "game_ready": true,
+   "template": "Tef6935",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "特别喜欢大象",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "善于观察、动脑筋",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "胆子特别小",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "力气特别大",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y6-467",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "曹冲称象的故事，主要说明了曹冲怎么样？",
+   "explanation": "曹冲年纪小，却善于观察、动脑筋，想出了好办法。",
+   "difficulty": 2,
+   "knowledge_point": "曹冲称象",
+   "type": "选择",
+   "answer": "B",
+   "game_ready": true,
+   "template": "T64702a",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "source": "AI",
+   "id": "Y6-468",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "听了曹冲的办法，曹操很高兴，并照着这个办法去做了。",
+   "explanation": "曹操听了很高兴，马上照着做了。",
+   "difficulty": 2,
+   "knowledge_point": "曹冲称象",
+   "type": "判断",
+   "answer": "对",
+   "game_ready": true,
+   "template": "T481aa9",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
+   ]
+  },
+  {
+   "status": "AI初审通过",
+   "options": [
+    {
+     "text": "第二次换了一条更大的船",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "装的东西都是大象吃的",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "东西和大象一样大",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "船两次沉到同一个记号，东西和大象一样重",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "source": "AI",
+   "id": "Y6-469",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "volume": "六年级上册",
+   "unit": "六上·文言文 曹冲称象",
+   "question": "为什么称船上装的东西，就能知道大象的重量？",
+   "explanation": "船两次沉到同一个记号，船上的东西就和大象一样重，这就是等量替换。",
+   "difficulty": 3,
+   "knowledge_point": "曹冲称象",
+   "type": "选择",
+   "answer": "D",
+   "game_ready": true,
+   "template": "T511144",
+   "change_tag": "新增",
+   "tags": [
+    "曹冲称象"
    ]
   }
  ]

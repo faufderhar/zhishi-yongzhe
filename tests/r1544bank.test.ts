@@ -11,14 +11,29 @@ import { repairProfile, loadProfiles } from '../src/state';
 import { importAll, exportAll, setKV } from '../src/db';
 const G = ['K1', '1', '2', '3', '4', '5', '6', '7', '10'];
 const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8'));
-const LIST = '/workspace/questions/需家长确认清单_v32.csv';
-describe('题库 v32 / v33 导入', () => {
+const LIST = '/workspace/questions/需家长确认清单_v34.csv';   // v34：v32 的 44 题 + 曹冲称象 Y6-070 / Y6-128 / Y6-131 = 47
+describe('题库 v32 / v33 / v34 导入', () => {
+  it('v34 新增的幼儿园中班 K2 不进 r15.4.4 的游戏题库（r16 接入）：没有 bank_K2、没有 K2 题号、档案年级里没有 K2', async () => {
+    expect(existsSync('public/banks/bank_K2.json')).toBe(false);
+    for (const g of G) expect(raw(g).questions.filter((q: { id: string }) => /^K2[NCDLGEZ]-/.test(q.id)).length, g).toBe(0);
+    const { PROFILE_GRADES } = await import('../src/game/grades') as { PROFILE_GRADES?: string[] };
+    if (PROFILE_GRADES) expect(PROFILE_GRADES).not.toContain('K2');
+  });
+  it('r15.4.3 正式版（题库 v30）的每个关卡 id 在现在的题库里都还在，或者是某关的别名（星星不丢；v34 曹冲称象首题 Y6-070 改需家长确认 → 别名）', () => {
+    const old: string[] = JSON.parse(readFileSync('tests/fixtures/level_ids_r1543.json', 'utf8'));
+    const cov = new Set<string>();
+    for (const g of G) { const b = loadBank(raw(g), ''); for (const c of buildChapters(playable(b.all, false), null, b.all)) for (const l of c.levels) { cov.add(l.id); (l.aliases ?? []).forEach(a => cov.add(a)); (l.parts ?? []).forEach(a => cov.add(a)); } }
+    expect(old.length).toBe(1165); expect(old.filter(i => !cov.has(i))).toEqual([]);
+  });
+  it('其他年级没有 usage 字段 → 普通 / Boss 关不受 v34 新列影响', () => {
+    for (const g of G) expect(raw(g).questions.filter((q: { usage?: string }) => q.usage != null).length, g).toBe(0);
+  });
   it('游戏题库里没有一道「需家长确认」的题', () => {
     for (const g of G) expect(raw(g).questions.filter((q: { status: string }) => q.status === '需家长确认').map((q: { id: string }) => q.id), g).toEqual([]);
   });
-  it.skipIf(!existsSync(LIST))('需家长确认清单 v32 的 44 题一道都不在游戏题库里', () => {
+  it.skipIf(!existsSync(LIST))('需家长确认清单 v34 的 47 题一道都不在游戏题库里', () => {
     const ids = readFileSync(LIST, 'utf8').split('\n').slice(1).map(l => l.split(',')[0].replace(/^\uFEFF/, '').trim()).filter(Boolean);
-    expect(ids.length).toBe(44);
+    expect(ids.length).toBe(47);
     const all = new Set(G.flatMap(g => raw(g).questions.map((q: { id: string }) => q.id)));
     expect(ids.filter(i => all.has(i))).toEqual([]);
   });
