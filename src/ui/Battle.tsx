@@ -6,7 +6,7 @@ import { DESIGN } from '../game/config';
 import { Tex } from '../Tex';
 import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
-import { skinFor, softFor, kinderSkin } from '../game/monsterSkin';
+import { skinFor, softFor, kinderMon, dashScale } from '../game/monsterSkin';
 import { roll as rollSkill, newRoll, segOf, skillsFor, type SkillRoll } from '../game/skills';
 import { preloadSkillArt } from '../fx/skillFx';
 import { choicesOf, correctText, isCorrect, judge, kinderChoices, ttsText, type Question, type Option } from '../game/questions';
@@ -80,7 +80,7 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
         if (!alive.current || dir.current !== d || !monster.current) return;
         if (!a) { setMonState('fail'); return; }
         const holder = monster.current.querySelector('.breathe') as HTMLElement | null; if (!holder) { setMonState('fail'); return; }
-        const img = holder.querySelector('img'); const h = img?.getBoundingClientRect().height || 220;
+        const img = holder.querySelector('img'); const h = img?.offsetHeight || img?.getBoundingClientRect().height || 220;   // r16：用布局高度——手机上幼儿园战斗区整体缩放（--kfit），getBoundingClientRect 已含缩放，序列帧放进同一个缩放容器会再缩一次（小班 / 中班怪物只有 50px）
         // 技术QA R6-2：横屏战斗区窄时怪物序列帧不能伸进右侧答题区/键盘：宽度最多占战斗区 42%
         const sw = (monster.current.closest('.stage') as HTMLElement | null)?.getBoundingClientRect().width || 1e4;
         const pl = new SheetPlayer(Math.min(h / 260, sw * 0.42 / a.idle.meta.frame_width));
@@ -222,14 +222,16 @@ function KStem({ q }: { q: Question }) {
 
 /** r10：关内星星和结算同一个规则（⭐ 过关；第一次就答对 ≥6 成 ⭐⭐；≥8 成 ⭐⭐⭐），还没答完时按已答的题算 */
 export function kStarsNow(k: { first: number; retry: number; demo: number }) { const n = k.first + k.retry + k.demo; if (!n) return 0; const a = k.first / n; return a >= 0.8 - 1e-9 ? 3 : a >= 0.6 - 1e-9 ? 2 : 1; }
-export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean }) {
+export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, onQuit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean }) {
   const skRoll = useRef<SkillRoll>(newRoll()); const lastSkill = useRef('');
   useEffect(() => { preloadSkillArt(skillsFor('K', c.major)); }, [c.major]);
   useEffect(() => { (window as unknown as { __zyLastSkill?: () => string }).__zyLastSkill = () => lastSkill.current; }, []);
   // r10 策划裁定：小班精英 / Boss = 温和战斗（柔和版怪物跳进来、3 / 5 颗小星星、不掉血不攻击，最后变成朋友挥手回家）
   const gentle = kind !== 'normal';
   const hearts = Math.min(questions.length, gentle ? (kind === 'elite' ? 3 : 5) : cfg.questions[kind]);
-  const gskin0 = gentle ? kinderSkin(questions[0]?.subject) : null;
+  // r16：按关卡类型选怪物；中班 Boss 有专属美术（不放大、不戴王冠），没有专属美术的 Boss = 本科目柔和版 + 王冠 + 放大 1.15
+  const km = kinderMon(questions[0]?.subject, kind, { grade: questions[0]?.grade, unit: unit ?? questions[0]?.unit });
+  const gskin0 = gentle ? km.skin : null;
   const [idx, setIdx] = useState(0);
   const [ks, setKs] = useState(newKinder(hearts));
   const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo' | 'ok'>('');
@@ -244,6 +246,12 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const lock = useRef(false);
   const D = useDirector(true, c, 0.95, false, gskin0 ? { skin: gskin0, soft: true } : undefined);
   useKFit(D.stage);
+  useEffect(() => { if (D.dir.current) D.dir.current.dashK = dashScale(km.aspect); }, [D.monState, km.aspect]);   // 宽 Boss：走近主角的距离按宽度缩短
+  // 宽 Boss 跳进来（hop-in 从右边 160px 处进场）：按实际右侧空间缩短，整只（序列帧框）不出战斗区
+  useLayoutEffect(() => { const wrap = D.monster.current, st = D.stage.current; if (!wrap || !st || km.aspect <= 0.85) return;
+    const box = (wrap.querySelector('[data-testid=monster-sheet]') as HTMLElement | null) ?? wrap; const tx = new DOMMatrix(getComputedStyle(wrap).transform === 'none' ? undefined : getComputedStyle(wrap).transform).m41;
+    const room = st.getBoundingClientRect().right - (box.getBoundingClientRect().right - tx) - 4;
+    wrap.style.setProperty('--kdash', String(Math.max(0, Math.min(dashScale(km.aspect), room / 160)))); }, [D.monState, km.aspect]);
   const gskin = gskin0 && D.monState !== 'fail' ? gskin0 : null;   // 柔和版怪兽没加载出来 → 小乌云，文字也跟着说小乌云
   const monName = gskin?.name ?? '小乌云';
   const [say, setSay] = useState<string | null>(null);   // r10：伙伴说的话（文字 + 朗读）
@@ -333,7 +341,7 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
         <div className="fx-shake" ref={D.shake}>
           <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`} ref={D.hero} data-testid="kpup"><div className="breathe"><Sprite className="kpup" c={c} /></div>
             {say && <div key={say + nudge} className={`ksay ${nudge ? 'nudge' : ''}`} data-testid="ksay">{say}</div>}</div>
-          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''} ${D.monState === 'ok' ? 'has-sheet' : ''}`}>{kind === 'boss' && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
+          <div className={`unit-wrap kmon-wrap ${gentle ? 'gentle hop-in' : ''} ${home ? 'go-home' : ''}`} ref={D.monster} data-testid={gentle ? 'gentle-mon' : undefined}><div className={`breathe slow ${tilt ? 'ktilt' : ''} ${D.monState === 'ok' ? 'has-sheet' : ''}`} data-kboss={kind === 'boss' ? (km.crown ? 'fallback' : 'art') : undefined} style={km.scale !== 1 ? { scale: String(km.scale), transformOrigin: '50% 100%' } : undefined}>{kind === 'boss' && km.crown && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
             <img className={`kmon ${ks.lit >= 2 || gentle ? 'smile' : ''} ${gskin ? 'under-sheet' : ''}`} src={MONSTER_IMG.kinder} alt={monName} data-testid="kmon" data-mon={gskin?.id ?? 'cloud'} draggable={false} />
             <img className={`kmon white-flash ${gskin ? 'under-sheet' : ''}`} ref={D.flash} src={MONSTER_IMG.kinder} alt="" aria-hidden draggable={false} /></div>
             {monFace && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>

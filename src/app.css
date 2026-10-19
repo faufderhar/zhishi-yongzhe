@@ -551,7 +551,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .skill-banner.kinder { font-size: 30px; padding: 8px 22px 8px 10px; top: 12px; }
 .skill-banner.kinder .skill-ico { width: 56px; height: 56px; font-size: 40px; }
 /* 温和战斗（小班精英 / Boss） */
-@keyframes hopin { 0% { transform: translateX(160px) translateY(0); opacity: 0 } 25% { transform: translateX(110px) translateY(-24px); opacity: 1 } 50% { transform: translateX(60px) translateY(0) } 75% { transform: translateX(20px) translateY(-18px) } 100% { transform: none } }
+@keyframes hopin { 0% { transform: translateX(calc(160px * var(--kdash, 1))) translateY(0); opacity: 0 } 25% { transform: translateX(calc(110px * var(--kdash, 1))) translateY(-24px); opacity: 1 } 50% { transform: translateX(calc(60px * var(--kdash, 1))) translateY(0) } 75% { transform: translateX(calc(20px * var(--kdash, 1))) translateY(-18px) } 100% { transform: none } }
 .kmon-wrap.hop-in { animation: hopin 1.4s ease-out 1; }
 .kmon-wrap.go-home { transition: transform 1.6s ease-in, opacity 1.6s ease-in; transform: translateX(420px); opacity: .2; }
 .mon-face { position: absolute; top: -10px; right: -6px; font-size: 56px; z-index: 6; }

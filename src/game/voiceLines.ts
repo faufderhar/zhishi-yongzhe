@@ -2,7 +2,7 @@
    /workspace/tts/prompts_dynamic.json（batch.py --prompt-list）；游戏里 speak() 按文字查到这些 id（整句或按句子拼接）。 */
 import { PUPS } from './characters';
 import { SKILL_DATA } from './skills.data';
-import { KINDER_MON, kinderSkin } from './monsterSkin';
+import { KINDER_MON, KINDER_BOSS, kinderSkin } from './monsterSkin';
 import { STAGES } from './stages';
 
 export const KINDER_LOCK_VOICE = '还要先打赢前面的关，才能打开这一关哦';   // 小班：锁住的关卡，屏幕上写关名，朗读用这一句（关名不录音）
@@ -14,8 +14,10 @@ export const HAPPY_LINE = (lit: number, hearts: number) => `开心值${cnCount(l
 /** r15.4.4 题库审核：没开放的年级，朗读不用书面的「敬请期待」，改成小朋友听得懂的话（按钮上的小字不变） */
 export const SOON_LINE = (label: string) => `${label}还在准备中，快要来啦，等一等哦`;
 export const HOME_LINE = (mon: string) => `${mon}变成你的好朋友，挥挥手回家啦！`;
-/** 小班会出现的怪兽：[id, 名字]（温和战斗的柔和版 + 普通关的小乌云） */
-export const kinderMons = (): [string, string][] => { const m = new Map<string, string>(); for (const sub of Object.keys(KINDER_MON)) { const k = kinderSkin(sub); if (k) m.set(k.id.replace(/^mon_/, '').replace(/_normal$/, ''), k.name); } m.set('cloud', KINDER_CLOUD); return [...m]; };
+/** 幼儿园会出现的怪兽：[id, 名字]（温和战斗的柔和版 + 普通关的小乌云 + r16 中班 Boss） */
+export const kinderMons = (): [string, string][] => { const m = new Map<string, string>(); for (const sub of Object.keys(KINDER_MON)) { const k = kinderSkin(sub); if (k) m.set(k.id.replace(/^mon_/, '').replace(/_normal$/, ''), k.name); } m.set('cloud', KINDER_CLOUD);
+  for (const b of KINDER_BOSS) m.set(b.id.replace(/^mon_/, '').replace(/_boss$/, ''), b.name);   // r16：中班专属 Boss（「X变成你的好朋友…」「X笑啦！」要录音）
+  return [...m]; };
 
 export function dynamicPrompts(): Record<string, string> {
   const P: Record<string, string> = {};

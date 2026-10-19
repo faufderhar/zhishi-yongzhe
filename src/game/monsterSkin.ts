@@ -4,6 +4,7 @@
 import type { LevelKind } from './grades';
 import MANIFEST from './monsters.manifest.json';
 import GEN from './chapterBoss.gen.json';
+import KBOSS from './kinderBoss.gen.json';
 import { chapterOf, splitDot } from './levels';
 export type MonTheme = 'number' | 'ink' | 'letter' | 'flask' | 'gear' | 'plant' | 'fossil' | 'mist';
 export type MonAnim = 'idle' | 'attack' | 'hit' | 'defeat';
@@ -157,3 +158,27 @@ export function kinderSkin(subject: string | undefined): MonSkin | null {
   const id = subject ? KINDER_MON[subject] : undefined; const a = id ? ART.find(x => x.id === id) : undefined;
   return a ? { id: a.id, name: a.name, img: 'k', art: a } : null;
 }
+/* r16：幼儿园按关卡类型（LevelKind）选怪物——美术 manifest（/workspace/art/monsters/manifest.json）的中班 Boss 由 scripts/import-k2-monsters.py 导入 kinderBoss.gen.json。
+   普通关：小乌云（不变）；精英关：本科目柔和版普通怪（不变）；
+   Boss 关：按 年级 + level_kind + k2_subject + k2_topic 找专属 Boss 美术（id 只当键），专属 Boss 不再放大；
+   没有专属美术（小班 / 缺图）：本科目柔和版普通怪 + 王冠 + 放大 1.15 倍。 */
+interface KBossEntry { name: string; grade: string; level_kind: LevelKind; k2_subject: string; k2_topic: string; subject: string; unit: string; subject_key: string; theme: MonTheme; tier: LevelKind; pool_cn: string[]; dir: string; anims: MonArt['anims']; aspect: number }
+export const KINDER_BOSS: (KBossEntry & { id: string })[] = Object.entries(KBOSS as unknown as Record<string, KBossEntry>).map(([id, v]) => ({ id, ...v }));
+/** 幼儿园科目 → 美术 manifest 的 k2_subject（儿歌古诗 = 儿歌 + 古诗两类）与 subject_key（认识动物 = science、生活常识 = life） */
+export const K2_SUBJECT: Record<string, string[]> = { 数数: ['num'], 颜色形状: ['shape'], 认识动物: ['ani'], 生活常识: ['life'], 儿歌古诗: ['song', 'poem'], 英语: ['eng'] };
+export const KINDER_SUBJECT_KEY: Record<string, string> = { 数数: 'math', 颜色形状: 'math', 认识动物: 'science', 生活常识: 'life', 儿歌古诗: 'chinese', 英语: 'english' };
+/** 小节 → k2_topic（由导入的条目给出） */
+const K2_TOPIC = new Map(KINDER_BOSS.map(b => [`${b.grade}|${b.subject}|${b.unit}`, b.k2_topic]));
+export const KBOSS_SCALE = 1.15;
+export interface KinderMon { skin: MonSkin | null /* null = 小乌云 */; crown: boolean; scale: number; aspect: number }
+export function kinderMon(subject: string | undefined, kind: LevelKind, ctx: { grade?: string; unit?: string } = {}): KinderMon {
+  if (kind === 'normal') return { skin: null, crown: false, scale: 1, aspect: 1 };
+  const base = kinderSkin(subject);
+  if (kind === 'elite') return { skin: base, crown: false, scale: 1, aspect: 1 };
+  const topic = K2_TOPIC.get(`${ctx.grade}|${subject}|${(ctx.unit ?? '').trim()}`);
+  const b = topic ? KINDER_BOSS.find(x => x.grade === ctx.grade && x.level_kind === 'boss' && (K2_SUBJECT[subject ?? ''] ?? []).includes(x.k2_subject) && x.k2_topic === topic) : undefined;
+  if (b) return { skin: { id: b.id, name: b.name, img: 'k', art: { id: b.id, name: b.name, theme: b.theme, tier: 'boss', pool_cn: b.pool_cn, dir: b.dir, anims: b.anims } }, crown: false, scale: 1, aspect: b.aspect };
+  return { skin: base, crown: true, scale: KBOSS_SCALE, aspect: 1 };
+}
+/** 宽 Boss（风筝 / 工具箱 / 音乐盒 / 小精灵 / 火车 / 跷跷板…）：冲刺距离按宽度缩短（aspect ≤ 0.85 不变） */
+export const dashScale = (aspect: number) => Math.min(1, 0.85 / Math.max(0.85, aspect));

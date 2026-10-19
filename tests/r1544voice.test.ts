@@ -4,6 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { speakable, setKinderSpeech, sysRate, K_VOICE_SPEED } from '../src/tts';
 import { HAPPY_LINE, SOON_LINE, dynamicPrompts } from '../src/game/voiceLines';
 import { VOICE_PROMPTS, PROMPT_BY_TEXT } from '../src/game/voicePrompts';
+import { KINDER_BOSS } from '../src/game/monsterSkin';
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
 const bank = JSON.parse(readFileSync('public/banks/bank_K1.json', 'utf8'));
 describe('r15.4.4 小班录音', () => {
@@ -40,8 +41,9 @@ describe('r15.4.4 小班录音', () => {
   });
   it('每句登记过的提示语都有录音（含新句 p:res_k_again）', () => {
     // r16：新开的三个年级名（年级选择里朗读）等录音——列在 /workspace/playtest/r16dev/new_voice_lines.md，录好后这里改回 []
-    const PENDING = ['grade_k2', 'grade_8', 'grade_11'];
-    const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss).toEqual(PENDING);
+    // r16 新句（/workspace/playtest/r16dev/new_voice_lines.md），等音频设计录：年级名 + 中班 23 只 Boss 的「回家 / 笑啦」
+    const PENDING = ['grade_k2', 'grade_8', 'grade_11', ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
+    const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss.sort()).toEqual(PENDING.sort());
   });
 });
 

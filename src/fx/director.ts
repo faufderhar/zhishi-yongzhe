@@ -60,6 +60,8 @@ export class Director {
   }
   /** 学科怪物序列帧（有则用它的 idle/attack/hit/defeat；hit 自带柔和白闪，不再叠加白闪） */
   monSheets?: MonSheets;
+  /** r16：幼儿园怪物走近主角的距离系数（宽 Boss < 1） */
+  dashK = 1;
   private monIdle() { const m = this.monSheets; if (m) void m.player.play(m.anims.idle); }
   whiteFlash() {
     if (this.monSheets) { const m = this.monSheets; void m.player.play(m.anims.hit).then(() => this.monIdle()); return Promise.resolve(); }
@@ -173,7 +175,8 @@ export class Director {
   /** 怪物出手：后仰蓄力 → 扑向主角 → 主角受击 → 回位 */
   async monsterAttack(taken: number, onImpact?: () => void) {
     const { hero, monster, stage } = this.r;
-    const dist = this.distance();
+    let dist = this.distance() * this.dashK;
+    if (this.dashK < 1) { const sr = stage.getBoundingClientRect(), mr = (this.monSheets?.player.box ?? monster).getBoundingClientRect(); dist = Math.max(0, Math.min(dist, mr.left - sr.left - 8)); }   // r16：宽怪物冲刺按宽度缩短、不冲出战斗区
     sfx('monster_attack');
     const ms = this.monSheets;
     // 序列帧：伤害对齐 attack 的 hit_frame（第 5 帧）
@@ -241,8 +244,11 @@ export class Director {
     sfx('soft_cheer');
     const hc = center(hero, stage), mc = center(monster, stage);
     this.p.burst((hc.x + mc.x) / 2, Math.min(hc.y, mc.y) - 60, SOFT_CONFETTI, -Math.PI / 2);
+    // r16：宽 Boss 按宽度缩短走近距离（dashK），并且整只怪物（序列帧框）不出战斗区
+    let dx = -(mc.x - hc.x) * 0.45 * this.dashK;
+    if (this.dashK < 1) { const sr = stage.getBoundingClientRect(), mr = (this.monSheets?.player.box ?? monster).getBoundingClientRect(); dx = Math.min(Math.max(dx, sr.left + 8 - mr.left), sr.right - 8 - mr.right); }
     await Promise.all([
-      anim(monster, [{ transform: 'translateX(0)' }, { transform: `translateX(${-(mc.x - hc.x) * 0.45}px) translateY(-20px)`, offset: 0.5 }, { transform: `translateX(${-(mc.x - hc.x) * 0.45}px)` }], { duration: 900, fill: 'forwards' }),
+      anim(monster, [{ transform: 'translateX(0)' }, { transform: `translateX(${dx}px) translateY(-20px)`, offset: 0.5 }, { transform: `translateX(${dx}px)` }], { duration: 900, fill: 'forwards' }),
       anim(hero, [{ transform: 'translateY(0)' }, { transform: 'translateY(-30px)', offset: 0.3 }, { transform: 'translateY(0)', offset: 0.6 }, { transform: 'translateY(-16px)', offset: 0.8 }, { transform: 'translateY(0)' }], { duration: 900 }),
     ]);
     await sleep(500);

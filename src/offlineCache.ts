@@ -2,6 +2,7 @@
    首次启动后、联网且空闲时，按当前所有档案的学段与学科，在后台把它们放进 SW 运行时缓存（与 vite.config.ts 的 cacheName 一致）。
    小班与一二年级取 *_soft 版本。进度写 localStorage，家长页显示「离线就绪」。 */
 import MON from './game/monsters.manifest.json';
+import KBOSS from './game/kinderBoss.gen.json';
 import { bandOf, type Band } from './game/grades';
 import type { GradeKey } from './game/questions';
 const B = () => (import.meta.env?.BASE_URL ?? './');
@@ -25,6 +26,9 @@ export function offlineList(needs: Need[], skills: Record<string, { stage: strin
       if (!m.pool_cn.some(s => n.subjects.includes(s))) continue;
       for (const a of Object.values(m.anims)) add(json, `${m.dir}/${soft ? a.soft : a.json}.json`, 'zy-monsters');
     }
+    // r16：中班专属 Boss（只有柔和版）
+    for (const m of Object.values(KBOSS as unknown as Record<string, Mon & { grade: string }>)) if (m.grade === n.grade && m.pool_cn.some(s => n.subjects.includes(s)))
+      for (const a of Object.values(m.anims)) add(json, `${m.dir}/${a.soft}.json`, 'zy-monsters');
     const st = STAGE[band];
     for (const [id, s] of Object.entries(skills)) if (s.stage === st) { add(json, `fx/skills/${id}.json`, 'zy-anim'); add(file, `fx/skills/icons/icon_${id}.webp`, 'zy-anim'); }
     for (const s of Object.values(sfx)) if (s.stage === st) add(file, 'sfx/' + (band === 'K' && s.kindergarten ? s.kindergarten : s.file), 'zy-sfx-skills');

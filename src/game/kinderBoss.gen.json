@@ -1,0 +1,899 @@
+{
+ "mon_k2_num_count10_boss": {
+  "name": "点点数星熊",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "num",
+  "k2_topic": "count10",
+  "subject": "数数",
+  "unit": "数到10",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "数数"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_num_count10_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.684
+ },
+ "mon_k2_num_compare_boss": {
+  "name": "多少天平兔",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "num",
+  "k2_topic": "compare",
+  "subject": "数数",
+  "unit": "数数比多少",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "数数"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_num_compare_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.875
+ },
+ "mon_k2_num_plusone_boss": {
+  "name": "加一跳跳蛙",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "num",
+  "k2_topic": "plusone",
+  "subject": "数数",
+  "unit": "多1和少1",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "数数"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_num_plusone_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.738
+ },
+ "mon_k2_num_split_boss": {
+  "name": "分合小松鼠",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "num",
+  "k2_topic": "split",
+  "subject": "数数",
+  "unit": "5以内分一分合一合",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "数数"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_num_split_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.898
+ },
+ "mon_k2_num_train_boss": {
+  "name": "排排坐火车",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "num",
+  "k2_topic": "train",
+  "subject": "数数",
+  "unit": "第几个",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "数数"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_num_train_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.657
+ },
+ "mon_k2_shape_box_boss": {
+  "name": "图形百宝盒",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "shape",
+  "k2_topic": "box",
+  "subject": "颜色形状",
+  "unit": "认识更多图形",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "颜色形状"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_shape_box_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.912
+ },
+ "mon_k2_shape_sorter_boss": {
+  "name": "分类小管家",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "shape",
+  "k2_topic": "sorter",
+  "subject": "颜色形状",
+  "unit": "图形找朋友",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "颜色形状"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_shape_sorter_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.106
+ },
+ "mon_k2_shape_blockdragon_boss": {
+  "name": "积木拼拼龙",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "shape",
+  "k2_topic": "blockdragon",
+  "subject": "颜色形状",
+  "unit": "拼一拼",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "颜色形状"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_shape_blockdragon_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.012
+ },
+ "mon_k2_shape_seesaw_boss": {
+  "name": "轻重跷跷板",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "shape",
+  "k2_topic": "seesaw",
+  "subject": "颜色形状",
+  "unit": "比粗细厚薄轻重",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "颜色形状"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_shape_seesaw_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.595
+ },
+ "mon_k2_shape_hidecat_boss": {
+  "name": "捉迷藏小猫",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "shape",
+  "k2_topic": "hidecat",
+  "subject": "颜色形状",
+  "unit": "在哪里",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "颜色形状"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_shape_hidecat_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.161
+ },
+ "mon_k2_ani_elephant_boss": {
+  "name": "本领大象哥",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "ani",
+  "k2_topic": "elephant",
+  "subject": "认识动物",
+  "unit": "动物的样子和本领",
+  "subject_key": "science",
+  "theme": "plant",
+  "tier": "boss",
+  "pool_cn": [
+   "认识动物"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_ani_elephant_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.871
+ },
+ "mon_k2_ani_duckling_boss": {
+  "name": "找妈妈小鸭",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "ani",
+  "k2_topic": "duckling",
+  "subject": "认识动物",
+  "unit": "动物宝宝和妈妈",
+  "subject_key": "science",
+  "theme": "plant",
+  "tier": "boss",
+  "pool_cn": [
+   "认识动物"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_ani_duckling_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.729
+ },
+ "mon_k2_ani_sprite_boss": {
+  "name": "飞游小精灵",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "ani",
+  "k2_topic": "sprite",
+  "subject": "认识动物",
+  "unit": "会飞会游会跑",
+  "subject_key": "science",
+  "theme": "plant",
+  "tier": "boss",
+  "pool_cn": [
+   "认识动物"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_ani_sprite_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.125
+ },
+ "mon_k2_life_trafficlight_boss": {
+  "name": "红绿灯精灵",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "life",
+  "k2_topic": "trafficlight",
+  "subject": "生活常识",
+  "unit": "安全小卫士",
+  "subject_key": "life",
+  "theme": "mist",
+  "tier": "boss",
+  "pool_cn": [
+   "生活常识"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_life_trafficlight_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.73
+ },
+ "mon_k2_life_bubblebear_boss": {
+  "name": "洗手泡泡熊",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "life",
+  "k2_topic": "bubblebear",
+  "subject": "生活常识",
+  "unit": "健康好习惯",
+  "subject_key": "life",
+  "theme": "mist",
+  "tier": "boss",
+  "pool_cn": [
+   "生活常识"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_life_bubblebear_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.695
+ },
+ "mon_k2_life_umbrella_boss": {
+  "name": "四季彩虹伞",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "life",
+  "k2_topic": "umbrella",
+  "subject": "生活常识",
+  "unit": "四季和天气",
+  "subject_key": "life",
+  "theme": "mist",
+  "tier": "boss",
+  "pool_cn": [
+   "生活常识"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_life_umbrella_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.854
+ },
+ "mon_k2_life_toolbox_boss": {
+  "name": "帮帮工具箱",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "life",
+  "k2_topic": "toolbox",
+  "subject": "生活常识",
+  "unit": "大家的工作",
+  "subject_key": "life",
+  "theme": "mist",
+  "tier": "boss",
+  "pool_cn": [
+   "生活常识"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_life_toolbox_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.237
+ },
+ "mon_k2_song_musicbox_boss": {
+  "name": "儿歌音乐盒",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "song",
+  "k2_topic": "musicbox",
+  "subject": "儿歌古诗",
+  "unit": "儿歌",
+  "subject_key": "chinese",
+  "theme": "ink",
+  "tier": "boss",
+  "pool_cn": [
+   "儿歌古诗"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_song_musicbox_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.196
+ },
+ "mon_k2_poem_kite_boss": {
+  "name": "诗画小风筝",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "poem",
+  "k2_topic": "kite",
+  "subject": "儿歌古诗",
+  "unit": "古诗",
+  "subject_key": "chinese",
+  "theme": "ink",
+  "tier": "boss",
+  "pool_cn": [
+   "儿歌古诗"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_poem_kite_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.299
+ },
+ "mon_k2_eng_familybear_boss": {
+  "name": "全家福小熊",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "eng",
+  "k2_topic": "familybear",
+  "subject": "英语",
+  "unit": "家人",
+  "subject_key": "english",
+  "theme": "letter",
+  "tier": "boss",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_eng_familybear_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.754
+ },
+ "mon_k2_eng_rocket_boss": {
+  "name": "玩具小火箭",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "eng",
+  "k2_topic": "rocket",
+  "subject": "英语",
+  "unit": "玩具",
+  "subject_key": "english",
+  "theme": "letter",
+  "tier": "boss",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_eng_rocket_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.945
+ },
+ "mon_k2_eng_kangaroo_boss": {
+  "name": "蹦跳小袋鼠",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "eng",
+  "k2_topic": "kangaroo",
+  "subject": "英语",
+  "unit": "身体和动作",
+  "subject_key": "english",
+  "theme": "letter",
+  "tier": "boss",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_eng_kangaroo_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.854
+ },
+ "mon_k2_eng_cloud_boss": {
+  "name": "晴雨小云朵",
+  "grade": "K2",
+  "level_kind": "boss",
+  "k2_subject": "eng",
+  "k2_topic": "cloud",
+  "subject": "英语",
+  "unit": "天气和衣服",
+  "subject_key": "english",
+  "theme": "letter",
+  "tier": "boss",
+  "pool_cn": [
+   "英语"
+  ],
+  "dir": "art/monsters/k2_boss/anim/mon_k2_eng_cloud_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 1.274
+ }
+}
