@@ -17,7 +17,7 @@ import { calcD, estimateDealt, newRound, resolveRound, reviveRound, intentLabel,
 import { skillsFor, skillById } from '../game/skills';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
-import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX } from '../game/balance';
+import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX, HURT_CAP } from '../game/balance';
 import { timeLimitFor } from '../game/grades';
 import { MONSTER_IMG } from '../game/characters';
 import { speak, isSpeaking } from '../tts';
@@ -408,7 +408,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">
-            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.capInfo ? `（加成 ×${fb.o.capInfo.raw.toFixed(2)} 到顶，按 ×${fb.o.capInfo.used} 算）` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
+            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.capInfo ? `（加成 ×${fb.o.capInfo.raw.toFixed(2)} 到顶，按 ×${fb.o.capInfo.used} 算）` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
             {!fb.ok && <>
               {picked && <p>你的答案：{cq.type === '选择' || cq.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(cq)} /></b></p>
@@ -453,6 +453,10 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
 
 /** r15.4.3 学霸：主修科目外层加成（不算在 ×1.8 封顶里）：×1.2，阿算 / 算算数学再 ×1.1 */
 const PASSIVE_MATH = (c: { major: string }) => c.major === '数学';
+/** r15.4.3 学霸：反击倍率明细「（18 × 轻击卡 ×0.8 × 押注 ×1.25 = 18）」；没有额外倍率就不写 */
+export function hurtNote(o: ROut) { const h = o.hurtInfo; if (!h || !h.parts.length || !o.taken) return '';
+  const prod = h.parts.reduce((a, [, m]) => a * m, 1);
+  return `（${h.base}${h.parts.map(([n, m]) => ` × ${n} ×${m}`).join('')}${prod > HURT_CAP + 1e-9 ? `，最多 ×${HURT_CAP}` : ''} = ${o.taken}）`; }
 /** r15.4.2 游戏策划：押注开关（我方回合看题前，题卡旁边，默认关，点一下就押） */
 export const BET_LABEL = '押注：答对伤害 ×1.25，能量额外 +1；答错反击 ×1.25，且不能闪避';   // r15.4.3 学霸：押对能量 = 基础 +1 + 押注额外 +1
 export const BET_HINT = '💡 新玩法：有把握就点一下打开「押注」（默认不押）。不押就照常答题，答错还有机会闪开。';

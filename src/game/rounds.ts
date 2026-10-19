@@ -70,7 +70,7 @@ export interface RInput {
   challenge?: boolean;     // D14 初一挑战题：答对内层 ×1.5；答错不能闪避、反击 ×1.5
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; /** r15.4.3：我方回合答错反击的倍率明细（题卡 / 押注 / 挑战 / 护体） */ hurtInfo?: { base: number; parts: [string, number][] }; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
 
 /** D14：返回外层伤害（固定倍率、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战×押注，技能另乘后统一封顶 ×1.8）。r15.4.2：押注 ×1.25 改进内层，和重击卡一起也不超过 ×1.8 */
 export function calcParts(s: RState, c: Character, i: RInput) {
@@ -144,8 +144,16 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
       const dodge = bet || i.challenge ? 0 : Math.min(DODGE_CAP, s.baseDodge + DODGE_PER_FOCUS * s.focus + Math.min(DODGE_BONUS_CAP, 0));
       if (rng() < dodge) { o.dodged = true; o.text = `没打中！还好躲开了怪物的反击（闪避几率 ${Math.round(dodge * 100)}%）`;   /* r14.1 学霸：恢复 r12 文案，只附上几率 */ }   // r12：我方回合答错是「没打中」
       else {
-        o.taken = takeHurt(monAtk(s), i.stepIndex != null ? CARDS.heavy.ctr : card.ctr, bet ? WAGER.ctr : 1, i.challenge ? CHALLENGE.ctr : 1);
-        o.text = bet && i.correct && i.partial ? '押注时半对算答错：怪物反击！' : bet ? '押注答错：怪物反击，闪不开！' : '怪物反击！';
+        const cc = i.stepIndex != null ? CARDS.heavy : card, gd = s.guard;
+        o.taken = takeHurt(monAtk(s), cc.ctr, bet ? WAGER.ctr : 1, i.challenge ? CHALLENGE.ctr : 1);
+        /* r15.4.3 学霸：反击倍率写明。意图上的数是怪物基础攻击；轻击 ×0.8 × 押注 ×1.25 = ×1，所以「轻击 · 押注」押错受到的数和意图一样 */
+        const parts: [string, number][] = [];
+        if (cc.ctr !== 1) parts.push([cc.label + '卡', cc.ctr]);
+        if (bet) parts.push(['押注', WAGER.ctr]);
+        if (i.challenge) parts.push(['挑战', CHALLENGE.ctr]);
+        if (gd) parts.push(['护体', SKILL.guardHurt]);
+        o.hurtInfo = { base: monAtk(s), parts };
+        o.text = bet && i.correct && i.partial ? '押注时半对算答错：押注失手，反击 ×1.25，闪不开！' : bet ? '押注失手：反击 ×1.25，闪不开！' : '怪物反击！';
       }
     }
     if (endTurn || !ok) s.focus = 0;   // 我方回合结束时专注清零

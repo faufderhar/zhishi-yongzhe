@@ -51,3 +51,22 @@ describe('r15.4.3 ② 押对能量 = 基础 +1 + 押注额外 +1', () => {
     expect(src).toContain("'押注：答对伤害 ×1.25，能量额外 +1；答错反击 ×1.25，且不能闪避'");
   });
 });
+
+describe('r15.4.3 ③ 押错反击 ×1.25 真的乘上了，结果写明', () => {
+  it('意图 18：标准卡押错受到 23（18×1.25），轻击卡押错 18（18×0.8×1.25），重击卡 34（18×1.5×1.25）；不押标准 18', async () => {
+    const { hurtNote } = await import('../src/ui/RoundBattle');
+    const s = st(0);
+    const go = (card: CardKind, wager: boolean) => resolveRound(s, bola, { correct: false, subject: '化学', difficulty: 2, card, wager, rng: () => 0.99 })[1];
+    expect(s.def.atk).toBe(18);
+    const sb = go('std', true), lb = go('light', true), hb = go('heavy', true), sn = go('std', false);
+    expect([sb.taken, lb.taken, hb.taken, sn.taken]).toEqual([23, 18, 34, 18]);
+    expect(sb.text).toContain('押注失手：反击 ×1.25'); expect(lb.text).toContain('押注失手：反击 ×1.25');
+    expect(hurtNote(lb)).toBe('（18 × 轻击卡 ×0.8 × 押注 ×1.25 = 18）');
+    expect(hurtNote(sb)).toBe('（18 × 押注 ×1.25 = 23）');
+    expect(hurtNote(hb)).toBe('（18 × 重击卡 ×1.5 × 押注 ×1.25 = 34）');
+    expect(hurtNote(sn)).toBe('');
+    // 押注不能闪避：rng 再小也不闪
+    const [, d] = resolveRound(s, bola, { correct: false, subject: '化学', difficulty: 2, card: 'std', wager: true, rng: () => 0 });
+    expect(d.dodged).toBe(false); expect(d.taken).toBe(23);
+  });
+});
