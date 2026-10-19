@@ -13,7 +13,7 @@ import { pickHarder, anyHarder } from '../game/harder';
 import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
-import { calcD, estimateDealt, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { calcD, estimateDealt, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
@@ -31,7 +31,7 @@ type Phase = 'pre' | 'chal' | 'cards' | 'bet' | 'question' | 'anim' | 'feedback'
 const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
-export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem }: BattleProps & { prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
+export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem, electives }: BattleProps & { electives?: Electives | null /* r16 R-13：档案选科 */; prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
   const mon0 = MONSTERS[cfg.stats][kind];
   const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit, { grade: questions[0]?.grade, volume: questions[0]?.volume });   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
@@ -44,7 +44,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   /* r15.1 学霸：本关（含后备 / 相邻小节）去重后的题数 × 2 = 最多能打的回合数；题少时回合上限显示真实值 */
   const maxTurns = useMemo(() => new Set([...questions, ...extra, ...(reserve ?? []), ...(adj ?? []).flat()].map(q => q.key)).size * 2, []);
   const [bs, setBs] = useState<RState>(() => {
-    const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail });
+    const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail, weak: bossWeak(questions[0]?.grade, questions[0]?.subject, electives) });   // r16 R-13
     const th = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestHp?: number }).__zyTest) ? (window as unknown as { __zyTestHp?: number }).__zyTestHp : undefined;   // 仅自动化测试
     const tm = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestMonHp?: number }).__zyTest) ? (window as unknown as { __zyTestMonHp?: number }).__zyTestMonHp : undefined;   // 仅自动化测试：怪物血量
     const s1 = tm ? { ...s0, monsterHp: tm, monsterMax: tm } : s0;

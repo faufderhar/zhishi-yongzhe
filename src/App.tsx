@@ -675,7 +675,7 @@ export default function App() {
         ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
-        ? <RoundBattle prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
+        ? <RoundBattle electives={p0?.electives} prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => { const id = pid; setProfiles(ps => ps.map(x => x.id === id ? { ...x, tips: { ...x.tips, [k]: true } } : x)); }}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />

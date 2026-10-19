@@ -28,8 +28,20 @@ export interface RState {
 export const monAtk = (s: RState) => s.rage && s.def.rage ? Math.round(s.def.atk * s.def.rage) : s.def.atk;
 export const roundModeOf = (band: Band): RoundMode | null => band === 'G2' || band === 'G3' ? 'p36' : band === 'J' ? 'j' : band === 'H' ? 'h' : null;
 const SEG_OF: Record<RoundMode, SkillSeg> = { p36: 'P36', j: 'J', h: 'H' };
-export function newRound(mode: RoundMode, kind: LevelKind, opts: { lowGrade?: boolean; level?: number; noDeath?: boolean } = {}): RState {
-  const S = ROUND[mode], def = S.monsters[kind], lv = Math.min(LEVEL_UP.max, Math.max(1, opts.level ?? 1)) - 1;
+/* r16 R-13（/workspace/playtest/sim/R13_高一模拟.md §4）：Boss 两阶段弱点。
+   grade ≤ 10（及非数字年级）→ null = 不动（balance.ts 现值：数学 / 化学）；
+   grade ≥ 11 已选科 → 一阶段 = 本关科目，二阶段 = 已选科目里另一个（首选 → 再选按勾选顺序 → 语数英诗词）；
+   grade ≥ 11 未选科 → 两阶段都没有弱点。倍率仍 × WEAK（1.5），HP / 攻击 / 回合上限不变。 */
+export interface Electives { first?: string /* 首选：物理 / 历史 */; second?: string[] /* 再选：按勾选顺序 */ }
+export const CORE_SUBJECTS = ['语文', '数学', '英语', '诗词'];
+export function bossWeak(grade: string | undefined, subject: string | undefined, el?: Electives | null): [string | undefined, string | undefined] | null {
+  const g = Number(grade); if (!grade || !Number.isFinite(g) || g <= 10) return null;
+  const picked = [el?.first, ...(el?.second ?? [])].filter((x): x is string => !!x);
+  if (!picked.length) return [undefined, undefined];
+  return [subject, [...picked, ...CORE_SUBJECTS].find(x => x !== subject)];
+}
+export function newRound(mode: RoundMode, kind: LevelKind, opts: { lowGrade?: boolean; level?: number; noDeath?: boolean; weak?: [string | undefined, string | undefined] | null } = {}): RState {
+  const S = ROUND[mode], def0 = S.monsters[kind], def = opts.weak && def0.phases ? { ...def0, phases: def0.phases.map((p, i) => ({ ...p, weak: opts.weak![i] })) } : def0, lv = Math.min(LEVEL_UP.max, Math.max(1, opts.level ?? 1)) - 1;
   const pattern = opts.lowGrade ? LOW_GRADE_PATTERN : def.pat;
   const hp = S.player.hp + lv * LEVEL_UP.hp;
   return { mode, seg: SEG_OF[mode], kind, def: opts.lowGrade ? { ...def, pat: LOW_GRADE_PATTERN, half: undefined } : def, shieldVal: S.shield, baseDodge: S.dodge, perfectOn: S.perfect,
