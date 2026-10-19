@@ -84,6 +84,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
 /** 家长密码键盘 */
 export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra }: { title: string; hint?: string; onSubmit: (pin: string) => void; error?: string; onCancel?: () => void; disabled?: boolean; extra?: ReactNode }) {
   const [v, setV] = useState(''); const sent = useRef(false);   /* r15.1：触屏抬手就确认（同答题键盘），之后的 click 不再重复 */
+  /* r15.4.3 较真家长 P1（丢字排查）：数字键改用函数式更新（连点时不会用到旧的 v 吞掉一位）；按下确定时清掉上一次触屏留下的标记（确定后按钮立刻变灰、那次 click 不会来，标记会一直留着吞掉之后的鼠标确定） */
   useEffect(() => { if (error) setV(''); }, [error]);
   return (
     <div className="pinpad">
@@ -91,10 +92,10 @@ export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra
       <div className="pin-dots" data-testid="pin-dots">{Array.from({ length: 6 }, (_, i) => <span key={i} className={i < v.length ? 'on' : ''} />)}</div>
       {error ? <p className="warn" data-testid="pin-error">{error}</p> : hint && <p className="pin-hint">{v.length < 4 ? `${hint}（已输入 ${v.length} 位）` : '可以点「确定」了'}</p>}
       <div className={`pin-keys ${disabled ? 'locked' : ''}`}>
-        {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(k => <button key={k} disabled={disabled} data-testid={'pin-' + k} onClick={() => v.length < 6 && setV(v + k)}>{k}</button>)}
-        <button className="del" onClick={() => setV(v.slice(0, -1))}>⌫</button>
-        <button data-testid="pin-0" disabled={disabled} onClick={() => v.length < 6 && setV(v + '0')}>0</button>
-        <button className="ok" data-testid="pin-ok" disabled={disabled || v.length < 4} onPointerUp={e => { if (e.pointerType === 'mouse' || disabled || v.length < 4) return; sent.current = true; onSubmit(v); setV(''); }} onClick={() => { if (sent.current) { sent.current = false; return; } onSubmit(v); setV(''); }}>确定</button>
+        {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(k => <button key={k} disabled={disabled} data-testid={'pin-' + k} onClick={() => setV(x => x.length < 6 ? x + k : x)}>{k}</button>)}
+        <button className="del" onClick={() => setV(x => x.slice(0, -1))}>⌫</button>
+        <button data-testid="pin-0" disabled={disabled} onClick={() => setV(x => x.length < 6 ? x + '0' : x)}>0</button>
+        <button className="ok" data-testid="pin-ok" disabled={disabled || v.length < 4} onPointerDown={() => { sent.current = false; }} onPointerUp={e => { if (e.pointerType === 'mouse' || disabled || v.length < 4) return; sent.current = true; onSubmit(v); setV(''); }} onClick={() => { if (sent.current) { sent.current = false; return; } onSubmit(v); setV(''); }}>确定</button>
       </div>
       <p className="pin-why" style={{ visibility: !disabled && v.length < 4 ? 'visible' : 'hidden' }}>请输入 4–6 位数字</p>{/* r15.1：占位不收起，第 4 位时键盘不跳 */}
       {extra}
