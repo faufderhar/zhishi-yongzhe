@@ -980,3 +980,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (orientation:landscape) and (max-height:500px){
   .skip-corner{left:auto !important;right:8px !important;bottom:8px !important;font-size:13px !important;padding:4px 10px !important;min-height:0 !important}
 }
+/* r15.4.3 较真家长 P2-3：改密码后的「原来的恢复码仍然有效」卡片太窄，两个大按钮横排溢出，「保留」被切到屏幕左边外。卡片占满一行、按钮可换行 */
+.p-card.rec-after{width:min(100%,640px);box-sizing:border-box}
+.p-card.rec-after > .row{flex-wrap:wrap;justify-content:center;max-width:100%}
+.p-card.rec-after .btn{min-width:min(140px,100%);max-width:100%}
