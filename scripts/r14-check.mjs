@@ -211,9 +211,11 @@ if (on('tabs')) {
 if (on('phone')) {
   for (const vp of [{ width: 375, height: 667 }, { width: 414, height: 896 }]) {
     const { ctx, pg, w } = await session('7', { __zyUnlockAll: true }, vp); await enterMap(pg, w);
-    await pg.click('[data-testid=level-1]'); await w(900); await tutSkip(pg, w); await skipTut(pg, w);
-    for (let i = 0; i < 3 && !(await pg.isVisible('.qtext')); i++) { await pg.click('[data-testid=chal-normal]').catch(() => {}); await w(500); }
-    const bb = await (await pg.$('.qtext'))?.boundingBox(); const ib = await (await pg.$(".quiz .qtext + *"))?.boundingBox(); ok(bb && ib && ib.y + 30 <= vp.height, `${vp.width}×${vp.height}：题目和输入在第一屏（输入 y=${Math.round(ib?.y ?? -1)}）（y=${Math.round(bb?.y ?? -1)}）`);
+    // r15.4.2 技术QA P1-1：手机竖屏进战斗是全屏「请把手机横过来」（暂停）；确认后横过来（宽高互换）再量第一屏
+    await pg.click('[data-testid=level-1]'); await w(1200); ok(await pg.isVisible('[data-testid=rotate-overlay]'), `${vp.width}×${vp.height}：手机竖屏战斗出「请把手机横过来」`);
+    const L = { width: vp.height, height: vp.width }; await pg.setViewportSize(L); await w(1000); await tutSkip(pg, w); await skipTut(pg, w);
+    for (let i = 0; i < 3 && !(await pg.isVisible('.qtext')); i++) { await pg.click('[data-testid=chal-normal]').catch(() => {}); await pg.click('[data-testid=card-std]', { timeout: 1500 }).catch(() => {}); await w(500); }
+    const bb = await (await pg.$('.qtext'))?.boundingBox(); const ib = await (await pg.$(".quiz .qtext + *"))?.boundingBox(); ok(bb && ib && ib.y + 30 <= L.height, `${L.width}×${L.height}（横过来）：题目和输入在第一屏（输入 y=${Math.round(ib?.y ?? -1)}）（y=${Math.round(bb?.y ?? -1)}）`);
     await pg.screenshot({ path: OUT + `phone-${vp.width}.png` }); await ctx.close();
   }
 }
