@@ -14,7 +14,9 @@ import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newK
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
-import { speak, hasVoice, isSpeaking, voiceKey } from '../tts';
+import { speak, hasVoice, isSpeaking, voiceKey, afterVoice } from '../tts';
+/* r15.4.4：小班自动跳转等这句读完再走（录音 1.2 倍速变长）。上限（毫秒）：结算 / 时间到 5 s，下一题 3.5 s */
+export const K_WAIT = { endMax: 5000, nextMax: 3500 };
 import { HAPPY_LINE } from '../game/voiceLines';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
@@ -256,7 +258,8 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
   const kQuit = () => { const k = ksRef.current; if (k.done) { onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); return; }
     if (!(k.first + k.retry + k.demo)) { onQuit(); return; } onEnd({ win: false, quit: true, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); };
   useWakeLock(); usePauseTimeout(paused, kQuit);
-  useForceEnd(() => { const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
+  const forced = useRef(false);
+  useForceEnd(async () => { if (forced.current) return; forced.current = true; lock.current = true; setBusy(true); await afterVoice(0, K_WAIT.endMax); if (!D.alive.current) return; const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
   useEffect(() => { if (q && cfg.autoTTS) speakStem(q, choices); }, [q, cfg.autoTTS]);
@@ -299,9 +302,12 @@ export function KinderBattle({ cfg, c, kind, questions, onAnswer, onEnd, onQuit,
       if (ns.done || idx + 1 >= questions.length) {
         if (gentle) { talk(`${monName}变成你的好朋友，挥挥手回家啦！`, 3000); setMonFace('👋'); await sleep(400); setHome(true); await sleep(1600); }
         else { speak('小乌云变成你的好朋友啦！'); await Promise.race([D.dir.current?.kinderFinale(), sleep(2500)]); }   // r12：演出最多 2.5 s，后台/卡住也照样结算
-        if (!D.alive.current) return;
+        await afterVoice(0, K_WAIT.endMax);   // r15.4.4：这句读完再进结算页（结算页的朗读会打断它）
+        if (!D.alive.current || forced.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo } }); return;
       }
+      await afterVoice(0, K_WAIT.nextMax);   // r15.4.4：表扬 +「开心值两个」读完再出下一题（下一题题干会打断它）
+      if (!D.alive.current || forced.current) return;
       setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false; setBusy(false);
     }, r === 'demo' ? T.demoMs : T.correctMs);
   };

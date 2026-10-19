@@ -25,7 +25,7 @@ import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, stemOf, upd
 import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
 import { remainingSec, addUsage, type Usage } from './game/playtime';
 import { PUPS, SCIFI, type Character } from './game/characters';
-import { unlockAudio, speak, registerPrompts } from './tts';
+import { unlockAudio, speak, registerPrompts, afterVoiceThen, setKinderSpeech } from './tts';
 import { PROMPT_BY_TEXT } from './game/voicePrompts';
 registerPrompts(PROMPT_BY_TEXT);   // r15.4：共用提示语录音退路
 import { recordAnswer, wrongOf, putWrong, delWrong, answersOf } from './db';
@@ -199,6 +199,7 @@ export default function App() {
   const vChars = vg ? allowedChars(vg) : [];
   const p = p0 && vg ? { ...p0, homeGrade: p0.grade, grade: vg, volumes: vg === p0.grade ? p0.volumes : null, charId: [p0.charIds?.[bandConfig(vg).chars], p0.charId].find(id => id && vChars.some(c => c.id === id)) } : p0;
   const cfg = p ? bandConfig(p.grade) : null;
+  setKinderSpeech(cfg?.band === 'K');   // r15.4.4：小班系统朗读退路放慢（和 1.2 倍速录音一致）；幂等，渲染时直接设
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
   const allGradeQs = useMemo(() => bank && p ? questionsOfGrade(bank, p.grade) : [], [bank, p?.grade]);
   const chapters = useMemo(() => buildChapters(gradeQs, p?.volumes ?? null, allGradeQs), [gradeQs, p?.volumes, allGradeQs]);
@@ -263,7 +264,7 @@ export default function App() {
   /* r15.4.2 小萌新：横条只从 6% 长到 8% 屏高，不够醒目——小班进入收尾时先在屏幕中间弹一张大卡片（伙伴 + 🥱 打哈欠 + ⏰，轻轻放大 / 摇一摇），
      4 秒后缩回顶上的横条；卡片不挡点按（pointer-events:none）。录音和卡片同一刻开始 */
   const [graceCard, setGraceCard] = useState(false);
-  useEffect(() => { if (overTime && cfg?.band === 'K') { speak(GRACE_VOICE, 'zh-CN', { prio: true }); setGraceCard(true); const id = window.setTimeout(() => setGraceCard(false), 4000); return () => clearTimeout(id); } setGraceCard(false); }, [overTime, cfg?.band]);
+  useEffect(() => { if (overTime && cfg?.band === 'K') { speak(GRACE_VOICE, 'zh-CN', { prio: true }); setGraceCard(true); return afterVoiceThen(4000, 9000, () => setGraceCard(false)); }   /* r15.4.4：至少 4 秒，读完再缩回横条（最多 9 秒） */ setGraceCard(false); }, [overTime, cfg?.band]);
   // r11 技术QA R10-1：3 分钟收尾倒计时并进下面的游戏时钟（单调时钟、暂停/后台不走、只有一个计时源），不再用 Date.now + 固定 setTimeout
   const graceMs = useRef<number | null>(null);
   /* r15.3 较真家长：今天的上限秒数（含加时；不限 = Infinity）。用时永远 ≤ 上限 + 3 分钟收尾 */

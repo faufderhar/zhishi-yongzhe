@@ -16,7 +16,7 @@ import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
 import { isDue, INTERVAL, type WrongEntry } from '../game/wrongbook';
-import { speak, hasVoice } from '../tts';
+import { speak, hasVoice, afterVoiceThen } from '../tts';
 import { useForceEnd } from './Battle';
 import { answerFeedback } from '../feedback';
 
@@ -159,16 +159,19 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
   const [tip, setTip] = useState<string>(); const [shake, setShake] = useState<string>();
   const lp = useRef(0);
-  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim()); window.setTimeout(() => setTip(x => x === t ? undefined : x), 4000); };
+  const tipOff = useRef<(() => void) | undefined>(undefined); useEffect(() => () => tipOff.current?.(), []);
+  /* r15.4.4：提示条（未解锁、Boss 提示）至少 4 秒，读完再收起（最多 9 秒） */
+  const say = (t: string, voice: boolean) => { setTip(t); if (voice) speak(t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim()); tipOff.current?.(); tipOff.current = afterVoiceThen(4000, 9000, () => setTip(x => x === t ? undefined : x)); };
   useEffect(() => {
     const k = 'zy.bossTip.' + p.id;
     if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say(cfg.band === 'K' ? '这里有小怪兽等你交朋友！' : '这里有厉害的大怪兽！', cfg.band === 'K'); }
   }, [ch?.subject]);
   const timeUp = remaining <= 0;
   /* r15.4 小萌新：时间用完后点关卡以前什么反应都没有——改成弹出睡着的小怪兽（小班同时朗读），点一下或 4 秒后关掉 */
-  const [sleepy, setSleepy] = useState(false); const sleepyT = useRef(0);
-  const showSleepy = () => { setSleepy(true); if (cfg.band === 'K') speak(SLEEPY_VOICE); clearTimeout(sleepyT.current); sleepyT.current = window.setTimeout(() => setSleepy(false), 4000); };
-  useEffect(() => () => clearTimeout(sleepyT.current), []);
+  const [sleepy, setSleepy] = useState(false);
+  const sleepyOff = useRef<(() => void) | undefined>(undefined);   // r15.4.4：至少 4 秒，读完再收起（最多 9 秒）
+  const showSleepy = () => { setSleepy(true); if (cfg.band === 'K') speak(SLEEPY_VOICE); sleepyOff.current?.(); sleepyOff.current = afterVoiceThen(4000, 9000, () => setSleepy(false)); };
+  useEffect(() => () => sleepyOff.current?.(), []);
   return (
     <div className="map">
       <div className="map-top">

@@ -50,6 +50,12 @@ export function speakable(t: string) {
   return /^[\u25A0-\u25FF\s]*$/.test(t) ? '' : t;
 }
 let speakingFlag = false;
+/* r15.4.4 音频设计：小班录音语速 1.5 → 1.2（zf_002）。系统朗读退路同样放慢：0.9 × 1.2 / 1.5 = 0.72。App 按当前档案的学段设 */
+export const SYS_RATE = 0.9, K_VOICE_SPEED = 1.2, K_VOICE_SPEED_OLD = 1.5;
+let kinderSpeech = false;
+export const setKinderSpeech = (on: boolean) => { kinderSpeech = on; };
+export const sysRate = () => kinderSpeech ? SYS_RATE * K_VOICE_SPEED / K_VOICE_SPEED_OLD : SYS_RATE;
+let recPending = 0;   // playRecorded 还在查 manifest（还没开始播）
 /** 正在朗读（朗读时答题计时暂停，策划 r7） */
 export const isSpeaking = () => audioPrefs.tts && (speakingFlag || !!synth?.speaking) && !(__TEST_HOOKS__ && typeof window !== 'undefined' && (window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts);
 /* r15.4 华为平板（华为浏览器 / 鸿蒙）：speechSynthesis 可能没有、没有中文语音、或 speak() 根本不开始。
@@ -98,7 +104,7 @@ const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ 
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 let recHad = false;
 export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
-  const it = (await voiceManifest()).items ?? {};
+  recPending++; let it: Record<string, string | string[]>; try { it = (await voiceManifest()).items ?? {}; } finally { recPending--; }
   if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
   const steps: { url: string; gap: number }[] = []; let prevKey = '';
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
@@ -144,7 +150,7 @@ export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: str
   const u = new SpeechSynthesisUtterance(speakable(text));
   u.lang = /^en/.test(lang) ? 'en-US' : 'zh-CN';
   if (u.lang === 'zh-CN' && zhVoice) u.voice = zhVoice;
-  u.rate = 0.9; u.pitch = 1.1; u.volume = audioPrefs.volume;
+  u.rate = sysRate(); u.pitch = 1.1; u.volume = audioPrefs.volume;
   if (!testPlain() && u.lang === 'zh-CN' && !zhVoice && synth!.getVoices().length > 0 && !noVoiceTold) { noVoiceTold = true; notify('novoice'); }
   let started = false;
   speakingFlag = true; const done = () => { speakingFlag = false; };
@@ -156,6 +162,22 @@ export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: str
   // 1.5 秒还没开始：系统朗读不可用（华为浏览器等），本次会话改用录音 / 提示
   if (!testPlain()) setTimeout(() => { if (!started && ttsState !== 'ok' && speakingFlag && document.visibilityState === 'visible' && warmed) { ttsState = 'broken'; synth!.cancel(); done(); fallback(); } }, 1500);
 }
+/* r15.4.4：自动跳转 / 自动收起（收尾横条、时间到、睡着的小怪兽、结算、新手引导、未解锁提示……）等这句读完再走。
+   录音 1.2 倍速比以前长，固定毫秒会把话切掉。voiceBusy：录音在播 / 在取、系统朗读在读、重要提示（prio）在挡。
+   测试里换成记录函数的假 speechSynthesis 不会结束，不算（testPlain）。 */
+export const voiceBusy = () => audioPrefs.tts && !testPlain() && (speakingFlag || recPending > 0 || prioBusy || !!synth?.speaking);
+/** 至少等 minMs；之后这句读完（再留 tailMs）就走；最多等 maxMs（系统朗读不报结束、录音卡住时也照样走） */
+export function afterVoice(minMs: number, maxMs: number, tailMs = 250): Promise<void> {
+  const t0 = performance.now();
+  return new Promise(res => { let quietAt = 0;
+    const tick = () => { const now = performance.now(), el = now - t0; if (el >= maxMs) { res(); return; }
+      if (voiceBusy()) quietAt = 0; else if (!quietAt) quietAt = now;
+      if (el >= minMs && quietAt && now - quietAt >= tailMs) { res(); return; }
+      setTimeout(tick, 100); };
+    setTimeout(tick, Math.min(minMs, 100)); });
+}
+/** 组件用：卸载后不再回调 */
+export function afterVoiceThen(minMs: number, maxMs: number, f: () => void) { let live = true; void afterVoice(minMs, maxMs).then(() => { if (live) f(); }); return () => { live = false; }; }
 export const audioCtx = () => { if (sfxCtx && sfxCtx.state === 'suspended') void sfxCtx.resume().catch(() => {}); return sfxCtx; };
 /** 小班答错：柔和的「咚」（不用刺耳锯齿波） */
 export function softDong() {

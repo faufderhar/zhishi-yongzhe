@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { BandConfig } from '../game/grades';
 import type { Character } from '../game/characters';
 import { MONSTER_IMG } from '../game/characters';
-import { speak } from '../tts';
+import { speak, afterVoiceThen } from '../tts';
 import { Sprite, useKFit } from './Battle';
 
 export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void }) {
@@ -20,13 +20,14 @@ export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void
   const timers = useRef<number[]>([]);
   const kst = useRef<HTMLDivElement>(null); useKFit(kst);
   const later = (ms: number, f: () => void) => { timers.current.push(window.setTimeout(f, ms)); };
-  useEffect(() => () => timers.current.forEach(clearTimeout), []);
+  const offs = useRef<(() => void)[]>([]);
+  useEffect(() => () => { timers.current.forEach(clearTimeout); offs.current.forEach(f => f()); }, []);
   const cur = QS[step - 1];
   useEffect(() => { if (done) return; timers.current.forEach(clearTimeout); timers.current = []; speak(cur.say); later(7000, () => speak(cur.q)); }, [step, done]);
   const right = () => {
     if (done) return; setLit(l => l + 1);
     if (step < 3) { setStep(step + 1); return; }
-    setDone(true); timers.current.forEach(clearTimeout); speak('练习完成，开始闯关啦！'); later(2000, onDone);
+    setDone(true); timers.current.forEach(clearTimeout); speak('练习完成，开始闯关啦！'); later(0, () => { offs.current.push(afterVoiceThen(2000, 6000, onDone)); });   // r15.4.4：读完再进关（至少 2 s，最多 6 s）
   };
   const okFirst = step !== 2;   // 正确项位置轮换，不是每次都在左边
   const btnOk = <button key="ok" className="kopt" style={{ background: '#d5f0c4' }} data-testid="tut-apple" onClick={right}>

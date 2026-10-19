@@ -8,6 +8,7 @@
 // 场景 A（测试员那次）：上限 5 分钟 → 打第 1 关时不答题等到收尾横条出现 → 横条出现马上要放 p:grace → 答完这一关 → 收尾里打完的结算页放 p:res_k* + p:timeup_k
 //          → 回地图点关卡 → 睡觉云放 p:sleepy。
 // 场景 C（r15.4.3 小萌新）：不限时，同一关连打两次（第二次没超过最佳、不加星）→ 结算页只有一个图标 + 「今天玩得真棒，明天再来吧」，自动播 p:res_k_done；🔊 重播
+// 场景 N（r15.4.4）：自动跳转不切掉正在读的话（新手引导 / 下一题 / 结算 / 锁住的关卡）。
 // 场景 B：强制结算：收尾开始后最后一次点屏 ≥ 50 秒才到时间（结算页出现前没有手势）→ 结算页放 p:timeup_k。
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
@@ -129,21 +130,57 @@ if (on('B')) {
   await S.ctx.close();
 }
 if (on('C')) {
+  // r15.4.4：第 2 次照规则加星（显示这次的星星）+ 自动播「真棒！再玩一关吧」p:res_k_again；第 3 次起（真的不加星）才是一个图标 +「明天再来吧」p:res_k_done
   const S = await session('rc', true);
   const corr = TEST ? '.kopt[data-correct="1"]:not([disabled])' : '.kopt:not([disabled])';
   const play = async () => { await enterLevel(S); for (let i = 0; i < 80 && !(await S.vis('[data-testid=kinder-sub]')) && !(await S.vis('[data-testid=result-k-done]')); i++) { if (await S.tap(corr)) await S.w(2500); else await S.w(700); } };
-  await play(); const t1 = (await S.pg.textContent('.center-screen').catch(() => '')).replace(/\s+/g, ' '); await S.pg.screenshot({ path: OUT + `${TAG}-C1-first.png` });
+  const text = async () => (await S.pg.textContent('.center-screen').catch(() => '')).replace(/\s+/g, ' ');
+  const starsOn = () => S.pg.evaluate(() => document.querySelectorAll('.center-screen .stars .on').length);
+  await play(); const t1 = await text(); await S.pg.screenshot({ path: OUT + `${TAG}-C1-first.png` });
   ok(await S.vis('[data-testid=kinder-sub]') && !(await S.vis('[data-testid=star-rules]')) && !/六成|八成/.test(t1), `C(a) 第一次打完（加星）：照常的小班结算页，没有「六成 / 八成」图例：「${t1.slice(0, 50)}」`);
   await S.w(3000); await S.tap('[data-testid=to-map]'); await S.w(1200);
-  const i0 = (await log(S.pg)).length; const g0 = TEST ? (await glog(S.pg)).length : 0; await play();
-  const t2 = (await S.pg.textContent('.center-screen').catch(() => '')).replace(/\s+/g, ' '); await S.pg.screenshot({ path: OUT + `${TAG}-C2-nostar.png` });
-  const only = await S.pg.evaluate(() => { const c = document.querySelector('.center-screen'); return { h1: c.querySelectorAll('h1').length, p: [...c.querySelectorAll('p')].map(x => x.textContent).filter(Boolean), icon: !!c.querySelector('[data-testid=result-k-icon]') }; });
+  let i0 = (await log(S.pg)).length; let g0 = TEST ? (await glog(S.pg)).length : 0; await play();
+  const t2 = await text(); const n2 = await starsOn(); await S.pg.screenshot({ path: OUT + `${TAG}-C2-again.png` });
+  const ea = await waitStart(S, /^p_res_k_again\./, i0, 8000, true);
+  ok(await S.vis('[data-testid=kinder-sub]') && await S.vis('[data-testid=result-k-again]') && n2 >= 1 && !(await S.vis('[data-testid=result-k-done]')) && !/明天再来|不再加星|六成|八成/.test(t2), `C(b) 第二次（全对）：显示这次的星星 ${n2}★ +「真棒！再玩一关吧」，不说明天再来（「${t2.slice(0, 50)}」）`);
+  let gl = TEST ? (await glog(S.pg)).slice(g0).filter(x => /res_k_again/.test(x.key || '')) : [];
+  ok(good(ea) && whole(ea) && (!TEST || gl.some(x => x.ev === 'start')), `C(c) 第二次自动播 p:res_k_again（接在副标题后面）：${describe(ea)}${TEST ? ` | __zyAudioLog ${gl.map(x => x.ev + ':' + x.key).join(', ') || '无'}` : ''}`);
+  await S.w(3000); await S.tap('[data-testid=to-map]'); await S.w(1200);
+  i0 = (await log(S.pg)).length; g0 = TEST ? (await glog(S.pg)).length : 0; await play();
+  const t3 = await text(); await S.pg.screenshot({ path: OUT + `${TAG}-C3-nostar.png` });
+  const only = await S.pg.evaluate(() => { const c = document.querySelector('.center-screen'); return { h1: c.querySelectorAll('h1').length, p: [...c.querySelectorAll('p')].map(x => x.textContent).filter(Boolean), icon: !!c.querySelector('[data-testid=result-k-icon]'), stars: c.querySelectorAll('.stars').length }; });
   const e = await waitStart(S, /^p_res_k_done\./, i0, 8000, true);
-  ok(/今天玩得真棒，明天再来吧/.test(t2) && only.icon && only.h1 === 1 && only.p.length === 0 && !/第 \d 次|不再加星|六成|八成|最佳/.test(t2), `C(b) 第二次没加星：只有图标 + 一句（${JSON.stringify(only)}；「${t2.slice(0, 40)}」）`);
-  const gl = TEST ? (await glog(S.pg)).slice(g0).filter(x => /res_k_done/.test(x.key || '')) : [];
-  ok(good(e) && whole(e) && (!TEST || gl.some(x => x.ev === 'start')), `C(c) 自动播 p:res_k_done：${describe(e)}${TEST ? ` | __zyAudioLog ${gl.map(x => x.ev + ':' + x.key).join(', ') || '无'}` : ''}`);
+  ok(/今天玩得真棒，明天再来吧/.test(t3) && only.icon && only.h1 === 1 && only.p.length === 0 && only.stars === 0 && !/第 \d 次|不再加星|六成|八成|最佳|再玩一关/.test(t3), `C(d) 第三次（不加星）：只有图标 + 一句（${JSON.stringify(only)}；「${t3.slice(0, 40)}」）`);
+  gl = TEST ? (await glog(S.pg)).slice(g0).filter(x => /res_k_done/.test(x.key || '')) : [];
+  ok(good(e) && whole(e) && (!TEST || gl.some(x => x.ev === 'start')), `C(e) 第三次自动播 p:res_k_done：${describe(e)}${TEST ? ` | __zyAudioLog ${gl.map(x => x.ev + ':' + x.key).join(', ') || '无'}` : ''}`);
   await S.w(3000); const i1 = (await log(S.pg)).length; const has = await S.tap('[data-testid=result-k-replay]'); const er = has ? await waitStart(S, /^p_res_k_done\./, i1, 6000, true) : null;
-  ok(has && good(er) && whole(er), `C(d) 🔊 重播 p:res_k_done：${er ? describe(er) : '没有按钮'}`);
+  ok(has && good(er) && whole(er), `C(f) 🔊 重播 p:res_k_done：${er ? describe(er) : '没有按钮'}`);
+  await S.ctx.close();
+}
+if (on('N')) {
+  // r15.4.4：录音 1.2 倍速变长后，自动跳转不能切掉正在读的话：新手引导「练习完成」→ 进关、每题的表扬 +「开心值」→ 下一题、
+  // 最后一题 →「变成好朋友」→ 结算页、结算页副标题、点锁住的关卡。像乖孩子一样：每句读完、选项能点了才点。被切掉 = 播放结束时 played < 时长 × 0.9
+  const S = await session('rn', true);
+  const corr = TEST ? '.kopt[data-correct="1"]:not([disabled])' : '.kopt:not([disabled])';
+  const quiet = async (max = 20000) => { const t0 = Date.now(); while (Date.now() - t0 < max) { const L = await log(S.pg); if (L.filter(x => x.ev === 'start').every(x => x.played !== undefined)) return true; await S.w(200); } return false; };
+  const cut = L => L.filter(x => x.ev === 'start' && x.f && x.played !== undefined && x.played < x.dur * 0.9);
+  const i0 = (await log(S.pg)).length;
+  await S.tap('[data-testid=level-1]'); await S.w(1500);
+  let tut = 0; for (let i = 0; i < 30 && await S.vis('[data-testid=tutorial-kinder]'); i++) { await quiet(); if (await S.tap('[data-testid=tut-apple]')) tut++; await S.w(400); }
+  for (let i = 0; i < 80 && !(await S.vis('[data-testid=kinder-sub]')); i++) { await quiet(); if (await S.tap(corr)) await S.w(300); else await S.w(500); }
+  await quiet(); await S.w(1000); await S.pg.screenshot({ path: OUT + `${TAG}-N-result.png` });
+  const L = (await log(S.pg)).slice(i0); const st = L.filter(x => x.ev === 'start' && x.f);
+  const has = re => st.find(x => re.test(x.f));
+  const td = has(/^p_tut_done\./), cf = has(/^p_(cloud_friend|home_\w+)\./);
+  ok(tut >= 3 && !!td && whole(td), `N(a) 新手引导「练习完成，开始闯关啦！」读完才进关：${describe(td)}`);
+  ok(!!cf && whole(cf), `N(b) 最后一题 →「变成你的好朋友」读完才进结算页：${describe(cf)}`);
+  const hp = st.filter(x => /^p_happy_/.test(x.f)); ok(hp.length >= 2 && hp.every(whole), `N(c) 每题的「开心值」读完才出下一题：${hp.length} 句，${hp.map(x => `${x.played}/${x.dur}`).join(' ')}`);
+  const c = cut(L); ok(c.length === 0, `N(d) 一整关（${st.length} 段录音）没有被切掉的：${c.map(x => `${x.f} ${x.played}/${x.dur}s`).join(', ') || '无'}`);
+  await S.tap('[data-testid=to-map]'); await S.w(1500); await quiet();
+  const j0 = (await log(S.pg)).length; const lk = await S.pg.$('[data-testid=level-3]') ? '[data-testid=level-3]' : '[data-testid=level-2]';
+  await S.tap(lk); await S.w(300); const tipOn = await S.vis('.map-tip, [data-testid=map-tip]'); await quiet(); const L2 = (await log(S.pg)).slice(j0);
+  const lv = L2.find(x => x.ev === 'start' && /^p_lock_/.test(x.f));
+  ok(!!lv && whole(lv), `N(e) 点锁住的关卡：p:lock_* 完整播出：${describe(lv)}（提示条 ${tipOn ? '有' : '没看到'}）`);
   await S.ctx.close();
 }
 console.log(bad ? `r1542-voice-timeup FAIL ${bad}` : 'r1542-voice-timeup ALL PASS'); await b?.close(); process.exit(bad ? 1 : 0);
