@@ -40,3 +40,14 @@ describe('r15.4.3 ① ×1.8 封顶（学霸：预计 25 / 押注 31，实际 49�
     expect(o.capped).toBeFalsy();   // 1 × 0.9 × 1.25 × 1.4 = 1.575
   });
 });
+
+describe('r15.4.3 ② 押对能量 = 基础 +1 + 押注额外 +1', () => {
+  it('不押 +1，押 +2；开关写「能量额外 +1」', async () => {
+    const s = st(0);
+    const [, a] = resolveRound(s, bola, { correct: true, subject: '化学', difficulty: 2, card: 'std', noSkill: true });
+    const [, b] = resolveRound(s, bola, { correct: true, subject: '化学', difficulty: 2, card: 'std', wager: true, noSkill: true });
+    expect(a.energyGain).toBe(1); expect(b.energyGain).toBe(2); expect(b.bet).toBe(true); expect(a.bet).toBeUndefined();
+    const src = (await import('node:fs')).readFileSync('src/ui/RoundBattle.tsx', 'utf8');
+    expect(src).toContain("'押注：答对伤害 ×1.25，能量额外 +1；答错反击 ×1.25，且不能闪避'");
+  });
+});

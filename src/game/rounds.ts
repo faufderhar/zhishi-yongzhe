@@ -70,7 +70,7 @@ export interface RInput {
   challenge?: boolean;     // D14 初一挑战题：答对内层 ×1.5；答错不能闪避、反击 ×1.5
 }
 export interface ROut { side: Side; intent?: MIntent; dealt: number; hits: number[]; taken: number; dodged: boolean; perfect: boolean; healed: number;
-  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { raw: number; used: number }; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
+  energyGain: number; skill: SkillDef | null; guardUsed: boolean; brokeCharge: boolean; brokeShield: boolean; gotShield: boolean; review: boolean; text: string; downgraded?: [MIntent, MIntent]; partial?: boolean; phaseShift?: boolean; capped?: boolean; /** r15.4.3 学霸：内层加成（连击×专注×技能×题卡×挑战×押注）封顶前 / 实际用到的倍率；只在真的被 ×1.8 截掉时才有 */ capInfo?: { raw: number; used: number }; /** r15.4.3：这一题押了注（我方回合） */ bet?: boolean; rage?: boolean; absorbed?: number /* r15.4.1：本次攻击被怪物护盾挡掉的点数 */ }
 
 /** D14：返回外层伤害（固定倍率、多步段倍率，不封顶）与内层倍率（连击×专注×题卡×挑战×押注，技能另乘后统一封顶 ×1.8）。r15.4.2：押注 ×1.25 改进内层，和重击卡一起也不超过 ×1.8 */
 export function calcParts(s: RState, c: Character, i: RInput) {
@@ -106,6 +106,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
   const o: ROut = { side: s.side, dealt: 0, hits: [], taken: 0, dodged: false, perfect: false, healed: 0, energyGain: 0, skill: null, guardUsed: false, brokeCharge: false, brokeShield: false, gotShield: false, review: false, text: '' };
   // 多选漏选（策划裁定 6）：不算答对；不判技能 / 完美闪避 / 专注 / 能量，连击不变
   const bet = !!i.wager && s.side === 'P';   // r15.4.2：押注只在我方回合；押了以后半对按答错
+  if (bet) o.bet = true;
   const part = !!i.partial && i.correct && !bet; const ok = i.correct && !i.partial; if (part) o.partial = true;
   if (ok) {
     s.combo++; const g = 1 + (s.combo === 3 ? 1 : 0) + (bet ? WAGER.energy : 0); o.energyGain = Math.min(ENERGY_CAP, s.energy + g) - s.energy; s.energy += o.energyGain;
