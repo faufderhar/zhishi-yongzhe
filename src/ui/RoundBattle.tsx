@@ -413,7 +413,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
         {phase === 'feedback' && fb && cq && (
           <div className={`feedback ${fb.ok ? 'ok' : 'bad'}`} data-testid="feedback">
-            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.capInfo ? `（加成 ×${fb.o.capInfo.raw.toFixed(2)} 到顶，按 ×${fb.o.capInfo.used} 算）` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
+            <h3>{fb.text}{fb.o?.dealt ? ` 造成 ${fb.o.hits.length > 1 ? fb.o.hits.join('+') : fb.o.dealt}` : ''}{fb.o?.capInfo ? `（加成 ×${fb.o.capInfo.raw.toFixed(2)}，已到上限，按 ×${fb.o.capInfo.used} 算）` : ''}{fb.o?.taken ? ` · 受到 ${fb.o.taken}${hurtNote(fb.o)}` : ''}{fb.o?.healed ? ` · 回复 ${fb.o.healed}` : ''}{fb.o?.energyGain ? ` · 能量 +${fb.o.energyGain}${fb.o.bet && fb.o.energyGain >= 2 ? '（含押注额外 +1）' : ''}` : ''}</h3>
             {!fb.ok && <>
               {picked && <p>你的答案：{cq.type === '选择' || cq.type === '多选' ? picked.split('').map(k => <span key={k}>{k}. <Tex text={cq.options.find(o => o.key === k)?.text ?? ''} />　</span>) : picked}</p>}
               <p>正确答案：<b><Tex text={correctText(cq)} /></b></p>
