@@ -30,6 +30,9 @@ export const LK_HINT = 'zy.hintLock';
 export const LK_REC = 'zy.recLock';
 export const LK_CANCEL = 'zy.cancelLock';   // r15.4.1 技术QA P3-1：「取消重设申请」框单独计错（以前和恢复码共用 LK_REC，孩子在提醒框乱输 5 次会把恢复码锁住）
 export const LK_IMPORT = 'zy.importLock';   // r13：导入备份时「备份密码 / 恢复码」共用的锁
+/** r15.4.3 技术QA P3-1：全部防误入锁的键；覆盖恢复后都写成「没锁、没错过」 */
+export const LOCK_KEYS_ALL = [LK, LK_HINT, LK_REC, LK_CANCEL, LK_IMPORT];
+export const freshLocks = (now = Date.now()): Record<string, LockState> => Object.fromEntries(LOCK_KEYS_ALL.map(k => [k, { fails: 0, level: 0, until: 0, remain: 0, seenAt: now }]));
 /** r12（策划）：找回问题、恢复码各自连错 5 次 → 锁 24 小时。按单调时钟扣（关掉期间：墙钟往前走的部分才算，往回调不算），刷新不清零 */
 export const LONG_LOCK_MS = 24 * 3600e3;
 export function nextLock24(s: LockState, ok: boolean, now: number): LockState {

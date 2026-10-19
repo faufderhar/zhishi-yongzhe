@@ -4,7 +4,7 @@ import type { WrongEntry } from './game/wrongbook';
 import { findVault, findRec, writeRec, writeLocal, writeCache, normCode, type PinVault } from './game/pinVault';
 import { backupVault, mergePin } from './game/backupPin';
 import { sanitizeData } from './game/sanitize';
-import { verifyPin } from './game/pin';
+import { verifyPin, freshLocks, LOCK_KEYS_ALL } from './game/pin';
 export interface AnswerRecord { profileId: string; questionId: string; correct: boolean; at: number; subject?: string }
 const DB = 'zhishi-yongzhe';
 export const STORES = ['kv', 'answers', 'wrong', 'bank'] as const;
@@ -154,6 +154,10 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     clean.kv = [...kvm.entries()]; }
   /* r15.3 技术QA R152-4：写库前清洗数字（星星 / 经验 / 时长 / 次数 / 难度 / 时间戳）；不合格的项丢掉 */
   { const sd = sanitizeData(clean); clean.kv = sd.kv; clean.answers = sd.answers; clean.wrong = sd.wrong; }   // r15.4：和合并共用
+  /* r15.4.3 技术QA P3-1：防误入的错误计数 / 锁（家长密码、找回问题、恢复码、取消申请框、导入）是本机状态，覆盖恢复一律清零，不从备份带入——
+     家长刚用对的密码 / 备份密码授权了恢复，不能一恢复完就被锁 15 分钟、恢复码框锁 24 小时，也不能留着 fails 4。撤销恢复（trusted）照旧回到恢复前的快照 */
+  const zeroLocks = !o.trusted ? freshLocks() : null;
+  if (zeroLocks) clean.kv = [...(clean.kv as [string, unknown][]).filter(([k]) => !LOCK_KEYS_ALL.includes(k)), ...Object.entries(zeroLocks)];
   const snapshot = await exportAll();
   if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }   // r15：恢复写库到重载之间，页面不能把内存里的旧设置写回去
   const d = await db();
@@ -166,6 +170,7 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
     else for (const v of rows) await st.put(v);
   }
   await tx.done;
+  if (zeroLocks) for (const [k, v] of Object.entries(zeroLocks)) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* */ } }
   writeLocal(m.vault); await writeCache(m.vault); if (m.vault?.recHash) await writeRec(m.vault.recHash, setKV);
   await setKV('snapshot:last', snapshot);   // 恢复后可「撤销恢复」（策划 T-P1-3）
   return snapshot;
