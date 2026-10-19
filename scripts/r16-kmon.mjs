@@ -31,7 +31,7 @@ for (const vp of VPS) {
     const info = await pg.evaluate(() => { const R = e => e && e.getBoundingClientRect(); const st = R(document.querySelector('.kstage')), sh = R(document.querySelector('[data-testid=monster-sheet]'));
       const imgs = [...document.querySelectorAll('.kopts img, .kq img, .kbubble img')].map(i => ({ src: i.getAttribute('src'), w: Math.round(i.getBoundingClientRect().width), h: Math.round(i.getBoundingClientRect().height), ok: i.complete && i.naturalWidth > 0 }));
       return { mon: document.querySelector('[data-testid=monster-sheet]')?.dataset.mon ?? document.querySelector('[data-testid=kmon]')?.dataset.mon, kboss: document.querySelector('[data-kboss]')?.dataset.kboss, crown: !!document.querySelector('[data-testid=boss-crown]'),
-        inStage: st && sh ? sh.left >= st.left - 1 && sh.right <= st.right + 1 : null, sizeRatio: sh ? +(sh.height / (R(document.querySelector('.kpup'))?.height || 1)).toFixed(2) : null, imgs }; });
+        inStage: st && sh ? sh.left >= st.left - 1 && sh.right <= st.right + 1 : null, sizeRatio: sh ? +(sh.height / (Math.max(1, ...[...document.querySelectorAll('[data-testid=kpup] *')].map(e => e.getBoundingClientRect().height)))).toFixed(2) : null, imgs }; });
     await pg.screenshot({ path: `${OUT}${tag}-start.png` });
     let fin = null;
     if (kind !== 'normal') {
