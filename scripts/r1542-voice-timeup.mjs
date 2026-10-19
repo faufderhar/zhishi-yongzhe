@@ -49,7 +49,7 @@ async function session(name, noLimit = false, realClock = false) {   // realCloc
     else if (await vis('[data-testid=char-confirm]')) { await tap('[data-testid^=char-]:not([data-testid=char-confirm]):not([data-testid=charlist])'); await w(200); await tap('[data-testid=char-confirm]'); }
     else if (await vis('.modal >> text=稍后')) await tap('.modal >> text=稍后'); else if (await vis('[data-testid=to-map]')) await tap('[data-testid=to-map]'); else if (await vis('text=' + name)) await tap('text=' + name); await w(500); } };
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]'); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(600); if (await vis('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
+  await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(600); if (await vis('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
   await pg.fill('[data-testid=add-name]', name); await tap('[data-testid=home-grade-K1]'); await w(500);
   const pid = await pg.evaluate(n => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get('profiles'); g.onsuccess = () => { r.result.close(); res(g.result.find(p => p.name === n)?.id); }; }; }), name);
   // 家长页把上限调到 5 分钟（全触摸）

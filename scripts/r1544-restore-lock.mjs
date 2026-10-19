@@ -64,7 +64,7 @@ await run('pin'); await run('forgot');
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyUnlockAll = true; });
   await pg.goto(URL); await pg.waitForSelector('[data-testid=add-child]'); await pg.waitForTimeout(400);
   await tap('[data-testid=parent]'); await pin('2468'); await pin('2468');
-  await tap('.pinpad input[type=radio]'); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await pg.waitForTimeout(500);
+  await tap('.pinpad input[type=radio]'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await pg.waitForTimeout(500);
   const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await pg.fill('[data-testid=rec-type]', code); await tap('[data-testid=rec-type-ok]'); await pg.waitForTimeout(600);
   if (await pg.isVisible('.modal >> text=稍后')) await tap('.modal >> text=稍后');
   await tap('[data-testid=parent-close]').catch(() => {}); await pg.waitForTimeout(400);

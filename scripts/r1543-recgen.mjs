@@ -7,7 +7,7 @@ for (const [W, H] of [[1180, 820], [820, 1180], [390, 844], [844, 390], [1024, 7
   const tap = async s => { const l = pg.locator(s).first(); await l.scrollIntoViewIfNeeded(); const bb = await l.boundingBox(); await pg.touchscreen.tap(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.waitForTimeout(150); };
   const pin = async p => { for (const d of p) await tap(`[data-testid=pin-${d}]`); await tap('[data-testid=pin-ok]'); await pg.waitForTimeout(300); };
   await tap('[data-testid=parent]'); await pin('2468'); await pin('2468');
-  await pg.locator('.pinpad input[type=radio]').first().check(); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await pg.waitForTimeout(500);
+  await pg.locator('.pinpad input[type=radio]').first().check(); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await pg.waitForTimeout(500);
   const c0 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await pg.fill('[data-testid=rec-type]', c0); await tap('[data-testid=rec-type-ok]'); await pg.waitForTimeout(600);
   if (await pg.isVisible('.modal >> text=稍后')) await tap('.modal >> text=稍后');
   await tap('[data-testid=ptab-pin]'); await tap('[data-testid=pintab-change]'); await pin('2468'); await pin('1357'); await pin('1357'); await pg.waitForTimeout(500);

@@ -34,7 +34,7 @@ const cached = () => pg.evaluate(async () => (await (await caches.open('zy-voice
 async function waitVoice(total, after) { let st = null; for (let i = 0; i < 150; i++) { st = await vstat(); if (st && st.total === total && st.done >= st.total && (!after || st.at > after)) break; await w(1000); } return st; }
 // ---- 旧包：装 SW、建小班档案、后台下完旧录音
 await pg.goto(URL0); await pg.waitForSelector('[data-testid^=profile-], [data-testid=add-child]');
-await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500); if (await pg.isVisible('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
+await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500); if (await pg.isVisible('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
 await pg.fill('[data-testid=add-name]', 'vu'); await tap('[data-testid=home-grade-K1]'); await w(400);   // 和 r1541-offline-voice 同样的建档步骤
 await pg.waitForFunction(() => !!navigator.serviceWorker?.controller, null, { timeout: 30000 }).catch(() => {});
 ok(await pg.evaluate(() => !!navigator.serviceWorker?.controller), '旧包：SW 已接管页面');

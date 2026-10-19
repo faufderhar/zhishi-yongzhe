@@ -17,8 +17,9 @@ async function fresh(vp, grade) { const mob = vp === '390x844'; const [W, H] = v
   const ctx = await b.newContext({ viewport: { width: W, height: H }, hasTouch: true, ...(mob ? { isMobile: true, deviceScaleFactor: 3 } : {}) }); pg = await ctx.newPage(); pg.setDefaultTimeout(8000);
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyTestNoTts = true; window.__zyNoOfflineCache = true; });
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(300);
-  await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500);
+  await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500);
   for (const sel of ['[data-testid=rec-done]']) if (await vis(sel)) { await tap(sel); await w(300); }
+  if (await vis('[data-testid=pin-verify]')) await pinIn('2468');   // r16 8c：设完密码再输一次
   await pg.fill('[data-testid=add-name]', 'd15'); await tap(`[data-testid=home-grade-${grade}]`); await w(400); await toMap(); return ctx; }
 async function answer() {
   if (await vis('.keypad')) { const a = await pg.$eval('.qtext', e => e.getAttribute('data-ans') || '1').catch(() => '1'); for (const ch of a) await tap(`.keypad [data-key="${ch}"]`); await tap('[data-testid=ok]'); return; }

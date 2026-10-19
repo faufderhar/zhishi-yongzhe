@@ -18,7 +18,7 @@ const resetProfiles = () => pg.url().startsWith('http') && pg.evaluate(async () 
 async function addChild(g) {
   await resetProfiles(); await home();
   await pg.click('[data-testid=add-child]'); await w(300);
-  if (!pinSet) { await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); pinSet = true; } else await pinIn('2468');
+  if (!pinSet) { await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await pg.waitForSelector('[data-testid=pin-verify]', { timeout: 3000 }).then(() => pinIn('2468')).catch(() => {}); pinSet = true; } else await pinIn('2468');
   await w(300); await pg.click(`[data-testid=home-grade-${g}]`); await w(500);
   const cards = await pg.$$('[data-testid^=profile-]'); await cards[cards.length - 1].click(); await w(1200);
   if (await pg.$('[data-testid^=char-]')) { await pg.click('[data-testid^=char-]'); await pg.click('[data-testid=char-confirm]'); await w(600); }
@@ -28,7 +28,7 @@ const home = async () => { await pg.goto(U); await pg.waitForSelector('[data-tes
 await home(); await pg.screenshot({ path: OUT + '01-home.png' });
 const names = await pg.$$eval('[data-testid^=profile-]', e => e.map(x => x.textContent));
 if (names.length < 3) fail('预置档案不足 3 个: ' + names);
-await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); pinSet = true; await w(400); await pg.screenshot({ path: OUT + '02-grade-list.png' });
+await pg.click('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await pg.click('.pinpad input[type=radio] >> nth=0', { timeout: 5000 }).catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await pg.click('[data-testid=hint-ok]'); await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await pg.waitForSelector('[data-testid=pin-verify]', { timeout: 3000 }).then(() => pinIn('2468')).catch(() => {}); pinSet = true; await w(400); await pg.screenshot({ path: OUT + '02-grade-list.png' });
 for (const g of ['8', '9', '11', '12']) if (!(await pg.isDisabled(`[data-testid=home-grade-${g}]`))) fail(g + ' 应为即将开放');
 await pg.click('.modal-back', { position: { x: 5, y: 5 } }).catch(() => {}); await pg.keyboard.press('Escape');
 const SHOT = { K1: 'K', 1: 'G1', 3: 'G2', 5: 'G3', 7: 'J', 10: 'H' };

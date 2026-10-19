@@ -14,8 +14,8 @@ async function fresh(opt = {}) {
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(500);
   if (opt.pin !== false) {   // 家长先设好密码（试玩员的状态：每次换档案都要输）
     await pg.click('[data-testid=parent]'); await w(400); await pinIn('2468'); await pinIn('2468');
-    await pg.click('.pinpad input[type=radio] >> nth=0').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.click('[data-testid=hint-ok]');
-    await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await w(500);
+    await pg.click('.pinpad input[type=radio] >> nth=0').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await pg.click('[data-testid=hint-ok]');
+    await pg.waitForSelector('[data-testid=rec-code]', { timeout: 5000 }).then(() => pg.click('[data-testid=rec-done]')).catch(() => {}); await pg.waitForSelector('[data-testid=pin-verify]', { timeout: 3000 }).then(() => pinIn('2468')).catch(() => {}); await w(500);
     if (await pg.isVisible('.modal >> text=稍后')) { await pg.click('.modal >> text=稍后'); await w(300); }
     if (await pg.isVisible('[data-testid=parent-close]')) await pg.click('[data-testid=parent-close]'); await w(500);
   }

@@ -23,7 +23,7 @@ async function toMap() {
   }
 }
 await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500); if (await vis('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
+await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500); if (await vis('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
 await pg.fill('[data-testid=add-name]', 'r9'); await tap('[data-testid=home-grade-10]'); await w(400);
 await toMap();
 let detailTot = 0, bubbleTot = 0, wagerTot = 0; const per = [];

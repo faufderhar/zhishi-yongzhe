@@ -22,7 +22,7 @@ async function toMap() { for (let i = 0; i < 30 && !(await pg.isVisible('[data-t
   else if (await pg.isVisible('[data-testid=char-confirm]')) { await tap('[data-testid^=char-]:not([data-testid=char-confirm]):not([data-testid=charlist])'); await w(200); await tap('[data-testid=char-confirm]'); } else if (await pg.isVisible('text=r9')) await tap('text=r9'); await w(500); } }
 const t0 = Date.now(); await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); const fp = Date.now() - t0;
 ok(fp < 8000, `首屏 ${fp} ms 出现（不等录音下载）`);
-await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500); if (await pg.isVisible('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
+await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500); if (await pg.isVisible('[data-testid=rec-done]')) await tap('[data-testid=rec-done]'); await w(300);
 await pg.fill('[data-testid=add-name]', 'r9'); await tap('[data-testid=home-grade-K1]'); await w(400);
 await pg.waitForFunction(() => !!navigator.serviceWorker?.controller, null, { timeout: 30000 }).catch(() => {});
 let st = null; for (let i = 0; i < 120; i++) { st = await pg.evaluate(() => JSON.parse(localStorage.getItem('zy-offline-voice') || 'null')); if (st && st.done >= st.total && st.total) break; await w(1000); }

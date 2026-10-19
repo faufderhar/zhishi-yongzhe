@@ -28,7 +28,7 @@ if (PARTS.includes('PIN')) for (const vp of ['640x360', '667x375', '844x390']) {
   ok(/再输入一次/.test(t2) && allTrue(s2), `P2-1 ${vp} 「再输入一次确认」页全部在屏内（${t2}）${bad1(s2)}`);
   await pinTouch('1231'); await w(300);
   // 找回问题页：能滚到的都要能点（页内可滚动）
-  await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.screenshot({ path: `${OUT}pin-${vp}-hint.png` });
+  await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await pg.screenshot({ path: `${OUT}pin-${vp}-hint.png` });
   await pg.locator('[data-testid=hint-ok]').scrollIntoViewIfNeeded(); const s3 = await inView(['[data-testid=hint-ok]']); ok(allTrue(s3), `P2-1 ${vp} 找回问题页「确定」能滚到屏内 ${bad1(s3)}`);
   await tapXY('[data-testid=hint-ok]'); await w(600);
   const code = ((await pg.textContent('[data-testid=rec-code]').catch(() => '')) || '').replace(/\s/g, ''); await pg.screenshot({ path: `${OUT}pin-${vp}-rec.png` });
@@ -61,7 +61,7 @@ if (PARTS.includes('HOME')) for (const vp of ['360x640', '375x667']) {
   await ctx.close();
 }
 async function newKid(grade) { await tapXY('[data-testid=add-child]'); await w(300); for (let k = 0; k < 2; k++) { for (const d of '2468') await tap(`[data-testid=pin-${d}]`); await tap('[data-testid=pin-ok]'); await w(300); }
-  await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500);
+  await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500);
   for (const sel of ['[data-testid=rec-done]', 'text=我已经抄好了']) if (await vis(sel)) { await tap(sel); await w(300); }
   if (await vis('.modal >> text=稍后')) await tap('.modal >> text=稍后');
   await pg.fill('[data-testid=add-name]', 'r9'); await tap(`[data-testid=home-grade-${grade}]`); await w(400);
@@ -86,7 +86,7 @@ if (PARTS.includes('MULTI')) for (const [id, vp] of [['D7-156', '640x360'], ['D7
 if (PARTS.includes('K')) for (const vp of ['640x360', '667x375']) {
   const [W, H] = vp.split('x').map(Number); const ctx = await ctxNew(1180, 820, 'window.__zyTest = true; window.__zyTestNoTts = true;');
   await tapXY('[data-testid=add-child]'); await w(300); for (let k = 0; k < 2; k++) { for (const d of '2468') await tap(`[data-testid=pin-${d}]`); await tap('[data-testid=pin-ok]'); await w(300); }
-  await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500);
+  await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500);
   for (const sel of ['[data-testid=rec-done]', 'text=我已经抄好了']) if (await vis(sel)) { await tap(sel); await w(300); }
   if (await vis('.modal >> text=稍后')) await tap('.modal >> text=稍后');
   await pg.fill('[data-testid=add-name]', 'r9'); await tap('[data-testid=home-grade-K1]').catch(() => {}); await w(400);

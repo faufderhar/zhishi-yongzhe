@@ -82,10 +82,12 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
   );
 }
 /** 家长密码键盘 */
-export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra }: { title: string; hint?: string; onSubmit: (pin: string) => void; error?: string; onCancel?: () => void; disabled?: boolean; extra?: ReactNode }) {
+export function PinPad({ title, hint, onSubmit, error, onCancel, disabled, extra }: { title: string; hint?: string; onSubmit: (pin: string) => void; error?: ReactNode; onCancel?: () => void; disabled?: boolean; extra?: ReactNode }) {
   const [v, setV] = useState(''); const sent = useRef(false);   /* r15.1：触屏抬手就确认（同答题键盘），之后的 click 不再重复 */
   /* r15.4.3 较真家长 P1（丢字排查）：数字键改用函数式更新（连点时不会用到旧的 v 吞掉一位）；按下确定时清掉上一次触屏留下的标记（确定后按钮立刻变灰、那次 click 不会来，标记会一直留着吞掉之后的鼠标确定） */
-  useEffect(() => { if (error) setV(''); }, [error]);
+  /* r16：error 可以是倒计时组件（LockLeft，自己每秒刷新）——只按「有没有 / 文字变没变」清空 */
+  const errKey = typeof error === 'string' ? error : !!error;
+  useEffect(() => { if (errKey) setV(''); }, [errKey]);
   return (
     <div className="pinpad">
       <h2>{title}</h2>

@@ -60,7 +60,7 @@ import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
-import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, LK_IMPORT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, LK_PIN, LK_IMPORT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
 import { pendingDays, pendingWaitedMs, PEND_DAYS, findRec, newPending } from '../game/pinVault';
 import { hintCandidates, answerVariants, readLocal, readCache, makeRecoveryCode, normCode, RESET_DELAY_MS, fmtWhen, fmtDay } from '../game/pinVault';
 import type { Skills } from '../game/adaptive';
@@ -73,10 +73,9 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
   const [hlock, setHlock] = useState<LockState>({ fails: 0, level: 0, until: 0 });   // r9：找回问题单独锁定
   const [rc, setRc] = useState(''); const [rerr, setRerr] = useState<string>();
   const [rlock, setRlock] = useState<LockState>({ fails: 0, level: 0, until: 0, remain: 0 });   // r12：恢复码单独计错、锁 24 小时
-  const [now, setNow] = useState(Date.now());
-  const [mode, setMode] = useState<'pin' | 'hint' | 'forgot' | 'lost' | 'code' | 'rec' | 'reset' | 'recset'>(initialMode === 'forgot' ? (settings.pinHint ? 'forgot' : settings.pinRec ? 'rec' : 'reset') : initialMode ?? 'pin');
+  const [mode, setMode] = useState<'pin' | 'hint' | 'forgot' | 'lost' | 'code' | 'rec' | 'reset' | 'recset' | 'verify'>(initialMode === 'forgot' ? (settings.pinHint ? 'forgot' : settings.pinRec ? 'rec' : 'reset') : initialMode ?? 'pin');
   const [code, setCode] = useState('');
-  const [hq, setHq] = useState(''); const [ha, setHa] = useState('');   // r13 较真家长：找回问题不预选（以前默认「孩子的小名」，和「别选孩子也知道答案的问题」自相矛盾）
+  const [hq, setHq] = useState(''); const [ha, setHa] = useState(''); const [ha2, setHa2] = useState(''); const vTry = useRef(0);   // r13 较真家长：找回问题不预选（以前默认「孩子的小名」，和「别选孩子也知道答案的问题」自相矛盾）
   const [pend, setPend] = useState<string>(); const [np1, setNp1] = useState(''); const [np2, setNp2] = useState('');
   // r13 较真家长：找回问题 / 恢复码验证通过后不再先清掉旧密码；新密码 + 找回问题收齐后一次提交，提交成功才作废旧恢复码、发新码
   const [resetting, setResetting] = useState(false); const [selfErr, setSelfErr] = useState<string>(); const [hintReq, setHintReq] = useState(false);
@@ -90,32 +89,25 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       // r11：一份密码副本都没有：有孩子档案 → 不能直接设新密码（恢复码 / 24 小时延时重设）；真正的新装（没有档案）才走首次设置。到期的延时重设也算新设置
       if (hasProgress && !settings.pinResetDoneAt && await pinWasSet()) setMode('lost');   // 出厂自带的示例档案不算
     })());
-    let last = performance.now();
-    const t = setInterval(() => {   // 只按单调时钟扣锁定时间（技术QA R4-4）
-      const p = performance.now(), dt = p - last; last = p; setNow(Date.now());
-      /* r15.4.4 技术QA P3：覆盖恢复清零锁后，若本页还握着旧锁，先从存储拉一份（密码页 / 忘记密码页都走这里） */
-      if ((window as unknown as { __zyRestoring?: boolean }).__zyRestoring) { void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void loadLock(LK_REC).then(setRlock); return; }
-      setLock(l => { if (!lockLeft(l)) return l; const n = tickLock(l, dt, Date.now()); void saveLock(n); return n; });
-      setHlock(l => { if (!lockLeft(l)) return l; const n = tickLock(l, dt, Date.now()); void saveLock(n, LK_HINT); return n; });
-      setRlock(l => { if (!lockLeft(l)) return l; const n = tickLock(l, dt, Date.now()); void saveLock(n, LK_REC); return n; });
+    const t = setInterval(() => {   // r16：扣锁定时间（单调时钟，技术QA R4-4）在 LockLeft 里做
+      /* r15.4.4 技术QA P3：覆盖恢复清零锁后，若本页还握着旧锁，先从存储拉一份（密码页 / 忘记密码页都走这里）。
+         r16 较真家长 3：倒计时（扣锁定时间、每秒显示）挪进 LockLeft 子组件——这里不再每秒 setState，整页和输入框不会每秒重渲染（安卓输入法组字时可能吞字） */
+      if ((window as unknown as { __zyRestoring?: boolean }).__zyRestoring) { void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void loadLock(LK_REC).then(setRlock); }
     }, 1000);
     return () => clearInterval(t);
   }, []);
-  const left = Math.ceil(lockLeft(lock, now) / 1000);
-  const locked = left > 0;
-  const hleft = Math.ceil(lockLeft(hlock, now) / 1000), hlocked = hleft > 0;
-  const rleft = Math.ceil(lockLeft(rlock, now) / 1000), rlocked = rleft > 0;
+  const locked = lockLeft(lock) > 0, hlocked = lockLeft(hlock) > 0, rlocked = lockLeft(rlock) > 0;
   const fmt = (x: number) => x >= 3600 ? `${Math.floor(x / 3600)} 小时 ${Math.floor(x % 3600 / 60)} 分` : `${Math.floor(x / 60)} 分 ${x % 60} 秒`;
-  const lockMsg = locked ? `密码错太多次了，请 ${fmt(left)}后再试${settings.pinHint && !hlocked ? '。可以等待，或用找回问题' : ''}` : undefined;
-  const hlockMsg = hlocked ? `找回问题连续答错 5 次，已锁定，请 ${fmt(hleft)}后再试` : undefined;
-  const rlockMsg = rlocked ? `恢复码连续错 5 次，已锁定，请 ${fmt(rleft)}后再试` : undefined;
+  const lockMsg = locked ? <LockLeft lk={lock} k={LK_PIN} onEnd={setLock} text={x => `密码错太多次了，请 ${fmt(x)}后再试${settings.pinHint && !hlocked ? '。可以等待，或用找回问题' : ''}`} /> : undefined;
+  const hlockMsg = hlocked ? <LockLeft lk={hlock} k={LK_HINT} onEnd={setHlock} text={x => `找回问题连续答错 5 次，已锁定，请 ${fmt(x)}后再试`} /> : undefined;
+  const rlockMsg = rlocked ? <LockLeft lk={rlock} k={LK_REC} onEnd={setRlock} text={x => `恢复码连续错 5 次，已锁定，请 ${fmt(x)}后再试`} /> : undefined;
   const note = async (ok: boolean) => { const n = nextLock(lock, ok, Date.now()); setLock(n); await saveLock(n); return n; };
   const noteH = async (ok: boolean) => { const n = nextLock24(hlock, ok, Date.now()); setHlock(n); await saveLock(n, LK_HINT); return n; };
   const noteR = async (ok: boolean) => { const n = nextLock24(rlock, ok, Date.now()); setRlock(n); await saveLock(n, LK_REC); return n; };
   // r12：找回问题答案和所有密码副本里的答案逐一比对（升级前设的答案也认）；答案兼容几种规范化
   const checkHint = async (ans: string) => { const cands = hintCandidates(settings, readLocal()?.pinHint, await readCache().then(v => v?.pinHint), ...(allHints ?? []).map(a => ({ a }))); for (const h of cands) for (const v of answerVariants(ans)) if (await verifyPin(v, h)) return true; return false; };
   const recBox = (inline: boolean) => <div className={inline ? 'p-card' : ''} data-testid={inline ? 'forgot-rec-box' : undefined}>{inline && <b>有恢复码？</b>}
-      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="rec-input" placeholder="8 位恢复码" value={rc} disabled={rlocked} maxLength={12} onChange={e => setRc(e.target.value)} />
+      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="rec-input" placeholder="8 位恢复码" value={rc} disabled={rlocked} maxLength={12} onChange={e => setRc(e.target.value)} /><CodeCount v={rc} />
       {(rlockMsg || rerr) && <p className="warn" data-testid="rec-msg">{rlockMsg ?? rerr}</p>}
       <button className="btn" data-testid="rec-ok" disabled={rlocked || normCode(rc).length !== 8} onClick={async () => {
         const ok = await verifyPin(normCode(rc), settings.pinRec) || await (async () => { const h = await findRec(await getKV<any>('settings'), (await getKV<any[]>('profiles')) ?? [], getKV); return !!h && h !== settings.pinRec && verifyPin(normCode(rc), h); })(); const n = await noteR(ok);
@@ -134,7 +126,13 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
     <div className="center-screen"><div className="pinpad"><h2>请记下恢复码</h2>
       <p>忘记密码时，用这个恢复码可以马上重设密码。<b>只显示这一次</b>，请抄在纸上或拍照保存，别让孩子看到。</p>
       <div className="rec-code" data-testid="rec-code">{code.slice(0, 4)} {code.slice(4)}</div>
-      <RecTypeBack code={code} onConfirmed={() => { onRecConfirmed?.(); setCode(''); onOk(); }} onLater={() => { setCode(''); onOk(); }} /></div></div>);
+      <RecTypeBack code={code} onConfirmed={() => { onRecConfirmed?.(); setCode(''); setErr(undefined); setMode('verify'); }} onLater={() => { setCode(''); setErr(undefined); setMode('verify'); }} /></div></div>);
+  /* r16 较真家长 3：设完密码马上让家长再输一次试试（不计错误次数）；对不上 = 设置时两次都按成了同一串别的数字 → 可以当场重新设置 */
+  if (mode === 'verify') return (
+    <div className="center-screen" data-testid="pin-verify"><PinPad title="再输一次刚设的密码试试" hint="确认记住了（这一步输错不计次数）" error={err} onSubmit={async p => {
+      const st = await getKV<{ pinHash?: string }>('settings'); if (await verifyPin(p, st?.pinHash ?? settings.pinHash)) { setErr(undefined); onOk(); return; }
+      vTry.current++; setErr(`和刚才设置的密码不一样（设置时可能按错了）。可以再试一次，或点「重新设置」。（第 ${vTry.current} 次）`); }}
+      extra={<button className="link-btn" data-testid="pin-verify-reset" onClick={() => { setErr(undefined); setFirst(undefined); setHa(''); setHa2(''); setResetting(true); setMode('pin'); }}>重新设置</button>} /></div>);
   if (mode === 'rec') return (
     <div className="center-screen"><div className="pinpad"><h2>用恢复码重设密码</h2><p>输入设置密码时记下的 8 位恢复码（不分大小写）。</p>
       {recBox(false)}<button className="btn ghost" onClick={() => { setRerr(undefined); setMode(settings.pinHash ? 'forgot' : 'lost'); }}>返回</button>{resetBox}</div></div>);
@@ -149,7 +147,10 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       <p className="hint" data-testid="hint-advice">别选孩子也知道答案的问题，比如家人生日。</p>
       <HintQ q={hq} setQ={setHq} />
       <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="hint-answer" placeholder="答案" value={ha} onChange={e => setHa(e.target.value)} />
-      <button className="btn" data-testid="hint-ok" disabled={!hq.trim() || !normAnswer(ha)} onClick={async () => finishSet(pend, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) })}>完成</button>{selfBox}</div></div>);
+      {/* r16 较真家长 3：答案输两次，不一致当场提示（提交前唯一能拦住输入丢字的自检） */}
+      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="hint-answer2" placeholder="再输一次答案" value={ha2} onChange={e => setHa2(e.target.value)} />
+      {!!ha2 && normAnswer(ha2) !== normAnswer(ha) && <p className="warn" data-testid="hint-mismatch">两次输入的答案不一样，请检查</p>}
+      <button className="btn" data-testid="hint-ok" disabled={!hq.trim() || !normAnswer(ha) || normAnswer(ha2) !== normAnswer(ha)} onClick={async () => finishSet(pend, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) })}>完成</button>{selfBox}</div></div>);
   // r14 较真家长：恢复码重设——新密码、确认密码、找回问题和答案在同一个面板里一次提交；提交成功才作废旧恢复码、发新码
   if (mode === 'recset') { const okPin = /^\d{4}$/.test(np1) && np1 === np2; return (
     <div className="center-screen"><div className="pinpad wide-panel" data-testid="recset"><h2>设新密码</h2>
@@ -573,7 +574,10 @@ function PinTab({ settings, setSettings }: ParentProps) {
     if (step === 'old') { if (await verifyPin(p, settings.pinHash) || await currentPin().then(c => !!c.vault && c.vault.pinHash !== settings.pinHash && verifyPin(p, c.vault.pinHash))) { setStep('new'); setErr(undefined); } else setErr('旧密码不对'); return; }
     if (step === 'new') { if (!validPin(p)) { setErr('4–6 位数字'); return; } setN1(p); setStep('confirm'); setErr(undefined); return; }
     if (p !== n1) { setErr('两次不一致'); setStep('new'); return; }
-    setSettings({ ...settings, pinHash: await makePinHash(p) }); markPinSet(); setViaChange(true); setStep('done');
+    setSettings({ ...settings, pinHash: await makePinHash(p) }); markPinSet();
+    /* r16 较真家长 3：「修改家长密码」也走同一个自检（和首次设置 / 重设一样） */
+    const chk = await checkPinSaved(p); if (!chk.ok) { logErr('pin-selfcheck', chk.bad.join(',')); setErr('新密码没有存好（存下来的和刚输入的对不上），请重新输入新密码；如果一直这样，请先导出备份再刷新页面。'); setStep('new'); return; }
+    setViaChange(true); setStep('done');
   }} /></div>}</>;
 }
 const OLD_HINT_QUESTIONS = ['孩子的小名是？', '家里宠物/玩偶的名字是？', '孩子的生日（如 0612）是？'];
@@ -597,7 +601,7 @@ function HintEdit({ settings, setSettings, forced }: { settings: Settings; setSe
 function RecTypeBack({ code, onConfirmed, onLater, doneId = 'rec-done' }: { code: string; onConfirmed: () => void; onLater: () => void; doneId?: string }) {
   const [v, setV] = useState(''); const ok = normCode(v) === code;
   return <div className="rec-typeback" data-testid="rec-typeback"><p className="hint">抄好后，请把恢复码再输入一遍确认：</p>
-    <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="rec-type" placeholder="再输入一遍 8 位恢复码" value={v} maxLength={12} onChange={e => setV(e.target.value)} />
+    <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="rec-type" placeholder="再输入一遍 8 位恢复码" value={v} maxLength={12} onChange={e => setV(e.target.value)} /><CodeCount v={v} />
     {v && !ok && normCode(v).length >= 8 && <p className="warn">和上面的不一样，请对照再输一遍</p>}
     <div className="row gap16"><button className="btn" data-testid="rec-type-ok" disabled={!ok} onClick={onConfirmed}>确认已抄好</button><button className="btn ghost" data-testid={doneId} onClick={onLater}>稍后</button></div></div>;
 }
@@ -702,4 +706,20 @@ export function GateRestore() {
           try { const snap = await importAll(data, { backupSecret: sec }); download(`知识勇者_恢复前快照_${dayStr()}.json`, JSON.stringify(snap)); logReload('import-restore', 'gate'); setTimeout(() => location.reload(), 800); setMsg('已恢复，正在重新打开…'); } catch (er) { setMsg((er as Error).message); }
         }}>覆盖恢复</button></div></div></Modal>}
   </div>;
+}
+
+/** r16 较真家长 3：恢复码框旁实时显示「已输入 n/8 位：XXXX XXXX」（家长自己看得出丢没丢字） */
+export function CodeCount({ v }: { v: string }) {
+  const c = normCode(v); if (!v) return null;
+  return <small className="hint code-count" data-testid="rec-count">已输入 {Math.min(c.length, 8)}/8 位{c ? `：${c.slice(0, 4)} ${c.slice(4, 8)}`.trimEnd() : ''}{c.length < 8 ? `，还差 ${8 - c.length} 位` : c.length > 8 ? `（多了 ${c.length - 8} 位）` : ''}</small>;
+}
+/** r16 较真家长 3：锁定倒计时单独一个组件——只有它自己每秒渲染；按单调时钟扣（技术QA R4-4）、写回存储；到期通知上层一次 */
+function LockLeft({ lk, k, onEnd, text }: { lk: LockState; k: string; onEnd: (n: LockState) => void; text: (sec: number) => string }) {
+  const [l, setL] = useState(lk); const end = useRef(onEnd); end.current = onEnd;
+  useEffect(() => { setL(lk); }, [lk]);
+  useEffect(() => { let last = performance.now(); const t = setInterval(() => { const p = performance.now(), dt = p - last; last = p;
+    if ((window as unknown as { __zyRestoring?: boolean }).__zyRestoring) return;
+    setL(cur => { if (!lockLeft(cur)) return cur; const n = tickLock(cur, dt, Date.now()); void saveLock(n, k); if (!lockLeft(n)) setTimeout(() => end.current(n)); return n; }); }, 1000);
+    return () => clearInterval(t); }, [k]);
+  return <span data-testid={'lock-left-' + k}>{text(Math.ceil(lockLeft(l) / 1000))}</span>;
 }

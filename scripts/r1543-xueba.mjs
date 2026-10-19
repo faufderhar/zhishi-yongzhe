@@ -18,7 +18,7 @@ async function toMap() { for (let i = 0; i < 30 && !(await vis('[data-testid=lev
 async function fresh(grade, init) { const ctx = await b.newContext({ viewport: { width: VP[0], height: VP[1] }, hasTouch: true }); pg = await ctx.newPage(); pg.setDefaultTimeout(8000);
   await pg.addInitScript(init);
   await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
-  await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(500);
+  await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500);
   for (const sel of ['[data-testid=rec-done]', 'text=我已经抄好了']) if (await vis(sel)) { await tap(sel); await w(300); }
   if (await vis('.modal >> text=稍后')) await tap('.modal >> text=稍后');
   await pg.fill('[data-testid=add-name]', 'r9'); await tap(`[data-testid=home-grade-${grade}]`); await w(400); await toMap();
