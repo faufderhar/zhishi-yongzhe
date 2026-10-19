@@ -7,6 +7,7 @@
 //   测试包另外读游戏自己的 __zyAudioLog（manifest 键 + decode / start / end）。
 // 场景 A（测试员那次）：上限 5 分钟 → 打第 1 关时不答题等到收尾横条出现 → 横条出现马上要放 p:grace → 答完这一关 → 收尾里打完的结算页放 p:res_k* + p:timeup_k
 //          → 回地图点关卡 → 睡觉云放 p:sleepy。
+// 场景 C（r15.4.3 小萌新）：不限时，同一关连打两次（第二次没超过最佳、不加星）→ 结算页只有一个图标 + 「今天玩得真棒，明天再来吧」，自动播 p:res_k_done；🔊 重播
 // 场景 B：强制结算：收尾开始后最后一次点屏 ≥ 50 秒才到时间（结算页出现前没有手势）→ 结算页放 p:timeup_k。
 import { chromium } from 'playwright';
 import { mkdirSync } from 'node:fs';
@@ -31,7 +32,7 @@ const INIT = test => {
   window.__realSetTimeout = setTimeout;   // page.clock 装上之前的真定时器（量 currentTime 用）
   const op = HTMLMediaElement.prototype.play; HTMLMediaElement.prototype.play = function () { const f = (this.currentSrc || this.src || '').split('/').pop(); const p = op.call(this); p.then(() => L.push({ ev: 'el-start', f, t: now() }), err => L.push({ ev: 'el-blocked', f, t: now(), err: String(err?.name) })); return p; };
 };
-async function session(name) {
+async function session(name, noLimit = false) {
   const opt = { viewport: { width: 1393, height: 901 }, hasTouch: true };
   const ctx = AUDIBLE ? await chromium.launchPersistentContext('/tmp/r1542-vt-' + name + '-' + Date.now(), { ...opt, channel: 'chromium', headless: false, args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, '--autoplay-policy=user-gesture-required'] }) : await b.newContext(opt);
   let sw = null; if (AUDIBLE) { sw = ctx.serviceWorkers().find(x => x.url().startsWith('chrome-extension://')) ?? await ctx.waitForEvent('serviceworker', { timeout: 10000 }); }
@@ -54,7 +55,7 @@ async function session(name) {
   for (let i = 0; i < 12 && !(await vis('[data-testid=parent]')); i++) { for (const s of ['[data-testid=to-map]', '[data-testid=map-back]', '[data-testid=grade-back]', '[data-testid=stage-pick] >> text=返回', '[data-testid=back-char]']) if (await vis(s)) { await tap(s); break; } await w(500); }
   await tap('[data-testid=parent]'); await w(300); await pinIn('2468'); await w(500); if (await vis('.modal >> text=稍后')) { await tap('.modal >> text=稍后'); await w(300); }
   await tap('[data-testid=ptab-profiles]'); await w(300); await tap(`[data-testid=edit-${pid}]`); await w(400);
-  for (const k of ['weekday', 'weekend']) for (let i = 0; i < 8; i++) { const v = Number((await pg.textContent(`[data-testid=limit-${k}-val]`).catch(() => '')).match(/\d+/)?.[0]); if (!v || v === 5) break; await tap(`[data-testid=limit-${k}-${v > 5 ? 'minus' : 'plus'}]`); await w(150); }
+  if (!noLimit) for (const k of ['weekday', 'weekend']) for (let i = 0; i < 8; i++) { const v = Number((await pg.textContent(`[data-testid=limit-${k}-val]`).catch(() => '')).match(/\d+/)?.[0]); if (!v || v === 5) break; await tap(`[data-testid=limit-${k}-${v > 5 ? 'minus' : 'plus'}]`); await w(150); }
   const lim = await pg.textContent('[data-testid=limit-weekday-val]').catch(() => '?');
   await tap('[data-testid=profile-save]'); await w(500); await tap('[data-testid=parent-close]'); await w(500);
   // 等录音预缓存
@@ -125,6 +126,24 @@ if (on('B')) {
   // r15.4.2 较真家长 A：结算页 🔊 再听一遍（LIVE 包没有这个按钮：NOREPLAY=1 跳过）
   if (process.env.NOREPLAY) console.log('SKIP B(d) 🔊 再听一遍（NOREPLAY）'); else { await S.w(4000); const i3 = (await log(S.pg)).length; const has = await S.tap('[data-testid=timeup-replay]');
     const er = has ? await waitStart(S, /^p_timeup_k\./, i3, 5000, true) : null; ok(has && good(er) && whole(er), `B(d) 小班时间到结算页有 🔊，点了重放 p:timeup_k：${er ? describe(er) : '没有按钮'}`); await S.pg.screenshot({ path: OUT + `${TAG}-B-replay.png` }); }
+  await S.ctx.close();
+}
+if (on('C')) {
+  const S = await session('rc', true);
+  const corr = TEST ? '.kopt[data-correct="1"]:not([disabled])' : '.kopt:not([disabled])';
+  const play = async () => { await enterLevel(S); for (let i = 0; i < 80 && !(await S.vis('[data-testid=kinder-sub]')) && !(await S.vis('[data-testid=result-k-done]')); i++) { if (await S.tap(corr)) await S.w(2500); else await S.w(700); } };
+  await play(); const t1 = (await S.pg.textContent('.center-screen').catch(() => '')).replace(/\s+/g, ' '); await S.pg.screenshot({ path: OUT + `${TAG}-C1-first.png` });
+  ok(await S.vis('[data-testid=kinder-sub]') && !(await S.vis('[data-testid=star-rules]')) && !/六成|八成/.test(t1), `C(a) 第一次打完（加星）：照常的小班结算页，没有「六成 / 八成」图例：「${t1.slice(0, 50)}」`);
+  await S.w(3000); await S.tap('[data-testid=to-map]'); await S.w(1200);
+  const i0 = (await log(S.pg)).length; const g0 = TEST ? (await glog(S.pg)).length : 0; await play();
+  const t2 = (await S.pg.textContent('.center-screen').catch(() => '')).replace(/\s+/g, ' '); await S.pg.screenshot({ path: OUT + `${TAG}-C2-nostar.png` });
+  const only = await S.pg.evaluate(() => { const c = document.querySelector('.center-screen'); return { h1: c.querySelectorAll('h1').length, p: [...c.querySelectorAll('p')].map(x => x.textContent).filter(Boolean), icon: !!c.querySelector('[data-testid=result-k-icon]') }; });
+  const e = await waitStart(S, /^p_res_k_done\./, i0, 8000, true);
+  ok(/今天玩得真棒，明天再来吧/.test(t2) && only.icon && only.h1 === 1 && only.p.length === 0 && !/第 \d 次|不再加星|六成|八成|最佳/.test(t2), `C(b) 第二次没加星：只有图标 + 一句（${JSON.stringify(only)}；「${t2.slice(0, 40)}」）`);
+  const gl = TEST ? (await glog(S.pg)).slice(g0).filter(x => /res_k_done/.test(x.key || '')) : [];
+  ok(good(e) && whole(e) && (!TEST || gl.some(x => x.ev === 'start')), `C(c) 自动播 p:res_k_done：${describe(e)}${TEST ? ` | __zyAudioLog ${gl.map(x => x.ev + ':' + x.key).join(', ') || '无'}` : ''}`);
+  await S.w(3000); const i1 = (await log(S.pg)).length; const has = await S.tap('[data-testid=result-k-replay]'); const er = has ? await waitStart(S, /^p_res_k_done\./, i1, 6000, true) : null;
+  ok(has && good(er) && whole(er), `C(d) 🔊 重播 p:res_k_done：${er ? describe(er) : '没有按钮'}`);
   await S.ctx.close();
 }
 console.log(bad ? `r1542-voice-timeup FAIL ${bad}` : 'r1542-voice-timeup ALL PASS'); await b?.close(); process.exit(bad ? 1 : 0);

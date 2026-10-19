@@ -7,10 +7,10 @@ import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
-import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT } from '../game/playtime';
+import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_K, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
+import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
@@ -236,10 +236,15 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
   const acc = total ? Math.round(correct / total * 100) : 0;
   /* r15.4.1 较真家长：小班时间到（强制结算或在收尾里打完）——自动朗读「今天玩够啦，明天见」，不显示「这次 0★，没有超过最佳…」这类给大人看的星星比较 */
   const kTime = cfg.band === 'K' && (timeUp || !!forcedTimeUp);
+  /* r15.4.3 小萌新：小班这次没加星（今天第 3 次起，或没超过最佳）→ 只放一个图标 + 一句「今天玩得真棒，明天再来吧」（自动朗读、可重播）；
+     不再写「同一关每天从第 3 次起不再加星……」这类给大人看的长句，规则说明挪到家长页。其他年级不变 */
+  const kNoStar = cfg.band === 'K' && !kTime && (capped || (prevBest !== undefined && prevBest > 0 && stars <= prevBest));
+  useEffect(() => { if (kNoStar) { const id = setTimeout(() => speak(K_NOSTAR_TEXT), 1200); return () => clearTimeout(id); } }, [kNoStar]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
     <div className="center-screen" data-ktime={kTime ? '1' : undefined}>
       {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><div className="row gap16 kt-title"><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={() => speak(TIMEUP_K_TEXT)}>🔊</button>}</div><p data-testid="timeup">⏰ 今天的时间到啦</p></>
+      : kNoStar ? <><div className="big-emoji xl" aria-hidden data-testid="result-k-icon">🌈</div><div className="row gap16 kt-title"><h1 data-testid="result-k-done">{K_NOSTAR_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="result-k-replay" onClick={() => speak(K_NOSTAR_TEXT)}>🔊</button>}</div></>
       : cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
@@ -261,12 +266,12 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
       {!(cfg.band === 'K' && forcedTimeUp) && !capped && !(prevBest !== undefined && prevBest > 0 && stars <= prevBest) && <Stars n={stars} size={72} />}
       {/* r15.4.2 小萌新：小班普通结算页也不显示这句给大人看的星星比较 */}
       {!kTime && cfg.band !== 'K' && !capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">这次 {'★'.repeat(stars) || '0★'}，没有超过最佳 {'★'.repeat(prevBest)}，地图上的星星不变。</p>}
-      {!kTime && capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
-      {!kTime && !capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星）；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
-      {!kTime && best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
+      {!kTime && !kNoStar && capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
+      {!kTime && cfg.band !== 'K' && !capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星）；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
+      {!kTime && !kNoStar && best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       {chalHint && <p className="sub" data-testid="result-chal-hint">🔥 {CHAL_STAR_HINT}</p>}   {/* r15.2：只因没答对挑战题拿 2 星 */}
-      {!kTime && <p className="star-rules" data-testid="star-rules">{cfg.band === 'K' ? STAR_RULES_K : cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>}
-      {cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
+      {!kTime && cfg.band !== 'K' && <p className="star-rules" data-testid="star-rules">{cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>}   {/* r15.4.3 小萌新：小班不显示「第一次就答对六成 / 八成」图例（规则在家长页） */}
+      {kNoStar ? null : cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && !(cfg.band === 'K' && forcedTimeUp) && <p className="warn">{kTime ? <>😴 {TIMEUP_K_TEXT}</> : '今天的时间用完啦，休息一下吧！明天 0:00 重新计时。'}</p>}
       <div className="row gap24">
         {!timeUp && <button className="btn ghost" data-testid="again" onClick={onAgain}>再玩一次</button>}

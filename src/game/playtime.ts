@@ -100,3 +100,5 @@ export const SLEEPY_RESET = '明天 0:00 重新计时';
 export const SLEEPY_VOICE = '今天玩够啦，明天再来哦。明天零点重新计时';
 /* r15.4.1 较真家长：小班时间到的结算页（自动朗读；不显示星星比较） */
 export const TIMEUP_K_TEXT = '今天玩够啦，明天见';
+/** r15.4.3 小萌新：小班这次没加星时结算页唯一的一句（录音 p:res_k_done） */
+export const K_NOSTAR_TEXT = '今天玩得真棒，明天再来吧';

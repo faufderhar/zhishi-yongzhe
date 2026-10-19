@@ -817,7 +817,8 @@
   "p:tut_q3": "KC-001_stem.e4f86560c3.mp3",
   "p:tut_s2": "p_tut_s2.3894682791.mp3",
   "p:tut_s3": "p_tut_s3.1edf086464.mp3",
-  "p:rotate_k": "p_rotate_k.feca7eb92c.mp3"
+  "p:rotate_k": "p_rotate_k.feca7eb92c.mp3",
+  "p:res_k_done": "p_res_k_done.69cc2dbadd.mp3"
  },
  "meta": {
   "K-001#opt0": {
@@ -17837,6 +17838,30 @@
    "tp": -2.4,
    "pregain_db": 7.68,
    "limiter_gr_db": 1.2,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_done": {
+   "file": "p_res_k_done.69cc2dbadd.mp3",
+   "text": "今天玩得真棒，明天再来吧",
+   "segments": [
+    [
+     "zh",
+     "今天玩得真棒，明天再来吧"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.5,
+   "hash": "69cc2dbaddee75f0b6ac7ccaf181a8a08959d70a2240cba1f62c2874e072c101",
+   "phonemes": [
+    "zh|zf_002|1.5|ㄐ阴1ㄊ言1/万2/ㄉㄜ5/ㄓㄣ1ㄅㄤ4, ㄇ应2ㄊ言1/ㄗㄞ4/ㄌㄞ2/ㄅㄚ5"
+   ],
+   "synth_s": 0.92,
+   "duration": 2.208,
+   "lufs": -16.3,
+   "tp": -2.1,
+   "pregain_db": 7.45,
+   "limiter_gr_db": 1.98,
    "gr_flag": false,
    "norm": "linear"
   }
