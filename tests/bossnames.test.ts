@@ -7,9 +7,11 @@ import { skinFor, SKINS, BOSS_NAME, CHAPTER_BOSS, chapterBoss } from '../src/gam
 import MANIFEST from '../src/game/monsters.manifest.json';
 const bare = (n: string) => n.replace(/^[^·]+·/, '');
 // r15.4.4：题库 v32 新增的高一章节（生物必修2、政治必修3、历史纲要下、地理必修第二册、化学专题8–9）还没有策划给的 Boss 名（R-5，r16 补），
-// 暂用本科目通用 Boss 名——这些章不参加重名 / 主色检查，数量钉死（补名后改成 0）
-const GENERIC_OK: Record<string, number> = { '7': 0, '10': 30 };
-const NEW_V32 = (s: string, v: string, u: string) => (s === '生物' && v === '必修第二册') || (s === '政治' && v === '必修第三册') || (s === '历史' && v === '必修下册') || (s === '地理' && v === '必修第二册') || (s === '化学' && /^专题[89]/.test(u));
+// 暂用本科目通用 Boss 名——这些章不参加重名 / 主色检查，数量钉死（补名后改成 0）。
+// v33：纲要上第六、第八单元补题后够 12 题，第一次有章节 Boss，同样暂用通用名（+2）
+const GENERIC_OK: Record<string, number> = { '7': 0, '10': 32 };
+const NEW_V32 = (s: string, v: string, u: string) => (s === '生物' && v === '必修第二册') || (s === '政治' && v === '必修第三册') || (s === '历史' && v === '必修下册') || (s === '地理' && v === '必修第二册') || (s === '化学' && /^专题[89]/.test(u))
+  || (s === '历史' && v === '必修上册' && /^第[六八]单元/.test(u));   // v33
 for (const [g, band, label] of [['7', 'J', '初一'], ['10', 'H', '高一']] as const) {
   it(`${label}：章节 Boss 不重名、不和其他怪物重名、同一美术主色各不相同`, () => {
     const all = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const qs = playable(all, false);

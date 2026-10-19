@@ -10,6 +10,11 @@ ap = argparse.ArgumentParser(); ap.add_argument('--src', default='/workspace/que
 a = ap.parse_args()
 ver = open(os.path.join(a.src, 'src', 'VERSION'), encoding='utf-8').read().strip()
 lst = os.path.join(a.src, f'需家长确认清单_{ver}.csv')
+if not os.path.exists(lst):   # 本版没有新标需家长确认的题时沿用上一版清单（v33 README：清单仍是 需家长确认清单_v32.csv）
+    vn = lambda f: int(''.join(c for c in os.path.basename(f).split('_v')[-1] if c.isdigit()) or 0)
+    old = sorted((f for f in glob.glob(os.path.join(a.src, '需家长确认清单_v*.csv')) if vn(f) <= int(ver.lstrip('v'))), key=vn)
+    if old: lst = old[-1]
+print(f'需家长确认清单：{os.path.basename(lst)}', file=sys.stderr)
 listed = set()
 if os.path.exists(lst):
     for r in csv.DictReader(open(lst, encoding='utf-8-sig')):
