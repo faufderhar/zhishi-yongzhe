@@ -1,6 +1,7 @@
-// r15.4.3 较真家长 P2-4：取消加时后数字前后一致
+// r15.4.3 较真家长 P2-4 / P3：取消加时后数字前后一致；用完时的文案
 import { it, expect } from 'vitest';
 import { addBonus, addUsage, cancelBonus, bonusUsedSec, cancelPreview, bonusAllSpent, remainingSec, type Usage } from '../src/game/playtime';
+import { timeLeftText } from '../src/ui/Screens';
 const D = '2026-10-18', L5 = { weekday: 5, weekend: 5 }, L15 = { weekday: 15, weekend: 15 };
 it('上限 5 分钟、加 10 分钟、玩了 9:14 → 取消没用的 5:46；之后把上限改回 15，留下的 4:14 仍是「已用掉、不能取消」', () => {
   let u: Usage = addBonus({}, D, 600); u = addUsage(u, D, 554, 900);
@@ -17,3 +18,7 @@ it('取消后又加 10 分钟 → 新加的可以取消，留下的已用部分�
   u = cancelBonus(u, D, 300); expect(u[D]).toMatchObject({ bonus: 254, spent: 254 });
 });
 it('全部没用就取消 → 不留 spent', () => { const u = cancelBonus(addBonus({}, D, 600), D, 300); expect(u[D]).toEqual({ used: 0, bonus: 0 }); });
+it('P3 文案：用完时不再写「还能玩 0 分钟（含今天临时加时…）」', () => {
+  expect(timeLeftText(0, 254)).toBe('今天的时间已用完（其中临时加时 4 分钟也已用完）');
+  expect(timeLeftText(0, 0)).toBe('今天还能玩 0 分钟'); expect(timeLeftText(600, 600)).toBe('今天还能玩 10 分钟（含今天临时加时 10 分钟）');
+});

@@ -46,6 +46,8 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
 }
 /** r11（较真家长）：剩余时间里含临时加时时写明 */
 export const bonusNote = (rem: number | undefined, b: number | undefined) => b && b > 0 && rem !== undefined && Number.isFinite(rem) ? `（含今天临时加时 ${Math.round(b / 60)} 分钟）` : '';
+/** r15.4.3 较真家长 P3：用完了还写「还能玩 0 分钟（含今天临时加时 4 分钟）」像是还有时间 → 改成「今天的时间已用完（其中临时加时 4 分钟也已用完）」 */
+export const timeLeftText = (rem: number | undefined, b: number | undefined) => rem === 0 && b && b > 0 ? `今天的时间已用完（其中临时加时 ${Math.max(1, Math.round(b / 60))} 分钟也已用完）` : `今天还能玩 ${fmtMin(rem ?? Infinity)}${bonusNote(rem, b)}`;
 /** 安装引导（GDD §9.5 / 技术QA P2-8）：iPad 非主屏幕模式显示「分享 → 添加到主屏幕」；安卓显示〔安装到主屏幕〕 */
 type BIP = { prompt: () => Promise<void> | void; userChoice?: Promise<{ outcome: 'accepted' | 'dismissed' }> };
 let deferredPrompt: BIP | null = null;
@@ -97,7 +99,7 @@ export function ProfileSelect({ profiles, remaining, bonus = {}, onPick, onParen
             <small>{GRADE_LABEL[p.grade]}</small>
             {(() => { const same = profiles.filter(x => x.name === p.name && x.avatar === p.avatar); if (same.length < 2) return null; const i = same.indexOf(p);   // r14 小萌新：同名同头像的档案加编号和颜色区分
               return <small className="dup-tag" data-testid={'dup-' + p.id} style={{ background: ['#4cc9f0', '#f72585', '#ffd23f', '#80ed99'][i % 4] }}>{p.name} {i + 1} 号</small>; })()}
-            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>今天还能玩 {fmtMin(remaining[p.id] ?? Infinity)}{bonusNote(remaining[p.id], bonus[p.id])}</small>
+            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>{timeLeftText(remaining[p.id], bonus[p.id])}</small>
           </button>
         ))}
         {canAdd && <button className="profile-card add-card" data-testid="add-child" onClick={onAddRequest}>
@@ -173,7 +175,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
         {/* r15.4 学霸：在别的年级玩时写明这是哪个年级的档案（「初一同学 · 初一档案 · 在玩高一的关卡」），不会被当成高一档案名取错 */}<span className="who" data-testid="map-who">{p.avatar} {p.name} · {(() => { const hg = (p as { homeGrade?: GradeKey }).homeGrade; return hg && hg !== p.grade ? `${GRADE_LABEL[hg]}档案 · 在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]; })()}</span>
         <span className="star-total" data-testid="star-total" title={progress.masteredStars ? `关卡 ${levelStarsTotal} + 错题掌握 ${progress.masteredStars}` : undefined}>★ {levelStarsTotal}{progress.masteredStars ? <small> ＋掌握 {progress.masteredStars}</small> : null}</span>
-        <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ 今天还能玩 {fmtMin(remaining)}{bonusNote(remaining, bonus)}</span>
+        <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ {timeLeftText(remaining, bonus)}</span>
         <span className="grow" />
         <button className="chip" onClick={onChar} data-testid="change-char">{c ? <Sprite className="chip-img" c={c} /> : '🐶'} 选角色</button>
         {cfg.band !== 'K' && <button className="chip" data-testid="wrongbook" onClick={onWrongBook}>📕 错题本 {wrong.length}</button>}
