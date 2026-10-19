@@ -848,7 +848,8 @@
   "p:tut_q2": "KD-002_stem.b953ed7034.mp3",
   "p:tut_q3": "KC-001_stem.e4f86560c3.mp3",
   "p:tut_s2": "p_tut_s2.3894682791.mp3",
-  "p:tut_s3": "p_tut_s3.1edf086464.mp3"
+  "p:tut_s3": "p_tut_s3.1edf086464.mp3",
+  "p:res_k_again": "p_res_k_again.75105f8424.mp3"
  },
  "meta": {
   "K-001#opt0": {
@@ -871,7 +872,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear"
@@ -1022,7 +1023,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1070,7 +1071,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -1126,7 +1127,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1148,7 +1149,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄒ要3压1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.56,
    "lufs": -16.3,
    "tp": -2.3,
@@ -1174,7 +1175,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -1205,7 +1206,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1227,7 +1228,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1253,7 +1254,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄑㄧ4ㄑ又2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1279,7 +1280,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1306,7 +1307,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -1337,7 +1338,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1359,7 +1360,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎㄜ1/ㄒ应1ㄒ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1389,7 +1390,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1411,7 +1412,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1464,7 +1465,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄌ阳4/ㄒ要3ㄑㄧ4ㄔㄜ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.8,
    "lufs": -16.3,
    "tp": -2.3,
@@ -1520,7 +1521,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1542,7 +1543,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1569,7 +1570,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄊ要2/ㄒ要3ㄩ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.5,
@@ -1595,7 +1596,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1626,7 +1627,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1674,10 +1675,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4 ㄧ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.87,
    "gr_flag": false,
@@ -1726,7 +1727,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -1779,12 +1780,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4 ㄦ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.3,
    "tp": -2.4,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -1831,7 +1832,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -1862,7 +1863,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -1884,7 +1885,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4 ㄙㄢ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
    "tp": -2.2,
@@ -1910,12 +1911,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄆ应2ㄍ我3/ㄉ我1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.4,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -1936,12 +1937,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄊㄤ2ㄍ我3ㄕㄠ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.3,
    "tp": -3.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -1962,7 +1963,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -2019,7 +2020,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2096,7 +2097,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2144,7 +2145,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄆㄥ2又5/又2ㄐㄧ3ㄓ十1/言3ㄐ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.5,
@@ -2170,7 +2171,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄚ4ㄒ阳4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -2196,7 +2197,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄠ2ㄕㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.4,
@@ -2222,12 +2223,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄚ4ㄒ阳4/ㄏㄜ2/ㄌㄠ2ㄕㄨ3, ㄋㄚ3ㄍㄜ4/ㄉㄚ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.656,
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -2248,7 +2249,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄍㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -2274,12 +2275,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄚ2ㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -2300,7 +2301,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄚ2ㄧ3/ㄏㄜ2/ㄒ要2ㄍㄡ3, ㄋㄚ3ㄍㄜ4/ㄒ要3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.728,
    "lufs": -16.4,
    "tp": -2.4,
@@ -2382,7 +2383,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2404,7 +2405,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄊ要2/ㄒ要3ㄩ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.5,
@@ -2461,7 +2462,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2509,7 +2510,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎㄜ1/ㄒ应1ㄒ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.3,
@@ -2566,7 +2567,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2614,7 +2615,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄑㄧ4ㄑ又2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
    "tp": -2.3,
@@ -2645,7 +2646,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2719,7 +2720,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄑㄧ4ㄑ又2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
    "tp": -2.3,
@@ -2776,7 +2777,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2824,10 +2825,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄒ要3ㄐㄧ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -2906,7 +2907,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -2928,7 +2929,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄘㄠ3ㄇㄟ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.488,
    "lufs": -16.3,
    "tp": -2.5,
@@ -2954,7 +2955,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3011,7 +3012,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3033,7 +3034,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄘㄠ3ㄇㄟ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.488,
    "lufs": -16.3,
    "tp": -2.5,
@@ -3060,7 +3061,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3091,7 +3092,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3145,7 +3146,7 @@
    "lufs": -16.4,
    "tp": -3.5,
    "pregain_db": 6.91,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -3164,7 +3165,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3195,7 +3196,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3243,7 +3244,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄆ要2ㄔ中2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.3,
    "tp": -2.4,
@@ -3273,7 +3274,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3295,7 +3296,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3348,7 +3349,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎ外4/ㄅ应3ㄍㄢ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.2,
@@ -3374,7 +3375,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3401,7 +3402,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3432,7 +3433,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3480,7 +3481,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3507,7 +3508,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3538,7 +3539,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3560,7 +3561,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄊ要2/ㄒ要3ㄩ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.5,
@@ -3587,7 +3588,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3618,7 +3619,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -3640,7 +3641,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3667,7 +3668,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎㄜ1/ㄒ应1ㄒ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3694,7 +3695,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3720,7 +3721,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3747,7 +3748,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3774,7 +3775,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄑㄧ4ㄑ又2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3801,7 +3802,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3828,7 +3829,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3855,7 +3856,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3882,7 +3883,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄌ阳4/ㄒ要3ㄑㄧ4ㄔㄜ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.8,
    "lufs": -16.3,
    "tp": -2.3,
@@ -3909,7 +3910,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3936,7 +3937,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -3963,7 +3964,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -3990,10 +3991,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄒ要3ㄐㄧ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -4017,7 +4018,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3/ㄧ4ㄗㄨ3/ㄕ十4/ㄧ2ㄍㄜ5/ㄆ应2ㄍ我3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.464,
    "lufs": -16.4,
    "tp": -2.6,
@@ -4068,7 +4069,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3/ㄧ4ㄗㄨ3/ㄕ十4/ㄙㄢ1ㄍㄜ5/ㄆ应2ㄍ我3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.2,
@@ -4094,10 +4095,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3/ㄧ4ㄗㄨ3/ㄕ十4/ㄙㄭ4ㄍㄜ5/ㄆ应2ㄍ我3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -4120,7 +4121,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3/ㄧ4ㄗㄨ3/ㄕ十4/ㄨ3ㄍㄜ5/ㄆ应2ㄍ我3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.3,
    "tp": -2.5,
@@ -4146,7 +4147,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4173,7 +4174,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -4199,7 +4200,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4226,10 +4227,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄒ要3ㄐㄧ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -4253,7 +4254,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4280,7 +4281,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4307,7 +4308,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -4334,7 +4335,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄆ要2ㄔ中2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4361,7 +4362,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4388,7 +4389,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4414,7 +4415,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -4441,7 +4442,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄍㄜ5/ㄘㄠ3ㄇㄟ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.488,
    "lufs": -16.3,
    "tp": -2.5,
@@ -4468,7 +4469,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4495,7 +4496,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4522,7 +4523,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -4549,7 +4550,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎ外4/ㄅ应3ㄍㄢ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.2,
@@ -4576,7 +4577,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4602,7 +4603,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -4629,7 +4630,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4661,7 +4662,7 @@
    "lufs": -16.4,
    "tp": -3.5,
    "pregain_db": 6.91,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "K-026#stem",
@@ -4682,7 +4683,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -4709,7 +4710,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4736,7 +4737,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4789,9 +4790,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -4816,7 +4817,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4843,7 +4844,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4870,7 +4871,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄓ十1/ㄆ要2ㄔ中2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4897,7 +4898,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -4924,7 +4925,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -4951,9 +4952,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -4979,7 +4980,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄊ要2/ㄒ要3ㄩ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.5,
@@ -5006,7 +5007,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -5033,7 +5034,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5060,9 +5061,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -5088,7 +5089,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎ外4/ㄅ应3ㄍㄢ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.2,
@@ -5115,7 +5116,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5142,7 +5143,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -5169,9 +5170,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -5197,7 +5198,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ3ㄧ5ㄕㄨ3, 又2ㄐㄧ3ㄎㄜ1/ㄒ应1ㄒ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5224,9 +5225,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -5252,7 +5253,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -5279,7 +5280,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -5306,7 +5307,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄙㄭ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.3,
    "tp": -2.2,
@@ -5332,7 +5333,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -5359,7 +5360,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5412,7 +5413,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄨ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
    "tp": -2.2,
@@ -5438,7 +5439,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5491,7 +5492,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5518,7 +5519,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄌ又4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
    "tp": -2.2,
@@ -5544,9 +5545,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -5576,7 +5577,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -5598,7 +5599,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -5625,7 +5626,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄑㄧ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.3,
    "tp": -2.1,
@@ -5651,7 +5652,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -5678,7 +5679,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -5731,7 +5732,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄅㄚ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
    "tp": -2.4,
@@ -5757,7 +5758,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5784,7 +5785,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5837,7 +5838,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄐ又3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.1,
@@ -5863,9 +5864,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -5895,7 +5896,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -5917,7 +5918,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -5944,10 +5945,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ4ㄗㄭ4/ㄕ十2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -5970,7 +5971,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄊㄤ2ㄍ我3/ㄉ我1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
    "tp": -2.6,
@@ -5996,10 +5997,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄑ应1穵1/ㄉ我1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -6022,7 +6023,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄒ应1ㄒ应5/ㄉ我1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -1.9,
@@ -6048,12 +6049,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄒ阳1ㄐ要1/ㄉ我1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.3,
    "tp": -3.1,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -6074,12 +6075,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄒ要3压1/ㄉ我1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.4,
    "tp": -3.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -6106,7 +6107,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.69,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -6125,7 +6126,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄑㄧ4ㄑ又2/ㄕㄠ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -2.4,
@@ -6151,7 +6152,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄅ言1/ㄉㄜ5/ㄒ要3ㄏ穵1/ㄕㄠ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -3.1,
@@ -6177,7 +6178,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄤ2ㄐ应3ㄌㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.2,
@@ -6204,7 +6205,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄊㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
    "tp": -2.1,
@@ -6230,7 +6231,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄍㄠ1?   ㄔㄤ2ㄐ应3ㄌㄨ4/ㄏㄜ2/ㄒ要3ㄊㄨ4."
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.92,
    "lufs": -16.3,
    "tp": -2.1,
@@ -6262,7 +6263,7 @@
    "lufs": -16.4,
    "tp": -3.4,
    "pregain_db": 5.15,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -6306,7 +6307,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4ㄔㄤ2?   ㄔㄤ2ㄔㄤ2ㄉㄜ5/ㄕㄜ2/ㄏㄜ2/ㄉ万2ㄉ万3ㄉㄜ5/ㄇㄠ2ㄇㄠ5ㄔ中2."
    ],
-   "synth_s": 1.0,
+   "synth_s": 1,
    "status": "AI初审通过",
    "duration": 2.544,
    "lufs": -16.3,
@@ -6331,10 +6332,10 @@
    "phonemes": [
     "zh|zf_002|1.5|应1ㄊㄠ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -6357,7 +6358,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒㄧ1ㄍ穵1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -6383,7 +6384,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄉㄚ4?   ㄒㄧ1ㄍ穵1/ㄏㄜ2/应1ㄊㄠ2."
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.68,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6409,12 +6410,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄞ3ㄋ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.5,
    "tp": -3.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -6435,7 +6436,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄐㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.2,
@@ -6462,7 +6463,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄒ要3?   ㄒ要3ㄐㄧ1/ㄏㄜ2/ㄋㄞ3ㄋ又2."
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.776,
    "lufs": -16.4,
    "tp": -2.1,
@@ -6488,7 +6489,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ中2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6514,10 +6515,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ王2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0.78,
    "gr_flag": false,
@@ -6540,7 +6541,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄌㄩ4ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.2,
@@ -6591,12 +6592,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄟ1ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -6617,7 +6618,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄢ2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6643,7 +6644,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ中2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.1,
@@ -6669,7 +6670,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄘㄠ3ㄇㄟ2/ㄕ十4/ㄕㄣ2ㄇㄜ5/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -2.2,
@@ -6695,12 +6696,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄩ4ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -6721,7 +6722,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ王2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6747,7 +6748,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ中2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.1,
@@ -6774,7 +6775,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄘㄠ3/ㄕ十4/ㄕㄣ2ㄇㄜ5/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.368,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6800,12 +6801,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄩ4ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -6827,7 +6828,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄢ2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6854,7 +6855,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ中2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.1,
@@ -6881,7 +6882,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ言1ㄎ中1/ㄕ十4/ㄕㄣ2ㄇㄜ5/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.44,
    "lufs": -16.3,
    "tp": -2.3,
@@ -6907,7 +6908,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄅㄞ2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.3,
    "tp": -2.5,
@@ -6933,7 +6934,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏㄟ1ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.3,
@@ -6959,7 +6960,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/元2ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.3,
    "tp": -2.2,
@@ -6985,12 +6986,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄙㄢ1ㄐ要3ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.368,
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -7011,7 +7012,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄓㄥ4ㄈㄤ1ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -2.5,
@@ -7037,7 +7038,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄢ1ㄐ要3ㄒ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.3,
    "tp": -2.3,
@@ -7063,7 +7064,7 @@
    "phonemes": [
     "zh|zf_002|1.5|元2ㄒ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.696,
    "lufs": -16.4,
    "tp": -2.5,
@@ -7089,7 +7090,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄓㄥ4ㄈㄤ1ㄒ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.912,
    "lufs": -16.4,
    "tp": -2.4,
@@ -7115,7 +7116,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄞ4阳5/ㄒ阳4/ㄕㄣ2ㄇㄜ5/ㄒ应2ㄓ王4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.3,
    "tp": -2.1,
@@ -7141,7 +7142,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.576,
    "lufs": -16.4,
    "tp": -2.2,
@@ -7167,7 +7168,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆㄧ2ㄑ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7193,7 +7194,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅ应1ㄎ外4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.3,
@@ -7219,10 +7220,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄉ中1ㄒㄧ5/ㄕ十4/元2元2ㄉㄜ5?   ㄆㄧ2ㄑ又2, ㄕㄨ1, ㄏㄞ2ㄕ十4/ㄅ应1ㄎ外4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.928,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 1.06,
    "gr_flag": false,
@@ -7245,7 +7246,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄞ4ㄒ阴1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -2.4,
@@ -7271,7 +7272,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ应1ㄒ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.3,
    "tp": -2.1,
@@ -7297,7 +7298,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄔㄥ2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.4,
    "tp": -2.1,
@@ -7323,7 +7324,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄗㄭ3ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
    "tp": -2.1,
@@ -7349,7 +7350,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ中2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7376,10 +7377,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ王2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0.78,
    "gr_flag": false,
@@ -7403,7 +7404,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄌㄩ4ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.2,
@@ -7430,7 +7431,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ中2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7457,7 +7458,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄅㄞ2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.3,
    "tp": -2.5,
@@ -7484,7 +7485,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄈㄣ3ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7510,12 +7511,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄗㄭ3ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -4.2,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -7536,7 +7537,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄢ2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7563,7 +7564,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ王2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7590,7 +7591,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳1ㄐ要1/ㄕ十4/ㄕㄣ2ㄇㄜ5/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.368,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7616,7 +7617,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ中2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.1,
@@ -7643,12 +7644,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄩ4ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -7670,7 +7671,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄞ2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.4,
@@ -7696,7 +7697,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ月3/ㄕ十4/ㄕㄣ2ㄇㄜ5/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.5,
@@ -7722,12 +7723,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄟ1ㄙㄜ4/ㄏㄜ2/ㄅㄞ2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -7748,7 +7749,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄢ2ㄙㄜ4/ㄏㄜ2/ㄌㄩ4ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7774,7 +7775,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ中2ㄙㄜ4/ㄏㄜ2/ㄏ王2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.3,
    "tp": -2.2,
@@ -7800,7 +7801,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ用2ㄇㄠ1/ㄕㄣ1ㄕㄤ5/又2ㄋㄚ3/ㄌ阳2ㄓ中3/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.872,
    "lufs": -16.4,
    "tp": -2.3,
@@ -7826,12 +7827,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄔㄤ2ㄈㄤ1ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -7852,7 +7853,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/元2ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.3,
    "tp": -2.2,
@@ -7879,7 +7880,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄢ1ㄐ要3ㄒ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.3,
    "tp": -2.3,
@@ -7906,12 +7907,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄤ2ㄈㄤ1ㄒ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.936,
    "lufs": -16.4,
    "tp": -2.4,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -7932,7 +7933,7 @@
    "phonemes": [
     "zh|zf_002|1.5|元2ㄒ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.696,
    "lufs": -16.4,
    "tp": -2.5,
@@ -7959,7 +7960,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄓ中1ㄅ要3/ㄉㄜ5/ㄅ要3ㄇ言4/ㄒ阳4/ㄕㄣ2ㄇㄜ5/ㄒ应2ㄓ王4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.896,
    "lufs": -16.4,
    "tp": -2.2,
@@ -7985,7 +7986,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄧ2ㄎ外4/ㄆㄧ1ㄙㄚ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.4,
    "tp": -2.2,
@@ -8011,7 +8012,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄗㄨ2ㄑ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.8,
@@ -8037,12 +8038,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉ言4ㄕ十4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -8063,7 +8064,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄉ中1ㄒㄧ5/ㄒ阳4/ㄙㄢ1ㄐ要3ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.632,
    "lufs": -16.4,
    "tp": -2.3,
@@ -8089,7 +8090,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄢ2ㄑ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.6,
@@ -8115,7 +8116,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐㄧ1ㄉㄢ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -8141,7 +8142,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄧ3ㄨ4/ㄏㄜ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.744,
    "lufs": -16.4,
    "tp": -3.1,
@@ -8192,7 +8193,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐㄧ1ㄇㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -3.5,
@@ -8218,7 +8219,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆㄧ2ㄑ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -8245,7 +8246,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄜ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -2.2,
@@ -8271,7 +8272,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄏ为4/ㄍ文3ㄌㄞ2ㄍ文3ㄑㄩ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.416,
    "lufs": -16.4,
    "tp": -2.8,
@@ -8297,7 +8298,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ中2ㄙㄜ4/ㄉㄜ5/元2ㄒ应2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
    "tp": -2.4,
@@ -8323,7 +8324,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ王2ㄙㄜ4/ㄉㄜ5/ㄒ应1ㄒ应5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.608,
    "lufs": -16.4,
    "tp": -2.2,
@@ -8349,12 +8350,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要3ㄇㄠ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -8375,7 +8376,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要2ㄍㄡ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.3,
    "tp": -2.5,
@@ -8401,7 +8402,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要3ㄊㄨ4ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.3,
    "tp": -2.2,
@@ -8427,7 +8428,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要3ㄐㄧ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -2.4,
@@ -8453,12 +8454,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄉㄚ4ㄒ阳4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.3,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -8479,7 +8480,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -8505,7 +8506,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄍㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -8532,7 +8533,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄋ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.2,
@@ -8558,12 +8559,12 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄇ要1ㄇ要1/ㄇ要1”ㄕ十4/ㄕ为2/ㄗㄞ4/ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.416,
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -8584,7 +8585,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄍㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -8611,7 +8612,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -8638,7 +8639,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄍ中1ㄐㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.3,
@@ -8689,7 +8690,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3压1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -8715,7 +8716,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄓㄨ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -1.8,
@@ -8741,7 +8742,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3阳2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -3.8,
@@ -8767,7 +8768,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄍㄚ1ㄍㄚ1/ㄍㄚ1”ㄕ十4/ㄕ为2/ㄗㄞ4/ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.44,
    "lufs": -16.4,
    "tp": -2.2,
@@ -8793,7 +8794,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄋ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.2,
@@ -8820,7 +8821,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -8847,12 +8848,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑ应1穵1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -4.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -8873,12 +8874,12 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄇㄡ1ㄇㄡ1/ㄇㄡ1”ㄕ十4/ㄕ为2/ㄗㄞ4/ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.392,
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -8899,7 +8900,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3阳2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -3.8,
@@ -8926,7 +8927,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄋ要3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.696,
    "lufs": -16.3,
    "tp": -2.5,
@@ -8952,7 +8953,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄍㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -8979,12 +8980,12 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄇㄝ1ㄇㄝ1/ㄇㄝ1”ㄕ十4/ㄕ为2/ㄗㄞ4/ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.44,
    "lufs": -16.4,
    "tp": -3.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -9005,7 +9006,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ我2ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.576,
    "lufs": -16.4,
    "tp": -2.2,
@@ -9031,7 +9032,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ4ㄕㄤ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -9057,12 +9058,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -9083,7 +9084,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄩ2/ㄓㄨ4/ㄗㄞ4/ㄋㄚ2ㄌㄧ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.2,
@@ -9109,12 +9110,12 @@
    "phonemes": [
     "zh|zf_002|1.5|穵1ㄉ中4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -9135,7 +9136,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄈㄟ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9161,7 +9162,7 @@
    "phonemes": [
     "zh|zf_002|1.5|又2用3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.696,
    "lufs": -16.3,
    "tp": -2.1,
@@ -9187,7 +9188,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄋ要3/ㄏ为4/ㄗ我4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -2.5,
@@ -9213,7 +9214,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄖㄡ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.2,
@@ -9239,7 +9240,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.4,
@@ -9265,7 +9266,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄨ2ㄌ我2ㄅㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.744,
    "lufs": -16.4,
    "tp": -2.5,
@@ -9291,7 +9292,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄊㄨ4ㄗㄭ5/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.464,
    "lufs": -16.3,
    "tp": -2.2,
@@ -9317,7 +9318,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.4,
@@ -9344,7 +9345,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄨ2ㄌ我2ㄅㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.744,
    "lufs": -16.4,
    "tp": -2.5,
@@ -9371,12 +9372,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳1ㄐ要1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -9397,7 +9398,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -2.3,
@@ -9423,12 +9424,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳1ㄐ要1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -9456,7 +9457,7 @@
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 6.69,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -9475,7 +9476,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄘㄠ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9501,7 +9502,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄡ2ㄗㄭ5/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -2.2,
@@ -9527,12 +9528,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄨ4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -9553,7 +9554,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄤ2ㄐ应3ㄌㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.2,
@@ -9579,7 +9580,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄓㄨ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -1.8,
@@ -9606,7 +9607,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2/ㄉㄜ5/ㄅㄛ2ㄗㄭ5/ㄔㄤ2ㄔㄤ2ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.44,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9632,7 +9633,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要3ㄊㄨ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9658,7 +9659,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄌㄠ2ㄏㄨ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -3.6,
@@ -9684,7 +9685,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ用2ㄇㄠ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.032,
    "lufs": -16.4,
    "tp": -2.9,
@@ -9710,7 +9711,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄔㄤ2ㄐ应3ㄌㄨ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.4,
    "tp": -2.1,
@@ -9736,7 +9737,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏㄡ2ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9762,7 +9763,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要3压1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.3,
    "tp": -3.1,
@@ -9788,7 +9789,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄑ应1穵1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9814,7 +9815,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄑㄧ3ㄜ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -2.3,
@@ -9840,7 +9841,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏㄨ2ㄉㄝ2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.3,
    "tp": -2.2,
@@ -9866,7 +9867,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2/ㄏ为4“ㄇ要1ㄇ要1”ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -4.1,
@@ -9892,7 +9893,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2/ㄏ为4“ㄇㄡ1ㄇㄡ1”ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -2.8,
@@ -9918,7 +9919,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2/ㄏ为4“ㄇㄝ1ㄇㄝ1”ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -3.3,
@@ -9950,7 +9951,7 @@
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 5.84,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -9969,7 +9970,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ4ㄕㄤ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -9996,10 +9997,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄚ1ㄇㄛ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -10022,12 +10023,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -10049,7 +10050,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄩ2/ㄓㄨ4/ㄗㄞ4/ㄋㄚ2ㄌㄧ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.2,
@@ -10076,7 +10077,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄧ4ㄉ中4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -3.3,
@@ -10102,7 +10103,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ4ㄕㄤ5/ㄉㄜ5/ㄋ要3我1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.6,
@@ -10128,12 +10129,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -10155,7 +10156,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄋ要3/ㄉㄜ5/ㄐ压1/ㄗㄞ4/ㄋㄚ2ㄌㄧ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -3.3,
@@ -10181,7 +10182,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄊㄨ4/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.4,
    "tp": -2.3,
@@ -10207,7 +10208,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -2.3,
@@ -10234,7 +10235,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄡ2ㄗㄭ5/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -2.2,
@@ -10261,7 +10262,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄖㄡ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.2,
@@ -10288,12 +10289,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄓㄨ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -4.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -10314,7 +10315,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆㄧ1ㄙㄚ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -10340,12 +10341,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ用2ㄇㄠ1/ㄞ4/ㄔ十1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -10366,10 +10367,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2/ㄏ为4/ㄈㄟ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.792,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -10392,12 +10393,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为2/ㄏ为4/又2用3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.3,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -10478,7 +10479,7 @@
     "en|af_maple|1.5|dˈɔɡ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.112,
    "lufs": -16.3,
    "tp": -2.1,
@@ -10509,7 +10510,7 @@
     "en|af_maple|1.5|fˈɪʃ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.112,
    "lufs": -16.3,
    "tp": -2.2,
@@ -10540,7 +10541,7 @@
     "en|af_maple|1.5|bˈɜɹd",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.464,
    "lufs": -16.4,
    "tp": -2.1,
@@ -10571,10 +10572,10 @@
     "en|af_maple|1.5|dˈʌk",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.016,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 1.86,
    "gr_flag": false,
@@ -10602,7 +10603,7 @@
     "en|af_maple|1.5|pˈɪɡ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.064,
    "lufs": -16.4,
    "tp": -1.8,
@@ -10633,7 +10634,7 @@
     "en|af_maple|1.5|ɹˈæbət",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.112,
    "lufs": -16.4,
    "tp": -2.2,
@@ -10664,7 +10665,7 @@
     "en|af_maple|1.5|bˈɛɹ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.4,
    "tp": -2.3,
@@ -10695,7 +10696,7 @@
     "en|af_maple|1.5|pˈændə",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.16,
    "lufs": -16.3,
    "tp": -1.9,
@@ -10726,7 +10727,7 @@
     "en|af_maple|1.5|mˈʌŋki",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.16,
    "lufs": -16.4,
    "tp": -1.9,
@@ -10757,7 +10758,7 @@
     "en|af_maple|1.5|ˈæpᵊl",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.184,
    "lufs": -16.4,
    "tp": -2.1,
@@ -10788,7 +10789,7 @@
     "en|af_maple|1.5|bənˈænə",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.184,
    "lufs": -16.4,
    "tp": -1.9,
@@ -10819,7 +10820,7 @@
     "en|af_maple|1.5|ˈɔɹᵊnʤ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.112,
    "lufs": -16.4,
    "tp": -2.1,
@@ -10850,7 +10851,7 @@
     "en|af_maple|1.5|ɡɹˈAp",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.064,
    "lufs": -16.4,
    "tp": -2.2,
@@ -10881,7 +10882,7 @@
     "en|af_maple|1.5|wˈɔTəɹ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.136,
    "lufs": -16.3,
    "tp": -1.9,
@@ -10912,7 +10913,7 @@
     "en|af_maple|1.5|mˈɪlk",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.04,
    "lufs": -16.4,
    "tp": -2.3,
@@ -10943,7 +10944,7 @@
     "en|af_maple|1.5|ˈɛɡ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.064,
    "lufs": -16.4,
    "tp": -1.9,
@@ -10974,7 +10975,7 @@
     "en|af_maple|1.5|kˈAk",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.088,
    "lufs": -16.4,
    "tp": -2.2,
@@ -11005,7 +11006,7 @@
     "en|af_maple|1.5|ɹˈɛd",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3ㄍㄜ4/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.728,
    "lufs": -16.4,
    "tp": -2.4,
@@ -11036,10 +11037,10 @@
     "en|af_maple|1.5|blˈu",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3ㄍㄜ4/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.304,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -11067,7 +11068,7 @@
     "en|af_maple|1.5|jˈɛlO",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3ㄍㄜ4/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.4,
    "lufs": -16.3,
    "tp": -2.1,
@@ -11098,10 +11099,10 @@
     "en|af_maple|1.5|ɡɹˈin",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3ㄍㄜ4/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.328,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -11129,7 +11130,7 @@
     "en|af_maple|1.5|wˈIt",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3ㄍㄜ4/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.304,
    "lufs": -16.3,
    "tp": -1.8,
@@ -11160,7 +11161,7 @@
     "en|af_maple|1.5|blˈæk",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3ㄍㄜ4/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.28,
    "lufs": -16.4,
    "tp": -2.3,
@@ -11191,7 +11192,7 @@
     "en|af_maple|1.5|ˈI",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.04,
    "lufs": -16.4,
    "tp": -2.1,
@@ -11222,7 +11223,7 @@
     "en|af_maple|1.5|ˈɪɹ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.968,
    "lufs": -16.3,
    "tp": -2.1,
@@ -11253,7 +11254,7 @@
     "en|af_maple|1.5|nˈOz",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.184,
    "lufs": -16.3,
    "tp": -1.9,
@@ -11284,7 +11285,7 @@
     "en|af_maple|1.5|hˈænd",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.3,
    "tp": -2.1,
@@ -11315,7 +11316,7 @@
     "en|af_maple|1.5|mˈWθ",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.136,
    "lufs": -16.3,
    "tp": -2.3,
@@ -11345,7 +11346,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -11428,7 +11429,7 @@
    "status": "AI初审通过",
    "duration": 2.088,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.22,
    "limiter_gr_db": 1.96,
    "gr_flag": false,
@@ -11453,7 +11454,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -11532,7 +11533,7 @@
     "en|af_maple|1.5|tˈu",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.16,
    "lufs": -16.3,
    "tp": -2.2,
@@ -11562,7 +11563,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -11584,7 +11585,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -11642,7 +11643,7 @@
     "en|af_maple|1.5|θɹˈi",
     "zh|zf_002|1.5|ㄕ十4/ㄋㄚ3/ㄧ2ㄍㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.136,
    "lufs": -16.3,
    "tp": -1.8,
@@ -11699,7 +11700,7 @@
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 10.05,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -11730,8 +11731,8 @@
    "peak_retries": [
     {
      "attempt": 1,
-     "tp_target": -2.0,
-     "extra_gain_db": 0.0,
+     "tp_target": -2,
+     "extra_gain_db": 0,
      "lufs": -16.8,
      "tp": -1.4,
      "norm": "linear"
@@ -11739,14 +11740,14 @@
     {
      "attempt": 2,
      "tp_target": -2.5,
-     "extra_gain_db": 0.0,
+     "extra_gain_db": 0,
      "lufs": -17.3,
      "tp": -1.8,
      "norm": "linear"
     }
    ],
    "peak_fix": true,
-   "peak_fix_from_tp": -1.0
+   "peak_fix_from_tp": -1
   },
   "KE-033#stem": {
    "file": "KE-033_stem.c47cb9f1b0.mp3",
@@ -11776,7 +11777,7 @@
    "synth_s": 1.92,
    "status": "AI初审通过",
    "duration": 3.6,
-   "lufs": -16.0,
+   "lufs": -16,
    "tp": -1.9,
    "pregain_db": 8.2,
    "limiter_gr_db": 3.03,
@@ -11798,7 +11799,7 @@
    "phonemes": [
     "en|af_maple|1.5|θˈæŋk ju!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -1.7,
@@ -11835,8 +11836,8 @@
    "peak_retries": [
     {
      "attempt": 1,
-     "tp_target": -2.0,
-     "extra_gain_db": 0.0,
+     "tp_target": -2,
+     "extra_gain_db": 0,
      "lufs": -16.8,
      "tp": -1.4,
      "norm": "linear"
@@ -11844,14 +11845,14 @@
     {
      "attempt": 2,
      "tp_target": -2.5,
-     "extra_gain_db": 0.0,
+     "extra_gain_db": 0,
      "lufs": -17.3,
      "tp": -1.8,
      "norm": "linear"
     }
    ],
    "peak_fix": true,
-   "peak_fix_from_tp": -1.0,
+   "peak_fix_from_tp": -1,
    "dup_of": "KE-033#opt2",
    "status": "AI初审通过"
   },
@@ -11896,7 +11897,7 @@
    "phonemes": [
     "zh|zf_002|1.5|要4/ㄗㄡ3/ㄉㄜ5/ㄕ十2ㄏㄡ5/ㄕ我1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.56,
    "lufs": -16.4,
    "tp": -2.2,
@@ -11922,7 +11923,7 @@
    "phonemes": [
     "en|af_maple|1.5|θˈæŋk ju!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -1.7,
@@ -11954,7 +11955,7 @@
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 10.05,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KE-033#opt1",
@@ -11986,8 +11987,8 @@
    "peak_retries": [
     {
      "attempt": 1,
-     "tp_target": -2.0,
-     "extra_gain_db": 0.0,
+     "tp_target": -2,
+     "extra_gain_db": 0,
      "lufs": -16.8,
      "tp": -1.4,
      "norm": "linear"
@@ -11995,14 +11996,14 @@
     {
      "attempt": 2,
      "tp_target": -2.5,
-     "extra_gain_db": 0.0,
+     "extra_gain_db": 0,
      "lufs": -17.3,
      "tp": -1.8,
      "norm": "linear"
     }
    ],
    "peak_fix": true,
-   "peak_fix_from_tp": -1.0,
+   "peak_fix_from_tp": -1,
    "dup_of": "KE-033#opt2",
    "status": "AI初审通过"
   },
@@ -12021,7 +12022,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄝ2ㄖㄣ5/ㄙ中4/ㄋㄧ2ㄌㄧ3ㄨ4, 要4ㄕ我1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.992,
    "lufs": -16.4,
    "tp": -2.3,
@@ -12047,10 +12048,10 @@
    "phonemes": [
     "en|af_maple|1.5|ɡˈʊd nˈIt!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.59,
    "gr_flag": false,
@@ -12073,7 +12074,7 @@
    "phonemes": [
     "en|af_maple|1.5|ɡˈʊd mˈɔɹnɪŋ!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.8,
@@ -12110,8 +12111,8 @@
    "peak_retries": [
     {
      "attempt": 1,
-     "tp_target": -2.0,
-     "extra_gain_db": 0.0,
+     "tp_target": -2,
+     "extra_gain_db": 0,
      "lufs": -16.8,
      "tp": -1.4,
      "norm": "linear"
@@ -12119,14 +12120,14 @@
     {
      "attempt": 2,
      "tp_target": -2.5,
-     "extra_gain_db": 0.0,
+     "extra_gain_db": 0,
      "lufs": -17.3,
      "tp": -1.8,
      "norm": "linear"
     }
    ],
    "peak_fix": true,
-   "peak_fix_from_tp": -1.0,
+   "peak_fix_from_tp": -1,
    "dup_of": "KE-033#opt2",
    "status": "AI初审通过"
   },
@@ -12145,7 +12146,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄗㄠ3ㄕㄤ4/ㄐ言4ㄉㄠ4/ㄌㄠ3ㄕ十1/ㄕ我1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.872,
    "lufs": -16.4,
    "tp": -2.3,
@@ -12197,10 +12198,10 @@
    "phonemes": [
     "en|af_maple|1.5|ɡˈʊd nˈIt!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.59,
    "gr_flag": false,
@@ -12224,7 +12225,7 @@
    "phonemes": [
     "en|af_maple|1.5|ɡˈʊd mˈɔɹnɪŋ!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.8,
@@ -12251,7 +12252,7 @@
    "phonemes": [
     "zh|zf_002|1.5|万3ㄕㄤ5/ㄕ为4ㄐ要4/ㄑ言2/ㄕ我1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.632,
    "lufs": -16.4,
    "tp": -2.1,
@@ -12314,8 +12315,8 @@
    "peak_retries": [
     {
      "attempt": 1,
-     "tp_target": -2.0,
-     "extra_gain_db": 0.0,
+     "tp_target": -2,
+     "extra_gain_db": 0,
      "lufs": -16.8,
      "tp": -1.4,
      "norm": "linear"
@@ -12323,14 +12324,14 @@
     {
      "attempt": 2,
      "tp_target": -2.5,
-     "extra_gain_db": 0.0,
+     "extra_gain_db": 0,
      "lufs": -17.3,
      "tp": -1.8,
      "norm": "linear"
     }
    ],
    "peak_fix": true,
-   "peak_fix_from_tp": -1.0,
+   "peak_fix_from_tp": -1,
    "dup_of": "KE-033#opt2",
    "status": "AI初审通过"
   },
@@ -12354,7 +12355,7 @@
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 10.05,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KE-033#opt1",
@@ -12375,7 +12376,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄨ4ㄒ要3ㄒ阴1/ㄆㄥ4ㄉㄠ4/ㄒ要3ㄆㄥ2又5, 要4ㄕ我1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.376,
    "lufs": -16.4,
    "tp": -2.1,
@@ -12401,12 +12402,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄚ1ㄇㄚ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -3.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -12427,7 +12428,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ4ㄅㄚ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -2.8,
@@ -12453,7 +12454,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄠ3ㄅㄠ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -2.9,
@@ -12489,7 +12490,7 @@
     "en|af_maple|1.5|mˈɑm",
     "zh|zf_002|1.5|ㄕ十4/ㄕ为2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 3.192,
    "lufs": -16.1,
    "tp": -2.3,
@@ -12515,12 +12516,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄚ1ㄇㄚ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -3.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -12542,7 +12543,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄞ3ㄋㄞ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.8,
@@ -12568,7 +12569,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ4ㄅㄚ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -2.8,
@@ -12605,10 +12606,10 @@
     "en|af_maple|1.5|dˈæd",
     "zh|zf_002|1.5|ㄕ十4/ㄕ为2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 3.216,
    "lufs": -15.8,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.8,
    "gr_flag": false,
@@ -12645,7 +12646,7 @@
    "status": "AI初审通过",
    "duration": 2.976,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.56,
    "limiter_gr_db": 2.28,
    "gr_flag": false,
@@ -12680,7 +12681,7 @@
    "status": "AI初审通过",
    "duration": 3.48,
    "lufs": -15.9,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 8.36,
    "limiter_gr_db": 3.3,
    "gr_flag": false,
@@ -12744,7 +12745,7 @@
    "synth_s": 6.26,
    "status": "AI初审通过",
    "duration": 3.84,
-   "lufs": -16.0,
+   "lufs": -16,
    "tp": -2.1,
    "pregain_db": 7.54,
    "limiter_gr_db": 2.3,
@@ -12799,10 +12800,10 @@
    "synth_s": 1.3,
    "status": "AI初审通过",
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.3,
-   "pregain_db": 14.0,
-   "limiter_gr_db": 0.0,
+   "pregain_db": 14,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "peak_fallback",
    "loudness_note": "gated/short clip; peak-normalized (integrated LUFS not meaningful)"
@@ -12897,10 +12898,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.95,
    "gr_flag": false,
@@ -12924,7 +12925,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄦ3ㄉ我5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.3,
@@ -12955,7 +12956,7 @@
    "status": "AI初审通过",
    "duration": 0.576,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 9.44,
    "limiter_gr_db": 2.18,
    "gr_flag": false,
@@ -13016,7 +13017,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -13069,7 +13070,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -13110,7 +13111,7 @@
    "status": "AI初审通过",
    "duration": 3.528,
    "lufs": -15.7,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 8.29,
    "limiter_gr_db": 3.38,
    "gr_flag": false,
@@ -13156,10 +13157,10 @@
    "phonemes": [
     "en|af_maple|1.5|ɡˈʊd nˈIt!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.59,
    "gr_flag": false,
@@ -13188,7 +13189,7 @@
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 10.05,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KE-038#opt2",
@@ -13234,10 +13235,10 @@
    "phonemes": [
     "en|af_maple|1.5|ɡˈʊd nˈIt!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.59,
    "gr_flag": false,
@@ -13272,8 +13273,8 @@
    "peak_retries": [
     {
      "attempt": 1,
-     "tp_target": -2.0,
-     "extra_gain_db": 0.0,
+     "tp_target": -2,
+     "extra_gain_db": 0,
      "lufs": -16.8,
      "tp": -1.4,
      "norm": "linear"
@@ -13281,14 +13282,14 @@
     {
      "attempt": 2,
      "tp_target": -2.5,
-     "extra_gain_db": 0.0,
+     "extra_gain_db": 0,
      "lufs": -17.3,
      "tp": -1.8,
      "norm": "linear"
     }
    ],
    "peak_fix": true,
-   "peak_fix_from_tp": -1.0,
+   "peak_fix_from_tp": -1,
    "dup_of": "KE-038#opt1",
    "status": "AI初审通过"
   },
@@ -13398,7 +13399,7 @@
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 6.66,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -13423,7 +13424,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.16,
-   "limiter_gr_db": 2.0,
+   "limiter_gr_db": 2,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -13472,7 +13473,7 @@
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 6.66,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt1",
@@ -13493,7 +13494,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄢ3ㄊ言1/ㄉㄡ1/ㄕ十4/ㄒ要3ㄒ应1ㄒ应5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.416,
    "lufs": -16.4,
    "tp": -2.3,
@@ -13519,7 +13520,7 @@
    "phonemes": [
     "zh|zf_002|1.5|我3ㄇㄣ5/ㄉㄡ1/ㄕ十4/ㄏㄠ3/ㄆㄥ2又5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.3,
    "tp": -1.8,
@@ -13545,7 +13546,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄧ4ㄕㄢ3ㄧ4ㄕㄢ3/ㄌ阳4ㄐ应1ㄐ应1”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.16,
    "lufs": -16.4,
    "tp": -2.1,
@@ -13571,12 +13572,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄞ2又4ㄅㄞ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.816,
    "lufs": -16.4,
    "tp": -4.1,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -13597,7 +13598,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ阳4ㄐ应1ㄐ应1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.3,
    "tp": -2.4,
@@ -13623,12 +13624,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆㄠ3ㄉㄜ5ㄎ外4, ㄆㄠ3ㄉㄜ5ㄎ外4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.248,
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -13649,10 +13650,10 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄌ阳3ㄓ十1/ㄌㄠ2ㄏㄨ3, ㄌ阳3ㄓ十1/ㄌㄠ2ㄏㄨ3”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.376,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -13680,7 +13681,7 @@
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 6.66,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt1",
@@ -13701,7 +13702,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋ言2ㄋ言2/ㄔ文1ㄊ言1/ㄌㄞ2/ㄓㄜ4ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.416,
    "lufs": -16.4,
    "tp": -2.5,
@@ -13727,7 +13728,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆㄠ3ㄉㄜ5ㄎ外4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.768,
    "lufs": -16.4,
    "tp": -2.4,
@@ -13753,7 +13754,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄒ要3言4ㄗㄭ5, ㄔ万1/ㄏ穵1ㄧ1”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.04,
    "lufs": -16.4,
    "tp": -1.9,
@@ -13779,12 +13780,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ应1ㄒ应5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.72,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -13806,12 +13807,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄨ4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -13833,7 +13834,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄠ2ㄏㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -13859,7 +13860,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄒ应1ㄒ应5/ㄔㄤ4/ㄉㄜ5/ㄕ十4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.2,
@@ -13885,10 +13886,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄅㄞ2ㄊㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -13911,7 +13912,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -13938,7 +13939,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要2ㄍㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.3,
@@ -13965,7 +13966,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄞ4/ㄔ十1/ㄌ我2ㄅㄛ5/ㄞ4/ㄔ十1/ㄘㄞ4”ㄔㄤ4/ㄉㄜ5/ㄕ十4/ㄕ为2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.16,
    "lufs": -16.4,
    "tp": -2.1,
@@ -14022,7 +14023,7 @@
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 6.66,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt1",
@@ -14043,7 +14044,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ言1ㄢ1ㄇㄣ2/ㄕㄤ4/ㄊㄞ4阳5ㄕㄥ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.488,
    "lufs": -16.3,
    "tp": -2.4,
@@ -14069,7 +14070,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“我3/ㄞ4/ㄅㄟ3ㄐ应1/ㄊ言1ㄢ1ㄇㄣ2”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.088,
    "lufs": -16.4,
    "tp": -2.7,
@@ -14098,8 +14099,8 @@
    "synth_s": 0.8,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
-   "pregain_db": 6.0,
+   "tp": -2,
+   "pregain_db": 6,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
    "norm": "linear",
@@ -14121,7 +14122,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄨ2ㄏㄜ2ㄖ十4ㄉㄤ1ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -2.3,
@@ -14173,7 +14174,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄜ2, ㄜ2, ㄜ2”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.536,
    "lufs": -16.3,
    "tp": -2.3,
@@ -14199,7 +14200,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄐㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.2,
@@ -14225,7 +14226,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄚ4/ㄅㄞ2ㄜ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.792,
    "lufs": -16.4,
    "tp": -2.4,
@@ -14251,7 +14252,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄇㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.4,
@@ -14278,7 +14279,7 @@
    "phonemes": [
     "zh|zf_002|1.5|用3ㄜ2/ㄕ我1/ㄉㄜ5/ㄕ十4/ㄕㄣ2ㄇㄜ5/ㄉ中4ㄨ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.608,
    "lufs": -16.3,
    "tp": -2.3,
@@ -14307,8 +14308,8 @@
    "synth_s": 0.8,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
-   "pregain_db": 6.0,
+   "tp": -2,
+   "pregain_db": 6,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
    "norm": "linear",
@@ -14335,7 +14336,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.16,
-   "limiter_gr_db": 2.0,
+   "limiter_gr_db": 2,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt2",
@@ -14382,7 +14383,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄅㄞ2ㄇㄠ2/ㄈㄨ2/ㄌㄩ4ㄕ为3”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.848,
    "lufs": -16.4,
    "tp": -2.1,
@@ -14462,8 +14463,8 @@
    "status": "AI初审通过",
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
-   "pregain_db": 6.0,
+   "tp": -2,
+   "pregain_db": 6,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
    "norm": "linear"
@@ -14488,7 +14489,7 @@
    "duration": 1.92,
    "lufs": -16.4,
    "tp": -2.3,
-   "pregain_db": 7.0,
+   "pregain_db": 7,
    "limiter_gr_db": 0.91,
    "gr_flag": false,
    "norm": "linear"
@@ -14508,7 +14509,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄧ1ㄊㄡ2/ㄙㄭ1/ㄍㄨ4ㄒ阳1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.1,
@@ -14539,7 +14540,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.16,
-   "limiter_gr_db": 2.0,
+   "limiter_gr_db": 2,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt2",
@@ -14560,7 +14561,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄢ4ㄉㄧ1ㄏㄜ2ㄒ压4ㄊㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.4,
@@ -14586,7 +14587,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄐㄩ3ㄊㄡ2/王4ㄇ应2月4”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.848,
    "lufs": -16.4,
    "tp": -2.7,
@@ -14612,7 +14613,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄘㄞ3ㄏ中2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.696,
    "lufs": -16.4,
    "tp": -2.3,
@@ -14638,12 +14639,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄞ4阳5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -4.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -14665,7 +14666,7 @@
    "phonemes": [
     "zh|zf_002|1.5|月4ㄌ阳5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.3,
@@ -14692,7 +14693,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ应4ㄝ4/ㄙㄭ1ㄌㄧ3, ㄊ言1ㄕㄤ5/又3/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.752,
    "lufs": -16.3,
    "tp": -2.4,
@@ -14718,7 +14719,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄧ1ㄊㄡ2/ㄙㄭ1/ㄍㄨ4ㄒ阳1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.1,
@@ -14774,8 +14775,8 @@
    "synth_s": 0.8,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
-   "pregain_db": 6.0,
+   "tp": -2,
+   "pregain_db": 6,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
    "norm": "linear",
@@ -14797,7 +14798,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄔ文1ㄇ言2/ㄅㄨ4ㄐ月2/ㄒ要3”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.872,
    "lufs": -16.4,
    "tp": -2.3,
@@ -14828,7 +14829,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.16,
-   "limiter_gr_db": 2.0,
+   "limiter_gr_db": 2,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt2",
@@ -14875,7 +14876,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄢ4ㄉㄧ1ㄏㄜ2ㄒ压4ㄊㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.4,
@@ -14902,10 +14903,10 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄔㄨ2ㄏㄜ2ㄖ十4ㄉㄤ1ㄨ3”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.824,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0.95,
    "gr_flag": false,
@@ -14933,7 +14934,7 @@
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 6.66,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt1",
@@ -15056,12 +15057,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄞ2ㄇㄠ2/ㄈㄨ2/ㄌㄩ4ㄕ为3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -15082,7 +15083,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄧ1ㄊㄡ2/ㄙㄭ1/ㄍㄨ4ㄒ阳1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.1,
@@ -15109,7 +15110,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄩ1ㄒ阳4/ㄒ阳4ㄊ言1ㄍㄜ1, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.256,
    "lufs": -16.4,
    "tp": -2.1,
@@ -15135,7 +15136,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ中2ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.1,
@@ -15162,12 +15163,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄩ4ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -15189,12 +15190,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄟ1ㄙㄜ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -15216,7 +15217,7 @@
    "phonemes": [
     "zh|zf_002|1.5|用3ㄜ2/ㄌㄧ3, ㄉㄚ4/ㄅㄞ2ㄜ2/ㄉㄜ5/ㄐ要2ㄓㄤ3/ㄕ十4/ㄕㄣ2ㄇㄜ5/言2ㄙㄜ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.568,
    "lufs": -16.4,
    "tp": -2.3,
@@ -15242,7 +15243,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄢ4ㄉㄧ1ㄏㄜ2ㄒ压4ㄊㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.4,
@@ -15269,7 +15270,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄧ1ㄊㄡ2/ㄙㄭ1/ㄍㄨ4ㄒ阳1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.1,
@@ -15296,7 +15297,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄝ4ㄌㄞ2/ㄈㄥ1ㄩ3/ㄕㄥ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.2,
@@ -15322,7 +15323,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄨ4ㄔㄨ4/文2/ㄊㄧ2/ㄋ要3, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.304,
    "lufs": -16.4,
    "tp": -2.2,
@@ -15373,13 +15374,13 @@
    "phonemes": [
     "zh|zf_002|1.5|元3/ㄎㄢ4/ㄕㄢ1/又3ㄙㄜ4"
    ],
-   "synth_s": 1.0,
+   "synth_s": 1,
    "status": "AI初审通过",
    "duration": 1.152,
    "lufs": -16.3,
    "tp": -2.8,
    "pregain_db": 5.83,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -15404,7 +15405,7 @@
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 6.4,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -15453,7 +15454,7 @@
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 6.4,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-020#opt2",
@@ -15474,12 +15475,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐㄩ3ㄊㄡ2/王4ㄇ应2月4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.4,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -15505,7 +15506,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.16,
-   "limiter_gr_db": 2.0,
+   "limiter_gr_db": 2,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-001#opt2",
@@ -15526,7 +15527,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄧ2ㄕ十4ㄉㄧ4ㄕㄤ4ㄕ王1, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.184,
    "lufs": -16.4,
    "tp": -2.3,
@@ -15552,7 +15553,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳3/ㄐ压1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -2.4,
@@ -15578,7 +15579,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳3/ㄔ十1ㄊㄤ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.888,
    "lufs": -16.4,
    "tp": -2.4,
@@ -15604,7 +15605,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳3/万2ㄐㄩ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.5,
@@ -15630,7 +15631,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ应4ㄝ4/ㄙㄭ1ㄌㄧ3/ㄉㄜ5/ㄖㄣ2, ㄒ阴1ㄌㄧ5/ㄗㄞ4/ㄒ阳3/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.136,
    "lufs": -16.4,
    "tp": -2.2,
@@ -15659,8 +15660,8 @@
    "synth_s": 0.8,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
-   "pregain_db": 6.0,
+   "tp": -2,
+   "pregain_db": 6,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
    "norm": "linear",
@@ -15682,10 +15683,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄟ2ㄓ十1ㄆㄢ2ㄓ中1ㄘㄢ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -15734,7 +15735,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄢ4ㄉㄧ1ㄏㄜ2ㄒ压4ㄊㄨ3, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.208,
    "lufs": -16.4,
    "tp": -2.2,
@@ -15760,12 +15761,12 @@
    "phonemes": [
     "zh|zf_002|1.5|元3/ㄎㄢ4/ㄕㄢ1/又3ㄙㄜ4"
    ],
-   "synth_s": 1.0,
+   "synth_s": 1,
    "duration": 1.152,
    "lufs": -16.3,
    "tp": -2.8,
    "pregain_db": 5.83,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-020#opt1",
@@ -15786,7 +15787,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ阳1ㄋㄢ2/ㄎㄜ2ㄘㄞ3/ㄌ言2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
    "tp": -2.2,
@@ -15812,7 +15813,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄧ4ㄌㄧ4ㄐㄝ1ㄒ阴1ㄎㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -3.6,
@@ -15838,7 +15839,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄟ2ㄓ十1ㄆㄢ2ㄓ中1ㄘㄢ1, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.208,
    "lufs": -16.3,
    "tp": -1.8,
@@ -15869,7 +15870,7 @@
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 6.4,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-020#opt2",
@@ -15890,7 +15891,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ阴4/ㄊ应1/ㄕ为3/ㄨ2ㄕㄥ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.3,
    "tp": -2.4,
@@ -15916,7 +15917,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌㄧ4ㄌㄧ4ㄐㄝ1ㄒ阴1ㄎㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -3.6,
@@ -15943,7 +15944,7 @@
    "phonemes": [
     "zh|zf_002|1.5|元3/ㄎㄢ4/ㄕㄢ1/又3ㄙㄜ4, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.232,
    "lufs": -16.4,
    "tp": -2.2,
@@ -15997,8 +15998,8 @@
    "synth_s": 0.8,
    "duration": 1.2,
    "lufs": -16.4,
-   "tp": -2.0,
-   "pregain_db": 6.0,
+   "tp": -2,
+   "pregain_db": 6,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
    "norm": "linear",
@@ -16020,7 +16021,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄖㄣ2/ㄌㄞ2/ㄋ要3/ㄅㄨ4ㄐ应1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.984,
    "lufs": -16.4,
    "tp": -2.5,
@@ -16046,7 +16047,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔ文1ㄑㄩ4/ㄏ穵1/ㄏㄞ2/ㄗㄞ4, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.28,
    "lufs": -16.4,
    "tp": -2.2,
@@ -16072,7 +16073,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄝ4ㄌㄞ2/ㄈㄥ1ㄩ3/ㄕㄥ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.2,
@@ -16125,10 +16126,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄟ2ㄓ十1ㄆㄢ2ㄓ中1ㄘㄢ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -16152,7 +16153,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ阳1ㄋㄢ2/ㄎㄜ2ㄘㄞ3/ㄌ言2, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.256,
    "lufs": -16.4,
    "tp": -1.9,
@@ -16178,7 +16179,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄨ2ㄏㄜ2ㄖ十4ㄉㄤ1ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -2.3,
@@ -16205,7 +16206,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔ文1ㄇ言2/ㄅㄨ4ㄐ月2/ㄒ要3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -2.7,
@@ -16231,7 +16232,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ2ㄒㄧ4/ㄌ言2ㄝ4/ㄉ中1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -2.5,
@@ -16257,10 +16258,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ2ㄒㄧ4/ㄌ言2ㄝ4/ㄐ言1, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4/ㄕㄣ2ㄇㄜ5/压5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.208,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -16339,7 +16340,7 @@
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 6.76,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -16358,7 +16359,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“我2又3/ㄧ2ㄍㄜ5/ㄏㄠ3/ㄅㄚ4ㄅㄚ5”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.968,
    "lufs": -16.4,
    "tp": -2.6,
@@ -16384,7 +16385,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ阳3ㄓ十1/ㄌㄠ2ㄏㄨ3/ㄆㄠ3ㄉㄜ5ㄎ外4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.416,
    "lufs": -16.4,
    "tp": -2.3,
@@ -16461,7 +16462,7 @@
    "phonemes": [
     "zh|zf_002|1.5|“ㄅㄚ2ㄌ我2ㄅㄛ5, ㄅㄚ2ㄌ我2ㄅㄛ5”, ㄒ压4/ㄧ2ㄐㄩ4/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.992,
    "lufs": -16.4,
    "tp": -2.5,
@@ -16487,7 +16488,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄦ3ㄉ我5 (ㄏ我4/言3ㄐ应5)"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.4,
    "tp": -2.3,
@@ -16513,7 +16514,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄗ为3ㄅㄚ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -4.1,
@@ -16540,10 +16541,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ为3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 1.64,
    "gr_flag": false,
@@ -16566,7 +16567,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ阳3ㄓ十1/ㄌㄠ2ㄏㄨ2ㄌㄧ3/ㄉㄜ5/ㄌㄠ2ㄏㄨ3, ㄧ4ㄓ十1/ㄇㄟ2又3/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.496,
    "lufs": -16.4,
    "tp": -2.1,
@@ -16597,7 +16598,7 @@
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 6.66,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "KG-016#opt0",
@@ -16694,7 +16695,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄅㄟ1ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.1,
@@ -16720,7 +16721,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄠ2ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.3,
    "tp": -3.2,
@@ -16746,7 +16747,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/压2ㄕ穵1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -3.7,
@@ -16772,7 +16773,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒㄝ2ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -2.4,
@@ -16798,12 +16799,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄇㄠ4ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -16824,7 +16825,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄩ2ㄙㄢ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.3,
    "tp": -2.1,
@@ -16850,7 +16851,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕㄨ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.984,
    "lufs": -16.3,
    "tp": -2.3,
@@ -16876,7 +16877,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄔ王2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.032,
    "lufs": -16.3,
    "tp": -2.3,
@@ -16902,7 +16903,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄧ3ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -2.2,
@@ -16928,7 +16929,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/要4ㄕ十5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -3.4,
@@ -16954,12 +16955,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/穵4ㄗㄭ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.4,
    "tp": -3.4,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -16980,7 +16981,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/为4ㄕㄥ1ㄓ十3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.3,
    "tp": -2.5,
@@ -17006,7 +17007,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ2ㄙㄢ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.2,
@@ -17033,12 +17034,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄈㄥ1ㄓㄥ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.2,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17059,10 +17060,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄛ4ㄐ应4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -17086,7 +17087,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ压4ㄩ3/ㄌㄜ5, ㄔㄨ1ㄇㄣ2/要4/ㄉㄞ4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.728,
    "lufs": -16.4,
    "tp": -2.3,
@@ -17112,12 +17113,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑ言1ㄅㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17139,7 +17140,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄠ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -17166,7 +17167,7 @@
    "phonemes": [
     "zh|zf_002|1.5|压2ㄕ穵1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -17193,12 +17194,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ穵1压2/要4/用4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.224,
    "lufs": -16.4,
    "tp": -2.8,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17219,7 +17220,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄡ4/外4ㄊㄠ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.3,
@@ -17245,7 +17246,7 @@
    "phonemes": [
     "zh|zf_002|1.5|用3ㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.6,
@@ -17272,7 +17273,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉ万3ㄎㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.2,
@@ -17299,7 +17300,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ言1/ㄌㄥ3/ㄌㄜ5/要4/ㄔ万1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -2.3,
@@ -17325,7 +17326,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ4ㄔㄜ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -3.8,
@@ -17351,7 +17352,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ穵2ㄊㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.3,
@@ -17377,7 +17378,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔ王2ㄕㄤ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
    "tp": -2.3,
@@ -17404,12 +17405,12 @@
    "phonemes": [
     "zh|zf_002|1.5|万3ㄕㄤ5/要4/ㄑㄩ4/ㄋㄚ2ㄌㄧ3/ㄕ为4ㄐ要4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.4,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17430,7 +17431,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄎㄢ4ㄎㄢ5/ㄗ我3又4/又3ㄇㄟ2又3/ㄔㄜ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.56,
    "lufs": -16.4,
    "tp": -2.5,
@@ -17456,7 +17457,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅ言1/ㄗㄡ3/ㄅ言1/ㄊ要4ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.176,
    "lufs": -16.4,
    "tp": -2.2,
@@ -17482,12 +17483,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅ言1ㄗㄡ3ㄅ言1ㄎㄢ4/ㄕㄡ3ㄐㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.392,
    "lufs": -16.4,
    "tp": -2.3,
    "pregain_db": 0,
-   "limiter_gr_db": 1.0,
+   "limiter_gr_db": 1,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17533,12 +17534,12 @@
    "phonemes": [
     "zh|zf_002|1.5|穵4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17559,12 +17560,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄞ2ㄉㄥ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17585,7 +17586,7 @@
    "phonemes": [
     "zh|zf_002|1.5|要4ㄕ十5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -17611,7 +17612,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄎㄢ4ㄕㄨ1/要4/用4/ㄕㄣ2ㄇㄜ5/ㄓㄠ4ㄌ阳4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.44,
    "lufs": -16.4,
    "tp": -2.4,
@@ -17637,7 +17638,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.576,
    "lufs": -16.4,
    "tp": -2.2,
@@ -17664,7 +17665,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏ我3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.3,
    "tp": -2.1,
@@ -17690,12 +17691,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄒ用2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17717,7 +17718,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄉ中1ㄒㄧ5/ㄊㄤ4, ㄅㄨ4ㄋㄥ2/ㄇㄛ1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.56,
    "lufs": -16.3,
    "tp": -2.1,
@@ -17743,7 +17744,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄟ1ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.72,
    "lufs": -16.4,
    "tp": -2.2,
@@ -17770,12 +17771,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄠ4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17797,12 +17798,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒㄝ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17824,12 +17825,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄜ1ㄕ为3/用4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.128,
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17850,12 +17851,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄞ3ㄇ言2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -3.4,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17876,12 +17877,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇ言4ㄅㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -3.2,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -17903,7 +17904,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐㄧ1ㄇㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.3,
    "tp": -3.5,
@@ -17930,7 +17931,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄎㄜ2ㄧ3/ㄔ十1/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.272,
    "lufs": -16.4,
    "tp": -2.2,
@@ -17956,7 +17957,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄖㄥ1ㄉ要4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -3.4,
@@ -17982,7 +17983,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄈㄤ4ㄏ为2/ㄎ王1/ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.4,
    "tp": -2.6,
@@ -18008,7 +18009,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄘㄤ2/ㄑㄧ3ㄌㄞ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.768,
    "lufs": -16.4,
    "tp": -2.7,
@@ -18034,10 +18035,10 @@
    "phonemes": [
     "zh|zf_002|1.5|万2ㄐㄩ4/万2万2/ㄌㄜ5要4/ㄗㄣ3ㄇㄜ5/ㄗ我4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.632,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0.59,
    "gr_flag": false,
@@ -18060,7 +18061,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄓ十3ㄐ阴1/ㄏ我4/ㄍㄜ1ㄅㄛ5ㄓㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.32,
    "lufs": -16.4,
    "tp": -2.1,
@@ -18086,7 +18087,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄣ2ㄇㄜ5/ㄉㄡ1/ㄅㄨ2用4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.984,
    "lufs": -16.4,
    "tp": -2.6,
@@ -18112,12 +18113,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄠ4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18139,7 +18140,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄚ3ㄆㄣ1ㄊㄧ4/ㄉㄜ5/ㄕ十2ㄏㄡ5/要4/用4/ㄕㄣ2ㄇㄜ5/ㄉㄤ3ㄓㄨ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.208,
    "lufs": -16.4,
    "tp": -2.2,
@@ -18165,7 +18166,7 @@
    "phonemes": [
     "zh|zf_002|1.5|压2ㄕ穵1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -18191,12 +18192,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑ言1ㄅㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18217,7 +18218,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄠ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -18243,12 +18244,12 @@
    "phonemes": [
     "zh|zf_002|1.5|用4/ㄕㄣ2ㄇㄜ5/ㄕ穵1压2?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.984,
    "lufs": -16.4,
    "tp": -3.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18269,7 +18270,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ2ㄙㄢ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.2,
@@ -18295,7 +18296,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆㄧ2ㄑ又2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -18322,10 +18323,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄛ4ㄐ应4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -18348,7 +18349,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ压4ㄩ3/ㄌㄜ5, 要4/用4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.296,
    "lufs": -16.4,
    "tp": -2.6,
@@ -18374,12 +18375,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄠ4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18400,7 +18401,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄟ1ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.72,
    "lufs": -16.4,
    "tp": -2.2,
@@ -18426,12 +18427,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒㄝ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18452,7 +18453,7 @@
    "phonemes": [
     "zh|zf_002|1.5|用4/ㄕㄣ2ㄇㄜ5/ㄏㄜ1ㄕ为3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.8,
@@ -18478,12 +18479,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒㄝ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18505,12 +18506,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄠ4ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18532,7 +18533,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄡ3ㄊㄠ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.6,
@@ -18558,7 +18559,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ要3/ㄕㄤ4/ㄔ万1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.152,
    "lufs": -16.4,
    "tp": -2.3,
@@ -18584,7 +18585,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄨ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.576,
    "lufs": -16.4,
    "tp": -2.2,
@@ -18611,7 +18612,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄠ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -18638,7 +18639,7 @@
    "phonemes": [
     "zh|zf_002|1.5|压2ㄕ穵1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.3,
@@ -18665,7 +18666,7 @@
    "phonemes": [
     "zh|zf_002|1.5|用4/ㄕㄣ2ㄇㄜ5/ㄔ十1ㄈㄢ4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.984,
    "lufs": -16.4,
    "tp": -2.5,
@@ -18691,7 +18692,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔ王2ㄕㄤ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
    "tp": -2.3,
@@ -18717,12 +18718,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄜ1ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18743,7 +18744,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄩ4ㄍㄤ1/ㄌㄧ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.768,
    "lufs": -16.4,
    "tp": -2.2,
@@ -18769,12 +18770,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ言1ㄏㄟ1/ㄌㄜ5要4/ㄕ为4ㄐ要4, ㄕ为4/ㄗㄞ4/ㄋㄚ2ㄌㄧ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.92,
    "lufs": -16.3,
    "tp": -2.1,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18795,12 +18796,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒㄝ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18822,12 +18823,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆ应2ㄍ我3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
    "tp": -3.1,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18848,12 +18849,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄒ用2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18874,10 +18875,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄎㄜ2ㄧ3/ㄔ十1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -18900,12 +18901,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ阳1ㄐ要1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18927,12 +18928,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇ言4ㄅㄠ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -3.2,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -18953,7 +18954,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄨ2ㄌ我2ㄅㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.744,
    "lufs": -16.4,
    "tp": -2.5,
@@ -18980,7 +18981,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄕ为2ㄍ我3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.3,
@@ -19006,12 +19007,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ为4ㄐ要4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
-   "tp": -4.0,
+   "tp": -4,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19032,7 +19033,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄎㄢ4ㄉ言4ㄕ十4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.3,
    "tp": -2.4,
@@ -19058,12 +19059,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒㄧ2ㄕㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19084,12 +19085,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔ十1ㄈㄢ4/ㄑ言2/要4/ㄗ我4/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.416,
    "lufs": -16.4,
    "tp": -2.9,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19110,12 +19111,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ应2ㄒ压4ㄌㄞ5/ㄉㄥ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.3,
-   "tp": -4.0,
+   "tp": -4,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19136,7 +19137,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄧ4ㄕㄤ5言3ㄐ应5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.4,
    "tp": -2.4,
@@ -19162,7 +19163,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄎ外4/ㄆㄠ3/ㄍ我4ㄑㄩ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.888,
    "lufs": -16.4,
    "tp": -2.6,
@@ -19213,7 +19214,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉ万3ㄎㄨ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.2,
@@ -19239,7 +19240,7 @@
    "phonemes": [
     "zh|zf_002|1.5|用3ㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.6,
@@ -19265,7 +19266,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄡ4/ㄧ1ㄈㄨ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.792,
    "lufs": -16.4,
    "tp": -2.2,
@@ -19291,7 +19292,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉ中1ㄊ言1/ㄌㄥ3/ㄌㄜ5, 要4/ㄔ万1/ㄕㄣ2ㄇㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.752,
    "lufs": -16.4,
    "tp": -2.2,
@@ -19317,12 +19318,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄞ4阳5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -4.3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19343,7 +19344,7 @@
    "phonemes": [
     "zh|zf_002|1.5|月4ㄌ阳5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.3,
@@ -19369,12 +19370,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ应1ㄒ应5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.72,
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19395,7 +19396,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ言1ㄕㄤ5/ㄌ阳4ㄌ阳4ㄉㄜ5, ㄅㄞ2ㄊ言1/ㄔㄨ1ㄌㄞ5/ㄉㄜ5/ㄕ十4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.136,
    "lufs": -16.4,
    "tp": -2.3,
@@ -19421,12 +19422,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄒ用2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.5,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19448,12 +19449,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄆ应2ㄍ我3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
    "tp": -3.1,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true,
@@ -19475,7 +19476,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄠ4ㄓ中1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.7,
@@ -19526,7 +19527,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄧ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.4,
@@ -19552,7 +19553,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄗ为3ㄅㄚ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -4.1,
@@ -19578,7 +19579,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄦ3ㄉ我5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.3,
@@ -19604,7 +19605,7 @@
    "phonemes": [
     "zh|zf_002|1.5|我3ㄇㄣ5/用4/ㄕㄣ2ㄇㄜ5/ㄊ应1/ㄕㄥ1阴1?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.368,
    "lufs": -16.4,
    "tp": -2.4,
@@ -19630,10 +19631,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕㄡ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 2.95,
    "gr_flag": false,
@@ -19656,7 +19657,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄦ3ㄉ我5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.3,
@@ -19683,7 +19684,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄧ2ㄗㄭ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.4,
@@ -19710,7 +19711,7 @@
    "phonemes": [
     "zh|zf_002|1.5|我3ㄇㄣ5/用4/ㄕㄣ2ㄇㄜ5/文2/ㄒ阳1为4?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.464,
    "lufs": -16.4,
    "tp": -2.5,
@@ -19761,7 +19762,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄈㄢ3ㄏ为2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.4,
@@ -19786,7 +19787,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄈㄢ3ㄏ为2/ㄒ元3/ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.3,
    "tp": -1.9,
@@ -19811,7 +19812,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3/ㄨ1云2/ㄅ言4ㄔㄥ2/ㄋㄧ3/ㄉㄜ5/ㄏㄠ3/ㄆㄥ2又5/ㄌㄚ5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.992,
    "lufs": -16.3,
    "tp": -1.8,
@@ -19836,7 +19837,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄘ我4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -1.9,
@@ -19938,7 +19939,7 @@
    "lufs": -16.3,
    "tp": -2.9,
    "pregain_db": 8.55,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -19957,7 +19958,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄚ1ㄅㄟ4, ㄔㄨ1ㄈㄚ1!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.984,
    "lufs": -16.4,
    "tp": -3.5,
@@ -19982,7 +19983,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄟ1ㄅㄟ5, ㄔㄨ1ㄈㄚ1!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.056,
    "lufs": -16.4,
    "tp": -2.3,
@@ -20007,7 +20008,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄛ4ㄇㄛ5, ㄔㄨ1ㄈㄚ1!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.032,
    "lufs": -16.4,
    "tp": -2.1,
@@ -20032,7 +20033,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十1ㄕ十5, ㄔㄨ1ㄈㄚ1!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.08,
    "lufs": -16.4,
    "tp": -2.1,
@@ -20057,7 +20058,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙ万4ㄙ万5, ㄔㄨ1ㄈㄚ1!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.4,
    "tp": -3.1,
@@ -20082,7 +20083,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄐ言1/ㄉㄠ4/ㄌㄚ5, ㄉㄚ3万2/ㄓㄜ4/ㄍ万1/ㄐ又4/ㄒ又1ㄒㄧ5/ㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.088,
    "lufs": -16.4,
    "tp": -2.4,
@@ -20107,7 +20108,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄧ4ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.4,
@@ -20132,7 +20133,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄍㄠ1ㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -2.2,
@@ -20157,7 +20158,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄦ4ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -3.3,
@@ -20182,7 +20183,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄢ1ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.864,
    "lufs": -16.3,
    "tp": -2.3,
@@ -20207,7 +20208,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.864,
    "lufs": -16.4,
    "tp": -2.2,
@@ -20232,7 +20233,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.4,
@@ -20257,7 +20258,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4ㄋ言2ㄐㄧ2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.6,
@@ -20282,7 +20283,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄨ1ㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.4,
@@ -20307,7 +20308,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄅㄢ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.4,
@@ -20407,7 +20408,7 @@
    "synth_s": 0.98,
    "duration": 1.872,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.02,
    "limiter_gr_db": 1.55,
    "gr_flag": false,
@@ -20431,7 +20432,7 @@
    "synth_s": 1.12,
    "duration": 1.872,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.44,
    "limiter_gr_db": 2.55,
    "gr_flag": false,
@@ -20503,7 +20504,7 @@
    "synth_s": 1.49,
    "duration": 1.896,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 6.92,
    "limiter_gr_db": 1.34,
    "gr_flag": false,
@@ -20599,7 +20600,7 @@
    "synth_s": 0.88,
    "duration": 1.872,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.17,
    "limiter_gr_db": 1.84,
    "gr_flag": false,
@@ -20692,12 +20693,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄢ4ㄓㄨ4/ㄅㄨ2ㄈㄤ4/ㄐ又4/ㄋㄥ2/ㄗㄢ4ㄊ应2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.512,
    "lufs": -16.3,
    "tp": -2.7,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true
@@ -20876,7 +20877,7 @@
    "lufs": -16.3,
    "tp": -2.9,
    "pregain_db": 6.31,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -20982,7 +20983,7 @@
    "lufs": -16.4,
    "tp": -3.1,
    "pregain_db": 6.45,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -21025,7 +21026,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄏㄞ2要4/ㄒ言1/ㄉㄚ3应2/ㄑ言2ㄇ言4/ㄉㄜ5/ㄍ万1, ㄘㄞ2ㄋㄥ2/ㄉㄚ3ㄎㄞ1/ㄓㄜ4ㄧ4ㄍ万1/ㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.712,
    "lufs": -16.4,
    "tp": -2.2,
@@ -21053,7 +21054,7 @@
    "synth_s": 4.37,
    "duration": 2.424,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.77,
    "limiter_gr_db": 1.93,
    "gr_flag": false,
@@ -21074,7 +21075,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄓㄜ4ㄌㄧ3/又2ㄒ要3/ㄍ外4ㄕㄡ4/ㄉㄥ2ㄋㄧ3/ㄐ要1ㄆㄥ2又5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 2.112,
    "lufs": -16.4,
    "tp": -2.1,
@@ -21099,7 +21100,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄚ1ㄅㄟ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -2.6,
@@ -21124,7 +21125,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄟ1ㄅㄟ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -3.9,
@@ -21149,7 +21150,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄛ4ㄇㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.5,
    "tp": -4.1,
@@ -21174,7 +21175,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十1ㄕ十5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -2.4,
@@ -21199,7 +21200,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙ万4ㄙ万5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
    "tp": -2.3,
@@ -21249,9 +21250,9 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.408,
-   "lufs": -70.0,
+   "lufs": -70,
    "tp": -3.5,
    "pregain_db": 0,
    "limiter_gr_db": 0,
@@ -21276,7 +21277,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -2.4,
@@ -21301,7 +21302,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄦ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -4.2,
@@ -21326,7 +21327,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄙㄢ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.3,
    "tp": -2.8,
@@ -21351,7 +21352,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -3.2,
@@ -21376,7 +21377,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.3,
    "tp": -3.7,
@@ -21401,7 +21402,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
    "tp": -4.5,
@@ -21426,7 +21427,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.624,
    "lufs": -16.4,
    "tp": -2.3,
@@ -21451,10 +21452,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.6,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -21476,10 +21477,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄕ十2ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -21554,7 +21555,7 @@
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.4,
-   "pregain_db": 8.0,
+   "pregain_db": 8,
    "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
@@ -21575,7 +21576,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄙㄭ4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.1,
@@ -21601,7 +21602,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄨ3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.504,
    "lufs": -16.4,
    "tp": -2.3,
@@ -21627,7 +21628,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ又4"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.4,
    "tp": -2.3,
@@ -21653,7 +21654,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄑㄧ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.3,
    "tp": -2.9,
@@ -21679,7 +21680,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄅㄚ1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.528,
    "lufs": -16.3,
    "tp": -2.4,
@@ -21705,7 +21706,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄐ又3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.552,
    "lufs": -16.4,
    "tp": -2.3,
@@ -21736,7 +21737,7 @@
    "lufs": -16.3,
    "tp": -4.2,
    "pregain_db": 5.5,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -21755,12 +21756,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄞ4/ㄌㄧ4ㄏㄞ5/ㄌㄜ5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.936,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true
@@ -21780,12 +21781,12 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄉㄚ2ㄉ为4/ㄌㄚ5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.744,
    "lufs": -16.3,
    "tp": -4.6,
    "pregain_db": 0,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear",
    "resumed": true
@@ -21805,7 +21806,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄧ2ㄏㄠ3/ㄘ中1ㄇ应5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.888,
    "lufs": -16.3,
    "tp": -2.4,
@@ -21830,7 +21831,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄇㄟ3/ㄉㄠ4ㄊㄧ2/ㄉㄡ1/ㄖㄣ4ㄓㄣ1/ㄒ月2ㄏ为4/ㄌㄚ5! ㄒ压4ㄘㄭ4/ㄕ十4ㄕ十5/ㄉㄧ4ㄧ1ㄘㄭ4/ㄐ又4/ㄉㄚ2ㄉ为4/ㄛ5"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 3.24,
    "lufs": -16.2,
    "tp": -2.3,
@@ -21855,7 +21856,7 @@
    "phonemes": [
     "zh|zf_002|1.5|月4ㄌㄞ2月4/ㄅㄤ4/ㄌㄚ5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.032,
    "lufs": -16.4,
    "tp": -3.3,
@@ -21880,7 +21881,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊㄞ4/ㄌㄧ4ㄏㄞ5/ㄌㄚ5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.4,
    "tp": -3.4,
@@ -21929,7 +21930,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄗㄞ4/ㄕ十4ㄕ十5❓"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.84,
    "lufs": -16.4,
    "tp": -2.5,
@@ -22075,7 +22076,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 6.54,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22099,7 +22100,7 @@
    "lufs": -16.4,
    "tp": -3.2,
    "pregain_db": 6.48,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22169,7 +22170,7 @@
    "synth_s": 0.96,
    "duration": 1.656,
    "lufs": -16.4,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 7.47,
    "limiter_gr_db": 2.03,
    "gr_flag": false,
@@ -22195,7 +22196,7 @@
    "lufs": -16.4,
    "tp": -2.6,
    "pregain_db": 7.34,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22219,7 +22220,7 @@
    "lufs": -16.3,
    "tp": -2.9,
    "pregain_db": 6.4,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22289,9 +22290,9 @@
    "synth_s": 1.1,
    "duration": 1.392,
    "lufs": -16.4,
-   "tp": -4.0,
+   "tp": -4,
    "pregain_db": 6.65,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22315,7 +22316,7 @@
    "lufs": -16.4,
    "tp": -3.3,
    "pregain_db": 6.72,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22337,9 +22338,9 @@
    "synth_s": 0.86,
    "duration": 1.44,
    "lufs": -16.4,
-   "tp": -3.0,
+   "tp": -3,
    "pregain_db": 6.8,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22411,7 +22412,7 @@
    "lufs": -16.4,
    "tp": -2.7,
    "pregain_db": 7.82,
-   "limiter_gr_db": 0.0,
+   "limiter_gr_db": 0,
    "gr_flag": false,
    "norm": "linear"
   },
@@ -22478,10 +22479,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄍㄠ1ㄓ中1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.672,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -22503,7 +22504,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄔㄨ1ㄓ中1"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -3.3,
@@ -22528,7 +22529,7 @@
    "phonemes": [
     "zh|zf_002|1.5|又4ㄦ2元2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.768,
    "lufs": -16.4,
    "tp": -3.8,
@@ -22553,7 +22554,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄒ要3ㄒ月2"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.648,
    "lufs": -16.4,
    "tp": -2.2,
@@ -22578,7 +22579,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋ2❓ㄗㄞ4/ㄒ阳2ㄒ阳3"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 0.96,
    "lufs": -16.3,
    "tp": -2.5,
@@ -22606,7 +22607,7 @@
    "synth_s": 2.75,
    "duration": 1.656,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 6.8,
    "limiter_gr_db": 1.44,
    "gr_flag": false,
@@ -22627,10 +22628,10 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄌ言4ㄒㄧ2/万2ㄔㄥ2, ㄎㄞ1ㄕ十3/ㄔ王3ㄍ万1/ㄌㄚ5!"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.896,
    "lufs": -16.3,
-   "tp": -2.0,
+   "tp": -2,
    "pregain_db": 0,
    "limiter_gr_db": 0,
    "gr_flag": false,
@@ -22772,7 +22773,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄆ应2ㄍ我3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.3,
    "tp": -2.1,
@@ -22797,7 +22798,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄒ要2ㄍㄡ3?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.104,
    "lufs": -16.3,
    "tp": -2.5,
@@ -22823,7 +22824,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ中2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 1.2,
    "lufs": -16.4,
    "tp": -2.3,
@@ -22873,7 +22874,7 @@
    "phonemes": [
     "zh|zf_002|1.5|ㄊ应1ㄅㄨ5ㄑ应1/ㄐ又4ㄉ言3/ㄒ要2ㄌㄚ3ㄅㄚ5/ㄗㄞ4/ㄊ应1/ㄧ2ㄅ言4. ㄋㄚ3ㄍㄜ4/ㄕ十4/ㄏ中2ㄙㄜ4/ㄉㄜ5?"
    ],
-   "synth_s": 0.0,
+   "synth_s": 0,
    "duration": 3.168,
    "lufs": -16.2,
    "tp": -2.1,
@@ -22882,6 +22883,39 @@
    "gr_flag": false,
    "norm": "linear",
    "resumed": true
+  },
+  "p:res_k_again": {
+   "file": "p_res_k_again.75105f8424.mp3",
+   "text": "真棒！再玩一关吧",
+   "segments": [
+    [
+     "zh",
+     "真棒！再玩一关吧"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "75105f84249ba44c29f2b08d74cc8131ca1f81fd070826828fa6acf3b0934c08",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄓㄣ1ㄅㄤ4! ㄗㄞ4/万2ㄧ4ㄍ万1/ㄅㄚ5"
+   ],
+   "synth_s": 146.9,
+   "duration": 1.728,
+   "lufs": -16.4,
+   "tp": -2.3,
+   "pregain_db": 6.83,
+   "limiter_gr_db": 0.41,
+   "gr_flag": false,
+   "norm": "linear"
   }
- }
+ },
+ "merged": [
+  {
+   "key": "p:res_k_again",
+   "from": "/workspace/tts/out_r1544_prog/zf_002",
+   "speed": 1.2,
+   "at": "2026-10-19T12:42:23.870Z",
+   "note": "临时：等音频设计整包"
+  }
+ ]
 }

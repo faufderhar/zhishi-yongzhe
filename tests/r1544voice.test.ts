@@ -1,7 +1,7 @@
 // r15.4.4 小班录音：题库 v31 新题有录音；题库审核 读音复查 v2 的改动（两个 / 敬请期待 / ▭）
 import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
-import { speakable } from '../src/tts';
+import { speakable, setKinderSpeech, sysRate, K_VOICE_SPEED } from '../src/tts';
 import { HAPPY_LINE, SOON_LINE, dynamicPrompts } from '../src/game/voiceLines';
 import { VOICE_PROMPTS, PROMPT_BY_TEXT } from '../src/game/voicePrompts';
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
@@ -33,5 +33,12 @@ describe('r15.4.4 小班录音', () => {
     for (const f of new Set(Object.values(man.items) as string[])) expect(existsSync('public/voice/' + f), f).toBe(true);
     expect(man.meta['K-038#stem'].text).toBe('哪一组是两个苹果？');
     for (const id of ['KG-036', 'KD-041', 'KE-041', 'KE-050']) expect(man.items[id + '#stem']).toMatch(/\.mp3$/);
+  });
+  it('小班系统朗读退路语速跟着放慢：0.9 × 1.2 / 1.5 = 0.72；其他年级 0.9', () => {
+    expect(K_VOICE_SPEED).toBe(1.2);
+    setKinderSpeech(true); expect(sysRate()).toBeCloseTo(0.72, 9); setKinderSpeech(false); expect(sysRate()).toBe(0.9);
+  });
+  it('每句登记过的提示语都有录音（含新句 p:res_k_again）', () => {
+    const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss).toEqual([]);
   });
 });
