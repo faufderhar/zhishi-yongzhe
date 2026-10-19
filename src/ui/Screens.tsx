@@ -7,7 +7,7 @@ import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
 import { Sprite } from './Battle';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
-import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT } from '../game/playtime';
+import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
@@ -238,7 +238,10 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
   const kTime = cfg.band === 'K' && (timeUp || !!forcedTimeUp);
   /* r15.4.3 小萌新：小班这次没加星（今天第 3 次起，或没超过最佳）→ 只放一个图标 + 一句「今天玩得真棒，明天再来吧」（自动朗读、可重播）；
      不再写「同一关每天从第 3 次起不再加星……」这类给大人看的长句，规则说明挪到家长页。其他年级不变 */
-  const kNoStar = cfg.band === 'K' && !kTime && (capped || (prevBest !== undefined && prevBest > 0 && stars <= prevBest));
+  /* r15.4.4：只有今天第 3 次起（capped，真的不加星）才说「明天再来吧」。第 2 次照规则加星：显示这次得的星星，朗读「真棒！再玩一关吧」。
+     以前「没超过最佳」也走这一页（r14.1 起重玩没超过最佳就不显示大星星），第 2 次全对也看不到星星 */
+  const kNoStar = cfg.band === 'K' && !kTime && capped;
+  const kAgain = cfg.band === 'K' && !kTime && !capped && playN === 2;
   useEffect(() => { if (kNoStar) { const id = setTimeout(() => speak(K_NOSTAR_TEXT), 1200); return () => clearTimeout(id); } }, [kNoStar]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
@@ -248,7 +251,8 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
       : cfg.band === 'K' ? <>
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
         <h1>小乌云变成你的好朋友啦！</h1>
-        <KinderSub k={kinder} total={total} extra={kTime ? TIMEUP_K_TEXT : undefined} />
+        <KinderSub k={kinder} total={total} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} />
+        {kAgain && <p className="ksub" data-testid="result-k-again">{K_AGAIN_TEXT}</p>}
       </> : <>
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
         <h1 data-testid="result-title">{forcedTimeUp ? '⏰ 时间到' : timeUp && win ? '时间到啦，这一关在收尾时间里打完了' : timeUp ? '⏰ 时间到' : quit ? '中途退出' : retreat ? (win ? '怪物撤退了！' : '未通关 · 怪物溜走了，再来一次吧！') : win ? '胜利！' : `未通关 · ${endReason === 'reviveFail' ? '复活失败' : endReason === 'hp0' ? '血量归零' : '怪物还在'}`}</h1>
@@ -263,7 +267,7 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
       </>}
       {/* r14 小萌新：不加星时不显示大星星，只写原因和最佳 */}
       {/* r14.1 小萌新：重玩没拿到新星也不显示大星星 */}
-      {!(cfg.band === 'K' && forcedTimeUp) && !capped && !(prevBest !== undefined && prevBest > 0 && stars <= prevBest) && <Stars n={stars} size={72} />}
+      {!(cfg.band === 'K' && forcedTimeUp) && !capped && (cfg.band === 'K' || !(prevBest !== undefined && prevBest > 0 && stars <= prevBest)) && <Stars n={stars} size={72} />}
       {/* r15.4.2 小萌新：小班普通结算页也不显示这句给大人看的星星比较 */}
       {!kTime && cfg.band !== 'K' && !capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">这次 {'★'.repeat(stars) || '0★'}，没有超过最佳 {'★'.repeat(prevBest)}，地图上的星星不变。</p>}
       {!kTime && !kNoStar && capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}

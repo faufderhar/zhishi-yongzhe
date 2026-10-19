@@ -10,7 +10,7 @@ import { useInstallPrompt, isStandalone, isIOS, IosSteps, promptInstall } from '
 import { toggleVol as toggleVolS, toggleAllVols, volsValid, learnedCount } from '../game/volumes';
 import { effLimit, MIN_LIMIT } from '../state';
 import { STAR_RULES_K } from '../game/levels';
-import { K_NOSTAR_TEXT } from '../game/playtime';
+import { K_NOSTAR_TEXT, K_AGAIN_TEXT } from '../game/playtime';
 declare const __BUILD__: string; declare const __BUILD_TIME__: string;
 /** 构建日期按用户设备的本地时区显示（r8） */
 const buildDate = () => { try { return new Date(__BUILD_TIME__).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' }); } catch { return ''; } };
@@ -646,7 +646,7 @@ function ReportTab(props: ParentProps) {
         {/* r15.4.3 小萌新：小班结算页不再写星星规则（孩子看不懂），规则放在家长页 */}
         {profiles.find(x => x.id === pid)?.grade === 'K1' && <div className="p-card" data-testid="report-star-rules-k"><b>⭐ 小班的星星怎么得</b>
           <p className="hint">{STAR_RULES_K.replace(/　/g, '；')}（「第一次就答对」= 这道题第一次就点对；点错后再试对的、看了示范的不算）。</p>
-          <p className="hint">同一关每天从第 3 次起不再加星，地图上保留这一关的最佳星星（只升不降）。这时结算页只说一句「{K_NOSTAR_TEXT}」，不写规则。</p></div>}
+          <p className="hint">同一关每天从第 3 次起不再加星，地图上保留这一关的最佳星星（只升不降）。这时结算页只说一句「{K_NOSTAR_TEXT}」，不写规则；同一关第 2 次玩完照常加星，结算页说「{K_AGAIN_TEXT}」。</p></div>}
       </>}
     </div>
   );
