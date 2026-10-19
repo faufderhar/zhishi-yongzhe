@@ -846,6 +846,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .bet-hint{margin:0;max-width:min(92vw,640px);background:#fff8d6;color:#5a4300;border-radius:10px;padding:6px 12px;font-size:15px}
 .card-major{font-style:normal;color:#a35200;font-size:.85em;margin-left:2px}
 .bet-reset{font-size:12px;color:#c9d3e6;margin-top:-2px}
+.q-dmg-sk{font-style:normal;font-size:.82em;margin-left:6px;padding:0 6px;border-radius:8px;background:rgba(255,213,74,.22);color:#ffe08a;white-space:nowrap}   /* r15.4.3 学霸：初一 / 高一预计伤害旁边标「技能另算」（矮屏也不藏） */
 .kt-title{align-items:center;justify-content:center;flex-wrap:wrap}.kt-title h1,.kt-title .ksub{margin:0}
 /* r15.4.2 较真家长 B：「忘了现在的密码？」框——短句不在词中间断行，输入框占满 */
 .restore-alt p,.restore-when-use p{text-wrap:pretty;word-break:keep-all;overflow-wrap:anywhere;margin:4px 0}

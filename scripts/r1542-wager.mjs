@@ -7,7 +7,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 const URL = process.env.URL || 'http://localhost:4326/'; const OUT = process.env.OUT || '/workspace/playtest/r1542-wager/'; mkdirSync(OUT, { recursive: true });
 const b = await chromium.launch(); let bad = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
 const ctx = await b.newContext({ viewport: { width: 1180, height: 820 }, hasTouch: true }); const pg = await ctx.newPage(); pg.setDefaultTimeout(8000);
-await pg.addInitScript(() => { window.__zyTest = true; window.__zyUnlockAll = true; window.__zyTestNoTts = true; window.__zyTestMonHp = 5000; window.__zyTestHp = 900; });   // 怪物血量加厚：估算不被剩余血量截住、几回合内不会打死
+await pg.addInitScript(() => { window.__zyTest = true; window.__zyUnlockAll = true; window.__zyTestNoTts = true; window.__zyTestMonHp = 5000; window.__zyTestHp = 900; window.__zyTestBetPop = true; });   // 怪物血量加厚：估算不被剩余血量截住、几回合内不会打死
 const w = ms => pg.waitForTimeout(ms); const vis = sel => pg.isVisible(sel);
 const tap = async sel => { const l = pg.locator(sel).first(); await l.scrollIntoViewIfNeeded().catch(() => {}); const bb = await l.boundingBox().catch(() => null); if (!bb) return false; await pg.touchscreen.tap(bb.x + bb.width / 2, bb.y + bb.height / 2); return true; };
 const pinIn = async p => { for (const d of p) await tap(`[data-testid=pin-${d}]`); await tap('[data-testid=pin-ok]'); await w(300); };
@@ -43,7 +43,7 @@ async function play(lv, tag, plan, maxP = 8) {
     if (setup) {
       pTurn++; st.cardTurns++; sawSetup = true; const tg = await vis('[data-testid=bet-toggle]'); if (tg) st.cardToggle++;
       if (tg && (await pg.getAttribute('[data-testid=bet-toggle]', 'data-on')) === '0') st.cardDefaultOff++;
-      const hint = await vis('[data-testid=bet-hint]'); st.hints.push(`${tag}#${pTurn}:${hint ? 1 : 0}`); if (hint) await pg.screenshot({ path: `${OUT}${tag}-hint-${pTurn}.png` });
+      const hint = await vis('[data-testid=bet-hint]'); st.hints.push(`${tag}#${pTurn}:${hint ? 1 : 0}`); if (hint) { await pg.screenshot({ path: `${OUT}${tag}-hint-${pTurn}.png` }); await tap('[data-testid=bet-hint-ok]'); await w(300); }   // r15.4.3：说明改成弹窗，点〔知道了〕
       const p = plan(pTurn); let key = 'std';
       if (await vis('[data-testid=cards]')) { for (const k of ['light', 'std', 'heavy']) { const d = await pg.textContent(`[data-testid=card-dmg-${k}]`).catch(() => ''); const m = d.match(/≈ (\d+)（押注 ≈ (\d+)）/); const mult = Number((await pg.textContent(`[data-testid=card-mult-${k}]`).catch(() => '')).match(/伤害 ×([\d.]+)/)?.[1]);
           const diff = Number((await pg.textContent(`[data-testid=card-${k}]`).catch(() => '')).match(/难度 (\d)/)?.[1] ?? 0);
@@ -93,5 +93,5 @@ ok(st.betRight.length >= 3 && bfull.length >= 2 && !nbad.length && !bbad.length,
 const skK = t => { const m = t.match(/(\d) 次，每次 (\d+)%/); if (m) return +m[1] * +m[2] / 100; const x = t.match(/✨[^造]*×([\d.]+)/); return x ? +x[1] : 1; };
 const dchk = st.betRight.map(r => ({ ...r, k: skK(r.text), want: Math.round(r.betEst * skK(r.text)) }));
 ok(dchk.length >= 3 && dchk.filter(r => r.k === 1).length >= 1 && dchk.every(r => { if (!r.betEst) return false; if (r.k === 1) return Math.abs(r.dealt - r.betEst) <= Math.max(2, r.betEst * 0.15); const n = +(r.text.match(/(\d) 次，每次/)?.[1] ?? 1); const lo = Math.min(r.want, r.betEst * n), hi = Math.max(r.want, r.betEst * n); return r.dealt >= lo * 0.95 - 2 && r.dealt <= hi * 1.05 + 2; }), `押注答对伤害 ≈ 押注估算（${dchk.map(r => `${r.dealt}≈${r.betEst}${r.k !== 1 ? '×' + r.k + '=' + r.want + '（' + r.text.match(/✨[^：]*/)?.[0] + '）' : ''}`).join('，')}）`);
-ok(st.betWrong.length >= 2 && st.betWrong.every(r => /押注答错：怪物反击，闪不开/.test(r.text) && r.taken > 0 && !/闪开/.test(r.text.replace('闪不开', ''))), `押注答错：怪物反击、闪不开（${st.betWrong.map(r => r.text).join(' | ')}）`);
+ok(st.betWrong.length >= 2 && st.betWrong.every(r => /押注失手：反击 ×1\.25，闪不开/.test(r.text) && r.taken > 0 && !/闪开/.test(r.text.replace('闪不开', ''))), `押注答错：怪物反击、闪不开（${st.betWrong.map(r => r.text).join(' | ')}）`);
 console.log(bad ? `r1542-wager FAIL ${bad}` : 'r1542-wager ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);
