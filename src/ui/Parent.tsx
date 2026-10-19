@@ -42,7 +42,7 @@ function PrefetchAnim() {
 }
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, PinPad, fmtMin } from './common';
-import { GRADE_LABEL, loadBank, countStatuses, type Bank, type GradeKey } from '../game/questions';
+import { GRADE_LABEL, loadBank, countStatuses, qRev, type Bank, type GradeKey, type Question } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
 import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, cancelPreview, bonusAllSpent, splitUsed, fmtMS, type Usage } from '../game/playtime';
@@ -393,12 +393,17 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
     if (!pv) return;
     const bad = new Set(pv.bank.bad.map(x => x.row - 1));
     // 存原始题目（补上年级与唯一键），状态以 status 为准，game_ready 重新计算
-    const good = pv.raw.map((r, i) => [r, i] as const).filter(([, i]) => !bad.has(i)).map(([r, i]) => {
-      const q = pv.bank.all.find(x => x.order === i)!;
-      return { ...r, grade: q.grade, key: q.key, status: q.status, game_ready: q.status === '已通过' || q.status === 'AI初审通过' };
+    /* r16：和内置题同号的——内容一样就不存（导出再导入的内置题不会变成「导入题」，以后题库升级照样生效）；
+       内容不同就记下导入时内置题的版本 base_rev（内置题以后更新了，以新版为准，见 bankStore.mergeImported） */
+    const builtinBy = new Map<string, Question>(); for (const b of Object.values(bank.builtin)) for (const q of b.all) builtinBy.set(q.key, q);
+    let same = 0;
+    const good = pv.raw.map((r, i) => [r, i] as const).filter(([, i]) => !bad.has(i)).flatMap(([r, i]) => {
+      const q = pv.bank.all.find(x => x.order === i)!; const bq = builtinBy.get(q.key);
+      if (bq && qRev(bq) === qRev(q)) { same++; return []; }
+      return [{ ...r, grade: q.grade, key: q.key, status: q.status, game_ready: q.status === '已通过' || q.status === 'AI初审通过', ...(bq ? { base_rev: qRev(bq) } : {}) }];
     });
     await putImported(good);
-    setMsg(`已导入 ${pv.bank.all.length} 题（新增 ${pv.isNew}，更新 ${pv.isUpd}），错误 ${pv.bank.bad.length} 行未导入。`);
+    setMsg(`已导入 ${good.length} 题（新增 ${pv.isNew}，更新 ${pv.isUpd - same}${same ? `；${same} 题和内置题一样，不另存，仍用内置题` : ''}），错误 ${pv.bank.bad.length} 行未导入。`);
     setPv(null); await reloadBank();
   };
   const exportGrade = (g: string, fmt: 'json' | 'csv') => {
@@ -440,6 +445,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
         <input ref={fileRef} type="file" accept=".json,.csv,application/json,text/csv" hidden data-testid="import-file" onChange={e => { const f = e.target.files?.[0]; if (f) onFile(f); e.target.value = ''; }} />
         <button className="btn" onClick={() => fileRef.current?.click()}>📥 导入题库（JSON / CSV）</button>
         <button className="btn ghost" disabled={!bank.importedCount} onClick={async () => { await clearImported(); await reloadBank(); setMsg('已清除导入的题，恢复内置题库'); }}>清除已导入（{bank.importedCount}）</button>
+        {(bank.importedSuperseded ?? 0) > 0 && <p className="hint" data-testid="import-superseded">有 {bank.importedSuperseded} 道导入题和内置题同号，内置题已经更新，现在用内置的新版（需要的话可以重新导入）。</p>}
         {bank.importedInvalid > 0 && <p className="warn" data-testid="import-invalid">有 {bank.importedInvalid} 道导入题格式不对，已暂停使用（请修改后重新导入）。</p>}
       </div>
       {msg && <p className="note">{msg}</p>}

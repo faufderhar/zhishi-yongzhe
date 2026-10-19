@@ -15,7 +15,7 @@ import type { BandConfig } from '../game/grades';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
-import { isDue, INTERVAL, type WrongEntry } from '../game/wrongbook';
+import { isDue, INTERVAL, wrongStale, type WrongEntry } from '../game/wrongbook';
 import { speak, hasVoice, afterVoiceThen } from '../tts';
 import { useForceEnd } from './Battle';
 import { answerFeedback } from '../feedback';
@@ -354,7 +354,7 @@ export function WrongBookScreen({ wrong, byKey, onBack, onReview , timeUp = fals
             <div key={e.id} className="wb-item">
               <div className="wb-meta"><span className="tag">{q.subject}</span> 第 {e.box} 盒 · {isDue(e) ? <b className="hot-text">今天复习</b> : `下次 ${e.due}`} · 错 {e.wrongCount} 次</div>
               <div className="wb-q"><Tex text={q.question} /></div>
-              <div className="wb-a">你的答案：{!e.lastAnswer ? '（超时）' : (q.type === '选择' || q.type === '多选') ? <Tex text={e.lastAnswer.split('').map(k => `${k}. ${q.options.find(o => o.key === k)?.text ?? ''}`).join('；')} /> : e.lastAnswer} · 正确答案：<b><Tex text={correctText(q)} /></b></div>
+              <div className="wb-a">你的答案：{wrongStale(e, q) ? <span className="hint" data-testid="wb-stale">（这题后来更新过，当时的答案不再显示）</span> : !e.lastAnswer ? '（超时）' : (q.type === '选择' || q.type === '多选') ? <Tex text={e.lastAnswer.split('').map(k => `${k}. ${q.options.find(o => o.key === k)?.text ?? ''}`).join('；')} /> : e.lastAnswer} · 正确答案：<b><Tex text={correctText(q)} /></b></div>
               {q.explanation && <div className="expl">💡 <Tex text={q.explanation} /></div>}
             </div>
           );

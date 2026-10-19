@@ -18,7 +18,7 @@ import { DESIGN } from './game/config';
 import { setAudioPrefs } from './tts';
 import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { syncNewVolumes, volLabel } from './game/volumes';
-import { playable, isBossOnly, shuffle, type Question } from './game/questions';
+import { playable, isBossOnly, shuffle, qRev, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
 import { starOf, retreatCleared, buildChapters, levelStars, chalCostStar, bossPool, elitePool, assignedBefore, capMulti, lessonRank, levelsOfUnit, migrateStars, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, stemOf, updateSkill, type Skills } from './game/adaptive';
@@ -488,7 +488,7 @@ export default function App() {
     const id = `${p.id}|${q.key}`;
     setWrong(list => {
       const prev = list.find(e => e.id === id);
-      if (!correct) { const e = onWrong(prev, { profileId: p.id, qkey: q.key, subject: q.subject }, ans); putWrong(e); return [...list.filter(x => x.id !== id), e]; }
+      if (!correct) { const e = onWrong(prev, { profileId: p.id, qkey: q.key, subject: q.subject, rev: qRev(q) }, ans); putWrong(e); return [...list.filter(x => x.id !== id), e]; }
       if (prev && (isReview || isDue(prev))) {
         const nx = onReviewRight(prev);
         if (!nx) { delWrong(id); masteredThisLevel.current++; return list.filter(x => x.id !== id); }

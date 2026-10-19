@@ -1,0 +1,496 @@
+{
+ "judge": [
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-081",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第二单元·8 回忆鲁迅先生（节选）",
+    "type": "判断",
+    "question": "萧红笔下的鲁迅是一个平易近人、关爱青年的人。",
+    "answer": "对",
+    "explanation": "文章通过许多生活细节表现了这一点。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "回忆鲁迅先生（节选）",
+    "game_ready": true,
+    "template": "T33a40e",
+    "change_tag": "新增",
+    "tags": [
+     "回忆鲁迅先生（节选）"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-111",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第二单元·名著导读《红星照耀中国》",
+    "type": "判断",
+    "question": "斯诺在书中如实地向世界介绍了中国共产党和红军的真实情况。",
+    "answer": "对",
+    "explanation": "这本书打破了国民党对根据地的新闻封锁。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "名著导读《红星照耀中国》",
+    "game_ready": true,
+    "template": "T5b8b8b",
+    "change_tag": "新增",
+    "tags": [
+     "名著导读《红星照耀中国》"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-144",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第三单元·12 短文二篇",
+    "type": "判断",
+    "question": "《记承天寺夜游》是苏轼被贬黄州时所作。",
+    "answer": "对",
+    "explanation": "元丰六年，苏轼在黄州。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "短文二篇",
+    "game_ready": true,
+    "template": "Tad7704",
+    "change_tag": "新增",
+    "tags": [
+     "短文二篇"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-166",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第四单元·15 背影",
+    "type": "判断",
+    "question": "文章详细描写父亲爬月台买橘子的背影，是全文最感人的部分。",
+    "answer": "对",
+    "explanation": "这是文章的重点段落。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "背影",
+    "game_ready": true,
+    "template": "T711205",
+    "change_tag": "新增",
+    "tags": [
+     "背影"
+    ]
+   }
+  }
+ ],
+ "opt": [
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-012",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第一单元·2 中国人首次进入自己的空间站",
+    "type": "选择",
+    "question": "三名航天员是乘坐哪艘飞船进入空间站的？",
+    "options": [
+     {
+      "text": "神舟五号",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "嫦娥五号",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "神舟十二号",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "神舟十号",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "神舟十二号载人飞船与天和核心舱完成自主快速交会对接。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "中国人首次进入自己的空间站",
+    "game_ready": true,
+    "template": "Tf126be",
+    "change_tag": "新增",
+    "tags": [
+     "中国人首次进入自己的空间站"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-066",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第二单元·7 藤野先生",
+    "type": "选择",
+    "question": "《藤野先生》选自哪部作品？",
+    "options": [
+     {
+      "text": "《呐喊》",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "《野草》",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "《朝花夕拾》",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "《彷徨》",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "《朝花夕拾》是鲁迅回忆往事的散文集。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "藤野先生",
+    "game_ready": true,
+    "template": "T78da3a",
+    "change_tag": "新增",
+    "tags": [
+     "藤野先生"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-079",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第二单元·8 回忆鲁迅先生（节选）",
+    "type": "选择",
+    "question": "这篇文章选取的材料大多是？",
+    "options": [
+     {
+      "text": "鲁迅的重大政治活动",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "鲁迅的童年经历",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "鲁迅的作品分析",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "鲁迅日常生活中的琐事",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "通过生活细节表现鲁迅的形象。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "回忆鲁迅先生（节选）",
+    "game_ready": true,
+    "template": "T7a8191",
+    "change_tag": "新增",
+    "tags": [
+     "回忆鲁迅先生（节选）"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-099",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第二单元·10 美丽的颜色",
+    "type": "选择",
+    "question": "居里夫妇提炼镭的工作地点是？",
+    "options": [
+     {
+      "text": "一个简陋的棚屋",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "大学图书馆",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "一家大工厂",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "宽敞的实验室",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "A",
+    "explanation": "棚屋条件极为艰苦，夏天闷热，冬天寒冷。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "美丽的颜色",
+    "game_ready": true,
+    "template": "T6b611b",
+    "change_tag": "新增",
+    "tags": [
+     "美丽的颜色"
+    ]
+   }
+  }
+ ],
+ "swap": [
+  {
+   "grade": "10",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "细胞",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "器官",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "种群",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "系统",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "id": "B10-191",
+    "subject": "生物",
+    "grade": 10,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "volume": "必修第一册",
+    "unit": "必修1·第1章 走近细胞·第1节 细胞是生命活动的基本单位",
+    "question": "与动物相比，植物的生命系统结构层次中没有的是？",
+    "explanation": "植物由器官直接构成个体，没有“系统”这一层次。",
+    "difficulty": 2,
+    "knowledge_point": "细胞是生命活动的基本单位",
+    "type": "选择",
+    "answer": "D",
+    "game_ready": true,
+    "template": "Tfc37d7",
+    "change_tag": "新增",
+    "tags": [
+     "细胞是生命活动的基本单位"
+    ]
+   }
+  },
+  {
+   "grade": "10",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "差异性",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "多样性",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "统一性",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "特殊性",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "id": "B10-193",
+    "subject": "生物",
+    "grade": 10,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "volume": "必修第一册",
+    "unit": "必修1·第2章 组成细胞的分子·第1节 细胞中的元素和化合物",
+    "question": "组成细胞的化学元素在无机自然界中都能找到，这说明生物界与非生物界具有？",
+    "explanation": "没有一种元素是细胞特有的，体现统一性；含量差别大，体现差异性。",
+    "difficulty": 2,
+    "knowledge_point": "细胞中的元素和化合物",
+    "type": "选择",
+    "answer": "C",
+    "game_ready": true,
+    "template": "T7d0111",
+    "change_tag": "新增",
+    "tags": [
+     "细胞中的元素和化合物"
+    ]
+   }
+  },
+  {
+   "grade": "10",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "细胞膜的基本支架",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "遗传信息的载体",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "主要的能源物质",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "良好的溶剂",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "id": "B10-194",
+    "subject": "生物",
+    "grade": 10,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "volume": "必修第一册",
+    "unit": "必修1·第2章 组成细胞的分子·第2节 细胞中的无机物",
+    "question": "水分子是极性分子，带电分子或离子都容易与水结合，因此水是？",
+    "explanation": "水的极性使许多物质能溶解在水中。",
+    "difficulty": 2,
+    "knowledge_point": "细胞中的无机物",
+    "type": "选择",
+    "answer": "D",
+    "game_ready": true,
+    "template": "T42b947",
+    "change_tag": "新增",
+    "tags": [
+     "细胞中的无机物"
+    ]
+   }
+  },
+  {
+   "grade": "10",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "细菌的拟核中",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "植物细胞壁中",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "人的肝脏细胞中",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "甲壳类动物和昆虫的外骨骼中",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "id": "B10-195",
+    "subject": "生物",
+    "grade": 10,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "volume": "必修第一册",
+    "unit": "必修1·第2章 组成细胞的分子·第3节 细胞中的糖类和脂质",
+    "question": "几丁质（又称壳多糖）广泛存在于？",
+    "explanation": "几丁质是一种多糖，可用于废水处理、制作人工皮肤等。",
+    "difficulty": 2,
+    "knowledge_point": "细胞中的糖类和脂质",
+    "type": "选择",
+    "answer": "D",
+    "game_ready": true,
+    "template": "Tdc7637",
+    "change_tag": "新增",
+    "tags": [
+     "细胞中的糖类和脂质"
+    ]
+   }
+  }
+ ]
+}

@@ -22,6 +22,13 @@ export interface Question {
   order: number;          // 在源文件中的顺序（章节排序用）
 }
 export const KEYS = 'ABCDEF'.split('');
+/** r16（题库 v43：ids 不变、判断题答案 / 选项文字 / 高一选项位置有改动）：题目「内容版本」= 题型 + 题干 + 选项 + 答案 + 容差 的短哈希。
+    错题本记下答错时的版本；导入题记下导入时内置题的版本（base_rev），内置题升级后以新版为准 */
+export function qRev(q: Pick<Question, 'type' | 'question' | 'options' | 'answer'> & { tolerance?: number; question_image?: string }): string {
+  const s = JSON.stringify([q.type, q.question, q.question_image ?? '', q.options.map(o => [o.text, o.image ?? '']), q.answer, q.tolerance ?? null]);
+  let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+  return (h >>> 0).toString(36);
+}
 export const NO_VOLUME = '（未标册别）';
 
 /** 年级键：K1/K2/K3、1–12；宽松接受数字 0（=K1） */
