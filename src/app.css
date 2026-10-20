@@ -1071,3 +1071,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .ime-wrap .ime-input:focus{border-color:#f5b400}
 .ime-wrap .ime-row{display:flex;justify-content:flex-end}
 .ime-wrap .ime-row .ok{min-width:140px;min-height:52px;font-size:22px;border-radius:12px;background:#4cd964;color:#123}.ime-wrap .ime-row .ok:disabled{opacity:.5}
+/* r16.1 (c)：幼儿园结算页的怪物立绘（序列帧第一帧），和小乌云静态图一样高 */
+.friends .kmon-face{height:220px;background-repeat:no-repeat;background-position:0 0}
+@media (max-height:760px){.center-screen .row.friends .kmon-face{height:110px}}
+@media (max-height:480px){.center-screen .row.friends .kmon-face{height:76px}}

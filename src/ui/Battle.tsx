@@ -97,7 +97,9 @@ export function useDirector(gentle: boolean, c: Character, scale: number, hs = f
   return { stage, shake, hero, monster, flash, canvas, dir, alive, monState };
 }
 
-export interface BattleResult { endReason?: 'hp0' | 'reviveFail' /* r15.3 学霸：输掉的原因（结算页显示） */; chalNeed?: boolean /* r15.2：初一普通关且挑战按钮亮过 → 3 星要答对挑战题 */; chalRight?: number /* r15.2：答对的挑战题数 */; exhausted?: boolean /* r15：题出完（每题 2 次）提前撤退 */; half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
+/** 幼儿园结算页的怪物：名字 + 序列帧目录（idle 柔和版第一帧当立绘）；undefined = 小乌云 */
+export interface KMonOut { name: string; dir: string; idle: string }
+export interface BattleResult { kMon?: KMonOut /* r16.1 (c)：幼儿园结算页「X变成你的好朋友啦」用战斗里真正出场的怪物（中班 Boss = 专属 Boss） */; endReason?: 'hp0' | 'reviveFail' /* r15.3 学霸：输掉的原因（结算页显示） */; chalNeed?: boolean /* r15.2：初一普通关且挑战按钮亮过 → 3 星要答对挑战题 */; chalRight?: number /* r15.2：答对的挑战题数 */; exhausted?: boolean /* r15：题出完（每题 2 次）提前撤退 */; half?: number /* r12：半对题数（correct 里按 0.5 计） */; win: boolean; correct: number; total: number; revived: boolean; hpPct?: number /* D14 剩余血量比例 */; wrongKeys: string[]; retreat?: boolean; turns?: number; timeUp?: boolean; quit?: boolean /* 中途退出（学霸报告 #6：显示未通过结算） */; kinder?: { first: number; retry: number; demo: number } }
 export interface BattleProps { unit?: string /* r15.3：关卡所在章（Boss 按章取名 / 主色） */; review?: string[] /* r15：错题复习题的 key（卡片显示「复习」） */;
   cfg: BandConfig; c: Character; kind: LevelKind; title: string;
   questions: Question[]; extra: Question[];         // extra：精英/Boss 题不够时继续出
@@ -255,6 +257,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
     wrap.style.setProperty('--kdash', String(Math.max(0, Math.min(dashScale(km.aspect), room / 160)))); }, [D.monState, km.aspect]);
   const gskin = gskin0 && D.monState !== 'fail' ? gskin0 : null;   // 柔和版怪兽没加载出来 → 小乌云，文字也跟着说小乌云
   const monName = gskin?.name ?? '小乌云';
+  const kMon: KMonOut | undefined = gskin ? { name: gskin.name, dir: gskin.art.dir, idle: gskin.art.anims.idle.soft } : undefined;
   const [say, setSay] = useState<string | null>(null);   // r10：伙伴说的话（文字 + 朗读）
   const [busy, setBusy] = useState(false);                // r10：锁定期间（伙伴在说话）给可见提示
   const [nudge, setNudge] = useState(0);
@@ -265,11 +268,11 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
   const wrong = useRef<string[]>([]);
   const down = useRef<string | null>(null);
   // r12 小萌新：暂停超时不再丢弃——已经答对过就按已答结算（全答完 = 胜利），一题没答才直接回地图
-  const kQuit = () => { const k = ksRef.current; if (k.done) { onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); return; }
-    if (!(k.first + k.retry + k.demo)) { onQuit(); return; } onEnd({ win: false, quit: true, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); };
+  const kQuit = () => { const k = ksRef.current; if (k.done) { onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); return; }
+    if (!(k.first + k.retry + k.demo)) { onQuit(); return; } onEnd({ win: false, quit: true, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); };
   useWakeLock(); usePauseTimeout(paused, kQuit);
   const forced = useRef(false);
-  useForceEnd(async () => { if (forced.current) return; forced.current = true; lock.current = true; setBusy(true); await afterVoice(0, K_WAIT.endMax); if (!D.alive.current) return; const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo } }); });
+  useForceEnd(async () => { if (forced.current) return; forced.current = true; lock.current = true; setBusy(true); await afterVoice(0, K_WAIT.endMax); if (!D.alive.current) return; const k = ksRef.current; onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
   useEffect(() => { if (q && cfg.autoTTS) speakStem(q, choices); }, [q, cfg.autoTTS]);
@@ -318,7 +321,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
         else { speak('小乌云变成你的好朋友啦！'); await Promise.race([D.dir.current?.kinderFinale(), sleep(2500)]); }   // r12：演出最多 2.5 s，后台/卡住也照样结算
         await afterVoice(0, left(K_WAIT.endMax));   // r15.4.4：这句读完再进结算页（结算页的朗读会打断它）
         if (!D.alive.current || forced.current) return;
-        onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo } }); return;
+        onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo }, kMon }); return;
       }
       await afterVoice(0, left(K_WAIT.nextMax));   // r15.4.4：表扬 + 技能名 +「开心值」读完再出下一题
       if (!D.alive.current || forced.current) return;

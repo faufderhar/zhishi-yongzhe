@@ -6,7 +6,7 @@ import { skinFor } from '../game/monsterSkin';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin } from './common';
-import { Sprite } from './Battle';
+import { Sprite, type KMonOut } from './Battle';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
@@ -236,8 +236,20 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
-export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
-  half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; retreat?: boolean; turns?: number;
+/** r16.1 (c)：幼儿园结算页的「X变成你的好朋友啦！」 */
+export const kFriendLine = (m?: { name: string }) => `${m?.name ?? '小乌云'}变成你的好朋友啦！`;
+/** 怪物立绘：idle 柔和版序列帧的第一帧（读不到 json / 图 → 小乌云静态图） */
+export function KMonFace({ m }: { m?: KMonOut }) {
+  const base = import.meta.env.BASE_URL; const [sh, setSh] = useState<{ img: string; cols: number; rows: number; ar: number } | null>(null); const [bad, setBad] = useState(false);
+  useEffect(() => { if (!m) return; let live = true; setSh(null); setBad(false);
+    fetch(`${base}${m.dir}/${m.idle}.json`).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status)))).then((j: { image: string; columns: number; rows: number; frame_width: number; frame_height: number }) => {
+      if (!live) return; const img = new Image(); img.onload = () => { if (live) setSh({ img: img.src, cols: j.columns, rows: j.rows, ar: j.frame_width / j.frame_height }); }; img.onerror = () => { if (live) setBad(true); }; img.src = `${base}${m.dir}/${j.image}`; })
+      .catch(() => { if (live) setBad(true); }); return () => { live = false; }; }, [m?.dir, m?.idle]);
+  if (m && sh && !bad) return <div className="kmon-face" data-testid="result-k-mon" data-mon={m.name} role="img" aria-label={m.name} style={{ backgroundImage: `url(${sh.img})`, backgroundSize: `${sh.cols * 100}% ${sh.rows * 100}%`, aspectRatio: String(sh.ar) }} />;
+  return <img src={`${base}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" data-testid="result-k-mon" data-mon={m && !bad ? m.name : '小乌云'} />;
+}
+export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
+  half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; kMon?: KMonOut; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
   const acc = total ? Math.round(correct / total * 100) : 0;
@@ -259,8 +271,9 @@ export function ResultScreen({ playN, endReason, chalHint = false, cfg, c, win, 
         {/* r16 小萌新：不认字也看得懂——今天玩了 3 次 → 月亮（睡一觉）→ 明天的星星 */}
         <div className="knostar-why" data-testid="result-k-why" role="img" aria-label={K_NOSTAR_WHY}><span className="kplays">{[1, 2, 3].map(n => <b key={n}>{n}</b>)}</span><span className="karrow">➜</span><span>🌙</span><span className="karrow">➜</span><span className="kstar-tmr">⭐</span></div></>
       : cfg.band === 'K' ? <>
-        <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><img src={`${import.meta.env.BASE_URL}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" /></div>
-        <h1>小乌云变成你的好朋友啦！</h1>
+        {/* r16.1 (c) 小萌新：打的是「点点数星熊」，结算页却写「小乌云…」——用战斗里真正出场的怪物（名字 + 立绘）；普通关 / 没加载出来 = 小乌云 */}
+        <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><KMonFace m={kMon} /></div>
+        <h1 data-testid="result-k-friend">{kFriendLine(kMon)}</h1>
         <KinderSub k={kinder} total={total} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} />
         {kAgain && <p className="ksub" data-testid="result-k-again">{K_AGAIN_TEXT}</p>}
       </> : <>
