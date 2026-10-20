@@ -226,7 +226,7 @@ export function kStarsNow(k: { first: number; retry: number; demo: number }) { c
 export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, onQuit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean }) {
   const skRoll = useRef<SkillRoll>(newRoll()); const lastSkill = useRef('');
   useEffect(() => { preloadSkillArt(skillsFor('K', c.major)); }, [c.major]);
-  useEffect(() => { (window as unknown as { __zyLastSkill?: () => string }).__zyLastSkill = () => lastSkill.current; }, []);
+  useEffect(() => { if (__TEST_HOOKS__) (window as unknown as { __zyLastSkill?: () => string }).__zyLastSkill = () => lastSkill.current; }, []);   // r16.1 (k)：只在测试包
   // r10 策划裁定：小班精英 / Boss = 温和战斗（柔和版怪物跳进来、3 / 5 颗小星星、不掉血不攻击，最后变成朋友挥手回家）
   const gentle = kind !== 'normal';
   const hearts = Math.min(questions.length, gentle ? (kind === 'elite' ? 3 : 5) : cfg.questions[kind]);

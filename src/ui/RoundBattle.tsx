@@ -197,8 +197,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
       // r13 技术QA R12-3 / 策划：本关出完 → 同单元相邻小节（前面的先）→ 都出完才重复 1 道；不再清空「本局出过」
       const r = refill(used.current, reserve ?? [], adj ?? [], new Set(stats.current.wrong), chalKeys.current, repCount.current); pool.current = r.pool; used.current = r.used;
       const w = window as unknown as { __zyAdj?: number; __zyRepeats?: number };
-      if (r.kind === 'adj') { w.__zyAdj = (w.__zyAdj ?? 0) + 1; console.info('[zy] 本关题池出完，补同单元相邻小节', r.pool.length); }
-      if (r.kind === 'repeat') { w.__zyRepeats = (w.__zyRepeats ?? 0) + 1; console.warn('[zy] 本关和相邻小节都出完了，开始重复', used.current.length); }
+      if (r.kind === 'adj') { if (__TEST_HOOKS__) w.__zyAdj = (w.__zyAdj ?? 0) + 1; console.info('[zy] 本关题池出完，补同单元相邻小节', r.pool.length); }
+      if (r.kind === 'repeat') { if (__TEST_HOOKS__) w.__zyRepeats = (w.__zyRepeats ?? 0) + 1; console.warn('[zy] 本关和相邻小节都出完了，开始重复', used.current.length); }
       if (!pool.current.length) { exhausted.current = true; void retreat(bs); return; }   // r15：题都出满 2 次 → 怪物提前撤退，按撤退规则结算
     }
     if (hs && P && !multiRule(multiCtx()).force) { setPhase('cards'); return; }   // 必出多选的回合跳过选卡（按标准卡），保证出到

@@ -23,7 +23,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+        env:
+          TZ: UTC
       - run: npm run build
+      # r16.1：生产包里有任何测试钩子名就不部署
+      - run: node scripts/check-prod-hooks.mjs dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
