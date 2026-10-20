@@ -17,7 +17,7 @@ it('取消后又加 10 分钟 → 新加的可以取消，留下的已用部分�
   expect(bonusAllSpent(u[D])).toBe(false); expect(bonusUsedSec(u[D], 300)).toBe(254); expect(cancelPreview(u[D], 300).cancel).toBe(600);
   u = cancelBonus(u, D, 300); expect(u[D]).toMatchObject({ bonus: 254, spent: 254 });
 });
-it('全部没用就取消 → 不留 spent', () => { const u = cancelBonus(addBonus({}, D, 600), D, 300); expect(u[D]).toEqual({ used: 0, bonus: 0 }); });
+it('全部没用就取消 → 不留 spent', () => { const u = cancelBonus(addBonus({}, D, 600), D, 300); expect(u[D]).toEqual({ used: 0, bonus: 0, cancelled: 1 }); expect(u[D].spent).toBeUndefined(); });   // r16.2：只多记「取消过」（首页 / 地图写「加时已取消」），仍不留 spent
 it('P3 文案：用完时不再写「还能玩 0 分钟（含今天临时加时…）」', () => {
   expect(timeLeftText(0, 254)).toBe('今天的时间已用完（其中临时加时 4 分钟也已用完）');
   expect(timeLeftText(0, 0)).toBe('今天还能玩 0 分钟'); expect(timeLeftText(600, 600)).toBe('今天还能玩 10 分钟（含今天临时加时 10 分钟）');

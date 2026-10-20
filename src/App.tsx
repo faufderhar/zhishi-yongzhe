@@ -1,7 +1,7 @@
 import { roundModeOf } from './game/rounds';
 import { claimTab, onTabActive, isActiveTab } from './tabGuard';
 import { launchCause, markAlive, beat, setSafeScreen, logReload } from './swUpdate';
-import { bonusShown, effBonus, tickGrace, GRACE_MS, GRACE_VOICE, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
+import { bonusShown, bonusCancelledShown, effBonus, tickGrace, GRACE_MS, GRACE_VOICE, clampUsageAdd, graceBudgetMs, limitMinutes } from './game/playtime';
 import { withBossFirst } from './game/bossUsage';
 import { netCheck, pendingDays, pendingWaitedMs, PEND_DAYS, tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
@@ -646,7 +646,7 @@ export default function App() {
       {pinNudge && <div className="modal-back" data-testid="pin-nudge"><div className="modal"><h2>要不要设一个家长密码？</h2><p>现在换孩子档案不需要密码，孩子可以随意进别人的档案、改设置。设了密码后，换档案和进家长页都要输密码（家长页里可以关掉「换档案要密码」）。</p>
         <div className="row gap16"><button className="btn" data-testid="pin-nudge-set" onClick={() => { const pp = pinNudge; setPinNudge(null); setSettings({ ...settingsRef.current, pinNudged: true }); setScreen({ s: 'gate', next: 'pick', pick: pp.id }); }}>设置密码</button>
         <button className="btn ghost" data-testid="pin-nudge-skip" onClick={() => { const pp = pinNudge; setPinNudge(null); setSettings({ ...settingsRef.current, pinNudged: true }); void pickProfile(pp, true); }}>跳过</button></div></div></div>}
-      {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} bonus={Object.fromEntries(profiles.map(x => [x.id, bonusShown(usage[x.id], today)]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
+      {screen.s === 'profiles' && <ProfileSelect profiles={profiles} remaining={Object.fromEntries(profiles.map(x => [x.id, remaining(x.id)]))} bonus={Object.fromEntries(profiles.map(x => [x.id, bonusShown(usage[x.id], today)]))} bonusCancelled={Object.fromEntries(profiles.map(x => [x.id, bonusCancelledShown(usage[x.id]?.[today])]))} onPick={pickProfile} onParent={() => setScreen({ s: 'gate' })}
         canAdd={profiles.length < DESIGN.maxProfiles} adding={!!screen.adding} onAddRequest={() => setScreen({ s: 'gate', next: 'add' })} onAddClose={() => setScreen({ s: 'profiles' })}
         onAdd={p => { setProfiles(ps => [...ps, p]); setLastPid(p.id); addedPid.current = p.id; try { localStorage.setItem('zy.lastPlayer', JSON.stringify({ pid: p.id, day: today })); } catch { /* */ } setScreen({ s: 'profiles' }); }} />}   {/* r14.1：添加孩子已经过家长密码，进这个新档案不再问一次 */}
       {screen.s === 'gate' && <ParentGate allHints={profiles.map(x => x.pinVault?.pinHint?.a).filter((a): a is string => !!a)} settings={settings} purpose={screen.next === 'add' ? '添加孩子需要家长确认' : undefined}
@@ -666,7 +666,7 @@ export default function App() {
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => enterGrade(screen.g, true)} onCancel={() => setScreen({ s: 'grade', stage: stageOf(screen.g) })} />}
-      {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} progress={progress} wrong={wrong} remaining={myRemaining} bonus={pid ? bonusShown(usage[pid], today) : 0} c={char}
+      {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} progress={progress} wrong={wrong} remaining={myRemaining} bonus={pid ? bonusShown(usage[pid], today) : 0} bonusCancelled={pid ? bonusCancelledShown(usage[pid]?.[today]) : false} c={char}
         chapterIdx={chapterIdx} setChapterIdx={setChapterIdx} onLevel={startLevel} onBack={() => setScreen({ s: 'grade', stage: stageOf(p.grade) })}
         onWrongBook={() => setScreen({ s: 'wrongbook' })} onChar={() => setScreen({ s: 'char' })}
         onReview={() => startReview(wrong.filter(e => isDue(e)).sort((a, b) => a.due.localeCompare(b.due)).slice(0, 10).map(e => e.qkey))} />}

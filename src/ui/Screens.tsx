@@ -49,7 +49,8 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
 /** r11（较真家长）：剩余时间里含临时加时时写明 */
 export const bonusNote = (rem: number | undefined, b: number | undefined) => b && b > 0 && rem !== undefined && Number.isFinite(rem) ? `（含今天临时加时 ${Math.round(b / 60)} 分钟）` : '';
 /** r15.4.3 较真家长 P3：用完了还写「还能玩 0 分钟（含今天临时加时 4 分钟）」像是还有时间 → 改成「今天的时间已用完（其中临时加时 4 分钟也已用完）」 */
-export const timeLeftText = (rem: number | undefined, b: number | undefined) => rem === 0 && b && b > 0 ? `今天的时间已用完（其中临时加时 ${Math.max(1, Math.round(b / 60))} 分钟也已用完）` : `今天还能玩 ${fmtMin(rem ?? Infinity)}${bonusNote(rem, b)}`;
+/** r16.2 较真家长：家长取消了没用的加时之后，首页卡片和地图也写「加时已取消」（以前什么都不写，孩子 / 家长看不出加时没了） */
+export const timeLeftText = (rem: number | undefined, b: number | undefined, cancelled?: boolean) => cancelled && !(b && b > 0) && rem !== undefined && Number.isFinite(rem) ? (rem === 0 ? '今天的时间已用完（加时已取消）' : `今天还能玩 ${fmtMin(rem)}（加时已取消）`) : rem === 0 && b && b > 0 ? `今天的时间已用完（其中临时加时 ${Math.max(1, Math.round(b / 60))} 分钟也已用完）` : `今天还能玩 ${fmtMin(rem ?? Infinity)}${bonusNote(rem, b)}`;
 /** 安装引导（GDD §9.5 / 技术QA P2-8）：iPad 非主屏幕模式显示「分享 → 添加到主屏幕」；安卓显示〔安装到主屏幕〕 */
 type BIP = { prompt: () => Promise<void> | void; userChoice?: Promise<{ outcome: 'accepted' | 'dismissed' }> };
 let deferredPrompt: BIP | null = null;
@@ -85,7 +86,7 @@ function InstallGuide() {
 export function IosSteps() {
   return <span className="ios-steps" data-testid="ios-steps">点 Safari 的 <b className="share-ic" aria-label="分享"><svg width="22" height="26" viewBox="0 0 22 26" aria-hidden><path d="M11 1v15M6 6l5-5 5 5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /><path d="M4 10H2v15h18V10h-2" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" /></svg> 分享</b> → 往下找 <b>「添加到主屏幕」</b> ➕ → 右上角〔添加〕，像 App 一样全屏玩</span>;
 }
-export function ProfileSelect({ profiles, remaining, bonus = {}, onPick, onParent, onAdd, onAddRequest, onAddClose, adding, canAdd }: { profiles: Profile[]; remaining: Record<string, number>; bonus?: Record<string, number>; onPick: (p: Profile) => void; onParent: () => void;
+export function ProfileSelect({ profiles, remaining, bonus = {}, bonusCancelled = {}, onPick, onParent, onAdd, onAddRequest, onAddClose, adding, canAdd }: { profiles: Profile[]; remaining: Record<string, number>; bonus?: Record<string, number>; bonusCancelled?: Record<string, boolean>; onPick: (p: Profile) => void; onParent: () => void;
   onAdd: (p: Profile) => void; onAddRequest: () => void; onAddClose: () => void; adding: boolean; canAdd: boolean }) {
   const lpDel = useRef(0); const [delAsk, setDelAsk] = useState<Profile | null>(null);   // r10：长按档案 → 删除说明（要家长密码）
   return (
@@ -101,7 +102,7 @@ export function ProfileSelect({ profiles, remaining, bonus = {}, onPick, onParen
             <small>{GRADE_LABEL[p.grade]}</small>
             {(() => { const same = profiles.filter(x => x.name === p.name && x.avatar === p.avatar); if (same.length < 2) return null; const i = same.indexOf(p);   // r14 小萌新：同名同头像的档案加编号和颜色区分
               return <small className="dup-tag" data-testid={'dup-' + p.id} style={{ background: ['#4cc9f0', '#f72585', '#ffd23f', '#80ed99'][i % 4] }}>{p.name} {i + 1} 号</small>; })()}
-            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>{timeLeftText(remaining[p.id], bonus[p.id])}</small>
+            <small className={`left-time ${remaining[p.id] === 0 ? 'warn' : ''}`}>{timeLeftText(remaining[p.id], bonus[p.id], bonusCancelled[p.id])}</small>
           </button>
         ))}
         {canAdd && <button className="profile-card add-card" data-testid="add-child" onClick={onAddRequest}>
@@ -148,8 +149,8 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
 }
 
 const KIND_LABEL = { normal: '', elite: '精英', boss: 'Boss' };
-export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus = 0, c, onLevel, onBack, onWrongBook, onReview, onChar, chapterIdx, setChapterIdx }: {
-  p: Profile; cfg: BandConfig; chapters: Chapter[]; progress: Progress; wrong: WrongEntry[]; remaining: number; bonus?: number; c: Character | undefined;
+export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus = 0, bonusCancelled = false, c, onLevel, onBack, onWrongBook, onReview, onChar, chapterIdx, setChapterIdx }: {
+  p: Profile; cfg: BandConfig; chapters: Chapter[]; progress: Progress; wrong: WrongEntry[]; remaining: number; bonus?: number; bonusCancelled?: boolean; c: Character | undefined;
   onLevel: (l: Level) => void; onBack: () => void; onWrongBook: () => void; onReview: () => void; onChar: () => void;
   chapterIdx: number; setChapterIdx: (i: number) => void;
 }) {
@@ -182,7 +183,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         <button className="back-inline labeled" data-testid="map-back" onClick={() => { speak('返回选年级'); onBack(); }} aria-label="返回选年级">← <small>返回</small></button>
         {/* r15.4 学霸：在别的年级玩时写明这是哪个年级的档案（「初一同学 · 初一档案 · 在玩高一的关卡」），不会被当成高一档案名取错 */}<span className="who" data-testid="map-who">{p.avatar} {p.name} · {(() => { const hg = (p as { homeGrade?: GradeKey }).homeGrade; return hg && hg !== p.grade ? `${GRADE_LABEL[hg]}档案 · 在玩${GRADE_LABEL[p.grade]}的关卡` : GRADE_LABEL[p.grade]; })()}</span>
         <span className="star-total" data-testid="star-total" title={progress.masteredStars ? `关卡 ${levelStarsTotal} + 错题掌握 ${progress.masteredStars}` : undefined}>★ {levelStarsTotal}{progress.masteredStars ? <small> ＋掌握 {progress.masteredStars}</small> : null}</span>
-        <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ {timeLeftText(remaining, bonus)}</span>
+        <span className={`time-left ${timeUp ? 'warn' : ''}`} data-testid="time-left">⏳ {timeLeftText(remaining, bonus, bonusCancelled)}</span>
         <span className="grow" />
         <button className="chip" onClick={onChar} data-testid="change-char">{c ? <Sprite className="chip-img" c={c} /> : '🐶'} 选角色</button>
         {cfg.band !== 'K' && <button className="chip" data-testid="wrongbook" onClick={onWrongBook}>📕 错题本 {wrong.length}</button>}

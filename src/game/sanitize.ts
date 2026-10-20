@@ -19,8 +19,8 @@ export function cleanProgress(x: unknown) {
   return { ...x, stars, plays, xp: num(x.xp, 0, XP_MAX, true) ?? 0, masteredStars: num(x.masteredStars, 0, MASTERED_MAX, true) ?? 0 };
 }
 export function cleanUsage(x: unknown) {
-  if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number; capAt?: number }> = {};
-  for (const [d, v] of Object.entries(x)) { if (!isObj(v)) continue; const used = num(v.used, 0, DAY_SEC, true); if (used === undefined) continue; const wrap = num(v.wrap, 0, DAY_SEC, true); const wrapTail = num(v.wrapTail, 0, 180, true); const spent = num(v.spent, 0, DAY_SEC, true); const capAt = num(v.capAt, 0, DAY_SEC, true); out[d] = { used, bonus: num(v.bonus, 0, DAY_SEC, true) ?? 0, ...(wrap !== undefined ? { wrap } : {}), ...(wrapTail ? { wrapTail } : {}), ...(spent ? { spent } : {}), ...(capAt !== undefined && spent ? { capAt } : {}) }; }   /* r16：capAt（取消加时时的今天上限）也保留 */
+  if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number; capAt?: number; cancelled?: 1 }> = {};
+  for (const [d, v] of Object.entries(x)) { if (!isObj(v)) continue; const used = num(v.used, 0, DAY_SEC, true); if (used === undefined) continue; const wrap = num(v.wrap, 0, DAY_SEC, true); const wrapTail = num(v.wrapTail, 0, 180, true); const spent = num(v.spent, 0, DAY_SEC, true); const capAt = num(v.capAt, 0, DAY_SEC, true); out[d] = { used, bonus: num(v.bonus, 0, DAY_SEC, true) ?? 0, ...(wrap !== undefined ? { wrap } : {}), ...(wrapTail ? { wrapTail } : {}), ...(spent ? { spent } : {}), ...(capAt !== undefined && spent ? { capAt } : {}), ...(v.cancelled === 1 ? { cancelled: 1 as const } : {}) }; }   /* r16：capAt（取消加时时的今天上限）也保留 */
   return out;
 }
 export function cleanSkills(x: unknown) {

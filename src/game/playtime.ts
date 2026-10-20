@@ -5,7 +5,7 @@ export interface TimeLimit { weekday: number; weekend: number }   // 分钟
 /** spent（r15.4.3）：取消加时时留下的「已用掉的加时」秒数——之后改每日上限也不再重算成「没用的、可以取消」 */
 /** capAt（r16 较真家长）：取消加时那一刻的「今天上限」= 当时的每日上限 + 已用掉的加时（秒）；之后改每日上限，今天上限 = max(新每日上限, capAt) */
 export interface Usage { [day: string]: DayUsage }  // 秒
-export interface DayUsage { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number; capAt?: number }
+export interface DayUsage { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number; capAt?: number; cancelled?: 1 /* r16.2：今天取消过加时（一点没用就取消时 bonus 归 0，以前看不出取消过） */ }
 /** r16 较真家长 1：今天实际叠加在每日上限上的加时（秒）。没取消过 = bonus（和以前一样）。
  *  取消过：取消时留下的已用部分 spent 不再是「叠加在任何上限之外的额度」，而是把今天上限定在 capAt：effSpent = clamp(capAt − 现在的每日上限, 0, spent)；
  *  旧记录没有 capAt：effSpent = min(spent, max(0, used − wrap − 每日上限))。取消后又加的时间（bonus − spent）照常叠加。
@@ -79,9 +79,11 @@ export function cancelPreview(r: DayUsage | undefined, limitSec: number): { canc
 export function cancelBonus(u: Usage, day: string, limitSec = 0): Usage { const r = u[day]; if (!r) return u; const bu = bonusUsedSec(r, limitSec); const { spent: _s, capAt: _c, ...r0 } = r; void _s; void _c;
   /* r16 较真家长 1：记下取消时的今天上限 capAt（每日上限 + 已用加时）；不限时不记 */
   const capAt = bu > 0 && limitSec > 0 && Number.isFinite(limitSec) ? limitSec + bu : undefined;
-  return { ...u, [day]: { ...r0, bonus: bu, ...(bu > 0 ? { spent: bu } : {}), ...(capAt !== undefined ? { capAt } : {}) } }; }
+  return { ...u, [day]: { ...r0, bonus: bu, ...(bu > 0 ? { spent: bu } : {}), ...(capAt !== undefined ? { capAt } : {}), ...(r.bonus > bu ? { cancelled: 1 as const } : {}) } }; }
 /** r15.4.3 较真家长 P2-4：今天的加时是不是全是「取消后留下的已用部分」（显示「加时已取消」而不是「今天已加」） */
 export const bonusAllSpent = (r: { bonus: number; spent?: number } | undefined) => !!r && r.bonus > 0 && (r.spent ?? 0) >= r.bonus;
+/** r16.2 较真家长：首页卡片 / 地图要不要写「加时已取消」——取消后没再加时（包括一点没用就取消、bonus 归 0 的情况） */
+export const bonusCancelledShown = (r: DayUsage | undefined) => !!r && (bonusAllSpent(r) || (r.cancelled === 1 && r.bonus <= (r.spent ?? 0)));
 /** r11：今天的临时加时（秒） */
 export const bonusToday = (u: Usage | undefined, day: string) => u?.[day]?.bonus ?? 0;
 /** r15.4.4 较真家长：首页卡片 / 地图「（含今天临时加时 n 分钟）」用——加时已取消（剩下的只是取消前已用掉的部分）就不写 */
