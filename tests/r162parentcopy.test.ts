@@ -1,9 +1,12 @@
 // r16.2 较真家长 文案（便宜的几条）：verify 不数次数；上限写成时长；加时取消后首页 / 地图写「加时已取消」；名字 8 字计数；F5 提示不重复
 import { it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { fmtDur, cancelLeftLine, cancelBonus, addBonus, bonusAllSpent, bonusShown, bonusCancelledShown } from '../src/game/playtime';
 import { cleanUsage } from '../src/game/sanitize';
 import { timeLeftText } from '../src/ui/Screens';
+import { NameCount, pasteTooLong, NAME_MAX } from '../src/ui/common';
 const P = readFileSync('src/ui/Parent.tsx', 'utf8'), A = readFileSync('src/App.tsx', 'utf8'), S = readFileSync('src/ui/Screens.tsx', 'utf8');
 it('「这一步输错不计次数」的确认页不再显示「（第 N 次）」（首次设置 + 修改密码两处）', () => {
   expect(P.match(/hint="确认记住了（这一步输错不计次数）"/g)?.length).toBe(2);
@@ -33,6 +36,18 @@ it('加时取消后：首页卡片 / 地图写「加时已取消」；取消后�
   expect(A).toMatch(/bonusCancelled=\{Object\.fromEntries\(profiles\.map\(x => \[x\.id, bonusCancelledShown\(usage\[x\.id\]\?\.\[today\]\)\]\)\)\}/);
   expect(A).toMatch(/bonusCancelled=\{pid \? bonusCancelledShown\(usage\[pid\]\?\.\[today\]\) : false\}/);
   expect(S).toMatch(/timeLeftText\(remaining\[p\.id\], bonus\[p\.id\], bonusCancelled\[p\.id\]\)/); expect(S).toMatch(/timeLeftText\(remaining, bonus, bonusCancelled\)/);
+});
+it('名字：显示「N/8 字」，满 8 字明说；粘贴超长被截时明说', () => {
+  const r = (v: string, cut?: boolean) => renderToStaticMarkup(createElement(NameCount, { v, cut }));
+  expect(r('')).toBe(''); expect(r('小明')).toMatch(/2\/8 字</); expect(r('一二三四五六七八')).toMatch(/8\/8 字，名字最多 8 个字/);
+  expect(r('一二三四五六七八', true)).toMatch(/粘贴的名字太长/);
+  const ev = (value: string, s: number, e: number, paste: string) => ({ currentTarget: { value, selectionStart: s, selectionEnd: e }, clipboardData: { getData: () => paste } }) as never;
+  expect(pasteTooLong(ev('', 0, 0, '一二三四五六七八'))).toBe(false); expect(pasteTooLong(ev('', 0, 0, '一二三四五六七八九'))).toBe(true);
+  expect(pasteTooLong(ev('小明', 0, 2, '一二三四五六七八'))).toBe(false); expect(pasteTooLong(ev('小明', 2, 2, '一二三四五六七'))).toBe(true);
+  expect(NAME_MAX).toBe(8);
+  expect(S).toMatch(/data-testid="add-name"[^\n]*maxLength=\{NAME_MAX\} onPaste=\{e => setCut\(pasteTooLong\(e\)\)\}[^\n]*<NameCount v=\{name\} cut=\{cut\} \/>/);
+  expect(P).toMatch(/data-testid="profile-name"[^\n]*maxLength=\{NAME_MAX\} onPaste=\{e => setNameCut\(pasteTooLong\(e\)\)\}[^\n]*<NameCount v=\{f\.name\} cut=\{nameCut\} testid="profile-name-count" \/>/);
+  expect(P + S).not.toMatch(/maxLength=\{8\}/);
 });
 it('在家长设置里 F5：提示不再说两遍「页面被重新加载了」', () => {
   expect(A).toMatch(/if \(inParent\) setExitNote\(parentReloadNote\(cause0\.kind\)\)/);

@@ -121,3 +121,14 @@ export function fmtMin(sec: number) { return sec === Infinity ? '不限' : `${Ma
 
 /** 技术QA R4-7：正确答案只放在 JS 里，选项 DOM 不带 data-correct；仅自动化测试（window.__zyTest）时才标出来方便脚本点 */
 export const TEST_DOM = typeof window !== 'undefined' && !!(__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest);
+
+/** r16.2 较真家长：名字超过 8 个字以前被悄悄截掉 → 输入框下面显示「N/8 字」，满了写「最多 8 个字」；粘贴太长被截时明说 */
+export const NAME_MAX = 8;
+export function pasteTooLong(e: { currentTarget: HTMLInputElement; clipboardData: DataTransfer | null }, max = NAME_MAX) {
+  const t = e.currentTarget, sel = (t.selectionEnd ?? t.value.length) - (t.selectionStart ?? t.value.length);
+  return t.value.length - sel + (e.clipboardData?.getData('text') ?? '').length > max;
+}
+export function NameCount({ v, cut, testid = 'name-count' }: { v: string; cut?: boolean; testid?: string }) {
+  if (!v && !cut) return null;
+  return <small className={`hint name-count ${v.length >= NAME_MAX ? 'warn' : ''}`} data-testid={testid}>{v.length}/{NAME_MAX} 字{v.length >= NAME_MAX ? '，名字最多 8 个字' : ''}{cut ? '（粘贴的名字太长，第 9 个字以后没放进来）' : ''}</small>;
+}

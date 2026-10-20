@@ -42,7 +42,7 @@ function PrefetchAnim() {
   return <button className="chip" data-testid="prefetch-anim" onClick={() => { setP('0%'); void prefetchAll((d, t) => setP(Math.round(d / t * 100) + '%')).then(() => setP('已完成，可离线使用')); }}>⬇ 预下载战斗动画（约 4.3MB）{p && ' · ' + p}</button>;
 }
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Modal, PinPad, fmtMin } from './common';
+import { Modal, PinPad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './common';
 import { GRADE_LABEL, loadBank, countStatuses, isPlayableStatus, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
@@ -339,7 +339,7 @@ function ProfilesTab({ profiles, setProfiles, bank, skills, usage, setUsage }: P
   );
 }
 function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: Profile; bank: BankState; onSave: (p: Profile) => void; onCancel: () => void; day?: DayUsage; onCancelBonus?: (limitSec: number) => void }) {
-  const bonusSec = day?.bonus ?? 0;
+  const bonusSec = day?.bonus ?? 0; const [nameCut, setNameCut] = useState(false);
   // r10：未保存的表单草稿（超时退出后再进来还在）
   const DK = 'zy-draft-profile';
   const [askCancel, setAskCancel] = useState(false);   // r15.4.2 较真家长：取消加时先确认
@@ -358,7 +358,7 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
     <Modal onClose={onCancel}>
       <div className="editor" data-testid="profile-editor">
         <h2>编辑档案</h2>
-        <label>名字 <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} data-testid="profile-name" value={f.name} maxLength={8} onChange={e => setF({ ...f, name: e.target.value })} /></label>
+        <label>名字 <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} data-testid="profile-name" value={f.name} maxLength={NAME_MAX} onPaste={e => setNameCut(pasteTooLong(e))} onChange={e => setF({ ...f, name: e.target.value })} /></label><NameCount v={f.name} cut={nameCut} testid="profile-name-count" />
         <div className="row gap16 wrap avatars">{AVATARS.map(a => <button key={a} className={`chip ${a === f.avatar ? 'on' : ''}`} onClick={() => setF({ ...f, avatar: a })}>{a}</button>)}</div>
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
         {needsElectives(f.grade) && <ElectivesPicker e={f.electives} onChange={e => setF({ ...f, electives: e })} />}

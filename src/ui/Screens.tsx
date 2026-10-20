@@ -5,7 +5,7 @@ import { KINDER_LOCK_VOICE } from '../game/voiceLines';
 import { skinFor } from '../game/monsterSkin';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
-import { Stars, Keypad, fmtMin } from './common';
+import { Stars, Keypad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './common';
 import { Sprite, type KMonOut } from './Battle';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
@@ -29,11 +29,11 @@ export const HOME_GRADES: { g: GradeKey; open: boolean }[] = [
 ];
 const DEFAULT_AVATAR: Record<string, string> = { K1: '🐰', K2: '🐻', 8: '🧑‍🎓', 11: '🧑‍🔬', 1: '🐣', 2: '🐥', 3: '🦊', 4: '🐼', 5: '🦁', 6: '🐯', 7: '🧑‍🎓', 10: '🧑‍🔬' };
 function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: () => void }) {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(''); const [cut, setCut] = useState(false);
   return (
     <Modal onClose={onClose}>
       <h2>添加孩子 · 选年级</h2>
-      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="add-name" placeholder="名字（可不填）" value={name} maxLength={8} onChange={e => setName(e.target.value)} />
+      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="add-name" placeholder="名字（可不填）" value={name} maxLength={NAME_MAX} onPaste={e => setCut(pasteTooLong(e))} onChange={e => { setName(e.target.value); if (!e.target.value) setCut(false); }} /><NameCount v={name} cut={cut} />
       <div className="grade-grid" data-testid="grade-list">
         {HOME_GRADES.map(({ g, open }) => (
           <button key={g} className="grade-btn" disabled={!open} data-testid={'home-grade-' + g}
