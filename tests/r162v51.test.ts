@@ -10,6 +10,9 @@ import { onWrong, wrongStale } from '../src/game/wrongbook';
 import { REV_CHANGED_SINCE_R16 } from '../src/game/revChanged';
 import { mergeImported, BUILTIN_GRADES } from '../src/bankStore';
 import { speakable } from '../src/tts';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { Tex } from '../src/Tex';
 import { fillKind, kindProblems, numTypeable, sciOf } from '../src/game/inputKind';
 import { judge } from '../src/game/questions';
 import { addNumKey } from '../src/game/keypad';
@@ -20,7 +23,7 @@ const V50 = JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
 describe('r16.2 题库 v51', () => {
   it('发布号 v51；题量 18344 不变；初三 / 大班 / 高三没导入；高二物理全部隐藏；自动规则不藏任何册', () => {
-    for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v51');
+    for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v52');   // r16.2：v52 只改 4–6 年级 636 题（下面 v52 一节）
     expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual([]);
     expect(all.filter(q => q.grade === '11' && q.subject === '物理').every(q => isHiddenBy(vis, q))).toBe(true);
     expect(vis.rows.map(r => `${r.grade}|${r.subject}|${r.volume}|${r.why}`)).toEqual(['11|物理|必修第三册|force', '11|物理|选择性必修第一册|force', '11|物理|选择性必修第二册|force']);
@@ -68,6 +71,26 @@ describe('r16.2 题库 v51', () => {
       for (const a of q.answer) { expect(numTypeable(a, sci), `${id} ${a}`).toBe(true); expect(judge(q, [...a].reduce(addNumKey, '')), `${id} ${a}`).toBe('full'); } }
     for (const id of ids.slice(0, 6)) expect(byId.get(id)!.question, id).toMatch(/_+%/);
     expect(byId.has('C9-108')).toBe(false);
+  });
+  it('v52：4–6 年级 636 题 qRev 变了（答案字母不变），全在 REV_CHANGED_SINCE_R16 里；v51 时记的错题 / 家长改题按「已更新」', () => {
+    const V51 = JSON.parse(readFileSync('tests/fixtures/r162_v51_revs_of_v52changed.json', 'utf8')) as Record<string, { grade: string; rev51: string }>;
+    const ids = Object.keys(V51); expect(ids.length).toBe(636); expect(new Set(ids.map(i => V51[i].grade))).toEqual(new Set(['4', '5', '6']));
+    for (const id of ids) { const q = byId.get(id)!; expect(qRev(q), id).not.toBe(V51[id].rev51); expect(REV_CHANGED_SINCE_R16.has(id), id).toBe(true);
+      const e = onWrong(undefined, { profileId: 'p', qkey: q.key, subject: q.subject, rev: V51[id].rev51 }, 'A');
+      expect(wrongStale(e, q), id).toBe(true); expect(wrongStale({ lastAnswer: 'A' }, q), id).toBe(true); expect(wrongStale({ ...e, rev: qRev(q) }, q), id).toBe(false); }
+    const id = ids[0]; const q = byId.get(id)!; const by = new Map<string, Question>([[q.key, q]]);
+    expect(mergeImported(by, [{ ...q, explanation: '家长写的解析', base_rev: V51[id].rev51 } as never]).superseded).toBe(1);
+  });
+  it('v52 改过的 636 题：题干 / 选项都能渲染（没有 KaTeX 报错），同一题的选项渲染后互不相同；判断题答案仍是 对 / 错；选择题答案字母在选项里', () => {
+    const V51 = JSON.parse(readFileSync('tests/fixtures/r162_v51_revs_of_v52changed.json', 'utf8')) as Record<string, unknown>;
+    const html = (t: string) => renderToStaticMarkup(createElement(Tex, { text: t })); const bad: string[] = [];
+    for (const id of Object.keys(V51)) { const q = byId.get(id)!;
+      if (/katex-error/.test(html(q.question))) bad.push(id + ' 题干');
+      const os = q.options.map(o => html(o.text)); if (os.some(h => /katex-error/.test(h))) bad.push(id + ' 选项'); if (new Set(os).size !== os.length) bad.push(id + ' 选项重复');
+      if (q.type === '判断') { if (!['对', '错'].includes(q.answer[0])) bad.push(id + ' 判断答案'); }
+      else if (q.type === '选择' || q.type === '多选') { if (!q.answer.every(a => q.options.some(o => o.key === a))) bad.push(id + ' 答案字母'); }
+      if (q.type === '选择' && q.options.some(o => !o.text.trim() && !o.image)) bad.push(id + ' 空选项'); }
+    expect(bad).toEqual([]);
   });
   it('离线预缓存：每个题库文件 < 5 MiB（上限 6 MiB）', () => {
     expect(readdirSync('public/banks').filter(f => f.endsWith('.json') && statSync('public/banks/' + f).size >= 5 * 1024 * 1024)).toEqual([]);

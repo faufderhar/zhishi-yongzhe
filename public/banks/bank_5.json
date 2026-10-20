@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-5年级-v51（AI初审）",
- "version": "v51",
+ "bank_name": "三兄妹题库-5年级-v52（AI初审）",
+ "version": "v52",
  "questions": [
   {
    "id": "M5-001",
@@ -4002,7 +4002,7 @@
      "audio": ""
     },
     {
-     "text": "stay up late",
+     "text": "stay up late at night",
      "image": "",
      "audio": ""
     },
@@ -4019,6 +4019,7 @@
    "volume": "五年级下册",
    "knowledge_point": "5B Unit 4 Seeing the doctor",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tdfce33",
    "change_tag": "修改",
@@ -4934,17 +4935,17 @@
      "audio": ""
     },
     {
-     "text": "不要种花生",
+     "text": "不要种花生，改种别的庄稼",
      "image": "",
      "audio": ""
     },
     {
-     "text": "要做表面好看的人",
+     "text": "要做外表好看、只讲体面的人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "花生不好看就不能吃",
+     "text": "花生长得不好看，就不能吃",
      "image": "",
      "audio": ""
     }
@@ -4956,9 +4957,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3f9ba7",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -4979,7 +4981,7 @@
      "audio": ""
     },
     {
-     "text": "真的下雨",
+     "text": "桂花开的时候，天上正好下着小雨",
      "image": "",
      "audio": ""
     },
@@ -5001,9 +5003,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T9cfc72",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5024,17 +5027,17 @@
      "audio": ""
     },
     {
-     "text": "巴金",
+     "text": "巴金《鸟的天堂》",
      "image": "",
      "audio": ""
     },
     {
-     "text": "郭沫若",
+     "text": "郭沫若《白鹭》",
      "image": "",
      "audio": ""
     },
     {
-     "text": "许地山",
+     "text": "许地山《落花生》",
      "image": "",
      "audio": ""
     }
@@ -5046,9 +5049,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te3fc2d",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5200,7 +5204,7 @@
    "question": "海力布变成石头是因为？",
    "options": [
     {
-     "text": "他迷路了",
+     "text": "他在山里迷了路，回不了家",
      "image": "",
      "audio": ""
     },
@@ -5210,12 +5214,12 @@
      "audio": ""
     },
     {
-     "text": "他想变成石头",
+     "text": "他自己想变成一块石头",
      "image": "",
      "audio": ""
     },
     {
-     "text": "鸟诅咒他",
+     "text": "他打猎时得罪了山神，被山神惩罚了",
      "image": "",
      "audio": ""
     }
@@ -5227,9 +5231,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6b1c05",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5250,17 +5255,17 @@
      "audio": ""
     },
     {
-     "text": "自私",
+     "text": "自私自利",
      "image": "",
      "audio": ""
     },
     {
-     "text": "欺骗",
+     "text": "欺骗乡亲",
      "image": "",
      "audio": ""
     },
     {
-     "text": "逃避",
+     "text": "逃避危险",
      "image": "",
      "audio": ""
     }
@@ -5272,9 +5277,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T627ddb",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5362,17 +5368,17 @@
    "question": "“家祭无忘告乃翁”中“乃翁”指的是？",
    "options": [
     {
-     "text": "皇帝",
+     "text": "当时的皇帝",
      "image": "",
      "audio": ""
     },
     {
-     "text": "祖先",
+     "text": "陆家的祖先",
      "image": "",
      "audio": ""
     },
     {
-     "text": "你的爷爷",
+     "text": "你的爷爷，也就是陆游的父亲",
      "image": "",
      "audio": ""
     },
@@ -5408,7 +5414,7 @@
    "question": "“直把杭州作汴州”中的“汴州”指的是？",
    "options": [
     {
-     "text": "南宋的都城",
+     "text": "南宋的都城（今浙江杭州）",
      "image": "",
      "audio": ""
     },
@@ -5418,7 +5424,7 @@
      "audio": ""
     },
     {
-     "text": "唐朝的都城长安",
+     "text": "唐朝的都城长安（今陕西西安）",
      "image": "",
      "audio": ""
     },
@@ -5469,7 +5475,7 @@
      "audio": ""
     },
     {
-     "text": "天气非常寒冷",
+     "text": "天气非常寒冷，马儿冻得叫不出声",
      "image": "",
      "audio": ""
     }
@@ -5545,7 +5551,7 @@
    "question": "圆明园被毁于？",
    "options": [
     {
-     "text": "地震",
+     "text": "一场突如其来的大地震",
      "image": "",
      "audio": ""
     },
@@ -5572,9 +5578,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta0f2c2",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5590,12 +5597,12 @@
    "question": "太阳离地球大约？",
    "options": [
     {
-     "text": "一万千米",
+     "text": "五千万千米",
      "image": "",
      "audio": ""
     },
     {
-     "text": "和月亮一样远",
+     "text": "和月亮离地球一样远",
      "image": "",
      "audio": ""
     },
@@ -5617,9 +5624,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdfa8fc",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5686,7 +5694,7 @@
      "audio": ""
     },
     {
-     "text": "办公室",
+     "text": "宽敞明亮的大办公室，很轻松",
      "image": "",
      "audio": ""
     },
@@ -5708,9 +5716,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4026ba",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -5760,12 +5769,12 @@
      "audio": ""
     },
     {
-     "text": "愤怒不平",
+     "text": "愤怒不平的心情",
      "image": "",
      "audio": ""
     },
     {
-     "text": "欢喜热闹",
+     "text": "看到渔火的欢喜",
      "image": "",
      "audio": ""
     }
@@ -5939,7 +5948,7 @@
      "audio": ""
     },
     {
-     "text": "不要读书",
+     "text": "读书没有用，不如多看漫画书",
      "image": "",
      "audio": ""
     },
@@ -5961,9 +5970,10 @@
    "volume": "五年级上册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T67eedc",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6069,12 +6079,12 @@
    "question": "外祖父珍爱梅花，是因为？",
    "options": [
     {
-     "text": "他喜欢白色",
+     "text": "他特别喜欢白色的花",
      "image": "",
      "audio": ""
     },
     {
-     "text": "梅花能卖钱",
+     "text": "梅花很名贵，能卖很多钱",
      "image": "",
      "audio": ""
     },
@@ -6084,7 +6094,7 @@
      "audio": ""
     },
     {
-     "text": "梅花是礼物所以随便",
+     "text": "梅花是外国朋友送给他的生日礼物",
      "image": "",
      "audio": ""
     }
@@ -6096,9 +6106,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T84bc7f",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6114,7 +6125,7 @@
    "question": "草船借箭的人是？",
    "options": [
     {
-     "text": "周瑜",
+     "text": "司马懿",
      "image": "",
      "audio": ""
     },
@@ -6124,7 +6135,7 @@
      "audio": ""
     },
     {
-     "text": "鲁肃",
+     "text": "关云长",
      "image": "",
      "audio": ""
     },
@@ -6141,9 +6152,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T820e94",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6355,7 +6367,7 @@
      "audio": ""
     },
     {
-     "text": "唱戏",
+     "text": "刷墙特别快，一天能刷好几间屋子",
      "image": "",
      "audio": ""
     }
@@ -6367,9 +6379,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta48efa",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6395,7 +6408,7 @@
      "audio": ""
     },
     {
-     "text": "换三匹更好的马",
+     "text": "花很多钱去买三匹比齐威王更快的好马",
      "image": "",
      "audio": ""
     },
@@ -6412,9 +6425,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T472f97",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6430,7 +6444,7 @@
    "question": "孩子最后得救是因为？",
    "options": [
     {
-     "text": "帆自己落下",
+     "text": "桅杆上的帆自己落了下来",
      "image": "",
      "audio": ""
     },
@@ -6457,9 +6471,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdd04a8",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6530,7 +6545,7 @@
      "audio": ""
     },
     {
-     "text": "不说话",
+     "text": "说杨梅不好吃，请孔君平吃别的水果",
      "image": "",
      "audio": ""
     },
@@ -6547,9 +6562,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc941ef",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6565,17 +6581,17 @@
    "question": "汉字的字体演变大致是？",
    "options": [
     {
-     "text": "一开始就是楷书",
+     "text": "一开始就是楷书，从来没变过",
      "image": "",
      "audio": ""
     },
     {
-     "text": "拼音比甲骨文早",
+     "text": "拼音比甲骨文出现得更早",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有一种字体",
+     "text": "楷书、隶书、小篆、金文、甲骨文",
      "image": "",
      "audio": ""
     },
@@ -6592,9 +6608,10 @@
    "volume": "五年级下册",
    "knowledge_point": "语文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T06d380",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -6610,7 +6627,7 @@
    "question": "“不拘一格”的意思是？",
    "options": [
     {
-     "text": "要求非常严格",
+     "text": "要求非常严格，一点也不能错",
      "image": "",
      "audio": ""
     },
@@ -6701,7 +6718,7 @@
    "question": "“王师北定中原日”表达？",
    "options": [
     {
-     "text": "喜欢打仗",
+     "text": "喜欢上战场打仗",
      "image": "",
      "audio": ""
     },
@@ -6728,9 +6745,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tb7b278",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -6761,7 +6779,7 @@
      "audio": ""
     },
     {
-     "text": "杭州比汴州美",
+     "text": "杭州的景色比汴州更美",
      "image": "",
      "audio": ""
     }
@@ -6773,9 +6791,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T97b033",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -6801,7 +6820,7 @@
      "audio": ""
     },
     {
-     "text": "陆游",
+     "text": "辛弃疾",
      "image": "",
      "audio": ""
     },
@@ -6818,9 +6837,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T587b02",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -6941,7 +6961,7 @@
      "audio": ""
     },
     {
-     "text": "辛弃疾",
+     "text": "司马相如",
      "image": "",
      "audio": ""
     }
@@ -6953,9 +6973,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "新版教材已删，作为课外拓展保留",
    "template": "Ta9e353",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7071,7 +7092,7 @@
      "audio": ""
     },
     {
-     "text": "李白",
+     "text": "王安石",
      "image": "",
      "audio": ""
     },
@@ -7088,9 +7109,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7287,7 +7309,7 @@
    "question": "“不拘一格降人才”呼吁？",
    "options": [
     {
-     "text": "所有人一个模样",
+     "text": "让人人都长成一个模样",
      "image": "",
      "audio": ""
     },
@@ -7314,9 +7336,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Td1c581",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7392,7 +7415,7 @@
      "audio": ""
     },
     {
-     "text": "生气",
+     "text": "听到战败消息后的生气",
      "image": "",
      "audio": ""
     }
@@ -7404,9 +7427,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tebac04",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7427,7 +7451,7 @@
      "audio": ""
     },
     {
-     "text": "《山居秋暝》",
+     "text": "《山居秋暝》（空山新雨后）",
      "image": "",
      "audio": ""
     },
@@ -7449,9 +7473,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tf838da",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7467,7 +7492,7 @@
    "question": "“不破楼兰终不还”表现？",
    "options": [
     {
-     "text": "害怕打仗",
+     "text": "害怕打仗，想要逃跑",
      "image": "",
      "audio": ""
     },
@@ -7494,9 +7519,10 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T15241e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7558,7 +7584,7 @@
    "question": "四季变化主要因为？",
    "options": [
     {
-     "text": "月亮盈亏",
+     "text": "月亮的圆缺变化",
      "image": "",
      "audio": ""
     },
@@ -7568,12 +7594,12 @@
      "audio": ""
     },
     {
-     "text": "只有自转",
+     "text": "地球自转，昼夜交替",
      "image": "",
      "audio": ""
     },
     {
-     "text": "潮汐",
+     "text": "潮汐涨落",
      "image": "",
      "audio": ""
     }
@@ -7585,9 +7611,10 @@
    "volume": "五年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T9077b5",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7608,7 +7635,7 @@
      "audio": ""
     },
     {
-     "text": "身上长满羽毛",
+     "text": "身上长满羽毛，用来保暖",
      "image": "",
      "audio": ""
     },
@@ -7649,7 +7676,7 @@
    "question": "生态系统中分解者主要是？",
    "options": [
     {
-     "text": "老虎",
+     "text": "老虎、狮子等",
      "image": "",
      "audio": ""
     },
@@ -7786,7 +7813,7 @@
    "question": "杠杆的作用可以是？",
    "options": [
     {
-     "text": "不能撬东西",
+     "text": "不能撬起东西",
      "image": "",
      "audio": ""
     },
@@ -7832,7 +7859,7 @@
    "question": "轮轴属于？",
    "options": [
     {
-     "text": "动物",
+     "text": "一种动物",
      "image": "",
      "audio": ""
     },
@@ -7842,7 +7869,7 @@
      "audio": ""
     },
     {
-     "text": "天气",
+     "text": "一种天气",
      "image": "",
      "audio": ""
     },
@@ -7859,9 +7886,10 @@
    "volume": "五年级下册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tbf9bc0",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7877,7 +7905,7 @@
    "question": "心脏的作用是？",
    "options": [
     {
-     "text": "思考问题",
+     "text": "帮助大脑思考问题",
      "image": "",
      "audio": ""
     },
@@ -7923,22 +7951,22 @@
    "question": "运动时心跳会？",
    "options": [
     {
-     "text": "只变慢",
+     "text": "变得更慢",
      "image": "",
      "audio": ""
     },
     {
-     "text": "永远不变",
+     "text": "永远保持不变",
      "image": "",
      "audio": ""
     },
     {
-     "text": "停止",
+     "text": "停止跳动",
      "image": "",
      "audio": ""
     },
     {
-     "text": "加快",
+     "text": "一定会加快",
      "image": "",
      "audio": ""
     }
@@ -7950,9 +7978,10 @@
    "volume": "五年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T06f45c",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7978,7 +8007,7 @@
      "audio": ""
     },
     {
-     "text": "只要可燃物不要氧气",
+     "text": "只要有可燃物，不需要氧气和温度",
      "image": "",
      "audio": ""
     },
@@ -7995,9 +8024,10 @@
    "volume": "五年级下册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T656f5a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -8059,7 +8089,7 @@
    "question": "完全变态发育经过？",
    "options": [
     {
-     "text": "卵、若虫、成虫",
+     "text": "卵、若虫、蛹、成虫",
      "image": "",
      "audio": ""
     },
@@ -8074,7 +8104,7 @@
      "audio": ""
     },
     {
-     "text": "幼虫、成虫",
+     "text": "卵、蛹、幼虫、成虫",
      "image": "",
      "audio": ""
     }
@@ -8115,7 +8145,7 @@
      "audio": ""
     },
     {
-     "text": "电器坏了自己拆开修",
+     "text": "电器坏了，自己拆开来修理一下",
      "image": "",
      "audio": ""
     },
@@ -8151,7 +8181,7 @@
    "question": "地震时室内应？",
    "options": [
     {
-     "text": "跳楼",
+     "text": "马上从窗户跳下去，或者冲进电梯逃走",
      "image": "",
      "audio": ""
     },
@@ -8252,7 +8282,7 @@
      "audio": ""
     },
     {
-     "text": "摩擦不生热",
+     "text": "摩擦时能量凭空产生出来了",
      "image": "",
      "audio": ""
     },
@@ -8269,9 +8299,10 @@
    "volume": "五年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T85a34b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -8287,12 +8318,12 @@
    "question": "保护生物多样性可以？",
    "options": [
     {
-     "text": "填平所有湿地",
+     "text": "把湿地都填平盖房子",
      "image": "",
      "audio": ""
     },
     {
-     "text": "随意引入外来物种",
+     "text": "大量引入外来物种，让种类更多",
      "image": "",
      "audio": ""
     },
@@ -8343,7 +8374,7 @@
      "audio": ""
     },
     {
-     "text": "扔掉实验记录",
+     "text": "把实验记录扔掉，当作没做过",
      "image": "",
      "audio": ""
     },
@@ -10151,7 +10182,7 @@
    "question": "《己亥杂诗》的作者是？",
    "options": [
     {
-     "text": "唐·王维",
+     "text": "唐·白居易",
      "image": "",
      "audio": ""
     },
@@ -10161,7 +10192,7 @@
      "audio": ""
     },
     {
-     "text": "宋·林升",
+     "text": "宋·辛弃疾",
      "image": "",
      "audio": ""
     },
@@ -10178,6 +10209,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "作者",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
    "change_tag": "修改",
@@ -10652,7 +10684,7 @@
      "audio": ""
     },
     {
-     "text": "宋·林升",
+     "text": "宋·杨万里",
      "image": "",
      "audio": ""
     },
@@ -10674,6 +10706,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "作者",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
    "change_tag": "修改",
@@ -11149,7 +11182,7 @@
      "audio": ""
     },
     {
-     "text": "宋·陆游",
+     "text": "宋·辛弃疾",
      "image": "",
      "audio": ""
     },
@@ -11171,6 +11204,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "作者",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
    "change_tag": "修改",
@@ -11329,7 +11363,7 @@
      "audio": ""
     },
     {
-     "text": "宋·陆游",
+     "text": "唐·白居易",
      "image": "",
      "audio": ""
     },
@@ -11351,6 +11385,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "作者",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
    "change_tag": "修改",
@@ -11374,12 +11409,12 @@
      "audio": ""
     },
     {
-     "text": "关羽三顾",
+     "text": "关羽三次去请张飞出山",
      "image": "",
      "audio": ""
     },
     {
-     "text": "张飞三顾",
+     "text": "张飞三次拜访诸葛亮的茅屋",
      "image": "",
      "audio": ""
     },
@@ -11396,9 +11431,10 @@
    "volume": "五年级上册",
    "knowledge_point": "词语",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf5b8b1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "词语"
    ]
@@ -11414,7 +11450,7 @@
    "question": "“望梅止渴”的意思是？",
    "options": [
     {
-     "text": "讨厌吃梅",
+     "text": "讨厌吃梅子",
      "image": "",
      "audio": ""
     },
@@ -11424,7 +11460,7 @@
      "audio": ""
     },
     {
-     "text": "口很渴去找水",
+     "text": "口很渴，去找水喝",
      "image": "",
      "audio": ""
     },
@@ -11441,9 +11477,10 @@
    "volume": "五年级下册",
    "knowledge_point": "词语",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "词语"
    ]
@@ -11544,7 +11581,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "红光",
+     "text": "红色的光",
      "image": "",
      "audio": ""
     },
@@ -11554,7 +11591,7 @@
      "audio": ""
     },
     {
-     "text": "一种白光",
+     "text": "一种白色的光",
      "image": "",
      "audio": ""
     },
@@ -11646,7 +11683,7 @@
      "audio": ""
     },
     {
-     "text": "白色吸收更多热",
+     "text": "白色衣服吸收的热量更多",
      "image": "",
      "audio": ""
     },
@@ -11866,7 +11903,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "杯子很重",
+     "text": "杯子又厚又重",
      "image": "",
      "audio": ""
     },
@@ -11881,7 +11918,7 @@
      "audio": ""
     },
     {
-     "text": "能自己产生热",
+     "text": "杯子自己能产生热量",
      "image": "",
      "audio": ""
     }
@@ -12014,7 +12051,7 @@
      "audio": ""
     },
     {
-     "text": "不停大声哭喊",
+     "text": "赶紧用力推开压着的东西往外爬",
      "image": "",
      "audio": ""
     },
@@ -12050,7 +12087,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "火山作用",
+     "text": "火山喷发作用",
      "image": "",
      "audio": ""
     },
@@ -12065,7 +12102,7 @@
      "audio": ""
     },
     {
-     "text": "冰的融化",
+     "text": "冰川的融化作用",
      "image": "",
      "audio": ""
     }
@@ -12193,7 +12230,7 @@
      "audio": ""
     },
     {
-     "text": "经常撞头玩",
+     "text": "经常用头撞东西，锻炼头部",
      "image": "",
      "audio": ""
     },
@@ -12556,7 +12593,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "细胞",
+     "text": "一个细胞",
      "image": "",
      "audio": ""
     },
@@ -12699,7 +12736,7 @@
      "audio": ""
     },
     {
-     "text": "省一半力",
+     "text": "可以省一半力",
      "image": "",
      "audio": ""
     },
@@ -12893,7 +12930,7 @@
      "audio": ""
     },
     {
-     "text": "换成塑料芯",
+     "text": "换成塑料做的芯，并减少线圈",
      "image": "",
      "audio": ""
     }
@@ -13118,12 +13155,12 @@
      "audio": ""
     },
     {
-     "text": "冰融化",
+     "text": "冰块慢慢融化成水",
      "image": "",
      "audio": ""
     },
     {
-     "text": "纸被撕碎",
+     "text": "纸被撕成一片片碎纸",
      "image": "",
      "audio": ""
     }
@@ -13200,12 +13237,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "大量使用含磷洗衣粉",
+     "text": "多用含磷洗衣粉",
      "image": "",
      "audio": ""
     },
     {
-     "text": "洗手后不关水龙头",
+     "text": "洗完手后不关水龙头，让水一直流",
      "image": "",
      "audio": ""
     },
@@ -13261,7 +13298,7 @@
      "audio": ""
     },
     {
-     "text": "眼睛会发光",
+     "text": "眼睛会发出光照亮物体",
      "image": "",
      "audio": ""
     }
@@ -13486,7 +13523,7 @@
      "audio": ""
     },
     {
-     "text": "想换一种演出风格",
+     "text": "想换一种新的演出风格，改唱老生角色",
      "image": "",
      "audio": ""
     },
@@ -13677,7 +13714,7 @@
      "audio": ""
     },
     {
-     "text": "西湖太小",
+     "text": "杭州的风景不如汴州，游人都想回去",
      "image": "",
      "audio": ""
     },
@@ -13724,7 +13761,7 @@
      "audio": ""
     },
     {
-     "text": "太阳照在湖面",
+     "text": "太阳照在湖面，湖水闪闪发光",
      "image": "",
      "audio": ""
     },
@@ -13794,12 +13831,12 @@
      "audio": ""
     },
     {
-     "text": "愤怒",
+     "text": "愤怒的心情",
      "image": "",
      "audio": ""
     },
     {
-     "text": "欢快",
+     "text": "欢快的心情",
      "image": "",
      "audio": ""
     },
@@ -14209,7 +14246,7 @@
      "audio": ""
     },
     {
-     "text": "离别的伤心",
+     "text": "听到亲人去世后的悲伤",
      "image": "",
      "audio": ""
     },
@@ -14373,7 +14410,7 @@
      "audio": ""
     },
     {
-     "text": "《长相思》",
+     "text": "《秋夜将晓出篱门迎凉有感》",
      "image": "",
      "audio": ""
     },
@@ -14415,7 +14452,7 @@
    "question": "《稚子弄冰》中孩子把冰当作了什么来玩？",
    "options": [
     {
-     "text": "镜子",
+     "text": "一面照脸的镜子",
      "image": "",
      "audio": ""
     },
@@ -14490,12 +14527,12 @@
    "question": "“短笛无腔信口吹”写出了牧童怎样的状态？",
    "options": [
     {
-     "text": "伤心",
+     "text": "伤心难过",
      "image": "",
      "audio": ""
     },
     {
-     "text": "忙碌",
+     "text": "忙忙碌碌",
      "image": "",
      "audio": ""
     },
@@ -14537,7 +14574,7 @@
    "question": "“不破楼兰终不还”表达了将士的？",
    "options": [
     {
-     "text": "喜欢沙漠",
+     "text": "喜欢沙漠的风光",
      "image": "",
      "audio": ""
     },
@@ -14589,7 +14626,7 @@
      "audio": ""
     },
     {
-     "text": "调皮捣蛋",
+     "text": "调皮捣蛋、不听话",
      "image": "",
      "audio": ""
     },
@@ -14641,7 +14678,7 @@
      "audio": ""
     },
     {
-     "text": "秋天风很大",
+     "text": "秋天的风很大，把蝉声吹到远方",
      "image": "",
      "audio": ""
     },
@@ -14729,7 +14766,7 @@
    "question": "下列现象中，属于平移的是？",
    "options": [
     {
-     "text": "方向盘转动",
+     "text": "汽车方向盘转动",
      "image": "",
      "audio": ""
     },
@@ -15959,7 +15996,7 @@
    "textbook": "苏教版2024",
    "unit": "五下·六 长方体和正方体",
    "type": "判断",
-   "question": "长方体是特殊的正方体。",
+   "question": "正方体有 6 个面，长方体也有 6 个面，所以长方体是特殊的正方体。",
    "answer": "错",
    "explanation": "错。正方体是特殊的长方体：长、宽、高都相等的长方体才是正方体。",
    "difficulty": 2,
@@ -16194,7 +16231,7 @@
    "textbook": "译林版（三年级起点）",
    "unit": "5A Unit 4 Safety first",
    "type": "判断",
-   "question": "“Be careful!”的意思是“小心！”",
+   "question": "“Be careful!”意思是“小心！”",
    "answer": "对",
    "explanation": "careful：小心的。",
    "difficulty": 2,
@@ -17087,7 +17124,7 @@
    "textbook": "苏教版",
    "unit": "五上·光",
    "type": "判断",
-   "question": "光在空气中沿曲线传播。",
+   "question": "在同一种均匀的空气中，光是沿着弯弯的曲线传播的。",
    "answer": "错",
    "explanation": "错。光在空气中沿直线传播，所以会形成影子。",
    "difficulty": 2,
@@ -17318,7 +17355,7 @@
      "audio": ""
     },
     {
-     "text": "实验结论",
+     "text": "实验用到的材料和器材",
      "image": "",
      "audio": ""
     },
@@ -17553,7 +17590,7 @@
      "audio": ""
     },
     {
-     "text": "指尖",
+     "text": "手腕外侧靠小指的一边",
      "image": "",
      "audio": ""
     },
@@ -17669,7 +17706,7 @@
      "audio": ""
     },
     {
-     "text": "幼虫、成虫",
+     "text": "卵、蛹、幼虫、成虫",
      "image": "",
      "audio": ""
     },
@@ -17707,7 +17744,7 @@
    "textbook": "苏教版",
    "unit": "五上·昆虫",
    "type": "判断",
-   "question": "蜘蛛是昆虫。",
+   "question": "蜘蛛有八条腿，身体分为头胸部和腹部，它属于昆虫。",
    "answer": "错",
    "explanation": "蜘蛛有 8 条腿，身体分两部分，不是昆虫。",
    "difficulty": 2,
@@ -17785,7 +17822,7 @@
    "question": "地震时在室外应该？",
    "options": [
     {
-     "text": "躲在高楼下",
+     "text": "躲在高楼的屋檐下面",
      "image": "",
      "audio": ""
     },
@@ -17828,7 +17865,7 @@
    "textbook": "苏教版",
    "unit": "五上·火山地震",
    "type": "判断",
-   "question": "地震可以被完全准确地预报。",
+   "question": "随着科学技术的发展，现在地震已经可以被完全准确地预报了。",
    "answer": "错",
    "explanation": "目前人类还不能准确预报地震。",
    "difficulty": 2,
@@ -17860,7 +17897,7 @@
      "audio": ""
     },
     {
-     "text": "河流多",
+     "text": "河流和湖泊很多",
      "image": "",
      "audio": ""
     },
@@ -17976,7 +18013,7 @@
    "textbook": "苏教版",
    "unit": "五上·钻木取火的科学",
    "type": "判断",
-   "question": "两只手互相搓一搓会变凉。",
+   "question": "冬天手冷的时候，两只手互相搓一搓，手就会变得更凉。",
    "answer": "错",
    "explanation": "错。摩擦能产生热，两只手互相搓一搓会变热。",
    "difficulty": 2,
@@ -18143,7 +18180,7 @@
    "textbook": "苏教版",
    "unit": "五下·化学变化",
    "type": "判断",
-   "question": "铁生锈是物理变化。",
+   "question": "铁钉放在潮湿的地方会生锈，铁生锈属于物理变化。",
    "answer": "错",
    "explanation": "错。铁生锈生成了新物质铁锈，是化学变化。",
    "difficulty": 2,
@@ -18194,7 +18231,7 @@
    "textbook": "苏教版",
    "unit": "五下·宇宙",
    "type": "判断",
-   "question": "地球是太阳系中的一颗恒星。",
+   "question": "太阳系中的地球能自己发光发热，它是一颗恒星。",
    "answer": "错",
    "explanation": "错。地球是太阳系中的一颗行星；太阳才是恒星。",
    "difficulty": 2,
@@ -18859,7 +18896,7 @@
      "audio": ""
     },
     {
-     "text": "中秋节赏月时",
+     "text": "中秋节和家人赏月时",
      "image": "",
      "audio": ""
     },
@@ -19021,7 +19058,7 @@
    "question": "《山居秋暝》中“竹喧归浣女”的“喧”指的是？",
    "options": [
     {
-     "text": "下雨的声音",
+     "text": "山里下起了大雨，雨点打在竹叶上发出的声音",
      "image": "",
      "audio": ""
     },
@@ -19336,7 +19373,7 @@
    "question": "《己亥杂诗》中，诗人希望“天公”怎样？",
    "options": [
     {
-     "text": "让天气变暖",
+     "text": "让天气变暖和，让庄稼长得更好",
      "image": "",
      "audio": ""
     },
@@ -19670,7 +19707,7 @@
    "question": "《题临安邸》讽刺的是？",
    "options": [
     {
-     "text": "商人卖东西太贵",
+     "text": "临安城里的商人卖东西太贵，欺负游客",
      "image": "",
      "audio": ""
     },
@@ -20019,7 +20056,7 @@
      "audio": ""
     },
     {
-     "text": "牵着牛走路",
+     "text": "倒骑在牛背上",
      "image": "",
      "audio": ""
     }
@@ -20563,7 +20600,7 @@
    "question": "蔺相如为什么处处避让廉颇？",
    "options": [
     {
-     "text": "害怕廉颇",
+     "text": "他害怕廉颇的武力",
      "image": "",
      "audio": ""
     },
@@ -20711,12 +20748,12 @@
    "question": "“红日初升，其道大光”是把少年中国比作？",
    "options": [
     {
-     "text": "星星",
+     "text": "天上的星星",
      "image": "",
      "audio": ""
     },
     {
-     "text": "落日",
+     "text": "傍晚的落日",
      "image": "",
      "audio": ""
     },
@@ -21009,7 +21046,7 @@
      "audio": ""
     },
     {
-     "text": "五元",
+     "text": "五元五角",
      "image": "",
      "audio": ""
     },
@@ -21149,7 +21186,7 @@
    "question": "“摇花”时，桂花纷纷落下，“我”喊着什么？",
    "options": [
     {
-     "text": "下雪啦",
+     "text": "啊！真像下雪！好白的雪呀！",
      "image": "",
      "audio": ""
     },
@@ -21243,7 +21280,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "五年级上册",
    "unit": "五上·梅兰芳蓄须明志",
-   "question": "梅兰芳是著名的相声艺术家。",
+   "question": "梅兰芳蓄须明志、拒绝为侵略者演出，他是著名的相声艺术家。",
    "explanation": "错。梅兰芳是著名的京剧艺术家。",
    "difficulty": 2,
    "knowledge_point": "梅兰芳蓄须明志",
@@ -21292,7 +21329,7 @@
      "audio": ""
     },
     {
-     "text": "剃光头",
+     "text": "剃光头发，不能化妆",
      "image": "",
      "audio": ""
     },
@@ -21566,7 +21603,7 @@
    "question": "海力布听到鸟儿说要发生什么灾难？",
    "options": [
     {
-     "text": "下大雪",
+     "text": "连下几天大雪，冻坏庄稼",
      "image": "",
      "audio": ""
     },
@@ -21657,7 +21694,7 @@
    "textbook": "统编版",
    "unit": "五上·珍珠鸟",
    "type": "判断",
-   "question": "《珍珠鸟》的作者是老舍。",
+   "question": "写下“信赖，往往创造出美好的境界”的《珍珠鸟》，作者是老舍。",
    "answer": "错",
    "explanation": "错。《珍珠鸟》的作者是冯骥才。",
    "difficulty": 2,
@@ -21948,7 +21985,7 @@
    "textbook": "统编版",
    "unit": "五上·落花生",
    "type": "判断",
-   "question": "《落花生》的作者是鲁迅。",
+   "question": "课文《落花生》借花生告诉我们做人的道理，作者是鲁迅。",
    "answer": "错",
    "explanation": "错。《落花生》的作者是许地山，他的笔名是落华生。",
    "difficulty": 2,
@@ -22150,7 +22187,7 @@
    "question": "下面哪个是关于读书的名言？",
    "options": [
     {
-     "text": "三人行必有我师",
+     "text": "海内存知己，天涯若比邻",
      "image": "",
      "audio": ""
     },
@@ -22160,12 +22197,12 @@
      "audio": ""
     },
     {
-     "text": "己所不欲勿施于人",
+     "text": "三人行，必有我师焉",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一寸光阴一寸金",
+     "text": "一寸光阴一寸金，寸金难买寸光阴",
      "image": "",
      "audio": ""
     }
@@ -22244,7 +22281,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "五年级上册",
    "unit": "五上·金字塔",
-   "question": "金字塔在印度。",
+   "question": "被列为古代世界七大奇迹之一的胡夫金字塔位于印度。",
    "explanation": "错。金字塔在埃及，是古埃及法老的陵墓。",
    "difficulty": 2,
    "knowledge_point": "金字塔",
@@ -22448,12 +22485,12 @@
      "audio": ""
     },
     {
-     "text": "三十刀",
+     "text": "三十二刀",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一百刀",
+     "text": "一百零八刀",
      "image": "",
      "audio": ""
     },
@@ -22588,7 +22625,7 @@
    "question": "曹小三看到刷子李裤子上有个白点，后来发现那是？",
    "options": [
     {
-     "text": "石灰",
+     "text": "一点石灰",
      "image": "",
      "audio": ""
     },
@@ -22598,12 +22635,12 @@
      "audio": ""
     },
     {
-     "text": "白漆",
+     "text": "一滴白漆",
      "image": "",
      "audio": ""
     },
     {
-     "text": "面粉",
+     "text": "沾上的面粉",
      "image": "",
      "audio": ""
     }
@@ -22776,7 +22813,7 @@
    "textbook": "统编版",
    "unit": "五下·威尼斯的小艇",
    "type": "判断",
-   "question": "威尼斯是法国的水城。",
+   "question": "马克·吐温笔下有许多小艇的威尼斯，是法国的一座水城。",
    "answer": "错",
    "explanation": "错。威尼斯是意大利的水城。",
    "difficulty": 2,
@@ -23028,7 +23065,7 @@
      "audio": ""
     },
     {
-     "text": "被老虎咬断",
+     "text": "被老虎一口咬断了",
      "image": "",
      "audio": ""
     },
@@ -23171,7 +23208,7 @@
    "question": "外祖父珍爱梅花，是因为梅花代表了什么？",
    "options": [
     {
-     "text": "值钱",
+     "text": "很值钱的东西",
      "image": "",
      "audio": ""
     },
@@ -23321,12 +23358,12 @@
      "audio": ""
     },
     {
-     "text": "猴妈妈生的",
+     "text": "猴妈妈生下来的",
      "image": "",
      "audio": ""
     },
     {
-     "text": "从水里游来",
+     "text": "从水帘洞的水里游来",
      "image": "",
      "audio": ""
     },
@@ -23359,7 +23396,7 @@
    "textbook": "统编版",
    "unit": "五下·猴王出世",
    "type": "判断",
-   "question": "石猴称王后，将“石”字隐了，遂称“美猴王”。",
+   "question": "石猴称王后，将“石”字隐了，称“美猴王”。",
    "answer": "对",
    "explanation": "原文：石猴高登王位，将“石”字儿隐了，遂称美猴王。",
    "difficulty": 2,
@@ -23466,7 +23503,7 @@
      "audio": ""
     },
     {
-     "text": "全输了",
+     "text": "一胜两负，输了",
      "image": "",
      "audio": ""
     },
@@ -24378,7 +24415,7 @@
      "audio": ""
     },
     {
-     "text": "最小的数据",
+     "text": "其中最小的数据",
      "image": "",
      "audio": ""
     },
@@ -24400,6 +24437,7 @@
    "volume": "五年级上册",
    "knowledge_point": "统计表和条形统计图（二）",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T88e847",
    "change_tag": "新增",
@@ -24428,12 +24466,12 @@
      "audio": ""
     },
     {
-     "text": "越大越好",
+     "text": "越大越好，格子越少越省事",
      "image": "",
      "audio": ""
     },
     {
-     "text": "随便画",
+     "text": "越小越好",
      "image": "",
      "audio": ""
     }
@@ -24445,6 +24483,7 @@
    "volume": "五年级上册",
    "knowledge_point": "统计表和条形统计图（二）",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T542ce1",
    "change_tag": "新增",
@@ -25123,7 +25162,7 @@
      "audio": ""
     },
     {
-     "text": "只看上面",
+     "text": "从上面看一次就够了",
      "image": "",
      "audio": ""
     },
@@ -25145,6 +25184,7 @@
    "volume": "五年级上册",
    "knowledge_point": "观察物体（三）",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T114924",
    "change_tag": "新增",
@@ -25360,7 +25400,7 @@
      "audio": ""
     },
     {
-     "text": "只看一组数据",
+     "text": "只能看出一组数据的变化",
      "image": "",
      "audio": ""
     },
@@ -25377,6 +25417,7 @@
    "volume": "五年级下册",
    "knowledge_point": "折线统计图",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tf686ab",
    "change_tag": "新增",
@@ -27559,7 +27600,7 @@
      "audio": ""
     },
     {
-     "text": "By the way.",
+     "text": "Nice to meet you, too.",
      "image": "",
      "audio": ""
     }
@@ -27571,6 +27612,7 @@
    "volume": "五年级下册",
    "knowledge_point": "5B Unit 3 Asking the way",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tab4ab4",
    "change_tag": "新增",
@@ -27797,7 +27839,7 @@
      "audio": ""
     },
     {
-     "text": "music",
+     "text": "magazine",
      "image": "",
      "audio": ""
     }
@@ -27809,6 +27851,7 @@
    "volume": "五年级下册",
    "knowledge_point": "5B Unit 4 Seeing the doctor",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb6c65e",
    "change_tag": "新增",
@@ -28699,7 +28742,7 @@
      "audio": ""
     },
     {
-     "text": "老虎",
+     "text": "凶猛的老虎",
      "image": "",
      "audio": ""
     },
@@ -28721,6 +28764,7 @@
    "volume": "五年级下册",
    "knowledge_point": "生物与环境",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tc9950f",
    "change_tag": "新增",
@@ -28749,7 +28793,7 @@
      "audio": ""
     },
     {
-     "text": "水变得更干净",
+     "text": "池塘里的水变得更干净",
      "image": "",
      "audio": ""
     },
@@ -28766,6 +28810,7 @@
    "volume": "五年级下册",
    "knowledge_point": "生物与环境",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T199d10",
    "change_tag": "新增",
@@ -28834,7 +28879,7 @@
      "audio": ""
     },
     {
-     "text": "会拐弯",
+     "text": "会绕着物体拐弯",
      "image": "",
      "audio": ""
     },
@@ -28856,6 +28901,7 @@
    "volume": "五年级上册",
    "knowledge_point": "光",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tf3c51d",
    "change_tag": "新增",
@@ -29121,7 +29167,7 @@
      "audio": ""
     },
     {
-     "text": "像一个西瓜",
+     "text": "像一个大西瓜那么大",
      "image": "",
      "audio": ""
     }
@@ -29133,6 +29179,7 @@
    "volume": "五年级上册",
    "knowledge_point": "心脏与血液循环",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T62a6fb",
    "change_tag": "新增",
@@ -29222,7 +29269,7 @@
    "question": "经常锻炼对心脏有什么好处？",
    "options": [
     {
-     "text": "没有好处",
+     "text": "没有任何好处",
      "image": "",
      "audio": ""
     },
@@ -29249,6 +29296,7 @@
    "volume": "五年级上册",
    "knowledge_point": "心脏与血液循环",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tc7f9f5",
    "change_tag": "新增",
@@ -29272,7 +29320,7 @@
      "audio": ""
     },
     {
-     "text": "铁生锈",
+     "text": "铁钉生锈了",
      "image": "",
      "audio": ""
     },
@@ -29294,6 +29342,7 @@
    "volume": "五年级下册",
    "knowledge_point": "化学变化",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T6e5aaa",
    "change_tag": "新增",
@@ -29755,7 +29804,7 @@
      "audio": ""
     },
     {
-     "text": "乘电梯",
+     "text": "马上冲到楼道里乘电梯下楼",
      "image": "",
      "audio": ""
     },
@@ -29777,6 +29826,7 @@
    "volume": "五年级上册",
    "knowledge_point": "火山地震",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T2a8bfd",
    "change_tag": "新增",
@@ -29795,7 +29845,7 @@
    "question": "火山喷发的原因是？",
    "options": [
     {
-     "text": "刮大风",
+     "text": "刮起了特别大的风",
      "image": "",
      "audio": ""
     },
@@ -29822,6 +29872,7 @@
    "volume": "五年级上册",
    "knowledge_point": "火山地震",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tbc1095",
    "change_tag": "新增",
@@ -29876,7 +29927,7 @@
      "audio": ""
     },
     {
-     "text": "空旷的操场",
+     "text": "空旷平坦的操场",
      "image": "",
      "audio": ""
     },
@@ -29893,6 +29944,7 @@
    "volume": "五年级上册",
    "knowledge_point": "火山地震",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T8754a2",
    "change_tag": "新增",
@@ -30148,7 +30200,7 @@
      "audio": ""
     },
     {
-     "text": "雪天撒沙子",
+     "text": "雪天在路上撒沙子",
      "image": "",
      "audio": ""
     },
@@ -30170,6 +30222,7 @@
    "volume": "五年级上册",
    "knowledge_point": "钻木取火的科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "Tf2c9b1",
    "change_tag": "新增",
@@ -30394,7 +30447,7 @@
    "question": "对比实验中，除了要研究的条件，其他条件应该？",
    "options": [
     {
-     "text": "保持相同",
+     "text": "全部保持相同",
      "image": "",
      "audio": ""
     },
@@ -30409,7 +30462,7 @@
      "audio": ""
     },
     {
-     "text": "全部不同",
+     "text": "每个都不一样",
      "image": "",
      "audio": ""
     }
@@ -30421,6 +30474,7 @@
    "volume": "五年级上册",
    "knowledge_point": "实验设计",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T0e3a2c",
    "change_tag": "新增",
@@ -30439,7 +30493,7 @@
    "question": "实验数据和预测不一样时，应该？",
    "options": [
     {
-     "text": "改成预测的数据",
+     "text": "把数据改成预测的样子",
      "image": "",
      "audio": ""
     },
@@ -30466,6 +30520,7 @@
    "volume": "五年级上册",
    "knowledge_point": "实验设计",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T59afe0",
    "change_tag": "新增",
@@ -30570,7 +30625,7 @@
      "audio": ""
     },
     {
-     "text": "进行光合作用",
+     "text": "制造养料，进行光合作用",
      "image": "",
      "audio": ""
     }
@@ -30582,6 +30637,7 @@
    "volume": "五年级下册",
    "knowledge_point": "综合",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T643b35",
    "change_tag": "新增",
@@ -30814,12 +30870,13 @@
      "audio": ""
     },
     {
-     "text": "红光",
+     "text": "只有红光",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "K5-168",
    "subject": "科学",
    "grade": 5,
@@ -30894,7 +30951,7 @@
      "audio": ""
     },
     {
-     "text": "会发热",
+     "text": "自己会发热",
      "image": "",
      "audio": ""
     },
@@ -30910,6 +30967,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "K5-170",
    "subject": "科学",
    "grade": 5,
@@ -31181,12 +31239,13 @@
      "audio": ""
     },
     {
-     "text": "熬夜玩游戏",
+     "text": "经常熬夜玩游戏",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "K5-177",
    "subject": "科学",
    "grade": 5,
@@ -31287,7 +31346,7 @@
      "audio": ""
     },
     {
-     "text": "手",
+     "text": "双手和手臂",
      "image": "",
      "audio": ""
     },
@@ -31303,6 +31362,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "K5-180",
    "subject": "科学",
    "grade": 5,
@@ -31424,17 +31484,17 @@
    "question": "“家祭无忘告乃翁”中“家祭”指的是？",
    "options": [
     {
-     "text": "家里的节日",
+     "text": "家里过的节日",
      "image": "",
      "audio": ""
     },
     {
-     "text": "回家吃饭",
+     "text": "回家吃团圆饭",
      "image": "",
      "audio": ""
     },
     {
-     "text": "家里请客",
+     "text": "在家里请客吃饭",
      "image": "",
      "audio": ""
     },
@@ -31451,6 +31511,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《示儿》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T4d744c",
    "change_tag": "新增",
@@ -31630,7 +31691,7 @@
    "question": "诗中的“游人”主要指？",
    "options": [
     {
-     "text": "农民",
+     "text": "种田的农民",
      "image": "",
      "audio": ""
     },
@@ -31640,7 +31701,7 @@
      "audio": ""
     },
     {
-     "text": "外国游客",
+     "text": "来自外国的游客",
      "image": "",
      "audio": ""
     },
@@ -31657,6 +31718,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《题临安邸》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T00d2bd",
    "change_tag": "新增",
@@ -31735,7 +31797,7 @@
      "audio": ""
     },
     {
-     "text": "嘶叫",
+     "text": "大声地嘶叫",
      "image": "",
      "audio": ""
     }
@@ -31747,6 +31809,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《己亥杂诗》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tf92f45",
    "change_tag": "新增",
@@ -31770,7 +31833,7 @@
      "audio": ""
     },
     {
-     "text": "一个地名",
+     "text": "诗人写诗的地方（地名）",
      "image": "",
      "audio": ""
     },
@@ -31792,6 +31855,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《己亥杂诗》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T9c5ef5",
    "change_tag": "新增",
@@ -31855,7 +31919,7 @@
    "question": "诗题中“暝”的意思是？",
    "options": [
     {
-     "text": "中午",
+     "text": "中午，太阳正高",
      "image": "",
      "audio": ""
     },
@@ -31882,6 +31946,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《山居秋暝》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T9ebbf2",
    "change_tag": "新增",
@@ -31900,7 +31965,7 @@
    "question": "“竹喧归浣女”中“浣女”指的是？",
    "options": [
     {
-     "text": "织布的女子",
+     "text": "在河边织布的女子",
      "image": "",
      "audio": ""
     },
@@ -31927,6 +31992,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《山居秋暝》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T0d904f",
    "change_tag": "新增",
@@ -31960,7 +32026,7 @@
      "audio": ""
     },
     {
-     "text": "新年的雨",
+     "text": "新年第一场雨",
      "image": "",
      "audio": ""
     }
@@ -31972,6 +32038,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《山居秋暝》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T56658c",
    "change_tag": "新增",
@@ -32080,7 +32147,7 @@
    "question": "“江枫渔火对愁眠”中“渔火”指？",
    "options": [
     {
-     "text": "江边的篝火",
+     "text": "江边燃起的篝火",
      "image": "",
      "audio": ""
     },
@@ -32107,6 +32174,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《枫桥夜泊》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T535a75",
    "change_tag": "新增",
@@ -32315,7 +32383,7 @@
      "audio": ""
     },
     {
-     "text": "一种乐器",
+     "text": "古代的重量单位",
      "image": "",
      "audio": ""
     },
@@ -32332,6 +32400,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《秋夜将晓出篱门迎凉有感》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T51615b",
    "change_tag": "新增",
@@ -32355,7 +32424,7 @@
      "audio": ""
     },
     {
-     "text": "陆游的家人",
+     "text": "在南宋做官的陆游家人",
      "image": "",
      "audio": ""
     },
@@ -32377,6 +32446,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《秋夜将晓出篱门迎凉有感》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T18db3e",
    "change_tag": "新增",
@@ -32400,7 +32470,7 @@
      "audio": ""
     },
     {
-     "text": "四川",
+     "text": "今四川成都一带",
      "image": "",
      "audio": ""
     },
@@ -32422,6 +32492,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《闻官军收河南河北》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T1f12a2",
    "change_tag": "新增",
@@ -32445,7 +32516,7 @@
      "audio": ""
     },
     {
-     "text": "只指妻子",
+     "text": "只指诗人的妻子",
      "image": "",
      "audio": ""
     },
@@ -32467,6 +32538,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《闻官军收河南河北》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T88a8d9",
    "change_tag": "新增",
@@ -32485,7 +32557,7 @@
    "question": "“青春作伴好还乡”中“青春”指的是？",
    "options": [
     {
-     "text": "读书时光",
+     "text": "读书的美好时光",
      "image": "",
      "audio": ""
     },
@@ -32512,6 +32584,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《闻官军收河南河北》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T6a3873",
    "change_tag": "新增",
@@ -32575,7 +32648,7 @@
    "question": "诗题中“稚子”的意思是？",
    "options": [
     {
-     "text": "老人",
+     "text": "年老的人",
      "image": "",
      "audio": ""
     },
@@ -32585,7 +32658,7 @@
      "audio": ""
     },
     {
-     "text": "书生",
+     "text": "读书的书生",
      "image": "",
      "audio": ""
     },
@@ -32602,6 +32675,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《稚子弄冰》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8eee56",
    "change_tag": "新增",
@@ -32620,7 +32694,7 @@
    "question": "“彩丝穿取当银钲”中“钲”是什么？",
    "options": [
     {
-     "text": "一种银首饰",
+     "text": "一种银做的首饰",
      "image": "",
      "audio": ""
     },
@@ -32647,6 +32721,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《稚子弄冰》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T506b57",
    "change_tag": "新增",
@@ -32710,12 +32785,12 @@
    "question": "“忽作玻璃碎地声”说明冰块怎么了？",
    "options": [
     {
-     "text": "化成了水",
+     "text": "慢慢化成了水",
      "image": "",
      "audio": ""
     },
     {
-     "text": "变成了玻璃",
+     "text": "变成了一块玻璃",
      "image": "",
      "audio": ""
     },
@@ -32737,6 +32812,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《稚子弄冰》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tdba57a",
    "change_tag": "新增",
@@ -32760,7 +32836,7 @@
      "audio": ""
     },
     {
-     "text": "高山",
+     "text": "高高的山",
      "image": "",
      "audio": ""
     },
@@ -32782,6 +32858,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《村晚》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T25beb4",
    "change_tag": "新增",
@@ -32985,7 +33062,7 @@
      "audio": ""
     },
     {
-     "text": "一种兰花",
+     "text": "一种名贵的兰花",
      "image": "",
      "audio": ""
     },
@@ -33007,6 +33084,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《从军行》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T9d74b4",
    "change_tag": "新增",
@@ -33125,7 +33203,7 @@
      "audio": ""
     },
     {
-     "text": "《村晚》",
+     "text": "《闻官军收河南河北》",
      "image": "",
      "audio": ""
     },
@@ -33142,6 +33220,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "综合",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T457d46",
    "change_tag": "新增",
@@ -33170,7 +33249,7 @@
      "audio": ""
     },
     {
-     "text": "《枫桥夜泊》",
+     "text": "《秋夜将晓出篱门迎凉有感》",
      "image": "",
      "audio": ""
     },
@@ -33187,6 +33266,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "综合",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tbb5117",
    "change_tag": "新增",
@@ -33340,7 +33420,7 @@
    "question": "“昼出耘田夜绩麻”中“绩麻”的意思是？",
    "options": [
     {
-     "text": "卖麻",
+     "text": "把麻卖掉",
      "image": "",
      "audio": ""
     },
@@ -33355,7 +33435,7 @@
      "audio": ""
     },
     {
-     "text": "种麻",
+     "text": "在地里种麻",
      "image": "",
      "audio": ""
     }
@@ -33367,6 +33447,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《四时田园杂兴（其三十一）》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T918d0b",
    "change_tag": "新增",
@@ -33390,7 +33471,7 @@
      "audio": ""
     },
     {
-     "text": "当家长",
+     "text": "在家里当家长，管着全家",
      "image": "",
      "audio": ""
     },
@@ -33412,6 +33493,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《四时田园杂兴（其三十一）》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T33ca12",
    "change_tag": "新增",
@@ -33430,7 +33512,7 @@
    "question": "范成大是哪个朝代的诗人？",
    "options": [
     {
-     "text": "唐朝",
+     "text": "唐朝（盛唐）",
      "image": "",
      "audio": ""
     },
@@ -33457,6 +33539,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《四时田园杂兴（其三十一）》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T364f69",
    "change_tag": "新增",
@@ -33475,7 +33558,7 @@
    "question": "“流响出疏桐”中“疏桐”指？",
    "options": [
     {
-     "text": "很密的竹林",
+     "text": "长得很密的竹林",
      "image": "",
      "audio": ""
     },
@@ -33502,6 +33585,7 @@
    "volume": "五年级（上下册通用）",
    "knowledge_point": "《蝉》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Ta8beed",
    "change_tag": "新增",
@@ -33655,12 +33739,12 @@
    "question": "《白鹭》的作者是？",
    "options": [
     {
-     "text": "冰心",
+     "text": "叶圣陶",
      "image": "",
      "audio": ""
     },
     {
-     "text": "老舍",
+     "text": "冰心",
      "image": "",
      "audio": ""
     },
@@ -33670,7 +33754,7 @@
      "audio": ""
     },
     {
-     "text": "巴金",
+     "text": "冯骥才",
      "image": "",
      "audio": ""
     }
@@ -33682,6 +33766,7 @@
    "volume": "五年级上册",
    "knowledge_point": "白鹭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfd5dc6",
    "change_tag": "新增",
@@ -33710,7 +33795,7 @@
      "audio": ""
     },
     {
-     "text": "颜色太杂",
+     "text": "颜色太杂，不好看",
      "image": "",
      "audio": ""
     },
@@ -33727,6 +33812,7 @@
    "volume": "五年级上册",
    "knowledge_point": "白鹭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T86e576",
    "change_tag": "新增",
@@ -33861,12 +33947,12 @@
    "question": "花生收获后，母亲提议做什么？",
    "options": [
     {
-     "text": "送给邻居",
+     "text": "送给邻居们吃",
      "image": "",
      "audio": ""
     },
     {
-     "text": "全部种下",
+     "text": "留着明年全种下",
      "image": "",
      "audio": ""
     },
@@ -33876,7 +33962,7 @@
      "audio": ""
     },
     {
-     "text": "把花生卖掉",
+     "text": "拿到集市上卖掉",
      "image": "",
      "audio": ""
     }
@@ -33888,6 +33974,7 @@
    "volume": "五年级上册",
    "knowledge_point": "落花生",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0b6d1c",
    "change_tag": "新增",
@@ -33906,12 +33993,12 @@
    "question": "哥哥说花生的好处是？",
    "options": [
     {
-     "text": "好看",
+     "text": "颜色好看",
      "image": "",
      "audio": ""
     },
     {
-     "text": "便宜",
+     "text": "价钱便宜",
      "image": "",
      "audio": ""
     },
@@ -33933,6 +34020,7 @@
    "volume": "五年级上册",
    "knowledge_point": "落花生",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2ccac6",
    "change_tag": "新增",
@@ -34053,7 +34141,7 @@
      "audio": ""
     },
     {
-     "text": "杭州的西湖",
+     "text": "杭州西湖边那些美丽的桂花树",
      "image": "",
      "audio": ""
     },
@@ -34075,6 +34163,7 @@
    "volume": "五年级上册",
    "knowledge_point": "桂花雨",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T13915d",
    "change_tag": "新增",
@@ -34233,7 +34322,7 @@
      "audio": ""
     },
     {
-     "text": "小石子",
+     "text": "圆圆的小石子",
      "image": "",
      "audio": ""
     },
@@ -34255,6 +34344,7 @@
    "volume": "五年级上册",
    "knowledge_point": "珍珠鸟",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T198d06",
    "change_tag": "新增",
@@ -34508,7 +34598,7 @@
      "audio": ""
     },
     {
-     "text": "变成神仙",
+     "text": "变成天上的神仙",
      "image": "",
      "audio": ""
     },
@@ -34525,6 +34615,7 @@
    "volume": "五年级上册",
    "knowledge_point": "猎人海力布",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T51b4f5",
    "change_tag": "新增",
@@ -34543,17 +34634,17 @@
    "question": "海力布平时打猎回来，常常怎样做？",
    "options": [
     {
-     "text": "送给国王",
+     "text": "送给国王和大臣",
      "image": "",
      "audio": ""
     },
     {
-     "text": "拿去卖钱",
+     "text": "拿到集市上卖钱",
      "image": "",
      "audio": ""
     },
     {
-     "text": "全部自己吃掉",
+     "text": "自己一个人吃掉",
      "image": "",
      "audio": ""
     },
@@ -34570,6 +34661,7 @@
    "volume": "五年级上册",
    "knowledge_point": "猎人海力布",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbb9ca4",
    "change_tag": "新增",
@@ -34899,7 +34991,7 @@
      "audio": ""
     },
     {
-     "text": "感叹老了",
+     "text": "感叹自己年纪老了，再也不能写诗",
      "image": "",
      "audio": ""
     }
@@ -34911,6 +35003,7 @@
    "volume": "五年级上册",
    "knowledge_point": "古诗三首 示儿",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc9e7fe",
    "change_tag": "新增",
@@ -34974,12 +35067,12 @@
    "question": "“暖风熏得游人醉”中“醉”字写出了权贵们？",
    "options": [
     {
-     "text": "生病了",
+     "text": "生了一场病",
      "image": "",
      "audio": ""
     },
     {
-     "text": "很疲劳",
+     "text": "走得很疲劳",
      "image": "",
      "audio": ""
     },
@@ -35001,6 +35094,7 @@
    "volume": "五年级上册",
    "knowledge_point": "题临安邸",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8850b2",
    "change_tag": "新增",
@@ -35029,7 +35123,7 @@
      "audio": ""
     },
     {
-     "text": "到处是战火",
+     "text": "到处都是战火，房屋倒塌",
      "image": "",
      "audio": ""
     },
@@ -35046,6 +35140,7 @@
    "volume": "五年级上册",
    "knowledge_point": "题临安邸",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta8b7a6",
    "change_tag": "新增",
@@ -35069,7 +35164,7 @@
      "audio": ""
     },
     {
-     "text": "皇宫的门上",
+     "text": "西湖边的一座亭子里",
      "image": "",
      "audio": ""
     },
@@ -35091,6 +35186,7 @@
    "volume": "五年级上册",
    "knowledge_point": "题临安邸",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T504258",
    "change_tag": "新增",
@@ -35109,12 +35205,12 @@
    "question": "“不拘一格降人才”中“不拘一格”的“格”指？",
    "options": [
     {
-     "text": "性格",
+     "text": "人的性格",
      "image": "",
      "audio": ""
     },
     {
-     "text": "格子",
+     "text": "方方的格子",
      "image": "",
      "audio": ""
     },
@@ -35136,6 +35232,7 @@
    "volume": "五年级上册",
    "knowledge_point": "己亥杂诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T22f287",
    "change_tag": "新增",
@@ -35164,7 +35261,7 @@
      "audio": ""
     },
     {
-     "text": "希望自己当官",
+     "text": "希望自己能当上大官，得到皇帝重用",
      "image": "",
      "audio": ""
     },
@@ -35181,6 +35278,7 @@
    "volume": "五年级上册",
    "knowledge_point": "己亥杂诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbc0acf",
    "change_tag": "新增",
@@ -35204,7 +35302,7 @@
      "audio": ""
     },
     {
-     "text": "风和雷电天气",
+     "text": "夏天的大风和雷电天气",
      "image": "",
      "audio": ""
     },
@@ -35226,6 +35324,7 @@
    "volume": "五年级上册",
    "knowledge_point": "己亥杂诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T283e8d",
    "change_tag": "新增",
@@ -35244,7 +35343,7 @@
    "question": "这首诗出自龚自珍的组诗，共有多少首？",
    "options": [
     {
-     "text": "十首",
+     "text": "三百零五首",
      "image": "",
      "audio": ""
     },
@@ -35254,7 +35353,7 @@
      "audio": ""
     },
     {
-     "text": "三首",
+     "text": "一百一十五首",
      "image": "",
      "audio": ""
     },
@@ -35271,6 +35370,7 @@
    "volume": "五年级上册",
    "knowledge_point": "己亥杂诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T15c535",
    "change_tag": "新增",
@@ -35543,7 +35643,7 @@
      "audio": ""
     },
     {
-     "text": "介绍旅游路线",
+     "text": "给游客介绍参观圆明园时最好的旅游路线",
      "image": "",
      "audio": ""
     }
@@ -35555,6 +35655,7 @@
    "volume": "五年级上册",
    "knowledge_point": "圆明园的毁灭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T560c8d",
    "change_tag": "新增",
@@ -35663,17 +35764,17 @@
    "question": "太阳的体积大约是地球的多少倍？",
    "options": [
     {
-     "text": "一百倍",
+     "text": "一百三十倍",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一万倍",
+     "text": "三十三万倍",
      "image": "",
      "audio": ""
     },
     {
-     "text": "十倍",
+     "text": "一千三百万倍",
      "image": "",
      "audio": ""
     },
@@ -35690,6 +35791,7 @@
    "volume": "五年级上册",
    "knowledge_point": "太阳",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2ed98a",
    "change_tag": "新增",
@@ -35848,12 +35950,12 @@
      "audio": ""
     },
     {
-     "text": "很害怕",
+     "text": "心里害怕",
      "image": "",
      "audio": ""
     },
     {
-     "text": "很得意",
+     "text": "非常得意",
      "image": "",
      "audio": ""
     },
@@ -35870,6 +35972,7 @@
    "volume": "五年级上册",
    "knowledge_point": "慈母情深",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4c064d",
    "change_tag": "新增",
@@ -35893,7 +35996,7 @@
      "audio": ""
     },
     {
-     "text": "对家乡的思念",
+     "text": "对家乡的深深思念和对童年快乐生活的怀念",
      "image": "",
      "audio": ""
     },
@@ -35915,6 +36018,7 @@
    "volume": "五年级上册",
    "knowledge_point": "慈母情深",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e86b2",
    "change_tag": "新增",
@@ -35943,7 +36047,7 @@
      "audio": ""
     },
     {
-     "text": "盼望下雪",
+     "text": "盼望冬天快点下一场大雪",
      "image": "",
      "audio": ""
     },
@@ -35960,6 +36064,7 @@
    "volume": "五年级上册",
    "knowledge_point": "古诗词三首 山居秋暝",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T27ebd8",
    "change_tag": "新增",
@@ -36023,17 +36128,17 @@
    "question": "“莲动下渔舟”中莲叶为什么摇动？",
    "options": [
     {
-     "text": "下大雨",
+     "text": "下起了大雨",
      "image": "",
      "audio": ""
     },
     {
-     "text": "刮大风",
+     "text": "刮起了大风",
      "image": "",
      "audio": ""
     },
     {
-     "text": "鱼跳出水面",
+     "text": "鱼跳出了水面",
      "image": "",
      "audio": ""
     },
@@ -36050,6 +36155,7 @@
    "volume": "五年级上册",
    "knowledge_point": "古诗词三首 山居秋暝",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbb73cc",
    "change_tag": "新增",
@@ -36118,12 +36224,12 @@
      "audio": ""
     },
     {
-     "text": "高兴",
+     "text": "高兴的心情",
      "image": "",
      "audio": ""
     },
     {
-     "text": "兴奋",
+     "text": "兴奋和激动",
      "image": "",
      "audio": ""
     },
@@ -36140,6 +36246,7 @@
    "volume": "五年级上册",
    "knowledge_point": "枫桥夜泊",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7733c0",
    "change_tag": "新增",
@@ -36173,7 +36280,7 @@
      "audio": ""
     },
     {
-     "text": "朋友家",
+     "text": "朋友在苏州城里的家中",
      "image": "",
      "audio": ""
     }
@@ -36185,6 +36292,7 @@
    "volume": "五年级上册",
    "knowledge_point": "枫桥夜泊",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te69af8",
    "change_tag": "新增",
@@ -36473,7 +36581,7 @@
    "question": "《稚子弄冰》表现了孩子怎样的特点？",
    "options": [
     {
-     "text": "懒惰贪睡",
+     "text": "懒惰贪睡，不爱起床",
      "image": "",
      "audio": ""
     },
@@ -36500,6 +36608,7 @@
    "volume": "五年级下册",
    "knowledge_point": "古诗三首 稚子弄冰",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T38d0ce",
    "change_tag": "新增",
@@ -36563,7 +36672,7 @@
    "question": "诗中“穿林响”写出了声音怎样？",
    "options": [
     {
-     "text": "低沉",
+     "text": "低沉沙哑，让人难受",
      "image": "",
      "audio": ""
     },
@@ -36590,6 +36699,7 @@
    "volume": "五年级下册",
    "knowledge_point": "古诗三首 稚子弄冰",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4b8bbb",
    "change_tag": "新增",
@@ -36663,7 +36773,7 @@
      "audio": ""
     },
     {
-     "text": "大海日出",
+     "text": "海边日出时波光闪闪的美丽景色",
      "image": "",
      "audio": ""
     },
@@ -36680,6 +36790,7 @@
    "volume": "五年级下册",
    "knowledge_point": "村晚",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfa26e0",
    "change_tag": "新增",
@@ -36713,7 +36824,7 @@
      "audio": ""
     },
     {
-     "text": "站在牛背上",
+     "text": "规规矩矩地坐在牛背上",
      "image": "",
      "audio": ""
     }
@@ -36725,6 +36836,7 @@
    "volume": "五年级下册",
    "knowledge_point": "村晚",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2b3e8d",
    "change_tag": "新增",
@@ -36753,7 +36865,7 @@
      "audio": ""
     },
     {
-     "text": "太阳掉进水里",
+     "text": "太阳真的掉进了水里",
      "image": "",
      "audio": ""
     },
@@ -36770,6 +36882,7 @@
    "volume": "五年级下册",
    "knowledge_point": "村晚",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2a173f",
    "change_tag": "新增",
@@ -36833,7 +36946,7 @@
    "question": "外祖父常教“我”读什么？",
    "options": [
     {
-     "text": "算术",
+     "text": "算术题目",
      "image": "",
      "audio": ""
     },
@@ -36848,7 +36961,7 @@
      "audio": ""
     },
     {
-     "text": "小说",
+     "text": "长篇小说",
      "image": "",
      "audio": ""
     }
@@ -36860,6 +36973,7 @@
    "volume": "五年级下册",
    "knowledge_point": "梅花魂",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7ca391",
    "change_tag": "新增",
@@ -36928,7 +37042,7 @@
      "audio": ""
     },
     {
-     "text": "小",
+     "text": "小巧",
      "image": "",
      "audio": ""
     },
@@ -36950,6 +37064,7 @@
    "volume": "五年级下册",
    "knowledge_point": "梅花魂",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T11be85",
    "change_tag": "新增",
@@ -36983,7 +37098,7 @@
      "audio": ""
     },
     {
-     "text": "身体生病",
+     "text": "身体生了重病，非常难受",
      "image": "",
      "audio": ""
     }
@@ -36995,6 +37110,7 @@
    "volume": "五年级下册",
    "knowledge_point": "梅花魂",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te0acc5",
    "change_tag": "新增",
@@ -37063,7 +37179,7 @@
      "audio": ""
     },
     {
-     "text": "睡觉",
+     "text": "躺下睡觉",
      "image": "",
      "audio": ""
     },
@@ -37073,7 +37189,7 @@
      "audio": ""
     },
     {
-     "text": "射箭",
+     "text": "放箭射敌",
      "image": "",
      "audio": ""
     }
@@ -37085,6 +37201,7 @@
    "volume": "五年级下册",
    "knowledge_point": "草船借箭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7a6c6c",
    "change_tag": "新增",
@@ -37103,7 +37220,7 @@
    "question": "诸葛亮为什么敢在第三天去借箭？",
    "options": [
     {
-     "text": "他有很多箭",
+     "text": "他的船上本来就有很多箭",
      "image": "",
      "audio": ""
     },
@@ -37130,6 +37247,7 @@
    "volume": "五年级下册",
    "knowledge_point": "草船借箭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T191958",
    "change_tag": "新增",
@@ -37153,7 +37271,7 @@
      "audio": ""
     },
     {
-     "text": "诸葛亮太笨了",
+     "text": "诸葛亮真笨，这次一定会被曹操抓住",
      "image": "",
      "audio": ""
     },
@@ -37175,6 +37293,7 @@
    "volume": "五年级下册",
    "knowledge_point": "草船借箭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4b01e1",
    "change_tag": "新增",
@@ -37298,7 +37417,7 @@
      "audio": ""
     },
     {
-     "text": "老虎的脚印",
+     "text": "老虎留下的脚印",
      "image": "",
      "audio": ""
     }
@@ -37310,6 +37429,7 @@
    "volume": "五年级下册",
    "knowledge_point": "景阳冈",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2482e7",
    "change_tag": "新增",
@@ -37328,12 +37448,12 @@
    "question": "武松身上体现了什么性格？",
    "options": [
     {
-     "text": "胆小",
+     "text": "胆小、怕事",
      "image": "",
      "audio": ""
     },
     {
-     "text": "狡猾",
+     "text": "狡猾、自私",
      "image": "",
      "audio": ""
     },
@@ -37355,6 +37475,7 @@
    "volume": "五年级下册",
    "knowledge_point": "景阳冈",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T309c73",
    "change_tag": "新增",
@@ -37518,7 +37639,7 @@
      "audio": ""
     },
     {
-     "text": "它最会打架",
+     "text": "它最会打架，谁也打不过它",
      "image": "",
      "audio": ""
     },
@@ -37535,6 +37656,7 @@
    "volume": "五年级下册",
    "knowledge_point": "猴王出世",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T25cb48",
    "change_tag": "新增",
@@ -37688,7 +37810,7 @@
    "question": "刘伯承不用麻醉剂，是担心？",
    "options": [
     {
-     "text": "怕吃药",
+     "text": "怕麻药太苦",
      "image": "",
      "audio": ""
     },
@@ -37698,7 +37820,7 @@
      "audio": ""
     },
     {
-     "text": "太贵了",
+     "text": "麻醉剂太贵了",
      "image": "",
      "audio": ""
     },
@@ -37715,6 +37837,7 @@
    "volume": "五年级下册",
    "knowledge_point": "军神",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbcab4c",
    "change_tag": "新增",
@@ -37868,7 +37991,7 @@
    "question": "课文表现了毛主席怎样的情怀？",
    "options": [
     {
-     "text": "不爱孩子",
+     "text": "毛主席不爱自己的孩子，听到消息后一点儿也不伤心难过",
      "image": "",
      "audio": ""
     },
@@ -37895,6 +38018,7 @@
    "volume": "五年级下册",
    "knowledge_point": "青山处处埋忠骨",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4331a9",
    "change_tag": "新增",
@@ -38003,7 +38127,7 @@
    "question": "刷子李给自己定的规矩是什么？",
    "options": [
     {
-     "text": "只刷一面墙",
+     "text": "一天只刷一间屋子，多了不干",
      "image": "",
      "audio": ""
     },
@@ -38030,6 +38154,7 @@
    "volume": "五年级下册",
    "knowledge_point": "刷子李",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5f27be",
    "change_tag": "新增",
@@ -38363,7 +38488,7 @@
    "question": "孩子走上横木时，甲板上的水手们怎样？",
    "options": [
     {
-     "text": "哈哈大笑",
+     "text": "都在哈哈大笑",
      "image": "",
      "audio": ""
     },
@@ -38390,6 +38515,7 @@
    "volume": "五年级下册",
    "knowledge_point": "跳水",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8b0406",
    "change_tag": "新增",
@@ -38418,7 +38544,7 @@
      "audio": ""
     },
     {
-     "text": "运货的轮船",
+     "text": "运送货物的大轮船",
      "image": "",
      "audio": ""
     },
@@ -38435,6 +38561,7 @@
    "volume": "五年级下册",
    "knowledge_point": "跳水",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T087019",
    "change_tag": "新增",
@@ -38993,7 +39120,7 @@
    "question": "“黑发不知勤学早，白首方悔读书迟”的作者是？",
    "options": [
     {
-     "text": "李白",
+     "text": "白居易",
      "image": "",
      "audio": ""
     },
@@ -39008,7 +39135,7 @@
      "audio": ""
     },
     {
-     "text": "杜甫",
+     "text": "孟浩然",
      "image": "",
      "audio": ""
     }
@@ -39020,6 +39147,7 @@
    "volume": "五年级上册",
    "knowledge_point": "语文园地",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T29c97f",
    "change_tag": "新增",
@@ -39064,7 +39192,7 @@
    "question": "“书犹药也，善读之可以医愚”的意思是？",
    "options": [
     {
-     "text": "读书会生病",
+     "text": "读书就像吃药，读多了会让人生病",
      "image": "",
      "audio": ""
     },
@@ -39091,6 +39219,7 @@
    "volume": "五年级上册",
    "knowledge_point": "语文园地",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te33673",
    "change_tag": "新增",
@@ -39152,22 +39281,23 @@
      "audio": ""
     },
     {
-     "text": "明天的志向",
+     "text": "明天要立的志向",
      "image": "",
      "audio": ""
     },
     {
-     "text": "明白道理",
+     "text": "明白一个道理",
      "image": "",
      "audio": ""
     },
     {
-     "text": "聪明的志向",
+     "text": "聪明人的志向",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y5-372",
    "subject": "语文",
    "grade": 5,
@@ -39282,7 +39412,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "离开中国",
+     "text": "离开中国，去了国外",
      "image": "",
      "audio": ""
     },
@@ -39297,12 +39427,13 @@
      "audio": ""
     },
     {
-     "text": "不再唱戏",
+     "text": "从此不再唱戏",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y5-375",
    "subject": "语文",
    "grade": 5,
@@ -39327,7 +39458,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "是金色的",
+     "text": "外面涂满了金色",
      "image": "",
      "audio": ""
     },
@@ -39342,12 +39473,13 @@
      "audio": ""
     },
     {
-     "text": "里面藏着金子",
+     "text": "里面藏着很多金子",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y5-376",
    "subject": "语文",
    "grade": 5,
@@ -39467,7 +39599,7 @@
      "audio": ""
     },
     {
-     "text": "已经完全消失",
+     "text": "已经倒塌，只剩下遗址",
      "image": "",
      "audio": ""
     },
@@ -39483,6 +39615,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y5-379",
    "subject": "语文",
    "grade": 5,
@@ -39647,7 +39780,7 @@
      "audio": ""
     },
     {
-     "text": "杜甫",
+     "text": "白居易",
      "image": "",
      "audio": ""
     },
@@ -39657,12 +39790,13 @@
      "audio": ""
     },
     {
-     "text": "李白",
+     "text": "孟浩然",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y5-383",
    "subject": "语文",
    "grade": 5,
@@ -39874,7 +40008,7 @@
    "question": "《白鹭》中，晴天的清晨，白鹭常孤独地站立在哪里？",
    "options": [
     {
-     "text": "石头上",
+     "text": "河边的石头上",
      "image": "",
      "audio": ""
     },
@@ -39901,6 +40035,7 @@
    "volume": "五年级上册",
    "knowledge_point": "白鹭",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8147cf",
    "change_tag": "新增",
