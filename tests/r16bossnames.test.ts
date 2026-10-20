@@ -14,9 +14,9 @@ const BOSS_CSV = [...readFileSync('scripts/import-boss-names.py', 'utf8').matchA
 it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
   const miss = missing(...BOSS_CSV);
   skip(miss.length > 0, `开发机题库源不在（CI）：缺 ${miss.join('、')}——不重新生成比对`);
-  // r16.1：游戏用的是题库 v47；盒子上的源目录已经升到 v48（v48 原地改了 初二Boss名对照_v36.csv 的两个名字，见 README v48）——源版本不是 v46 / v47 就不重新生成（也不会把 gen.json 改成 v48 的名字）
+  // r16.1：游戏用题库 v48（v48 在源头改了初二两个 Boss 名，gen.json 用 import-boss-names.py 重新生成）——源目录不是 v48 就不重新生成比对（以后的版本先导入再改这里）
   const ver = missing(boxPath('questions/src/VERSION')).length ? '' : readFileSync(boxPath('questions/src/VERSION'), 'utf8').trim();
-  skip(!['v46', 'v47'].includes(ver), `题库源是 ${ver}，gen.json 钉在 v47——不重新生成比对`);
+  skip(!['v48'].includes(ver), `题库源是 ${ver}，gen.json 钉在 v48——不重新生成比对`);
   const before = readFileSync('src/game/chapterBoss.gen.json', 'utf8');
   execFileSync('python3', ['scripts/import-boss-names.py', boxPath('questions')]);
   expect(readFileSync('src/game/chapterBoss.gen.json', 'utf8')).toBe(before);
