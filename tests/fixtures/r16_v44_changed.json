@@ -1,0 +1,1222 @@
+{
+ "judge": [
+  {
+   "grade": "3",
+   "old": {
+    "id": "Y3-102",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 3,
+    "textbook": "统编版",
+    "unit": "三上·司马光",
+    "type": "判断",
+    "question": "《司马光》是一篇文言文。",
+    "answer": "对",
+    "explanation": "三上第一篇小古文。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "三年级上册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "Tf1b154",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "2",
+   "old": {
+    "id": "Y2-092",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 2,
+    "textbook": "统编版",
+    "unit": "二上·坐井观天",
+    "type": "判断",
+    "question": "小鸟劝青蛙跳出井口来看一看。",
+    "tts_text": "小鸟劝青蛙跳出井口来看一看。",
+    "answer": "对",
+    "explanation": "不信你跳出井口来看一看吧。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "二年级上册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "Te76cd9",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "6",
+   "old": {
+    "id": "Y6-230",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 6,
+    "textbook": "统编版",
+    "unit": "六下·古诗综合",
+    "type": "判断",
+    "question": "“遥知兄弟登高处，遍插茱萸少一人”写的节日是重阳节。",
+    "answer": "对",
+    "explanation": "王维诗。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "六年级下册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T9a96e4",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "1",
+   "old": {
+    "id": "Y1-485",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 1,
+    "textbook": "统编版",
+    "unit": "一下·第一单元·小青蛙",
+    "type": "判断",
+    "question": "“清”字带三点水，和水有关。",
+    "tts_text": "“清”字带三点水，和水有关。",
+    "answer": "对",
+    "explanation": "河水清清。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "一年级下册",
+    "knowledge_point": "形近字",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "Tb12d1d",
+    "change_tag": "新增",
+    "tags": [
+     "形近字"
+    ]
+   }
+  },
+  {
+   "grade": "6",
+   "old": {
+    "id": "Y6-084",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 6,
+    "textbook": "统编版",
+    "unit": "六上·古诗词 西江月",
+    "type": "判断",
+    "question": "“清风半夜鸣蝉”的上一句是“明月别枝惊鹊”。",
+    "answer": "对",
+    "explanation": "辛弃疾《西江月·夜行黄沙道中》。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "六年级上册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T6d13c5",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "6",
+   "old": {
+    "id": "Y6-286",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 6,
+    "textbook": "统编版",
+    "unit": "六下·鲁滨逊漂流记",
+    "type": "判断",
+    "question": "鲁滨逊在荒岛上生活了二十八年。",
+    "answer": "对",
+    "explanation": "28年。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "六年级下册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "Tef2c82",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "6",
+   "old": {
+    "id": "Y6-240",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 6,
+    "textbook": "统编版",
+    "unit": "六下·综合",
+    "type": "判断",
+    "question": "《骑鹅旅行记》的主人公是尼尔斯。",
+    "answer": "对",
+    "explanation": "外国名著。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "六年级下册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "Tda84ad",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "1",
+   "old": {
+    "id": "M1-078",
+    "status": "AI初审通过",
+    "subject": "数学",
+    "grade": 1,
+    "textbook": "苏教版2024",
+    "unit": "一下·五 两位数加、减整十数和一位数",
+    "type": "判断",
+    "question": "40 + 6 = 46。",
+    "tts_text": "40 + 6 = 46。",
+    "answer": "对",
+    "explanation": "4 个十和 6 个一合起来是 46。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "一年级下册",
+    "knowledge_point": "两位数加整十数、一位数",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+    "template": "Ta61d4d",
+    "change_tag": "新增",
+    "tags": [
+     "两位数加整十数、一位数"
+    ]
+   }
+  },
+  {
+   "grade": "2",
+   "old": {
+    "id": "Y2-349",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 2,
+    "textbook": "统编版",
+    "unit": "二下·一匹出色的马",
+    "type": "判断",
+    "question": "妹妹求妈妈抱她，妈妈说自己也很累，抱不动了。",
+    "tts_text": "妹妹求妈妈抱她，妈妈说自己也很累，抱不动了。",
+    "answer": "对",
+    "explanation": "妈妈摇摇头说：“不行啊，我也很累，抱不动你了。”",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "二年级下册",
+    "knowledge_point": "匹出色的马",
+    "game_ready": true,
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T899e8f",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "3",
+   "old": {
+    "id": "Y3-237",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 3,
+    "textbook": "统编版",
+    "unit": "三下·阅读",
+    "type": "判断",
+    "question": "《纸的发明》说，造纸术是蔡伦改进的。",
+    "answer": "对",
+    "explanation": "三下第三单元。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "三年级下册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T56f53a",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "6",
+   "old": {
+    "id": "Y6-147",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 6,
+    "textbook": "统编版",
+    "unit": "六上·竹节人",
+    "type": "判断",
+    "question": "《竹节人》的作者是范锡林。",
+    "answer": "对",
+    "explanation": "范锡林。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "六年级上册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T35fd24",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "2",
+   "old": {
+    "id": "Y2-150",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 2,
+    "textbook": "统编版",
+    "unit": "二上·难忘的泼水节",
+    "type": "判断",
+    "question": "人们泼水，是在互相祝福。",
+    "tts_text": "人们泼水，是在互相祝福。",
+    "answer": "对",
+    "explanation": "泼水表示祝福。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "二年级上册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T95bbdd",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "6",
+   "old": {
+    "id": "M6-068",
+    "status": "AI初审通过",
+    "subject": "数学",
+    "grade": 6,
+    "textbook": "苏教版2024",
+    "unit": "六上·七 确定位置",
+    "type": "判断",
+    "question": "数对 $(2,3)$ 和 $(3,2)$ 表示的位置不同。",
+    "tts_text": "-",
+    "answer": "对",
+    "explanation": "第一个数表示列，第二个数表示行。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "六年级上册",
+    "knowledge_point": "数对",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
+    "template": "Tcf4a96",
+    "change_tag": "新增",
+    "tags": [
+     "数对"
+    ]
+   }
+  },
+  {
+   "grade": "5",
+   "old": {
+    "id": "Y5-216",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 5,
+    "textbook": "统编版",
+    "unit": "五下·猴王出世",
+    "type": "判断",
+    "question": "《猴王出世》选自《西游记》。",
+    "answer": "对",
+    "explanation": "吴承恩。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "五年级下册",
+    "knowledge_point": "语文",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T32541c",
+    "change_tag": "新增",
+    "tags": [
+     "语文"
+    ]
+   }
+  },
+  {
+   "grade": "2",
+   "old": {
+    "id": "S2-137",
+    "status": "AI初审通过",
+    "subject": "诗词",
+    "grade": 2,
+    "textbook": "统编版",
+    "unit": "综合",
+    "type": "判断",
+    "question": "《赋得古原草送别》和《忆江南》的作者都是白居易。",
+    "tts_text": "赋得古原草送别和忆江南的作者都是白居易。",
+    "answer": "对",
+    "explanation": "两首诗都是唐代诗人白居易写的。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "二年级（上下册通用）",
+    "knowledge_point": "综合",
+    "game_ready": true,
+    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
+    "template": "T8e1719",
+    "change_tag": "新增",
+    "tags": [
+     "诗词"
+    ]
+   }
+  },
+  {
+   "grade": "1",
+   "old": {
+    "id": "Y1-700",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 1,
+    "textbook": "统编版",
+    "unit": "一下·第四单元·端午粽",
+    "type": "判断",
+    "question": "外婆包的粽子里，中间有一颗红红的枣。",
+    "tts_text": "外婆包的粽子里，中间有一颗红红的枣。",
+    "answer": "对",
+    "explanation": "里面裹着白白的糯米，中间有一颗红红的枣。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "一年级下册",
+    "knowledge_point": "端午粽",
+    "game_ready": true,
+    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+    "template": "T1d51dc",
+    "change_tag": "新增",
+    "tags": [
+     "课文"
+    ]
+   }
+  }
+ ],
+ "opt": [
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "推己及人的仁爱精神",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "自私自利",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "以牙还牙",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只为自己着想",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-053",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级下册",
+    "unit": "七下·第三单元 传承中华优秀传统文化·第七课 弘扬中华人文精神",
+    "question": "“己所不欲，勿施于人”体现的是？",
+    "explanation": "出自《论语》。",
+    "difficulty": 2,
+    "knowledge_point": "仁爱",
+    "type": "选择",
+    "answer": "A",
+    "game_ready": true,
+    "template": "T79bc23",
+    "change_tag": "新增",
+    "tags": [
+     "仁爱"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "不遵守班规",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只提要求不出力",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "增强责任意识，遵守集体规则",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "互相指责",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-023",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级上册",
+    "unit": "七上·第二单元 成长的时空·第七课 在集体中成长",
+    "question": "共建美好集体，需要每个成员？",
+    "explanation": "美好集体需要大家共同努力。",
+    "difficulty": 1,
+    "knowledge_point": "共建美好集体",
+    "type": "选择",
+    "answer": "C",
+    "game_ready": true,
+    "template": "T448b2f",
+    "change_tag": "新增",
+    "tags": [
+     "共建美好集体"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "要正确看待自己的缺点和不足",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只有完美的人才有价值",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "缺点会自己消失",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "人可以不改正缺点",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-006",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级上册",
+    "unit": "七上·第一单元 少年有梦·第二课 正确认识自我",
+    "question": "“金无足赤，人无完人”告诉我们？",
+    "explanation": "接纳自己，并努力完善自己。",
+    "difficulty": 2,
+    "knowledge_point": "做更好的自己",
+    "type": "选择",
+    "answer": "A",
+    "game_ready": true,
+    "template": "Tfb8c7a",
+    "change_tag": "新增",
+    "tags": [
+     "做更好的自己"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "Z11-164",
+    "status": "AI初审通过",
+    "subject": "政治",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "选择性必修1·第二单元 世界多极化·第四课 和平与发展",
+    "type": "选择",
+    "question": "当今世界和平的主要威胁之一是？",
+    "options": [
+     {
+      "text": "文明交流",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "霸权主义和强权政治",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "世界多极化",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "经济全球化",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "此外还有恐怖主义等非传统安全威胁。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "和平与发展",
+    "game_ready": true,
+    "template": "Tc12178",
+    "review_changed": "是",
+    "change_tag": "新增",
+    "tags": [
+     "和平与发展"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "社会生活的百科全书",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "刑事法律",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "国家的根本大法",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "行政法规",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-057",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级下册",
+    "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
+    "question": "《中华人民共和国民法典》被称为？",
+    "explanation": "民法典 2021 年 1 月 1 日起施行。",
+    "difficulty": 2,
+    "knowledge_point": "民法典",
+    "type": "选择",
+    "answer": "A",
+    "game_ready": true,
+    "template": "Tf1cef8",
+    "change_tag": "新增",
+    "tags": [
+     "民法典"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "D11-176",
+    "status": "AI初审通过",
+    "subject": "地理",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修1·第五章 自然环境的整体性与差异性·第二节 自然环境的地域差异性",
+    "type": "选择",
+    "question": "山地垂直地域分异的基础是？",
+    "options": [
+     {
+      "text": "纬度的变化",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "山地水热状况随海拔的变化",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "距海远近的变化",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "人类活动",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "海拔越高，气温越低。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "自然环境的地域差异性",
+    "game_ready": true,
+    "template": "T26ef0d",
+    "change_tag": "新增",
+    "tags": [
+     "自然环境的地域差异性"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "S8-077",
+    "status": "AI初审通过",
+    "subject": "诗词",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第三单元·课外古诗词诵读",
+    "type": "选择",
+    "question": "“无为在歧路，儿女共沾巾”表达了诗人怎样的态度？",
+    "options": [
+     {
+      "text": "劝友人留下",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "为离别痛哭",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "嘲笑友人",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "劝慰友人不要在分别时像小儿女一样哭泣",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "一扫离别的悲凉，豁达乐观。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "课外古诗词诵读",
+    "game_ready": true,
+    "template": "T22bbc3",
+    "change_tag": "新增",
+    "tags": [
+     "课外古诗词诵读"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "D11-219",
+    "status": "AI初审通过",
+    "subject": "地理",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修2·第二章 资源、环境与区域发展·第一节 区域发展的自然环境基础",
+    "type": "选择",
+    "question": "东北地区发展农业的有利条件之一是？",
+    "options": [
+     {
+      "text": "热量充足，一年三熟",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "以山地为主",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "降水极多",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "黑土肥沃，地形平坦开阔",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "东北平原是我国重要的商品粮基地。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第二册",
+    "knowledge_point": "区域发展的自然环境基础",
+    "game_ready": true,
+    "template": "T969580",
+    "change_tag": "新增",
+    "tags": [
+     "区域发展的自然环境基础"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "D11-200",
+    "status": "AI初审通过",
+    "subject": "地理",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修2·第一章 区域与区域发展·第一节 多种多样的区域",
+    "type": "选择",
+    "question": "秦岭—淮河一线是我国南方和北方的分界线，实际上南北方之间是逐渐过渡的，这说明？",
+    "options": [
+     {
+      "text": "区域界线都十分明确",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "南北方没有差异",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "有些区域的界线具有过渡性",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "区域没有界线",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "自然区的界线常是过渡带。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "选择性必修第二册",
+    "knowledge_point": "多种多样的区域",
+    "game_ready": true,
+    "template": "T6827b6",
+    "change_tag": "新增",
+    "tags": [
+     "多种多样的区域"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "不用努力就能成功",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "看不起他人",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "激发潜能、战胜困难",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "忽视自己的缺点",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-130",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级下册",
+    "unit": "七下·第二单元 焕发青春活力·第四课 自信给人力量",
+    "question": "自信可以帮助我们？",
+    "explanation": "自信给人力量。",
+    "difficulty": 2,
+    "knowledge_point": "自信",
+    "type": "选择",
+    "answer": "C",
+    "game_ready": true,
+    "template": "T51193d",
+    "change_tag": "新增",
+    "tags": [
+     "自信"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "只背诵经典名句",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "全盘照搬古人的做法",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "认为传统文化已经过时",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "在日常生活中践行仁爱、诚信、礼让",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-108",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级下册",
+    "unit": "七下·第三单元 传承中华优秀传统文化·第七课 弘扬中华人文精神",
+    "question": "弘扬中华人文精神，我们中学生应该？",
+    "explanation": "知行合一，在生活中践行。",
+    "difficulty": 2,
+    "knowledge_point": "仁爱",
+    "type": "选择",
+    "answer": "D",
+    "game_ready": true,
+    "template": "T64d329",
+    "change_tag": "新增",
+    "tags": [
+     "仁爱"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "D11-109",
+    "status": "AI初审通过",
+    "subject": "地理",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修1·第三章 大气的运动·第三节 气压带和风带对气候的影响",
+    "type": "选择",
+    "question": "热带草原气候的成因是？",
+    "options": [
+     {
+      "text": "终年受西风带控制",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "受季风影响",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "赤道低气压带和信风带交替控制",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "终年受赤道低气压带控制",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "有明显的干湿两季。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "气压带和风带对气候的影响",
+    "game_ready": true,
+    "template": "T14ced4",
+    "change_tag": "新增",
+    "tags": [
+     "气压带和风带对气候的影响"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-143",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第三单元·12 短文二篇",
+    "type": "选择",
+    "question": "《记承天寺夜游》中“闲人”一词包含的情感最恰当的是？",
+    "options": [
+     {
+      "text": "贬谪的悲凉、赏月的欣喜、漫步的悠闲等复杂心情",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只有快乐",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只有悲伤",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "对朋友的不满",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "A",
+    "explanation": "“闲人”既有自嘲，也有自我排遣。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "短文二篇",
+    "game_ready": true,
+    "template": "T9a3e68",
+    "review_changed": "是",
+    "change_tag": "新增",
+    "tags": [
+     "短文二篇"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "H11-093",
+    "status": "AI初审通过",
+    "subject": "历史",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "选择性必修1·第三单元 法律与教化·第8课 中国古代的法治与教化",
+    "type": "选择",
+    "question": "汉代以后，中国古代法律的重要特点是？",
+    "options": [
+     {
+      "text": "只有法律没有礼",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "完全照搬西方法律",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "礼法结合，引礼入法",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只有礼没有法律",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "儒家思想渗透到法律中。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "中国古代的法治与教化",
+    "game_ready": true,
+    "template": "T57cf8f",
+    "change_tag": "新增",
+    "tags": [
+     "中国古代的法治与教化"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "互不往来",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "老师迁就学生",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "学生完全服从",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "师生相互尊重、平等交流",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-017",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级上册",
+    "unit": "七上·第二单元 成长的时空·第五课 和谐的师生关系",
+    "question": "“亦师亦友”的师生关系需要？",
+    "explanation": "教学相长。",
+    "difficulty": 2,
+    "knowledge_point": "珍惜师生情谊",
+    "type": "选择",
+    "answer": "D",
+    "game_ready": true,
+    "template": "T8d66e1",
+    "change_tag": "新增",
+    "tags": [
+     "珍惜师生情谊"
+    ]
+   }
+  },
+  {
+   "grade": "7",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "做错事要掩饰",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "知道羞耻才能勇于改正错误",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "不必在意别人的看法",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "羞耻的人很勇敢",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "D7-119",
+    "subject": "道德与法治",
+    "grade": 7,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "七年级下册",
+    "unit": "七下·第二单元 焕发青春活力·第三课 人贵自尊",
+    "question": "“知耻近乎勇”告诉我们？",
+    "explanation": "出自《中庸》。",
+    "difficulty": 2,
+    "knowledge_point": "自尊",
+    "type": "选择",
+    "answer": "B",
+    "game_ready": true,
+    "template": "Tfb8c7a",
+    "change_tag": "新增",
+    "tags": [
+     "自尊"
+    ]
+   }
+  }
+ ],
+ "stem": []
+}

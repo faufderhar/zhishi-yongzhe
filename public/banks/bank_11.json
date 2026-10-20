@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高二-v44（AI初审）",
- "version": "v44",
+ "bank_name": "三兄妹题库-高二-v45（AI初审）",
+ "version": "v45",
  "questions": [
   {
    "id": "Y11-001",
@@ -2263,7 +2263,7 @@
    "question": "\"譬如为山，未成一篑，止，吾止也\"这则语录强调的是？",
    "options": [
     {
-     "text": "堆山需要很多土",
+     "text": "堆山需要很多土，只差一筐土也堆不成山",
      "image": "",
      "audio": ""
     },
@@ -2530,7 +2530,7 @@
      "audio": ""
     },
     {
-     "text": "明德、亲民、至善",
+     "text": "博学、审问、慎思、明辨、笃行、忠恕、孝悌、信义",
      "image": "",
      "audio": ""
     }
@@ -3443,7 +3443,7 @@
      "audio": ""
     },
     {
-     "text": "站着的人不能行走",
+     "text": "站着的人不能行走，跨步的人不能站立",
      "image": "",
      "audio": ""
     },
@@ -7604,7 +7604,7 @@
      "audio": ""
     },
     {
-     "text": "决定经济的发展",
+     "text": "决定经济的发展，经济基础只是被动地受政治、法、哲学、宗教支配",
      "image": "",
      "audio": ""
     },
@@ -7645,7 +7645,7 @@
    "question": "关于伟大人物，恩格斯的看法是？",
    "options": [
     {
-     "text": "没有伟大人物历史就会停止",
+     "text": "没有伟大人物，历史就会停止发展，无人能够代替",
      "image": "",
      "audio": ""
     },
@@ -7985,7 +7985,7 @@
    "question": "文章提倡的是？",
    "options": [
     {
-     "text": "经验主义的态度",
+     "text": "经验主义的态度，只凭个人经验办事",
      "image": "",
      "audio": ""
     },
@@ -9622,7 +9622,7 @@
      "audio": ""
     },
     {
-     "text": "英国军警",
+     "text": "英国军警和北洋舰队的士兵",
      "image": "",
      "audio": ""
     },
@@ -10145,7 +10145,7 @@
      "audio": ""
     },
     {
-     "text": "工人生活富足",
+     "text": "工人生活富足，工厂管理先进，劳资关系融洽和谐",
      "image": "",
      "audio": ""
     },
@@ -30881,7 +30881,7 @@
    "question": "单词 cuisine 的意思是？",
    "options": [
     {
-     "text": "厨房",
+     "text": "厨房；厨房里的用具",
      "image": "",
      "audio": ""
     },
@@ -30909,6 +30909,7 @@
    "knowledge_point": "Food matters",
    "game_ready": true,
    "template": "T2c0947",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Food matters"
@@ -30941,7 +30942,7 @@
      "audio": ""
     },
     {
-     "text": "食谱",
+     "text": "食谱；烹饪方法的说明书",
      "image": "",
      "audio": ""
     }
@@ -30954,6 +30955,7 @@
    "knowledge_point": "Food matters",
    "game_ready": true,
    "template": "Tcbf747",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Food matters"
@@ -31661,7 +31663,7 @@
      "audio": ""
     },
     {
-     "text": "面粉",
+     "text": "面粉；面粉制品",
      "image": "",
      "audio": ""
     },
@@ -31680,6 +31682,7 @@
    "game_ready": true,
    "template": "T03710f",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Food matters"
@@ -31743,7 +31746,7 @@
    "question": "单词 universal 的意思是？",
    "options": [
     {
-     "text": "大学的",
+     "text": "大学的；高等院校的",
      "image": "",
      "audio": ""
     },
@@ -31772,6 +31775,7 @@
    "review_note": "大纲单元名大小写与课本目录不同，已按课本写法（大纲原写法：选择性必修一 Unit 2 The Universal Language）",
    "game_ready": true,
    "template": "Tf5327d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The universal language"
@@ -32070,7 +32074,7 @@
      "audio": ""
     },
     {
-     "text": "合唱团",
+     "text": "合唱团；歌咏队",
      "image": "",
      "audio": ""
     },
@@ -32094,6 +32098,7 @@
    "review_note": "大纲单元名大小写与课本目录不同，已按课本写法（大纲原写法：选择性必修一 Unit 2 The Universal Language）",
    "game_ready": true,
    "template": "T54f98c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The universal language"
@@ -32552,7 +32557,7 @@
    "question": "单词 melody 的意思是？",
    "options": [
     {
-     "text": "歌词",
+     "text": "歌词；歌曲的文字",
      "image": "",
      "audio": ""
     },
@@ -32582,6 +32587,7 @@
    "game_ready": true,
    "template": "Tc9f273",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The universal language"
@@ -33011,7 +33017,7 @@
      "audio": ""
     },
     {
-     "text": "肖像",
+     "text": "肖像；人物肖像画",
      "image": "",
      "audio": ""
     },
@@ -33034,6 +33040,7 @@
    "knowledge_point": "The art of painting",
    "game_ready": true,
    "template": "T276b46",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The art of painting"
@@ -33165,7 +33172,7 @@
    "question": "The Mona Lisa was painted by ___.",
    "options": [
     {
-     "text": "Pablo Picasso",
+     "text": "Pablo Ruiz Picasso",
      "image": "",
      "audio": ""
     },
@@ -33193,6 +33200,7 @@
    "knowledge_point": "The art of painting",
    "game_ready": true,
    "template": "Teaa7a2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The art of painting"
@@ -33442,7 +33450,7 @@
      "audio": ""
     },
     {
-     "text": "油画",
+     "text": "油画；油画颜料",
      "image": "",
      "audio": ""
     },
@@ -33466,6 +33474,7 @@
    "game_ready": true,
    "template": "T4b6460",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The art of painting"
@@ -33529,7 +33538,7 @@
    "question": "单词 poetry 的意思是？",
    "options": [
     {
-     "text": "诗人",
+     "text": "诗人；作诗的人",
      "image": "",
      "audio": ""
     },
@@ -33557,6 +33566,7 @@
    "knowledge_point": "Exploring poetry",
    "game_ready": true,
    "template": "Ta4b8fd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Exploring poetry"
@@ -33579,7 +33589,7 @@
      "audio": ""
     },
     {
-     "text": "节奏",
+     "text": "节奏；节拍规律",
      "image": "",
      "audio": ""
     },
@@ -33602,6 +33612,7 @@
    "knowledge_point": "Exploring poetry",
    "game_ready": true,
    "template": "Ta440a9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Exploring poetry"
@@ -34047,7 +34058,7 @@
    "question": "___ his homework, he began to write a poem.",
    "options": [
     {
-     "text": "To finish",
+     "text": "Having been finished",
      "image": "",
      "audio": ""
     },
@@ -34075,6 +34086,7 @@
    "knowledge_point": "Exploring poetry",
    "game_ready": true,
    "template": "Tf3c9ea",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Exploring poetry"
@@ -34324,7 +34336,7 @@
      "audio": ""
     },
     {
-     "text": "明喻",
+     "text": "明喻；直接比喻",
      "image": "",
      "audio": ""
     },
@@ -34348,6 +34360,7 @@
    "game_ready": true,
    "template": "T407f37",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Exploring poetry"
@@ -34461,7 +34474,7 @@
      "audio": ""
     },
     {
-     "text": "旅行者",
+     "text": "旅行者；外出游历的人",
      "image": "",
      "audio": ""
     },
@@ -34484,6 +34497,7 @@
    "knowledge_point": "The mass media",
    "game_ready": true,
    "template": "T780c32",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The mass media"
@@ -34681,7 +34695,7 @@
    "question": "单词 headline 的意思是？",
    "options": [
     {
-     "text": "截止日期",
+     "text": "截止日期；最后期限",
      "image": "",
      "audio": ""
     },
@@ -34709,6 +34723,7 @@
    "knowledge_point": "The mass media",
    "game_ready": true,
    "template": "Tab691b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The mass media"
@@ -34726,7 +34741,7 @@
    "question": "单词 broadcast 的意思是？",
    "options": [
     {
-     "text": "采访",
+     "text": "采访；新闻采访",
      "image": "",
      "audio": ""
     },
@@ -34754,6 +34769,7 @@
    "knowledge_point": "The mass media",
    "game_ready": true,
    "template": "Tc63720",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "The mass media"
@@ -35298,7 +35314,7 @@
      "audio": ""
     },
     {
-     "text": "裁判",
+     "text": "裁判；裁判员",
      "image": "",
      "audio": ""
     },
@@ -35321,6 +35337,7 @@
    "knowledge_point": "Sports culture",
    "game_ready": true,
    "template": "T4b5575",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Sports culture"
@@ -35573,7 +35590,7 @@
      "audio": ""
     },
     {
-     "text": "奖杯",
+     "text": "奖杯；比赛的奖品",
      "image": "",
      "audio": ""
     },
@@ -35591,6 +35608,7 @@
    "knowledge_point": "Sports culture",
    "game_ready": true,
    "template": "Tef9c09",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Sports culture"
@@ -36186,7 +36204,7 @@
      "audio": ""
     },
     {
-     "text": "财富",
+     "text": "财富；大量的钱财",
      "image": "",
      "audio": ""
     },
@@ -36204,6 +36222,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "Tb47e5d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36236,7 +36255,7 @@
      "audio": ""
     },
     {
-     "text": "外出",
+     "text": "外出；出门在外",
      "image": "",
      "audio": ""
     }
@@ -36249,6 +36268,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "T03f8df",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36281,7 +36301,7 @@
      "audio": ""
     },
     {
-     "text": "will run",
+     "text": "will have been running",
      "image": "",
      "audio": ""
     }
@@ -36294,6 +36314,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "T9adc52",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36326,7 +36347,7 @@
      "audio": ""
     },
     {
-     "text": "is practising",
+     "text": "will have been practising",
      "image": "",
      "audio": ""
     }
@@ -36339,6 +36360,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "Te8e6a4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36411,7 +36433,7 @@
      "audio": ""
     },
     {
-     "text": "will rain",
+     "text": "will have been raining",
      "image": "",
      "audio": ""
     },
@@ -36429,6 +36451,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "T8dea20",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36496,7 +36519,7 @@
      "audio": ""
     },
     {
-     "text": "中国功夫",
+     "text": "中国功夫；武术",
      "image": "",
      "audio": ""
     },
@@ -36519,6 +36542,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "T1205d5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36546,7 +36570,7 @@
      "audio": ""
     },
     {
-     "text": "will go",
+     "text": "will have been going",
      "image": "",
      "audio": ""
     },
@@ -36564,6 +36588,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "T4119a7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36659,7 +36684,7 @@
      "audio": ""
     },
     {
-     "text": "is doing",
+     "text": "will have been doing",
      "image": "",
      "audio": ""
     },
@@ -36677,6 +36702,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "Td34738",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36709,7 +36735,7 @@
      "audio": ""
     },
     {
-     "text": "had worked",
+     "text": "will have been working",
      "image": "",
      "audio": ""
     }
@@ -36722,6 +36748,7 @@
    "knowledge_point": "Fit for life",
    "game_ready": true,
    "template": "Tcd10cb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -36874,7 +36901,7 @@
    "question": "We ___ for the sports meeting since last week.",
    "options": [
     {
-     "text": "will train",
+     "text": "will have been training",
      "image": "",
      "audio": ""
     },
@@ -36903,6 +36930,7 @@
    "game_ready": true,
    "template": "T743799",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -37017,7 +37045,7 @@
      "audio": ""
     },
     {
-     "text": "描述",
+     "text": "描述；详细的描写",
      "image": "",
      "audio": ""
     },
@@ -37041,6 +37069,7 @@
    "game_ready": true,
    "template": "T27ae3d",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Fit for life"
@@ -37380,7 +37409,7 @@
    "question": "单词 device 的意思是？",
    "options": [
     {
-     "text": "建议",
+     "text": "建议；忠告；劝告",
      "image": "",
      "audio": ""
     },
@@ -37409,6 +37438,7 @@
    "review_note": "大纲单元名大小写与课本目录不同，已按课本写法（大纲原写法：选择性必修二 Unit 4 Living with Technology）",
    "game_ready": true,
    "template": "T3a9fd7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Living with technology"
@@ -37681,7 +37711,7 @@
    "question": "\"Today I'll be speaking to you about drones.\" 句中 will be speaking 表示？",
    "options": [
     {
-     "text": "已经完成的事",
+     "text": "到现在已经完成了的事",
      "image": "",
      "audio": ""
     },
@@ -37710,6 +37740,7 @@
    "review_note": "大纲单元名大小写与课本目录不同，已按课本写法（大纲原写法：选择性必修二 Unit 4 Living with Technology）",
    "game_ready": true,
    "template": "Tf63eb9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Living with technology"
@@ -37788,7 +37819,7 @@
      "audio": ""
     },
     {
-     "text": "have lived",
+     "text": "would have lived",
      "image": "",
      "audio": ""
     }
@@ -37803,6 +37834,7 @@
    "game_ready": true,
    "template": "Te6bcd6",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Living with technology"
@@ -37872,7 +37904,7 @@
      "audio": ""
     },
     {
-     "text": "have seen",
+     "text": "would have seen",
      "image": "",
      "audio": ""
     },
@@ -37897,6 +37929,7 @@
    "game_ready": true,
    "template": "Tf9ca97",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "Living with technology"
@@ -55102,7 +55135,7 @@
    "question": "记忆细胞的作用是？",
    "options": [
     {
-     "text": "直接裂解靶细胞",
+     "text": "直接与靶细胞接触，使其裂解死亡并释放抗原",
      "image": "",
      "audio": ""
     },
@@ -57779,7 +57812,7 @@
    "question": "用赤霉素处理大麦，可以？",
    "options": [
     {
-     "text": "使大麦种子休眠",
+     "text": "使大麦种子进入休眠，抑制 α-淀粉酶的合成",
      "image": "",
      "audio": ""
     },
@@ -60647,7 +60680,7 @@
      "audio": ""
     },
     {
-     "text": "光照强度",
+     "text": "光照强度和温度随高度的变化",
      "image": "",
      "audio": ""
     },
@@ -61991,7 +62024,7 @@
    "question": "生态系统的组成成分包括？",
    "options": [
     {
-     "text": "动物、植物和微生物",
+     "text": "动物、植物、微生物以及它们生活的土壤",
      "image": "",
      "audio": ""
     },
@@ -63198,7 +63231,7 @@
      "audio": ""
     },
     {
-     "text": "物质在生物群落内部循环",
+     "text": "物质在生物群落内部反复循环、逐级传递的现象",
      "image": "",
      "audio": ""
     },
@@ -63346,7 +63379,7 @@
      "audio": ""
     },
     {
-     "text": "大量砍伐森林",
+     "text": "大量砍伐森林，扩大耕地和建设用地",
      "image": "",
      "audio": ""
     }
@@ -64813,7 +64846,7 @@
      "audio": ""
     },
     {
-     "text": "重金属",
+     "text": "重金属和氟利昂的大量排放",
      "image": "",
      "audio": ""
     }
@@ -66510,7 +66543,7 @@
    "question": "明朝废除丞相制度、由皇帝直接管理六部的是？",
    "options": [
     {
-     "text": "明成祖朱棣",
+     "text": "明成祖朱棣（永乐帝）",
      "image": "",
      "audio": ""
     },
@@ -66538,6 +66571,7 @@
    "knowledge_point": "中国古代政治制度的形成与发展",
    "game_ready": true,
    "template": "T9ddfe2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代政治制度的形成与发展"
@@ -66605,7 +66639,7 @@
      "audio": ""
     },
     {
-     "text": "掌管全国财政",
+     "text": "掌管全国财政，统一征收和调拨各州赋税",
      "image": "",
      "audio": ""
     },
@@ -66628,6 +66662,7 @@
    "knowledge_point": "中国古代政治制度的形成与发展",
    "game_ready": true,
    "template": "T8df170",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代政治制度的形成与发展"
@@ -66645,7 +66680,7 @@
    "question": "清朝军机处的设立，标志着？",
    "options": [
     {
-     "text": "丞相权力增强",
+     "text": "丞相权力进一步增强",
      "image": "",
      "audio": ""
     },
@@ -66673,6 +66708,7 @@
    "knowledge_point": "中国古代政治制度的形成与发展",
    "game_ready": true,
    "template": "Tba7063",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代政治制度的形成与发展"
@@ -66809,7 +66845,7 @@
      "audio": ""
     },
     {
-     "text": "富裕的公民",
+     "text": "拥有大量财产的富裕公民",
      "image": "",
      "audio": ""
     },
@@ -66832,6 +66868,7 @@
    "knowledge_point": "西方国家古代和近代政治制度的演变",
    "game_ready": true,
    "template": "T6f6b8a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方国家古代和近代政治制度的演变"
@@ -66894,7 +66931,7 @@
    "question": "罗马第一部成文法是？",
    "options": [
     {
-     "text": "《民法大全》",
+     "text": "《民法大全》（查士丁尼法典）",
      "image": "",
      "audio": ""
     },
@@ -66922,6 +66959,7 @@
    "knowledge_point": "西方国家古代和近代政治制度的演变",
    "game_ready": true,
    "template": "Te906da",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方国家古代和近代政治制度的演变"
@@ -67124,7 +67162,7 @@
      "audio": ""
     },
     {
-     "text": "总统只是国家元首，没有实权",
+     "text": "总统只是国家元首，没有行政实权，由总理掌握政府",
      "image": "",
      "audio": ""
     },
@@ -67147,6 +67185,7 @@
    "knowledge_point": "西方国家古代和近代政治制度的演变",
    "game_ready": true,
    "template": "Tb93dc3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方国家古代和近代政治制度的演变"
@@ -67179,7 +67218,7 @@
      "audio": ""
     },
     {
-     "text": "实行民主共和制",
+     "text": "实行议会君主制，皇帝只是没有实权的虚位元首",
      "image": "",
      "audio": ""
     }
@@ -67192,6 +67231,7 @@
    "knowledge_point": "西方国家古代和近代政治制度的演变",
    "game_ready": true,
    "template": "T53d69c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方国家古代和近代政治制度的演变"
@@ -67775,7 +67815,7 @@
    "question": "下列属于商鞅变法内容的是？",
    "options": [
     {
-     "text": "实行青苗法",
+     "text": "实行青苗法、募役法、保甲法，由官府向农民放贷",
      "image": "",
      "audio": ""
     },
@@ -67803,6 +67843,7 @@
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T20c5ed",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -67825,7 +67866,7 @@
      "audio": ""
     },
     {
-     "text": "推行一条鞭法",
+     "text": "推行一条鞭法，赋役合并征银",
      "image": "",
      "audio": ""
     },
@@ -67848,6 +67889,7 @@
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T59e8df",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -67865,7 +67907,7 @@
    "question": "北宋王安石变法中的新法有？",
    "options": [
     {
-     "text": "摊丁入亩",
+     "text": "摊丁入亩、一条鞭法、推恩令",
      "image": "",
      "audio": ""
     },
@@ -67893,6 +67935,7 @@
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T3c00bb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -68140,7 +68183,7 @@
      "audio": ""
     },
     {
-     "text": "实行土地国有",
+     "text": "实行土地国有，由国家统一分配",
      "image": "",
      "audio": ""
     },
@@ -68163,6 +68206,7 @@
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T122506",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -68190,7 +68234,7 @@
      "audio": ""
     },
     {
-     "text": "废除了分封制",
+     "text": "废除了分封制，确立了郡县制",
      "image": "",
      "audio": ""
     },
@@ -68208,6 +68252,7 @@
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T14fc7b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -68235,7 +68280,7 @@
      "audio": ""
     },
     {
-     "text": "没有得到皇帝支持",
+     "text": "没有得到光绪皇帝的支持和信任",
      "image": "",
      "audio": ""
     },
@@ -68253,6 +68298,7 @@
    "knowledge_point": "中国历代变法和改革",
    "game_ready": true,
    "template": "T0e8ee4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -68321,7 +68367,7 @@
      "audio": ""
     },
     {
-     "text": "实行三权分立",
+     "text": "实行三权分立，确立了联邦制民主共和政体",
      "image": "",
      "audio": ""
     },
@@ -68345,6 +68391,7 @@
    "game_ready": true,
    "template": "T5f427e",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国历代变法和改革"
@@ -68848,7 +68895,7 @@
      "audio": ""
     },
     {
-     "text": "使官员只能由贵族担任",
+     "text": "使官员只能由世家贵族担任，强化门阀统治",
      "image": "",
      "audio": ""
     },
@@ -68866,6 +68913,7 @@
    "knowledge_point": "中国古代官员的选拔与管理",
    "game_ready": true,
    "template": "T6a8711",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代官员的选拔与管理"
@@ -69191,7 +69239,7 @@
      "audio": ""
     },
     {
-     "text": "随政党进退",
+     "text": "随政党进退，由获胜政党按功劳分配全部官职",
      "image": "",
      "audio": ""
     }
@@ -69204,6 +69252,7 @@
    "knowledge_point": "西方的文官制度",
    "game_ready": true,
    "template": "Tb50706",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方的文官制度"
@@ -69316,7 +69365,7 @@
      "audio": ""
     },
     {
-     "text": "随执政党一起进退",
+     "text": "随执政党一起进退，听从政党指挥",
      "image": "",
      "audio": ""
     },
@@ -69339,6 +69388,7 @@
    "knowledge_point": "西方的文官制度",
    "game_ready": true,
    "template": "Ta77dfc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "西方的文官制度"
@@ -69878,7 +69928,7 @@
    "question": "科举制正式确立的标志是？",
    "options": [
     {
-     "text": "武则天创立殿试",
+     "text": "武则天首创殿试，亲自策问考生",
      "image": "",
      "audio": ""
     },
@@ -69907,6 +69957,7 @@
    "game_ready": true,
    "template": "T0b0821",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "近代以来中国的官员选拔与管理"
@@ -70128,7 +70179,7 @@
    "question": "汉代以后，中国古代法律的重要特点是？",
    "options": [
     {
-     "text": "只有法律没有礼",
+     "text": "只有法律没有礼，完全依靠严刑峻法",
      "image": "",
      "audio": ""
     },
@@ -70156,6 +70207,7 @@
    "knowledge_point": "中国古代的法治与教化",
    "game_ready": true,
    "template": "T57cf8f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代的法治与教化"
@@ -70368,7 +70420,7 @@
      "audio": ""
     },
     {
-     "text": "由皇帝亲自判所有案件",
+     "text": "由皇帝亲自审理全国所有的案件",
      "image": "",
      "audio": ""
     }
@@ -70381,6 +70433,7 @@
    "knowledge_point": "中国古代的法治与教化",
    "game_ready": true,
    "template": "T70773e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国古代的法治与教化"
@@ -70561,7 +70614,7 @@
      "audio": ""
     },
     {
-     "text": "以成文法典为主",
+     "text": "以成文法典为主要法律渊源",
      "image": "",
      "audio": ""
     },
@@ -70584,6 +70637,7 @@
    "knowledge_point": "近代西方的法律与教化",
    "game_ready": true,
    "template": "Ta12d83",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "近代西方的法律与教化"
@@ -70781,7 +70835,7 @@
    "question": "英美法系中\"遵循先例\"原则是指？",
    "options": [
     {
-     "text": "只能依据成文法典判案",
+     "text": "只能依据议会制定的成文法典来判决案件",
      "image": "",
      "audio": ""
     },
@@ -70809,6 +70863,7 @@
    "knowledge_point": "近代西方的法律与教化",
    "game_ready": true,
    "template": "T9ea691",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "近代西方的法律与教化"
@@ -83582,6 +83637,7 @@
    "knowledge_point": "地球的自转和公转",
    "game_ready": true,
    "template": "T9ae01a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球的自转和公转"
@@ -84147,7 +84203,7 @@
      "audio": ""
     },
     {
-     "text": "北京（116°E）的地方时",
+     "text": "北京（116°E）所在经线的地方时，即北京本地的时间",
      "image": "",
      "audio": ""
     },
@@ -84170,6 +84226,7 @@
    "knowledge_point": "地球运动的地理意义",
    "game_ready": true,
    "template": "T7c0f46",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球运动的地理意义"
@@ -84623,7 +84680,7 @@
      "audio": ""
     },
     {
-     "text": "回归线与极圈之间",
+     "text": "回归线与极圈之间（不含回归线和极圈）",
      "image": "",
      "audio": ""
     }
@@ -84636,6 +84693,7 @@
    "knowledge_point": "地球运动的地理意义",
    "game_ready": true,
    "template": "Ta8d04d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球运动的地理意义"
@@ -84770,7 +84828,7 @@
    "question": "冬至日（12 月 22 日前后），北半球的昼夜情况是？",
    "options": [
     {
-     "text": "昼长夜短，北极圈内出现极昼",
+     "text": "昼长夜短，北极圈及其以北出现极昼现象",
      "image": "",
      "audio": ""
     },
@@ -84799,6 +84857,7 @@
    "game_ready": true,
    "template": "T9070ea",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地球运动的地理意义"
@@ -84931,7 +84990,7 @@
    "question": "下列属于内力作用表现形式的是？",
    "options": [
     {
-     "text": "风化、侵蚀、搬运",
+     "text": "风化、侵蚀、搬运、堆积、固结成岩等作用",
      "image": "",
      "audio": ""
     },
@@ -84959,6 +85018,7 @@
    "knowledge_point": "塑造地表形态的力量",
    "game_ready": true,
    "template": "T537054",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "塑造地表形态的力量"
@@ -84981,7 +85041,7 @@
      "audio": ""
     },
     {
-     "text": "地壳运动",
+     "text": "地壳运动、岩浆活动、变质作用",
      "image": "",
      "audio": ""
     },
@@ -85004,6 +85064,7 @@
    "knowledge_point": "塑造地表形态的力量",
    "game_ready": true,
    "template": "T08d359",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "塑造地表形态的力量"
@@ -85026,7 +85087,7 @@
      "audio": ""
     },
     {
-     "text": "使地表趋于平坦",
+     "text": "使地表起伏减小、趋于平坦",
      "image": "",
      "audio": ""
     },
@@ -85049,6 +85110,7 @@
    "knowledge_point": "塑造地表形态的力量",
    "game_ready": true,
    "template": "T8960c2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "塑造地表形态的力量"
@@ -85161,7 +85223,7 @@
      "audio": ""
     },
     {
-     "text": "由岩浆直接形成",
+     "text": "由岩浆冷却凝固直接形成，常有气孔",
      "image": "",
      "audio": ""
     },
@@ -85184,6 +85246,7 @@
    "knowledge_point": "塑造地表形态的力量",
    "game_ready": true,
    "template": "T543be1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "塑造地表形态的力量"
@@ -85528,7 +85591,7 @@
      "audio": ""
     },
     {
-     "text": "背斜顶部岩石最坚硬",
+     "text": "背斜顶部岩石最坚硬，抗侵蚀能力在各部位中最强",
      "image": "",
      "audio": ""
     },
@@ -85546,6 +85609,7 @@
    "knowledge_point": "构造地貌的形成",
    "game_ready": true,
    "template": "Tb96425",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构造地貌的形成"
@@ -85578,7 +85642,7 @@
      "audio": ""
     },
     {
-     "text": "河流侵蚀形成的谷地",
+     "text": "河流长期下切侵蚀形成的狭长谷地，两侧岩体没有断裂",
      "image": "",
      "audio": ""
     }
@@ -85591,6 +85655,7 @@
    "knowledge_point": "构造地貌的形成",
    "game_ready": true,
    "template": "Tb74fca",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构造地貌的形成"
@@ -85623,7 +85688,7 @@
      "audio": ""
     },
     {
-     "text": "褶皱形成的山地",
+     "text": "褶皱中向斜槽部形成的谷地（向斜谷）",
      "image": "",
      "audio": ""
     }
@@ -85636,6 +85701,7 @@
    "knowledge_point": "构造地貌的形成",
    "game_ready": true,
    "template": "Tc6ee3b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构造地貌的形成"
@@ -85843,7 +85909,7 @@
      "audio": ""
     },
     {
-     "text": "板块张裂",
+     "text": "印度洋板块与亚欧板块张裂拉伸，地壳抬升",
      "image": "",
      "audio": ""
     },
@@ -85861,6 +85927,7 @@
    "knowledge_point": "构造地貌的形成",
    "game_ready": true,
    "template": "Tad5270",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构造地貌的形成"
@@ -85878,7 +85945,7 @@
    "question": "河流侵蚀的方式包括？",
    "options": [
     {
-     "text": "风化、堆积、搬运",
+     "text": "风化、堆积、搬运、溶蚀",
      "image": "",
      "audio": ""
     },
@@ -85906,6 +85973,7 @@
    "knowledge_point": "河流地貌的发育",
    "game_ready": true,
    "template": "T499545",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -85938,7 +86006,7 @@
      "audio": ""
     },
     {
-     "text": "侧蚀",
+     "text": "侧蚀为主，伴随大量堆积作用",
      "image": "",
      "audio": ""
     }
@@ -85951,6 +86019,7 @@
    "knowledge_point": "河流地貌的发育",
    "game_ready": true,
    "template": "T861c71",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -86158,7 +86227,7 @@
      "audio": ""
     },
     {
-     "text": "风力侵蚀",
+     "text": "河流入海处流速加快，海浪侵蚀河岸，泥沙被冲入深海",
      "image": "",
      "audio": ""
     },
@@ -86176,6 +86245,7 @@
    "knowledge_point": "河流地貌的发育",
    "game_ready": true,
    "template": "T1f6979",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -86208,7 +86278,7 @@
      "audio": ""
     },
     {
-     "text": "火山口积水",
+     "text": "火山喷发后火山口长期积水，逐渐形成湖泊",
      "image": "",
      "audio": ""
     }
@@ -86221,6 +86291,7 @@
    "knowledge_point": "河流地貌的发育",
    "game_ready": true,
    "template": "Teae758",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -86243,7 +86314,7 @@
      "audio": ""
     },
     {
-     "text": "冲积扇和风蚀蘑菇",
+     "text": "冲积扇平原、风蚀蘑菇、沙丘地带和戈壁滩等",
      "image": "",
      "audio": ""
     },
@@ -86266,6 +86337,7 @@
    "knowledge_point": "河流地貌的发育",
    "game_ready": true,
    "template": "Tc9ab4e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -86388,7 +86460,7 @@
      "audio": ""
     },
     {
-     "text": "凹岸侵蚀",
+     "text": "洪水期凹岸受侵蚀后，河岸后退形成的平地",
      "image": "",
      "audio": ""
     }
@@ -86401,6 +86473,7 @@
    "knowledge_point": "河流地貌的发育",
    "game_ready": true,
    "template": "T5dd7b7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -86469,7 +86542,7 @@
      "audio": ""
     },
     {
-     "text": "向斜槽部受张力，易被侵蚀",
+     "text": "向斜槽部受张力，岩石破碎，容易被外力侵蚀",
      "image": "",
      "audio": ""
     },
@@ -86493,6 +86566,7 @@
    "game_ready": true,
    "template": "T9a795c",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "河流地貌的发育"
@@ -86671,7 +86745,7 @@
    "question": "冷锋过境后，天气一般是？",
    "options": [
     {
-     "text": "气温升高，气压降低",
+     "text": "气温升高，气压降低，天气转为阴雨",
      "image": "",
      "audio": ""
     },
@@ -86699,6 +86773,7 @@
    "knowledge_point": "常见天气系统",
    "game_ready": true,
    "template": "Tfa1142",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "常见天气系统"
@@ -86726,7 +86801,7 @@
      "audio": ""
     },
     {
-     "text": "锋后，多为暴雨",
+     "text": "锋后，多为短时阵性暴雨",
      "image": "",
      "audio": ""
     },
@@ -86744,6 +86819,7 @@
    "knowledge_point": "常见天气系统",
    "game_ready": true,
    "template": "T5eb492",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "常见天气系统"
@@ -87081,7 +87157,7 @@
      "audio": ""
     },
     {
-     "text": "准静止锋",
+     "text": "准静止锋（江淮准静止锋）",
      "image": "",
      "audio": ""
     },
@@ -87104,6 +87180,7 @@
    "knowledge_point": "常见天气系统",
    "game_ready": true,
    "template": "T2a351c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "常见天气系统"
@@ -87121,7 +87198,7 @@
    "question": "北半球反气旋中的气流运动方向是？",
    "options": [
     {
-     "text": "逆时针方向辐散",
+     "text": "逆时针方向辐散，中心气流下沉，天气晴朗",
      "image": "",
      "audio": ""
     },
@@ -87149,6 +87226,7 @@
    "knowledge_point": "常见天气系统",
    "game_ready": true,
    "template": "T019aa2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "常见天气系统"
@@ -87171,7 +87249,7 @@
      "audio": ""
     },
     {
-     "text": "受冷气团控制，气温较低",
+     "text": "受冷气团控制，气温较低，气压较高，天气晴朗少云",
      "image": "",
      "audio": ""
     },
@@ -87194,6 +87272,7 @@
    "knowledge_point": "常见天气系统",
    "game_ready": true,
    "template": "T2036f6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "常见天气系统"
@@ -87595,7 +87674,7 @@
    "question": "南亚的西南季风，形成与什么有关？",
    "options": [
     {
-     "text": "只与地形有关",
+     "text": "只与地形阻挡和地球自转偏向力有关，与海陆无关",
      "image": "",
      "audio": ""
     },
@@ -87623,6 +87702,7 @@
    "knowledge_point": "气压带和风带",
    "game_ready": true,
    "template": "T2bf45c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带"
@@ -87780,7 +87860,7 @@
      "audio": ""
     },
     {
-     "text": "地面冷却（热力原因）",
+     "text": "地面辐射冷却，近地面气流收缩下沉（热力原因）",
      "image": "",
      "audio": ""
     },
@@ -87803,6 +87883,7 @@
    "knowledge_point": "气压带和风带",
    "game_ready": true,
    "template": "Tbdbdad",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带"
@@ -87894,7 +87975,7 @@
      "audio": ""
     },
     {
-     "text": "终年受西风带控制",
+     "text": "终年受西风带控制，来自海洋的水汽难以到达",
      "image": "",
      "audio": ""
     },
@@ -87917,6 +87998,7 @@
    "knowledge_point": "气压带和风带对气候的影响",
    "game_ready": true,
    "template": "Tce91d0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带对气候的影响"
@@ -87979,7 +88061,7 @@
    "question": "地中海气候区夏季受什么控制？",
    "options": [
     {
-     "text": "西风带",
+     "text": "西风带（盛行西风）",
      "image": "",
      "audio": ""
     },
@@ -88007,6 +88089,7 @@
    "knowledge_point": "气压带和风带对气候的影响",
    "game_ready": true,
    "template": "T97510c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带对气候的影响"
@@ -88084,7 +88167,7 @@
      "audio": ""
     },
     {
-     "text": "终年受赤道低气压带控制",
+     "text": "终年受赤道低气压带控制，盛行上升气流",
      "image": "",
      "audio": ""
     }
@@ -88097,6 +88180,7 @@
    "knowledge_point": "气压带和风带对气候的影响",
    "game_ready": true,
    "template": "T14ced4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带对气候的影响"
@@ -88259,7 +88343,7 @@
      "audio": ""
     },
     {
-     "text": "受副热带高压控制",
+     "text": "终年受副热带高压控制，加上沿岸寒流降温减湿",
      "image": "",
      "audio": ""
     },
@@ -88277,6 +88361,7 @@
    "knowledge_point": "气压带和风带对气候的影响",
    "game_ready": true,
    "template": "T1d1eac",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带对气候的影响"
@@ -88327,7 +88412,7 @@
      "audio": ""
     },
     {
-     "text": "气温下降，气压升高",
+     "text": "气温下降，气压升高，天气转晴，风力加大",
      "image": "",
      "audio": ""
     },
@@ -88346,6 +88431,7 @@
    "game_ready": true,
    "template": "T9d2db4",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气压带和风带对气候的影响"
@@ -88584,7 +88670,7 @@
      "audio": ""
     },
     {
-     "text": "湖泊水",
+     "text": "湖泊水和地下水",
      "image": "",
      "audio": ""
     }
@@ -88597,6 +88683,7 @@
    "knowledge_point": "陆地水体及其相互关系",
    "game_ready": true,
    "template": "T32616e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "陆地水体及其相互关系"
@@ -88884,7 +88971,7 @@
    "question": "洞庭湖、鄱阳湖对长江干流的作用是？",
    "options": [
     {
-     "text": "加剧洪水",
+     "text": "加剧洪水，扩大长江干流洪峰",
      "image": "",
      "audio": ""
     },
@@ -88912,6 +88999,7 @@
    "knowledge_point": "陆地水体及其相互关系",
    "game_ready": true,
    "template": "T312bb1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "陆地水体及其相互关系"
@@ -88944,7 +89032,7 @@
      "audio": ""
     },
     {
-     "text": "降水最多",
+     "text": "夏季降水最多，雨水补给充足",
      "image": "",
      "audio": ""
     }
@@ -88957,6 +89045,7 @@
    "knowledge_point": "陆地水体及其相互关系",
    "game_ready": true,
    "template": "Td41270",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "陆地水体及其相互关系"
@@ -89066,7 +89155,7 @@
    "question": "暖流是指？",
    "options": [
     {
-     "text": "从水温低的海区流向水温高的海区",
+     "text": "从高纬度海区流向低纬度海区的洋流",
      "image": "",
      "audio": ""
     },
@@ -89094,6 +89183,7 @@
    "knowledge_point": "洋流",
    "game_ready": true,
    "template": "T4b8803",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋流"
@@ -89251,7 +89341,7 @@
      "audio": ""
     },
     {
-     "text": "寒暖流交汇",
+     "text": "寒暖流在此交汇，海水剧烈扰动，深层营养盐上泛",
      "image": "",
      "audio": ""
     },
@@ -89274,6 +89364,7 @@
    "knowledge_point": "洋流",
    "game_ready": true,
    "template": "Ta9f913",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋流"
@@ -89386,7 +89477,7 @@
      "audio": ""
     },
     {
-     "text": "使污染物集中在一处",
+     "text": "使污染物集中在一处，减慢扩散速度，污染范围缩小，净化变慢",
      "image": "",
      "audio": ""
     },
@@ -89409,6 +89500,7 @@
    "knowledge_point": "洋流",
    "game_ready": true,
    "template": "Tf0617e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋流"
@@ -89481,7 +89573,7 @@
      "audio": ""
     },
     {
-     "text": "墨西哥湾暖流",
+     "text": "墨西哥湾暖流（湾流）",
      "image": "",
      "audio": ""
     },
@@ -89499,6 +89591,7 @@
    "knowledge_point": "洋流",
    "game_ready": true,
    "template": "Tcf2ff6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋流"
@@ -89531,7 +89624,7 @@
      "audio": ""
     },
     {
-     "text": "增加燃料消耗",
+     "text": "增加燃料消耗，减慢航速",
      "image": "",
      "audio": ""
     }
@@ -89544,6 +89637,7 @@
    "knowledge_point": "洋流",
    "game_ready": true,
    "template": "T3a5794",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋流"
@@ -89630,7 +89724,7 @@
    "question": "海洋向大气输送热量，主要是通过？",
    "options": [
     {
-     "text": "海浪运动",
+     "text": "海浪运动直接输送热量",
      "image": "",
      "audio": ""
     },
@@ -89658,6 +89752,7 @@
    "knowledge_point": "海—气相互作用",
    "game_ready": true,
    "template": "T7076c5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "海—气相互作用"
@@ -90103,7 +90198,7 @@
    "question": "纽芬兰渔场形成的主要原因是？",
    "options": [
     {
-     "text": "上升流",
+     "text": "离岸风使深层冷海水上泛，形成上升流",
      "image": "",
      "audio": ""
     },
@@ -90132,6 +90227,7 @@
    "game_ready": true,
    "template": "T9a8823",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "海—气相互作用"
@@ -90164,7 +90260,7 @@
      "audio": ""
     },
     {
-     "text": "冰川融水",
+     "text": "高山冰川融水（永久积雪）",
      "image": "",
      "audio": ""
     }
@@ -90178,6 +90274,7 @@
    "game_ready": true,
    "template": "T8c078e",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "海—气相互作用"
@@ -90320,7 +90417,7 @@
      "audio": ""
     },
     {
-     "text": "文化、宗教",
+     "text": "文化、宗教、人口、城市、交通等要素",
      "image": "",
      "audio": ""
     },
@@ -90338,6 +90435,7 @@
    "knowledge_point": "自然环境的整体性",
    "game_ready": true,
    "template": "T87a839",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的整体性"
@@ -90455,7 +90553,7 @@
      "audio": ""
     },
     {
-     "text": "只有生产功能",
+     "text": "只有生产功能，没有统一的演化过程和平衡功能",
      "image": "",
      "audio": ""
     },
@@ -90473,6 +90571,7 @@
    "knowledge_point": "自然环境的整体性",
    "game_ready": true,
    "template": "Td888bd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的整体性"
@@ -90505,7 +90604,7 @@
      "audio": ""
     },
     {
-     "text": "生产工业产品",
+     "text": "生产工业产品、化石燃料和电能的能力",
      "image": "",
      "audio": ""
     }
@@ -90518,6 +90617,7 @@
    "knowledge_point": "自然环境的整体性",
    "game_ready": true,
    "template": "Tb96ec5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的整体性"
@@ -90897,7 +90997,7 @@
    "question": "山地垂直地域分异的基础是？",
    "options": [
     {
-     "text": "纬度的变化",
+     "text": "纬度变化引起的山地热量差异",
      "image": "",
      "audio": ""
     },
@@ -90925,6 +91025,7 @@
    "knowledge_point": "自然环境的地域差异性",
    "game_ready": true,
    "template": "T26ef0d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的地域差异性"
@@ -91032,7 +91133,7 @@
    "question": "山地垂直带谱中的基带，一般？",
    "options": [
     {
-     "text": "与山顶自然带一致",
+     "text": "与山顶的自然带一致，一般是高山冰雪带",
      "image": "",
      "audio": ""
     },
@@ -91060,6 +91161,7 @@
    "knowledge_point": "自然环境的地域差异性",
    "game_ready": true,
    "template": "T58ce52",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的地域差异性"
@@ -91077,7 +91179,7 @@
    "question": "沙漠中出现的绿洲，体现了？",
    "options": [
     {
-     "text": "由赤道到两极的地域分异",
+     "text": "由赤道到两极的地域分异（纬度地带性）",
      "image": "",
      "audio": ""
     },
@@ -91105,6 +91207,7 @@
    "knowledge_point": "自然环境的地域差异性",
    "game_ready": true,
    "template": "Td8bb5d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的地域差异性"
@@ -91122,7 +91225,7 @@
    "question": "珠穆朗玛峰南坡的雪线比北坡低，主要原因是？",
    "options": [
     {
-     "text": "南坡气温低",
+     "text": "南坡纬度较高，气温较低，冰雪不易融化",
      "image": "",
      "audio": ""
     },
@@ -91150,6 +91253,7 @@
    "knowledge_point": "自然环境的地域差异性",
    "game_ready": true,
    "template": "T376006",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的地域差异性"
@@ -91272,7 +91376,7 @@
      "audio": ""
     },
     {
-     "text": "赤道低气压带控制",
+     "text": "受赤道低气压带控制，盛行上升气流",
      "image": "",
      "audio": ""
     }
@@ -91285,6 +91389,7 @@
    "knowledge_point": "自然环境的地域差异性",
    "game_ready": true,
    "template": "T78df3d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的地域差异性"
@@ -91767,7 +91872,7 @@
      "audio": ""
     },
     {
-     "text": "地形类型",
+     "text": "地形类型、海拔高度和气候类型",
      "image": "",
      "audio": ""
     },
@@ -91785,6 +91890,7 @@
    "knowledge_point": "多种多样的区域",
    "game_ready": true,
    "template": "Tcc94f3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "多种多样的区域"
@@ -91893,7 +91999,7 @@
    "question": "秦岭—淮河一线是我国南方和北方的分界线，实际上南北方之间是逐渐过渡的，这说明？",
    "options": [
     {
-     "text": "区域界线都十分明确",
+     "text": "区域界线都是人为任意划定的，与自然环境无关",
      "image": "",
      "audio": ""
     },
@@ -91921,6 +92027,7 @@
    "knowledge_point": "多种多样的区域",
    "game_ready": true,
    "template": "T6827b6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "多种多样的区域"
@@ -92196,7 +92303,7 @@
      "audio": ""
     },
     {
-     "text": "区域的层级性",
+     "text": "区域的层级性和边界的明确性",
      "image": "",
      "audio": ""
     },
@@ -92214,6 +92321,7 @@
    "knowledge_point": "区域整体性和关联性",
    "game_ready": true,
    "template": "T3163a7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "区域整体性和关联性"
@@ -92642,7 +92750,7 @@
    "question": "东北地区发展农业的有利条件之一是？",
    "options": [
     {
-     "text": "热量充足，一年三熟",
+     "text": "热量充足，农作物一年三熟",
      "image": "",
      "audio": ""
     },
@@ -92670,6 +92778,7 @@
    "knowledge_point": "区域发展的自然环境基础",
    "game_ready": true,
    "template": "T969580",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "区域发展的自然环境基础"
@@ -92692,7 +92801,7 @@
      "audio": ""
     },
     {
-     "text": "地形崎岖",
+     "text": "地形崎岖，以山地丘陵为主",
      "image": "",
      "audio": ""
     },
@@ -92715,6 +92824,7 @@
    "knowledge_point": "区域发展的自然环境基础",
    "game_ready": true,
    "template": "T68be34",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "区域发展的自然环境基础"
@@ -92742,7 +92852,7 @@
      "audio": ""
     },
     {
-     "text": "劳动力成本最低",
+     "text": "劳动力成本全国最低，人口数量最多",
      "image": "",
      "audio": ""
     },
@@ -92760,6 +92870,7 @@
    "knowledge_point": "区域发展的自然环境基础",
    "game_ready": true,
    "template": "T7913a7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "区域发展的自然环境基础"
@@ -92950,7 +93061,7 @@
      "audio": ""
     },
     {
-     "text": "冬小麦、棉花",
+     "text": "冬小麦、棉花、甘蔗和油菜等",
      "image": "",
      "audio": ""
     }
@@ -92963,6 +93074,7 @@
    "knowledge_point": "区域发展的自然环境基础",
    "game_ready": true,
    "template": "T6dbace",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "区域发展的自然环境基础"
@@ -93025,7 +93137,7 @@
    "question": "东北地区成为我国重要商品粮基地的原因之一是？",
    "options": [
     {
-     "text": "热量最充足",
+     "text": "热量最充足，农作物可以一年两熟",
      "image": "",
      "audio": ""
     },
@@ -93053,6 +93165,7 @@
    "knowledge_point": "区域发展的自然环境基础",
    "game_ready": true,
    "template": "T862947",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "区域发展的自然环境基础"
@@ -93093,7 +93206,7 @@
    "question": "荒漠化形成的自然原因主要有？",
    "options": [
     {
-     "text": "降水过多",
+     "text": "降水过多，地表径流冲刷强烈，气温常年偏低",
      "image": "",
      "audio": ""
     },
@@ -93121,6 +93234,7 @@
    "knowledge_point": "生态脆弱区的综合治理",
    "game_ready": true,
    "template": "T4925b5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生态脆弱区的综合治理"
@@ -93243,7 +93357,7 @@
      "audio": ""
     },
     {
-     "text": "降水均匀",
+     "text": "降水均匀且少暴雨，土质坚硬，地势平坦开阔",
      "image": "",
      "audio": ""
     }
@@ -93256,6 +93370,7 @@
    "knowledge_point": "生态脆弱区的综合治理",
    "game_ready": true,
    "template": "Tbdf1b3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生态脆弱区的综合治理"
@@ -97719,7 +97834,7 @@
      "audio": ""
     },
     {
-     "text": "人们主观想象的联系",
+     "text": "人们主观想象出来的、可以随意创造和改变的联系",
      "image": "",
      "audio": ""
     },
@@ -98348,7 +98463,7 @@
      "audio": ""
     },
     {
-     "text": "不可调和的对立",
+     "text": "不可调和的对立，只有斗争性没有同一性",
      "image": "",
      "audio": ""
     }
@@ -98525,7 +98640,7 @@
      "audio": ""
     },
     {
-     "text": "外力的否定",
+     "text": "外力的否定，全盘抛弃旧事物",
      "image": "",
      "audio": ""
     },
@@ -99191,7 +99306,7 @@
      "audio": ""
     },
     {
-     "text": "感性认识比理性认识更深刻",
+     "text": "感性认识比理性认识更深刻，理性认识不需要感性认识",
      "image": "",
      "audio": ""
     },
@@ -99462,7 +99577,7 @@
      "audio": ""
     },
     {
-     "text": "个人利益与集体利益的矛盾",
+     "text": "个人利益与集体利益、城市与乡村之间的矛盾",
      "image": "",
      "audio": ""
     },
@@ -99609,7 +99724,7 @@
      "audio": ""
     },
     {
-     "text": "少数领导决定一切",
+     "text": "少数领导决定一切，一切依靠领导，群众只需服从",
      "image": "",
      "audio": ""
     }
@@ -99736,7 +99851,7 @@
      "audio": ""
     },
     {
-     "text": "工厂、机器和资本",
+     "text": "工厂、机器、资本和土地",
      "image": "",
      "audio": ""
     },
@@ -99829,7 +99944,7 @@
      "audio": ""
     },
     {
-     "text": "获得多少财富",
+     "text": "从社会索取多少、获得多少财富",
      "image": "",
      "audio": ""
     },
@@ -100695,7 +100810,7 @@
    "question": "对待传统文化，正确的态度是？",
    "options": [
     {
-     "text": "全盘继承",
+     "text": "全盘继承，原封不动地保留",
      "image": "",
      "audio": ""
     },
@@ -100929,7 +101044,7 @@
      "audio": ""
     },
     {
-     "text": "只有改革创新的时代精神",
+     "text": "只有以改革创新为核心的时代精神，民族精神已经过时",
      "image": "",
      "audio": ""
     },
@@ -101206,7 +101321,7 @@
      "audio": ""
     },
     {
-     "text": "照抄照搬",
+     "text": "照抄照搬，全盘西化",
      "image": "",
      "audio": ""
     },
@@ -101897,7 +102012,7 @@
      "audio": ""
     },
     {
-     "text": "学习借鉴外来文化",
+     "text": "学习借鉴外来文化、立足社会实践和继承传统文化",
      "image": "",
      "audio": ""
     }
@@ -102255,7 +102370,7 @@
      "audio": ""
     },
     {
-     "text": "全体人民利益的代表",
+     "text": "全体人民利益的代表，是超阶级的组织",
      "image": "",
      "audio": ""
     },
@@ -102296,7 +102411,7 @@
    "question": "国体是指？",
    "options": [
     {
-     "text": "国家的政权组织形式",
+     "text": "国家的政权组织形式，即国家机构的组织方式",
      "image": "",
      "audio": ""
     },
@@ -103927,7 +104042,7 @@
      "audio": ""
     },
     {
-     "text": "世界多极化",
+     "text": "世界多极化和经济全球化",
      "image": "",
      "audio": ""
     },
@@ -104450,7 +104565,7 @@
      "audio": ""
     },
     {
-     "text": "输出意识形态",
+     "text": "输出意识形态，争夺世界霸权",
      "image": "",
      "audio": ""
     },
@@ -104674,7 +104789,7 @@
      "audio": ""
     },
     {
-     "text": "只有发展",
+     "text": "只有自由、民主，不包括和平与发展",
      "image": "",
      "audio": ""
     },
@@ -105547,7 +105662,7 @@
      "audio": ""
     },
     {
-     "text": "一国独大",
+     "text": "一国独大、零和博弈、赢者通吃",
      "image": "",
      "audio": ""
     },
@@ -105766,7 +105881,7 @@
    "question": "我国加快构建的新发展格局是？",
    "options": [
     {
-     "text": "只搞国内循环",
+     "text": "只搞国内循环，减少对外开放，以自给自足为主",
      "image": "",
      "audio": ""
     },
@@ -106903,7 +107018,7 @@
    "question": "\"上海精神\"的内容是？",
    "options": [
     {
-     "text": "结盟、对抗",
+     "text": "结盟、对抗，由一国主导地区事务，划分势力范围",
      "image": "",
      "audio": ""
     },
@@ -108299,7 +108414,7 @@
      "audio": ""
     },
     {
-     "text": "个人利益优先原则",
+     "text": "个人利益优先、强者优先、先来后到的原则",
      "image": "",
      "audio": ""
     },
@@ -108898,7 +109013,7 @@
      "audio": ""
     },
     {
-     "text": "给付定金的一方违约，可以要求返还定金",
+     "text": "给付定金的一方不履行债务致使不能实现合同目的的，有权要求返还定金",
      "image": "",
      "audio": ""
     },
@@ -109030,7 +109145,7 @@
      "audio": ""
     },
     {
-     "text": "有罪推定原则",
+     "text": "有罪推定原则、罪刑法定原则和一裁终局原则",
      "image": "",
      "audio": ""
     },
