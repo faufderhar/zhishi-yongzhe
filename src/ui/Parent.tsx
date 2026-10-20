@@ -43,7 +43,7 @@ function PrefetchAnim() {
 }
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, PinPad, fmtMin } from './common';
-import { GRADE_LABEL, loadBank, countStatuses, qRev, type Bank, type GradeKey, type Question } from '../game/questions';
+import { GRADE_LABEL, loadBank, countStatuses, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
 import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, cancelPreview, bonusAllSpent, splitUsed, fmtMS, effBonus, SPENT_LINE, type Usage, type DayUsage } from '../game/playtime';
@@ -405,7 +405,16 @@ export function SupersededNote({ n, list }: { n: number; list: SupRow[] }) {
   </div>;
 }
 
-interface Preview { file: string; bank: Bank; isNew: number; isUpd: number; raw: any[] }
+interface Preview { file: string; bank: Bank; isNew: number; isUpd: number; same: number; raw: any[] }
+/** r16.1 (l)：导入分类（预览和确认导入共用）：新增 / 更新（和内置或已导入的同号且有改动）/ 和内置题一样（不另存） */
+export function classifyImport(bank: Pick<BankState, 'builtin' | 'byKey'>, b: Bank, raw: unknown[]) {
+  const builtinBy = new Map<string, Question>(); for (const x of Object.values(bank.builtin)) for (const q of x.all) builtinBy.set(q.key, q);
+  const same = new Set<number>(); let isUpd = 0, isNew = 0;
+  for (const q of b.all) { const bq = builtinBy.get(q.key);
+    if (bq && sameAsBuiltin(bq, q, raw[q.order])) { same.add(q.order); continue; }
+    if (bank.byKey.has(q.key)) isUpd++; else isNew++; }
+  return { builtinBy, same, isUpd, isNew };
+}
 function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: ParentProps) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [pv, setPv] = useState<Preview | null>(null);
@@ -428,8 +437,8 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
       const many = countIssue(list.length); if (many) { setMsg(many); return; }
       setBusy(`正在检查 ${list.length} 题…`); await yieldFrame();
       const b = loadBank(raw, f.name);
-      const isUpd = b.all.filter(q => bank.byKey.has(q.key)).length;
-      setPv({ file: f.name, bank: b, isNew: b.all.length - isUpd, isUpd, raw: list });
+      const cls = classifyImport(bank, b, list);
+      setPv({ file: f.name, bank: b, isNew: cls.isNew, isUpd: cls.isUpd, same: cls.same.size, raw: list });
     } finally { setBusy(undefined); }
   };
   const doImport = async () => {
@@ -439,15 +448,16 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
     // 存原始题目（补上年级与唯一键），状态以 status 为准，game_ready 重新计算
     /* r16：和内置题同号的——内容一样就不存（导出再导入的内置题不会变成「导入题」，以后题库升级照样生效）；
        内容不同就记下导入时内置题的版本 base_rev（内置题以后更新了，以新版为准，见 bankStore.mergeImported） */
-    const builtinBy = new Map<string, Question>(); for (const b of Object.values(bank.builtin)) for (const q of b.all) builtinBy.set(q.key, q);
-    let same = 0; const byOrder = new Map(pv.bank.all.map(x => [x.order, x]));   // r16：以前每行 find 一遍（题多时 O(n²)）
+    // r16.1 (l)：「和内置题一样」= 家长能改的字段都一样（sameAsBuiltin），和预览用同一个分类函数 classifyImport
+    const cls = classifyImport(bank, pv.bank, pv.raw); const builtinBy = cls.builtinBy; const same = cls.same.size;
+    const byOrder = new Map(pv.bank.all.map(x => [x.order, x]));   // r16：以前每行 find 一遍（题多时 O(n²)）
     const good = pv.raw.map((r, i) => [r, i] as const).filter(([, i]) => !bad.has(i)).flatMap(([r, i]) => {
       const q = byOrder.get(i); if (!q) return []; const bq = builtinBy.get(q.key);
-      if (bq && qRev(bq) === qRev(q)) { same++; return []; }
+      if (cls.same.has(i)) return [];
       return [{ ...r, grade: q.grade, key: q.key, status: q.status, game_ready: q.status === '已通过' || q.status === 'AI初审通过', ...(bq ? { base_rev: qRev(bq) } : {}) }];
     });
     await putImported(good);
-    setMsg(`已导入 ${good.length} 题（新增 ${pv.isNew}，更新 ${pv.isUpd - same}${same ? `；${same} 题和内置题一样，不另存，仍用内置题` : ''}），错误 ${pv.bank.bad.length} 行未导入。`);
+    setMsg(`已导入 ${good.length} 题（新增 ${pv.isNew}，更新 ${pv.isUpd}${same ? `；${same} 题和内置题一样，不另存，仍用内置题` : ''}），错误 ${pv.bank.bad.length} 行未导入。`);
     setPv(null); await reloadBank();
   };
   const exportGrade = (g: string, fmt: 'json' | 'csv') => {
@@ -501,7 +511,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
           <h2>导入预览：{pv.file}</h2>
           <p>年级：{pv.bank.grade ? GRADE_LABEL[pv.bank.grade] : '按每题 grade'} · 共 {pv.bank.all.length + pv.bank.bad.length} 行</p>
           <div className="row gap16 wrap preview-counts">
-            <span className="tag big">新增 {pv.isNew}</span><span className="tag big">更新 {pv.isUpd}</span><span className="tag big bad">错误 {pv.bank.bad.length}</span>
+            <span className="tag big">新增 {pv.isNew}</span><span className="tag big" data-testid="pv-upd">更新 {pv.isUpd}</span>{pv.same > 0 && <span className="tag big" data-testid="pv-same">和内置题一样 {pv.same}（不另存）</span>}<span className="tag big bad">错误 {pv.bank.bad.length}</span>
           </div>
           <div className="row gap16 wrap preview-counts">
             <span className="tag big ok">可玩 {pv.bank.counts.playable}</span><span className="tag big">待家长确认 {pv.bank.counts.pendingParent}</span>

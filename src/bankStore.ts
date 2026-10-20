@@ -1,5 +1,5 @@
 /* 题库：内置 public/banks/bank_<grade>.json（来自 /workspace/questions 的完整题库），再叠加家长导入（IndexedDB bank 表，相同 grade+id 覆盖） */
-import { loadBank, normalize, validateQuestion, qRev, type Bank, type GradeKey, type Question } from './game/questions';
+import { loadBank, normalize, validateQuestion, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from './game/questions';
 import { importedQuestions } from './db';
 import { computeVisibility, isHiddenBy, type Visibility, type HideRow } from './game/visibility';
 declare const __BANK_VER__: string;
@@ -26,7 +26,7 @@ export function mergeImported(byKey: Map<string, Question>, imp: any[], vis: Vis
       if (validateQuestion(raw, raw?.grade).length) { bad++; continue; }
       const q = normalize(raw, 100000 + i++); if (isHiddenBy(vis, q)) continue;
       const old = byKey.get(q.key);
-      if (old) { const cur = qRev(old); if (qRev(q) === cur) { same++; continue; } if (raw.base_rev !== cur) { superseded++; supList.push({ grade: q.grade, id: q.id, subject: q.subject, stem: shortStem(q.question) }); continue; } }
+      if (old) { const cur = qRev(old); if (sameAsBuiltin(old, q, raw)) { same++; continue; } if (raw.base_rev !== cur) { superseded++; supList.push({ grade: q.grade, id: q.id, subject: q.subject, stem: shortStem(q.question) }); continue; } }
       byKey.set(q.key, old ? { ...q, order: old.order } : q);
     } catch { bad++; }
   }

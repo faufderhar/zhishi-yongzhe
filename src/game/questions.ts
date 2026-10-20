@@ -30,6 +30,26 @@ export function qRev(q: Pick<Question, 'type' | 'question' | 'options' | 'answer
   let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
   return (h >>> 0).toString(36);
 }
+/** r16.1 (l) 技术QA P3-1：家长导入「和内置题同号」的题时，判断「和内置题一样」要看家长能改的全部字段（qRev 只是内容版本：
+    题型 / 题干 / 选项 / 答案 / 容差——给错题本和 base_rev 用，不能改，否则已存的 base_rev 全部对不上）。
+    只改了解析、难度、停用（status）、朗读文字等也算「不一样」，要存下来。预览和确认导入用同一个函数。 */
+export const EDIT_FIELDS = ['status', 'subject', 'textbook', 'unit', 'volume', 'type', 'question', 'question_image', 'question_audio', 'tts_text', 'options', 'answer',
+  'tolerance', 'explanation', 'difficulty', 'tags', 'knowledge_point', 'time', 'source', 'usage', 'template', 'visual'] as const;
+type EditField = typeof EDIT_FIELDS[number];
+const nil = (v: unknown) => v === '' || v == null || (Array.isArray(v) && !v.length) ? null : v;
+export function editRev(q: Question, fields: readonly EditField[] = EDIT_FIELDS): string {
+  const o = q as unknown as Record<string, unknown>;
+  const s = JSON.stringify(fields.map(k => k === 'options' ? q.options.map(x => [x.text, x.image ?? '', x.audio ?? '']) : nil(o[k])));
+  let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+  return (h >>> 0).toString(36) + ':' + s.length.toString(36);
+}
+/** 导入文件里给了哪些可改字段（CSV 没有图片 / 录音 / 知识点 / usage 列：没给的字段不算改动，导出再导入不会被当成「改过」） */
+export function rawFields(raw: unknown): readonly EditField[] {
+  if (!raw || typeof raw !== 'object') return EDIT_FIELDS; const r = raw as Record<string, unknown>;
+  return EDIT_FIELDS.filter(k => k in r || (k === 'tags' && 'tag' in r) || (k === 'options' && ['A', 'B', 'C', 'D'].some(x => x in r)));
+}
+/** 导入的题和内置题完全一样（家长能改、且导入文件里给了的字段都相同）→ 不另存，仍用内置题。预览、确认导入、启动时合并都用它 */
+export const sameAsBuiltin = (builtin: Question, imported: Question, raw?: unknown) => { const f = rawFields(raw); return editRev(builtin, f) === editRev(imported, f); };
 export const NO_VOLUME = '（未标册别）';
 
 /** 年级键：K1/K2/K3、1–12；宽松接受数字 0（=K1） */
