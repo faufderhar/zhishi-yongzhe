@@ -22,7 +22,7 @@ async function recReset(code, tag) {
   await home(); await tap('[data-testid=parent]'); await w(400); await tap('[data-testid=forgot]'); await w(400);
   await typeIn('[data-testid=rec-input]', code); await tap('[data-testid=rec-ok]'); await w(600);
   await typeIn('[data-testid=recset-pin1]', NEW); await typeIn('[data-testid=recset-pin2]', NEW);
-  await tap('[data-testid=recset] .toggle-line input[type=radio]'); await typeIn('[data-testid=recset-answer]', '测试答案');
+  await tap('[data-testid=recset] .toggle-line input[type=radio]'); await typeIn('[data-testid=recset-answer]', '测试答案'); await typeIn('[data-testid=recset-answer2]', '测试答案');
   const v = await pg.evaluate(() => [...document.querySelectorAll('[data-testid^=recset-pin]')].map(e => e.value));
   await pg.screenshot({ path: `${OUT}${tag}-recset.png` }); await tap('[data-testid=recset-ok]'); await w(FAST ? 150 : 900);
   const newCode = ((await pg.textContent('[data-testid=rec-code]').catch(() => '')) || '').replace(/\s/g, '');
@@ -41,7 +41,7 @@ await tap('[data-testid=ptab-backup]'); await w(400);
 const [dl] = await Promise.all([pg.waitForEvent('download'), tap('[data-testid=backup-export]')]); const BK = OUT + 'backup.json'; await dl.saveAs(BK); await w(500);
 const lastBefore = await kv('lastBackupAt');
 // 3. 改密码 1357（家长页）
-await tap('[data-testid=ptab-pin]'); await w(300); await tap('[data-testid=pintab-change]'); await w(300); await pin('2468'); await pin('1357'); await pin('1357'); await w(500);
+await tap('[data-testid=ptab-pin]'); await w(300); await tap('[data-testid=pintab-change]'); await w(300); await pin('2468'); await pin('1357'); await pin('1357'); await w(500); await pin('1357'); await w(500);
 if (await vis('[data-testid=rec-keep]')) await tap('[data-testid=rec-keep]');
 // 4. 覆盖恢复（家长页，现在的密码 1357）
 await tap('[data-testid=ptab-backup]'); await w(300);
@@ -53,7 +53,7 @@ res.lastAfterRestore = { before: lastBefore, after: await kv('lastBackupAt') };
 // 4b. 自检：测试版强制「存下来的对不上」→ 报错、停在设新密码页、不发恢复码；关掉后再点「确定」→ 正常发码
 { await home(); await tap('[data-testid=parent]'); await w(400); await tap('[data-testid=forgot]'); await w(400);
   await typeIn('[data-testid=rec-input]', R1); await tap('[data-testid=rec-ok]'); await w(600);
-  await typeIn('[data-testid=recset-pin1]', '2468'); await typeIn('[data-testid=recset-pin2]', '2468'); await tap('[data-testid=recset] .toggle-line input[type=radio]'); await typeIn('[data-testid=recset-answer]', '测试答案');
+  await typeIn('[data-testid=recset-pin1]', '2468'); await typeIn('[data-testid=recset-pin2]', '2468'); await tap('[data-testid=recset] .toggle-line input[type=radio]'); await typeIn('[data-testid=recset-answer]', '测试答案'); await typeIn('[data-testid=recset-answer2]', '测试答案');
   await pg.evaluate(() => { window.__zyTestPinSaveFail = true; }); await tap('[data-testid=recset-ok]'); await pg.waitForSelector('[data-testid=pin-selfcheck]', { timeout: 6000 }).catch(() => {});
   res_self = { err: await pg.textContent('[data-testid=pin-selfcheck]').catch(() => null), stay: await vis('[data-testid=recset]'), code: await vis('[data-testid=rec-code]') };
   await pg.screenshot({ path: OUT + 'selfcheck-fail.png' }); await pg.evaluate(() => { window.__zyTestPinSaveFail = false; }); await tap('[data-testid=recset-ok]'); await w(900);

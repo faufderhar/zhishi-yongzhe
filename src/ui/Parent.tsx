@@ -114,7 +114,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       {(rlockMsg || rerr) && <p className="warn" data-testid="rec-msg">{rlockMsg ?? rerr}</p>}
       <button className="btn" data-testid="rec-ok" disabled={rlocked || normCode(rc).length !== 8} onClick={async () => {
         const ok = await verifyPin(normCode(rc), settings.pinRec) || await (async () => { const h = await findRec(await getKV<any>('settings'), (await getKV<any[]>('profiles')) ?? [], getKV); return !!h && h !== settings.pinRec && verifyPin(normCode(rc), h); })(); const n = await noteR(ok);
-        if (ok) { await note(true); setResetting(true); setMode('recset'); setNp1(''); setNp2(''); setHq(''); setHa(''); setErr(undefined); setRerr(undefined); setRc(''); } else setRerr(lockLeft(n) > 0 ? undefined : `恢复码不对，还可以试 ${5 - n.fails} 次`);
+        if (ok) { await note(true); setResetting(true); setMode('recset'); setNp1(''); setNp2(''); setHq(''); setHa(''); setHa2(''); setErr(undefined); setRerr(undefined); setRc(''); } else setRerr(lockLeft(n) > 0 ? undefined : `恢复码不对，还可以试 ${5 - n.fails} 次`);
       }}>用恢复码重设</button></div>;
   const restoreEntry = <GateRestore />;
   // r11：设好密码后生成 8 位恢复码，只显示这一次
@@ -162,9 +162,12 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       {np2.length === 4 && np1 !== np2 && <p className="warn" data-testid="recset-mismatch">两次输入的密码不一样</p>}
       <b>找回问题</b><HintQ q={hq} setQ={setHq} />
       <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="recset-answer" placeholder="答案" value={ha} onChange={e => setHa(e.target.value)} />
-      <div className="row gap16"><button className="btn" data-testid="recset-ok" disabled={!okPin || !hq.trim() || !normAnswer(ha)} onClick={async () => { if (!(await finishSet(np1, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) }))) return; setResetting(false); }}>确定（旧恢复码作废）</button>
+      {/* r16.1 (q) 较真家长 P2：和首次设置一样，答案输两次、不一致当场提示 */}
+      <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="recset-answer2" placeholder="再输一次答案" value={ha2} onChange={e => setHa2(e.target.value)} />
+      {!!ha2 && normAnswer(ha2) !== normAnswer(ha) && <p className="warn" data-testid="recset-answer-mismatch">两次输入的答案不一样，请检查</p>}
+      <div className="row gap16"><button className="btn" data-testid="recset-ok" disabled={!okPin || !hq.trim() || !normAnswer(ha) || normAnswer(ha2) !== normAnswer(ha)} onClick={async () => { if (!(await finishSet(np1, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) }))) return; setResetting(false); }}>确定（旧恢复码作废）</button>
         <button className="btn ghost" onClick={() => { setResetting(false); setMode(settings.pinHint ? 'forgot' : 'rec'); }}>取消</button></div>{selfBox}
-      {!(okPin && hq.trim() && normAnswer(ha)) && <p className="hint" data-testid="recset-why">还差：{[!/^\d{4}$/.test(np1) && '4 位新密码', /^\d{4}$/.test(np1) && np1 !== np2 && '再输一次相同的密码', !hq.trim() && '选或写一个找回问题', !normAnswer(ha) && '找回问题的答案'].filter(Boolean).join('、')}</p>}</div></div>); }
+      {!(okPin && hq.trim() && normAnswer(ha) && normAnswer(ha2) === normAnswer(ha)) && <p className="hint" data-testid="recset-why">还差：{[!/^\d{4}$/.test(np1) && '4 位新密码', /^\d{4}$/.test(np1) && np1 !== np2 && '再输一次相同的密码', !hq.trim() && '选或写一个找回问题', !normAnswer(ha) && '找回问题的答案', !!normAnswer(ha) && normAnswer(ha2) !== normAnswer(ha) && '再输一次相同的答案'].filter(Boolean).join('、')}</p>}</div></div>); }
   if (mode === 'forgot' && settings.pinHint && OLD_HINT_QUESTIONS.includes(settings.pinHint.q)) return (
     <div className="center-screen"><div className="pinpad wide-panel" data-testid="forgot-old-hint"><h2>忘记密码</h2><p className="big-rule">原来的找回问题（{settings.pinHint.q}）孩子可能知道答案，已经不能用来找回。</p><p>请用恢复码重设，或从备份恢复。</p>{recBox(true)}{restoreEntry}<button className="btn ghost" onClick={onCancel}>返回</button></div></div>);
   /* r15.4 策划 / 较真家长：忘记密码页改成三个编号选项 + 折叠的「为什么要等 3 天？」，正文深灰、只有错误提示用深红。文字是策划定稿，逐条对过代码规则（不符的一条没放，见发布说明） */
