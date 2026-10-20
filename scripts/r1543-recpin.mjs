@@ -11,6 +11,7 @@ const w = ms => pg.waitForTimeout(ms); const vis = s => pg.isVisible(s).catch(()
 const tap = async s => { const l = pg.locator(s).first(); await l.scrollIntoViewIfNeeded().catch(() => {}); const bb = await l.boundingBox(); if (!bb) throw new Error('no ' + s); await pg.touchscreen.tap(bb.x + bb.width / 2, bb.y + bb.height / 2); };
 const pin = async p => { for (const d of p) await tap(`[data-testid=pin-${d}]`); await tap('[data-testid=pin-ok]'); await w(500); };
 const typeIn = async (s, t) => { await tap(s); await pg.locator(s).fill(''); await pg.keyboard.type(t, { delay: 40 }); };
+const verify = async P => { if (await vis('[data-testid=pin-verify]')) await pin(P); };   // r16 8c：设完 / 重设完密码马上再输一次
 const later = async () => { if (await vis('.modal >> text=稍后')) { await tap('.modal >> text=稍后'); await w(300); } };
 const home = async () => { for (let i = 0; i < 12 && !(await vis('[data-testid=add-child]')); i++) { await later(); if (await vis('[data-testid=parent-close]')) await tap('[data-testid=parent-close]'); else if (await vis('[data-testid=map-back]')) await tap('[data-testid=map-back]'); else if (await vis('[data-testid=grade-back]')) await tap('[data-testid=grade-back]'); else if (await vis('text=返回')) await tap('text=返回'); await w(500); } };
 const kv = k => pg.evaluate(k => new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const g = r.result.transaction('kv').objectStore('kv').get(k); g.onsuccess = () => { r.result.close(); res(g.result); }; }; }), k);
@@ -26,14 +27,14 @@ async function recReset(code, tag) {
   await pg.screenshot({ path: `${OUT}${tag}-recset.png` }); await tap('[data-testid=recset-ok]'); await w(FAST ? 150 : 900);
   const newCode = ((await pg.textContent('[data-testid=rec-code]').catch(() => '')) || '').replace(/\s/g, '');
   const selfErr = await pg.textContent('[data-testid=pin-selfcheck]').catch(() => null);
-  await typeIn('[data-testid=rec-type]', newCode); await tap('[data-testid=rec-type-ok]'); await w(FAST ? 100 : 900); await later();
+  await typeIn('[data-testid=rec-type]', newCode); await tap('[data-testid=rec-type-ok]'); await w(FAST ? 100 : 900); await verify(NEW); await later();
   return { v, newCode, selfErr };
 }
 // 1. 首次设密码 2468 + 恢复码 R1，加一个孩子
 await pg.goto(URL); await pg.waitForSelector('[data-testid=add-child]'); await w(500);
 await tap('[data-testid=parent]'); await w(400); await pin('2468'); await pin('2468');
-await tap('.pinpad input[type=radio]'); await typeIn('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(600);
-const R1 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await typeIn('[data-testid=rec-type]', R1); await tap('[data-testid=rec-type-ok]'); await w(800); await later();
+await tap('.pinpad input[type=radio]'); await typeIn('[data-testid=hint-answer]', 'x'); await typeIn('[data-testid=hint-answer2]', 'x'); await tap('[data-testid=hint-ok]'); await w(600);
+const R1 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await typeIn('[data-testid=rec-type]', R1); await tap('[data-testid=rec-type-ok]'); await w(800); await verify('2468'); await later();
 // 2. 家长页导出备份
 if (!(await vis('[data-testid=parent-close]'))) { await home(); await tap('[data-testid=parent]'); await w(400); await pin('2468'); await later(); }
 await tap('[data-testid=ptab-backup]'); await w(400);
@@ -57,7 +58,7 @@ res.lastAfterRestore = { before: lastBefore, after: await kv('lastBackupAt') };
   res_self = { err: await pg.textContent('[data-testid=pin-selfcheck]').catch(() => null), stay: await vis('[data-testid=recset]'), code: await vis('[data-testid=rec-code]') };
   await pg.screenshot({ path: OUT + 'selfcheck-fail.png' }); await pg.evaluate(() => { window.__zyTestPinSaveFail = false; }); await tap('[data-testid=recset-ok]'); await w(900);
   const c2 = ((await pg.textContent('[data-testid=rec-code]').catch(() => '')) || '').replace(/\s/g, ''); res_self.retryCode = c2.length === 8;
-  await typeIn('[data-testid=rec-type]', c2); await tap('[data-testid=rec-type-ok]'); await w(900); await later(); res_self.lock = await lockTry('selfcheck-retry-lock', '2468'); R1x = c2; }
+  await typeIn('[data-testid=rec-type]', c2); await tap('[data-testid=rec-type-ok]'); await w(900); await verify('2468'); await later(); res_self.lock = await lockTry('selfcheck-retry-lock', '2468'); R1x = c2; }
 // 5. 恢复码重设 × ROUNDS
 let code = R1x || R1; res.rounds = [];
 for (let r = 1; r <= ROUNDS; r++) { const x = await recReset(code, `rec${r}`); const t = await lockTry(`rec${r}-lock`); res.rounds.push({ ...x, ...t }); code = x.newCode || code; }
