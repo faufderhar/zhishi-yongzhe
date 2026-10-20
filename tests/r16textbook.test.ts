@@ -54,9 +54,18 @@ it('高二物理册别顺序：必修第三册 → 选必第一册 → 选必第
 it('VOL_ADDED：初二学考复习（七年级）、初三九年级下册、高二必修第三册；高一政治必修3 仍在', () => {
   expect(VOL_ADDED).toEqual({ '10': ['必修第三册'], '8': ['学考复习（七年级）'], '9': ['九年级下册'], '11': ['必修第三册'] });
 });
-it('初三化学 298 题：构建能完整读入（题库在 /workspace/questions，没有就跳过；题库数据改人教章名归题库审核）', () => {
-  const f = '/workspace/questions/题库_游戏可用_初三.json'; if (!existsSync(f)) return;
-  const all = loadBank(JSON.parse(readFileSync(f, 'utf8')), '').all.filter(q => q.subject === '化学');
-  expect(all.length).toBe(298); expect(playable(all, false).length).toBe(298);
-  expect(buildChapters(playable(all, false), null, all).flatMap(c => c.levels).length).toBeGreaterThan(0);
+const extBank = (n: string, g: string) => { const f = `/workspace/questions/题库_游戏可用_${n}.json`; return existsSync(f) ? loadBank(JSON.parse(readFileSync(f, 'utf8')), `bank_${g}.json`) : undefined; };
+const bossNames = (b: NonNullable<ReturnType<typeof extBank>>, g: string, s: string) => { const all = b.all.filter(q => q.subject === s);
+  return buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.kind === 'boss').map(l => `${l.unit}→${chapterBoss(undefined, s, l.unit, { grade: g })?.name ?? '∅'}`); };
+it('初三化学（题库 v46 人教版2024，298 题）：构建完整读入，11 个章 Boss 全按人教单元名对上（题库在 /workspace/questions，没有就跳过）', () => {
+  const b = extBank('初三', '9'); if (!b) return; const all = b.all.filter(q => q.subject === '化学');
+  expect(all.length).toBe(298); expect(playable(all, false).length).toBe(298); expect(b.bad.length).toBe(0);
+  expect(bossNames(b, '9', '化学')).toEqual(['第一单元 走进化学世界→化学大门钥', '第二单元 空气和氧气→氧气气泡仙', '第三单元 物质构成的奥秘→原子分子球', '第四单元 自然界的水→水分子精灵',
+    '第五单元 化学反应的定量关系→方程式天平', '第六单元 碳和碳的氧化物→二氧化碳泡', '第七单元 能源的合理利用与开发→燃料火苗仙', '第八单元 金属和金属材料→金属熔炉熊',
+    '专题1 化学概念→化学概念舱', '专题2 元素与物质→元素家族谱', '专题3 实验与计算→实验计算台']);
+  expect(all.filter(q => q.volume === '九年级下册').length).toBe(34);
+});
+it('高三地理（v46 选必3 重标 4 章）：构建完整读入；开了 Boss 的第二、三章对上「资源安全盾」「环境安全伞」（第一、四章 v47 才开）', () => {
+  const b = extBank('高三', '12'); if (!b) return; expect(b.bad.length).toBe(0);
+  const n = bossNames(b, '12', '地理'); expect(n).toContain('第二章 资源安全与国家安全→资源安全盾'); expect(n).toContain('第三章 环境安全与国家安全→环境安全伞');
 });

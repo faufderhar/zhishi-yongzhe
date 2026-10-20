@@ -1,0 +1,33 @@
+/* r16：题库 v46（/workspace/questions/给程序的配合说明_v46.md）。导入的年级里题目内容（qRev）和 v45 完全一样，
+   只改 高中 textbook_note 措辞；高二地理 D11-241～252（选必2·第二章第三节）放进游戏，高二可玩 2772 → 2784。
+   所以 v45 时记下的错题 / 存档按 id + rev 读，v46 下都照常显示；新 12 题让高二地理选必二不再被自动规则藏掉。
+   样本 = tests/fixtures/r16_v45_revs.json（v45 提交的 bank 文件里每个年级 sorted「id:rev」的 sha256 前 16 位，脚本生成） */
+import { it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { loadBank, qRev, playable } from '../src/game/questions';
+import { onWrong, wrongStale } from '../src/game/wrongbook';
+import { computeVisibility } from '../src/game/visibility';
+const fx = JSON.parse(readFileSync('tests/fixtures/r16_v45_revs.json', 'utf8')) as Record<string, { n: number; digest: string }>;
+const bank = (g: string) => loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), `bank_${g}.json`);
+const NEW = Array.from({ length: 12 }, (_, i) => `D11-${241 + i}`);
+it('内置题库是 v46', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v46'); });
+it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）；高二只多了 D11-241～252', () => {
+  for (const [g, f] of Object.entries(fx)) {
+    const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)));
+    const lines = all.map(q => `${q.id}:${qRev(q)}`).sort();
+    expect(lines.length, g).toBe(f.n); expect(createHash('sha256').update(lines.join('\n')).digest('hex').slice(0, 16), g).toBe(f.digest);
+  }
+  const b11 = bank('11').all; expect(b11.filter(q => NEW.includes(q.id)).map(q => q.id)).toEqual(NEW);
+  expect(playable(b11.filter(q => q.subject === '地理'), false).length).toBe(334);
+});
+it('v45 时答错记下（带 rev）的题，v46 下照常显示当时的答案', () => {
+  for (const g of ['10', '11']) for (const q of bank(g).all.slice(0, 40)) {
+    const e = onWrong(undefined, { profileId: 'p', qkey: q.key, subject: q.subject, rev: qRev(q) }, q.type === '判断' ? (q.answer[0] === '对' ? '错' : '对') : 'Z');
+    expect(wrongStale(e, q)).toBe(false);
+  }
+});
+it('新 12 题补上第三节后，高二地理选必二不再被题量规则藏掉（v46 自动规则在已开放年级不藏任何册）', () => {
+  const v = computeVisibility(['K1', 'K2', '1', '2', '3', '4', '5', '6', '7', '8', '10', '11'].flatMap(g => bank(g).all));
+  expect(v.rows.filter(r => r.why === 'auto')).toEqual([]);
+});

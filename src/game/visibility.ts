@@ -3,7 +3,7 @@
    自动规则（加载内置题库时算，只看内置题、只算可玩题）：某个「年级 + 科目 + 册别」里只要有一个小节（unit）可玩题少于 MIN_SECTION_QS，
    整个「科目 + 册别」都藏起来；一个科目的册别全藏了 → 整个科目藏起来。
    - 幼儿园（K1–K3）不用这条：幼儿园关卡按小节固定 5 题一关、小节本来就小（r16 报告里 K1/K2 也没有不足 10 题的小节），见 AUTO_EXEMPT_GRADES。
-   - AUTO_EXEMPT：r15.4.4 已上线、但会被规则藏掉的条目在这里豁免（v45 报告：没有这样的条目，见 STATUS.md）。
+   - AUTO_EXEMPT：r15.4.4 已上线、但会被规则藏掉的条目在这里豁免（v45 / v46 报告：没有这样的条目，见 STATUS.md）。
    取消隐藏 = 改 FORCE_HIDDEN 一行（或补够题量），不用改别处。 */
 import type { GradeKey, Question } from './questions';
 import { playable } from './questions';

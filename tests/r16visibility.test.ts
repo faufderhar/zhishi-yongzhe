@@ -32,15 +32,15 @@ describe('题量门槛', () => {
   it('幼儿园不用门槛', () => { expect(AUTO_EXEMPT_GRADES.has('K2')).toBe(true); expect(autoHidden(mk('K2', '数数', '中班', 'A', 3))).toEqual([]); });
 });
 
-describe('v45 内置题库', () => {
+describe('内置题库（v46）', () => {
   const all = BUILTIN_GRADES.flatMap(bank); const vis = computeVisibility(all);
   it('r15.4.4 已上线的年级：自动规则一条都不藏（不回退）', () => {
     expect(vis.rows.filter(r => r.why === 'auto' && LIVE_R1544.includes(r.grade))).toEqual([]);
   });
-  it('r16 新开年级里自动规则藏的（目前只有高二地理选必二：第二章第三节只有 4 题）', () => {
-    expect(vis.rows.filter(r => r.why === 'auto').map(r => `${r.grade}|${r.subject}|${r.volume}`)).toEqual(['11|地理|选择性必修第二册']);
+  it('r16 新开年级里自动规则藏的：v46 没有（v45 时藏高二地理选必二——第二章第三节只有 4 题；v46 补进 D11-241～252）', () => {
+    expect(vis.rows.filter(r => r.why === 'auto').map(r => `${r.grade}|${r.subject}|${r.volume}`)).toEqual([]);
   });
-  it('报告（R16_VIS_REPORT=1 时写 /workspace/playtest/r16dev/visibility_v45.md；含没开的 K3 / 9 / 12 供参考）', () => {
+  it('报告（R16_VIS_REPORT=1 时写 /workspace/playtest/r16dev/visibility_v46.md；含没开的 K3 / 9 / 12 供参考）', () => {
     if (!process.env.R16_VIS_REPORT) return;
     const src = '/workspace/questions'; const NAME: Record<string, string> = { K3: '幼儿园大班', '9': '初三', '12': '高三' };
     const extra: Question[] = []; for (const g of ['K3', '9', '12']) { const f = `${src}/题库_游戏可用_${NAME[g]}.json`; if (existsSync(f)) extra.push(...loadBank(JSON.parse(readFileSync(f, 'utf8')), `bank_${g}.json`).all); }
@@ -48,6 +48,6 @@ describe('v45 内置题库', () => {
     const L = ['| 年级 | 科目 | 册别 | 原因 | 最小小节（题数） | r15.4.4 已上线？ |', '|---|---|---|---|---|---|',
       ...v2.rows.map(r => `| ${r.grade} | ${r.subject} | ${r.volume} | ${r.why === 'force' ? '总管强制' : '题量不足'} | ${r.unit ? `${r.unit}（${r.n}）` : r.n != null ? `（${r.n}）` : '—'} | ${LIVE_R1544.includes(r.grade) ? '**是 → 回退**' : '否'} |`),
       '', `整科藏：${[...v2.hiddenSubj].join('、') || '无'}`, `K3 如果不豁免会藏：${k3.map(r => `${r.subject}|${r.volume}（${r.unit} ${r.n}）`).join('；') || '无'}`];
-    writeFileSync('/workspace/playtest/r16dev/visibility_v45.md', L.join('\n') + '\n');
+    writeFileSync('/workspace/playtest/r16dev/visibility_v46.md', L.join('\n') + '\n');
   });
 });
