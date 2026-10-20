@@ -18,6 +18,13 @@ export function effBonus(r: DayUsage | undefined, limitSec: number): number {
 }
 /** r16 较真家长：加时取消后，单独一行写已用掉的加时 */
 export const SPENT_LINE = (sec: number) => `今天加时已用 ${fmtMS(sec)}（剩余部分已取消）`;
+/** r16.1 (u) 较真家长 P3：取消加时（再改上限）后，剩余旁边加一句说明：已用掉的加时仍算今天玩过的时间。
+ *  base = 今天上限（每日上限 + 仍算数的已用加时）；left = 表格里显示的剩余。不限时 / 没取消过加时 → null */
+export function cancelLeftLine(r: DayUsage | undefined, limitSec: number, left: number): string | null {
+  if (!r || !bonusAllSpent(r) || !(limitSec > 0) || !Number.isFinite(limitSec) || !Number.isFinite(left)) return null;
+  const base = limitSec + effBonus(r, limitSec);
+  return `今天一共已玩 ${fmtMS(r.used)}（含已用掉的加时 ${fmtMS(Math.min(r.bonus, r.spent ?? r.bonus))}），按今天上限 ${fmtMS(base)} 还剩 ${fmtMS(Math.max(0, left))}`;
+}
 export const isWeekend = (d = new Date()) => d.getDay() === 0 || d.getDay() === 6;
 export function limitMinutes(l: TimeLimit, d = new Date()) { return isWeekend(d) ? l.weekend : l.weekday; }
 /** 剩余秒数；Infinity = 不限 */
