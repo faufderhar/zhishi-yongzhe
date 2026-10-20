@@ -15,8 +15,8 @@ async function run(from) {
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyUnlockAll = true; window.__zyTestSpentSec = -1e7; });
   await pg.goto(URL); await pg.waitForSelector('[data-testid=add-child]'); await w(400);
   await tap('[data-testid=parent]'); await w(400); await pin('2468'); await pin('2468');
-  await tap('.pinpad input[type=radio]'); await typeIn('[data-testid=hint-answer]', 'x'); await tap('[data-testid=hint-ok]'); await w(600);
-  const R1 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await typeIn('[data-testid=rec-type]', R1); await tap('[data-testid=rec-type-ok]'); await w(800); await later();
+  await tap('.pinpad input[type=radio]'); await typeIn('[data-testid=hint-answer]', 'x'); if (await pg.isVisible('[data-testid=hint-answer2]')) await typeIn('[data-testid=hint-answer2]', 'x'); await tap('[data-testid=hint-ok]'); await w(600);
+  const R1 = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await typeIn('[data-testid=rec-type]', R1); await tap('[data-testid=rec-type-ok]'); await w(800); if (await pg.isVisible('[data-testid=pin-verify]')) await pin('2468'); await later();   // r16 8c：记下恢复码后还要再输一次密码
   // export backup
   if (!(await pg.isVisible('[data-testid=parent-close]'))) { await tap('[data-testid=parent]'); await pin('2468'); await later(); }
   await tap('[data-testid=ptab-backup]'); await w(300);
@@ -66,6 +66,7 @@ await run('pin'); await run('forgot');
   await tap('[data-testid=parent]'); await pin('2468'); await pin('2468');
   await tap('.pinpad input[type=radio]'); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await pg.waitForTimeout(500);
   const code = (await pg.textContent('[data-testid=rec-code]')).replace(/\s/g, ''); await pg.fill('[data-testid=rec-type]', code); await tap('[data-testid=rec-type-ok]'); await pg.waitForTimeout(600);
+  if (await pg.isVisible('[data-testid=pin-verify]')) await pin('2468');   // r16 8c：记下恢复码后再输一次密码
   if (await pg.isVisible('.modal >> text=稍后')) await tap('.modal >> text=稍后');
   await tap('[data-testid=parent-close]').catch(() => {}); await pg.waitForTimeout(400);
   await tap('[data-testid=parent]'); await pg.waitForTimeout(500);
