@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园小班-v50（AI初审）",
- "version": "v50",
+ "bank_name": "三兄妹题库-幼儿园小班-v51（AI初审）",
+ "version": "v51",
  "questions": [
   {
    "id": "K-001",
@@ -1416,8 +1416,8 @@
    "grade": "K1",
    "unit": "动物和叫声",
    "type": "选择",
-   "question": "哪个是小兔子？",
-   "tts_text": "哪个是小兔子？",
+   "question": "哪个是小熊？",
+   "tts_text": "哪个是小熊？",
    "options": [
     {
      "text": "🐻",
@@ -1435,16 +1435,17 @@
      "audio": ""
     }
    ],
-   "answer": "B",
-   "explanation": "小兔子耳朵长长的。",
+   "answer": "A",
+   "explanation": "小熊毛茸茸、圆耳朵。",
    "difficulty": 1,
    "source": "AI",
    "volume": "小班",
    "knowledge_point": "动物",
    "assets_todo": "A_image images/k/KD-003_a.webp（小熊）；B_image images/k/KD-003_b.webp（小兔）；C_image images/k/KD-003_c.webp（🐭）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T979911",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "动物"
    ]
@@ -1819,12 +1820,12 @@
    "tts_text": "小兔子爱吃什么？",
    "options": [
     {
-     "text": "🍖 肉",
+     "text": "🍖 肉骨头",
      "image": "",
      "audio": ""
     },
     {
-     "text": "🐟 鱼",
+     "text": "🐟 小鱼干",
      "image": "",
      "audio": ""
     },
@@ -1842,8 +1843,9 @@
    "knowledge_point": "动物食物",
    "assets_todo": "A_image images/k/KD-013_a.webp（肉）；B_image images/k/KD-013_b.webp（鱼）；C_image images/k/KD-013_c.webp（胡萝卜）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T7ffa57",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "动物食物"
    ]
@@ -1940,7 +1942,7 @@
    "tts_text": "谁的脖子长长的？",
    "options": [
     {
-     "text": "🐰 兔子",
+     "text": "🐰 小白兔",
      "image": "",
      "audio": ""
     },
@@ -1950,7 +1952,7 @@
      "audio": ""
     },
     {
-     "text": "🐷 小猪",
+     "text": "🐷 小花猪",
      "image": "",
      "audio": ""
     }
@@ -1963,8 +1965,9 @@
    "knowledge_point": "动物特征",
    "assets_todo": "A_image images/k/KD-016_a.webp（兔子）；B_image images/k/KD-016_b.webp（长颈鹿）；C_image images/k/KD-016_c.webp（小猪）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "Tadefdc",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "动物特征"
    ]
@@ -2380,12 +2383,12 @@
    "tts_text": "冬天冷了，要穿什么？",
    "options": [
     {
-     "text": "🩳 短裤",
+     "text": "🩳 小短裤",
      "image": "",
      "audio": ""
     },
     {
-     "text": "👙 泳衣",
+     "text": "👙 游泳衣",
      "image": "",
      "audio": ""
     },
@@ -2403,8 +2406,9 @@
    "knowledge_point": "季节",
    "assets_todo": "A_image images/k/KS-011_a.webp（短裤）；B_image images/k/KS-011_b.webp（泳衣）；C_image images/k/KS-011_c.webp（厚衣服）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "Tf3299c",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "季节"
    ]
@@ -2684,12 +2688,12 @@
    "tts_text": "“两只老虎，两只老虎”，下一句是？",
    "options": [
     {
-     "text": "白又白",
+     "text": "一闪一闪亮晶晶",
      "image": "",
      "audio": ""
     },
     {
-     "text": "亮晶晶",
+     "text": "两只耳朵竖起来",
      "image": "",
      "audio": ""
     },
@@ -2707,8 +2711,9 @@
    "knowledge_point": "儿歌",
    "assets_todo": "question_audio audio/k/KG-003.m4a（家长朗读/唱）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "Teff155",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "儿歌",
     "两只老虎"
@@ -2812,12 +2817,12 @@
      "audio": ""
     },
     {
-     "text": "🐱 小猫",
+     "text": "🐱 小花猫",
      "image": "",
      "audio": ""
     },
     {
-     "text": "🐶 小狗",
+     "text": "🐶 小黄狗",
      "image": "",
      "audio": ""
     }
@@ -2830,8 +2835,9 @@
    "knowledge_point": "儿歌",
    "assets_todo": "A_image images/k/KG-006_a.webp（小白兔）；B_image images/k/KG-006_b.webp（小猫）；C_image images/k/KG-006_c.webp（小狗）；question_audio audio/k/KG-006.m4a（家长朗读/唱）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T0d6015",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "儿歌",
     "小白兔"
@@ -2929,7 +2935,7 @@
    "tts_text": "咏鹅说的是什么动物？",
    "options": [
     {
-     "text": "🐔 小鸡",
+     "text": "🐔 大公鸡",
      "image": "",
      "audio": ""
     },
@@ -2939,7 +2945,7 @@
      "audio": ""
     },
     {
-     "text": "🐱 小猫",
+     "text": "🦆 小鸭子",
      "image": "",
      "audio": ""
     }
@@ -2952,8 +2958,9 @@
    "knowledge_point": "古诗",
    "assets_todo": "A_image images/k/KG-009_a.webp（小鸡）；B_image images/k/KG-009_b.webp（大白鹅）；C_image images/k/KG-009_c.webp（小猫）；question_audio audio/k/KG-009.m4a（家长朗读/唱）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T8991e8",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "古诗",
     "咏鹅"
@@ -7567,12 +7574,12 @@
      "audio": ""
     },
     {
-     "text": "🩱 泳衣",
+     "text": "🩱 游泳衣",
      "image": "",
      "audio": ""
     },
     {
-     "text": "🩳 短裤",
+     "text": "🩳 小短裤",
      "image": "",
      "audio": ""
     }
@@ -7585,8 +7592,9 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-032_a.webp（厚外套）；B_image images/k/KL-032_b.webp（泳衣）；C_image images/k/KL-032_c.webp（短裤）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T6bef72",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "生活常识"
    ]
@@ -7843,7 +7851,7 @@
    "tts_text": "玩具玩完了要怎么做？",
    "options": [
     {
-     "text": "🗑️ 扔掉",
+     "text": "🗑️ 扔进垃圾桶",
      "image": "",
      "audio": ""
     },
@@ -7866,8 +7874,9 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-039_a.webp（扔掉）；B_image images/k/KL-039_b.webp（放回筐里）；C_image images/k/KL-039_c.webp（藏起来）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T028158",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "生活常识"
    ]
@@ -7883,7 +7892,7 @@
    "tts_text": "打喷嚏的时候要用什么挡住？",
    "options": [
     {
-     "text": "🤧 纸巾或胳膊肘",
+     "text": "🤧 纸巾、胳膊肘都行",
      "image": "",
      "audio": ""
     },
@@ -7906,8 +7915,9 @@
    "knowledge_point": "生活常识",
    "assets_todo": "A_image images/k/KL-040_a.webp（纸巾或胳膊肘）；B_image images/k/KL-040_b.webp（什么都不用）；C_image images/k/KL-040_c.webp（帽子）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "Teb84db",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "生活常识"
    ]
@@ -9327,7 +9337,7 @@
      "audio": ""
     },
     {
-     "text": "Goodbye!",
+     "text": "Good morning!",
      "image": "",
      "audio": ""
     }
@@ -9340,8 +9350,9 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-035.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T4a0d81",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "日常用语"
@@ -10510,7 +10521,7 @@
      "audio": ""
     },
     {
-     "text": "Sorry!",
+     "text": "Merry Christmas!",
      "image": "",
      "audio": ""
     }
@@ -10522,6 +10533,7 @@
    "volume": "小班",
    "knowledge_point": "打招呼",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T4c97ba",
    "change_tag": "新增",
    "tags": [

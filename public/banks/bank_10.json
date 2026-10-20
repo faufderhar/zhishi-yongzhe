@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-v50（AI初审）",
- "version": "v50",
+ "bank_name": "三兄妹题库-高一-v51（AI初审）",
+ "version": "v51",
  "questions": [
   {
    "id": "Y10-001",
@@ -15522,7 +15522,7 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第6章 幂函数、指数函数和对数函数·6.3 对数函数",
    "type": "选择",
-   "question": "函数 $y=\\log_2(x-1)$ 的定义域是？",
+   "question": "函数 $y=\\log_2(x-2)+1$ 的定义域是？",
    "tts_text": "-",
    "options": [
     {
@@ -15531,7 +15531,12 @@
      "audio": ""
     },
     {
-     "text": "$\\{x\\mid x\\ge 1\\}$",
+     "text": "$\\{x\\mid x\\ge 2\\}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$\\{x\\mid x>2\\}$",
      "image": "",
      "audio": ""
     },
@@ -15539,15 +15544,10 @@
      "text": "$\\{x\\mid x>1\\}$",
      "image": "",
      "audio": ""
-    },
-    {
-     "text": "$\\mathbb R$",
-     "image": "",
-     "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "真数大于 0。",
+   "explanation": "真数 $x-2>0$，所以 $x>2$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -84061,6 +84061,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-276",
    "subject": "生物",
    "grade": 10,
@@ -84068,14 +84069,13 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第二册",
    "unit": "必修2·第3章 基因的本质·第2节 DNA的结构",
-   "question": "某双链 DNA 分子中，腺嘌呤（A）占碱基总数的 20%，则鸟嘌呤（G）占碱基总数的百分之多少？",
+   "question": "某双链 DNA 分子中，腺嘌呤（A）占碱基总数的 20%，则鸟嘌呤（G）占碱基总数的____%。",
    "explanation": "A = T = 20%，G = C = (100% − 40%) ÷ 2 = 30%。",
    "difficulty": 3,
    "knowledge_point": "DNA的结构",
    "type": "填空",
    "answer": [
-    "30",
-    "30%"
+    "30"
    ],
    "game_ready": true,
    "template": "T646e8f",
@@ -88122,6 +88122,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-375",
    "subject": "生物",
    "grade": 10,
@@ -88129,14 +88130,13 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第二册",
    "unit": "必修2·第6章 生物的进化·第3节 种群基因组成的变化与物种的形成",
-   "question": "某种群中基因型为 AA 的个体占 30%，Aa 占 60%，aa 占 10%，则 A 的基因频率是百分之多少？",
+   "question": "某种群中基因型为 AA 的个体占 30%，Aa 占 60%，aa 占 10%，则 A 的基因频率是____%。",
    "explanation": "A 的频率 = AA 的频率 + 1/2 Aa 的频率 = 30% + 30% = 60%。",
    "difficulty": 3,
    "knowledge_point": "种群基因组成的变化与物种的形成",
    "type": "填空",
    "answer": [
-    "60",
-    "60%"
+    "60"
    ],
    "game_ready": true,
    "template": "Te1e113",

@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-1年级-v50（AI初审）",
- "version": "v50",
+ "bank_name": "三兄妹题库-1年级-v51（AI初审）",
+ "version": "v51",
  "questions": [
   {
    "id": "M1-001",
@@ -513,7 +513,7 @@
    "tts_text": "魔方是什么形状？",
    "options": [
     {
-     "text": "圆柱",
+     "text": "圆柱体",
      "image": "",
      "audio": ""
     },
@@ -540,9 +540,10 @@
    "volume": "一年级上册",
    "knowledge_point": "立体图形",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tfce453",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "立体图形"
    ]
@@ -1288,7 +1289,7 @@
      "audio": ""
     },
     {
-     "text": "一个球",
+     "text": "一个球或一个正方体",
      "image": "",
      "audio": ""
     },
@@ -1310,9 +1311,10 @@
    "volume": "一年级下册",
    "knowledge_point": "图形拼组",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Te2091d",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "图形拼组"
    ]
@@ -1334,12 +1336,12 @@
      "audio": ""
     },
     {
-     "text": "4 个",
+     "text": "4 个角",
      "image": "",
      "audio": ""
     },
     {
-     "text": "1 个",
+     "text": "1 个角",
      "image": "",
      "audio": ""
     },
@@ -1356,9 +1358,10 @@
    "volume": "一年级下册",
    "knowledge_point": "平面图形",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T3b9fcc",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "平面图形"
    ]
@@ -2204,12 +2207,12 @@
      "audio": ""
     },
     {
-     "text": "长出新芽最多",
+     "text": "长出嫩绿的新芽",
      "image": "",
      "audio": ""
     },
     {
-     "text": "变黄，从树上落下来",
+     "text": "变黄，落下来",
      "image": "",
      "audio": ""
     }
@@ -2221,6 +2224,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8bff73",
    "change_tag": "修改",
@@ -2480,7 +2484,7 @@
      "audio": ""
     },
     {
-     "text": "灯光下",
+     "text": "明亮的灯光下",
      "image": "",
      "audio": ""
     },
@@ -2497,6 +2501,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb7d2d5",
    "change_tag": "修改",
@@ -2700,7 +2705,7 @@
    "tts_text": "乌鸦是怎么喝到水的？",
    "options": [
     {
-     "text": "把小石子放进瓶子，水升高了",
+     "text": "往瓶子里放小石子",
      "image": "",
      "audio": ""
     },
@@ -2715,7 +2720,7 @@
      "audio": ""
     },
     {
-     "text": "请别人帮忙",
+     "text": "请小鸟朋友帮忙倒水",
      "image": "",
      "audio": ""
     }
@@ -2727,6 +2732,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6a2543",
    "change_tag": "修改",
@@ -2746,12 +2752,12 @@
    "tts_text": "乌鸦喝水，这个故事告诉我们？",
    "options": [
     {
-     "text": "瓶子里没有水",
+     "text": "口渴了就要多喝水",
      "image": "",
      "audio": ""
     },
     {
-     "text": "石头很重",
+     "text": "喝水要用大瓶子",
      "image": "",
      "audio": ""
     },
@@ -2773,6 +2779,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te58036",
    "change_tag": "修改",
@@ -2838,7 +2845,7 @@
    "tts_text": "春风的风字是？",
    "options": [
     {
-     "text": "独体字",
+     "text": "全包围结构",
      "image": "",
      "audio": ""
     },
@@ -2865,6 +2872,7 @@
    "volume": "一年级下册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T107ff7",
    "change_tag": "修改",
@@ -2940,7 +2948,7 @@
      "audio": ""
     },
     {
-     "text": "只说名字",
+     "text": "只说自己的名字和年龄",
      "image": "",
      "audio": ""
     },
@@ -2957,6 +2965,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T92be1c",
    "change_tag": "修改",
@@ -3085,7 +3094,7 @@
      "audio": ""
     },
     {
-     "text": "水太热了",
+     "text": "河里的水太热太烫了",
      "image": "",
      "audio": ""
     }
@@ -3097,6 +3106,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T21ee30",
    "change_tag": "修改",
@@ -3126,7 +3136,7 @@
      "audio": ""
     },
     {
-     "text": "啄木鸟",
+     "text": "啄木鸟医生",
      "image": "",
      "audio": ""
     },
@@ -3143,6 +3153,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T29ee0e",
    "change_tag": "修改",
@@ -3208,7 +3219,7 @@
    "tts_text": "咕咚其实是什么声音？",
    "options": [
     {
-     "text": "老虎的叫声",
+     "text": "大老虎的吼叫声",
      "image": "",
      "audio": ""
     },
@@ -3223,7 +3234,7 @@
      "audio": ""
     },
     {
-     "text": "木瓜掉进湖里的声音",
+     "text": "木瓜落水的声音",
      "image": "",
      "audio": ""
     }
@@ -3235,6 +3246,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc2d0fd",
    "change_tag": "修改",
@@ -3259,12 +3271,12 @@
      "audio": ""
     },
     {
-     "text": "听到事情要弄清楚，不要跟着瞎跑",
+     "text": "要先弄清楚，不跟着瞎跑",
      "image": "",
      "audio": ""
     },
     {
-     "text": "湖水很深",
+     "text": "听到响声就要赶紧跟着跑",
      "image": "",
      "audio": ""
     },
@@ -3281,6 +3293,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te58036",
    "change_tag": "修改",
@@ -3310,12 +3323,12 @@
      "audio": ""
     },
     {
-     "text": "偏旁不同：日字旁和目字旁",
+     "text": "偏旁不同",
      "image": "",
      "audio": ""
     },
     {
-     "text": "读音完全不同",
+     "text": "是同一个字",
      "image": "",
      "audio": ""
     }
@@ -3327,6 +3340,7 @@
    "volume": "一年级下册",
    "knowledge_point": "形近字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf05030",
    "change_tag": "修改",
@@ -3397,7 +3411,7 @@
      "audio": ""
     },
     {
-     "text": "它们完全一样",
+     "text": "b 肚子朝左，d 肚子朝右",
      "image": "",
      "audio": ""
     },
@@ -3407,7 +3421,7 @@
      "audio": ""
     },
     {
-     "text": "b 的肚子朝右，d 的肚子朝左",
+     "text": "b 肚子朝右，d 肚子朝左",
      "image": "",
      "audio": ""
     }
@@ -3419,6 +3433,7 @@
    "volume": "一年级上册",
    "knowledge_point": "拼音",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te0ab43",
    "change_tag": "修改",
@@ -3438,7 +3453,7 @@
    "tts_text": "zh、ch、sh是？",
    "options": [
     {
-     "text": "鼻音",
+     "text": "前鼻音",
      "image": "",
      "audio": ""
     },
@@ -3465,6 +3480,7 @@
    "volume": "一年级上册",
    "knowledge_point": "拼音",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdfab51",
    "change_tag": "修改",
@@ -3678,12 +3694,12 @@
      "audio": ""
     },
     {
-     "text": "一个人跟着另一个人",
+     "text": "一人跟着一人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "三个人",
+     "text": "三个人在一起",
      "image": "",
      "audio": ""
     }
@@ -3695,6 +3711,7 @@
    "volume": "一年级下册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6b86b5",
    "change_tag": "修改",
@@ -3912,7 +3929,7 @@
      "audio": ""
     },
     {
-     "text": "钓鱼",
+     "text": "去河边钓鱼",
      "image": "",
      "audio": ""
     },
@@ -3992,12 +4009,12 @@
      "audio": ""
     },
     {
-     "text": "很细很慢，没有声音",
+     "text": "很细，没有声音",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一点也不流",
+     "text": "一点也不流动了",
      "image": "",
      "audio": ""
     }
@@ -4101,7 +4118,7 @@
    "tts_text": "大雨点儿去了哪里？",
    "options": [
     {
-     "text": "有花有草的地方",
+     "text": "有红花有绿草的地方",
      "image": "",
      "audio": ""
     },
@@ -4128,6 +4145,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc7a3ab",
    "change_tag": "修改",
@@ -4285,12 +4303,12 @@
    "tts_text": "小壁虎向谁借尾巴没有借到？",
    "options": [
     {
-     "text": "小猫",
+     "text": "小猫、小狗、小鸡",
      "image": "",
      "audio": ""
     },
     {
-     "text": "妈妈",
+     "text": "妈妈、爸爸、哥哥",
      "image": "",
      "audio": ""
     },
@@ -4312,6 +4330,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc01699",
    "change_tag": "修改",
@@ -4336,7 +4355,7 @@
      "audio": ""
     },
     {
-     "text": "再买新的",
+     "text": "再去买一套新的",
      "image": "",
      "audio": ""
     },
@@ -4358,6 +4377,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T82f370",
    "change_tag": "修改",
@@ -4377,7 +4397,7 @@
    "tts_text": "铅笔、橡皮应该放在？",
    "options": [
     {
-     "text": "窗外",
+     "text": "窗台外面",
      "image": "",
      "audio": ""
     },
@@ -4404,6 +4424,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1c75cb",
    "change_tag": "修改",
@@ -4469,12 +4490,12 @@
    "tts_text": "口字像什么？",
    "options": [
     {
-     "text": "月亮",
+     "text": "弯弯的月亮",
      "image": "",
      "audio": ""
     },
     {
-     "text": "太阳",
+     "text": "圆圆的太阳",
      "image": "",
      "audio": ""
     },
@@ -4496,6 +4517,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6f7f7e",
    "change_tag": "修改",
@@ -4713,12 +4735,12 @@
      "audio": ""
     },
     {
-     "text": "给它唱歌",
+     "text": "给小鸭子唱歌",
      "image": "",
      "audio": ""
     },
     {
-     "text": "教它游泳",
+     "text": "教小鸭子游泳",
      "image": "",
      "audio": ""
     }
@@ -4730,6 +4752,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3d23d4",
    "change_tag": "修改",
@@ -4759,12 +4782,12 @@
      "audio": ""
     },
     {
-     "text": "帮它飞",
+     "text": "教小公鸡学会飞",
      "image": "",
      "audio": ""
     },
     {
-     "text": "帮它捉虫",
+     "text": "帮小公鸡捉虫子吃",
      "image": "",
      "audio": ""
     }
@@ -4776,6 +4799,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf1f594",
    "change_tag": "修改",
@@ -4805,7 +4829,7 @@
      "audio": ""
     },
     {
-     "text": "不要去河边",
+     "text": "小朋友不要去河边玩",
      "image": "",
      "audio": ""
     },
@@ -4822,6 +4846,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te58036",
    "change_tag": "修改",
@@ -4948,7 +4973,7 @@
      "audio": ""
     },
     {
-     "text": "李白",
+     "text": "孟浩然",
      "image": "",
      "audio": ""
     }
@@ -4960,6 +4985,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb94209",
    "change_tag": "修改",
@@ -4979,7 +5005,7 @@
    "tts_text": "《小小的船》：坐在小小的船里，只看见什么？",
    "options": [
     {
-     "text": "高高的山",
+     "text": "高高的山和弯弯的河",
      "image": "",
      "audio": ""
     },
@@ -5026,7 +5052,7 @@
    "tts_text": "勇敢的孩子晚上看到了什么？",
    "options": [
     {
-     "text": "很多怪兽",
+     "text": "很多可怕的怪兽",
      "image": "",
      "audio": ""
     },
@@ -5036,12 +5062,12 @@
      "audio": ""
     },
     {
-     "text": "只有黑色",
+     "text": "黑乎乎一片",
      "image": "",
      "audio": ""
     },
     {
-     "text": "原来花草都像白天一样微笑",
+     "text": "花草都在微笑",
      "image": "",
      "audio": ""
     }
@@ -5053,6 +5079,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6a5584",
    "change_tag": "修改",
@@ -5082,12 +5109,12 @@
      "audio": ""
     },
     {
-     "text": "晚上不能出门",
+     "text": "晚上不能一个人出门",
      "image": "",
      "audio": ""
     },
     {
-     "text": "勇敢一点，黑夜并不可怕",
+     "text": "黑夜并不可怕",
      "image": "",
      "audio": ""
     }
@@ -5099,6 +5126,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te58036",
    "change_tag": "修改",
@@ -5164,12 +5192,12 @@
    "tts_text": "小蜻蜓把荷叶当什么？",
    "options": [
     {
-     "text": "凉伞",
+     "text": "小凉伞",
      "image": "",
      "audio": ""
     },
     {
-     "text": "摇篮",
+     "text": "小摇篮",
      "image": "",
      "audio": ""
     },
@@ -5191,6 +5219,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T57ab7e",
    "change_tag": "修改",
@@ -5215,7 +5244,7 @@
      "audio": ""
     },
     {
-     "text": "早到了",
+     "text": "比平时早到了一会儿",
      "image": "",
      "audio": ""
     },
@@ -5237,6 +5266,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0a4c59",
    "change_tag": "修改",
@@ -5256,7 +5286,7 @@
    "tts_text": "一分钟，这个故事告诉我们？",
    "options": [
     {
-     "text": "要珍惜时间，做事不拖拉",
+     "text": "要珍惜时间",
      "image": "",
      "audio": ""
     },
@@ -5266,7 +5296,7 @@
      "audio": ""
     },
     {
-     "text": "闹钟没用",
+     "text": "闹钟一点用也没有",
      "image": "",
      "audio": ""
     },
@@ -5283,6 +5313,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te58036",
    "change_tag": "修改",
@@ -5450,12 +5481,12 @@
      "audio": ""
     },
     {
-     "text": "桃子不甜",
+     "text": "桃子一点也不甜",
      "image": "",
      "audio": ""
     },
     {
-     "text": "它看见一个扔一个，不懂珍惜",
+     "text": "它不懂得珍惜",
      "image": "",
      "audio": ""
     }
@@ -5467,6 +5498,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6758c3",
    "change_tag": "修改",
@@ -5578,12 +5610,12 @@
    "tts_text": "一个人可以怎么玩？",
    "options": [
     {
-     "text": "只能睡觉",
+     "text": "睡一会儿觉",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不能玩",
+     "text": "一个人什么也不能玩",
      "image": "",
      "audio": ""
     },
@@ -5605,6 +5637,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4db347",
    "change_tag": "修改",
@@ -5624,17 +5657,17 @@
    "tts_text": "《怎么都快乐》这篇课文想说？",
    "options": [
     {
-     "text": "人多才快乐",
+     "text": "人多的时候才快乐",
      "image": "",
      "audio": ""
     },
     {
-     "text": "怎么玩都快乐，有人陪更快乐",
+     "text": "怎么玩都快乐",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只能自己玩",
+     "text": "一个人玩最好",
      "image": "",
      "audio": ""
     },
@@ -5856,12 +5889,12 @@
    "tts_text": "粽子多用什么叶包？",
    "options": [
     {
-     "text": "树叶随便",
+     "text": "芭蕉叶",
      "image": "",
      "audio": ""
     },
     {
-     "text": "箬叶（竹叶）",
+     "text": "箬竹叶",
      "image": "",
      "audio": ""
     },
@@ -5883,6 +5916,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td8dce1",
    "change_tag": "修改",
@@ -6036,7 +6070,7 @@
      "audio": ""
     },
     {
-     "text": "长得更高了",
+     "text": "长得又高又大了",
      "image": "",
      "audio": ""
     },
@@ -6058,6 +6092,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tfc17a3",
    "change_tag": "修改",
@@ -6092,7 +6127,7 @@
      "audio": ""
     },
     {
-     "text": "只有东边",
+     "text": "只在东边和西边",
      "image": "",
      "audio": ""
     }
@@ -6104,6 +6139,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf11ef5",
    "change_tag": "修改",
@@ -6128,12 +6164,12 @@
      "audio": ""
     },
     {
-     "text": "山上",
+     "text": "高高的山上",
      "image": "",
      "audio": ""
     },
     {
-     "text": "海边",
+     "text": "美丽的海边",
      "image": "",
      "audio": ""
     },
@@ -6150,6 +6186,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb5d44a",
    "change_tag": "修改",
@@ -6221,7 +6258,7 @@
      "audio": ""
     },
     {
-     "text": "一边玩一边听",
+     "text": "一边玩玩具一边听故事",
      "image": "",
      "audio": ""
     },
@@ -6268,7 +6305,7 @@
      "audio": ""
     },
     {
-     "text": "低头玩",
+     "text": "低头玩自己的东西",
      "image": "",
      "audio": ""
     },
@@ -6290,6 +6327,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3f5bdf",
    "change_tag": "修改",
@@ -6546,7 +6584,7 @@
      "audio": ""
     },
     {
-     "text": "走路快慢",
+     "text": "走路的快慢",
      "image": "",
      "audio": ""
     },
@@ -6568,6 +6606,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf9aa7a",
    "change_tag": "修改",
@@ -6633,7 +6672,7 @@
    "tts_text": "请字的部首是？",
    "options": [
     {
-     "text": "讠（言字旁）",
+     "text": "讠",
      "image": "",
      "audio": ""
     },
@@ -6660,6 +6699,7 @@
    "volume": "一年级下册",
    "knowledge_point": "形声字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4889b7",
    "change_tag": "修改",
@@ -6679,7 +6719,7 @@
    "tts_text": "火字像什么？",
    "options": [
     {
-     "text": "流水",
+     "text": "流动的河水",
      "image": "",
      "audio": ""
     },
@@ -6694,7 +6734,7 @@
      "audio": ""
     },
     {
-     "text": "太阳",
+     "text": "红红的太阳",
      "image": "",
      "audio": ""
     }
@@ -6736,7 +6776,7 @@
      "audio": ""
     },
     {
-     "text": "河流",
+     "text": "弯弯的河流",
      "image": "",
      "audio": ""
     },
@@ -6974,7 +7014,7 @@
      "audio": ""
     },
     {
-     "text": "要出太阳",
+     "text": "太阳要出来",
      "image": "",
      "audio": ""
     }
@@ -6986,6 +7026,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2194e8",
    "change_tag": "修改",
@@ -7285,7 +7326,7 @@
    "tts_text": "我们用什么看东西？",
    "options": [
     {
-     "text": "目（眼睛）",
+     "text": "目",
      "image": "",
      "audio": ""
     },
@@ -7384,12 +7425,12 @@
      "audio": ""
     },
     {
-     "text": "跟着跑，没问为什么",
+     "text": "跟着一起跑",
      "image": "",
      "audio": ""
     },
     {
-     "text": "先去看看",
+     "text": "先去湖边看看",
      "image": "",
      "audio": ""
     },
@@ -7406,6 +7447,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T039cef",
    "change_tag": "修改",
@@ -7578,7 +7620,7 @@
      "audio": ""
     },
     {
-     "text": "赶蝇子",
+     "text": "赶走蝇子",
      "image": "",
      "audio": ""
     }
@@ -7590,6 +7632,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2bbc17",
    "change_tag": "修改",
@@ -7624,7 +7667,7 @@
      "audio": ""
     },
     {
-     "text": "黑暗",
+     "text": "黑夜、黑暗",
      "image": "",
      "audio": ""
     }
@@ -7636,6 +7679,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T2021ce",
    "change_tag": "修改",
@@ -7665,7 +7709,7 @@
      "audio": ""
     },
     {
-     "text": "部首",
+     "text": "部首和笔画数",
      "image": "",
      "audio": ""
     },
@@ -7682,6 +7726,7 @@
    "volume": "一年级下册",
    "knowledge_point": "查字典",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb15845",
    "change_tag": "修改",
@@ -7968,12 +8013,12 @@
      "audio": ""
     },
     {
-     "text": "春天睡得香，不知不觉天就亮了",
+     "text": "春天睡得香，不觉天亮",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春天的早晨很冷",
+     "text": "春天的早晨冷得睡不着",
      "image": "",
      "audio": ""
     },
@@ -8385,8 +8430,8 @@
    "textbook": "统编版",
    "unit": "一下·第四单元·日积月累 寻隐者不遇",
    "type": "判断",
-   "question": "《寻隐者不遇》中，诗人问的是山下的农夫。",
-   "tts_text": "寻隐者不遇中，诗人问的是山下的农夫。",
+   "question": "《寻隐者不遇》中，诗人在松树下问的是山下的农夫。",
+   "tts_text": "寻隐者不遇中，诗人在松树下问的是山下的农夫。",
    "answer": "错",
    "explanation": "错。“松下问童子”，诗人问的是松树下的童子。",
    "difficulty": 3,
@@ -8552,7 +8597,7 @@
    "tts_text": "我多想去看看：课文里的孩子想去北京看什么？",
    "options": [
     {
-     "text": "大海",
+     "text": "大海边的沙滩和贝壳",
      "image": "",
      "audio": ""
     },
@@ -8614,7 +8659,7 @@
      "audio": ""
     },
     {
-     "text": "吸管",
+     "text": "一根吸管",
      "image": "",
      "audio": ""
     }
@@ -8791,7 +8836,7 @@
      "audio": ""
     },
     {
-     "text": "面包",
+     "text": "面包、蛋糕",
      "image": "",
      "audio": ""
     },
@@ -8885,7 +8930,7 @@
      "audio": ""
     },
     {
-     "text": "要出太阳",
+     "text": "天要放晴了",
      "image": "",
      "audio": ""
     },
@@ -8907,6 +8952,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc65a07",
    "change_tag": "修改",
@@ -9020,7 +9066,7 @@
    "tts_text": "小公鸡为什么捉不到水里的鱼？",
    "options": [
     {
-     "text": "鱼太大",
+     "text": "水里的鱼太大了",
      "image": "",
      "audio": ""
     },
@@ -9047,6 +9093,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3dc828",
    "change_tag": "修改",
@@ -9118,7 +9165,7 @@
      "audio": ""
     },
     {
-     "text": "它每次都漏了重要内容",
+     "text": "每次都漏了内容",
      "image": "",
      "audio": ""
     },
@@ -9128,7 +9175,7 @@
      "audio": ""
     },
     {
-     "text": "动物们不听",
+     "text": "动物们都不爱听",
      "image": "",
      "audio": ""
     }
@@ -9140,6 +9187,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tef793c",
    "change_tag": "修改",
@@ -9308,7 +9356,7 @@
      "audio": ""
     },
     {
-     "text": "雪",
+     "text": "地上的白雪",
      "image": "",
      "audio": ""
     },
@@ -9325,6 +9373,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te204db",
    "change_tag": "修改",
@@ -9576,7 +9625,7 @@
    "tts_text": "不解藏踪迹，浮萍一道开写的是？",
    "options": [
     {
-     "text": "风把浮萍吹开",
+     "text": "风把浮萍吹开了一道",
      "image": "",
      "audio": ""
     },
@@ -9603,6 +9652,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6ebf06",
    "change_tag": "修改",
@@ -9673,7 +9723,7 @@
      "audio": ""
     },
     {
-     "text": "喜欢吵闹",
+     "text": "喜欢大声吵闹",
      "image": "",
      "audio": ""
     },
@@ -9695,6 +9745,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Teb0b48",
    "change_tag": "修改",
@@ -9770,7 +9821,7 @@
      "audio": ""
     },
     {
-     "text": "石子占了瓶子里的地方",
+     "text": "石子占了地方",
      "image": "",
      "audio": ""
     },
@@ -9904,7 +9955,7 @@
      "audio": ""
     },
     {
-     "text": "病（害虫）",
+     "text": "害虫",
      "image": "",
      "audio": ""
     },
@@ -9926,6 +9977,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc7aec6",
    "change_tag": "修改",
@@ -10095,12 +10147,12 @@
      "audio": ""
     },
     {
-     "text": "拿到好东西要珍惜，不能见一个丢一个",
+     "text": "要珍惜，不能见一个丢一个",
      "image": "",
      "audio": ""
     },
     {
-     "text": "下次跑快点",
+     "text": "下次下山要跑得比兔子还快",
      "image": "",
      "audio": ""
     }
@@ -10112,6 +10164,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf87395",
    "change_tag": "修改",
@@ -10284,7 +10337,7 @@
      "audio": ""
     },
     {
-     "text": "开大灯睡觉",
+     "text": "开着大灯一个人睡觉",
      "image": "",
      "audio": ""
     }
@@ -10469,7 +10522,7 @@
      "audio": ""
     },
     {
-     "text": "起床时多睡了一分钟，一路拖拉",
+     "text": "多睡了一分钟",
      "image": "",
      "audio": ""
     },
@@ -10486,6 +10539,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0a0f87",
    "change_tag": "修改",
@@ -10567,7 +10621,7 @@
      "audio": ""
     },
     {
-     "text": "唱歌",
+     "text": "唱歌跳舞",
      "image": "",
      "audio": ""
     }
@@ -10579,6 +10633,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8f9147",
    "change_tag": "修改",
@@ -10613,7 +10668,7 @@
      "audio": ""
     },
     {
-     "text": "风",
+     "text": "大风",
      "image": "",
      "audio": ""
     }
@@ -10625,6 +10680,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0702c5",
    "change_tag": "修改",
@@ -10644,7 +10700,7 @@
    "tts_text": "很多人在一起可以？",
    "options": [
     {
-     "text": "只能睡觉",
+     "text": "各自睡觉",
      "image": "",
      "audio": ""
     },
@@ -10654,12 +10710,12 @@
      "audio": ""
     },
     {
-     "text": "必须安静",
+     "text": "大家都必须安静",
      "image": "",
      "audio": ""
     },
     {
-     "text": "做游戏、跳绳、踢足球",
+     "text": "做游戏、踢足球",
      "image": "",
      "audio": ""
     }
@@ -10671,6 +10727,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7365c8",
    "change_tag": "修改",
@@ -10747,7 +10804,7 @@
      "audio": ""
     },
     {
-     "text": "飞行",
+     "text": "掌握方向",
      "image": "",
      "audio": ""
     },
@@ -10764,6 +10821,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T545358",
    "change_tag": "修改",
@@ -11077,7 +11135,7 @@
      "audio": ""
     },
     {
-     "text": "很热闹",
+     "text": "又热闹又开心",
      "image": "",
      "audio": ""
     }
@@ -11089,6 +11147,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tce992e",
    "change_tag": "修改",
@@ -11252,7 +11311,7 @@
      "audio": ""
     },
     {
-     "text": "火焰",
+     "text": "燃烧的火焰",
      "image": "",
      "audio": ""
     },
@@ -11274,6 +11333,7 @@
    "volume": "一年级上册",
    "knowledge_point": "象形字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6f7f7e",
    "change_tag": "修改",
@@ -11436,7 +11496,7 @@
      "audio": ""
     },
     {
-     "text": "语（声音）",
+     "text": "语",
      "image": "",
      "audio": ""
     },
@@ -11458,6 +11518,7 @@
    "volume": "一年级上册",
    "knowledge_point": "对韵",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc76eec",
    "change_tag": "修改",
@@ -11477,17 +11538,17 @@
    "tts_text": "子不学，非所宜的意思是？",
    "options": [
     {
-     "text": "只要玩就好",
+     "text": "玩比学习重要",
      "image": "",
      "audio": ""
     },
     {
-     "text": "小孩子不用学习",
+     "text": "小孩子长大了才要学习",
      "image": "",
      "audio": ""
     },
     {
-     "text": "小孩子不学习是不应该的",
+     "text": "小孩不学习不应该",
      "image": "",
      "audio": ""
     },
@@ -11504,6 +11565,7 @@
    "volume": "一年级下册",
    "knowledge_point": "经典",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -11523,7 +11585,7 @@
    "tts_text": "幼不学，老何为的意思是？",
    "options": [
     {
-     "text": "老了再学也行",
+     "text": "等老了以后再学也来得及",
      "image": "",
      "audio": ""
     },
@@ -11533,12 +11595,12 @@
      "audio": ""
     },
     {
-     "text": "小时候不学，老了什么都不会",
+     "text": "小时候不学，老了就不会",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只要年轻就好",
+     "text": "年轻时多玩玩",
      "image": "",
      "audio": ""
     }
@@ -11550,6 +11612,7 @@
    "volume": "一年级下册",
    "knowledge_point": "经典",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -11574,12 +11637,12 @@
      "audio": ""
     },
     {
-     "text": "自己乱读",
+     "text": "自己随便乱读一个音",
      "image": "",
      "audio": ""
     },
     {
-     "text": "撕掉",
+     "text": "把书合上或扔掉",
      "image": "",
      "audio": ""
     },
@@ -11596,6 +11659,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf84976",
    "change_tag": "修改",
@@ -11625,12 +11689,12 @@
      "audio": ""
     },
     {
-     "text": "越快越好",
+     "text": "写得越快越好",
      "image": "",
      "audio": ""
     },
     {
-     "text": "写出格",
+     "text": "写到格子外面去",
      "image": "",
      "audio": ""
     }
@@ -11642,6 +11706,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T10bb4d",
    "change_tag": "修改",
@@ -11707,7 +11772,7 @@
    "tts_text": "下面哪句写的是夏天？",
    "options": [
     {
-     "text": "床前明月光",
+     "text": "桃花潭水深千尺",
      "image": "",
      "audio": ""
     },
@@ -11734,6 +11799,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tde5832",
    "change_tag": "修改",
@@ -11763,7 +11829,7 @@
      "audio": ""
     },
     {
-     "text": "太阳",
+     "text": "圆圆的太阳",
      "image": "",
      "audio": ""
     },
@@ -11780,6 +11846,7 @@
    "volume": "一年级上册",
    "knowledge_point": "象形字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T6f7f7e",
    "change_tag": "修改",
@@ -11943,7 +12010,7 @@
      "audio": ""
     },
     {
-     "text": "青蛙不捉虫",
+     "text": "青蛙不捉虫子",
      "image": "",
      "audio": ""
     },
@@ -11965,6 +12032,7 @@
    "volume": "一年级下册",
    "knowledge_point": "阅读",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8fed27",
    "change_tag": "修改",
@@ -12132,7 +12200,7 @@
      "audio": ""
     },
     {
-     "text": "快步跑",
+     "text": "快步跑过去",
      "image": "",
      "audio": ""
     },
@@ -12149,6 +12217,7 @@
    "volume": "一年级上册",
    "knowledge_point": "安全",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T435c4e",
    "change_tag": "修改",
@@ -12168,7 +12237,7 @@
    "tts_text": "每天应该刷几次牙？",
    "options": [
     {
-     "text": "只刷一次随便",
+     "text": "想起来才刷",
      "image": "",
      "audio": ""
     },
@@ -12195,6 +12264,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T56f147",
    "change_tag": "修改",
@@ -12306,7 +12376,7 @@
    "tts_text": "做错了事应该说？",
    "options": [
     {
-     "text": "谢谢",
+     "text": "谢谢你",
      "image": "",
      "audio": ""
     },
@@ -12316,7 +12386,7 @@
      "audio": ""
     },
     {
-     "text": "你好",
+     "text": "你好呀",
      "image": "",
      "audio": ""
     },
@@ -12333,6 +12403,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T57e26c",
    "change_tag": "修改",
@@ -12362,7 +12433,7 @@
      "audio": ""
     },
     {
-     "text": "再见",
+     "text": "再见啦",
      "image": "",
      "audio": ""
     },
@@ -12379,6 +12450,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdd7c09",
    "change_tag": "修改",
@@ -12495,7 +12567,7 @@
      "audio": ""
     },
     {
-     "text": "ˇ（上声，先降后升）",
+     "text": "ˇ",
      "image": "",
      "audio": ""
     },
@@ -12517,6 +12589,7 @@
    "volume": "一年级上册",
    "knowledge_point": "拼音",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T19054b",
    "change_tag": "修改",
@@ -12781,7 +12854,7 @@
      "audio": ""
     },
     {
-     "text": "李白",
+     "text": "杨万里",
      "image": "",
      "audio": ""
     }
@@ -12793,6 +12866,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8e99da",
    "change_tag": "修改",
@@ -13191,7 +13265,7 @@
      "audio": ""
     },
     {
-     "text": "去河里游泳",
+     "text": "去河里或水塘里游泳",
      "image": "",
      "audio": ""
     },
@@ -13213,6 +13287,7 @@
    "volume": "一年级上册",
    "knowledge_point": "安全",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T14b81f",
    "change_tag": "修改",
@@ -13242,7 +13317,7 @@
      "audio": ""
     },
     {
-     "text": "分给同学",
+     "text": "拿去分给班上的同学",
      "image": "",
      "audio": ""
     },
@@ -13259,6 +13334,7 @@
    "volume": "一年级上册",
    "knowledge_point": "安全",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb842ea",
    "change_tag": "修改",
@@ -13283,12 +13359,12 @@
      "audio": ""
     },
     {
-     "text": "河里",
+     "text": "小河里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "窗外",
+     "text": "窗户外",
      "image": "",
      "audio": ""
     },
@@ -13305,6 +13381,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7ec1cf",
    "change_tag": "修改",
@@ -13329,7 +13406,7 @@
      "audio": ""
     },
     {
-     "text": "用很多水玩",
+     "text": "用很多很多水来玩",
      "image": "",
      "audio": ""
     },
@@ -13351,6 +13428,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7f1612",
    "change_tag": "修改",
@@ -13380,7 +13458,7 @@
      "audio": ""
     },
     {
-     "text": "踩过去",
+     "text": "从小草上面踩过去",
      "image": "",
      "audio": ""
     },
@@ -13397,6 +13475,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7cbe14",
    "change_tag": "修改",
@@ -13421,7 +13500,7 @@
      "audio": ""
     },
     {
-     "text": "告别时",
+     "text": "和别人告别时",
      "image": "",
      "audio": ""
     },
@@ -13443,6 +13522,7 @@
    "volume": "一年级上册",
    "knowledge_point": "礼貌",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbd15de",
    "change_tag": "修改",
@@ -13508,7 +13588,7 @@
    "tts_text": "赠汪伦里桃花潭水深千尺是为了说明？",
    "options": [
     {
-     "text": "潭水真的有一千尺",
+     "text": "潭水真的有一千尺深",
      "image": "",
      "audio": ""
     },
@@ -13535,6 +13615,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T864b4f",
    "change_tag": "修改",
@@ -13569,7 +13650,7 @@
      "audio": ""
     },
     {
-     "text": "到达",
+     "text": "赶得上",
      "image": "",
      "audio": ""
     }
@@ -13581,6 +13662,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -13702,12 +13784,12 @@
      "audio": ""
     },
     {
-     "text": "m 和 f",
+     "text": "b、m 和 f",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有 f",
+     "text": "p 和 f",
      "image": "",
      "audio": ""
     }
@@ -13754,7 +13836,7 @@
      "audio": ""
     },
     {
-     "text": "水",
+     "text": "水、河流、海洋",
      "image": "",
      "audio": ""
     }
@@ -13766,6 +13848,7 @@
    "volume": "一年级下册",
    "knowledge_point": "部首",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb539a0",
    "change_tag": "修改",
@@ -13841,12 +13924,12 @@
      "audio": ""
     },
     {
-     "text": "水",
+     "text": "水、凉",
      "image": "",
      "audio": ""
     },
     {
-     "text": "冰",
+     "text": "冰、冷",
      "image": "",
      "audio": ""
     }
@@ -13858,6 +13941,7 @@
    "volume": "一年级下册",
    "knowledge_point": "部首",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb539a0",
    "change_tag": "修改",
@@ -14025,7 +14109,7 @@
      "audio": ""
     },
     {
-     "text": "三个",
+     "text": "三个或四个",
      "image": "",
      "audio": ""
     },
@@ -14042,6 +14126,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tdd3fa6",
    "change_tag": "修改",
@@ -14112,7 +14197,7 @@
      "audio": ""
     },
     {
-     "text": "画画涂色",
+     "text": "给图画涂上颜色",
      "image": "",
      "audio": ""
     },
@@ -14134,6 +14219,7 @@
    "volume": "一年级上册",
    "knowledge_point": "常识",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T38266f",
    "change_tag": "修改",
@@ -14158,7 +14244,7 @@
      "audio": ""
     },
     {
-     "text": "永远没有",
+     "text": "再也长不出来",
      "image": "",
      "audio": ""
     },
@@ -14180,6 +14266,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T12912d",
    "change_tag": "修改",
@@ -14444,7 +14531,7 @@
      "audio": ""
     },
     {
-     "text": "被摘走了",
+     "text": "已经被人摘走了",
      "image": "",
      "audio": ""
     }
@@ -14456,6 +14543,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5f709d",
    "change_tag": "修改",
@@ -14615,7 +14703,7 @@
    "tts_text": "花落知多少表达诗人？",
    "options": [
     {
-     "text": "爱惜被风雨打落的花",
+     "text": "爱惜落花",
      "image": "",
      "audio": ""
     },
@@ -14642,6 +14730,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc26a88",
    "change_tag": "修改",
@@ -14661,7 +14750,7 @@
    "tts_text": "家里来了客人，你应该？",
    "options": [
     {
-     "text": "躲起来",
+     "text": "躲进房间里",
      "image": "",
      "audio": ""
     },
@@ -14688,6 +14777,7 @@
    "volume": "一年级上册",
    "knowledge_point": "礼貌",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td38ca6",
    "change_tag": "修改",
@@ -14722,7 +14812,7 @@
      "audio": ""
     },
     {
-     "text": "细嚼慢咽、不浪费粮食",
+     "text": "不浪费粮食",
      "image": "",
      "audio": ""
     }
@@ -14754,12 +14844,12 @@
    "tts_text": "言师采药去，只在此山中的意思是？",
    "options": [
     {
-     "text": "师傅采药去了，就在这座山里",
+     "text": "师傅采药去了，就在山里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "师傅不在山上",
+     "text": "师傅下山去了，不在山里",
      "image": "",
      "audio": ""
     },
@@ -14781,6 +14871,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -14800,7 +14891,7 @@
    "tts_text": "云深不知处的意思是？",
    "options": [
     {
-     "text": "云雾太深，不知道具体在哪里",
+     "text": "云太深，不知道在哪里",
      "image": "",
      "audio": ""
     },
@@ -14810,7 +14901,7 @@
      "audio": ""
     },
     {
-     "text": "云很漂亮",
+     "text": "云很漂亮，看都看不够",
      "image": "",
      "audio": ""
     },
@@ -14827,6 +14918,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -15231,7 +15323,7 @@
      "audio": ""
     },
     {
-     "text": "一定是",
+     "text": "疑问、不知道",
      "image": "",
      "audio": ""
     }
@@ -15243,6 +15335,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T80d1f6",
    "change_tag": "修改",
@@ -15318,12 +15411,12 @@
      "audio": ""
     },
     {
-     "text": "大声喊",
+     "text": "大声喊，让大家都听见",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不说话永远",
+     "text": "一句话也不说",
      "image": "",
      "audio": ""
     }
@@ -15335,6 +15428,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tce71a2",
    "change_tag": "修改",
@@ -15461,7 +15555,7 @@
      "audio": ""
     },
     {
-     "text": "它们一样",
+     "text": "它们意思一样，都可以喝",
      "image": "",
      "audio": ""
     }
@@ -15473,6 +15567,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta53f98",
    "change_tag": "修改",
@@ -15594,7 +15689,7 @@
      "audio": ""
     },
     {
-     "text": "an",
+     "text": "ian",
      "image": "",
      "audio": ""
     },
@@ -15611,6 +15706,7 @@
    "volume": "一年级上册",
    "knowledge_point": "拼音",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T54ac13",
    "change_tag": "修改",
@@ -15732,12 +15828,12 @@
      "audio": ""
     },
     {
-     "text": "玉不雕琢不能成器物，人不学习不能成才",
+     "text": "人不学习，就不能成才",
      "image": "",
      "audio": ""
     },
     {
-     "text": "玉很贵",
+     "text": "玉很贵重，不能拿去雕",
      "image": "",
      "audio": ""
     }
@@ -15749,6 +15845,7 @@
    "volume": "一年级下册",
    "knowledge_point": "经典",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -15962,7 +16059,7 @@
      "audio": ""
     },
     {
-     "text": "自己留下",
+     "text": "自己悄悄留下来",
      "image": "",
      "audio": ""
     },
@@ -15979,6 +16076,7 @@
    "volume": "一年级上册",
    "knowledge_point": "品德",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te21f0f",
    "change_tag": "修改",
@@ -16055,12 +16153,12 @@
      "audio": ""
     },
     {
-     "text": "随便砍",
+     "text": "砍下来烧火",
      "image": "",
      "audio": ""
     },
     {
-     "text": "在树上刻字",
+     "text": "在树皮上刻名字",
      "image": "",
      "audio": ""
     }
@@ -16072,6 +16170,7 @@
    "volume": "一年级上册",
    "knowledge_point": "品德",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T168d9f",
    "change_tag": "修改",
@@ -16091,17 +16190,17 @@
    "tts_text": "早睡早起是好习惯吗？",
    "options": [
     {
-     "text": "是",
+     "text": "是，是好习惯",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有早起",
+     "text": "早起是，早睡不是",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有早睡",
+     "text": "早睡是，早起不是",
      "image": "",
      "audio": ""
     },
@@ -16118,6 +16217,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T14eef6",
    "change_tag": "修改",
@@ -16142,7 +16242,7 @@
      "audio": ""
     },
     {
-     "text": "只有一首是",
+     "text": "有一首不是",
      "image": "",
      "audio": ""
     },
@@ -16152,7 +16252,7 @@
      "audio": ""
     },
     {
-     "text": "不是",
+     "text": "不是，一首是杜甫",
      "image": "",
      "audio": ""
     }
@@ -16164,6 +16264,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tc20a78",
    "change_tag": "修改",
@@ -16469,7 +16570,7 @@
      "audio": ""
     },
     {
-     "text": "继续玩",
+     "text": "继续在走廊玩",
      "image": "",
      "audio": ""
     },
@@ -16486,6 +16587,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta00c52",
    "change_tag": "修改",
@@ -16515,12 +16617,12 @@
      "audio": ""
     },
     {
-     "text": "鱼",
+     "text": "小鱼",
      "image": "",
      "audio": ""
     },
     {
-     "text": "风",
+     "text": "大风",
      "image": "",
      "audio": ""
     }
@@ -16532,6 +16634,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbfb915",
    "change_tag": "修改",
@@ -16561,12 +16664,12 @@
      "audio": ""
     },
     {
-     "text": "爱护，不让它掉在地上",
+     "text": "爱护国旗",
      "image": "",
      "audio": ""
     },
     {
-     "text": "随便画",
+     "text": "在上面画画",
      "image": "",
      "audio": ""
     }
@@ -16578,6 +16681,7 @@
    "volume": "一年级上册",
    "knowledge_point": "品德",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T091c96",
    "change_tag": "修改",
@@ -16689,7 +16793,7 @@
    "tts_text": "读课文要做到？",
    "options": [
     {
-     "text": "不出声永远",
+     "text": "一个字一个字拖长声音读",
      "image": "",
      "audio": ""
     },
@@ -16699,7 +16803,7 @@
      "audio": ""
     },
     {
-     "text": "读准字音、不加字不漏字",
+     "text": "读准字音，不加字不漏字",
      "image": "",
      "audio": ""
     },
@@ -16716,6 +16820,7 @@
    "volume": "一年级下册",
    "knowledge_point": "阅读",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1c572e",
    "change_tag": "修改",
@@ -16792,7 +16897,7 @@
      "audio": ""
     },
     {
-     "text": "真的做贼",
+     "text": "像小偷一样做坏事",
      "image": "",
      "audio": ""
     },
@@ -16809,6 +16914,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4c0cbe",
    "change_tag": "修改",
@@ -17335,7 +17441,7 @@
    "tts_text": "一年级学的三字经劝我们？",
    "options": [
     {
-     "text": "只玩游戏",
+     "text": "天天玩游戏就好",
      "image": "",
      "audio": ""
     },
@@ -17362,6 +17468,7 @@
    "volume": "一年级下册",
    "knowledge_point": "经典",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb4fd6d",
    "change_tag": "修改",
@@ -17386,7 +17493,7 @@
      "audio": ""
     },
     {
-     "text": "挤到前面",
+     "text": "挤到队伍最前面去",
      "image": "",
      "audio": ""
     },
@@ -17408,6 +17515,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td3b462",
    "change_tag": "修改",
@@ -17524,7 +17632,7 @@
      "audio": ""
     },
     {
-     "text": "《小池》",
+     "text": "《赠汪伦》",
      "image": "",
      "audio": ""
     },
@@ -17546,6 +17654,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta456cc",
    "change_tag": "修改",
@@ -17565,7 +17674,7 @@
    "tts_text": "日和目的区别是？",
    "options": [
     {
-     "text": "完全一样",
+     "text": "没有区别",
      "image": "",
      "audio": ""
     },
@@ -17592,6 +17701,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7952c4",
    "change_tag": "修改",
@@ -17795,7 +17905,7 @@
    "tts_text": "小池中树阴照水爱晴柔写的是？",
    "options": [
     {
-     "text": "树荫映在水里，喜欢晴天的柔和",
+     "text": "树荫映在水里",
      "image": "",
      "audio": ""
     },
@@ -17805,7 +17915,7 @@
      "audio": ""
     },
     {
-     "text": "树倒了",
+     "text": "大树倒在水里",
      "image": "",
      "audio": ""
     },
@@ -17822,6 +17932,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T49b067",
    "change_tag": "修改",
@@ -17846,7 +17957,7 @@
      "audio": ""
     },
     {
-     "text": "从上到下",
+     "text": "从上到下一竖",
      "image": "",
      "audio": ""
     },
@@ -17868,6 +17979,7 @@
    "volume": "一年级上册",
    "knowledge_point": "笔画",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td55ffd",
    "change_tag": "修改",
@@ -17933,7 +18045,7 @@
    "tts_text": "书本应该？",
    "options": [
     {
-     "text": "撕下来折纸",
+     "text": "撕下来折纸飞机",
      "image": "",
      "audio": ""
     },
@@ -17943,7 +18055,7 @@
      "audio": ""
     },
     {
-     "text": "爱护，不折角不乱画",
+     "text": "爱护，不乱画",
      "image": "",
      "audio": ""
     },
@@ -17960,6 +18072,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tbfb3b6",
    "change_tag": "修改",
@@ -17984,7 +18097,7 @@
      "audio": ""
     },
     {
-     "text": "只有一首",
+     "text": "都是现代儿歌",
      "image": "",
      "audio": ""
     },
@@ -18087,7 +18200,7 @@
      "audio": ""
     },
     {
-     "text": "自己留下",
+     "text": "自己留下不还",
      "image": "",
      "audio": ""
     }
@@ -18099,6 +18212,7 @@
    "volume": "一年级上册",
    "knowledge_point": "品德",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T60427b",
    "change_tag": "修改",
@@ -18220,7 +18334,7 @@
      "audio": ""
     },
     {
-     "text": "明天的考试",
+     "text": "明天要去哪里玩耍",
      "image": "",
      "audio": ""
     },
@@ -18237,6 +18351,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf3994d",
    "change_tag": "修改",
@@ -18261,12 +18376,12 @@
      "audio": ""
     },
     {
-     "text": "只看一遍",
+     "text": "只看一遍，不用出声读",
      "image": "",
      "audio": ""
     },
     {
-     "text": "熟读成诵，并知道大概意思",
+     "text": "熟读，并知道大概意思",
      "image": "",
      "audio": ""
     },
@@ -18283,6 +18398,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf7599f",
    "change_tag": "修改",
@@ -18404,12 +18520,12 @@
      "audio": ""
     },
     {
-     "text": "一种颜料",
+     "text": "一种会动的黑颜料",
      "image": "",
      "audio": ""
     },
     {
-     "text": "光被挡住后形成的暗影",
+     "text": "挡住光形成的暗处",
      "image": "",
      "audio": ""
     }
@@ -18421,6 +18537,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T418399",
    "change_tag": "修改",
@@ -18548,7 +18665,7 @@
      "audio": ""
     },
     {
-     "text": "只说自己的名字",
+     "text": "只说自己的名字和年龄",
      "image": "",
      "audio": ""
     }
@@ -18560,6 +18677,7 @@
    "volume": "一年级下册",
    "knowledge_point": "表达",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Taeaee4",
    "change_tag": "修改",
@@ -18676,7 +18794,7 @@
      "audio": ""
     },
     {
-     "text": "什么都不用",
+     "text": "什么标点都不用加",
      "image": "",
      "audio": ""
     },
@@ -18686,7 +18804,7 @@
      "audio": ""
     },
     {
-     "text": "句号或其他句末标点",
+     "text": "句号等句末标点",
      "image": "",
      "audio": ""
     }
@@ -18698,6 +18816,7 @@
    "volume": "一年级上册",
    "knowledge_point": "标点",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T33a7b2",
    "change_tag": "修改",
@@ -18717,22 +18836,22 @@
    "tts_text": "下面哪组都是益虫或益鸟？",
    "options": [
     {
-     "text": "只有蚜虫",
+     "text": "蚜虫、蝗虫",
      "image": "",
      "audio": ""
     },
     {
-     "text": "七星瓢虫、燕子、啄木鸟",
+     "text": "瓢虫、燕子、啄木鸟",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只有蚊子",
+     "text": "蚊子、苍蝇",
      "image": "",
      "audio": ""
     },
     {
-     "text": "蚜虫、蚊子、苍蝇",
+     "text": "蚜虫、蚊子和大苍蝇",
      "image": "",
      "audio": ""
     }
@@ -18744,6 +18863,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5c5cb3",
    "change_tag": "修改",
@@ -18763,7 +18883,7 @@
    "tts_text": "咕咚的故事叫我们？",
    "options": [
     {
-     "text": "听到声音就跑",
+     "text": "听到声音就赶紧跟着跑",
      "image": "",
      "audio": ""
     },
@@ -18790,6 +18910,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf144fa",
    "change_tag": "修改",
@@ -18819,12 +18940,12 @@
      "audio": ""
     },
     {
-     "text": "玉米不好吃",
+     "text": "玉米没有桃子好吃",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不能三心二意，要珍惜得到的",
+     "text": "不能三心二意",
      "image": "",
      "audio": ""
     }
@@ -18836,6 +18957,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T0a288d",
    "change_tag": "修改",
@@ -19003,7 +19125,7 @@
      "audio": ""
     },
     {
-     "text": "都写春天",
+     "text": "春天和夏天",
      "image": "",
      "audio": ""
     },
@@ -19020,6 +19142,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Td7c504",
    "change_tag": "修改",
@@ -19177,7 +19300,7 @@
    "tts_text": "木和林森的关系？",
    "options": [
     {
-     "text": "森比林树少",
+     "text": "森比林的树少一棵",
      "image": "",
      "audio": ""
     },
@@ -19204,6 +19327,7 @@
    "volume": "一年级上册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T723f09",
    "change_tag": "修改",
@@ -19376,7 +19500,7 @@
      "audio": ""
     },
     {
-     "text": "撕掉这一页",
+     "text": "撕掉或涂掉这一页",
      "image": "",
      "audio": ""
     }
@@ -19388,6 +19512,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T273053",
    "change_tag": "修改",
@@ -19463,7 +19588,7 @@
      "audio": ""
     },
     {
-     "text": "书名号",
+     "text": "书名号《》",
      "image": "",
      "audio": ""
     },
@@ -19480,6 +19605,7 @@
    "volume": "一年级上册",
    "knowledge_point": "标点",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T3274a8",
    "change_tag": "修改",
@@ -19596,7 +19722,7 @@
      "audio": ""
     },
     {
-     "text": "古字加月字",
+     "text": "古加月",
      "image": "",
      "audio": ""
     },
@@ -19618,6 +19744,7 @@
    "volume": "一年级下册",
    "knowledge_point": "识字",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T668240",
    "change_tag": "修改",
@@ -19698,7 +19825,7 @@
      "audio": ""
     },
     {
-     "text": "假装没看见",
+     "text": "假装什么也没看见",
      "image": "",
      "audio": ""
     }
@@ -19710,6 +19837,7 @@
    "volume": "一年级上册",
    "knowledge_point": "品德",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf4d9b9",
    "change_tag": "修改",
@@ -19739,7 +19867,7 @@
      "audio": ""
     },
     {
-     "text": "说话",
+     "text": "和同学小声说话",
      "image": "",
      "audio": ""
     },
@@ -19756,6 +19884,7 @@
    "volume": "一年级上册",
    "knowledge_point": "品德",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T548f67",
    "change_tag": "修改",
@@ -19867,7 +19996,7 @@
    "tts_text": "苟不教，性乃迁的意思是？",
    "options": [
     {
-     "text": "本性不会变",
+     "text": "本性一辈子也不会变",
      "image": "",
      "audio": ""
     },
@@ -19877,7 +20006,7 @@
      "audio": ""
     },
     {
-     "text": "如果不教育，好的本性会变坏",
+     "text": "不教育，本性会变坏",
      "image": "",
      "audio": ""
     },
@@ -19894,6 +20023,7 @@
    "volume": "一年级下册",
    "knowledge_point": "经典",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1e1302",
    "change_tag": "修改",
@@ -19928,7 +20058,7 @@
      "audio": ""
     },
     {
-     "text": "比谁跑得快就好",
+     "text": "比谁跑得快、玩得多",
      "image": "",
      "audio": ""
     }
@@ -19940,6 +20070,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tcf2552",
    "change_tag": "修改",
@@ -20102,12 +20233,12 @@
      "audio": ""
     },
     {
-     "text": "松下问童子",
+     "text": "松下问童子，言师采药去",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "春眠不觉晓，处处闻啼鸟",
      "image": "",
      "audio": ""
     },
@@ -20124,6 +20255,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8b8bea",
    "change_tag": "修改",
@@ -20148,7 +20280,7 @@
      "audio": ""
     },
     {
-     "text": "船划过，水草分开一道",
+     "text": "船划开了浮萍",
      "image": "",
      "audio": ""
     },
@@ -20158,7 +20290,7 @@
      "audio": ""
     },
     {
-     "text": "浮萍开花了",
+     "text": "浮萍开出了花",
      "image": "",
      "audio": ""
     }
@@ -20170,6 +20302,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T5dc5bf",
    "change_tag": "修改",
@@ -20199,7 +20332,7 @@
      "audio": ""
     },
     {
-     "text": "只能在学校读",
+     "text": "在学校读才有用",
      "image": "",
      "audio": ""
     },
@@ -20216,6 +20349,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T49e1d2",
    "change_tag": "修改",
@@ -20281,7 +20415,7 @@
    "tts_text": "一年级上册我们认识了四季，秋天的特点是？",
    "options": [
     {
-     "text": "下雪",
+     "text": "下起大雪，河水结冰",
      "image": "",
      "audio": ""
     },
@@ -20296,7 +20430,7 @@
      "audio": ""
     },
     {
-     "text": "天气凉了，树叶黄了，果实成熟",
+     "text": "天气凉了，树叶黄了",
      "image": "",
      "audio": ""
     }
@@ -20308,6 +20442,7 @@
    "volume": "一年级上册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te08878",
    "change_tag": "修改",
@@ -20388,7 +20523,7 @@
      "audio": ""
     },
     {
-     "text": "更害怕了",
+     "text": "比以前更害怕黑夜了",
      "image": "",
      "audio": ""
     }
@@ -20400,6 +20535,7 @@
    "volume": "一年级下册",
    "knowledge_point": "课文",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T84eb09",
    "change_tag": "修改",
@@ -20470,12 +20606,12 @@
      "audio": ""
     },
     {
-     "text": "把书扔掉",
+     "text": "把学过的书都扔掉",
      "image": "",
      "audio": ""
     },
     {
-     "text": "复习学过的字、拼音和古诗",
+     "text": "复习学过的知识",
      "image": "",
      "audio": ""
     },
@@ -20492,6 +20628,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T858107",
    "change_tag": "修改",
@@ -20705,7 +20842,7 @@
      "audio": ""
     },
     {
-     "text": "在锻炼",
+     "text": "在锻炼身体，做运动",
      "image": "",
      "audio": ""
     },
@@ -20722,6 +20859,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tff3786",
    "change_tag": "修改",
@@ -20756,7 +20894,7 @@
      "audio": ""
     },
     {
-     "text": "应付一下子",
+     "text": "背给别人听，显得厉害",
      "image": "",
      "audio": ""
     }
@@ -20768,6 +20906,7 @@
    "volume": "一年级下册",
    "knowledge_point": "古诗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb0bdec",
    "change_tag": "修改",
@@ -20848,7 +20987,7 @@
      "audio": ""
     },
     {
-     "text": "喊叫",
+     "text": "抢着喊，声音越大越好",
      "image": "",
      "audio": ""
     }
@@ -20860,6 +20999,7 @@
    "volume": "一年级上册",
    "knowledge_point": "表达",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te27bb5",
    "change_tag": "修改",
@@ -20889,7 +21029,7 @@
      "audio": ""
     },
     {
-     "text": "打断",
+     "text": "打断他说话",
      "image": "",
      "audio": ""
     },
@@ -20906,6 +21046,7 @@
    "volume": "一年级上册",
    "knowledge_point": "习惯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb7ff00",
    "change_tag": "修改",
@@ -21431,12 +21572,12 @@
    "tts_text": "“鱼戏莲叶间”出自？",
    "options": [
     {
-     "text": "骆宾王",
+     "text": "骆宾王《咏鹅》",
      "image": "",
      "audio": ""
     },
     {
-     "text": "李白",
+     "text": "李白《静夜思》",
      "image": "",
      "audio": ""
     },
@@ -21458,9 +21599,10 @@
    "volume": "一年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Tcb1a8e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -21768,7 +21910,7 @@
      "audio": ""
     },
     {
-     "text": "《春晓》",
+     "text": "《寻隐者不遇》",
      "image": "",
      "audio": ""
     }
@@ -21780,9 +21922,10 @@
    "volume": "一年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T1d114d",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -22071,37 +22214,38 @@
    "textbook": "统编版",
    "unit": "《咏鹅》",
    "type": "选择",
-   "question": "《咏鹅》：“白毛浮绿水”的下一句是？",
-   "tts_text": "咏鹅，白毛浮绿水，下一句是什么",
+   "question": "《咏鹅》里，鹅的羽毛是什么颜色？",
+   "tts_text": "咏鹅里，鹅的羽毛是什么颜色？",
    "options": [
     {
-     "text": "解落三秋叶",
+     "text": "红色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "粒粒皆辛苦",
+     "text": "绿色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "人来鸟不惊",
+     "text": "黑色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "红掌拨清波",
+     "text": "白色",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "D",
-   "explanation": "唐·骆宾王《咏鹅》。",
+   "explanation": "“白毛浮绿水”，鹅的羽毛是白色的。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级（上下册通用）",
    "knowledge_point": "上下句",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
    "change_tag": "修改",
@@ -22117,37 +22261,38 @@
    "textbook": "统编版",
    "unit": "《画》",
    "type": "选择",
-   "question": "《画》：“远看山有色”的下一句是？",
-   "tts_text": "画，远看山有色，下一句是什么",
+   "question": "《画》里，“春去花还在”的意思是？",
+   "tts_text": "画里，“春去花还在”的意思是？",
    "options": [
     {
-     "text": "偷采白莲回",
+     "text": "春天来了，院子里的花全开了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只在此山中",
+     "text": "花被小朋友摘走，放进了花瓶",
      "image": "",
      "audio": ""
     },
     {
-     "text": "能开二月花",
+     "text": "春天过去，花都谢光了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "近听水无声",
+     "text": "春天过去，画里的花还开着",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "D",
-   "explanation": "唐·王维（传）《画》。",
+   "explanation": "画上的花不会凋谢，所以春天过去了，花还在。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级（上下册通用）",
    "knowledge_point": "上下句",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
    "change_tag": "修改",
@@ -22264,7 +22409,7 @@
      "audio": ""
     },
     {
-     "text": "唐·王维（传）",
+     "text": "唐·王维",
      "image": "",
      "audio": ""
     },
@@ -22286,6 +22431,7 @@
    "volume": "一年级（上下册通用）",
    "knowledge_point": "作者",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
    "change_tag": "修改",
@@ -22899,37 +23045,38 @@
    "textbook": "统编版",
    "unit": "《春晓》",
    "type": "选择",
-   "question": "《春晓》：“夜来风雨声”的下一句是？",
-   "tts_text": "春晓，夜来风雨声，下一句是什么",
+   "question": "《春晓》写的是哪个季节的早晨？",
+   "tts_text": "春晓写的是哪个季节的早晨？",
    "options": [
     {
-     "text": "谁知盘中餐",
+     "text": "夏天",
      "image": "",
      "audio": ""
     },
     {
-     "text": "花落知多少",
+     "text": "春天",
      "image": "",
      "audio": ""
     },
     {
-     "text": "偷采白莲回",
+     "text": "秋天",
      "image": "",
      "audio": ""
     },
     {
-     "text": "近听水无声",
+     "text": "冬天",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "B",
-   "explanation": "唐·孟浩然《春晓》。",
+   "explanation": "“春晓”就是春天的早晨。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级（上下册通用）",
    "knowledge_point": "上下句",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
    "change_tag": "修改",
@@ -23221,37 +23368,38 @@
    "textbook": "统编版",
    "unit": "《静夜思》",
    "type": "选择",
-   "question": "《静夜思》：“举头望明月”的下一句是？",
-   "tts_text": "静夜思，举头望明月，下一句是什么",
+   "question": "《静夜思》里，诗人是在什么时候想念故乡的？",
+   "tts_text": "静夜思里，诗人是在什么时候想念故乡的？",
    "options": [
     {
-     "text": "低头思故乡",
+     "text": "夜里看到月光时",
      "image": "",
      "audio": ""
     },
     {
-     "text": "松下问童子",
+     "text": "早上太阳升起时",
      "image": "",
      "audio": ""
     },
     {
-     "text": "春眠不觉晓",
+     "text": "中午坐在院子里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "处处闻啼鸟",
+     "text": "下大雨的时候",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "A",
-   "explanation": "唐·李白《静夜思》。",
+   "explanation": "诗人夜里看到床前的月光，抬头望月，低头思念故乡。",
    "difficulty": 1,
    "source": "AI",
    "volume": "一年级（上下册通用）",
    "knowledge_point": "上下句",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T41f99a",
    "change_tag": "修改",
@@ -23962,12 +24110,12 @@
      "audio": ""
     },
     {
-     "text": "自己挖井",
+     "text": "以后都自己去挖井",
      "image": "",
      "audio": ""
     },
     {
-     "text": "饮水思源，不忘别人的帮助",
+     "text": "不忘别人的帮助",
      "image": "",
      "audio": ""
     },
@@ -24066,7 +24214,7 @@
      "audio": ""
     },
     {
-     "text": "提手旁（扌）",
+     "text": "提手旁",
      "image": "",
      "audio": ""
     }
@@ -24162,7 +24310,7 @@
      "audio": ""
     },
     {
-     "text": "低头吃草",
+     "text": "低着头在河边吃草",
      "image": "",
      "audio": ""
     },
@@ -24306,7 +24454,7 @@
      "audio": ""
     },
     {
-     "text": "农民在晚上收稻子",
+     "text": "农民在傍晚的田里收稻子",
      "image": "",
      "audio": ""
     },
@@ -24397,7 +24545,7 @@
      "audio": ""
     },
     {
-     "text": "莲叶很小",
+     "text": "莲叶又小又稀少",
      "image": "",
      "audio": ""
     },
@@ -25113,7 +25261,7 @@
      "audio": ""
     },
     {
-     "text": "写李白怕水",
+     "text": "写桃花潭的水真有千尺深",
      "image": "",
      "audio": ""
     },
@@ -25257,7 +25405,7 @@
    "tts_text": "池上中的小娃是一个怎样的孩子？",
    "options": [
     {
-     "text": "胆小怕事",
+     "text": "胆小怕事、不爱说话",
      "image": "",
      "audio": ""
     },
@@ -26346,8 +26494,8 @@
    "textbook": "统编版",
    "unit": "一上·第七单元·两件宝",
    "type": "判断",
-   "question": "《两件宝》说，我们的两件宝是眼睛和耳朵。",
-   "tts_text": "两件宝说，我们的两件宝是眼睛和耳朵。",
+   "question": "《两件宝》这首儿歌说，我们的两件宝是眼睛和耳朵。",
+   "tts_text": "两件宝这首儿歌说，我们的两件宝是眼睛和耳朵。",
    "answer": "错",
    "explanation": "错。“人有两件宝，双手和大脑”。",
    "difficulty": 1,
@@ -26460,7 +26608,7 @@
      "audio": ""
     },
     {
-     "text": "只看别人做",
+     "text": "只看别人怎么做",
      "image": "",
      "audio": ""
     },
@@ -26493,8 +26641,8 @@
    "textbook": "统编版",
    "unit": "一上·第七单元·小小的船",
    "type": "判断",
-   "question": "《小小的船》里，“我”坐在小河里的木船上。",
-   "tts_text": "小小的船里，“我”坐在小河里的木船上。",
+   "question": "《小小的船》里，“我”坐在小河里的一条木船上。",
+   "tts_text": "小小的船里，“我”坐在小河里的一条木船上。",
    "answer": "错",
    "explanation": "错。“我”坐在弯弯的月儿上，弯弯的月儿像小小的船。",
    "difficulty": 1,
@@ -27246,8 +27394,8 @@
    "textbook": "统编版",
    "unit": "一上·第五单元·江南",
    "type": "判断",
-   "question": "“江南可采莲”的下一句是“鱼戏莲叶间”。",
-   "tts_text": "“江南可采莲”的下一句是“鱼戏莲叶间”。",
+   "question": "汉乐府《江南》里，“江南可采莲”的下一句是“鱼戏莲叶间”。",
+   "tts_text": "汉乐府江南里，“江南可采莲”的下一句是“鱼戏莲叶间”。",
    "answer": "错",
    "explanation": "错。“江南可采莲”的下一句是“莲叶何田田”，“鱼戏莲叶间”在后面。",
    "difficulty": 1,
@@ -27410,7 +27558,7 @@
      "audio": ""
     },
     {
-     "text": "下雪了",
+     "text": "下起了大雪，冷冰冰",
      "image": "",
      "audio": ""
     },
@@ -28215,7 +28363,7 @@
      "audio": ""
     },
     {
-     "text": "长篇小说",
+     "text": "大人的长篇小说",
      "image": "",
      "audio": ""
     }
@@ -28485,7 +28633,7 @@
      "audio": ""
     },
     {
-     "text": "偷看答案",
+     "text": "偷偷看谜底答案",
      "image": "",
      "audio": ""
     },
@@ -28737,7 +28885,7 @@
      "audio": ""
     },
     {
-     "text": "乱丢在地上",
+     "text": "乱丢在教室地上",
      "image": "",
      "audio": ""
     }
@@ -28857,7 +29005,7 @@
      "audio": ""
     },
     {
-     "text": "一个人看书",
+     "text": "一个人安静地看书",
      "image": "",
      "audio": ""
     },
@@ -29093,7 +29241,7 @@
    "tts_text": "毛主席带领大家挖井，是为了？",
    "options": [
     {
-     "text": "好看",
+     "text": "让村子变得好看",
      "image": "",
      "audio": ""
     },
@@ -29108,7 +29256,7 @@
      "audio": ""
     },
     {
-     "text": "让乡亲们喝上干净的水",
+     "text": "让乡亲们有水喝",
      "image": "",
      "audio": ""
     }
@@ -29580,7 +29728,7 @@
    "tts_text": "下课时到操场上活动，要注意？",
    "options": [
     {
-     "text": "去爬高墙",
+     "text": "去爬高高的围墙",
      "image": "",
      "audio": ""
     },
@@ -30458,7 +30606,7 @@
    "tts_text": "正方形的 4 条边怎么样？",
    "options": [
     {
-     "text": "只有 2 条一样长",
+     "text": "两条长、两条短",
      "image": "",
      "audio": ""
     },
@@ -30473,7 +30621,7 @@
      "audio": ""
     },
     {
-     "text": "都一样长",
+     "text": "一定都一样长",
      "image": "",
      "audio": ""
     }
@@ -30485,6 +30633,7 @@
    "volume": "一年级下册",
    "knowledge_point": "图形的初步认识（二）",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Td46f4c",
    "change_tag": "新增",
@@ -31652,7 +31801,7 @@
      "audio": ""
     },
     {
-     "text": "饭碗里",
+     "text": "农民的饭碗里",
      "image": "",
      "audio": ""
     },
@@ -31669,6 +31818,7 @@
    "volume": "一年级（上下册通用）",
    "knowledge_point": "《悯农（其二）》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Ta6ac33",
    "change_tag": "新增",
@@ -33783,12 +33933,12 @@
    "tts_text": "“田”字像什么？",
    "options": [
     {
-     "text": "一座高山",
+     "text": "一座高高的山",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一块块方方的田地",
+     "text": "方方的田地",
      "image": "",
      "audio": ""
     },
@@ -33810,6 +33960,7 @@
    "volume": "一年级上册",
    "knowledge_point": "日月山川",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T8870d6",
    "change_tag": "新增",
@@ -34868,7 +35019,7 @@
      "audio": ""
     },
     {
-     "text": "wè",
+     "text": "yuě",
      "image": "",
      "audio": ""
     },
@@ -34885,6 +35036,7 @@
    "volume": "一年级上册",
    "knowledge_point": "y w",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tb16d7e",
    "change_tag": "新增",
@@ -35474,8 +35626,8 @@
    "textbook": "统编版",
    "unit": "一上·第五单元·四季",
    "type": "判断",
-   "question": "《四季》里，谷穗对小鸟说：“我是秋天。”",
-   "tts_text": "四季里，谷穗对小鸟说：“我是秋天。”",
+   "question": "《四季》里，弯弯的谷穗对小鸟说：“我是秋天。”",
+   "tts_text": "四季里，弯弯的谷穗对小鸟说：“我是秋天。”",
    "answer": "错",
    "explanation": "谷穗弯弯，他鞠着躬说：“我是秋天。”对小鸟说话的是草芽。",
    "difficulty": 1,
@@ -35483,6 +35635,7 @@
    "volume": "一年级上册",
    "knowledge_point": "四季",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1cd504",
    "change_tag": "新增",
@@ -35677,7 +35830,7 @@
      "audio": ""
     },
     {
-     "text": "唐诗",
+     "text": "唐代绝句",
      "image": "",
      "audio": ""
     },
@@ -35699,6 +35852,7 @@
    "volume": "一年级上册",
    "knowledge_point": "江南",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T114c68",
    "change_tag": "新增",
@@ -35780,7 +35934,7 @@
      "audio": ""
     },
     {
-     "text": "它去找妈妈了",
+     "text": "它去河边找妈妈了",
      "image": "",
      "audio": ""
     },
@@ -35797,6 +35951,7 @@
    "volume": "一年级上册",
    "knowledge_point": "雪地里的小画家",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T65fbcb",
    "change_tag": "新增",
@@ -36289,7 +36444,7 @@
      "audio": ""
     },
     {
-     "text": "小红旗",
+     "text": "八一军旗",
      "image": "",
      "audio": ""
     }
@@ -36301,6 +36456,7 @@
    "volume": "一年级上册",
    "knowledge_point": "升国旗",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T1beb7b",
    "change_tag": "新增",
@@ -36996,7 +37152,7 @@
    "tts_text": "乌鸦为什么一开始喝不着水？",
    "options": [
     {
-     "text": "瓶子里水不多，瓶口又小",
+     "text": "水少，瓶口又小",
      "image": "",
      "audio": ""
     },
@@ -37011,7 +37167,7 @@
      "audio": ""
     },
     {
-     "text": "水太烫",
+     "text": "瓶子里的水太烫了",
      "image": "",
      "audio": ""
     }
@@ -37023,6 +37179,7 @@
    "volume": "一年级上册",
    "knowledge_point": "乌鸦喝水",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T23ba63",
    "change_tag": "新增",
@@ -37145,7 +37302,7 @@
      "audio": ""
     },
     {
-     "text": "开出了红的花，长出了绿的草",
+     "text": "开出了花，长出了草",
      "image": "",
      "audio": ""
     },
@@ -37155,7 +37312,7 @@
      "audio": ""
     },
     {
-     "text": "还是什么也没有",
+     "text": "还是什么花草也没有",
      "image": "",
      "audio": ""
     }
@@ -37167,6 +37324,7 @@
    "volume": "一年级上册",
    "knowledge_point": "雨点儿",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T7c3434",
    "change_tag": "新增",
@@ -37775,7 +37933,7 @@
      "audio": ""
     },
     {
-     "text": "边看边吃东西",
+     "text": "边看书边吃东西",
      "image": "",
      "audio": ""
     }
@@ -37787,6 +37945,7 @@
    "volume": "一年级下册",
    "knowledge_point": "快乐读书吧",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T07c09c",
    "change_tag": "新增",
@@ -37872,7 +38031,7 @@
      "audio": ""
     },
     {
-     "text": "撕下喜欢的图片",
+     "text": "撕下自己喜欢的图片贴起来",
      "image": "",
      "audio": ""
     }
@@ -37884,6 +38043,7 @@
    "volume": "一年级下册",
    "knowledge_point": "快乐读书吧",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4a7820",
    "change_tag": "新增",
@@ -38049,7 +38209,7 @@
      "audio": ""
     },
     {
-     "text": "老师们",
+     "text": "学校的老师们",
      "image": "",
      "audio": ""
     },
@@ -38060,6 +38220,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y1-677",
    "subject": "语文",
    "grade": 1,
@@ -38142,7 +38303,7 @@
      "audio": ""
     },
     {
-     "text": "下雨时接水",
+     "text": "下雨时用水缸接雨水",
      "image": "",
      "audio": ""
     },
@@ -38158,6 +38319,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "Y1-680",
    "subject": "语文",
    "grade": 1,
@@ -38232,8 +38394,8 @@
    "textbook": "统编版",
    "unit": "一下·第三单元·日积月累 赠汪伦",
    "type": "判断",
-   "question": "《赠汪伦》里，汪伦是在山顶上为李白送行的。",
-   "tts_text": "赠汪伦里，汪伦是在山顶上为李白送行的。",
+   "question": "《赠汪伦》里，汪伦是在高高的山顶上为李白送行的。",
+   "tts_text": "赠汪伦里，汪伦是在高高的山顶上为李白送行的。",
    "answer": "错",
    "explanation": "错。“忽闻岸上踏歌声”，汪伦是在岸边踏着节拍唱歌为李白送行的。",
    "difficulty": 2,
@@ -38368,7 +38530,7 @@
      "audio": ""
     },
     {
-     "text": "让小公鸡坐在自己的背上",
+     "text": "让它坐在背上",
      "image": "",
      "audio": ""
     },
@@ -38385,6 +38547,7 @@
    "volume": "一年级下册",
    "knowledge_point": "小公鸡和小鸭子",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T69f573",
    "change_tag": "新增",
@@ -38589,8 +38752,8 @@
    "textbook": "统编版",
    "unit": "一下·第三单元·怎么都快乐",
    "type": "判断",
-   "question": "课文里说，讲故事一个人就行，不用有人听。",
-   "tts_text": "课文里说，讲故事一个人就行，不用有人听。",
+   "question": "课文里说，讲故事只要一个人就行，不用别人来听。",
+   "tts_text": "课文里说，讲故事只要一个人就行，不用别人来听。",
    "answer": "错",
    "explanation": "错。课文说两个人玩的时候，“讲故事得有人听才行”。",
    "difficulty": 1,
@@ -39543,7 +39706,7 @@
      "audio": ""
     },
     {
-     "text": "黑黑的",
+     "text": "黑黝黝的",
      "image": "",
      "audio": ""
     },
@@ -39560,6 +39723,7 @@
    "volume": "一年级下册",
    "knowledge_point": "荷叶圆圆",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T55226a",
    "change_tag": "新增",
@@ -39645,7 +39809,7 @@
      "audio": ""
     },
     {
-     "text": "一颗颗小水珠",
+     "text": "一颗颗亮晶晶的小水珠",
      "image": "",
      "audio": ""
     }
@@ -39657,6 +39821,7 @@
    "volume": "一年级下册",
    "knowledge_point": "荷叶圆圆",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T33d874",
    "change_tag": "新增",
@@ -40218,7 +40383,7 @@
      "audio": ""
     },
     {
-     "text": "开会要带什么",
+     "text": "开会要带什么东西",
      "image": "",
      "audio": ""
     }
@@ -40230,6 +40395,7 @@
    "volume": "一年级下册",
    "knowledge_point": "动物王国开大会",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Te50b7a",
    "change_tag": "新增",

@@ -1,5 +1,5 @@
 // r16.2：题库 v51 的 17 道数字键盘修正（src/v51/numeric.tsv）在游戏的数字键盘上按得出来、判得对。
-//  r16.2 没有换到 v51（见 STATUS.md），所以读题库源目录（BANK_SRC，默认 /workspace/questions）；源不在 / 还没到 v51（CI）时跳过。
+//  读题库源目录（BANK_SRC，默认 /workspace/questions；含初三 C9-108）；源不在 / 还没到 v51（CI）时跳过。游戏内置题库（v51）的同一批题见 tests/r162v51。
 import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { loadBank, judge, type Question } from '../src/game/questions';

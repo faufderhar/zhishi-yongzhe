@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高二-v50（AI初审）",
- "version": "v50",
+ "bank_name": "三兄妹题库-高二-v51（AI初审）",
+ "version": "v51",
  "questions": [
   {
    "id": "Y11-001",
@@ -16386,7 +16386,7 @@
      "audio": ""
     },
     {
-     "text": "$x-y+1=0$",
+     "text": "$x+y-5=0$ 或 $x-y+1=0$",
      "image": "",
      "audio": ""
     }
@@ -16400,6 +16400,7 @@
    "game_ready": true,
    "template": "Tdbb128",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "直线的方程"
    ]
@@ -17858,7 +17859,7 @@
      "audio": ""
     },
     {
-     "text": "$x-4y+7=0$",
+     "text": "$4x+y-6=0$ 或 $x-4y+7=0$",
      "image": "",
      "audio": ""
     },
@@ -17877,6 +17878,7 @@
    "game_ready": true,
    "template": "Tf45e97",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "平面上的距离"
    ]
@@ -21020,7 +21022,7 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "8",
+     "text": "8 或 18",
      "image": "",
      "audio": ""
     },
@@ -21049,6 +21051,7 @@
    "game_ready": true,
    "template": "Tbb9532",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "双曲线"
    ]
@@ -21399,7 +21402,7 @@
      "audio": ""
     },
     {
-     "text": "0",
+     "text": "$0$ 或 $\\pm1$",
      "image": "",
      "audio": ""
     },
@@ -21423,6 +21426,7 @@
    "game_ready": true,
    "template": "T488092",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "双曲线"
    ]
@@ -25289,7 +25293,7 @@
      "audio": ""
     },
     {
-     "text": "$(2,8)$",
+     "text": "$(1,0)$ 或 $(2,8)$",
      "image": "",
      "audio": ""
     },
@@ -25309,6 +25313,7 @@
    "template": "T0bcb36",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -40921,10 +40926,9 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第二单元 化学反应的方向与限度",
    "type": "填空",
-   "question": "某温度下反应 $\\ce{CO(g) + H2O(g) <=> CO2(g) + H2(g)}$ 的 K=1，起始 CO 与 $\\ce{H2O}$ 浓度都为 1 mol/L，平衡时 CO 的转化率为？",
+   "question": "某温度下反应 $\\ce{CO(g) + H2O(g) <=> CO2(g) + H2(g)}$ 的 K=1，起始 CO 与 $\\ce{H2O}$ 浓度都为 1 mol/L，平衡时 CO 的转化率为____%。",
    "tts_text": "-",
    "answer": [
-    "50%",
     "50"
    ],
    "explanation": "设转化 x，$\\frac{x^2}{(1-x)^2}=1$，x=0.5。",
@@ -40936,6 +40940,7 @@
    "template": "T60c475",
    "change_tag": "新增",
    "input_type": "numeric",
+   "review_changed": "是",
    "tags": [
     "第二单元 化学反应的方向与限度"
    ]
@@ -41848,10 +41853,9 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第三单元 化学平衡的移动",
    "type": "填空",
-   "question": "某温度下 $\\ce{CO(g) + H2O(g) <=> CO2(g) + H2(g)}$ 的 K=9，起始 CO 和 $\\ce{H2O}$ 的浓度都为 0.02 mol/L，平衡时 CO 的转化率为？",
+   "question": "某温度下 $\\ce{CO(g) + H2O(g) <=> CO2(g) + H2(g)}$ 的 K=9，起始 CO 和 $\\ce{H2O}$ 的浓度都为 0.02 mol/L，平衡时 CO 的转化率为____%。",
    "tts_text": "-",
    "answer": [
-    "75%",
     "75"
    ],
    "explanation": "$\\frac{x^2}{(0.02-x)^2}=9$，$x=0.015$。",
@@ -41864,6 +41868,7 @@
    "usage": "boss",
    "change_tag": "新增",
    "input_type": "numeric",
+   "review_changed": "是",
    "tags": [
     "第三单元 化学平衡的移动"
    ]
@@ -42960,7 +42965,7 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "只能是 1",
+     "text": "1 或 7",
      "image": "",
      "audio": ""
     },
@@ -42989,6 +42994,7 @@
    "game_ready": true,
    "template": "T7991c3",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "第二单元 溶液的酸碱性"
    ]
@@ -44589,7 +44595,7 @@
      "audio": ""
     },
     {
-     "text": "化学键或官能团",
+     "text": "化学键和官能团",
      "image": "",
      "audio": ""
     }
@@ -44603,6 +44609,7 @@
    "game_ready": true,
    "template": "Ta71579",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "专题1 揭示物质结构的奥秘"
    ]
@@ -46829,7 +46836,7 @@
      "audio": ""
     },
     {
-     "text": "熔融状态或水溶液中",
+     "text": "熔融状态和水溶液中",
      "image": "",
      "audio": ""
     },
@@ -46848,6 +46855,7 @@
    "game_ready": true,
    "template": "T71a056",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "第二单元 离子键 离子晶体"
    ]
@@ -55811,7 +55819,7 @@
      "audio": ""
     },
     {
-     "text": "抑制病原体增殖或黏附",
+     "text": "抑制病原体的增殖和对人体细胞的黏附",
      "image": "",
      "audio": ""
     }
@@ -61570,7 +61578,7 @@
      "audio": ""
     },
     {
-     "text": "挖洞或快速奔跑",
+     "text": "善于挖洞、快速奔跑",
      "image": "",
      "audio": ""
     },
@@ -61594,6 +61602,7 @@
    "game_ready": true,
    "template": "T09dd1d",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "群落的主要类型"
    ]
@@ -63264,9 +63273,8 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "unit": "选择性必修2·第3章 生态系统及其稳定性·第2节 生态系统的能量流动",
    "type": "填空",
-   "question": "某生态系统中第二营养级的同化量为 100 kJ，第三营养级的同化量为 15 kJ，两者之间的能量传递效率为？",
+   "question": "某生态系统中第二营养级的同化量为 100 kJ，第三营养级的同化量为 15 kJ，两者之间的能量传递效率为____%。",
    "answer": [
-    "15%",
     "15"
    ],
    "explanation": "$\\frac{15}{100}\\times100\\%$。",
@@ -63278,6 +63286,7 @@
    "template": "Tecdc38",
    "change_tag": "新增",
    "input_type": "numeric",
+   "review_changed": "是",
    "tags": [
     "生态系统的能量流动"
    ]
@@ -88316,7 +88325,7 @@
      "audio": ""
     },
     {
-     "text": "终年受赤道低气压带控制",
+     "text": "终年受赤道低气压带或极地高气压带控制",
      "image": "",
      "audio": ""
     }
@@ -109480,7 +109489,7 @@
    "question": "当事人订立合同的形式有？",
    "options": [
     {
-     "text": "书面、口头或其他形式",
+     "text": "书面、口头和其他形式",
      "image": "",
      "audio": ""
     },
@@ -110270,7 +110279,7 @@
      "audio": ""
     },
     {
-     "text": "饲养人或管理人",
+     "text": "动物的饲养人、管理人",
      "image": "",
      "audio": ""
     }
@@ -111370,7 +111379,7 @@
      "audio": ""
     },
     {
-     "text": "直系血亲或者三代以内的旁系血亲",
+     "text": "直系血亲和三代以内的旁系血亲",
      "image": "",
      "audio": ""
     }
@@ -111384,6 +111393,7 @@
    "game_ready": true,
    "template": "T58ce0f",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "珍惜婚姻关系"
    ]
@@ -125230,7 +125240,7 @@
    "question": "动量守恒定律成立的条件是？",
    "options": [
     {
-     "text": "系统内只有重力做功",
+     "text": "系统内只有重力或弹力做功",
      "image": "",
      "audio": ""
     },
@@ -125259,6 +125269,7 @@
    "game_ready": true,
    "template": "Tbadc45",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动量守恒定律"
    ]
@@ -127243,7 +127254,7 @@
      "audio": ""
     },
     {
-     "text": "正弦（或余弦）曲线",
+     "text": "正弦式曲线",
      "image": "",
      "audio": ""
     },
@@ -127267,6 +127278,7 @@
    "game_ready": true,
    "template": "T5046f3",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "简谐运动"
    ]

@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园中班-v50（AI初审）",
- "version": "v50",
+ "bank_name": "三兄妹题库-幼儿园中班-v51（AI初审）",
+ "version": "v51",
  "questions": [
   {
    "id": "K2N-001",
@@ -3859,7 +3859,7 @@
    "tts_text": "苹果、香蕉、小汽车，哪个和别的不一样？",
    "options": [
     {
-     "text": "🍌 香蕉",
+     "text": "🍌 黄香蕉",
      "image": "",
      "audio": ""
     },
@@ -3869,7 +3869,7 @@
      "audio": ""
     },
     {
-     "text": "🍎 苹果",
+     "text": "🍎 红苹果",
      "image": "",
      "audio": ""
     }
@@ -3884,6 +3884,7 @@
    "template": "T857f29",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "图形找朋友"
    ]
@@ -4064,7 +4065,7 @@
    "tts_text": "长方形的车身，下面加两个圆形的轮子，拼出了什么？",
    "options": [
     {
-     "text": "🏠 房子",
+     "text": "🏠 小房子",
      "image": "",
      "audio": ""
     },
@@ -4074,7 +4075,7 @@
      "audio": ""
     },
     {
-     "text": "⛄ 雪人",
+     "text": "⛄ 小雪人",
      "image": "",
      "audio": ""
     }
@@ -4588,7 +4589,7 @@
    "tts_text": "生活里，大树的树干、筷子、铅笔，哪个最粗？",
    "options": [
     {
-     "text": "🌳 大树的树干",
+     "text": "🌳 树干",
      "image": "",
      "audio": ""
     },
@@ -5507,7 +5508,7 @@
      "audio": ""
     },
     {
-     "text": "🐶 小狗",
+     "text": "🐶 小花狗",
      "image": "",
      "audio": ""
     }
@@ -5522,6 +5523,7 @@
    "template": "Teaef23",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "在哪里"
    ]
@@ -5860,7 +5862,7 @@
      "audio": ""
     },
     {
-     "text": "能改变身体的颜色",
+     "text": "会变颜色",
      "image": "",
      "audio": ""
     }
@@ -5874,6 +5876,7 @@
    "game_ready": true,
    "template": "T53d840",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物的样子和本领"
    ]
@@ -5889,17 +5892,17 @@
    "tts_text": "啄木鸟有什么本领？",
    "options": [
     {
-     "text": "在地下挖洞",
+     "text": "在地底下挖洞住",
      "image": "",
      "audio": ""
     },
     {
-     "text": "用嘴巴啄开树皮，吃里面的虫子",
+     "text": "啄开树皮吃虫子",
      "image": "",
      "audio": ""
     },
     {
-     "text": "在水里游泳",
+     "text": "在水里游来游去",
      "image": "",
      "audio": ""
     }
@@ -5913,6 +5916,7 @@
    "game_ready": true,
    "template": "T103e7b",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物的样子和本领"
    ]
@@ -5967,7 +5971,7 @@
    "tts_text": "萤火虫到了晚上会怎么样？",
    "options": [
     {
-     "text": "变成蝴蝶",
+     "text": "变成一只蝴蝶",
      "image": "",
      "audio": ""
     },
@@ -5991,6 +5995,7 @@
    "game_ready": true,
    "template": "T003301",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物的样子和本领"
    ]
@@ -6203,7 +6208,7 @@
    "tts_text": "小羊羔的妈妈是谁？",
    "options": [
     {
-     "text": "🐷 小猪",
+     "text": "🐷 猪妈妈",
      "image": "",
      "audio": ""
     },
@@ -6213,7 +6218,7 @@
      "audio": ""
     },
     {
-     "text": "🐮 奶牛",
+     "text": "🐮 牛妈妈",
      "image": "",
      "audio": ""
     }
@@ -6227,6 +6232,7 @@
    "game_ready": true,
    "template": "T2561a4",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物宝宝和妈妈"
    ]
@@ -6242,12 +6248,12 @@
    "tts_text": "小马驹的妈妈是谁？",
    "options": [
     {
-     "text": "🐮 奶牛",
+     "text": "🐮 牛妈妈",
      "image": "",
      "audio": ""
     },
     {
-     "text": "🐶 小狗",
+     "text": "🐶 狗妈妈",
      "image": "",
      "audio": ""
     },
@@ -6266,6 +6272,7 @@
    "game_ready": true,
    "template": "T3bb214",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物宝宝和妈妈"
    ]
@@ -6281,7 +6288,7 @@
    "tts_text": "小牛犊的妈妈是谁？",
    "options": [
     {
-     "text": "🐑 羊",
+     "text": "🐑 羊妈妈",
      "image": "",
      "audio": ""
     },
@@ -6291,7 +6298,7 @@
      "audio": ""
     },
     {
-     "text": "🐴 马",
+     "text": "🐴 马妈妈",
      "image": "",
      "audio": ""
     }
@@ -6305,6 +6312,7 @@
    "game_ready": true,
    "template": "Ta82b37",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物宝宝和妈妈"
    ]
@@ -6878,7 +6886,7 @@
      "audio": ""
     },
     {
-     "text": "在天上飞",
+     "text": "在天上飞来飞去",
      "image": "",
      "audio": ""
     }
@@ -6892,6 +6900,7 @@
    "game_ready": true,
    "template": "T1804af",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "会飞会游会跑"
    ]
@@ -6907,7 +6916,7 @@
    "tts_text": "鸭子会做什么？",
    "options": [
     {
-     "text": "会织网",
+     "text": "会像蜘蛛一样织网",
      "image": "",
      "audio": ""
     },
@@ -6917,7 +6926,7 @@
      "audio": ""
     },
     {
-     "text": "会爬树",
+     "text": "会爬到高高的树上",
      "image": "",
      "audio": ""
     }
@@ -6931,6 +6940,7 @@
    "game_ready": true,
    "template": "Tf269a1",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "会飞会游会跑"
    ]
@@ -7304,17 +7314,17 @@
    "tts_text": "在商场里和爸爸妈妈走散了，要怎么做？",
    "options": [
     {
-     "text": "自己跑出去找",
+     "text": "一个人跑到商场外面去找",
      "image": "",
      "audio": ""
     },
     {
-     "text": "跟不认识的人走",
+     "text": "跟陌生人走或到处乱跑",
      "image": "",
      "audio": ""
     },
     {
-     "text": "找商场工作人员或警察帮忙",
+     "text": "找工作人员或警察帮忙",
      "image": "",
      "audio": ""
     }
@@ -7328,6 +7338,7 @@
    "game_ready": true,
    "template": "T70406b",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "安全小卫士"
    ]
@@ -7339,8 +7350,8 @@
    "grade": "K2",
    "unit": "安全小卫士",
    "type": "判断",
-   "question": "坐汽车时，要坐在儿童安全座椅上，系好安全带。",
-   "tts_text": "坐汽车时，要坐在儿童安全座椅上，系好安全带。",
+   "question": "坐汽车时，要坐安全座椅，系好安全带。",
+   "tts_text": "坐汽车时，要坐安全座椅，系好安全带。",
    "answer": "对",
    "explanation": "安全座椅和安全带能保护我们。",
    "difficulty": 1,
@@ -7350,6 +7361,7 @@
    "game_ready": true,
    "template": "Tfd1560",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "安全小卫士"
    ]
@@ -7500,8 +7512,8 @@
    "grade": "K2",
    "unit": "安全小卫士",
    "type": "判断",
-   "question": "打雷下雨的时候，可以躲到大树下面。",
-   "tts_text": "打雷下雨的时候，可以躲到大树下面。",
+   "question": "打雷下雨的时候，可以躲到外面高高的大树下面避雨。",
+   "tts_text": "打雷下雨的时候，可以躲到外面高高的大树下面避雨。",
    "answer": "错",
    "explanation": "打雷时躲在大树下容易被雷击，要躲进房子里。",
    "difficulty": 2,
@@ -7511,6 +7523,7 @@
    "game_ready": true,
    "template": "T355307",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "安全小卫士"
    ]
@@ -7526,7 +7539,7 @@
    "tts_text": "一个人在家，有不认识的人敲门，要怎么做？",
    "options": [
     {
-     "text": "不开门，打电话告诉爸爸妈妈",
+     "text": "不开门，告诉爸爸妈妈",
      "image": "",
      "audio": ""
     },
@@ -7536,7 +7549,7 @@
      "audio": ""
     },
     {
-     "text": "马上开门",
+     "text": "马上开门，请他进来坐",
      "image": "",
      "audio": ""
     }
@@ -7550,6 +7563,7 @@
    "game_ready": true,
    "template": "Tb3789b",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "安全小卫士"
    ]
@@ -7655,7 +7669,7 @@
      "audio": ""
     },
     {
-     "text": "🧼 肥皂或洗手液",
+     "text": "🧼 肥皂",
      "image": "",
      "audio": ""
     },
@@ -7674,6 +7688,7 @@
    "game_ready": true,
    "template": "T67a7ea",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "健康好习惯"
    ]
@@ -7894,12 +7909,12 @@
    "tts_text": "看电视看久了，眼睛累了，可以怎么做？",
    "options": [
     {
-     "text": "一直看下去",
+     "text": "一直看下去不休息",
      "image": "",
      "audio": ""
     },
     {
-     "text": "凑得更近看",
+     "text": "揉一揉眼睛接着看",
      "image": "",
      "audio": ""
     },
@@ -7918,6 +7933,7 @@
    "game_ready": true,
    "template": "Td98e80",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "健康好习惯"
    ]
@@ -8415,12 +8431,12 @@
      "audio": ""
     },
     {
-     "text": "下过雨，太阳出来的时候",
+     "text": "雨后出太阳的时候",
      "image": "",
      "audio": ""
     },
     {
-     "text": "下大雪的时候",
+     "text": "刮大风、下大雪的时候",
      "image": "",
      "audio": ""
     }
@@ -8434,6 +8450,7 @@
    "game_ready": true,
    "template": "T1756b1",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "四季和天气"
    ]
@@ -8529,12 +8546,12 @@
    "tts_text": "夏天太阳很晒，出门要戴什么？",
    "options": [
     {
-     "text": "🧤 手套",
+     "text": "🧤 厚手套",
      "image": "",
      "audio": ""
     },
     {
-     "text": "🧣 围巾",
+     "text": "🧣 毛围巾",
      "image": "",
      "audio": ""
     },
@@ -8553,6 +8570,7 @@
    "game_ready": true,
    "template": "Tdabd5c",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "四季和天气"
    ]
@@ -8884,12 +8902,12 @@
    "tts_text": "快递员的工作是什么？",
    "options": [
     {
-     "text": "把包裹送到大家手里",
+     "text": "给大家送包裹",
      "image": "",
      "audio": ""
     },
     {
-     "text": "开飞机",
+     "text": "开着飞机在天上飞",
      "image": "",
      "audio": ""
     },
@@ -8908,6 +8926,7 @@
    "game_ready": true,
    "template": "T42c439",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "大家的工作"
    ]
@@ -8962,7 +8981,7 @@
    "tts_text": "环卫工人每天做什么？",
    "options": [
     {
-     "text": "做蛋糕",
+     "text": "在面包店做蛋糕",
      "image": "",
      "audio": ""
     },
@@ -8972,7 +8991,7 @@
      "audio": ""
     },
     {
-     "text": "打扫街道，让城市干干净净",
+     "text": "打扫街道",
      "image": "",
      "audio": ""
     }
@@ -8986,6 +9005,7 @@
    "game_ready": true,
    "template": "T797bba",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "大家的工作"
    ]
@@ -9208,7 +9228,7 @@
      "audio": ""
     },
     {
-     "text": "把门儿开开",
+     "text": "春天在那青翠的山林里",
      "image": "",
      "audio": ""
     }
@@ -9223,6 +9243,7 @@
    "template": "T75b6a7",
    "assets_todo": "question_audio audio/k2/K2G-001.m4a（家长朗读/唱，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9363,12 +9384,12 @@
      "audio": ""
     },
     {
-     "text": "我要进来",
+     "text": "小兔子乖乖",
      "image": "",
      "audio": ""
     },
     {
-     "text": "叔叔再见",
+     "text": "叔叔，再见",
      "image": "",
      "audio": ""
     }
@@ -9383,6 +9404,7 @@
    "template": "T8ae522",
    "assets_todo": "question_audio audio/k2/K2G-005.m4a（家长朗读/唱，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9563,7 +9585,7 @@
      "audio": ""
     },
     {
-     "text": "把门儿开开",
+     "text": "轻轻地放在小朋友的后面",
      "image": "",
      "audio": ""
     },
@@ -9583,6 +9605,7 @@
    "template": "T015143",
    "assets_todo": "question_audio audio/k2/K2G-010.m4a（家长朗读/唱，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9688,7 +9711,7 @@
      "audio": ""
     },
     {
-     "text": "找到一个好朋友",
+     "text": "我是一个粉刷匠，粉刷本领强",
      "image": "",
      "audio": ""
     }
@@ -9704,6 +9727,7 @@
    "assets_todo": "question_audio audio/k2/K2G-013.m4a（家长朗读/唱，可用 TTS 代替）",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9880,12 +9904,12 @@
    "tts_text": "“小荷才露尖尖角”，下一句是？",
    "options": [
     {
-     "text": "黄河入海流",
+     "text": "树阴照水爱晴柔",
      "image": "",
      "audio": ""
     },
     {
-     "text": "飞在青云端",
+     "text": "满身雪白走将来",
      "image": "",
      "audio": ""
     },
@@ -9905,6 +9929,7 @@
    "template": "Tff1aac",
    "assets_todo": "question_audio audio/k2/K2G-018.m4a（家长朗读/唱，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "古诗"
    ]
@@ -10362,12 +10387,12 @@
    "tts_text": "《登鹳雀楼》告诉我们，想看得更远，要怎么做？",
    "options": [
     {
-     "text": "往楼下走",
+     "text": "回到楼下的院子里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "闭上眼睛",
+     "text": "把眼睛闭起来想一想",
      "image": "",
      "audio": ""
     },
@@ -10388,6 +10413,7 @@
    "assets_todo": "question_audio audio/k2/K2G-030.m4a（家长朗读/唱，可用 TTS 代替）",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "古诗"
    ]
@@ -10773,7 +10799,7 @@
      "audio": ""
     },
     {
-     "text": "👶 宝宝",
+     "text": "👦 哥哥或弟弟",
      "image": "",
      "audio": ""
     }
@@ -10788,6 +10814,7 @@
    "template": "T808487",
    "assets_todo": "question_audio audio/k2/K2E-010.m4a（英文发音，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "家人"
    ]
@@ -11449,12 +11476,12 @@
    "tts_text": "I have a robot，我有什么？",
    "options": [
     {
-     "text": "🎈 气球",
+     "text": "🎈 大气球",
      "image": "",
      "audio": ""
     },
     {
-     "text": "⛵ 小船",
+     "text": "⛵ 小帆船",
      "image": "",
      "audio": ""
     },
@@ -11475,6 +11502,7 @@
    "assets_todo": "question_audio audio/k2/K2E-027.m4a（英文发音，可用 TTS 代替）",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "玩具"
    ]
@@ -12011,7 +12039,7 @@
    "tts_text": "Let's jump，大家要做什么？",
    "options": [
     {
-     "text": "🎤 唱歌",
+     "text": "🎤 唱儿歌",
      "image": "",
      "audio": ""
     },
@@ -12021,7 +12049,7 @@
      "audio": ""
     },
     {
-     "text": "😴 睡觉",
+     "text": "😴 睡大觉",
      "image": "",
      "audio": ""
     }
@@ -12037,6 +12065,7 @@
    "assets_todo": "question_audio audio/k2/K2E-041.m4a（英文发音，可用 TTS 代替）",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "身体和动作"
    ]

@@ -17,7 +17,7 @@ const CHANGED = ['E5-129', 'H11-123', 'H11-151', 'D11-026', 'Z11-353', 'Z11-382'
 
 describe('r16.2 题库 v50', () => {
   it('发布号 v50；初三 / 大班 / 高三没导入；高二物理强制隐藏', () => {
-    for (const g of BUILTIN_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v50');
+    for (const g of BUILTIN_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v51');   // r16.2：v50 → v51（同 id / 同关卡；tests/r162v51）
     expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual([]); expect(existsSync('public/banks/bank_12.json')).toBe(false);
     expect(all.some(q => /^(C9|P12|D12)-/.test(q.id))).toBe(false);
     expect(FORCE_HIDDEN['11']).toEqual(['物理']);
@@ -50,7 +50,8 @@ describe('r16.2 题库 v50', () => {
     for (const id of CHANGED) { expect(qRev(byId.get(id)!), id).not.toBe(qRev(old(id))); expect(REV_CHANGED_SINCE_R16.has(id), id).toBe(true); }
     for (const id of CHANGED.slice(1)) expect(byId.get(id)!.input_type, id).toBe('numeric');
     const v48 = JSON.parse(readFileSync('tests/fixtures/r161_v48_revchanged.json', 'utf8')) as string[];
-    expect([...REV_CHANGED_SINCE_R16].sort()).toEqual([...new Set([...v48, ...CHANGED])].sort());
+    const v51 = Object.keys(JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.json', 'utf8')));   // r16.2：v51 又改了 626 题（tests/r162v51）
+    expect([...REV_CHANGED_SINCE_R16].sort()).toEqual([...new Set([...v48, ...CHANGED, ...v51])].sort());
   });
   it('错题本：v48 时记下的（带旧 rev）→ 显示「这题后来更新过」，不把旧答案字母对到新选项上；r16 前的旧记录（没有 rev）也一样', () => {
     for (const id of CHANGED) { const q = byId.get(id)!, o = old(id);

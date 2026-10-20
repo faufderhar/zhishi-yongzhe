@@ -56,3 +56,7 @@ Intended for the 知识勇者 family learning game (non-commercial family use). 
 ## r16 — final pack for bank v45 (generated 2026-10-19 17:42 PDT, 音频设计)
 - Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3253 keys / 1862 mp3 (16.93 MB); pack banks K1 v34 · K2 v44 · K3 v45 (game bank v45; K1/K2 text unchanged since v44)
 - Re-recorded for 大班 v45: K3D-018, K3L-011, K3N-025 stems (3 old files removed). 大班 stays hidden in r16
+
+## r16.2 — pack for bank v51 (generated 2026-10-19 23:50 PDT, 音频设计)
+- Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3253 keys / 1896 mp3 (17.19 MB); pack label K1 v51 · K2 v51 · K3 v51 (game bank v51)
+- 106 keys re-recorded (K1 19, K2 52, K3 35; mostly option text from the v51 option-bias fixes; list: /workspace/tts/analysis/v51_changes.md); 82 new files, 48 old files removed. Same model / voices / speed / post chain as above; pron additions 鱼干 / 小鱼干 / 高高的 / 掉光光

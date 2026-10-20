@@ -22,14 +22,17 @@ const isNew47 = (q: { id: string; grade: string; subject: string }) => NEW47.has
 const NEW50 = new Set(['E5-156', 'E5-157', 'E5-158', 'E5-159', 'E5-160', 'E6-158', 'E6-159', 'E6-160', 'E6-161', 'E6-162', 'Y6-470', 'Y6-471', 'Y6-472', 'Y6-473', 'Y6-474', 'Y6-475', 'Y6-476', 'Y6-477']);
 const isNew50 = (q: { id: string; grade: string; subject: string }) => NEW50.has(q.id) || (q.grade === '11' && q.subject === '物理');
 const OLD6 = JSON.parse(readFileSync('tests/fixtures/r162_v48_old6.json', 'utf8')) as Record<string, { grade: string; q: Record<string, unknown> }>;
+/** r16.2 题库 v51：已导入年级里 626 题 qRev 变了（选项偏差校正、数字键盘 17 题…）——按 v50 的 rev（fixture）算指纹，指纹仍要和 v48 一样 */
+const V50REV = JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.json', 'utf8')) as Record<string, { grade: string; rev50: string }>;
 const REV48 = new Set(JSON.parse(readFileSync('tests/fixtures/r161_v48_revchanged.json', 'utf8')) as string[]);
-it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|50)$/); });   // r16.2：v50
+it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|5[01])$/); });   // r16.2：v50 → v51
 it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）；高二只多了 D11-241～252', () => {
   for (const [g, f] of Object.entries(fx)) {
     const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)) && !isNew47(q) && !isNew50(q));
     const old6 = (id: string) => loadBank({ questions: [OLD6[id].q] }, `bank_${g}.json`).all[0];
     for (const q of all) if (OLD6[q.id]) expect(qRev(q), q.id).not.toBe(qRev(old6(q.id)));   // 这 6 题确实改了
-    const lines = all.map(q => `${q.id}:${OLD6[q.id] ? qRev(old6(q.id)) : qRev(q)}`).sort();
+    for (const q of all) if (V50REV[q.id]) expect(qRev(q), q.id).not.toBe(V50REV[q.id].rev50);   // v51 这些题确实改了
+    const lines = all.map(q => `${q.id}:${OLD6[q.id] ? qRev(old6(q.id)) : V50REV[q.id]?.rev50 ?? qRev(q)}`).sort();
     expect(lines.length, g).toBe(f.n); expect(createHash('sha256').update(lines.join('\n')).digest('hex').slice(0, 16), g).toBe(f.digest);
   }
   expect(Object.keys(fx).sort()).toEqual(Object.keys(fx45).sort()); for (const g of Object.keys(fx)) expect(fx[g].n, g).toBe(fx45[g].n);   // 题数和 v45 一样（没有删题）
