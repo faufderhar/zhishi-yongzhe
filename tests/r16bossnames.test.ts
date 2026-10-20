@@ -3,6 +3,7 @@ import { it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { loadBank, playable } from '../src/game/questions';
+import { computeVisibility, isHiddenBy } from '../src/game/visibility';
 import { buildChapters } from '../src/game/levels';
 import { chapterBoss, CHAPTER_BOSS } from '../src/game/monsterSkin';
 import GEN from '../src/game/chapterBoss.gen.json';
@@ -28,7 +29,7 @@ it('中班 / 初二 / 高二每个章节 Boss 都有对照表名字；对照表�
   const rows = (GEN as string[][]).map(r => `${r[0]}|${r[1]}|${r[6]}|${r[4]}`);
   expect(rows.filter(r => !used.has(r))).toEqual(UNUSED);
 });
-it('Boss 数与对照表一致：中班 23 / 初二 77 / 高二 75（设计稿写 26 / 107 / 89：初二、高二差额是未开放 / 题库里没有的生物地理、物理；中班差 3 个待策划确认）', () => {
-  const n = (g: string) => { const all = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; return buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.kind === 'boss').length; };
-  expect([n('K2'), n('8'), n('11')]).toEqual([23, 77, 75]);
+it('Boss 数（只算可见的科目 / 册别，第 10 步 visibility）：中班 23 / 初二 77 / 高二 71（高二地理选必二整册因题量不足藏掉 −4；设计稿 26 / 107 / 89 含还没开 / 还没进题库的初二生物地理、高二物理；中班差 3 个待策划确认）', () => {
+  const n = (g: string) => { const all0 = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const vis = computeVisibility(all0); const all = all0.filter(q => !isHiddenBy(vis, q)); return buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.kind === 'boss').length; };
+  expect([n('K2'), n('8'), n('11')]).toEqual([23, 77, 71]);
 });
