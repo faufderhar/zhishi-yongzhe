@@ -25,7 +25,7 @@ function sampleFps(ms: number) {
 export function preloadSkillArt(skills: SkillDef[]) { for (const k of skills) void loadSkillSheet(k.id); }
 
 export interface SkillRig { stage: HTMLElement; hero: HTMLElement; monster: HTMLElement; p: ParticleLayer }
-export interface PlaySkillOpts { gentle: boolean; kinder?: boolean; onImpact?: () => void; maxMs?: number }
+export interface PlaySkillOpts { gentle: boolean; kinder?: boolean; onImpact?: () => void; maxMs?: number; /** r16.1 (y)：横幅小字（幸运触发 / 能量满 / 保底触发） */ tag?: string }
 const center = (el: HTMLElement, rel: HTMLElement) => { const a = el.getBoundingClientRect(), b = rel.getBoundingClientRect(); return { x: a.left - b.left + a.width / 2, y: a.top - b.top + a.height / 2, w: a.width, h: a.height }; };
 
 export async function playSkill(r: SkillRig, k: SkillDef, o: PlaySkillOpts): Promise<void> {
@@ -43,7 +43,7 @@ export async function playSkill(r: SkillRig, k: SkillDef, o: PlaySkillOpts): Pro
   // 音效（技能 ID → 交付音效；缺失时合成）
   sfx(k.id, { kinder: !!o.kinder, fallback: SKILL_SFX[k.major] ?? 'skill_math' });
   // 技能名横幅（头像 + 图标 + 技能名，0.6 s，放在舞台顶部，不挡题目区）
-  const ban = mk('skill-banner', `<img class="skill-ico" src="${skillIconUrl(k.id)}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'skill-ico',textContent:'${k.icon}'}))"><b>${k.char}</b> · ${k.name}`);
+  const ban = mk('skill-banner', `<img class="skill-ico" src="${skillIconUrl(k.id)}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'skill-ico',textContent:'${k.icon}'}))"><b>${k.char}</b> · ${k.name}${o.tag ? `<small class="skill-tag">${o.tag}</small>` : ''}`);
   ban.setAttribute('data-testid', 'skill-banner'); ban.dataset.skill = k.id;
   const rm = reducedMotion();
   const banP = fa(ban, rm ? [{ opacity: 0, transform: 'translate(-50%,0)' }, { opacity: 1, transform: 'translate(-50%,0)', offset: 0.25 }, { opacity: 1, transform: 'translate(-50%,0)', offset: 0.75 }, { opacity: 0, transform: 'translate(-50%,0)' }]

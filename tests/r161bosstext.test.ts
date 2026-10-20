@@ -2,12 +2,13 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { newRound, resolveRound, estimateDealt, estimateOverflow, phaseOverflow } from '../src/game/rounds';
+import { triggerWhy, TRIGGER_TAG, STORM_CARD, skillCardLine, roll, newRoll } from '../src/game/skills';
 import { SKILL, ENERGY_CAP, ROUND } from '../src/game/balance';
 import { detailLines, guardText, phaseCapText } from '../src/game/dmgText';
-import { SCIFI } from '../src/game/characters';
+import { SCIFI, PUPS } from '../src/game/characters';
 import { battleGrid } from './helpers/r161grid';
 
-const asuan = SCIFI.find(c => c.id === 'asuan')!;
+const asuan = SCIFI.find(c => c.id === 'asuan')!, suan = PUPS.find(c => c.id === 'suansuan')!;
 const rb = readFileSync('src/ui/RoundBattle.tsx', 'utf8');
 
 describe('数值不变', () => {
@@ -49,5 +50,31 @@ describe('(v)(w)(x) 打穿阶段线', () => {
   it('(x) 过时的「满 117 开始」注释删掉了', () => {
     const r = readFileSync('src/game/rounds.ts', 'utf8');
     expect(r).not.toContain('117'); expect(r).toContain('第二阶段从 phases[1].hp 开始，溢出不带入（Boss补测裁定_r17 §2）');
+  });
+});
+describe('(y) 数字风暴文案 / 能量环 / 横幅', () => {
+  it('角色卡：算算（P36 / J）写完整规则；阿算（H）加「冷却 3 回合」；别的角色不加', () => {
+    expect(STORM_CARD).toBe('数字风暴：答对时有 20% 机会触发，本题伤害 ×1.4。能量攒满 5 点或连续 4 次答对没触发，下一次答对必定触发；触发后能量清零。');
+    expect(skillCardLine('P36', '数学', 'suansuan')).toBe(STORM_CARD); expect(skillCardLine('J', '数学', 'suansuan')).toBe(STORM_CARD);
+    expect(skillCardLine('H', '数学', 'asuan')).toBe(STORM_CARD + '冷却 3 回合。');
+    expect(skillCardLine('P12', '数学', 'suansuan')).toBeNull();
+    for (const c of [...PUPS, ...SCIFI].filter(c => c.id !== 'suansuan' && c.id !== 'asuan')) for (const seg of ['P36', 'J', 'H'] as const) expect(skillCardLine(seg, c.major, c.id)).toBeNull();
+    expect(suan.desc).toBe('数学题伤害 ×1.2，再 +10%');   // 原来那句不动
+    expect(readFileSync('src/ui/Screens.tsx', 'utf8')).toMatch(/skillCardLine\(segOf\(cfg\.band\), c\.major, c\.id\)[\s\S]{0,120}data-testid=\{'char-skill-' \+ c\.id\}/);
+  });
+  it('触发原因：能量满 / 保底 / 幸运，和 roll 的必定触发条件同一处', () => {
+    const r0 = newRoll();
+    expect(triggerWhy(r0, 'H', 5)).toBe('energy'); expect(triggerWhy({ ...r0, dry: 4 }, 'H', 2)).toBe('pity'); expect(triggerWhy(r0, 'H', 2)).toBe('luck');
+    expect(TRIGGER_TAG).toEqual({ energy: '能量满', pity: '保底触发', luck: '幸运触发' });
+    // 必定触发：rng 永远 0.999（不会中 20%）时，能量满或保底仍触发；否则不触发
+    const R = (r: typeof r0, e: number) => roll(r, { seg: 'H', major: '数学', side: 'P', correct: true, energy: e, rng: () => 0.999 })[1];
+    expect(R(r0, 5)).not.toBeNull(); expect(R({ ...r0, dry: 4 }, 1)).not.toBeNull(); expect(R({ ...r0, dry: 3 }, 4)).toBeNull();
+  });
+  it('UI：横幅带原因小字；能量环加「保底」，演出期间显示结算后的值（不再停在旧值）', () => {
+    expect(rb).toMatch(/const skTag = k \? TRIGGER_TAG\[triggerWhy\(bs\.sk, bs\.seg, bs\.energy \+ o\.energyGain\)\] : undefined; setRingE\(ns\.energy\);/);
+    expect((rb.match(/tag: skTag/g) ?? []).length).toBe(2);
+    expect(rb).toMatch(/\{ringE \?\? bs\.energy\}\/\{ENERGY_CAP\}<small className="ring-tag" data-testid="energy-tag">保底<\/small>/);
+    expect(rb).toMatch(/setBs\(ns\); setRingE\(null\);/);
+    expect(readFileSync('src/fx/skillFx.ts', 'utf8')).toMatch(/\$\{o\.tag \? `<small class="skill-tag">\$\{o\.tag\}<\/small>` : ''\}/);
   });
 });

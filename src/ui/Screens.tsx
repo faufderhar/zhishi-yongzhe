@@ -13,6 +13,7 @@ import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
 import type { BandConfig } from '../game/grades';
+import { segOf, skillCardLine } from '../game/skills';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
@@ -137,6 +138,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
             {cfg.band !== 'K' && rec(c) && <span className="tag rec" data-testid="rec">⭐ 推荐</span>}
             {cfg.band !== 'K' && <span className="tag">主修 {c.major}</span>}
             {cfg.band !== 'K' && <small>{c.desc}</small>}
+            {cfg.band !== 'K' && (() => { const t = skillCardLine(segOf(cfg.band), c.major, c.id); return t ? <small className="char-skill" data-testid={'char-skill-' + c.id}>{t}</small> : null; })()}   {/* r16.1 (y) Boss补测裁定_r17 §3 */}
           </button>
         ))}
       </div>

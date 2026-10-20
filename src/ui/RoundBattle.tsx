@@ -16,7 +16,7 @@ import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
 import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
-import { skillsFor, skillById } from '../game/skills';
+import { skillsFor, skillById, triggerWhy, TRIGGER_TAG } from '../game/skills';
 import { guardText, phaseCapText } from '../game/dmgText';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
@@ -56,7 +56,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const bsRef = useRef(bs); bsRef.current = bs;
   const used = useRef<Question[]>([]);
   const [phase, setPhase] = useState<Phase>('pre');
-  const [ringPop, setRingPop] = useState(false);
+  const [ringPop, setRingPop] = useState(false); const [ringE, setRingE] = useState<number | null>(null);   // r16.1 (y)：演出期间能量环显示结算后的值（以前停在答题前的旧值）
   const [card, setCard] = useState<CardKind>('std');
   const [wager, setWager] = useState<Wager>(false);   // r15.4.2：押注开关（我方回合看题前，默认不押）
   const [q, setQ] = useState<Question | undefined>();
@@ -275,6 +275,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     if (o.partial) tip('partial'); if (o.energyGain) tip('energy'); if (o.perfect && bs.perfectOn) tip('focus'); if (o.dodged && o.side === 'M') tip('dodge');   /* r12：「运气好闪开」只在怪物回合 */ if (o.perfect) tip('perfect'); if (o.guardUsed) tip('guard'); if (o.capped) tip('cap');
     if (o.rage) { tip('rage'); setRageAnim(true); playRageDrum(); setTimeout(() => setRageAnim(false), 1400); }
     const k = o.skill;
+    /* r16.1 (y) Boss补测裁定_r17 §3：横幅小字说明这次是「幸运触发」「能量满」还是「保底触发」（同 roll 的判定，只是文案）；能量环马上显示结算后的值 */
+    const skTag = k ? TRIGGER_TAG[triggerWhy(bs.sk, bs.seg, bs.energy + o.energyGain)] : undefined; setRingE(ns.energy);
     const d = D.dir.current;
     // r8b：致命一击在命中帧之后不再等受击/收招动作，直接进怪物 defeat（≤0.8 s）→ 结算
     /* r15.4.2 学霸：护盾挡掉的点数在命中时飘字显示——这一击打死怪物（直接去结算、看不到反馈文字）时也能看到 */
@@ -283,8 +285,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     const ovN = phaseOverflow(o); const guardFloat = () => { if (ovN > 0) setTimeout(() => D.dir.current?.float(D.dir.current.r.monster, guardText(ovN), 'soft'), o.absorbed ? 420 : 160); };
     let hitDone = () => {}; const hitP = new Promise<void>(r => { hitDone = r; });
     const show = k && d && o.side === 'P'   // 攻击技能：横幅 + 技能特效替代普攻演出，命中帧结算数字（≤1.5 s）
-      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, `✨${k.name} ` + (o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt), 'crit'); shieldFloat(); guardFloat(); } }); }   /* r15.4.2 学霸：技能打出来的数字前写技能名（预计伤害不含技能，以前看不出为什么多了） */
-      : k && d ? async () => { await sleep(250); await d.playSkill(k, { maxMs: 1000, onImpact: () => { setView(v => ({ ...v, p: ns.playerHp })); if (o.healed) d.float(d.r.hero, '+' + o.healed, 'heal'); } }); }   // 守护技能：闪避后 ≤1.0 s
+      ? async () => { await d.playSkill(k, { maxMs: 1450, tag: skTag, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, `✨${k.name} ` + (o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt), 'crit'); shieldFloat(); guardFloat(); } }); }   /* r15.4.2 学霸：技能打出来的数字前写技能名（预计伤害不含技能，以前看不出为什么多了） */
+      : k && d ? async () => { await sleep(250); await d.playSkill(k, { maxMs: 1000, tag: skTag, onImpact: () => { setView(v => ({ ...v, p: ns.playerHp })); if (o.healed) d.float(d.r.hero, '+' + o.healed, 'heal'); } }); }   // 守护技能：闪避后 ≤1.0 s
       : o.side === 'P'
       ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); shieldFloat(); guardFloat(); } })
         : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500)
@@ -292,7 +294,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     const lethal = o.side === 'P' && ns.over === 'win';
     void play(lethal ? () => Promise.race([show(), hitP.then(() => sleep(120))]) : show).then(() => {
       if (!D.alive.current) return;
-      setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns);
+      setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns); setRingE(null);
       const full = g === 'full';   // 漏选不算答对（策划裁定 6）：显示解析，至少停 2 秒
       setFb({ ok: full, o, partial: g === 'partial', text: (full ? '✔ 正确！' : g === 'partial' ? '◐ 漏选了！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体抵挡 30%）' : '') });
       if (ns.over === 'win') { void finish(ns); return; }
@@ -335,10 +337,10 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {asking && (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>)}
         <span data-testid="combo">连击 x{bs.combo}{comboTag && <small className="combo-tag" data-testid="combo-skill" title="技能让这次连击多 +1，前面的数字已经算进去了">含技能 +1</small>}{/* r15.4 学霸：数字已包含技能那 1 次（答对 +1、技能再 +1） */}</span>
         {bs.perfectOn && <span data-testid="focus">专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(FOCUS_MAX - bs.focus)}</span>}
-        <button className="energy-ring" data-testid="energy" aria-label={`能量 ${bs.energy}/${ENERGY_CAP}，点开看技能说明`} onClick={() => setRingPop(true)}>
+        <button className="energy-ring" data-testid="energy" aria-label={`能量 ${ringE ?? bs.energy}/${ENERGY_CAP}（保底），点开看技能说明`} data-e={ringE ?? bs.energy} onClick={() => setRingPop(true)}>
           <svg viewBox="0 0 40 40" aria-hidden>{Array.from({ length: ENERGY_CAP }, (_, i) => { const a0 = (i / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 + 0.08, a1 = ((i + 1) / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 - 0.08;
-            return <path key={i} d={`M ${20 + 16 * Math.cos(a0)} ${20 + 16 * Math.sin(a0)} A 16 16 0 0 1 ${20 + 16 * Math.cos(a1)} ${20 + 16 * Math.sin(a1)}`} fill="none" strokeWidth="5" strokeLinecap="round" stroke={i < bs.energy ? '#ffd54a' : 'rgba(255,255,255,.25)'} />; })}
-            <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{bs.energy}/{ENERGY_CAP}</button>
+            return <path key={i} d={`M ${20 + 16 * Math.cos(a0)} ${20 + 16 * Math.sin(a0)} A 16 16 0 0 1 ${20 + 16 * Math.cos(a1)} ${20 + 16 * Math.sin(a1)}`} fill="none" strokeWidth="5" strokeLinecap="round" stroke={i < (ringE ?? bs.energy) ? '#ffd54a' : 'rgba(255,255,255,.25)'} />; })}
+            <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{ringE ?? bs.energy}/{ENERGY_CAP}<small className="ring-tag" data-testid="energy-tag">保底</small></button>
         <span className="grow" />
         <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`}>第 {curTurn} 回合 / {Math.min(bs.cap, maxTurns)}{maxTurns < bs.cap && <small className="turn-note" data-testid="turn-note">（题少，最多 {maxTurns} 回合）</small>}</span>
         <span className="grow" />

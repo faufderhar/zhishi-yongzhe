@@ -1084,3 +1084,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r16.1 (a)：800 高也一样——第 2 次玩时溢出约 130px，被吸底按钮盖住；721–860px 高度时收紧（立绘 150px、间距 14px） */
 @media (min-height:721px) and (max-height:860px){.result-screen{gap:14px;padding:14px 20px}.result-screen>p,.result-screen .klines{margin:2px 0}}
 @media (min-height:761px) and (max-height:860px){.result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:150px}.result-screen .row.friends .kmon-face{height:150px}}
+
+/* r16.1 (y) Boss补测裁定_r17 §3：技能横幅小字、能量环「保底」、角色卡技能说明 */
+.skill-banner .skill-tag{font-size:12px;opacity:.85;margin-left:4px;padding:1px 6px;border-radius:999px;background:rgba(255,255,255,.18)}
+.energy-ring .ring-tag{font-size:10px;opacity:.8;margin-left:2px}
+.char-card .char-skill{display:block;font-size:12px;line-height:1.35;opacity:.85;max-width:220px;text-align:left}
