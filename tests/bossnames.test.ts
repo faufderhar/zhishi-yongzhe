@@ -34,7 +34,8 @@ for (const [g, band, label] of [['7', 'J', '初一'], ['10', 'H', '高一'], ['8
   });
 }
 it('策划清单 72 个新名全部用上、彼此不同', () => {
-  expect(CHAPTER_BOSS.filter(r => r[6] === undefined).length).toBe(72);   // r16：对照表生成的行（带册别）另算
+  const r15 = CHAPTER_BOSS.filter(r => r[6] === undefined && (r[0] === '7' || r[0] === '10'));
+  expect(r15.length).toBe(72);   // r16：对照表生成的行（带册别）和第 10 步教材版本变更的 77 行（8 / 9 / 11 / 12）另算
   const f = '/workspace/playtest/Boss重名清单.csv'; if (!existsSync(f)) return; const csv = readFileSync(f, 'utf8').trim().split('\n').slice(1).map(r => r.split(',').at(-1)!.trim());
-  if (csv.length) expect(new Set(CHAPTER_BOSS.filter(r => r[6] === undefined).map(r => r[4]))).toEqual(new Set(csv));
+  if (csv.length) expect(new Set(r15.map(r => r[4]))).toEqual(new Set(csv));
 });
