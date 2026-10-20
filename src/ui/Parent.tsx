@@ -43,7 +43,7 @@ function PrefetchAnim() {
 }
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, PinPad, fmtMin } from './common';
-import { GRADE_LABEL, loadBank, countStatuses, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from '../game/questions';
+import { GRADE_LABEL, loadBank, countStatuses, isPlayableStatus, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
 import { PROFILE_GRADES, bandConfig } from '../game/grades';
 import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, cancelPreview, bonusAllSpent, splitUsed, fmtMS, effBonus, SPENT_LINE, cancelLeftLine, type Usage, type DayUsage } from '../game/playtime';
@@ -409,9 +409,20 @@ export function SupersededNote({ n, list }: { n: number; list: SupRow[] }) {
   </div>;
 }
 
-interface Preview { file: string; bank: Bank; isNew: number; isUpd: number; same: number; raw: any[]; hidden: number; over: string | null }
+interface Preview { file: string; bank: Bank; isNew: number; isUpd: number; same: number; raw: any[]; hidden: number; playable: number; over: string | null }
 /** r16.1 (m) 技术QA P3-2：导入题里属于隐藏科目 / 册别的（如初二生物地理、高二物理）照样存下，但游戏里看不到——单独数出来 */
 export const hiddenCount = (bank: Pick<BankState, 'vis'>, qs: Question[]) => bank.vis ? qs.filter(q => q.status !== '停用' && isHiddenBy(bank.vis!, q)).length : 0;
+/** r16.2 技术QA B2（P3-2 剩下的一半）：导入预览和导入结果共用的计数——「可玩」不含会被隐藏的题（以前预览「可玩 25」、结果「已导入 25 题」，其中 12 题高二物理玩不到）。
+    可玩 = 状态可玩（已通过 / AI初审通过）且不在隐藏科目 / 册别里；会被隐藏 = hiddenCount（和内置题一样的不算，那些仍用内置题） */
+export function importCounts(bank: Pick<BankState, 'vis'>, b: Pick<Bank, 'all'>, same: Set<number>) {
+  const hidden = hiddenCount(bank, b.all.filter(q => !same.has(q.order)));
+  const playable = b.all.filter(q => isPlayableStatus(q.status) && !(bank.vis && isHiddenBy(bank.vis, q))).length;
+  return { playable, hidden };
+}
+/** 导入结果那句话（和预览同一套数） */
+export function importResultMsg(n: { saved: number; isNew: number; isUpd: number; same: number; bad: number; playable: number; hidden: number }) {
+  return `已导入 ${n.saved} 题（新增 ${n.isNew}，更新 ${n.isUpd}；可玩 ${n.playable} 题${n.hidden ? `，另有 ${n.hidden} 题属于游戏里暂时隐藏的科目 / 册别，会被隐藏、先玩不到` : ''}${n.same ? `；${n.same} 题和内置题一样，不另存，仍用内置题` : ''}），错误 ${n.bad} 行未导入。`;
+}
 /** r16.1 (l)：导入分类（预览和确认导入共用）：新增 / 更新（和内置或已导入的同号且有改动）/ 和内置题一样（不另存） */
 export function classifyImport(bank: Pick<BankState, 'builtin' | 'byKey'>, b: Bank, raw: unknown[]) {
   const builtinBy = new Map<string, Question>(); for (const x of Object.values(bank.builtin)) for (const q of x.all) builtinBy.set(q.key, q);
@@ -444,7 +455,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
       setBusy(`正在检查 ${list.length} 题…`); await yieldFrame();
       const b = loadBank(raw, f.name);
       const cls = classifyImport(bank, b, list);
-      setPv({ file: f.name, bank: b, isNew: cls.isNew, isUpd: cls.isUpd, same: cls.same.size, raw: list, hidden: hiddenCount(bank, b.all.filter(q => !cls.same.has(q.order))), over: totalIssue(bank.importedCount, cls.isNew) });   // r16.1 (n)：超总量在预览就说
+      setPv({ file: f.name, bank: b, isNew: cls.isNew, isUpd: cls.isUpd, same: cls.same.size, raw: list, ...importCounts(bank, b, cls.same), over: totalIssue(bank.importedCount, cls.isNew) });   // r16.1 (n)：超总量在预览就说
     } finally { setBusy(undefined); }
   };
   const doImport = async () => {
@@ -463,7 +474,8 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
       return [{ ...r, grade: q.grade, key: q.key, status: q.status, game_ready: q.status === '已通过' || q.status === 'AI初审通过', ...(bq ? { base_rev: qRev(bq) } : {}) }];
     });
     await putImported(good);
-    setMsg(`已导入 ${good.length} 题（新增 ${pv.isNew}，更新 ${pv.isUpd}${pv.hidden ? `；其中 ${pv.hidden} 题属于游戏里暂时隐藏的科目 / 册别，会被隐藏、先玩不到` : ''}${same ? `；${same} 题和内置题一样，不另存，仍用内置题` : ''}），错误 ${pv.bank.bad.length} 行未导入。`);
+    const n = importCounts(bank, pv.bank, cls.same);   // r16.2：和预览同一个计数函数
+    setMsg(importResultMsg({ saved: good.length, isNew: pv.isNew, isUpd: pv.isUpd, same, bad: pv.bank.bad.length, ...n }));
     setPv(null); await reloadBank();
   };
   const exportGrade = (g: string, fmt: 'json' | 'csv') => {
@@ -520,7 +532,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
             <span className="tag big">新增 {pv.isNew}</span><span className="tag big" data-testid="pv-upd">更新 {pv.isUpd}</span>{pv.same > 0 && <span className="tag big" data-testid="pv-same">和内置题一样 {pv.same}（不另存）</span>}{pv.hidden > 0 && <span className="tag big warn" data-testid="pv-hidden" title="属于游戏里暂时隐藏的科目 / 册别（如初二生物、高二物理），导入后先玩不到">会被隐藏 {pv.hidden} 题</span>}<span className="tag big bad">错误 {pv.bank.bad.length}</span>
           </div>
           <div className="row gap16 wrap preview-counts">
-            <span className="tag big ok">可玩 {pv.bank.counts.playable}</span><span className="tag big">待家长确认 {pv.bank.counts.pendingParent}</span>
+            <span className="tag big ok" data-testid="pv-playable">可玩 {pv.playable}{pv.hidden > 0 && <small>（另 {pv.hidden} 题暂时隐藏）</small>}</span><span className="tag big">待家长确认 {pv.bank.counts.pendingParent}</span>
             <span className="tag big">待审核 {pv.bank.counts.pending}</span><span className="tag big">停用 {pv.bank.counts.disabled}</span>
           </div>
           {pv.bank.bad.length > 0 && <div className="issues"><b>错误（不会导入）：</b>{pv.bank.bad.slice(0, 15).map(x => <div key={x.row}>第 {x.row} 行（{x.id}）：{x.errors.join('；')}</div>)}</div>}
