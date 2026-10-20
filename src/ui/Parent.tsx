@@ -135,7 +135,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
   if (mode === 'verify') return (
     <div className="center-screen" data-testid="pin-verify"><PinPad title="再输一次刚设的密码试试" hint="确认记住了（这一步输错不计次数）" error={err} onSubmit={async p => {
       const st = await getKV<{ pinHash?: string }>('settings'); if (await verifyPin(p, st?.pinHash ?? settings.pinHash)) { setErr(undefined); onOk(); return; }
-      vTry.current++; setErr(`和刚才设置的密码不一样（设置时可能按错了）。可以再试一次，或点「重新设置」。（第 ${vTry.current} 次）`); }}
+      vTry.current++; setErr(`和刚才设置的密码不一样（设置时可能按错了）。可以再试一次，或点「重新设置」。`); }}
       extra={<button className="link-btn" data-testid="pin-verify-reset" onClick={() => { setErr(undefined); setFirst(undefined); setHa(''); setHa2(''); setResetting(true); setMode('pin'); }}>重新设置</button>} /></div>);
   if (mode === 'rec') return (
     <div className="center-screen"><div className="pinpad"><h2>用恢复码重设密码</h2><p>输入设置密码时记下的 8 位恢复码（不分大小写）。</p>
@@ -664,7 +664,7 @@ function PinTab({ settings, setSettings }: ParentProps) {
   /* r16.1 (p) 较真家长 P2：存好后当场再输一次试试（不计错误次数）；对不上可以「重新设置」 */
   if (step === 'verify') return <div className="pintab-pad" ref={padRef} data-testid="pintab-verify"><PinPad title="再输一次刚设的密码试试" hint="确认记住了（这一步输错不计次数）" error={err} onSubmit={async p => {
       const st = await getKV<{ pinHash?: string }>('settings'); if (await verifyPin(p, st?.pinHash ?? latestS.current.pinHash)) { setErr(undefined); setViaChange(true); setStep('done'); return; }
-      vTry.current++; setErr(`和刚才设置的密码不一样（设置时可能按错了）。可以再试一次，或点「重新设置」。（第 ${vTry.current} 次）`); }}
+      vTry.current++; setErr(`和刚才设置的密码不一样（设置时可能按错了）。可以再试一次，或点「重新设置」。`); }}
     extra={<button className="link-btn" data-testid="pintab-verify-reset" onClick={() => { setErr(undefined); setN1(''); setStep('new'); }}>重新设置</button>} /></div>;
   /* r16.1 (s) 较真家长 P3：改密码时数字键盘放最上面（以前在开关 / 找回问题 / 恢复码卡片下面，1280×600 要往下滚才看得见） */
   if (step !== 'menu') return <div className="pintab-pad" ref={padRef}><button className="chip" data-testid="pintab-close" aria-label="关闭" onClick={() => { setStep('menu'); setErr(undefined); setN1(''); }}>✕ 不改了</button>

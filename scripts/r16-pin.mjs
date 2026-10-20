@@ -26,7 +26,7 @@ await xt('[data-testid=rec-type]', code); ok((await txt('[data-testid=rec-count]
 await pg.screenshot({ path: OUT + 'rec-count.png' }); await pg.click('[data-testid=rec-type-ok]'); await w(600);
 ok(await vis('[data-testid=pin-verify]'), '记下恢复码后进入「再输一次刚设的密码」');
 await pinIn('1111'); const ve = await txt('[data-testid=pin-error]'); ok(/不一样/.test(ve ?? '') && await vis('[data-testid=pin-verify]'), `verify 输错 → 提示、仍在 verify：${ve}`);
-await pinIn('1111'); ok(/第 2 次/.test(await txt('[data-testid=pin-error]') ?? ''), '再错一次 → 提示更新（输入框被清空）');
+await pinIn('1111'); { const e2 = await txt('[data-testid=pin-error]') ?? ''; ok(/不一样/.test(e2) && !/第 \d+ 次/.test(e2), `再错一次 → 还是同一句、不数次数（这一步输错不计次数）：${e2}`); }
 await pg.screenshot({ path: OUT + 'verify-wrong.png' });
 await pg.click('[data-testid=pin-verify-reset]'); await w(300); ok(/设置新的家长密码/.test(await txt('.pinpad h2') ?? ''), '点「重新设置」→ 回到设密码');
 await pinIn('1357'); await pinIn('1357'); await pg.click('.pinpad input[type=radio] >> nth=0'); await xt('[data-testid=hint-answer]', 'ab'); await xt('[data-testid=hint-answer2]', 'ab'); await pg.click('[data-testid=hint-ok]');
