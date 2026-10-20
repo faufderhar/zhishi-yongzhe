@@ -38,7 +38,7 @@ async function run(from) {
   const locks = await pg.evaluate(async ks => {
     const idb = await new Promise(res => { const r = indexedDB.open('zhishi-yongzhe'); r.onsuccess = () => { const d = r.result; const tx = d.transaction('kv'); const st = tx.objectStore('kv'); Promise.all(ks.map(k => new Promise(rr => { const g = st.get(k); g.onsuccess = () => rr([k, g.result]); }))).then(a => { d.close(); res(Object.fromEntries(a)); }); }; });
     const ls = Object.fromEntries(ks.map(k => [k, JSON.parse(localStorage.getItem(k) || 'null')]));
-    return { idb, ls, restoring: !!window.__zyRestoring };
+    return { idb, ls, restoring: !!window.__zyTestFlags?.restoring };   // r16.2：测试构建的只读快照
   }, LOCKS);
   writeFileSync(OUT + `locks-${from}.json`, JSON.stringify(locks, null, 1));
   for (const k of LOCKS) {

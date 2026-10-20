@@ -9,6 +9,7 @@ import { cleanUsage } from '../src/game/sanitize';
 import * as S from '../src/state';
 import { importAll, exportAll, getKV, setKV, mergeAll } from '../src/db';
 import { makePinHash } from '../src/game/pin';
+import { setRestoring } from '../src/runtimeFlags';
 const mon = new Date(2026, 9, 19, 12);   // 周一（本地时间正午：任何时区都是 10 月 19 日）
 /* 覆盖恢复只保留「本机今天」那条用时，「今天」= 设备本地日期（db.ts / wrongbook.dayStr，按用户手机的时区，例如 Asia/Shanghai）。
    以前 D 写死 '2026-10-19'、却用真实时钟：换一天（或 CI 在 UTC 已是 10 月 20 日）就对不上。现在把时钟固定在 mon，D 用 App 的同一个日期函数算 */
@@ -17,7 +18,7 @@ beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(mon)
 const L = (m: number) => ({ weekday: m, weekend: m });
 // 报告复现：上限 5:00，用了 14:17（含 10 分钟加时），取消 → 已用加时 9:17
 const cancelled = (): Usage => cancelBonus({ [D]: { used: 14 * 60 + 17, bonus: 600 } }, D, 300);
-afterEach(() => { (globalThis as any).__zyRestoring = false; vi.useRealTimers(); });
+afterEach(() => { setRestoring(false); vi.useRealTimers(); });
 
 describe('刷新 / 恢复 / 合并后仍是已取消', () => {
   const pid = 'kid';
@@ -32,10 +33,10 @@ describe('刷新 / 恢复 / 合并后仍是已取消', () => {
 describe('恢复期间 state.ts 的保存不写', () => {
   it('saveUsage / saveSettings / saveProfiles / saveProgress / saveSkills / saveFlags / saveClock 都不写；恢复结束后照常写', async () => {
     await setKV('usage:g', { [D]: { used: 1, bonus: 0 } }); await setKV('flags', { a: 1 });
-    (globalThis as any).__zyRestoring = true;
+    setRestoring(true);
     await S.saveUsage('g', { [D]: { used: 999, bonus: 0 } }); await S.saveFlags({ a: 2 }); await S.saveSettings({ x: 1 } as any); await S.saveProfiles([]); await S.saveProgress('g', { stars: { z: 3 } } as any); await S.saveSkills('g', { s: { level: 9 } } as any); await S.saveClock({ maxSeen: 1, locked: true });
     expect(await getKV<any>('usage:g')).toEqual({ [D]: { used: 1, bonus: 0 } }); expect(await getKV<any>('flags')).toEqual({ a: 1 });
     expect(await getKV<any>('progress:g')).toBeUndefined(); expect(await getKV<any>('skills:g')).toBeUndefined();
-    (globalThis as any).__zyRestoring = false; await S.saveFlags({ a: 3 }); expect(await getKV<any>('flags')).toEqual({ a: 3 });
+    setRestoring(false); await S.saveFlags({ a: 3 }); expect(await getKV<any>('flags')).toEqual({ a: 3 });
   });
 });

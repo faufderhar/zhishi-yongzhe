@@ -5,6 +5,7 @@ import { findVault, findRec, writeRec, writeLocal, writeCache, readLocal, normCo
 import { backupVault, mergePin } from './game/backupPin';
 import { sanitizeData } from './game/sanitize';
 import { verifyPin, freshLocks, LOCK_KEYS_ALL } from './game/pin';
+import { beginRestoring } from './runtimeFlags';
 export interface AnswerRecord { profileId: string; questionId: string; correct: boolean; at: number; subject?: string }
 const DB = 'zhishi-yongzhe';
 export const STORES = ['kv', 'answers', 'wrong', 'bank'] as const;
@@ -181,7 +182,7 @@ export async function importAll(data: any, o: { pin?: string; trusted?: boolean;
   const zeroLocks = !o.trusted ? freshLocks() : null;
   if (zeroLocks) clean.kv = [...(clean.kv as [string, unknown][]).filter(([k]) => !LOCK_KEYS_ALL.includes(k)), ...Object.entries(zeroLocks)];
   /* r15.4.4 技术QA P3：先竖旗再写库——密码页 1 秒计时器在写锁清零和竖旗之间会把旧锁盖回去（忘记密码页复现） */
-  if (typeof window !== 'undefined') { const w = window as unknown as { __zyRestoring?: boolean }; w.__zyRestoring = true; setTimeout(() => { w.__zyRestoring = false; }, 15e3); }
+  beginRestoring(15e3);   // r16.2：模块内变量（以前是 window.__zyRestoring）
   const snapshot = await exportAll();
   const d = await db();
   const tx = d.transaction([...STORES], 'readwrite');

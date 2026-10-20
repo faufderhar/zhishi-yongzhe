@@ -28,6 +28,8 @@ jobs:
       - run: npm run build
       # r16.1：生产包里有任何测试钩子名就不部署
       - run: node scripts/check-prod-hooks.mjs dist
+      # r16.2：生产包里定义 / 赋值任何 window.__zy* 全局（运行时开关能从控制台改）就不部署
+      - run: node scripts/check-prod-globals.mjs dist
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

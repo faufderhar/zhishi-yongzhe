@@ -25,6 +25,7 @@ import { Director } from '../fx/director';
 import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
 import type { MonSkin } from '../game/monsterSkin';
 import { appReduceMotion, setAppReduceMotion, sleep } from '../fx/motion';
+import { setBattlePaused } from '../runtimeFlags';
 
 /** r15.4 安卓平板（华为 MatePad 横屏 + 浏览器栏 / 字体放大）：小班题目气泡变高时战斗区被挤矮，
  *  固定高度的伙伴 / 怪物会往上伸进题目气泡。按战斗区实际高度把立绘（静态图或序列帧）等比缩小，底边对齐不动。 */
@@ -180,7 +181,7 @@ export function lethalFast(lethal: boolean, run: (hit: () => void) => Promise<vo
   return () => { let hit = () => {}; const p = new Promise<void>(r => { hit = r; }); const a = run(hit); return lethal ? Promise.race([a, p.then(() => sleep(120))]) as Promise<void> : a; };
 }
 export function usePauseTimeout(paused: boolean, onQuit: () => void) {
-  useEffect(() => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = paused; return () => { (window as unknown as { __zyPaused?: boolean }).__zyPaused = false; }; }, [paused]);
+  useEffect(() => { setBattlePaused(paused); return () => setBattlePaused(false); }, [paused]);   // r16.2：模块内变量，不挂 window
   // r13（较真家长 / 学霸）：暂停很久也只保持暂停（暂停期间不计时），不再自动离开关卡——以前 5 分钟后自动回地图 / 结算，孩子看到的是「突然回到首页」
   void onQuit;
 }

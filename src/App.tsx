@@ -39,6 +39,7 @@ import { ProfileSelect, CharSelect, MapScreen, ResultScreen, WrongBookScreen, Re
 import { ParentGate, ParentSettings } from './ui/Parent';
 import { ResetWhy, ResetCancelBox, CANCEL_BTN } from './ui/ResetCancel';
 import { logNav, logErr } from './navLog';
+import { battlePaused, rotateLock, isRestoring } from './runtimeFlags';
 
 type Interrupted = { levelId: string; name: string; pid?: string; upd?: boolean; n?: number; cause?: string };
 type Nav = { pid: string; grade?: GradeKey; s: string; level?: string; name?: string; at: number; bv?: string };
@@ -290,7 +291,7 @@ export default function App() {
       // r14.1 真正的误锁原因：以前「墙钟比单调时钟多走 10 分钟」也算调钟——电脑 / 平板休眠时 performance.now() 停住、Date.now() 照走，醒来就被锁。现在只有墙钟往回走才锁
       if (dw < -60e3 || dw < dp - 10 * 60e3) { setClock(c => { const n = { ...c, locked: true, lockedAt: nowW }; void S.saveClock(n); return n; }); }
       else setClock(c => { if (nowW <= c.maxSeen + 30e3) return c; const n = { ...c, maxSeen: nowW }; void S.saveClock(n); return n; });
-      const pausedNow = document.visibilityState !== 'visible' || Date.now() - lastInput.current > IDLE_MS || !isActiveTab() || !!(window as unknown as { __zyPaused?: boolean }).__zyPaused || !!(window as unknown as { __zyRotate?: boolean }).__zyRotate;   // r15.4.2：手机竖屏盖层时不计时
+      const pausedNow = document.visibilityState !== 'visible' || Date.now() - lastInput.current > IDLE_MS || !isActiveTab() || battlePaused() || rotateLock();   // r15.4.2：手机竖屏盖层时不计时
       if (graceMs.current !== null) { const g = tickGrace(graceMs.current, dp, pausedNow); graceMs.current = g.left; setGraceLeft(Math.ceil(g.left / 1000)); if (g.fire) { graceMs.current = null; graceDone = true; window.dispatchEvent(new Event(FORCE_END)); } }
       if (pausedNow) return;
       acc += Math.min(dp, 2000);
@@ -323,7 +324,7 @@ export default function App() {
   const PIN_F = ['pinHash', 'pinHint', 'pinRec'] as const;
   const setSettings = (s: Settings) => { const prev = settingsRef.current; const prevRec = prev.pinRec; const pinChanged = PIN_F.some(k => JSON.stringify(s[k]) !== JSON.stringify(prev[k]));
     settingsRef.current = s; setSettingsState(s);
-    if (!isActiveTab() || (window as unknown as { __zyRestoring?: boolean }).__zyRestoring) return;
+    if (!isActiveTab() || isRestoring()) return;
     if (!pinChanged) { void S.loadSettings().then(cur => { const fresh = { ...settingsRef.current }; if (cur?.pinHash) for (const k of PIN_F) (fresh as Record<string, unknown>)[k] = cur[k];
       if (PIN_F.some(k => JSON.stringify(fresh[k]) !== JSON.stringify(settingsRef.current[k]))) { logErr('pin-stale-memory', '本页内存里的密码和库里不同，以库里为准'); settingsRef.current = fresh; setSettingsState(fresh); }
       void S.saveSettings(fresh); }); return; }

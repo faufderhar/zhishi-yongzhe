@@ -45,7 +45,7 @@ it('r15.4.4 技术QA P3：恢复后 1 秒内模拟密码页旧计时器 saveLock
   const bk = await exportAll();
   for (const k of LOCK_KEYS_ALL) await setKV(k, { fails: 4, level: 3, until: Date.now() + 9e5, remain: 9e5, seenAt: Date.now() - 1e4 });
   await importAll(bk, { pin: '2468' });
-  expect((globalThis as any).window.__zyRestoring).toBe(true);
+  const RF = await import('../src/runtimeFlags'); expect(RF.isRestoring()).toBe(true); expect((globalThis as any).window.__zyRestoring).toBeUndefined();   // r16.2：模块内变量，window 上没有
   const { saveLock } = await import('../src/game/pin');
   for (const k of LOCK_KEYS_ALL) await saveLock({ fails: 4, level: 3, until: Date.now() + 9e5, remain: 9e5, seenAt: Date.now() }, k);
   for (const k of LOCK_KEYS_ALL) {

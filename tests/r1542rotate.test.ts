@@ -17,7 +17,7 @@ describe('r15.4.2 竖屏', () => {
   it('盖层期间：战斗暂停（usePauseOnHide 竖屏 → setPaused，横回自动继续）、App 每日计时不走（__zyRotate）', () => {
     const b = readFileSync('src/ui/Battle.tsx', 'utf8'); expect(b).toMatch(/const portrait = usePhonePortrait\(\)/); expect(b).toMatch(/byRot\.current = true; setPaused\(true\)/); expect(b).toMatch(/byRot\.current = false; setPaused\(false\)/);
     expect(b.match(/usePauseOnHide\(setPaused, paused\)/g)!.length).toBe(2); expect(readFileSync('src/ui/RoundBattle.tsx', 'utf8')).toMatch(/usePauseOnHide\(setPaused, paused\)/);
-    const a = readFileSync('src/App.tsx', 'utf8'); expect(a).toMatch(/__zyRotate\?: boolean \}\)\.__zyRotate;/); expect(a).toMatch(/phonePortrait && \(screen\.s === 'battle' \|\| screen\.s === 'review'\) && <RotateOverlay/);
+    const a = readFileSync('src/App.tsx', 'utf8'); expect(a).toMatch(/battlePaused\(\) \|\| rotateLock\(\)/); expect(readFileSync('src/ui/Rotate.tsx', 'utf8')).toMatch(/setRotateLock\(true\)[\s\S]*setRotateLock\(false\)/);   // r16.2：模块内变量 expect(a).toMatch(/phonePortrait && \(screen\.s === 'battle' \|\| screen\.s === 'review'\) && <RotateOverlay/);
   });
 });
 describe('r15.4.2 最终回归：竖屏提示条不挡点按', () => {

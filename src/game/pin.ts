@@ -1,6 +1,7 @@
 /* 家长密码（策划 D9 / X-13）：SHA-256 + 随机盐（无 crypto.subtle 时 FNV 兜底）；逐级锁定；提示问题找回 */
 import { hashPin } from './playtime';
 import { getKV, setKV } from '../db';
+import { isRestoring } from '../runtimeFlags';
 const hex = (b: ArrayBuffer) => [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
 const subtle = () => (typeof crypto !== 'undefined' && crypto.subtle) || null;
 async function sha(pin: string, salt: string) { return hex(await subtle()!.digest('SHA-256', new TextEncoder().encode(salt + ':' + pin))); }
@@ -93,13 +94,12 @@ export async function loadLock(key = LK): Promise<LockState> {
   return resumeLong({ ...m, remain: lockLeft(m, now) }, now);   // 统一迁移到 remain；长锁补上关闭期间的墙钟流逝
 }
 /* r15.4.4 技术QA P3：覆盖恢复把锁清零后、页面重载前，密码页 / 忘记密码页的 1 秒计时器还握着旧锁，会把 freshLocks 盖回去。
-   恢复写库时设了 window.__zyRestoring（约 15 秒）；这段时间 saveLock 不写。另外：存储里若已是「更新且更松」的锁（seenAt 更新、remain/fails/level 都更低），说明别处刚清过，丢掉手里的旧值。 */
+   恢复写库时设了 runtimeFlags.beginRestoring（约 15 秒；r16.2 前是 window.__zyRestoring）；这段时间 saveLock 不写。另外：存储里若已是「更新且更松」的锁（seenAt 更新、remain/fails/level 都更低），说明别处刚清过，丢掉手里的旧值。 */
 export async function saveLock(s: LockState, key = LK) {
-  const w = (typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : undefined) as { __zyRestoring?: boolean } | undefined;
-  if (w?.__zyRestoring) return;
+  if (isRestoring()) return;
   try { const raw = localStorage.getItem(key); if (raw) { const cur = parse(JSON.parse(raw), key); const now = Date.now();
     /* r16 技术QA P3：删掉「清零后 30 秒内一律丢掉更严的写入」——它把正确 PIN / 新设 PIN / 恢复之后正常的输错计数也丢了（输错 5 次刷新不锁）。
-       现在只丢两种：恢复写库期间（上面的 __zyRestoring）；手里的状态是在清零之前看到的（seenAt 早于存储里那次清零 / 更新，下面这条）。
+       现在只丢两种：恢复写库期间（上面的 isRestoring）；手里的状态是在清零之前看到的（seenAt 早于存储里那次清零 / 更新，下面这条）。
        输错由 nextLock({ ...s, fails }) 算出，seenAt 沿用清零那一刻，所以不会被当成旧值 */
     if (cur && (cur.seenAt ?? 0) > (s.seenAt ?? 0) && lockLeft(cur, now) <= lockLeft(s, now) && cur.fails <= s.fails && cur.level <= s.level) return; } } catch { /* */ }
   try { localStorage.setItem(key, JSON.stringify(s)); } catch { /* */ } await setKV(key, s);

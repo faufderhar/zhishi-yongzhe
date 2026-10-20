@@ -67,6 +67,7 @@ import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLoc
 import { pendingDays, pendingWaitedMs, PEND_DAYS, findRec, newPending } from '../game/pinVault';
 import { hintCandidates, answerVariants, readLocal, readCache, makeRecoveryCode, normCode, RESET_DELAY_MS, fmtWhen, fmtDay } from '../game/pinVault';
 import type { Skills } from '../game/adaptive';
+import { isRestoring } from '../runtimeFlags';
 
 /** 家长密码门（D9 锁定 / X-13 首次设置需提示问题 / P2-1 密码丢失不当首次） */
 export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk, onCancel, purpose, onRestorePin, hasProgress, onRequestReset, initialMode }: { onRecConfirmed?: () => void; initialMode?: 'forgot' | 'rec'; allHints?: string[]; settings: Settings; onSetPin: (h: string, hint?: { q: string; a: string }, rec?: string) => void; onOk: () => void; onCancel: () => void; purpose?: string; onRestorePin?: (h: string, hint?: { q: string; a: string }, rec?: string) => void; hasProgress?: boolean; onRequestReset?: () => void }) {
@@ -95,7 +96,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
     const t = setInterval(() => {   // r16：扣锁定时间（单调时钟，技术QA R4-4）在 LockLeft 里做
       /* r15.4.4 技术QA P3：覆盖恢复清零锁后，若本页还握着旧锁，先从存储拉一份（密码页 / 忘记密码页都走这里）。
          r16 较真家长 3：倒计时（扣锁定时间、每秒显示）挪进 LockLeft 子组件——这里不再每秒 setState，整页和输入框不会每秒重渲染（安卓输入法组字时可能吞字） */
-      if ((window as unknown as { __zyRestoring?: boolean }).__zyRestoring) { void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void loadLock(LK_REC).then(setRlock); }
+      if (isRestoring()) { void loadLock().then(setLock); void loadLock(LK_HINT).then(setHlock); void loadLock(LK_REC).then(setRlock); }
     }, 1000);
     return () => clearInterval(t);
   }, []);
@@ -802,7 +803,7 @@ function LockLeft({ lk, k, onEnd, text }: { lk: LockState; k: string; onEnd: (n:
   const [l, setL] = useState(lk); const end = useRef(onEnd); end.current = onEnd;
   useEffect(() => { setL(lk); }, [lk]);
   useEffect(() => { let last = performance.now(); const t = setInterval(() => { const p = performance.now(), dt = p - last; last = p;
-    if ((window as unknown as { __zyRestoring?: boolean }).__zyRestoring) return;
+    if (isRestoring()) return;
     setL(cur => { if (!lockLeft(cur)) return cur; const n = tickLock(cur, dt, Date.now()); void saveLock(n, k); if (!lockLeft(n)) setTimeout(() => end.current(n)); return n; }); }, 1000);
     return () => clearInterval(t); }, [k]);
   return <span data-testid={'lock-left-' + k}>{text(Math.ceil(lockLeft(l) / 1000))}</span>;

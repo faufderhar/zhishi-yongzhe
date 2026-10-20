@@ -4,9 +4,9 @@ import { migrateVolumes } from './game/volumeMigrate';
 /* 应用级数据：设置、档案、进度（KV 存 IndexedDB） */
 import { getKV, setKV as rawSetKV } from './db';
 import { cleanUsage } from './game/sanitize';
-/** r16 较真家长 2：覆盖恢复 / 合并写库期间（db.importAll 竖 __zyRestoring，约 15 秒，之后 reload）state.ts 的保存一律不写，
+/** r16 较真家长 2：覆盖恢复 / 合并写库期间（db.importAll 竖 runtimeFlags.beginRestoring，约 15 秒，之后 reload）state.ts 的保存一律不写，
     免得内存里的旧状态盖回刚恢复的数据。不加在 db.setKV 上——importAll 自己还要用它写 snapshot:last / writeRec */
-export const restoring = () => !!(globalThis as { __zyRestoring?: boolean }).__zyRestoring;
+export const restoring = isRestoring;
 const saveKV = (k: string, v: unknown) => restoring() ? Promise.resolve() : rawSetKV(k, v);
 const setKV = rawSetKV;
 import type { GradeKey } from './game/questions';
@@ -14,6 +14,7 @@ import { bandConfig } from './game/grades';
 import { cleanElectives, needsElectives, ALL_SUBJECTS, type Electives } from './game/electives';
 import type { TimeLimit, Usage } from './game/playtime';
 import type { Skills } from './game/adaptive';
+import { isRestoring } from './runtimeFlags';
 export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean; hsWager?: boolean; lenientTime?: boolean /* 时限宽松 ×1.5（r7） */;
   pinHint?: { q: string; a: string };            // 找回问题（答案存哈希）
   sfx?: boolean; tts?: boolean; volume?: number;  // 技术QA P3-4

@@ -12,7 +12,7 @@
     "shots": "node scripts/shots.mjs",
     "build:test": "ZY_TEST=1 vite build --outDir dist-test",
     "preview:test": "python3 -m http.server 4183 -d dist-test",
-    "check:hooks": "node scripts/check-prod-hooks.mjs dist"
+    "check:hooks": "node scripts/check-prod-hooks.mjs dist && node scripts/check-prod-globals.mjs dist"
   },
   "dependencies": {
     "idb": "^8.0.4",

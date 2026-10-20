@@ -21,7 +21,7 @@ describe('r16 8c 密码页', () => {
   it('倒计时挪进 LockLeft：ParentGate 里不再有每秒 setNow / tickLock', () => {
     expect(gate).not.toMatch(/setNow|tickLock\(/);
     expect(src).toMatch(/function LockLeft[\s\S]*tickLock\(cur, dt, Date\.now\(\)\)[\s\S]*saveLock\(n, k\)/);
-    expect(gate).toContain('__zyRestoring');   // 覆盖恢复时重新读锁仍在父组件
+    expect(gate).toContain('isRestoring()');   // 覆盖恢复时重新读锁仍在父组件（r16.2：runtimeFlags，不再是 window.__zyRestoring）
     expect((gate.match(/<LockLeft /g) ?? []).length).toBe(3);
   });
   it('恢复码输入框和「再输入一遍」都带计数', () => {

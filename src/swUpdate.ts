@@ -1,3 +1,4 @@
+import { isInactive } from './runtimeFlags';
 declare const __BUILD__: string;
 /* r9 Service Worker 更新机制
    - 新 sw.js 自己 skipWaiting + clientsClaim（老页面 r1–r8 的代码不需要配合：下次打开就是新版）
@@ -28,7 +29,7 @@ export function launchCause(): { kind: 'sw' | 'discarded' | 'reload' | 'crash' |
 }
 /** r14：只有安全页面才允许游戏自己刷新；先把原因落盘再刷新 */
 let safeNow = false; export const setSafeScreen = (v: boolean) => { safeNow = v; };
-export function safeReload(reason: string, screen?: string) { if (!safeNow || (window as unknown as { __zyInactive?: boolean }).__zyInactive) { logReload('blocked:' + reason, screen); return false; } logReload(reason, screen); location.reload(); return true; }
+export function safeReload(reason: string, screen?: string) { if (!safeNow || isInactive()) { logReload('blocked:' + reason, screen); return false; } logReload(reason, screen); location.reload(); return true; }
 /** r14：每次换页记心跳；正常离开（pagehide）记离开——下次启动时「重载但没有正常离开」= 页面崩溃/被系统杀掉，而不是有人刷新 */
 const BEAT = 'zy.beat', BYE = 'zy.bye';
 export const beat = (screen: string) => { try { localStorage.setItem(BEAT, JSON.stringify({ screen, at: Date.now() })); } catch { /* */ } };
