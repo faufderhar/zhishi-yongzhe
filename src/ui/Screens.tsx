@@ -1,4 +1,5 @@
 import { VERSION_LABEL } from '../version';
+import { fillKind, sciOf } from '../game/inputKind';
 import { TEST_DOM } from './common';
 import { KINDER_LOCK_VOICE } from '../game/voiceLines';
 import { skinFor } from '../game/monsterSkin';
@@ -394,7 +395,7 @@ export function ReviewSession({ questions, onAnswer, onDone }: { questions: Ques
         {!res && q.type === '多选' && <div className="opts">{q.options.map(ch =>
           <button key={ch.key} className={`opt ${multi.includes(ch.key) ? 'sel' : ''}`} onClick={() => setMulti(m => m.includes(ch.key) ? m.filter(x => x !== ch.key) : [...m, ch.key].sort())}><i>{ch.key}</i><span className="opt-txt"><Tex text={ch.text} /></span></button>)}
           <button className="next multi-ok" disabled={!multi.length} onClick={() => submit(multi.join(''))}>确定</button></div>}
-        {!res && q.type === '填空' && <Keypad key={q.key} letters={q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a))} value={input} onChange={setInput} onOk={v => submit(v)} />}
+        {!res && q.type === '填空' && <Keypad key={q.key} letters={fillKind(q, sciOf(q.grade)) === 'letters'} ime={fillKind(q, sciOf(q.grade)) === 'ime'} sci={sciOf(q.grade)} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {res && <div className={`feedback ${res.ok ? 'ok' : 'bad'}`}>
           <h3>{res.ok ? '✔ 答对了！这题升一个盒子' : '✘ 还没记住，明天再复习'}</h3>
           <p>正确答案：<b><Tex text={correctText(q)} /></b></p>

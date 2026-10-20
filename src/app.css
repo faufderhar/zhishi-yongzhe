@@ -1066,3 +1066,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .pinpad .pin-keys{gap:6px}.pinpad .pin-keys button{height:40px;min-height:40px;font-size:22px}
   .pinpad h2{font-size:18px;margin:0}.pinpad .pin-dots{margin:0}
 }
+/* r16.1：系统输入法填空（汉字等）——普通文本框 + 确定 */
+.ime-wrap .ime-input{width:100%;box-sizing:border-box;border:2px solid #9ab;outline:none;font-family:inherit}
+.ime-wrap .ime-input:focus{border-color:#f5b400}
+.ime-wrap .ime-row{display:flex;justify-content:flex-end}
+.ime-wrap .ime-row .ok{min-width:140px;min-height:52px;font-size:22px;border-radius:12px;background:#4cd964;color:#123}.ime-wrap .ime-row .ok:disabled{opacity:.5}

@@ -185,7 +185,10 @@ export function parseNum(s: string): number | null {
   return null;
 }
 /** 技术QA R6-3：弯撇号 ’‘ʼ′ → '，各种连字符/破折号 ‐‑‒–—− → - */
-const norm = (s: string) => s.replace(/[’‘ʼ′`]/g, "'").replace(/[‐‑‒–—−]/g, '-').trim().replace(/\s+/g, ' ').replace(/，/g, ',').replace(/[“”]/g, '"').toLowerCase();
+/* r16.1：填空可以用系统输入法打字——先 NFKC（全角字母 / 数字 / 空格 → 半角），含汉字时去掉所有空白（「千金 散尽」），句末标点不计（「还复来。」） */
+const HAN = /[\u3400-\u9fff\uf900-\ufaff]/;
+const norm = (s0: string) => { let s = s0.normalize('NFKC').replace(/[’‘ʼ′`]/g, "'").replace(/[‐‑‒–—−]/g, '-').trim().replace(/\s+/g, ' ').replace(/，/g, ',').replace(/[“”]/g, '"').toLowerCase();
+  if (HAN.test(s)) s = s.replace(/\s+/g, '').replace(/\.+$/, ''); return s.replace(/[。．！？；!?;,、]+$/, '').trim(); };
 
 export type Grade = 'full' | 'partial' | 'wrong';
 /** 判分；多选：全对 full，漏选（无错选）partial，错选 wrong；填空数值（含分数）按数值等价 */

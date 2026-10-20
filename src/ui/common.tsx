@@ -10,7 +10,8 @@ export function Modal({ children, onClose }: { children: ReactNode; onClose?: ()
   return <div className="modal-back" onClick={e => { if (e.target === e.currentTarget) onClose?.(); }}><div className="modal">{children}</div></div>;
 }
 /** 自带屏幕键盘（GDD §9.4） */
-export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boolean; sci?: boolean; value: string; onChange: (v: string) => void; onOk: (v: string) => void }) {
+/* r16.1：kind = 'ime' 时不用自带键盘，换成普通文本框（系统输入法：汉字、化学式等），见 game/inputKind.ts */
+export function Keypad({ letters, sci, value, onChange, onOk, ime }: { letters: boolean; sci?: boolean; value: string; onChange: (v: string) => void; onOk: (v: string) => void; ime?: boolean }) {
   // 字母键盘：完整 a–z（含 e），不显示 ×10ⁿ；×10ⁿ 只在数字键盘（理科）出现（试玩报告 #1）
   // 技术QA R6-2/R6-3：QWERTY 三行（10/9/7）+ ' - 两键，第 4 行空格、退格、确定
   const rows = ['qwertyuiop', 'asdfghjkl', "zxcvbnm'-"].map(r => r.split(''));
@@ -48,6 +49,7 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
   const okUp = (e: React.PointerEvent) => { if (e.button !== 0 || !vRef.current.trim()) return; okAt.current = Date.now(); submitNow(); };
   const okClick = () => { if (Date.now() - okAt.current < 400) return; submitNow(); };
   useEffect(() => {   // 物理键盘也能输入
+    if (ime) return;   // 系统输入法：文本框自己收键（不能拦 Backspace / 字母，也不能打断输入法组字）
     const h = (e: KeyboardEvent) => {
       if (e.ctrlKey || e.metaKey || e.altKey) return; const v = vRef.current;
       const key = physKey(e, letters);   // r15.4 学霸：中文输入法 / 小键盘的「-」（key 为 Process、－、−、Subtract 等）也认
@@ -58,7 +60,16 @@ export function Keypad({ letters, sci, value, onChange, onOk }: { letters: boole
       e.preventDefault();
     };
     window.addEventListener('keydown', h); return () => window.removeEventListener('keydown', h);
-  }, [letters]);
+  }, [letters, ime]);
+  if (ime) return (
+    <div className="keypad-wrap ime-wrap">
+      <input className="input-box ime-input" data-testid="input" type="text" inputMode="text" lang="zh-CN" enterKeyHint="done" autoFocus
+        autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} maxLength={80} placeholder="用输入法打字，打完点「确定」" value={val}
+        onChange={e => commit(e.target.value)}
+        onKeyDown={e => { if (e.key === 'Enter' && !e.nativeEvent.isComposing && e.keyCode !== 229) { e.preventDefault(); submitNow(); } }} />
+      <div className="kp-row ime-row"><button className="ok" data-testid="ok" onPointerUp={okUp} onClick={okClick} disabled={!val.trim()}>确定</button></div>
+    </div>
+  );
   return (
     <div className="keypad-wrap">
       <div className="input-box" data-testid="input">{(letters ? val : val.replace(/e/g, '×10^')) || <span className="ph">点下面的键输入{letters ? '' : '（分数用 /）'}</span>}</div>

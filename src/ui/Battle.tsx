@@ -1,4 +1,5 @@
 import { noAdjacent } from '../game/adaptive';
+import { fillKind } from '../game/inputKind';
 import { TEST_DOM } from './common';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react';
 import { usePhonePortrait } from './Rotate';
@@ -548,7 +549,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
     setIdx(i => i + 1); setPhase('question'); setInput(''); setMulti([]); setPicked(undefined); setFb(undefined);
   }
   const isEn = q.subject === '英语';
-  const letters = q.subject === '英语' || q.answer.some(a => /[a-df-z]/i.test(a));
+  const fk = fillKind(q, cfg.band === 'H'); const letters = fk === 'letters';   // r16.1：键盘按答案选（game/inputKind.ts）
   const tts = ttsText(q);
   const asking = phase === 'question' || phase === 'revive-q';
   const optCls = cfg.band === 'G1' ? 'opts big' : 'opts';
@@ -604,7 +605,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
               </div>))}
           </div>
         )}
-        {asking && q.type === '填空' && <Keypad key={q.key} letters={letters} sci={cfg.band === 'H'} value={input} onChange={setInput} onOk={v => submit(v)} />}
+        {asking && q.type === '填空' && <Keypad key={q.key} letters={letters} ime={fk === 'ime'} sci={cfg.band === 'H'} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {phase === 'action' && (
           <div className="actions">
             {actTotal > 0 && <div className="countbar smooth"><div style={{ transform: `scaleX(${actMs / actTotal})` }} /></div>}

@@ -1,4 +1,5 @@
 import { tierCap } from '../game/consolidate';
+import { fillKind } from '../game/inputKind';
 import { stemOf, reviewGate } from '../game/adaptive';
 import { TEST_DOM } from './common';
 /* D6 轮流回合战斗界面（实现规格 v0.3.6）：我方回合 / 对方回合交替，每回合 1 题；小学 3–6、初一、高一 */
@@ -319,7 +320,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   }
   if ((__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest)) (window as unknown as { __zyAnswer?: () => string | undefined }).__zyAnswer = () => cq?.answer[0];   // 仅自动化测试
   const isEn = cq?.subject === '英语';
-  const letters = cq?.subject === '英语' || !!cq?.answer.some(a => /[a-df-z]/i.test(a));   // 英语 / 文字答案用字母键盘；数字里的 e 是科学计数
+  const fk = cq ? fillKind(cq, hs) : 'num'; const letters = fk === 'letters';   // r16.1：键盘按答案选（game/inputKind.ts）：纯数 → 数字键盘，字母 → 字母键盘，其余 → 系统输入法
   const tts = cq ? ttsText(cq) : '';
   const showQ = cq && !ending && (asking || phase === 'feedback' || phase === 'anim');
   const left = roundsLeft(bs);
@@ -411,7 +412,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
                 {cq.type === '选择' && <i>{ch.key}</i>}<QImage image={ch.image} cls="opt-img" fallback={<span className="opt-txt"><Tex text={ch.text} /></span>} /></button></div>)}
           </div>
         )}
-        {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} sci={hs} value={input} onChange={setInput} onOk={v => submit(v)} />}
+        {asking && cq && cq.type === '填空' && <Keypad key={cq.key} letters={letters} ime={fk === 'ime'} sci={hs} value={input} onChange={setInput} onOk={v => submit(v)} />}
         {reviveMsg && <div className="feedback bad" data-testid="revive-fail"><h3>{reviveMsg}</h3></div>}
         {phase === 'anim' && !ending && !falling && !reviveMsg && <div className="anim-wait" data-testid="anim">⚔ 战斗中…</div>}
         {phase === 'retreat' && <div className="feedback ok" data-testid="retreating"><h3>回合用完，怪物撤退了！</h3></div>}
