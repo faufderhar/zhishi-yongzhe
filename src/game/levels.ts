@@ -44,8 +44,19 @@ export function shortUnit(u?: string) {
   if (!u) return '';
   // r16.1：显示名一律不拆括号里的「·」（旧年级 splitDot 默认拆，导致地图显示「病句）」「毛泽东诗词）」）；章 key 仍用 chapterOf 的旧拆法，关卡 id 不变
   const parts = splitDot(u, true);   // 书名号 / 括号里的「·」（《清平乐·村居》）不拆
-  return (parts[parts.length - 1] || u).replace(/^第[一二三四五六七八九十\d]+(?:单元|[章课节])\s*/, '');
+  // r16.2：题名本身带「·」（沁园春·长沙、清平乐·村居、汤姆·索亚历险记、大卫·科波菲尔）不拆——显示名 = 最后一个层级段（册别 / 第X单元·章·节·课 / 专题 / 引言 / 科目）之后的全部段。
+  //   没有任何层级段的「类别·名字」（英语单词·动物、拓展·纲要下、初高衔接·语法复习）保持旧拆法（只显示最后一段）
+  let t = parts[parts.length - 1];
+  if (parts.length > 1) {
+    const i = UNIT_VOL.test(parts[0]) ? 1 : 0; let last = i - 1;
+    for (let j = i; j < parts.length; j++) if (UNIT_MARK.test(parts[j]) || SUBJECT_ORDER.includes(parts[j])) last = j;
+    if (last >= 0 && last < parts.length - 1) t = parts.slice(last + 1).join('·');
+  }
+  return (t || u).replace(/^第[一二三四五六七八九十\d]+(?:单元|[章课节])\s*/, '');
 }
+/** r16.2：shortUnit 的层级段（册别前缀 / 单元章节课 / 专题 / 引言） */
+const UNIT_VOL = /[上下]$|必修|选修|纲要|^[\dA-Z]+[AB]$|一轮复习/;
+const UNIT_MARK = /^(?:第[一二三四五六七八九十\d]+(?:单元|[章课节])|专题\s*\d+|引言$)/;
 
 /** volumes：已学册别（null = 全部）；volumeOrder：册别显示顺序 */
 /** all：含不可玩题的全部题（用来找「可玩题为 0 的语文古诗课」，给它一张指向同名诗词关的卡片） */
