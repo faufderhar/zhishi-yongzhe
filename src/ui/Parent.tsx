@@ -618,7 +618,9 @@ function UndoRestore() {
   return <button className="btn ghost" data-testid="undo-restore" onClick={async () => { if (!confirm('撤销上一次恢复，回到恢复前的数据？')) return; await importAll(snap, { trusted: true }); await setKV('snapshot:last', undefined); logReload('undo-restore', 'parent'); location.reload(); }}>↩ 撤销恢复 / 合并（回到 {(() => { const d = new Date(snap.exportedAt ?? ''); return isNaN(+d) ? '上一次' : d.toLocaleString('zh-CN', { hour12: false, month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }); })()} 的数据）</button>;
 }
 function PinTab({ settings, setSettings }: ParentProps) {
-  const [step, setStep] = useState<'menu' | 'old' | 'new' | 'confirm' | 'done'>('menu');   /* r15.1 较真家长：点进「🔑 密码」不直接弹数字键盘，点「修改家长密码」才出现 */
+  const [step, setStep] = useState<'menu' | 'old' | 'new' | 'confirm' | 'verify' | 'done'>('menu');   // r16.1 (p)：+verify（存好后当场再验，和首次设置 / 重设一样）
+  const vTry = useRef(0); const padRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (step !== 'menu' && step !== 'done') padRef.current?.scrollIntoView?.({ block: 'start' }); }, [step]);   // r16.1 (s)：键盘一出来就在视野里   /* r15.1 较真家长：点进「🔑 密码」不直接弹数字键盘，点「修改家长密码」才出现 */
   const latestS = useRef(settings); latestS.current = settings;
   const [n1, setN1] = useState(''); const [err, setErr] = useState<string>();
   const [forgot, setForgot] = useState<'forgot' | 'rec'>(); const [viaChange, setViaChange] = useState(false);   // r15.4：只有「修改家长密码」走完才提示恢复码仍有效（找回流程里可能已换了新码）
@@ -626,19 +628,29 @@ function PinTab({ settings, setSettings }: ParentProps) {
   // r13 较真家长：家长页「输入旧密码」也能走忘记密码 / 恢复码（同一套流程：新密码和找回问题一起提交）
   if (forgot) return <ParentGate settings={settings} initialMode={forgot} onRequestReset={() => setSettings({ ...latestS.current, pinReset: newPending(Date.now()) })} /* r15.1 较真家长：以前没传，「申请重设」点了什么都不做 */ onRecConfirmed={() => setSettings({ ...latestS.current, recConfirmed: true })} onSetPin={(h, hint, rec) => { if (h) setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec, ...(rec ? { recConfirmed: false } : {}), ...(rec && settings.pinReset ? { pinReset: undefined, pinResetDoneAt: Date.now() } : {}) }); }}
     onOk={() => { setForgot(undefined); setStep('done'); }} onCancel={() => setForgot(undefined)} />;
-  if (step === 'done') return <><p className="note">✔ 密码已修改</p><RecGen settings={settings} setSettings={setSettings} afterChange={viaChange} />{toggles}<HintEdit settings={settings} setSettings={setSettings} /></>;
+  // r16.1 (t) 较真家长 P3：改完（第几次都一样）「修改家长密码…」按钮还在
+  const changeBtn = <button className="btn" data-testid="pintab-change" onClick={() => { setStep('old'); setErr(undefined); setN1(''); vTry.current = 0; }}>修改家长密码…</button>;
+  if (step === 'done') return <><p className="note" data-testid="pintab-done">✔ 密码已修改</p><RecGen settings={settings} setSettings={setSettings} afterChange={viaChange} />{changeBtn}{toggles}<HintEdit settings={settings} setSettings={setSettings} /></>;
+  /* r16.1 (p) 较真家长 P2：存好后当场再输一次试试（不计错误次数）；对不上可以「重新设置」 */
+  if (step === 'verify') return <div className="pintab-pad" ref={padRef} data-testid="pintab-verify"><PinPad title="再输一次刚设的密码试试" hint="确认记住了（这一步输错不计次数）" error={err} onSubmit={async p => {
+      const st = await getKV<{ pinHash?: string }>('settings'); if (await verifyPin(p, st?.pinHash ?? latestS.current.pinHash)) { setErr(undefined); setViaChange(true); setStep('done'); return; }
+      vTry.current++; setErr(`和刚才设置的密码不一样（设置时可能按错了）。可以再试一次，或点「重新设置」。（第 ${vTry.current} 次）`); }}
+    extra={<button className="link-btn" data-testid="pintab-verify-reset" onClick={() => { setErr(undefined); setN1(''); setStep('new'); }}>重新设置</button>} /></div>;
+  /* r16.1 (s) 较真家长 P3：改密码时数字键盘放最上面（以前在开关 / 找回问题 / 恢复码卡片下面，1280×600 要往下滚才看得见） */
+  if (step !== 'menu') return <div className="pintab-pad" ref={padRef}><button className="chip" data-testid="pintab-close" aria-label="关闭" onClick={() => { setStep('menu'); setErr(undefined); setN1(''); }}>✕ 不改了</button>
+    <PinPad title={step === 'old' ? '输入旧密码' : step === 'new' ? '输入新密码' : '再输入一次新密码'} hint="请输入 4–6 位数字" error={err} onSubmit={submitPin} /></div>;
   return <>{toggles}<HintEdit settings={settings} setSettings={setSettings} /><RecGen settings={settings} setSettings={setSettings} />
     <div className="row gap16"><button className="link-btn" data-testid="pintab-forgot" onPointerUp={e => { if (e.pointerType === 'mouse') return; e.preventDefault(); setForgot('forgot'); }} onClick={() => setForgot('forgot')}>忘记密码</button>{settings.pinRec && <button className="link-btn" data-testid="pintab-rec" onClick={() => setForgot('rec')}>用恢复码</button>}</div>
-    {step === 'menu' ? <button className="btn" data-testid="pintab-change" onClick={() => { setStep('old'); setErr(undefined); }}>修改家长密码…</button> : <div className="pintab-pad"><button className="chip" data-testid="pintab-close" aria-label="关闭" onClick={() => { setStep('menu'); setErr(undefined); setN1(''); }}>✕ 不改了</button>
-    <PinPad title={step === 'old' ? '输入旧密码' : step === 'new' ? '输入新密码' : '再输入一次新密码'} hint="请输入 4–6 位数字" error={err} onSubmit={async p => {
+    {changeBtn}</>;
+  async function submitPin(p: string) {
     if (step === 'old') { if (await verifyPin(p, settings.pinHash) || await currentPin().then(c => !!c.vault && c.vault.pinHash !== settings.pinHash && verifyPin(p, c.vault.pinHash))) { setStep('new'); setErr(undefined); } else setErr('旧密码不对'); return; }
     if (step === 'new') { if (!validPin(p)) { setErr('4–6 位数字'); return; } setN1(p); setStep('confirm'); setErr(undefined); return; }
     if (p !== n1) { setErr('两次不一致'); setStep('new'); return; }
     setSettings({ ...settings, pinHash: await makePinHash(p) }); markPinSet();
     /* r16 较真家长 3：「修改家长密码」也走同一个自检（和首次设置 / 重设一样） */
     const chk = await checkPinSaved(p); if (!chk.ok) { logErr('pin-selfcheck', chk.bad.join(',')); setErr('新密码没有存好（存下来的和刚输入的对不上），请重新输入新密码；如果一直这样，请先导出备份再刷新页面。'); setStep('new'); return; }
-    setViaChange(true); setStep('done');
-  }} /></div>}</>;
+    vTry.current = 0; setErr(undefined); setStep('verify');
+  }
 }
 const OLD_HINT_QUESTIONS = ['孩子的小名是？', '家里宠物/玩偶的名字是？', '孩子的生日（如 0612）是？'];
 /** r13 策划：找回问题选择（5 个预设 + 自己写），不预选 */

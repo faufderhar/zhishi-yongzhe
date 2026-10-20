@@ -36,7 +36,7 @@ await pg.fill('[data-testid=add-name]', 'pin'); await pg.click('[data-testid=hom
 // 修改家长密码
 const home = async () => { for (let i = 0; i < 12 && !(await vis('[data-testid=parent]')); i++) { if (await vis('[data-testid=parent-close]')) await pg.click('[data-testid=parent-close]'); else if (await vis('[data-testid=map-back]')) await pg.click('[data-testid=map-back]'); else await pg.goto(URL); await w(400); } };
 await home(); await pg.click('[data-testid=parent]'); await w(300); await pinIn('1357'); if (await vis('.modal >> text=稍后')) await pg.click('.modal >> text=稍后');
-await pg.click('[data-testid=ptab-pin]'); await w(300); await pg.click('[data-testid=pintab-change]'); await w(300); await pinIn('1357'); await pinIn('8642'); await pinIn('8642'); await w(800);
+await pg.click('[data-testid=ptab-pin]'); await w(300); await pg.click('[data-testid=pintab-change]'); await w(300); await pinIn('1357'); await pinIn('8642'); await pinIn('8642'); await w(600); ok(await vis('[data-testid=pintab-verify]'), '修改家长密码 → 当场再验（r16.1 p）'); await pinIn('8642'); await w(800); ok(await vis('[data-testid=pintab-done]') && await vis('[data-testid=pintab-change]'), '再验通过 → ✔ 密码已修改，「修改家长密码…」按钮还在（r16.1 t）');
 ok(!(await vis('[data-testid=pin-error]')) && !(await txt('body'))?.includes('没有存好'), '修改家长密码 → 自检通过');
 await pg.screenshot({ path: OUT + 'change-done.png' });
 await pg.goto(URL); await w(800); await home(); await pg.click('[data-testid=parent]'); await w(300); await pinIn('8642'); if (await vis('.modal >> text=稍后')) await pg.click('.modal >> text=稍后');
