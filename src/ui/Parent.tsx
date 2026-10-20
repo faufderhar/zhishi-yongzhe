@@ -5,7 +5,7 @@ import { ReduceToggle } from './Battle';
 import { prefetchAll } from '../fx/sheets';
 import { useState as useS } from 'react';
 import { offlineStatus, onOffline, voiceStatus, onVoiceStatus, cacheVoiceForOffline } from '../offlineCache';
-import { BANK_VER, BANK_RELEASE } from '../bankStore';
+import { BANK_VER, BANK_RELEASE, type SupRow } from '../bankStore';
 import { VERSION_LABEL } from '../version';
 import { useInstallPrompt, isStandalone, isIOS, IosSteps, promptInstall } from './Screens';
 import { toggleVol as toggleVolS, toggleAllVols, volsValid, learnedCount } from '../game/volumes';
@@ -377,7 +377,7 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
 }
 
 /* r16.1：高二选科——默认「还没选科（全科）」（所有科目都能玩、Boss 没有弱点加成）；已选科 = 首选 1 门 + 再选 2 门（game/electives.ts） */
-function ElectivesPicker({ e, onChange }: { e?: Electives; onChange: (e: Electives) => void }) {
+export function ElectivesPicker({ e, onChange }: { e?: Electives; onChange: (e: Electives) => void }) {
   const all = isAllSubjects(e) && !(e && e.all !== true);   // 已选科但还没勾任何一门时仍显示「已选科」
   const second = e?.second ?? [];
   const toggle2 = (x: string) => onChange({ first: e?.first, second: second.includes(x) ? second.filter(y => y !== x) : second.length >= 2 ? second : [...second, x] });
@@ -390,6 +390,18 @@ function ElectivesPicker({ e, onChange }: { e?: Electives; onChange: (e: Electiv
       <div className="row gap16 wrap">再选（四选二）{ELECTIVE_SECOND.map(x => <button key={x} className={`chip ${second.includes(x) ? 'on' : ''}`} data-testid={'el-second-' + x} disabled={!second.includes(x) && second.length >= 2} onClick={() => toggle2(x)}>{x}</button>)}</div>
       {!electivesValid(e) && <p className="warn-text" data-testid="el-invalid">⚠ 已选科要选首选 1 门、再选 2 门才能保存（还没定可以点〔还没选科（全科）〕）</p>}
       <p className="hint">Boss 弱点按选的科目来；所有科目仍都能玩。</p></>}
+  </div>;
+}
+
+/* r16.1（总管）：「内置题已更新」列出是哪些题（id + 题干开头）；多的折叠；告诉家长改过的题可以从备份重新导入 */
+const SUP_SHOW = 5;
+export function SupersededNote({ n, list }: { n: number; list: SupRow[] }) {
+  const row = (r: SupRow) => <li key={r.grade + ':' + r.id} data-testid={'sup-' + r.id}><code>{r.id}</code> {GRADE_LABEL[r.grade as GradeKey] ?? r.grade} {r.subject}：{r.stem}</li>;
+  return <div className="hint" data-testid="import-superseded">
+    <p>内置题已更新：有 {n} 道导入题和内置题同号，内置题在导入之后更新过，现在用内置的新版：</p>
+    <ul data-testid="sup-list">{list.slice(0, SUP_SHOW).map(row)}</ul>
+    {list.length > SUP_SHOW && <details data-testid="sup-more"><summary>还有 {list.length - SUP_SHOW} 道（点开看全部）</summary><ul>{list.slice(SUP_SHOW).map(row)}</ul></details>}
+    <p data-testid="sup-reimport">如果这些题是你改过的：从你的备份（或当时导出的题库文件）里重新导入，就会再用你改的版本。</p>
   </div>;
 }
 
@@ -478,7 +490,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
         <button className="btn" data-testid="import-pick" disabled={!!busy} onClick={() => fileRef.current?.click()}>📥 导入题库（JSON / CSV）</button>
         {busy && <p className="note" data-testid="import-busy" role="status"><span className="spin" aria-hidden="true">⏳</span> {busy}</p>}
         <button className="btn ghost" disabled={!bank.importedCount} onClick={async () => { await clearImported(); await reloadBank(); setMsg('已清除导入的题，恢复内置题库'); }}>清除已导入（{bank.importedCount}）</button>
-        {(bank.importedSuperseded ?? 0) > 0 && <p className="hint" data-testid="import-superseded">有 {bank.importedSuperseded} 道导入题和内置题同号，内置题已经更新，现在用内置的新版（需要的话可以重新导入）。</p>}
+        {(bank.importedSuperseded ?? 0) > 0 && <SupersededNote n={bank.importedSuperseded!} list={bank.importedSupersededList ?? []} />}
         {bank.importedInvalid > 0 && <p className="warn" data-testid="import-invalid">有 {bank.importedInvalid} 道导入题格式不对，已暂停使用（请修改后重新导入）。</p>}
       </div>
       {msg && <p className="note" data-testid="import-msg">{msg}</p>}
