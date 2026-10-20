@@ -5,7 +5,7 @@ const rd = (p: string) => readFileSync(new URL('../' + p, import.meta.url), 'utf
 
 /* 录音播放用假的 <audio>：play() 后 dur 毫秒触发 onended，记录开始 / 被停 */
 const played: { url: string; ev: string; t: number }[] = [];
-class FakeAudio { src: string; volume = 1; onended: (() => void) | null = null; onerror: (() => void) | null = null; private id = 0; private live = false;
+class FakeAudio { src: string; volume = 1; get duration() { return /grace/.test(this.src) ? 2 : 0.5; } onended: (() => void) | null = null; onerror: (() => void) | null = null; private id = 0; private live = false;
   constructor(u: string) { this.src = u; }
   play() { this.live = true; played.push({ url: this.src, ev: 'start', t: Date.now() }); const d = /grace/.test(this.src) ? 2000 : 500; this.id = setTimeout(() => { this.live = false; played.push({ url: this.src, ev: 'end', t: Date.now() }); this.onended?.(); }, d) as unknown as number; return Promise.resolve(); }
   pause() { clearTimeout(this.id); if (this.live) played.push({ url: this.src, ev: 'stop', t: Date.now() }); this.live = false; } }
@@ -39,13 +39,13 @@ describe('r15.4.2 #1 收尾提示 prio：同一刻的表扬 / 下一题题干不
     const seq = played.map(p => `${p.ev}:${p.url.split('/').pop()}`);
     expect(seq.slice(0, 3)).toEqual(['start:K1_stem.mp3', 'stop:K1_stem.mp3', 'start:K2_stem.mp3']);
   });
-  it('兜底：prio 最多挡 8 秒（录音卡住也不会让后面的朗读永远不放）', async () => {
+  it('兜底（r16.2 起）：录音开始后收不到 ended → 按片长 + 300 ms 结束，后面的朗读照常（以前要挡满 8 秒）', async () => {
     const tts = await import('../src/tts');
     (globalThis as any).Audio = class extends FakeAudio { play() { played.push({ url: this.src, ev: 'start', t: Date.now() }); return Promise.resolve(); } };   // 永远不结束
     tts.speak('时间到啦，打完这关就休息哦', 'zh-CN', { prio: true }); await vi.advanceTimersByTimeAsync(50);
-    tts.speak('题目一', 'zh-CN', { id: 'K-1' }); await vi.advanceTimersByTimeAsync(7000);
-    expect(played.some(p => /K1_stem/.test(p.url))).toBe(false);
-    await vi.advanceTimersByTimeAsync(1500);
+    tts.speak('题目一', 'zh-CN', { id: 'K-1' }); await vi.advanceTimersByTimeAsync(2000);
+    expect(played.some(p => /K1_stem/.test(p.url))).toBe(false);   // grace 片长 2 s：2.3 s 前不切
+    await vi.advanceTimersByTimeAsync(400);
     expect(played.some(p => /K1_stem/.test(p.url))).toBe(true);
     (globalThis as any).Audio = FakeAudio;
   });

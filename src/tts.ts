@@ -50,6 +50,13 @@ export function speakable(t: string) {
   return /^[\u25A0-\u25FF\s]*$/.test(t) ? '' : t;
 }
 let speakingFlag = false;
+/* r16.2：系统朗读「在读」只信到预计读完的时间（sysUntil）。没有输出设备时有的浏览器 speechSynthesis.speaking 一直是 true、onend 永远不来，
+   以前 voiceBusy / isSpeaking 直接看 synth.speaking → 一直「在说话」（答题计时也一直停着）。 */
+let sysUntil = 0; let sysSeq = 0;
+const synthBusy = () => !!synth?.speaking && ttsState === 'ok' && (typeof performance === 'undefined' ? 0 : performance.now()) < sysUntil;
+/** 系统朗读预计时长（毫秒）：汉字约 4 字 / 秒 × 语速，英文按词；+1.5 s 余量，最多 VOICE_CAP_MS */
+export const sysEstimateMs = (text: string, rate: number) => { const zh = (text.match(/[\u4e00-\u9fff]/g) ?? []).length, words = (text.replace(/[\u4e00-\u9fff]/g, ' ').match(/[A-Za-z0-9]+/g) ?? []).length;
+  return Math.min(VOICE_CAP_MS, Math.round((zh / 4 + words / 2.5) * 1000 / (rate || 1)) + 1500); };
 /* r15.4.4 音频设计：小班录音语速 1.5 → 1.2（zf_002）。系统朗读退路同样放慢：0.9 × 1.2 / 1.5 = 0.72。App 按当前档案的学段设 */
 export const SYS_RATE = 0.9, K_VOICE_SPEED = 1.2, K_VOICE_SPEED_OLD = 1.5;
 let kinderSpeech = false;
@@ -57,7 +64,7 @@ export const setKinderSpeech = (on: boolean) => { kinderSpeech = on; };
 export const sysRate = () => kinderSpeech ? SYS_RATE * K_VOICE_SPEED / K_VOICE_SPEED_OLD : SYS_RATE;
 let recPending = 0;   // playRecorded 还在查 manifest（还没开始播）
 /** 正在朗读（朗读时答题计时暂停，策划 r7） */
-export const isSpeaking = () => audioPrefs.tts && (speakingFlag || !!synth?.speaking) && !(__TEST_HOOKS__ && typeof window !== 'undefined' && (window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts);
+export const isSpeaking = () => audioPrefs.tts && (speakingFlag || synthBusy()) && !(__TEST_HOOKS__ && typeof window !== 'undefined' && (window as unknown as { __zyTestNoTts?: boolean }).__zyTestNoTts);
 /* r15.4 华为平板（华为浏览器 / 鸿蒙）：speechSynthesis 可能没有、没有中文语音、或 speak() 根本不开始。
    能力检测：没有 speechSynthesis → none；voiceschanged 后 / 2 秒后仍 0 个语音 → none；有语音但没有中文 → nozh；
    speak() 1.5 秒内没有 onstart → broken（本次会话不再用系统朗读）。
@@ -85,13 +92,52 @@ let recEl: HTMLAudioElement | null = null; let recSeq = 0; let recSrc: AudioBuff
    停顿按毫秒准；和音效同一个已解锁的 context，不受 <audio> 自动播放限制）。没有 context 才退回 <audio>。 */
 const bufCache = new Map<string, Promise<AudioBuffer | null>>();
 const loadBuf = (url: string) => { const ctx = sfxCtx; if (!ctx || typeof fetch === 'undefined') return Promise.resolve(null); let p = bufCache.get(url); if (!p) { p = fetch(url).then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))).then(b => ctx.decodeAudioData(b)).then(d => { if (aLog) alog('decode', url, d.duration); return d; }).catch(() => { if (aLog) alog('decode-fail', url); bufCache.delete(url); return null; }); bufCache.set(url, p); if (bufCache.size > 60) bufCache.delete(bufCache.keys().next().value as string); } return p; };
-const playEl = (url: string, my: number) => new Promise<boolean>(res => { if (my !== recSeq) return res(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; el.onended = () => res(true); el.onerror = () => { if (aLog) alog('el-error', url); res(false); }; el.play().then(() => { if (aLog) alog('el-start', url); }, () => { if (aLog) alog('el-blocked', url); res(false); }); });
+/* r16.2 小萌新（没有声卡 / 静音平板 / 蓝牙断开）：播放永远不能卡住流程。以前 <audio> 只等 ended / error，
+   play() 一直 pending、没有输出设备、AudioContext 卡在 suspended 时这句永远「在播」，答对后要等到 8 / 10 秒的上限才出下一题。
+   现在每段录音都有看门狗：VOICE_START_MS 内没开始播（没有 playing / currentTime 不走）→ 当作放不出来（false）；
+   开始播了 → 最多等「片长 + VOICE_TAIL_MS」（不超过 VOICE_CAP_MS），收不到 ended 也照样往下走。 */
+export const VOICE_START_MS = 1200, VOICE_TAIL_MS = 300, VOICE_CAP_MS = 15000;
+type MediaLike = { play(): Promise<void> | void; pause(): void; duration?: number; currentTime?: number; playbackRate?: number;
+  onplaying?: unknown; ondurationchange?: unknown; onended?: unknown; onerror?: unknown; onabort?: unknown };
+/** 放一段 <audio>（或同接口的对象）：ended → true；出错 / 被拒 / VOICE_START_MS 内没开始 → false；
+    开始（playing 事件或 play() 兑现）后最多等「剩余片长 + VOICE_TAIL_MS」，片长未知按 VOICE_START_MS + VOICE_TAIL_MS */
+export function watchMedia(el: MediaLike, log?: (ev: string) => void): Promise<boolean> {
+  return new Promise<boolean>(res => {
+    let over = false, began = false; let tStart: ReturnType<typeof setTimeout> | undefined, tEnd: ReturnType<typeof setTimeout> | undefined;
+    const fin = (v: boolean, ev: string) => { if (over) return; over = true; clearTimeout(tStart); clearTimeout(tEnd); if (!v) { try { el.pause(); } catch { /* */ } } log?.(ev); res(v); };
+    const arm = () => { clearTimeout(tEnd); const d = el.duration; const left = typeof d === 'number' && Number.isFinite(d) && d > 0 ? Math.max(0, d - (el.currentTime || 0)) * 1000 / (el.playbackRate || 1) : VOICE_START_MS;
+      tEnd = setTimeout(() => fin(true, 'el-timeout'), Math.min(VOICE_CAP_MS, left + VOICE_TAIL_MS)); };
+    const begin = () => { if (over || began) return; began = true; clearTimeout(tStart); log?.('el-start'); arm(); };
+    tStart = setTimeout(() => fin(false, 'el-nostart'), VOICE_START_MS);
+    el.onplaying = begin;
+    el.ondurationchange = () => { if (!over && began) arm(); };
+    el.onended = () => fin(true, 'el-end');
+    el.onerror = () => fin(false, 'el-error');
+    el.onabort = () => fin(false, 'el-abort');
+    try { const p = el.play(); if (p && typeof p.then === 'function') p.then(begin, () => fin(false, 'el-blocked')); } catch { fin(false, 'el-blocked'); }
+  });
+}
+/** 限时等一个 promise：超时返回 fallback（原 promise 照常继续，结果留给下次用） */
+export const within = <T,>(p: Promise<T>, ms: number, fallback: T): Promise<T> => new Promise<T>(res => { const t = setTimeout(() => res(fallback), ms); p.then(v => { clearTimeout(t); res(v); }, () => { clearTimeout(t); res(fallback); }); });
+const playEl = (url: string, my: number) => { if (my !== recSeq) return Promise.resolve(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; return watchMedia(el, aLog ? ev => alog(ev, url) : undefined); };
 const playOne = async (url: string, my: number): Promise<boolean> => {
   if (my !== recSeq) return false;
   const ctx = sfxCtx; if (!ctx || ctx.state !== 'running') return playEl(url, my);
-  const buf = await loadBuf(url); if (my !== recSeq) return false; if (!buf) return playEl(url, my);
-  return new Promise<boolean>(res => { const src = ctx.createBufferSource(), g = ctx.createGain(); g.gain.value = audioPrefs.volume; src.buffer = buf; src.connect(g).connect(ctx.destination);
-    recSrc = src; src.onended = () => { if (aLog) alog('end', url); if (recSrc === src) recSrc = null; res(true); }; recLog?.push({ url, t: performance.now(), dur: buf.duration }); src.start(); if (aLog) alog('start', url, buf.duration); });
+  const buf = await within(loadBuf(url), VOICE_START_MS, null); if (my !== recSeq) return false; if (!buf) return playEl(url, my);   // r16.2：取 / 解码卡住也不等
+  return playBuf(ctx, buf, src => { recSrc = src; recLog?.push({ url, t: performance.now(), dur: buf.duration }); if (aLog) alog('start', url, buf.duration); }, ev => { if (aLog) alog(ev, url); });
+};
+type CtxLike = { state: string; currentTime: number; destination: AudioNode; createBufferSource(): AudioBufferSourceNode; createGain(): GainNode };
+/** r16.2：在 AudioContext 上放一段：ended → true；最多等片长 + VOICE_TAIL_MS（收不到 ended 也走）；
+    开始后 VOICE_START_MS 内 context 不在 running 或 currentTime 不走（没有输出设备 / 被挂起）→ false */
+export function playBuf(ctx: CtxLike, buf: { duration: number }, onStart?: (src: AudioBufferSourceNode) => void, log?: (ev: string) => void): Promise<boolean> {
+  return new Promise<boolean>(res => { const src = ctx.createBufferSource(), g = ctx.createGain(); g.gain.value = audioPrefs.volume; src.buffer = buf as AudioBuffer; src.connect(g).connect(ctx.destination);
+    let over = false, tEnd: ReturnType<typeof setTimeout> | undefined, tChk: ReturnType<typeof setTimeout> | undefined; const fin = (v: boolean, ev: string) => { if (over) return; over = true; clearTimeout(tEnd); clearTimeout(tChk); if (!v) { try { src.stop(); } catch { /* */ } } if (recSrc === src) recSrc = null; log?.(ev); res(v); };
+    src.onended = () => fin(true, 'end');
+    const ct0 = ctx.currentTime;
+    try { src.start(); } catch { fin(false, 'start-fail'); return; }
+    onStart?.(src);
+    tEnd = setTimeout(() => fin(true, 'timeout'), Math.min(VOICE_CAP_MS, buf.duration * 1000 + VOICE_TAIL_MS));
+    tChk = setTimeout(() => { if (ctx.state !== 'running' || ctx.currentTime - ct0 < 0.1) fin(false, 'stalled'); }, Math.min(VOICE_START_MS, buf.duration * 1000 + VOICE_TAIL_MS)); });
 };
 const stopRec = () => { recEl?.pause(); try { recSrc?.stop(); } catch { /* */ } recSrc = null; };
 /* 仅测试构建：记录每段录音开始的时间（r154-nosynth 量停顿） */
@@ -104,7 +150,7 @@ const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ 
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 let recHad = false;
 export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
-  recPending++; let it: Record<string, string | string[]>; try { it = (await voiceManifest()).items ?? {}; } finally { recPending--; }
+  recPending++; let it: Record<string, string | string[]>; try { it = (await within(voiceManifest(), VOICE_START_MS, {} as VoiceMan)).items ?? {}; } finally { recPending--; }   // r16.2：清单取不到也不等
   if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
   const steps: { url: string; gap: number }[] = []; let prevKey = '';
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
@@ -152,20 +198,24 @@ export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: str
   if (u.lang === 'zh-CN' && zhVoice) u.voice = zhVoice;
   u.rate = sysRate(); u.pitch = 1.1; u.volume = audioPrefs.volume;
   if (!testPlain() && u.lang === 'zh-CN' && !zhVoice && synth!.getVoices().length > 0 && !noVoiceTold) { noVoiceTold = true; notify('novoice'); }
-  let started = false;
-  speakingFlag = true; const done = () => { speakingFlag = false; };
-  u.onstart = () => { started = true; ttsState = 'ok'; };
+  let started = false; const mySys = ++sysSeq;
+  speakingFlag = true; const done = () => { if (mySys !== sysSeq) return; speakingFlag = false; sysUntil = 0; };
+  const est = sysEstimateMs(u.text, u.rate);
+  u.onstart = () => { started = true; ttsState = 'ok'; if (mySys !== sysSeq) return; speakingFlag = true; sysUntil = performance.now() + est;
+    setTimeout(() => { if (speakingFlag) { done(); endPrio(); } }, est); };   // r16.2：开始了但 onend 一直不来 → 按预计时长结束
   u.onend = () => { done(); endPrio(); }; u.onerror = (ev: SpeechSynthesisErrorEvent) => { done(); if (ev?.error === 'not-allowed') { notify('blocked'); endPrio(); } else if (!started && ev?.error !== 'interrupted' && ev?.error !== 'canceled') fallback(); else endPrio(); };
   synth!.speak(u);
   // iOS Safari 偶发卡住：resume 兜底
   setTimeout(() => synth!.resume(), 250);
   // 1.5 秒还没开始：系统朗读不可用（华为浏览器等），本次会话改用录音 / 提示
-  if (!testPlain()) setTimeout(() => { if (!started && ttsState !== 'ok' && speakingFlag && document.visibilityState === 'visible' && warmed) { ttsState = 'broken'; synth!.cancel(); done(); fallback(); } }, 1500);
+  if (!testPlain()) setTimeout(() => { if (started || mySys !== sysSeq) return;
+    if (ttsState !== 'ok' && speakingFlag && document.visibilityState === 'visible' && warmed) { ttsState = 'broken'; synth!.cancel(); done(); fallback(); }
+    else if (speakingFlag) { done(); endPrio(); } }, 1500);   // r16.2：没开始（还没手势 / 在后台 / 以前好过这次不响）→ 不再一直算「在说话」
 }
 /* r15.4.4：自动跳转 / 自动收起（收尾横条、时间到、睡着的小怪兽、结算、新手引导、未解锁提示……）等这句读完再走。
    录音 1.2 倍速比以前长，固定毫秒会把话切掉。voiceBusy：录音在播 / 在取、系统朗读在读、重要提示（prio）在挡。
    测试里换成记录函数的假 speechSynthesis 不会结束，不算（testPlain）。 */
-export const voiceBusy = () => audioPrefs.tts && !testPlain() && (speakingFlag || recPending > 0 || prioBusy || !!synth?.speaking);
+export const voiceBusy = () => audioPrefs.tts && !testPlain() && (speakingFlag || recPending > 0 || prioBusy || synthBusy());
 /** 至少等 minMs；之后这句读完（再留 tailMs）就走；最多等 maxMs（系统朗读不报结束、录音卡住时也照样走） */
 export function afterVoice(minMs: number, maxMs: number, tailMs = 250): Promise<void> {
   const t0 = performance.now();
