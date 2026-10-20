@@ -342,7 +342,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         <button className="rules-btn" aria-label="规则说明" data-testid="rules" onClick={() => setRules(true)}>？</button>
         <button className="pause-btn" aria-label="暂停" data-testid="pause" onClick={() => setPaused(true)}>⏸</button>
       </div>
-      {tipNow && <div className="first-tip" data-testid={'tip-' + tipNow.k} onClick={() => setTipNow(null)}>💡 {tipNow.t}</div>}
+      {tipNow && !(tipNow.k === 'challenge' && phase === 'chal') && <div className="first-tip" data-testid={'tip-' + tipNow.k} onClick={() => setTipNow(null)}>💡 {tipNow.t}</div>}
       {!bs.over && phase !== 'revive-ask' && phase !== 'revive-q' && <div key={P ? 'P' : 'M'} className={`side-banner ${P ? 'p' : 'm'}`} data-testid="banner" data-side={P ? 'P' : 'M'}>{P ? '⚔ 我方回合：答对就攻击！' : '🛡 对方回合：答对就闪避！'}</div>}
       <div className="arena">
         <div className="mon-info">
@@ -380,15 +380,17 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {(phase === 'cards' || phase === 'bet') && hs && wagerOn && P && <BetToggle on={wager} set={setWager} />}
         {phase === 'bet' && <div className="cards" data-testid="bet-phase"><p>这一回合是多步题</p><button className="next" data-testid="bet-go" onClick={() => setPhase('question')}>出题 ▶</button></div>}
         {phase === 'chal' && <div className="cards chal-pick" data-testid="chal-toggle" role="group" aria-label="选题难度"><p>这一回合出什么题？<small>（选好才出题、才开始计时）</small></p>
+          {/* r16 技术QA P4-b：挑战题的 💡 提示放在选题区里（卡片上面一行），不再浮在「普通题」卡上挡第一下点击 */}
+          {tipNow?.k === 'challenge' && <div className="first-tip inline" data-testid="tip-challenge" onClick={() => setTipNow(null)}>💡 {tipNow.t}</div>}
           <div className="row gap16">
             <button className="qcard default" data-testid="chal-normal" autoFocus onClick={() => chooseChal(false)}><b>普通题 <span className="def-tag">默认</span></b><small>照常出题</small></button>
             <button className={`qcard hot ${hardQ.current ? '' : 'grey'}`} data-testid="chal-on" aria-disabled={!hardQ.current} onClick={() => chooseChal(true)}><b>挑战题 🔥</b><small>{chalMsg || (hardQ.current ? '更难：对 ×1.5 / 错反击 ×1.5' : (chalWhy || '这一回合没有更难的题'))}</small></button>
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager && P && phase !== 'revive-q' ? ' · 押注' : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
+          <div className="qmeta"><span className="qmeta-txt">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager && P && phase !== 'revive-q' ? ' · 押注' : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
-            {tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
+            </span>{tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {P && phase === 'question' && (() => { const inp = { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std' as CardKind, wager: hs && wagerOn ? wager : false, challenge: chal && bs.mode === 'j' }; const est = estimateDealt(bs, c, inp), raw = bs.shield > 0 ? estimateDealt({ ...bs, shield: 0 }, c, inp) : est;
             /* r15.4.1 学霸：有护盾时写明「护盾挡掉 n」——预计伤害一直是挡完以后的数，以前只写「已含护盾」，看起来像护盾没挡 */
             return <small className="q-dmg" data-testid="q-dmg" data-raw={raw} data-est={est}>本题答对预计伤害 ≈ {est}{raw > est && <b data-testid="q-dmg-shield">（护盾挡掉 {raw - est}，没有护盾是 {raw}）</b>}<em className="q-dmg-sk" data-testid="q-dmg-sk">技能另算</em><span className="hint">（已含连击{hs ? '、押注' : ''}{bs.mode === 'j' ? '、挑战' : ''}、被动、护盾；技能触发时另外乘）</span><DmgSum d={estimateInfo(bs, c, inp)} detail={false} tid="q-sum" /></small>; })()}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
@@ -455,7 +457,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         <ol className="rules-list" data-testid="rules-pop">{rulesFor(bs.mode).map((r, i) => <li key={i}><b>{r[0]}</b>：{r[1]}</li>)}</ol>
         <button className="btn" data-testid="rules-ok" onClick={() => setRules(false)}>知道了</button></Modal>}
       {betHint && (phase === 'cards' || phase === 'bet') && <Modal onClose={closeBetHint}><h2>新玩法：押注</h2>
-        <ul className="rules-list bet-hint-pop" data-testid="bet-hint">{BET_HINT_LINES.map((t, i) => <li key={i}>{t}</li>)}</ul>
+        <BetHintList />
         <button className="btn" data-testid="bet-hint-ok" onClick={closeBetHint}>知道了</button></Modal>}
       {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={quitNow} />}
     </div>
@@ -490,4 +492,14 @@ function BetToggle({ on, set }: { on: boolean; set: (f: (x: boolean) => boolean)
     <span className="bt-sw" aria-hidden><span className="bt-knob" /></span><span className="bt-label">{BET_LABEL}</span></button>
     <small className="bet-reset" data-testid="bet-reset">{BET_RESET}</small>
 </div>;
+}
+
+/** r16 技术QA P4-a：押注说明——矮横屏缩小字号（样式写在 .bet-hint-pop 上，以前写成 .bet-hint 没生效）；还装不下时列表内滚动，并显示「往下滑还有」 */
+function BetHintList() {
+  const ref = useRef<HTMLUListElement>(null); const [more, setMore] = useState(false);
+  useEffect(() => { const el = ref.current; if (!el) return; const chk = () => setMore(el.scrollHeight > el.clientHeight + 2 && el.scrollTop + el.clientHeight < el.scrollHeight - 2);
+    chk(); el.addEventListener('scroll', chk, { passive: true }); const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(chk) : null; ro?.observe(el);
+    return () => { el.removeEventListener('scroll', chk); ro?.disconnect(); }; }, []);
+  return <><ul ref={ref} className={`rules-list bet-hint-pop ${more ? 'has-more' : ''}`} data-testid="bet-hint">{BET_HINT_LINES.map((t, i) => <li key={i}>{t}</li>)}</ul>
+    {more && <small className="bet-hint-more" data-testid="bet-hint-more" aria-hidden="true">↓ 往下滑还有</small>}</>;
 }
