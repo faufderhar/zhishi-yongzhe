@@ -239,10 +239,12 @@ export const BANK_ORDER_GRADES = new Set(['K2', '8', '11']);
 export const volShort = (v: string) => v.replace(/^选择性必修/, '选必').replace(/^必修/, '必修').replace(/第([一二三四])册$/, '$1').replace(/册$/, '');
 export function volRank(v: string) {
   // r16 高二（设计 R-3）：必修四 → 选必一 / 上 → 选必二 / 中 → 选必三 / 下（须在通用规则之前，否则「选择性必修第一册」被当成上册）
-  if (/^必修第四册$/.test(v)) return 0.8;
-  if (/^选择性必修(第一册|上册)$/.test(v)) return 1.1;
-  if (/^选择性必修(第二册|中册)$/.test(v)) return 1.2;
-  if (/^选择性必修(第三册|下册)$/.test(v)) return 1.3;
+  // r16 第 10 步（教材版本变更 P-5）：高二物理 必修第三册（高二上学期合格考）排在选必一 / 二前面——必修三 2.5 < 必修四 2.55 < 选必 2.61–2.63 < 通用 3 < 复习 5。
+  //   高一政治 必修一 → 二 → 三（1 / 2 / 2.5）不变；高三「选择性必修第四册」/ 复习的相对顺序不变（都还是 5）
+  if (/^必修第四册$/.test(v)) return 2.55;
+  if (/^选择性必修(第一册|上册)$/.test(v)) return 2.61;
+  if (/^选择性必修(第二册|中册)$/.test(v)) return 2.62;
+  if (/^选择性必修(第三册|下册)$/.test(v)) return 2.63;
   if (/上册|上$|第一册|7A|\(7A\)/.test(v)) return 1;
   if (/下册|下$|第二册|7B/.test(v)) return 2;
   if (/第三册/.test(v)) return 2.5;   // r15.4.4 题库 v32：政治必修3（必修第三册）排在第二册之后、通用 / 拓展复习之前

@@ -1,7 +1,8 @@
-// r16 第 10 步：教材版本变更（/workspace/playtest/教材版本变更_程序改动.md）——77 个章 Boss、初三化学读入
+// r16 第 10 步：教材版本变更（/workspace/playtest/教材版本变更_程序改动.md）——77 个章 Boss、册别排序、VOL_ADDED
 import { it, expect, describe } from 'vitest';
 import { chapterBoss, CHAPTER_BOSS } from '../src/game/monsterSkin';
-import { buildChapters } from '../src/game/levels';
+import { VOL_ADDED } from '../src/game/volumes';
+import { volRank, buildChapters } from '../src/game/levels';
 import { loadBank, playable } from '../src/game/questions';
 import { readFileSync, existsSync } from 'node:fs';
 
@@ -43,6 +44,15 @@ describe('77 个新章 Boss', () => {
     expect(b('12', '地理', '选择性必修3·第四章 保障国家安全的资源、环境战略与行动·第一节 走向生态文明')).toBe('生态文明树');
     expect(b('7', '生物', '八上·第12章 消化系统')).toBeUndefined();   // 按年级，不串到初一
   });
+});
+it('高二物理册别顺序：必修第三册 → 选必第一册 → 选必第二册；高一政治 一 → 二 → 三 不变', () => {
+  const sort = (v: string[]) => [...v].sort((a, b) => volRank(a) - volRank(b));
+  expect(sort(['选择性必修第二册', '选择性必修第一册', '必修第三册'])).toEqual(['必修第三册', '选择性必修第一册', '选择性必修第二册']);
+  expect(sort(['必修第三册', '必修第二册', '必修第一册'])).toEqual(['必修第一册', '必修第二册', '必修第三册']);
+  expect(sort(['选择性必修下册', '选择性必修中册', '选择性必修上册', '必修第四册'])).toEqual(['必修第四册', '选择性必修上册', '选择性必修中册', '选择性必修下册']);
+});
+it('VOL_ADDED：初二学考复习（七年级）、初三九年级下册、高二必修第三册；高一政治必修3 仍在', () => {
+  expect(VOL_ADDED).toEqual({ '10': ['必修第三册'], '8': ['学考复习（七年级）'], '9': ['九年级下册'], '11': ['必修第三册'] });
 });
 it('初三化学 298 题：构建能完整读入（题库在 /workspace/questions，没有就跳过；题库数据改人教章名归题库审核）', () => {
   const f = '/workspace/questions/题库_游戏可用_初三.json'; if (!existsSync(f)) return;

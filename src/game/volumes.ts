@@ -17,7 +17,8 @@ export const volsValid = (cur: Vols) => cur === null || cur.length > 0;
    保存勾选时记下当时题库里这个年级的全部册别（volsKnown）；之后题库里多出来的册别，给这个档案自动勾上一次，家长页提示一次（家长可以再去掉）。
    没有 volsKnown 的旧档案 / 旧备份：当作「VOL_ADDED 里的册别出现之前」保存的。没保存过勾选（null = 全部册别）的档案不受影响。 */
 import type { GradeKey } from './questions';
-export const VOL_ADDED: Partial<Record<GradeKey, string[]>> = { '10': ['必修第三册'] };   // 题库 v32：政治必修3
+/* 题库 v32：高一政治必修3。r16 第 10 步（教材版本变更 P-6）：初二生物 / 地理带进「学考复习（七年级）」、初三化学人教九下第一次有题、高二物理带进「必修第三册」 */
+export const VOL_ADDED: Partial<Record<GradeKey, string[]>> = { '10': ['必修第三册'], '8': ['学考复习（七年级）'], '9': ['九年级下册'], '11': ['必修第三册'] };
 export interface VolSync { volumes: string[] | null; volsKnown?: string[]; added: string[] }
 export function syncNewVolumes(p: { grade: GradeKey; volumes: string[] | null; volsKnown?: string[] }, gradeVols: string[]): VolSync | null {
   if (!gradeVols.length) return null;   // 题库还没载入
