@@ -23,7 +23,7 @@ export const SPENT_LINE = (sec: number) => `今天加时已用 ${fmtMS(sec)}（�
 export function cancelLeftLine(r: DayUsage | undefined, limitSec: number, left: number): string | null {
   if (!r || !bonusAllSpent(r) || !(limitSec > 0) || !Number.isFinite(limitSec) || !Number.isFinite(left)) return null;
   const base = limitSec + effBonus(r, limitSec);
-  return `今天一共已玩 ${fmtMS(r.used)}（含已用掉的加时 ${fmtMS(Math.min(r.bonus, r.spent ?? r.bonus))}），按今天上限 ${fmtMS(base)} 还剩 ${fmtMS(Math.max(0, left))}`;
+  return `今天一共已玩 ${fmtDur(r.used)}（含已用掉的加时 ${fmtDur(Math.min(r.bonus, r.spent ?? r.bonus))}），今天的上限是 ${fmtDur(base)}，还剩 ${fmtDur(Math.max(0, left))}`;
 }
 export const isWeekend = (d = new Date()) => d.getDay() === 0 || d.getDay() === 6;
 export function limitMinutes(l: TimeLimit, d = new Date()) { return isWeekend(d) ? l.weekend : l.weekday; }
@@ -114,6 +114,13 @@ export function splitUsed(used: number, base: number, wrapRec?: number): { play:
 export function graceBudgetMs(used: number, base: number, G = GRACE_MS): number {
   if (!Number.isFinite(base)) return G;
   return Math.max(0, Math.min(G, (base + GRACE_SEC - used) * 1000));
+}
+/** r16.2 较真家长：「按今天上限 9:16」像钟点 → 写成时长「9 分 16 秒」「1 小时 5 分」 */
+export function fmtDur(s: number): string {
+  s = Math.max(0, Math.floor(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), sec = s % 60;
+  if (h) return m ? `${h} 小时 ${m} 分` : `${h} 小时`;
+  if (m) return sec ? `${m} 分 ${sec} 秒` : `${m} 分钟`;
+  return `${sec} 秒`;
 }
 export const fmtMS = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 

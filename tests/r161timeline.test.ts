@@ -12,12 +12,12 @@ describe('r16.1 (u) cancelLeftLine', () => {
   it('改回 15/15：剩余仍是 1:11（数值不变），说明写清一共已玩 13:49、按上限 15:00 还剩 1:11', () => {
     const left = remainingSec({ weekday: 15, weekend: 15 }, c, D, mon);
     expect(left).toBe(71);
-    expect(cancelLeftLine(c[D], 900, left)).toBe('今天一共已玩 13:49（含已用掉的加时 8:49），按今天上限 15:00 还剩 1:11');
+    expect(cancelLeftLine(c[D], 900, left)).toBe('今天一共已玩 13 分 49 秒（含已用掉的加时 8 分 49 秒），今天的上限是 15 分钟，还剩 1 分 11 秒');
   });
   it('还是 5/5：今天上限 = 5:00 + 已用加时 8:49 = 13:49，剩 0:00', () => {
     const left = remainingSec({ weekday: 5, weekend: 5 }, c, D, mon);
     expect(left).toBe(0);
-    expect(cancelLeftLine(c[D], 300, left)).toBe('今天一共已玩 13:49（含已用掉的加时 8:49），按今天上限 13:49 还剩 0:00');
+    expect(cancelLeftLine(c[D], 300, left)).toBe('今天一共已玩 13 分 49 秒（含已用掉的加时 8 分 49 秒），今天的上限是 13 分 49 秒，还剩 0 秒');
   });
   it('没取消过加时 / 没加时 / 不限时 → 不显示', () => {
     expect(cancelLeftLine(u[D], 300, 0)).toBeNull();
