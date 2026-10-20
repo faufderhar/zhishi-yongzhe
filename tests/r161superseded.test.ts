@@ -18,7 +18,7 @@ it('提示：少的全列；多的列 5 道、其余折叠；说可以从备份�
   const rows = (n: number): SupRow[] => Array.from({ length: n }, (_, i) => ({ grade: '7', id: `M7-${100 + i}`, subject: '数学', stem: `题${i}` }));
   const few = renderToStaticMarkup(createElement(SupersededNote, { n: 2, list: rows(2) }));
   expect(few).toContain('内置题已更新'); expect(few).toContain('M7-100'); expect(few).toContain('M7-101'); expect(few).toContain('初一'); expect(few).toContain('题1'); expect(few).not.toContain('sup-more');
-  expect(few).toMatch(/备份[^<]*重新导入/);
+  expect(few).toMatch(/重新导入你导出的题目文件/); expect(few).toMatch(/「恢复备份」不行/); expect(few).not.toMatch(/从你的备份/);   // r16.2 B7：以前说「从备份重新导入」，恢复备份其实恢复不了改过的版本
   const many = renderToStaticMarkup(createElement(SupersededNote, { n: 12, list: rows(12) }));
   expect(many).toContain('data-testid="sup-more"'); expect(many).toContain('还有 7 道'); expect(many).toContain('M7-111');
   expect(many.indexOf('M7-104')).toBeLessThan(many.indexOf('sup-more')); expect(many.indexOf('M7-105')).toBeGreaterThan(many.indexOf('sup-more'));

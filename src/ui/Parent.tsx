@@ -406,7 +406,7 @@ export function SupersededNote({ n, list }: { n: number; list: SupRow[] }) {
     <p>内置题已更新：有 {n} 道导入题和内置题同号，内置题在导入之后更新过，现在用内置的新版：</p>
     <ul data-testid="sup-list">{list.slice(0, SUP_SHOW).map(row)}</ul>
     {list.length > SUP_SHOW && <details data-testid="sup-more"><summary>还有 {list.length - SUP_SHOW} 道（点开看全部）</summary><ul>{list.slice(SUP_SHOW).map(row)}</ul></details>}
-    <p data-testid="sup-reimport">如果这些题是你改过的：从你的备份（或当时导出的题库文件）里重新导入，就会再用你改的版本。</p>
+    <p data-testid="sup-reimport">如果这些题是你改过的：用上面的「导入题库」重新导入你导出的题目文件，就会再用你改的版本。（「恢复备份」不行：备份里记的还是旧版本。）</p>
   </div>;
 }
 

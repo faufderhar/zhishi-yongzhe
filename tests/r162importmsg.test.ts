@@ -40,6 +40,9 @@ it('B4：预览弹窗不传 onClose（点外面不关）；「取消」写「未
   expect(IMPORT_CANCELLED).toMatch(/^未导入/);
   expect((tab.match(/setPv\(null\)/g) ?? []).length).toBeGreaterThan(0);
 });
+it('B7：「内置题已更新」说重新导入导出的题目文件（恢复备份不行）', () => {
+  expect(src).toMatch(/data-testid="sup-reimport">如果这些题是你改过的：用上面的「导入题库」重新导入你导出的题目文件/); expect(src).not.toMatch(/从你的备份/);
+});
 it('B8：点「导入题库」先清掉旧提示；结果提示出现时滚进视野', () => {
   expect(tab).toMatch(/data-testid="import-pick"[^>]*onClick=\{\(\) => \{ setMsg\(undefined\); fileRef\.current\?\.click\(\); \}\}/);
   expect(tab).toMatch(/useEffect\(\(\) => \{ if \(msg\) msgRef\.current\?\.scrollIntoView/);
