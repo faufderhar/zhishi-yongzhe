@@ -11,6 +11,8 @@ export const KINDER_CLOUD = '小乌云';
 /** r15.4.4 题库审核（小班读音复查 v2）：量词前的 2 读「两」——「开心值2个」会被读成 èr，朗读文字直接写「两个」 */
 const cnCount = (n: number) => n === 2 ? '两' : String(n);
 export const HAPPY_LINE = (lit: number, hearts: number) => `开心值${cnCount(lit)}个，一共${cnCount(hearts)}个。`;
+/** r16.3 总管方案 A：答对后不再每题读开心值，结算页读一次总数（新句，等音频设计录 p:happy_total_m；没录之前录音模式用 p:happy_m_m 那段） */
+export const HAPPY_TOTAL_LINE = (hearts: number) => `开心值一共${cnCount(hearts)}个。`;
 /** r15.4.4 题库审核：没开放的年级，朗读不用书面的「敬请期待」，改成小朋友听得懂的话（按钮上的小字不变） */
 export const SOON_LINE = (label: string) => `${label}还在准备中，快要来啦，等一等哦`;
 export const HOME_LINE = (mon: string) => `${mon}变成你的好朋友，挥挥手回家啦！`;
@@ -29,6 +31,7 @@ export function dynamicPrompts(): Record<string, string> {
   P.demo_pre = DEMO_PRE; P.demo_post = DEMO_POST; P.demo_this = DEMO_THIS;
   for (const k of SKILL_DATA.filter(k => k.seg === 'K')) P['sk_' + k.id] = `${k.char}的${k.name}！`;
   for (let m = 1; m <= 5; m++) for (let n = 1; n <= m; n++) P[`happy_${n}_${m}`] = HAPPY_LINE(n, m);
+  for (let m = 1; m <= 5; m++) P[`happy_total_${m}`] = HAPPY_TOTAL_LINE(m);
   for (const [id, name] of kinderMons()) { P['home_' + id] = HOME_LINE(name); P['laugh_' + id] = `${name}笑啦！`; }
   return P;
 }

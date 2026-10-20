@@ -847,6 +847,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
 /* r15.4.2 小萌新 #4：舞台顶部三样东西排好上下：小班技能名横幅（停 4.5 秒）在最上面，「在说话」提示排到它下面；
    伙伴说出「小七变成你的好朋友…」这类气泡时横幅先收起（气泡更要紧），「在说话」提示也不显示（Battle.tsx） */
 .kstage:has(>.skill-banner.kinder)>.kbusy{top:96px}
+/* r16.3 小萌新：横幅 4.5 s 收起后「在说话」提示不再往上挪到题目气泡下面（看起来像消失了）——这次有技能横幅就一直排在横幅下面，到下一题出来 */
+.kstage>.kbusy.low{top:96px}
 .kstage:has(.ksay)>.skill-banner.kinder{opacity:0!important;pointer-events:none!important}
 /* r15.4.2 游戏策划：高一押注开关（题卡旁边，默认关） */
 .bet-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:8px}

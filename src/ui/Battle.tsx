@@ -15,11 +15,16 @@ import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newK
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
-import { speak, hasVoice, isSpeaking, voiceKey, afterVoice } from '../tts';
+import { speak, hasVoice, isSpeaking, voiceKey, afterVoice, speechMs } from '../tts';
 /* r15.4.4：小班自动跳转等这句读完再走（录音 1.2 倍速变长）。上限（毫秒）：结算 / 时间到 5 s，下一题 3.5 s */
 /* r15.4.4：语速 1.2 后表扬+技能名+开心值可到 ~6 s（p:praise + p:sk_k_* + p:happy_*）；nextMax 太短会在开心值读到一半就出下一题把它切掉（voice-timeup N(c)(d)） */
-export const K_WAIT = { endMax: 10000, nextMax: 8000 };
-import { HAPPY_LINE } from '../game/voiceLines';
+/* r16.3 总管方案 A：答对后只读表扬（+ 触发时的技能名），不再每题读「开心值…」；最后一题直接读「小乌云变成你的好朋友啦！」。
+   等待上限（从答对时刻起算）：普通题 3.5 s、最后一题 4 s；这句话（按片长 / 系统朗读估计）更长时放宽到「读完 + margin」，技能名不被下一题切掉。
+   endMax 只给时间到的强制收尾用（收尾提示 prio 读完再结算）。 */
+export const K_WAIT = { endMax: 10000, nextCap: 3500, endCap: 4000, margin: 600 };
+/** 答对后等多久（ms，从答对时刻起算）：max(基础上限, 这句话的时长 + margin) */
+export const kWaitCap = (base: number, speechMs: number) => Math.max(base, Math.round(speechMs) > 0 ? Math.round(speechMs) + K_WAIT.margin : 0);
+import { HOME_LINE } from '../game/voiceLines';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
 import { loadCharAnims, loadMonsterAnims, SheetPlayer, SUBJECT_FX } from '../fx/sheets';
@@ -260,6 +265,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
   const monName = gskin?.name ?? '小乌云';
   const kMon: KMonOut | undefined = gskin ? { name: gskin.name, dir: gskin.art.dir, idle: gskin.art.anims.idle.soft } : undefined;
   const [say, setSay] = useState<string | null>(null);   // r10：伙伴说的话（文字 + 朗读）
+  const [busyLow, setBusyLow] = useState(false);   // r16.3：这次有技能横幅 →「在说话」提示固定排在横幅下面
   const [busy, setBusy] = useState(false);                // r10：锁定期间（伙伴在说话）给可见提示
   const [nudge, setNudge] = useState(0);
   const [monFace, setMonFace] = useState<string | null>(null);
@@ -295,10 +301,14 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
       setTimeout(() => { setTilt(false); lock.current = false; setBusy(false); }, T.retryUnlockMs);
       return;
     }
+    const last = ns.done || idx + 1 >= questions.length;
+    const friendLine = gentle ? HOME_LINE(monName) : '小乌云变成你的好朋友啦！';
+    let spoken: string; let spokenKeys: { keys?: string[] } = {};
     if (r === 'demo') {
       setFx('demo'); setTilt(true); setWig(ch.key);
       const right = choices.find(x => q.answer.includes(x.key));
-      talk(`我来帮你看看！是${right?.text || '这个'}哦！`, T.demoMs, right ? { keys: ['p:demo_pre', optVoiceKey(q, right), 'p:demo_post'], alt: ['p:demo_this'] } : undefined);   // r15.4 录音：前半句 + 这个选项的录音 + 「哦！」；选项没录音（符号）就说「是这个哦」   // r9/r10：自动给答案前先说明（文字 + 朗读）
+      spoken = `我来帮你看看！是${right?.text || '这个'}哦！`; if (right) spokenKeys = { keys: ['p:demo_pre', optVoiceKey(q, right), 'p:demo_post'] };
+      talk(spoken, T.demoMs, right ? { keys: ['p:demo_pre', optVoiceKey(q, right), 'p:demo_post'], alt: ['p:demo_this'] } : undefined);   // r15.4 录音：前半句 + 这个选项的录音 + 「哦！」；选项没录音（符号）就说「是这个哦」   // r9/r10：自己演示
       if (gentle) { setMonFace('😜'); setTimeout(() => setMonFace(null), 1100); }
     } else {
       setFx('ok'); const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)].replace('{mon}', monName);
@@ -306,27 +316,38 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
       const [nr, k] = rollSkill(skRoll.current, { seg: 'K', major: c.major, side: 'P', correct: true, rng: Math.random }); skRoll.current = nr;
       const k2 = k ?? (gentle ? (() => { const ks2 = skillsFor('K', c.major); return ks2[Math.floor(Math.random() * ks2.length)]; })() : null);   // 温和战斗：每次答对都放一个可爱技能
       if (gentle) { setMonFace('😆'); setTimeout(() => setMonFace(null), 1100); }
-      speak(praise + (k2 ? `${k2.char}的${k2.name}！` : '') + HAPPY_LINE(ns.lit, ns.hearts));   // r11：朗读开心值   // r10：技能名也朗读
+      const skillLine = k2 ? `${k2.char}的${k2.name}！` : '';   // r10：技能名也朗读
+      // r16.3 方案 A：普通题 = 表扬 + 技能名；最后一题 = （技能名 +）「变成好朋友」，不先读表扬；「开心值…」挪到结算页读一次
+      spoken = last ? skillLine + friendLine : praise + skillLine;
+      if (last && gentle) setSay(friendLine); speak(spoken);
       if (k2 && D.dir.current) { const k = k2; lastSkill.current = k.id; void D.dir.current.playSkill(k, { kinder: true, maxMs: 1000 }); } else D.dir.current?.kinderCorrect();
+      if (k2) setBusyLow(true);   // 技能横幅在顶上：「在说话」提示排在横幅下面，横幅收起后也不挪位置
     }
     setKs({ ...ns, removed: r === 'demo' ? choices.filter(x => !q.answer.includes(x.key)).map(x => x.key) : cur.removed });
     setTimeout(() => setJustLit(ns.lit - 1), r === 'demo' ? 1800 : 600);
-    /* r15.4.4：从答对时刻起算最长等待（含 correctMs 动画），避免「先等 1.2 s 动画再开始 3.5 s 上限」把 6 s 的表扬链切掉 */
+    /* r15.4.4：从答对时刻起算最长等待（含 correctMs 动画）。r16.3：上限 = max(3.5 / 4 s, 这句话时长 + margin) */
     const waitFrom = performance.now(); const animMs = r === 'demo' ? T.demoMs : T.correctMs;
+    const capOf = (base: number, text: string, o: { keys?: string[] } = {}) => speechMs(text, 'zh-CN', o).then(ms => kWaitCap(base, ms), () => base);
+    const capP = capOf(last && r !== 'demo' ? K_WAIT.endCap : K_WAIT.nextCap, spoken, spokenKeys);
     setTimeout(async () => {
-      setFx(''); setTilt(false);
-      const left = (cap: number) => Math.max(500, cap - (performance.now() - waitFrom));
-      if (ns.done || idx + 1 >= questions.length) {
-        await afterVoice(0, left(K_WAIT.nextMax)); if (!D.alive.current || forced.current) return;   // r15.4.4：最后一题的「开心值」读完再说「变成好朋友」
-        if (gentle) { talk(`${monName}变成你的好朋友，挥挥手回家啦！`, 3000); setMonFace('👋'); await sleep(400); setHome(true); await sleep(1600); }
-        else { speak('小乌云变成你的好朋友啦！'); await Promise.race([D.dir.current?.kinderFinale(), sleep(2500)]); }   // r12：演出最多 2.5 s，后台/卡住也照样结算
-        await afterVoice(0, left(K_WAIT.endMax));   // r15.4.4：这句读完再进结算页（结算页的朗读会打断它）
+      setTilt(false);
+      let cap = await capP; let from = waitFrom;
+      const left = () => Math.max(0, cap - (performance.now() - from));
+      if (last) {
+        if (r === 'demo') {   // 演示学会的最后一题：演示那句读完，再说「变成好朋友」
+          await afterVoice(0, left()); if (!D.alive.current || forced.current) return;
+          from = performance.now(); cap = await capOf(K_WAIT.endCap, friendLine);
+          if (gentle) setSay(friendLine); speak(friendLine);
+        }
+        if (gentle) { setMonFace('👋'); await sleep(Math.min(400, left())); setHome(true); await sleep(Math.min(1600, left())); }
+        else await Promise.race([D.dir.current?.kinderFinale(), sleep(Math.min(2500, left()))]);   // r12：演出有上限，后台/卡住也照样结算
+        await afterVoice(0, left());   // 这句读完再进结算页（结算页的朗读排在它后面）
         if (!D.alive.current || forced.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo }, kMon }); return;
       }
-      await afterVoice(0, left(K_WAIT.nextMax));   // r15.4.4：表扬 + 技能名 +「开心值」读完再出下一题
+      await afterVoice(0, left());   // 表扬 + 技能名读完再出下一题（✓ 一直亮到这里）
       if (!D.alive.current || forced.current) return;
-      setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false; setBusy(false);
+      setFx(''); setBusyLow(false); setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false; setBusy(false);
     }, animMs);
   };
   return (
@@ -354,7 +375,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
         <canvas className="fx-canvas" ref={D.canvas} />
         {/* r15.4.1 小萌新：「在说话」提示放在战斗区顶部（题目气泡下面），不再压住题干气泡上沿 */}
         {/* r15.4.2 小萌新：伙伴头顶有说话气泡（如「小七变成你的好朋友…」）时不再叠一个「在说话」提示（两个气泡在顶部压在一起）——气泡本身就说明在说话，点屏时气泡会晃一下 */}
-        {busy && !say && <div key={nudge} className={`kbusy ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
+        {busy && !say && <div key={nudge} className={`kbusy ${busyLow ? 'low' : ''} ${nudge ? 'nudge' : ''}`} data-testid="kbusy">🐶 {c.name}在说话，等一下下哦</div>}
       </div>
       <div className={`kopts ${busy ? 'kwait' : ''}`} data-testid="kopts">
         {choices.map((ch, _i, all) => { const fit = all.map(x => gridOf(emojiOnlyN(x.text))).reduce((a, g) => [Math.max(a[0], g[0]), Math.max(a[1], g[1])], [1, 1]);

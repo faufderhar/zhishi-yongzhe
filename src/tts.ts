@@ -81,7 +81,7 @@ if (synth) { const chk = () => { const n = synth.getVoices().length; if (n === 0
    常用提示语（答对、再试试…）共用文件。小班不再降 6 dB。
    manifest：items 的键 = 「题号#stem」「题号#optN」（N = 原始选项序号）「p:提示语 id」→ 文件名（相对 voice/，或分段文件名数组）；meta 只给生成脚本用。
    manifest 不存在 / 为空时照常工作（全部走系统朗读或提示）。 */
-interface VoiceMan { items?: Record<string, string | string[]> }
+interface VoiceMan { items?: Record<string, string | string[]>; meta?: Record<string, { duration?: number } | undefined> }
 let voiceMan: Promise<VoiceMan> | null = null;
 const vbase = () => (typeof document !== 'undefined' ? (document.baseURI || '/') : '/').replace(/[^/]*$/, '');
 export function voiceManifest() { return voiceMan ??= (typeof fetch === 'undefined' ? Promise.resolve({}) : fetch(vbase() + 'voice/manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))).then(m => (m && typeof m === 'object' ? m : {}) as VoiceMan); }
@@ -228,6 +228,18 @@ export function afterVoice(minMs: number, maxMs: number, tailMs = 250): Promise<
 }
 /** 组件用：卸载后不再回调 */
 export function afterVoiceThen(minMs: number, maxMs: number, f: () => void) { let live = true; void afterVoice(minMs, maxMs).then(() => { if (live) f(); }); return () => { live = false; }; }
+/* r16.3 总管方案 A：这句话大概要读多久（毫秒），给「答对后等多久」算上限用（技能名不能被下一题切掉）。
+   会走系统朗读 → 按字数估（sysEstimateMs，含 1.5 s 余量）；走录音 → manifest 里每段的片长 + 段间停顿；查不到片长的段按字数估整句。 */
+export async function speechMs(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[] } = {}): Promise<number> {
+  if (!audioPrefs.tts || !speakable(text)) return 0;
+  const est = () => sysEstimateMs(speakable(text), sysRate());
+  if (canSystem(lang)) return est();
+  const keys = keysFor(text, o); if (!keys.length) return 0;
+  const m = await within(voiceManifest(), VOICE_START_MS, {} as VoiceMan); let ms = 0, n = 0;
+  for (const k of keys) { if (!m.items?.[k]) continue; const d = m.meta?.[k]?.duration; if (typeof d !== 'number' || !(d > 0)) return est();
+    ms += d * 1000 + (n ? VOICE_GAP_OPT_MS : 0); n++; }
+  return Math.round(ms);
+}
 export const audioCtx = () => { if (sfxCtx && sfxCtx.state === 'suspended') void sfxCtx.resume().catch(() => {}); return sfxCtx; };
 /** 小班答错：柔和的「咚」（不用刺耳锯齿波） */
 export function softDong() {

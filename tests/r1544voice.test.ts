@@ -42,16 +42,18 @@ describe('r15.4.4 小班录音', () => {
   it('每句登记过的提示语都有录音（含新句 p:res_k_again）', () => {
     // r16：新开的三个年级名（年级选择里朗读）等录音——列在 /workspace/playtest/r16dev/new_voice_lines.md，录好后这里改回 []
     // r16 新句（/workspace/playtest/r16dev/new_voice_lines.md），等音频设计录：年级名 + 中班 23 只 Boss 的「回家 / 笑啦」
-    const PENDING = ['grade_k2', 'grade_8', 'grade_11', 'res_k_why', ...Array.from({ length: 10 }, (_, i) => `res_k_first_${i + 1}`), ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
+    // r16.3 总管方案 A：结算页新句「开心值一共 m 个」（p:happy_total_1..5）等音频设计录；没录之前录音模式用 p:happy_m_m
+    const PENDING = [...Array.from({ length: 5 }, (_, i) => `happy_total_${i + 1}`), 'grade_k2', 'grade_8', 'grade_11', 'res_k_why', ...Array.from({ length: 10 }, (_, i) => `res_k_first_${i + 1}`), ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
     const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss.sort()).toEqual(PENDING.sort());
   });
 });
 
-import { K_WAIT } from '../src/ui/Battle';
-describe('r15.4.4 afterVoice 预算盖得住表扬+技能+开心值', () => {
-  it('nextMax / endMax ≥ 最长录音链（语速 1.2）', () => {
-    // p:praise4 1.18 + gap + p:sk_k_abei_1 2.54 + gap + p:happy_3_3 2.42 ≈ 6.3 s；从答对起算还要含 correctMs 动画
-    expect(K_WAIT.nextMax).toBeGreaterThanOrEqual(8000);
-    expect(K_WAIT.endMax).toBeGreaterThanOrEqual(10000);
+import { K_WAIT, kWaitCap } from '../src/ui/Battle';
+describe('r16.3 方案 A：答对后的等待上限（取代 r15.4.4 的 8 / 10 s）', () => {
+  it('普通题 3.5 s、最后一题 4 s；最长的「表扬 + 技能名」/「技能名 + 好朋友」录音链放宽到读完 + margin', () => {
+    expect(K_WAIT.nextCap).toBe(3500); expect(K_WAIT.endCap).toBe(4000); expect(K_WAIT.endMax).toBe(10000);   // endMax 只给时间到的强制收尾
+    const d = (k: string) => man.meta[k].duration * 1000; const sk = Object.keys(man.meta).filter(k => k.startsWith('p:sk_k_')).map(d); const pr = ['p:praise1', 'p:praise2', 'p:praise3', 'p:praise4'].map(d);
+    const longest = Math.max(...pr) + 100 + Math.max(...sk); expect(kWaitCap(K_WAIT.nextCap, longest)).toBeGreaterThanOrEqual(longest + K_WAIT.margin);
+    expect(kWaitCap(K_WAIT.nextCap, Math.max(...pr))).toBe(3500); expect(kWaitCap(K_WAIT.endCap, d('p:cloud_friend'))).toBe(4000);
   });
 });

@@ -1,7 +1,7 @@
 import { VERSION_LABEL } from '../version';
 import { fillKind, sciOf } from '../game/inputKind';
 import { TEST_DOM } from './common';
-import { KINDER_LOCK_VOICE } from '../game/voiceLines';
+import { KINDER_LOCK_VOICE, HAPPY_TOTAL_LINE } from '../game/voiceLines';
 import { skinFor } from '../game/monsterSkin';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
@@ -18,7 +18,7 @@ import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
 import { isDue, INTERVAL, wrongStale, type WrongEntry } from '../game/wrongbook';
-import { speak, hasVoice, afterVoiceThen } from '../tts';
+import { speak, hasVoice, afterVoiceThen, voiceManifest } from '../tts';
 import { useForceEnd } from './Battle';
 import { answerFeedback } from '../feedback';
 
@@ -239,6 +239,22 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
   );
 }
 
+/* r16.3 总管方案 A：结算页自动朗读 =「开心值一共 m 个」+ 原来的那几句，拼成一次 speak()（一段接一段，不会两句同时响）；
+   要等战斗里「变成好朋友」那句（以及任何正在读的话、🔊 重播）读完才开始（afterVoiceThen，排队不打断）。
+   录音键：p:happy_total_m 还没录 → 用已有的 p:happy_m_m（「开心值m个，一共m个」）；某句没有登记的提示语 → 不给键，按文字读（同 r16） */
+export const K_RESULT_AUTO = { minMs: 800, maxMs: 15000 };
+export function kResultAuto(happy: number, parts: { text: string; key?: string }[], hasClip: (k: string) => boolean): { text: string; keys?: string[] } {
+  const all = [...(happy > 0 ? [{ text: HAPPY_TOTAL_LINE(happy), key: hasClip(`p:happy_total_${happy}`) || !hasClip(`p:happy_${happy}_${happy}`) ? `p:happy_total_${happy}` : `p:happy_${happy}_${happy}` }] : []), ...parts];
+  const text = all.map(x => x.text.replace(/[。．.]$/, '')).join('。');
+  const known = all.every(x => x.key && (!x.key.startsWith('p:happy_total_') || PROMPT_BY_TEXT[HAPPY_TOTAL_LINE(happy)]));
+  return known ? { text, keys: all.map(x => x.key!) } : { text };
+}
+/** 等前面的话读完再自动朗读（卸载就取消）；返回清理函数 */
+function useKAuto(on: boolean, say: (hasClip: (k: string) => boolean) => void, deps: unknown[]) {
+  useEffect(() => { if (!on) return; let live = true;
+    const off = afterVoiceThen(K_RESULT_AUTO.minMs, K_RESULT_AUTO.maxMs, () => { void voiceManifest().then(m => { if (live) say(k => !!m.items?.[k]); }); });
+    return () => { live = false; off(); }; }, deps);   // eslint-disable-line react-hooks/exhaustive-deps
+}
 /** r16.1 (c)：幼儿园结算页的「X变成你的好朋友啦！」 */
 export const kFriendLine = (m?: { name: string }) => `${m?.name ?? '小乌云'}变成你的好朋友啦！`;
 /** 怪物立绘：idle 柔和版序列帧的第一帧（读不到 json / 图 → 小乌云静态图） */
@@ -265,7 +281,8 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
   const kNoStar = cfg.band === 'K' && !kTime && capped;
   const kAgain = cfg.band === 'K' && !kTime && !capped && playN === 2;
   const noStarSay = () => speak(`${K_NOSTAR_TEXT}。${K_NOSTAR_WHY}`, 'zh-CN', { keys: ['p:res_k_done', 'p:res_k_why'] });   // r16 小萌新：接着说原因
-  useEffect(() => { if (kNoStar) { const id = setTimeout(noStarSay, 1200); return () => clearTimeout(id); } }, [kNoStar]);
+  const kHappy = cfg.band === 'K' && win && kinder ? kinder.first + kinder.retry + kinder.demo : 0;   // r16.3：开心值总数（每题亮一个）
+  useKAuto(kNoStar, has => { const a = kResultAuto(kHappy, [{ text: K_NOSTAR_TEXT, key: 'p:res_k_done' }, { text: K_NOSTAR_WHY, key: 'p:res_k_why' }], has); speak(a.text, 'zh-CN', a.keys ? { keys: a.keys } : {}); }, [kNoStar]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
     <div className="center-screen result-screen" data-ktime={kTime ? '1' : undefined}>
@@ -277,7 +294,7 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
         {/* r16.1 (c) 小萌新：打的是「点点数星熊」，结算页却写「小乌云…」——用战斗里真正出场的怪物（名字 + 立绘）；普通关 / 没加载出来 = 小乌云 */}
         <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><KMonFace m={kMon} /></div>
         <h1 data-testid="result-k-friend">{kFriendLine(kMon)}</h1>
-        <KinderSub k={kinder} total={total} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} />
+        <KinderSub k={kinder} total={total} happy={kHappy} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} />
         {kAgain && <p className="ksub" data-testid="result-k-again">{K_AGAIN_TEXT}</p>}
       </> : <>
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
@@ -318,14 +335,14 @@ export function kinderSubtitle(k: { first: number } | undefined, total: number) 
   const f = k?.first ?? 0;
   return f === 0 ? '每道题都认真学会啦！下次试试第一次就答对哦' : f / Math.max(1, total) < 0.6 ? '越来越棒啦！' : '太厉害啦！';
 }
-function KinderSub({ k, total, extra }: { k?: { first: number }; total: number; extra?: string }) {
+function KinderSub({ k, total, extra, happy = 0 }: { k?: { first: number }; total: number; extra?: string; happy?: number }) {
   const t = kinderSubtitle(k, total);
   /* r15.4.1：时间到时接着读「今天玩够啦，明天见」（录音：两段拼起来；系统朗读：一句读完） */
   // r16 小萌新：接着读「自己答对 N 题」（时间到时不读）
   const first = !extra || extra !== TIMEUP_K_TEXT ? (k?.first ?? 0) : 0;
-  const auto = () => { const parts = [t, ...(extra ? [extra] : []), ...(first > 0 ? [K_FIRST_LINE(first)] : [])]; const ks = parts.map(x => PROMPT_BY_TEXT[x]);
-    if (parts.length === 1) { speak(t); return; } speak(parts.join('。'), 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); };
-  useEffect(() => { const id = setTimeout(auto, 1500); return () => clearTimeout(id); }, [t, extra, first]);
+  // r16.3：前面加「开心值一共 m 个」；等「变成好朋友」读完再开始（不再固定 1.5 s 后打断它）
+  useKAuto(true, has => { const parts = [t, ...(extra ? [extra] : []), ...(first > 0 ? [K_FIRST_LINE(first)] : [])].map(x => ({ text: x, key: PROMPT_BY_TEXT[x] ? 'p:' + PROMPT_BY_TEXT[x] : undefined }));
+    if (parts.length === 1 && !happy) { speak(t); return; } const a = kResultAuto(happy, parts, has); speak(a.text, 'zh-CN', a.keys ? { keys: a.keys } : {}); }, [t, extra, first, happy]);
   /* r15.4.2 较真家长 A：小班结算（含时间到）也有 🔊 再听一遍，和题目页的喇叭同款 */
   const again = () => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); };
   return <div className="row gap16 kt-title"><p className="ksub" data-testid="kinder-sub">{t}</p>{hasVoice() && extra && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={again}>🔊</button>}</div>;
