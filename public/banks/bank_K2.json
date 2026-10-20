@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园中班-v43（AI初审）",
- "version": "v43",
+ "bank_name": "三兄妹题库-幼儿园中班-v44（AI初审）",
+ "version": "v44",
  "questions": [
   {
    "id": "K2N-001",
@@ -1287,8 +1287,8 @@
    "grade": "K2",
    "unit": "多1和少1",
    "type": "选择",
-   "question": "🐤🐤，又来了1个🐤，现在有几个小鸡？",
-   "tts_text": "有两个小鸡，又来了一个小鸡，现在有几个小鸡？",
+   "question": "🐤🐤，又来了1只🐤，现在有几只小鸡？",
+   "tts_text": "有两只小鸡，又来了一只小鸡，现在有几只小鸡？",
    "options": [
     {
      "text": "3",
@@ -1307,13 +1307,14 @@
     }
    ],
    "answer": "A",
-   "explanation": "2个再多1个，是3个。",
+   "explanation": "2只再多1只，是3只。",
    "difficulty": 1,
    "source": "AI",
    "volume": "中班",
    "knowledge_point": "多1和少1",
    "game_ready": true,
    "template": "T4acedb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "多1和少1"

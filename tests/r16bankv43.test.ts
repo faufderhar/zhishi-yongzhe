@@ -12,7 +12,7 @@ const oldQ = (x: { grade: string; old: any }) => normalize({ ...x.old, grade: x.
 const all = [...fx.judge, ...fx.opt, ...fx.swap];
 
 describe('题库 v43：按 id 读当前题库', () => {
-  it('内置题库已是 v43', () => { for (const g of ['8', '10', '11']) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version).toBe('v43'); });
+  it('内置题库已是最新（r16 = v44）', () => { for (const g of ['8', '10', '11']) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version).toBe('v44'); });
   it('样本：每类都有，旧版和当前版内容版本不同、key 相同', () => {
     for (const k of ['judge', 'opt', 'swap'] as const) expect(fx[k].length).toBeGreaterThan(0);
     for (const x of all) { const o = oldQ(x), c = cur(x.grade, x.old.id); expect(c.key).toBe(o.key); expect(qRev(c)).not.toBe(qRev(o)); }

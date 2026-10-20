@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初二-v43（AI初审）",
- "version": "v43",
+ "bank_name": "三兄妹题库-初二-v44（AI初审）",
+ "version": "v44",
  "questions": [
   {
    "id": "Y8-001",
@@ -312,7 +312,7 @@
      "audio": ""
     },
     {
-     "text": "中路军最先渡江，按渡江时间先后来写",
+     "text": "按渡江先后来写",
      "image": "",
      "audio": ""
     },
@@ -335,6 +335,7 @@
    "knowledge_point": "消息二则",
    "game_ready": true,
    "template": "T613bab",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "消息二则"
@@ -967,7 +968,7 @@
      "audio": ""
     },
     {
-     "text": "瑞典斯德哥尔摩",
+     "text": "斯德哥尔摩",
      "image": "",
      "audio": ""
     },
@@ -990,6 +991,7 @@
    "knowledge_point": "首届诺贝尔奖颁发",
    "game_ready": true,
    "template": "Tce1ff6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "首届诺贝尔奖颁发"
@@ -1125,7 +1127,7 @@
      "audio": ""
     },
     {
-     "text": "按照奖项一项一项地介绍",
+     "text": "按奖项逐项介绍",
      "image": "",
      "audio": ""
     },
@@ -1148,6 +1150,7 @@
    "knowledge_point": "首届诺贝尔奖颁发",
    "game_ready": true,
    "template": "Teb5dff",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "首届诺贝尔奖颁发"
@@ -1180,7 +1183,7 @@
      "audio": ""
     },
     {
-     "text": "只报道最重要的事实，不作详细描写",
+     "text": "只报道最重要的事实",
      "image": "",
      "audio": ""
     }
@@ -1193,6 +1196,7 @@
    "knowledge_point": "首届诺贝尔奖颁发",
    "game_ready": true,
    "template": "T9a739f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "首届诺贝尔奖颁发"
@@ -1368,7 +1372,7 @@
    "question": "文章标题中的“飞天”原指？",
    "options": [
     {
-     "text": "敦煌壁画中凌空飞舞的仙女形象",
+     "text": "壁画中的仙女",
      "image": "",
      "audio": ""
     },
@@ -1396,6 +1400,7 @@
    "knowledge_point": "“飞天”凌空",
    "game_ready": true,
    "template": "T3fe30a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "“飞天”凌空"
@@ -1413,7 +1418,7 @@
    "question": "新闻特写与消息相比，最大的特点是？",
    "options": [
     {
-     "text": "对新闻事件的某个片段作具体、形象的描写",
+     "text": "对片段作具体描写",
      "image": "",
      "audio": ""
     },
@@ -1441,6 +1446,7 @@
    "knowledge_point": "“飞天”凌空",
    "game_ready": true,
    "template": "Tabe572",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "“飞天”凌空"
@@ -1531,7 +1537,7 @@
      "audio": ""
     },
     {
-     "text": "再现夺冠的精彩瞬间，突出她高超的技艺",
+     "text": "再现精彩瞬间",
      "image": "",
      "audio": ""
     },
@@ -1554,6 +1560,7 @@
    "knowledge_point": "“飞天”凌空",
    "game_ready": true,
    "template": "T2ff973",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "“飞天”凌空"
@@ -1599,6 +1606,7 @@
    "knowledge_point": "“飞天”凌空",
    "game_ready": true,
    "template": "T4cbe64",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "“飞天”凌空"
@@ -1784,7 +1792,7 @@
      "audio": ""
     },
     {
-     "text": "舰载机着舰这一关键动作",
+     "text": "着舰动作",
      "image": "",
      "audio": ""
     },
@@ -1802,6 +1810,7 @@
    "knowledge_point": "一着惊海天",
    "game_ready": true,
    "template": "T0c6642",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "一着惊海天"
@@ -1942,7 +1951,7 @@
      "audio": ""
     },
     {
-     "text": "营造氛围，为下文写着舰作铺垫",
+     "text": "为下文作铺垫",
      "image": "",
      "audio": ""
     },
@@ -1960,6 +1969,7 @@
    "knowledge_point": "一着惊海天",
    "game_ready": true,
    "template": "Tdca103",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "一着惊海天"
@@ -1977,7 +1987,7 @@
    "question": "文章中“惊”字包含的情感是？",
    "options": [
     {
-     "text": "害怕",
+     "text": "惊恐与慌乱",
      "image": "",
      "audio": ""
     },
@@ -1987,7 +1997,7 @@
      "audio": ""
     },
     {
-     "text": "对这一重大突破的震撼与自豪",
+     "text": "震撼与自豪",
      "image": "",
      "audio": ""
     },
@@ -2005,6 +2015,7 @@
    "knowledge_point": "一着惊海天",
    "game_ready": true,
    "template": "T9fbea2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "一着惊海天"
@@ -2019,15 +2030,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "八上·第一单元·5 一着惊海天",
    "type": "判断",
-   "question": "新闻特写和消息一样，都要求真实地反映客观事实。",
-   "answer": "对",
-   "explanation": "真实性是所有新闻的生命。",
+   "question": "新闻特写可以虚构情节，不必真实地反映客观事实。",
+   "answer": "错",
+   "explanation": "错。新闻特写和消息一样，都要求真实地反映客观事实，真实性是新闻的生命。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "一着惊海天",
    "game_ready": true,
    "template": "Ta806c5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "一着惊海天"
@@ -2045,7 +2057,7 @@
    "question": "《国行公祭，为佑世界和平》的体裁是？",
    "options": [
     {
-     "text": "特写",
+     "text": "新闻特写",
      "image": "",
      "audio": ""
     },
@@ -2073,6 +2085,7 @@
    "knowledge_point": "国行公祭，为佑世界和平",
    "game_ready": true,
    "template": "Taf027c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2185,7 +2198,7 @@
      "audio": ""
     },
     {
-     "text": "评论以议论为主，表明观点；消息以叙述为主，报道事实",
+     "text": "评论以议论为主",
      "image": "",
      "audio": ""
     },
@@ -2208,6 +2221,7 @@
    "knowledge_point": "国行公祭，为佑世界和平",
    "game_ready": true,
    "template": "T8e8053",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2248,7 +2262,7 @@
    "question": "标题中的“佑”的意思是？",
    "options": [
     {
-     "text": "保护，保佑",
+     "text": "保佑",
      "image": "",
      "audio": ""
     },
@@ -2276,6 +2290,7 @@
    "knowledge_point": "国行公祭，为佑世界和平",
    "game_ready": true,
    "template": "Tde3aa2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2348,7 +2363,7 @@
      "audio": ""
     },
     {
-     "text": "用事实作论据，增强说服力",
+     "text": "增强说服力",
      "image": "",
      "audio": ""
     },
@@ -2366,6 +2381,7 @@
    "knowledge_point": "国行公祭，为佑世界和平",
    "game_ready": true,
    "template": "Tcff006",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2383,7 +2399,7 @@
    "question": "下列对这篇评论理解正确的是？",
    "options": [
     {
-     "text": "铭记历史是为了警示未来、维护和平",
+     "text": "铭记历史，警示未来",
      "image": "",
      "audio": ""
     },
@@ -2411,6 +2427,7 @@
    "knowledge_point": "国行公祭，为佑世界和平",
    "game_ready": true,
    "template": "T4f9b96",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2507,7 +2524,7 @@
      "audio": ""
     },
     {
-     "text": "为了吸引读者，可以夸大事实",
+     "text": "可以夸大事实",
      "image": "",
      "audio": ""
     },
@@ -2526,6 +2543,7 @@
    "game_ready": true,
    "template": "T6e29ec",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2572,7 +2590,7 @@
      "audio": ""
     },
     {
-     "text": "了解采访对象，拟好采访提纲",
+     "text": "了解采访对象",
      "image": "",
      "audio": ""
     },
@@ -2596,6 +2614,7 @@
    "game_ready": true,
    "template": "Tb04b01",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国行公祭，为佑世界和平"
@@ -2777,6 +2796,7 @@
    "knowledge_point": "藤野先生",
    "game_ready": true,
    "template": "T9f105d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "藤野先生"
@@ -2799,7 +2819,7 @@
      "audio": ""
     },
     {
-     "text": "看了日本学生观看的一部有中国人被枪毙的画片",
+     "text": "看了枪毙中国人的画片",
      "image": "",
      "audio": ""
     },
@@ -2822,6 +2842,7 @@
    "knowledge_point": "藤野先生",
    "game_ready": true,
    "template": "Tf9a11c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "藤野先生"
@@ -2877,7 +2898,7 @@
      "audio": ""
     },
     {
-     "text": "他们认为中国是弱国，中国人低能",
+     "text": "他们歧视中国人",
      "image": "",
      "audio": ""
     }
@@ -2890,6 +2911,7 @@
    "knowledge_point": "藤野先生",
    "game_ready": true,
    "template": "T17f3f9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "藤野先生"
@@ -3002,12 +3024,12 @@
      "audio": ""
     },
     {
-     "text": "同学之间的友谊",
+     "text": "日本同学对“我”的友谊",
      "image": "",
      "audio": ""
     },
     {
-     "text": "“我”受到的民族歧视和由此激起的爱国情感",
+     "text": "民族歧视与爱国情感",
      "image": "",
      "audio": ""
     },
@@ -3025,6 +3047,7 @@
    "knowledge_point": "藤野先生",
    "game_ready": true,
    "template": "T5ccc0a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "藤野先生"
@@ -3042,12 +3065,12 @@
    "question": "“他的性格，在我的眼里和心里是伟大的，虽然他的姓名并不为许多人所知道。”这句话表达了“我”对藤野先生的？",
    "options": [
     {
-     "text": "深切的怀念和崇高的敬意",
+     "text": "怀念和敬意",
      "image": "",
      "audio": ""
     },
     {
-     "text": "同情",
+     "text": "同情与惋惜",
      "image": "",
      "audio": ""
     },
@@ -3070,6 +3093,7 @@
    "knowledge_point": "藤野先生",
    "game_ready": true,
    "template": "Tf67a47",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "藤野先生"
@@ -3246,7 +3270,7 @@
    "question": "文中写鲁迅工作到深夜，表现了他？",
    "options": [
     {
-     "text": "勤奋工作、忘我奉献的精神",
+     "text": "勤奋忘我",
      "image": "",
      "audio": ""
     },
@@ -3274,6 +3298,7 @@
    "knowledge_point": "回忆鲁迅先生（节选）",
    "game_ready": true,
    "template": "T0709a3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "回忆鲁迅先生（节选）"
@@ -3320,7 +3345,7 @@
      "audio": ""
     },
     {
-     "text": "严格按年代顺序",
+     "text": "严格按年代顺序记述生平",
      "image": "",
      "audio": ""
     },
@@ -3343,6 +3368,7 @@
    "knowledge_point": "回忆鲁迅先生（节选）",
    "game_ready": true,
    "template": "T8ca42a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "回忆鲁迅先生（节选）"
@@ -3360,7 +3386,7 @@
    "question": "萧红写鲁迅送客人到门口、照顾青年作者等细节，表现了鲁迅？",
    "options": [
     {
-     "text": "待人真诚、热情",
+     "text": "真诚热情",
      "image": "",
      "audio": ""
     },
@@ -3388,6 +3414,7 @@
    "knowledge_point": "回忆鲁迅先生（节选）",
    "game_ready": true,
    "template": "T1619c0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "回忆鲁迅先生（节选）"
@@ -3410,7 +3437,7 @@
      "audio": ""
     },
     {
-     "text": "朴素自然，富有生活气息",
+     "text": "朴素自然",
      "image": "",
      "audio": ""
     },
@@ -3433,6 +3460,7 @@
    "knowledge_point": "回忆鲁迅先生（节选）",
    "game_ready": true,
    "template": "Td1da56",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "回忆鲁迅先生（节选）"
@@ -3478,6 +3506,7 @@
    "knowledge_point": "回忆鲁迅先生（节选）",
    "game_ready": true,
    "template": "T3351f0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "回忆鲁迅先生（节选）"
@@ -3653,7 +3682,7 @@
    "question": "标题中的“南仁东星”是？",
    "options": [
     {
-     "text": "一颗以南仁东名字命名的小行星",
+     "text": "以他命名的小行星",
      "image": "",
      "audio": ""
     },
@@ -3681,6 +3710,7 @@
    "knowledge_point": "天上有颗“南仁东星”",
    "game_ready": true,
    "template": "T476b7b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "天上有颗“南仁东星”"
@@ -3794,6 +3824,7 @@
    "knowledge_point": "天上有颗“南仁东星”",
    "game_ready": true,
    "template": "T75ea60",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "天上有颗“南仁东星”"
@@ -3811,7 +3842,7 @@
    "question": "文章写南仁东的许多生活细节，作用是？",
    "options": [
     {
-     "text": "使人物形象更真实、更丰满",
+     "text": "使人物更真实",
      "image": "",
      "audio": ""
     },
@@ -3839,6 +3870,7 @@
    "knowledge_point": "天上有颗“南仁东星”",
    "game_ready": true,
    "template": "T4df662",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "天上有颗“南仁东星”"
@@ -3871,7 +3903,7 @@
      "audio": ""
     },
     {
-     "text": "传记如何选材、如何刻画人物",
+     "text": "传记的选材",
      "image": "",
      "audio": ""
     }
@@ -3884,6 +3916,7 @@
    "knowledge_point": "天上有颗“南仁东星”",
    "game_ready": true,
    "template": "Tb371f5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "天上有颗“南仁东星”"
@@ -4014,7 +4047,7 @@
    "question": "居里夫妇提炼镭的工作地点是？",
    "options": [
     {
-     "text": "一个简陋的棚屋",
+     "text": "简陋的棚屋",
      "image": "",
      "audio": ""
     },
@@ -4029,7 +4062,7 @@
      "audio": ""
     },
     {
-     "text": "宽敞明亮的实验室",
+     "text": "宽敞的实验室",
      "image": "",
      "audio": ""
     }
@@ -4065,7 +4098,7 @@
      "audio": ""
     },
     {
-     "text": "镭发出的淡蓝色的荧光",
+     "text": "镭的荧光",
      "image": "",
      "audio": ""
     },
@@ -4088,6 +4121,7 @@
    "knowledge_point": "美丽的颜色",
    "game_ready": true,
    "template": "Taf741a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "美丽的颜色"
@@ -4138,7 +4172,7 @@
      "audio": ""
     },
     {
-     "text": "坚韧执着、不畏艰苦、热爱科学",
+     "text": "坚韧执着",
      "image": "",
      "audio": ""
     },
@@ -4156,6 +4190,7 @@
    "knowledge_point": "美丽的颜色",
    "game_ready": true,
    "template": "T692669",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "美丽的颜色"
@@ -4233,7 +4268,7 @@
      "audio": ""
     },
     {
-     "text": "增强真实性，表现人物的内心世界",
+     "text": "增强真实性",
      "image": "",
      "audio": ""
     }
@@ -4246,6 +4281,7 @@
    "knowledge_point": "美丽的颜色",
    "game_ready": true,
    "template": "T0fdd4a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "美丽的颜色"
@@ -4263,7 +4299,7 @@
    "question": "“美丽的颜色”除了字面意义，还有什么含义？",
    "options": [
     {
-     "text": "象征居里夫妇美好的精神品质和科学研究的美",
+     "text": "象征精神之美",
      "image": "",
      "audio": ""
     },
@@ -4291,6 +4327,7 @@
    "knowledge_point": "美丽的颜色",
    "game_ready": true,
    "template": "T52f7ff",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "美丽的颜色"
@@ -4591,7 +4628,7 @@
      "audio": ""
     },
     {
-     "text": "作品的真实性和作者的立场",
+     "text": "作品的真实性",
      "image": "",
      "audio": ""
     },
@@ -4609,6 +4646,7 @@
    "knowledge_point": "名著导读《红星照耀中国》",
    "game_ready": true,
    "template": "T4cddd1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红星照耀中国》"
@@ -4631,7 +4669,7 @@
      "audio": ""
     },
     {
-     "text": "对中国的不满",
+     "text": "对中国前途的悲观失望",
      "image": "",
      "audio": ""
     },
@@ -4641,7 +4679,7 @@
      "audio": ""
     },
     {
-     "text": "对中国共产党和中国革命前途的乐观判断",
+     "text": "对革命前途的乐观",
      "image": "",
      "audio": ""
     }
@@ -4654,6 +4692,7 @@
    "knowledge_point": "名著导读《红星照耀中国》",
    "game_ready": true,
    "template": "T6ba28e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红星照耀中国》"
@@ -4681,7 +4720,7 @@
      "audio": ""
     },
     {
-     "text": "只看故事，不关注历史背景",
+     "text": "只看故事",
      "image": "",
      "audio": ""
     },
@@ -4699,6 +4738,7 @@
    "knowledge_point": "名著导读《红星照耀中国》",
    "game_ready": true,
    "template": "T42dd7c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红星照耀中国》"
@@ -4795,7 +4835,7 @@
      "audio": ""
     },
     {
-     "text": "都要求真实，不能虚构",
+     "text": "都要求真实",
      "image": "",
      "audio": ""
     },
@@ -4814,6 +4854,7 @@
    "game_ready": true,
    "template": "T8edb82",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红星照耀中国》"
@@ -4946,7 +4987,7 @@
    "question": "“自三峡七百里中，两岸连山，略无阙处”中“阙”的意思是？",
    "options": [
     {
-     "text": "宫殿",
+     "text": "宫门前的望楼",
      "image": "",
      "audio": ""
     },
@@ -4974,6 +5015,7 @@
    "knowledge_point": "三峡",
    "game_ready": true,
    "template": "T48c290",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "三峡"
@@ -5202,7 +5244,7 @@
      "audio": ""
     },
     {
-     "text": "秋天三峡凄凉的气氛",
+     "text": "秋天凄凉的气氛",
      "image": "",
      "audio": ""
     },
@@ -5225,6 +5267,7 @@
    "knowledge_point": "三峡",
    "game_ready": true,
    "template": "T9511ab",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "三峡"
@@ -5315,6 +5358,7 @@
    "knowledge_point": "三峡",
    "game_ready": true,
    "template": "Tf723a0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "三峡"
@@ -5347,7 +5391,7 @@
      "audio": ""
     },
     {
-     "text": "夏季江水流速极快",
+     "text": "水流湍急",
      "image": "",
      "audio": ""
     }
@@ -5360,6 +5404,7 @@
    "knowledge_point": "三峡",
    "game_ready": true,
    "template": "T55fa6a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "三峡"
@@ -5620,7 +5665,7 @@
      "audio": ""
     },
     {
-     "text": "考虑，想到",
+     "text": "想到",
      "image": "",
      "audio": ""
     }
@@ -5633,6 +5678,7 @@
    "knowledge_point": "短文二篇",
    "game_ready": true,
    "template": "T2b40f9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "短文二篇"
@@ -5780,7 +5826,7 @@
      "audio": ""
     },
     {
-     "text": "对山川美景的赞美，以及与自然相融的愉悦",
+     "text": "赞美山川",
      "image": "",
      "audio": ""
     }
@@ -5793,6 +5839,7 @@
    "knowledge_point": "短文二篇",
    "game_ready": true,
    "template": "T7bd330",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "短文二篇"
@@ -5838,6 +5885,7 @@
    "knowledge_point": "短文二篇",
    "game_ready": true,
    "template": "T9a3e68",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "短文二篇"
@@ -5934,7 +5982,7 @@
      "audio": ""
     },
     {
-     "text": "风停了，烟雾散尽，天和山是一样的颜色",
+     "text": "天和山同色",
      "image": "",
      "audio": ""
     },
@@ -5952,6 +6000,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "Td6a40f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -5969,7 +6018,7 @@
    "question": "“自富阳至桐庐一百许里”中“许”的意思是？",
    "options": [
     {
-     "text": "表示约数，左右",
+     "text": "左右",
      "image": "",
      "audio": ""
     },
@@ -5997,6 +6046,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "T6854c7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6029,7 +6079,7 @@
      "audio": ""
     },
     {
-     "text": "胜过，超过",
+     "text": "胜过",
      "image": "",
      "audio": ""
     }
@@ -6042,6 +6092,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "T80baa8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6144,7 +6195,7 @@
      "audio": ""
     },
     {
-     "text": "至，到",
+     "text": "到达",
      "image": "",
      "audio": ""
     }
@@ -6157,6 +6208,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "T10dd36",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6184,7 +6236,7 @@
      "audio": ""
     },
     {
-     "text": "通“返”，返回",
+     "text": "返回",
      "image": "",
      "audio": ""
     },
@@ -6202,6 +6254,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "T188aba",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6244,7 +6297,7 @@
    "question": "《与朱元思书》中“奇山异水，天下独绝”一句在文中的作用是？",
    "options": [
     {
-     "text": "总领全文，概括富春江山水的特点",
+     "text": "总领全文",
      "image": "",
      "audio": ""
     },
@@ -6272,6 +6325,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "T60cfed",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6289,7 +6343,7 @@
    "question": "“鸢飞戾天者，望峰息心；经纶世务者，窥谷忘反”表达了作者？",
    "options": [
     {
-     "text": "鄙弃名利、向往自然的思想感情",
+     "text": "鄙弃名利",
      "image": "",
      "audio": ""
     },
@@ -6317,6 +6371,7 @@
    "knowledge_point": "与朱元思书",
    "game_ready": true,
    "template": "T6c2a8d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6367,7 +6422,7 @@
      "audio": ""
     },
     {
-     "text": "白色的",
+     "text": "白色",
      "image": "",
      "audio": ""
     },
@@ -6386,6 +6441,7 @@
    "game_ready": true,
    "template": "Tb935e9",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6449,7 +6505,7 @@
    "question": "《三峡》《答谢中书书》《与朱元思书》的共同点是？",
    "options": [
     {
-     "text": "都描写了山水景色之美",
+     "text": "都描写了山水",
      "image": "",
      "audio": ""
     },
@@ -6478,6 +6534,7 @@
    "game_ready": true,
    "template": "Td15fd3",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "与朱元思书"
@@ -6659,7 +6716,7 @@
      "audio": ""
     },
     {
-     "text": "浦口车站",
+     "text": "浦口站",
      "image": "",
      "audio": ""
     },
@@ -6682,6 +6739,7 @@
    "knowledge_point": "背影",
    "game_ready": true,
    "template": "T3d812d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "背影"
@@ -6778,7 +6836,7 @@
      "audio": ""
     },
     {
-     "text": "家中祖母去世、父亲失业的境况",
+     "text": "家境惨淡",
      "image": "",
      "audio": ""
     },
@@ -6796,6 +6854,7 @@
    "knowledge_point": "背影",
    "game_ready": true,
    "template": "T2e8ac5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "背影"
@@ -6858,7 +6917,7 @@
    "question": "《背影》表达的主要情感是？",
    "options": [
     {
-     "text": "深沉的父爱与儿子对父亲的理解、怀念",
+     "text": "深沉的父爱",
      "image": "",
      "audio": ""
     },
@@ -6886,6 +6945,7 @@
    "knowledge_point": "背影",
    "game_ready": true,
    "template": "Ta9f91a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "背影"
@@ -6913,7 +6973,7 @@
      "audio": ""
     },
     {
-     "text": "自责当时不能体会父亲的爱，是反语",
+     "text": "自责，是反语",
      "image": "",
      "audio": ""
     },
@@ -6931,6 +6991,7 @@
    "knowledge_point": "背影",
    "game_ready": true,
    "template": "T523ab2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "背影"
@@ -6963,7 +7024,7 @@
      "audio": ""
     },
     {
-     "text": "角度新颖，以小见大，含蓄深沉",
+     "text": "以小见大",
      "image": "",
      "audio": ""
     }
@@ -6976,6 +7037,7 @@
    "knowledge_point": "背影",
    "game_ready": true,
    "template": "Tbb6348",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "背影"
@@ -7076,7 +7138,7 @@
      "audio": ""
     },
     {
-     "text": "象征（托物言志）",
+     "text": "象征",
      "image": "",
      "audio": ""
     }
@@ -7089,6 +7151,7 @@
    "knowledge_point": "白杨礼赞",
    "game_ready": true,
    "template": "T1ea497",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "白杨礼赞"
@@ -7106,7 +7169,7 @@
    "question": "文中赞美的白杨树生长在？",
    "options": [
     {
-     "text": "江南的水乡平原",
+     "text": "江南水乡",
      "image": "",
      "audio": ""
     },
@@ -7121,7 +7184,7 @@
      "audio": ""
     },
     {
-     "text": "西北黄土高原",
+     "text": "黄土高原",
      "image": "",
      "audio": ""
     }
@@ -7152,7 +7215,7 @@
    "question": "文中反复出现的“白杨树实在是不平凡的”一句，在结构上的作用是？",
    "options": [
     {
-     "text": "贯穿全文，层层深入",
+     "text": "贯穿全文",
      "image": "",
      "audio": ""
     },
@@ -7180,6 +7243,7 @@
    "knowledge_point": "白杨礼赞",
    "game_ready": true,
    "template": "T363869",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "白杨礼赞"
@@ -7221,7 +7285,7 @@
    "question": "白杨树“力求上进”“不折不挠”，象征着？",
    "options": [
     {
-     "text": "北方农民和抗日军民的精神",
+     "text": "北方农民和抗日军民",
      "image": "",
      "audio": ""
     },
@@ -7249,6 +7313,7 @@
    "knowledge_point": "白杨礼赞",
    "game_ready": true,
    "template": "T18fe55",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "白杨礼赞"
@@ -7276,7 +7341,7 @@
      "audio": ""
     },
     {
-     "text": "贬斥那些看不起民众、顽固倒退的人，赞美白杨树",
+     "text": "贬斥顽固派",
      "image": "",
      "audio": ""
     },
@@ -7294,6 +7359,7 @@
    "knowledge_point": "白杨礼赞",
    "game_ready": true,
    "template": "T4d7b5a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "白杨礼赞"
@@ -7326,7 +7392,7 @@
      "audio": ""
     },
     {
-     "text": "不矛盾，“普通”指外形常见，“不平凡”指精神品质",
+     "text": "不矛盾，二者角度不同",
      "image": "",
      "audio": ""
     }
@@ -7339,6 +7405,7 @@
    "knowledge_point": "白杨礼赞",
    "game_ready": true,
    "template": "T31e683",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "白杨礼赞"
@@ -7356,7 +7423,7 @@
    "question": "文章先写高原景色，再写白杨树，这样写的作用是？",
    "options": [
     {
-     "text": "以高原的雄壮开阔衬托白杨树的不平凡",
+     "text": "衬托白杨树",
      "image": "",
      "audio": ""
     },
@@ -7384,6 +7451,7 @@
    "knowledge_point": "白杨礼赞",
    "game_ready": true,
    "template": "Td52c9f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "白杨礼赞"
@@ -7520,12 +7588,12 @@
      "audio": ""
     },
     {
-     "text": "对人类苦难不可遏制的同情心",
+     "text": "对人类苦难的同情",
      "image": "",
      "audio": ""
     },
     {
-     "text": "对财富的追求",
+     "text": "对自由与平等的追求",
      "image": "",
      "audio": ""
     },
@@ -7543,6 +7611,7 @@
    "knowledge_point": "散文二篇",
    "game_ready": true,
    "template": "Te92642",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "散文二篇"
@@ -7565,7 +7634,7 @@
      "audio": ""
     },
     {
-     "text": "个体生命虽短暂，但生命能不断延续、繁衍",
+     "text": "生命能不断延续",
      "image": "",
      "audio": ""
     },
@@ -7588,6 +7657,7 @@
    "knowledge_point": "散文二篇",
    "game_ready": true,
    "template": "T8bdd78",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "散文二篇"
@@ -7656,6 +7726,7 @@
    "knowledge_point": "散文二篇",
    "game_ready": true,
    "template": "T63021b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "散文二篇"
@@ -7673,7 +7744,7 @@
    "question": "读这两篇散文，主要是为了引导我们思考？",
    "options": [
     {
-     "text": "生命的意义和人生的价值",
+     "text": "生命的意义",
      "image": "",
      "audio": ""
     },
@@ -7701,6 +7772,7 @@
    "knowledge_point": "散文二篇",
    "game_ready": true,
    "template": "Ta9b8dd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "散文二篇"
@@ -7733,7 +7805,7 @@
      "audio": ""
     },
     {
-     "text": "积极乐观，礼赞生命的永恒",
+     "text": "礼赞生命",
      "image": "",
      "audio": ""
     }
@@ -7746,6 +7818,7 @@
    "knowledge_point": "散文二篇",
    "game_ready": true,
    "template": "T8378f4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "散文二篇"
@@ -7773,7 +7846,7 @@
      "audio": ""
     },
     {
-     "text": "富有哲理，引人深思",
+     "text": "富有哲理",
      "image": "",
      "audio": ""
     },
@@ -7791,6 +7864,7 @@
    "knowledge_point": "散文二篇",
    "game_ready": true,
    "template": "T5d0128",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "散文二篇"
@@ -8035,7 +8109,7 @@
    "question": "作者认为昆明的雨季是？",
    "options": [
     {
-     "text": "明亮的、丰满的，使人动情的",
+     "text": "明亮的、丰满的",
      "image": "",
      "audio": ""
     },
@@ -8063,6 +8137,7 @@
    "knowledge_point": "昆明的雨",
    "game_ready": true,
    "template": "Ta7c4f0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "昆明的雨"
@@ -8085,7 +8160,7 @@
      "audio": ""
     },
     {
-     "text": "平淡质朴，有生活气息",
+     "text": "平淡质朴",
      "image": "",
      "audio": ""
     },
@@ -8108,6 +8183,7 @@
    "knowledge_point": "昆明的雨",
    "game_ready": true,
    "template": "T9490f0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "昆明的雨"
@@ -8135,12 +8211,12 @@
      "audio": ""
     },
     {
-     "text": "昆明的气候寒冷",
+     "text": "昆明雨季的阴冷潮湿",
      "image": "",
      "audio": ""
     },
     {
-     "text": "昆明雨季的美好和人情的美好",
+     "text": "雨季和人情的美好",
      "image": "",
      "audio": ""
     }
@@ -8153,6 +8229,7 @@
    "knowledge_point": "昆明的雨",
    "game_ready": true,
    "template": "Te3dc6b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "昆明的雨"
@@ -8185,7 +8262,7 @@
      "audio": ""
     },
     {
-     "text": "雨季中的寻常事物和生活细节",
+     "text": "寻常事物",
      "image": "",
      "audio": ""
     }
@@ -8198,6 +8275,7 @@
    "knowledge_point": "昆明的雨",
    "game_ready": true,
    "template": "T15fef4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "昆明的雨"
@@ -8328,7 +8406,7 @@
    "question": "《红岩》中，面对酷刑坚贞不屈、受到大家敬重的女共产党员是？",
    "options": [
     {
-     "text": "江姐（江雪琴）",
+     "text": "江姐",
      "image": "",
      "audio": ""
     },
@@ -8356,6 +8434,7 @@
    "knowledge_point": "名著导读《红岩》",
    "game_ready": true,
    "template": "T8aa3cf",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红岩》"
@@ -8532,7 +8611,7 @@
    "question": "《红岩》中许云峰、江姐等人身上共同体现的是？",
    "options": [
     {
-     "text": "坚定的革命信念和不屈不挠的斗争精神",
+     "text": "革命信念",
      "image": "",
      "audio": ""
     },
@@ -8560,6 +8639,7 @@
    "knowledge_point": "名著导读《红岩》",
    "game_ready": true,
    "template": "Tee0bf2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红岩》"
@@ -8592,7 +8672,7 @@
      "audio": ""
     },
     {
-     "text": "结合历史背景，梳理主要人物和情节",
+     "text": "结合历史背景阅读",
      "image": "",
      "audio": ""
     }
@@ -8605,6 +8685,7 @@
    "knowledge_point": "名著导读《红岩》",
    "game_ready": true,
    "template": "T9dcb69",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红岩》"
@@ -8650,7 +8731,7 @@
      "audio": ""
     },
     {
-     "text": "《白杨礼赞》用白杨树象征江南的才子",
+     "text": "白杨树象征江南才子",
      "image": "",
      "audio": ""
     },
@@ -8674,6 +8755,7 @@
    "game_ready": true,
    "template": "T7d726b",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红岩》"
@@ -8701,7 +8783,7 @@
      "audio": ""
     },
     {
-     "text": "行动不便，买橘子很艰难",
+     "text": "行动不便",
      "image": "",
      "audio": ""
     },
@@ -8720,6 +8802,7 @@
    "game_ready": true,
    "template": "T903b04",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "名著导读《红岩》"
@@ -9263,7 +9346,7 @@
      "audio": ""
     },
     {
-     "text": "务必使游览者无论站在哪个点上，眼前总是一幅完美的图画",
+     "text": "眼前总是一幅画",
      "image": "",
      "audio": ""
     },
@@ -9286,6 +9369,7 @@
    "knowledge_point": "苏州园林",
    "game_ready": true,
    "template": "T57b486",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏州园林"
@@ -9348,7 +9432,7 @@
    "question": "苏州园林在布局上“绝不讲究对称”，原因是？",
    "options": [
     {
-     "text": "追求自然之趣，好像一幅画",
+     "text": "追求自然之趣",
      "image": "",
      "audio": ""
     },
@@ -9376,6 +9460,7 @@
    "knowledge_point": "苏州园林",
    "game_ready": true,
    "template": "Tf1a5c6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏州园林"
@@ -9403,7 +9488,7 @@
      "audio": ""
     },
     {
-     "text": "从外国引进的样式",
+     "text": "照搬西洋园林的",
      "image": "",
      "audio": ""
     },
@@ -9473,7 +9558,7 @@
      "audio": ""
     },
     {
-     "text": "游览者看到的景物富有层次和变化",
+     "text": "景物富有层次",
      "image": "",
      "audio": ""
     },
@@ -9491,6 +9576,7 @@
    "knowledge_point": "苏州园林",
    "game_ready": true,
    "template": "T24b048",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏州园林"
@@ -9508,7 +9594,7 @@
    "question": "苏州园林讲究“花草树木的映衬”，主要是为了？",
    "options": [
     {
-     "text": "使景物富有自然之美",
+     "text": "自然之美",
      "image": "",
      "audio": ""
     },
@@ -9536,6 +9622,7 @@
    "knowledge_point": "苏州园林",
    "game_ready": true,
    "template": "T6f1656",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏州园林"
@@ -9648,7 +9735,7 @@
      "audio": ""
     },
     {
-     "text": "与园内景色和谐，显得淡雅",
+     "text": "与景色和谐，显得淡雅",
      "image": "",
      "audio": ""
     },
@@ -9671,6 +9758,7 @@
    "knowledge_point": "苏州园林",
    "game_ready": true,
    "template": "T8e9bb6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "苏州园林"
@@ -9988,6 +10076,7 @@
    "knowledge_point": "人民英雄永垂不朽",
    "game_ready": true,
    "template": "T5fe711",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人民英雄永垂不朽"
@@ -10078,6 +10167,7 @@
    "knowledge_point": "人民英雄永垂不朽",
    "game_ready": true,
    "template": "T5fd95e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人民英雄永垂不朽"
@@ -10223,7 +10313,7 @@
      "audio": ""
     },
     {
-     "text": "北宋都城汴京（东京）",
+     "text": "北宋汴京",
      "image": "",
      "audio": ""
     }
@@ -10236,6 +10326,7 @@
    "knowledge_point": "梦回繁华",
    "game_ready": true,
    "template": "T67bd30",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "梦回繁华"
@@ -10258,7 +10349,7 @@
      "audio": ""
     },
     {
-     "text": "从城外郊野到汴河再到城内街市",
+     "text": "从城外到城内",
      "image": "",
      "audio": ""
     },
@@ -10281,6 +10372,7 @@
    "knowledge_point": "梦回繁华",
    "game_ready": true,
    "template": "Tc1aeb4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "梦回繁华"
@@ -10366,7 +10458,7 @@
    "question": "标题“梦回繁华”的含义是？",
    "options": [
     {
-     "text": "通过画卷仿佛回到北宋繁华的都城",
+     "text": "回到北宋的繁华",
      "image": "",
      "audio": ""
     },
@@ -10394,6 +10486,7 @@
    "knowledge_point": "梦回繁华",
    "game_ready": true,
    "template": "T8c3358",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "梦回繁华"
@@ -10421,7 +10514,7 @@
      "audio": ""
     },
     {
-     "text": "点面结合，使说明全面而具体",
+     "text": "点面结合",
      "image": "",
      "audio": ""
     },
@@ -10439,6 +10532,7 @@
    "knowledge_point": "梦回繁华",
    "game_ready": true,
    "template": "T1c7f8a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "梦回繁华"
@@ -10466,12 +10560,12 @@
      "audio": ""
     },
     {
-     "text": "没有价值",
+     "text": "主要在收藏价值",
      "image": "",
      "audio": ""
     },
     {
-     "text": "具有很高的艺术价值和历史价值",
+     "text": "艺术和历史价值",
      "image": "",
      "audio": ""
     }
@@ -10484,6 +10578,7 @@
    "knowledge_point": "梦回繁华",
    "game_ready": true,
    "template": "T554492",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "梦回繁华"
@@ -10732,7 +10827,7 @@
    "question": "“天时不如地利，地利不如人和”中“人和”的意思是？",
    "options": [
     {
-     "text": "人心所向，内部团结",
+     "text": "内部团结",
      "image": "",
      "audio": ""
     },
@@ -10760,6 +10855,7 @@
    "knowledge_point": "《孟子》三章",
    "game_ready": true,
    "template": "T9d1fce",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "《孟子》三章"
@@ -10832,7 +10928,7 @@
      "audio": ""
     },
     {
-     "text": "通“叛”，背叛",
+     "text": "背叛",
      "image": "",
      "audio": ""
     },
@@ -10850,6 +10946,7 @@
    "knowledge_point": "《孟子》三章",
    "game_ready": true,
    "template": "T96016f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "《孟子》三章"
@@ -10892,7 +10989,7 @@
    "question": "“富贵不能淫，贫贱不能移，威武不能屈”中“淫”的意思是？",
    "options": [
     {
-     "text": "迷惑，扰乱",
+     "text": "迷惑",
      "image": "",
      "audio": ""
     },
@@ -10920,6 +11017,7 @@
    "knowledge_point": "《孟子》三章",
    "game_ready": true,
    "template": "Tbfe6ea",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "《孟子》三章"
@@ -10987,7 +11085,7 @@
      "audio": ""
     },
     {
-     "text": "通“增”，增加",
+     "text": "增加",
      "image": "",
      "audio": ""
     },
@@ -11010,6 +11108,7 @@
    "knowledge_point": "《孟子》三章",
    "game_ready": true,
    "template": "Tfd9f94",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "《孟子》三章"
@@ -42260,7 +42359,7 @@
    "question": "鸦片战争后，中国开始沦为？",
    "options": [
     {
-     "text": "独立自主的封建社会",
+     "text": "半封建半资本主义社会",
      "image": "",
      "audio": ""
     },
@@ -42351,12 +42450,12 @@
    "question": "鸦片战争被看作中国近代史的开端，主要原因是？",
    "options": [
     {
-     "text": "中国的社会性质开始发生变化",
+     "text": "中国社会性质开始变化",
      "image": "",
      "audio": ""
     },
     {
-     "text": "清政府开始实行闭关锁国政策",
+     "text": "清政府开始实行闭关锁国",
      "image": "",
      "audio": ""
     },
@@ -42719,6 +42818,7 @@
    "knowledge_point": "第二次鸦片战争",
    "game_ready": true,
    "template": "T60ae4c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二次鸦片战争"
@@ -42736,7 +42836,7 @@
    "question": "英法发动第二次鸦片战争的根本目的是？",
    "options": [
     {
-     "text": "进一步打开中国市场，扩大侵略权益",
+     "text": "进一步打开中国市场",
      "image": "",
      "audio": ""
     },
@@ -42764,6 +42864,7 @@
    "knowledge_point": "第二次鸦片战争",
    "game_ready": true,
    "template": "Taa89cf",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二次鸦片战争"
@@ -42899,7 +43000,7 @@
      "audio": ""
     },
     {
-     "text": "《临时约法》",
+     "text": "《中华民国临时约法》",
      "image": "",
      "audio": ""
     },
@@ -42922,6 +43023,7 @@
    "knowledge_point": "太平天国运动",
    "game_ready": true,
    "template": "T203a33",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "太平天国运动"
@@ -43343,7 +43445,7 @@
      "audio": ""
     },
     {
-     "text": "都是列强为扩大在华利益而发动的侵略战争",
+     "text": "都是列强发动的侵略战争",
      "image": "",
      "audio": ""
     }
@@ -43357,6 +43459,7 @@
    "game_ready": true,
    "template": "T704534",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "太平天国运动"
@@ -43443,7 +43546,7 @@
    "question": "洋务运动的指导思想是？",
    "options": [
     {
-     "text": "师夷长技以制夷",
+     "text": "师夷长技以自强",
      "image": "",
      "audio": ""
     },
@@ -43453,7 +43556,7 @@
      "audio": ""
     },
     {
-     "text": "中学为体，西学为用",
+     "text": "中体西用",
      "image": "",
      "audio": ""
     },
@@ -43471,6 +43574,7 @@
    "knowledge_point": "洋务运动和边疆危机",
    "game_ready": true,
    "template": "T407569",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋务运动和边疆危机"
@@ -43791,7 +43895,7 @@
      "audio": ""
     },
     {
-     "text": "引进西方先进科学技术，客观上为中国近代化开辟了道路",
+     "text": "客观上开启了中国近代化",
      "image": "",
      "audio": ""
     },
@@ -43809,6 +43913,7 @@
    "knowledge_point": "洋务运动和边疆危机",
    "game_ready": true,
    "template": "Ted3338",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "洋务运动和边疆危机"
@@ -44579,6 +44684,7 @@
    "knowledge_point": "戊戌变法",
    "game_ready": true,
    "template": "T7085d0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "戊戌变法"
@@ -44596,12 +44702,12 @@
    "question": "戊戌变法的历史意义是？",
    "options": [
     {
-     "text": "使中国走上了独立富强的道路",
+     "text": "使中国走上了富强道路",
      "image": "",
      "audio": ""
     },
     {
-     "text": "在社会上起了思想启蒙作用",
+     "text": "起了思想启蒙作用",
      "image": "",
      "audio": ""
     },
@@ -44877,7 +44983,7 @@
      "audio": ""
     },
     {
-     "text": "使馆界，允许各国派兵保护",
+     "text": "使馆界",
      "image": "",
      "audio": ""
     },
@@ -44895,6 +45001,7 @@
    "knowledge_point": "义和团运动和八国联军侵华",
    "game_ready": true,
    "template": "Tf8198b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "义和团运动和八国联军侵华"
@@ -45041,7 +45148,7 @@
      "audio": ""
     },
     {
-     "text": "粉碎了列强瓜分中国的图谋",
+     "text": "粉碎了瓜分图谋",
      "image": "",
      "audio": ""
     }
@@ -45054,6 +45161,7 @@
    "knowledge_point": "义和团运动和八国联军侵华",
    "game_ready": true,
    "template": "Te1466a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "义和团运动和八国联军侵华"
@@ -45323,7 +45431,7 @@
    "question": "1905 年，中国同盟会在哪里成立？",
    "options": [
     {
-     "text": "美国檀香山",
+     "text": "檀香山",
      "image": "",
      "audio": ""
     },
@@ -45333,7 +45441,7 @@
      "audio": ""
     },
     {
-     "text": "日本东京",
+     "text": "东京",
      "image": "",
      "audio": ""
     },
@@ -45419,7 +45527,7 @@
      "audio": ""
     },
     {
-     "text": "外争主权，内除国贼",
+     "text": "驱除鞑虏，恢复中华，创立合众政府",
      "image": "",
      "audio": ""
     },
@@ -45442,6 +45550,7 @@
    "knowledge_point": "中国同盟会",
    "game_ready": true,
    "template": "T51a8e0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国同盟会"
@@ -45474,7 +45583,7 @@
      "audio": ""
     },
     {
-     "text": "民族主义、民权主义、民生主义",
+     "text": "民族、民权、民生",
      "image": "",
      "audio": ""
     }
@@ -45487,6 +45596,7 @@
    "knowledge_point": "中国同盟会",
    "game_ready": true,
    "template": "T394dc8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国同盟会"
@@ -45623,7 +45733,7 @@
      "audio": ""
     },
     {
-     "text": "中国资产阶级民主革命进入了一个新阶段",
+     "text": "民主革命进入新阶段",
      "image": "",
      "audio": ""
     },
@@ -45646,6 +45756,7 @@
    "knowledge_point": "中国同盟会",
    "game_ready": true,
    "template": "Tcfccf5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国同盟会"
@@ -45668,7 +45779,7 @@
      "audio": ""
     },
     {
-     "text": "打倒列强，除军阀",
+     "text": "驱除鞑虏，恢复中华，创立民国",
      "image": "",
      "audio": ""
     },
@@ -45691,6 +45802,7 @@
    "knowledge_point": "中国同盟会",
    "game_ready": true,
    "template": "Tec1f0e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国同盟会"
@@ -45889,7 +46001,7 @@
    "question": "辛亥革命最大的功绩是？",
    "options": [
     {
-     "text": "推翻了统治中国两千多年的君主专制制度",
+     "text": "推翻了君主专制制度",
      "image": "",
      "audio": ""
     },
@@ -45917,6 +46029,7 @@
    "knowledge_point": "辛亥革命",
    "game_ready": true,
    "template": "T3bebb2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "辛亥革命"
@@ -46012,7 +46125,7 @@
      "audio": ""
     },
     {
-     "text": "资产阶级具有软弱性和妥协性",
+     "text": "资产阶级具有软弱性",
      "image": "",
      "audio": ""
     },
@@ -46030,6 +46143,7 @@
    "knowledge_point": "辛亥革命",
    "game_ready": true,
    "template": "Tc73ad0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "辛亥革命"
@@ -46047,12 +46161,12 @@
    "question": "武昌起义的主力是？",
    "options": [
     {
-     "text": "八路军",
+     "text": "湖北的会党武装",
      "image": "",
      "audio": ""
     },
     {
-     "text": "湖北新军中的革命党人",
+     "text": "革命党人",
      "image": "",
      "audio": ""
     },
@@ -46075,6 +46189,7 @@
    "knowledge_point": "辛亥革命",
    "game_ready": true,
    "template": "T4de33a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "辛亥革命"
@@ -46441,7 +46556,7 @@
      "audio": ""
     },
     {
-     "text": "各派军阀背后都有帝国主义国家的支持",
+     "text": "军阀背后有列强支持",
      "image": "",
      "audio": ""
     },
@@ -46459,6 +46574,7 @@
    "knowledge_point": "帝制复辟与军阀割据",
    "game_ready": true,
    "template": "T8d462d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "帝制复辟与军阀割据"
@@ -46779,7 +46895,7 @@
      "audio": ""
     },
     {
-     "text": "巴黎和会上中国外交的失败",
+     "text": "巴黎和会外交失败",
      "image": "",
      "audio": ""
     },
@@ -46802,6 +46918,7 @@
    "knowledge_point": "五四运动",
    "game_ready": true,
    "template": "T98334f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "五四运动"
@@ -47128,7 +47245,7 @@
      "audio": ""
     },
     {
-     "text": "是一次彻底地、不妥协地反帝反封建的爱国运动",
+     "text": "彻底地反帝反封建",
      "image": "",
      "audio": ""
     }
@@ -47141,6 +47258,7 @@
    "knowledge_point": "五四运动",
    "game_ready": true,
    "template": "T2733dd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "五四运动"
@@ -47258,7 +47376,7 @@
      "audio": ""
     },
     {
-     "text": "浙江嘉兴南湖的一艘游船上",
+     "text": "南湖游船上",
      "image": "",
      "audio": ""
     },
@@ -47276,6 +47394,7 @@
    "knowledge_point": "中国共产党诞生",
    "game_ready": true,
    "template": "T125ad4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国共产党诞生"
@@ -47338,7 +47457,7 @@
    "question": "1922 年，中共二大首次提出了？",
    "options": [
     {
-     "text": "“农村包围城市”的道路",
+     "text": "“农村包围城市”的革命道路",
      "image": "",
      "audio": ""
     },
@@ -47353,7 +47472,7 @@
      "audio": ""
     },
     {
-     "text": "彻底的反帝反封建的民主革命纲领",
+     "text": "反帝反封建的民主革命纲领",
      "image": "",
      "audio": ""
     }
@@ -47366,6 +47485,7 @@
    "knowledge_point": "中国共产党诞生",
    "game_ready": true,
    "template": "T011f19",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国共产党诞生"
@@ -47412,7 +47532,7 @@
      "audio": ""
     },
     {
-     "text": "组织工人阶级，领导工人运动",
+     "text": "领导工人运动",
      "image": "",
      "audio": ""
     },
@@ -47435,6 +47555,7 @@
    "knowledge_point": "中国共产党诞生",
    "game_ready": true,
    "template": "Tf2f012",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国共产党诞生"
@@ -47452,7 +47573,7 @@
    "question": "中国共产党的诞生被称为“开天辟地的大事变”，主要是因为？",
    "options": [
     {
-     "text": "中国革命从此有了坚强的领导核心，面貌焕然一新",
+     "text": "中国革命有了领导核心",
      "image": "",
      "audio": ""
     },
@@ -47480,6 +47601,7 @@
    "knowledge_point": "中国共产党诞生",
    "game_ready": true,
    "template": "T854fb9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国共产党诞生"
@@ -47542,7 +47664,7 @@
    "question": "中国共产党是哪两者相结合的产物？",
    "options": [
     {
-     "text": "马克思列宁主义与中国工人运动",
+     "text": "马列主义与工人运动",
      "image": "",
      "audio": ""
     },
@@ -47570,6 +47692,7 @@
    "knowledge_point": "中国共产党诞生",
    "game_ready": true,
    "template": "T8bb1ac",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国共产党诞生"
@@ -47597,7 +47720,7 @@
      "audio": ""
     },
     {
-     "text": "五四运动促进了马克思主义的传播，为中共成立做了思想和干部准备",
+     "text": "五四运动为中共成立做了准备",
      "image": "",
      "audio": ""
     },
@@ -47616,6 +47739,7 @@
    "game_ready": true,
    "template": "Tda239b",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国共产党诞生"
@@ -47804,12 +47928,12 @@
      "audio": ""
     },
     {
-     "text": "第二次国共合作正式形成",
+     "text": "第二次国共合作形成",
      "image": "",
      "audio": ""
     },
     {
-     "text": "第一次国共合作正式形成",
+     "text": "第一次国共合作形成",
      "image": "",
      "audio": ""
     }
@@ -47845,7 +47969,7 @@
      "audio": ""
     },
     {
-     "text": "黄埔军校（陆军军官学校）",
+     "text": "黄埔军校",
      "image": "",
      "audio": ""
     },
@@ -47868,6 +47992,7 @@
    "knowledge_point": "国共合作与北伐战争",
    "game_ready": true,
    "template": "Ta2e0fd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国共合作与北伐战争"
@@ -47930,12 +48055,12 @@
    "question": "北伐战争的主要对象是？",
    "options": [
     {
-     "text": "吴佩孚、孙传芳、张作霖三大军阀",
+     "text": "吴佩孚、孙传芳、张作霖",
      "image": "",
      "audio": ""
     },
     {
-     "text": "袁世凯、张勋、段祺瑞",
+     "text": "袁世凯、段祺瑞、冯国璋",
      "image": "",
      "audio": ""
     },
@@ -47958,6 +48083,7 @@
    "knowledge_point": "国共合作与北伐战争",
    "game_ready": true,
    "template": "T1ab709",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国共合作与北伐战争"
@@ -48104,7 +48230,7 @@
      "audio": ""
     },
     {
-     "text": "国共第一次合作全面破裂，国民大革命失败",
+     "text": "国民大革命失败",
      "image": "",
      "audio": ""
     }
@@ -48117,6 +48243,7 @@
    "knowledge_point": "国共合作与北伐战争",
    "game_ready": true,
    "template": "T34be77",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国共合作与北伐战争"
@@ -48134,7 +48261,7 @@
    "question": "1928 年底，张学良宣布“东北易帜”，表示服从南京国民政府，这标志着？",
    "options": [
     {
-     "text": "国民党在全国建立了统治",
+     "text": "国民党建立全国统治",
      "image": "",
      "audio": ""
     },
@@ -48144,7 +48271,7 @@
      "audio": ""
     },
     {
-     "text": "国共第一次合作正式形成",
+     "text": "国共第一次合作形成",
      "image": "",
      "audio": ""
     },
@@ -48320,7 +48447,7 @@
      "audio": ""
     },
     {
-     "text": "抗日民族统一战线的方针",
+     "text": "建立抗日民族统一战线的方针",
      "image": "",
      "audio": ""
     },
@@ -48330,7 +48457,7 @@
      "audio": ""
     },
     {
-     "text": "实行土地革命和武装反抗国民党反动统治的总方针",
+     "text": "土地革命和武装反抗的总方针",
      "image": "",
      "audio": ""
     }
@@ -48343,6 +48470,7 @@
    "knowledge_point": "毛泽东开辟井冈山道路",
    "game_ready": true,
    "template": "Tcf83a2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "毛泽东开辟井冈山道路"
@@ -48485,7 +48613,7 @@
      "audio": ""
     },
     {
-     "text": "以城市为中心的武装起义道路",
+     "text": "以城市为中心、武装夺取政权",
      "image": "",
      "audio": ""
     },
@@ -48549,6 +48677,7 @@
    "knowledge_point": "毛泽东开辟井冈山道路",
    "game_ready": true,
    "template": "Tfd9368",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "毛泽东开辟井冈山道路"
@@ -48566,7 +48695,7 @@
    "question": "南昌起义的历史意义是？",
    "options": [
     {
-     "text": "中国共产党独立领导武装斗争和创建人民军队的开始",
+     "text": "独立领导武装斗争的开始",
      "image": "",
      "audio": ""
     },
@@ -48594,6 +48723,7 @@
    "knowledge_point": "毛泽东开辟井冈山道路",
    "game_ready": true,
    "template": "T0488f2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "毛泽东开辟井冈山道路"
@@ -48662,7 +48792,7 @@
      "audio": ""
     },
     {
-     "text": "以城市为中心的武装起义道路",
+     "text": "以城市为中心、武装夺取政权",
      "image": "",
      "audio": ""
     },
@@ -49112,7 +49242,7 @@
    "question": "西安事变和平解决的意义之一是？",
    "options": [
     {
-     "text": "十年内战基本结束，国内和平初步实现",
+     "text": "十年内战基本结束",
      "image": "",
      "audio": ""
     },
@@ -49140,6 +49270,7 @@
    "knowledge_point": "从九一八事变到西安事变",
    "game_ready": true,
    "template": "Teb8094",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "从九一八事变到西安事变"
@@ -49342,7 +49473,7 @@
      "audio": ""
     },
     {
-     "text": "抗日民族统一战线正式形成",
+     "text": "抗日统一战线形成",
      "image": "",
      "audio": ""
     },
@@ -49365,6 +49496,7 @@
    "knowledge_point": "七七事变与全民族抗战",
    "game_ready": true,
    "template": "T84035f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "七七事变与全民族抗战"
@@ -49495,7 +49627,7 @@
    "question": "七七事变标志着？",
    "options": [
     {
-     "text": "中国局部抗战的开始",
+     "text": "局部抗战的开始",
      "image": "",
      "audio": ""
     },
@@ -49510,7 +49642,7 @@
      "audio": ""
     },
     {
-     "text": "全民族抗战的开始",
+     "text": "全民族抗战开始",
      "image": "",
      "audio": ""
     }
@@ -49556,7 +49688,7 @@
      "audio": ""
     },
     {
-     "text": "粉碎了日本“三个月灭亡中国”的狂妄计划",
+     "text": "粉碎了“三个月亡华”计划",
      "image": "",
      "audio": ""
     }
@@ -49569,6 +49701,7 @@
    "knowledge_point": "七七事变与全民族抗战",
    "game_ready": true,
    "template": "T453607",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "七七事变与全民族抗战"
@@ -49930,7 +50063,7 @@
      "audio": ""
     },
     {
-     "text": "彻底粉碎了日本军国主义殖民奴役中国的图谋",
+     "text": "粉碎了日本奴役中国的图谋",
      "image": "",
      "audio": ""
     },
@@ -49953,6 +50086,7 @@
    "knowledge_point": "抗日战争的胜利",
    "game_ready": true,
    "template": "Tfc4c2c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "抗日战争的胜利"
@@ -50025,7 +50159,7 @@
      "audio": ""
     },
     {
-     "text": "以国共合作为基础的抗日民族统一战线的建立和全民族团结抗战",
+     "text": "全民族团结抗战",
      "image": "",
      "audio": ""
     },
@@ -50043,6 +50177,7 @@
    "knowledge_point": "抗日战争的胜利",
    "game_ready": true,
    "template": "T1ac157",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "抗日战争的胜利"
@@ -50273,7 +50408,7 @@
      "audio": ""
     },
     {
-     "text": "《政府与中共代表会谈纪要》（“双十协定”）",
+     "text": "“双十协定”",
      "image": "",
      "audio": ""
     },
@@ -50296,6 +50431,7 @@
    "knowledge_point": "国民党挑起内战",
    "game_ready": true,
    "template": "T69f6c3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国民党挑起内战"
@@ -50473,7 +50609,7 @@
    "question": "解放战争初期，人民解放军的作战方针是？",
    "options": [
     {
-     "text": "以歼灭敌人有生力量为主要目标，不以保守或夺取地方为主要目标",
+     "text": "以歼灭敌人有生力量为主",
      "image": "",
      "audio": ""
     },
@@ -50501,6 +50637,7 @@
    "knowledge_point": "国民党挑起内战",
    "game_ready": true,
    "template": "T8e285d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国民党挑起内战"
@@ -50518,7 +50655,7 @@
    "question": "毛泽东赴重庆谈判的意义是？",
    "options": [
     {
-     "text": "中国共产党在政治上赢得了主动",
+     "text": "中共在政治上赢得主动",
      "image": "",
      "audio": ""
     },
@@ -50546,6 +50683,7 @@
    "knowledge_point": "国民党挑起内战",
    "game_ready": true,
    "template": "T67006c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国民党挑起内战"
@@ -50573,7 +50711,7 @@
      "audio": ""
     },
     {
-     "text": "不在乎一城一地的得失，以消灭敌人有生力量为主的方针",
+     "text": "消灭敌人有生力量",
      "image": "",
      "audio": ""
     },
@@ -50591,6 +50729,7 @@
    "knowledge_point": "国民党挑起内战",
    "game_ready": true,
    "template": "Td7bd58",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国民党挑起内战"
@@ -50623,7 +50762,7 @@
      "audio": ""
     },
     {
-     "text": "维护大地主大资产阶级的独裁统治",
+     "text": "维护独裁统治",
      "image": "",
      "audio": ""
     }
@@ -50636,6 +50775,7 @@
    "knowledge_point": "国民党挑起内战",
    "game_ready": true,
    "template": "T952c61",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国民党挑起内战"
@@ -50906,7 +51046,7 @@
      "audio": ""
     },
     {
-     "text": "渡江战役后人民解放军占领南京",
+     "text": "渡江战役",
      "image": "",
      "audio": ""
     },
@@ -50929,6 +51069,7 @@
    "knowledge_point": "人民解放战争的胜利",
    "game_ready": true,
    "template": "T1d77f1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人民解放战争的胜利"
@@ -50956,7 +51097,7 @@
      "audio": ""
     },
     {
-     "text": "河北平山县西柏坡",
+     "text": "西柏坡",
      "image": "",
      "audio": ""
     },
@@ -50974,6 +51115,7 @@
    "knowledge_point": "人民解放战争的胜利",
    "game_ready": true,
    "template": "T2a8a27",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人民解放战争的胜利"
@@ -51001,7 +51143,7 @@
      "audio": ""
     },
     {
-     "text": "人民群众的支持是解放战争胜利的重要原因",
+     "text": "人民群众的支持",
      "image": "",
      "audio": ""
     },
@@ -51019,6 +51161,7 @@
    "knowledge_point": "人民解放战争的胜利",
    "game_ready": true,
    "template": "T1dd32c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人民解放战争的胜利"
@@ -51051,7 +51194,7 @@
      "audio": ""
     },
     {
-     "text": "中国共产党的正确领导和人民群众的支持",
+     "text": "中共的正确领导",
      "image": "",
      "audio": ""
     }
@@ -51064,6 +51207,7 @@
    "knowledge_point": "人民解放战争的胜利",
    "game_ready": true,
    "template": "Td97c92",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "人民解放战争的胜利"
@@ -51361,7 +51505,7 @@
      "audio": ""
     },
     {
-     "text": "在家是子女，在学校是学生，在社区是居民",
+     "text": "在家是子女，在校是学生",
      "image": "",
      "audio": ""
     },
@@ -51384,6 +51528,7 @@
    "knowledge_point": "丰富的社会生活",
    "game_ready": true,
    "template": "Te8640a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "丰富的社会生活"
@@ -51406,7 +51551,7 @@
      "audio": ""
     },
     {
-     "text": "物质支持和精神滋养",
+     "text": "物质和精神支持",
      "image": "",
      "audio": ""
     },
@@ -51416,7 +51561,7 @@
      "audio": ""
     },
     {
-     "text": "什么都不提供",
+     "text": "只提供金钱帮助",
      "image": "",
      "audio": ""
     }
@@ -51429,6 +51574,7 @@
    "knowledge_point": "丰富的社会生活",
    "game_ready": true,
    "template": "T201a5f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "丰富的社会生活"
@@ -51524,12 +51670,12 @@
      "audio": ""
     },
     {
-     "text": "只有快递员才参与社会生活",
+     "text": "只有快递员才参与社会",
      "image": "",
      "audio": ""
     },
     {
-     "text": "社会生活中人与人相互依存",
+     "text": "人与人相互依存",
      "image": "",
      "audio": ""
     }
@@ -51570,12 +51716,12 @@
      "audio": ""
     },
     {
-     "text": "节假日加班加点",
+     "text": "节假日加班",
      "image": "",
      "audio": ""
     },
     {
-     "text": "免费的义务教育",
+     "text": "免费义务教育",
      "image": "",
      "audio": ""
     }
@@ -51611,7 +51757,7 @@
      "audio": ""
     },
     {
-     "text": "个人是社会的细胞，社会是个人生存和发展的基础",
+     "text": "社会是个人发展的基础",
      "image": "",
      "audio": ""
     },
@@ -51634,6 +51780,7 @@
    "knowledge_point": "丰富的社会生活",
    "game_ready": true,
    "template": "Tdc8f8c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "丰富的社会生活"
@@ -51689,7 +51836,7 @@
      "audio": ""
     },
     {
-     "text": "每个人都处在一定的社会关系之中，有多种社会身份",
+     "text": "人有多种社会身份",
      "image": "",
      "audio": ""
     }
@@ -51702,6 +51849,7 @@
    "knowledge_point": "丰富的社会生活",
    "game_ready": true,
    "template": "T9e4da6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "丰富的社会生活"
@@ -51789,7 +51937,7 @@
    "question": "中学生养成亲社会行为的途径是？",
    "options": [
     {
-     "text": "积极参与社会实践活动",
+     "text": "参加社会实践",
      "image": "",
      "audio": ""
     },
@@ -51817,6 +51965,7 @@
    "knowledge_point": "在社会中健康成长",
    "game_ready": true,
    "template": "Tc043ca",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在社会中健康成长"
@@ -51844,7 +51993,7 @@
      "audio": ""
     },
     {
-     "text": "只有体育技能",
+     "text": "只需要体育和艺术技能",
      "image": "",
      "audio": ""
     },
@@ -51862,6 +52011,7 @@
    "knowledge_point": "在社会中健康成长",
    "game_ready": true,
    "template": "T67097e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在社会中健康成长"
@@ -51894,7 +52044,7 @@
      "audio": ""
     },
     {
-     "text": "遵守社会规范，学会与人相处",
+     "text": "遵守社会规范",
      "image": "",
      "audio": ""
     }
@@ -51907,6 +52057,7 @@
    "knowledge_point": "在社会中健康成长",
    "game_ready": true,
    "template": "T9912d3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在社会中健康成长"
@@ -51992,7 +52143,7 @@
    "question": "我们学习礼仪、遵守公共秩序，是在？",
    "options": [
     {
-     "text": "浪费宝贵的时间",
+     "text": "被迫服从他人",
      "image": "",
      "audio": ""
     },
@@ -52048,7 +52199,7 @@
      "audio": ""
     },
     {
-     "text": "社会实践能促进我们健康成长",
+     "text": "社会实践促进成长",
      "image": "",
      "audio": ""
     },
@@ -52066,6 +52217,7 @@
    "knowledge_point": "在社会中健康成长",
    "game_ready": true,
    "template": "T10a8fb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在社会中健康成长"
@@ -52093,7 +52245,7 @@
      "audio": ""
     },
     {
-     "text": "社会为我们提供成长的环境和条件，我们在社会中逐步成熟",
+     "text": "社会为成长提供条件",
      "image": "",
      "audio": ""
     },
@@ -52111,6 +52263,7 @@
    "knowledge_point": "在社会中健康成长",
    "game_ready": true,
    "template": "T2093e2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在社会中健康成长"
@@ -52138,7 +52291,7 @@
      "audio": ""
     },
     {
-     "text": "提高辨别能力，自觉抵制不良影响",
+     "text": "抵制不良影响",
      "image": "",
      "audio": ""
     },
@@ -52156,6 +52309,7 @@
    "knowledge_point": "在社会中健康成长",
    "game_ready": true,
    "template": "T15b584",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "在社会中健康成长"
@@ -52229,7 +52383,7 @@
      "audio": ""
     },
     {
-     "text": "网络让信息传播更快、交流更方便",
+     "text": "网络让信息传播更快",
      "image": "",
      "audio": ""
     },
@@ -52247,6 +52401,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "T958709",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52269,7 +52424,7 @@
      "audio": ""
     },
     {
-     "text": "不信谣、不传谣，等待权威发布",
+     "text": "不信谣、不传谣",
      "image": "",
      "audio": ""
     },
@@ -52292,6 +52447,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "Tcae8f0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52354,7 +52510,7 @@
    "question": "小华在网上认识了一个“网友”，对方要求见面，小华应该？",
    "options": [
     {
-     "text": "告诉父母，不单独与网友见面",
+     "text": "告诉父母，不去赴约",
      "image": "",
      "audio": ""
     },
@@ -52382,6 +52538,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "Tb3d325",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52427,7 +52584,7 @@
      "audio": ""
     },
     {
-     "text": "文明上网，自觉抵制网络不良信息",
+     "text": "文明上网",
      "image": "",
      "audio": ""
     },
@@ -52450,6 +52607,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "T3cc94d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52482,7 +52640,7 @@
      "audio": ""
     },
     {
-     "text": "未经同意把同学的照片和住址发到网上",
+     "text": "擅自公开同学的住址",
      "image": "",
      "audio": ""
     }
@@ -52495,6 +52653,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "Tfeafad",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52512,7 +52671,7 @@
    "question": "中学生上网时应该做到？",
    "options": [
     {
-     "text": "控制上网时间，不沉迷网络",
+     "text": "不沉迷网络",
      "image": "",
      "audio": ""
     },
@@ -52540,6 +52699,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "T0629ee",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52602,7 +52762,7 @@
    "question": "面对网络上的海量信息，我们要提高？",
    "options": [
     {
-     "text": "媒介素养，学会辨别信息真伪",
+     "text": "媒介素养",
      "image": "",
      "audio": ""
     },
@@ -52630,6 +52790,7 @@
    "knowledge_point": "共建网络美好家园",
    "game_ready": true,
    "template": "T73f1bc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52670,7 +52831,7 @@
    "question": "下列做法属于亲社会行为的是？",
    "options": [
     {
-     "text": "在网上为抗灾地区捐款并传播正能量",
+     "text": "为灾区捐款",
      "image": "",
      "audio": ""
     },
@@ -52699,6 +52860,7 @@
    "game_ready": true,
    "template": "Tb47dde",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52721,7 +52883,7 @@
      "audio": ""
     },
     {
-     "text": "个人离不开社会，社会关系影响着每个人",
+     "text": "个人离不开社会",
      "image": "",
      "audio": ""
     },
@@ -52745,6 +52907,7 @@
    "game_ready": true,
    "template": "T8f613c",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52801,7 +52964,7 @@
      "audio": ""
     },
     {
-     "text": "网络既有积极作用也有消极影响，要趋利避害",
+     "text": "既有利也有弊，要趋利避害",
      "image": "",
      "audio": ""
     }
@@ -52815,6 +52978,7 @@
    "game_ready": true,
    "template": "Tb4b83f",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "共建网络美好家园"
@@ -52829,15 +52993,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "八上·第二单元 维护社会秩序·第四课 遵守社会规则",
    "type": "判断",
-   "question": "社会规则划定了人们行为的界限。",
-   "answer": "对",
-   "explanation": "规则告诉我们应该做什么、不应该做什么。",
+   "question": "社会规则限制自由，对我们的生活没有保障作用。",
+   "answer": "错",
+   "explanation": "错。社会规则划定了行为的界限，既约束我们的行为，也保障我们的权利。",
    "difficulty": 1,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "遵守社会规则",
    "game_ready": true,
    "template": "T042785",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "遵守社会规则"
@@ -52960,7 +53125,7 @@
      "audio": ""
     },
     {
-     "text": "道德、纪律、法律",
+     "text": "法律",
      "image": "",
      "audio": ""
     }
@@ -52973,6 +53138,7 @@
    "knowledge_point": "遵守社会规则",
    "game_ready": true,
    "template": "T905790",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "遵守社会规则"
@@ -53068,7 +53234,7 @@
      "audio": ""
     },
     {
-     "text": "自觉遵守社会规则",
+     "text": "遵守规则",
      "image": "",
      "audio": ""
     },
@@ -53086,6 +53252,7 @@
    "knowledge_point": "遵守社会规则",
    "game_ready": true,
    "template": "T821752",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "遵守社会规则"
@@ -53163,7 +53330,7 @@
      "audio": ""
     },
     {
-     "text": "看到有人插队时，礼貌地提醒对方排队",
+     "text": "礼貌地提醒对方排队",
      "image": "",
      "audio": ""
     }
@@ -53176,6 +53343,7 @@
    "knowledge_point": "遵守社会规则",
    "game_ready": true,
    "template": "T0e127a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "遵守社会规则"
@@ -53203,7 +53371,7 @@
      "audio": ""
     },
     {
-     "text": "不需要任何外部约束",
+     "text": "完全依靠外部惩罚",
      "image": "",
      "audio": ""
     },
@@ -53277,7 +53445,7 @@
      "audio": ""
     },
     {
-     "text": "遵守规则需要自律，不能只靠他律",
+     "text": "遵守规则需要自律",
      "image": "",
      "audio": ""
     }
@@ -53290,6 +53458,7 @@
    "knowledge_point": "遵守社会规则",
    "game_ready": true,
    "template": "T13364e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "遵守社会规则"
@@ -53430,7 +53599,7 @@
      "audio": ""
     },
     {
-     "text": "同学生病时主动帮他补笔记",
+     "text": "帮同学补笔记",
      "image": "",
      "audio": ""
     },
@@ -53448,6 +53617,7 @@
    "knowledge_point": "社会生活讲道德",
    "game_ready": true,
    "template": "T6c189d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会生活讲道德"
@@ -53543,7 +53713,7 @@
      "audio": ""
     },
     {
-     "text": "尊重他人、将心比心",
+     "text": "将心比心",
      "image": "",
      "audio": ""
     },
@@ -53561,6 +53731,7 @@
    "knowledge_point": "社会生活讲道德",
    "game_ready": true,
    "template": "T19bbb6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会生活讲道德"
@@ -53678,12 +53849,12 @@
      "audio": ""
     },
     {
-     "text": "诚信是个人的立身之本",
+     "text": "诚信是立身之本",
      "image": "",
      "audio": ""
     },
     {
-     "text": "诚信只对经商的人重要",
+     "text": "诚信只对商人重要",
      "image": "",
      "audio": ""
     }
@@ -53724,7 +53895,7 @@
      "audio": ""
     },
     {
-     "text": "文明有礼是一个人内在素养的外在表现",
+     "text": "内在素养的外在表现",
      "image": "",
      "audio": ""
     },
@@ -53742,6 +53913,7 @@
    "knowledge_point": "社会生活讲道德",
    "game_ready": true,
    "template": "Tb2667d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会生活讲道德"
@@ -53821,7 +53993,7 @@
      "audio": ""
     },
     {
-     "text": "民事违法行为、行政违法行为和刑事违法行为",
+     "text": "民事、行政、刑事",
      "image": "",
      "audio": ""
     }
@@ -53834,6 +54006,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T3da5f4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -53866,7 +54039,7 @@
      "audio": ""
     },
     {
-     "text": "具有严重社会危害性、刑事违法性和应受刑罚处罚性",
+     "text": "刑事违法性",
      "image": "",
      "audio": ""
     }
@@ -53879,6 +54052,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T30653a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54024,7 +54198,7 @@
      "audio": ""
     },
     {
-     "text": "善于运用法律维护自己的合法权益",
+     "text": "依法维权",
      "image": "",
      "audio": ""
     }
@@ -54037,6 +54211,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T4fd195",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54059,7 +54234,7 @@
      "audio": ""
     },
     {
-     "text": "与人发生纠纷时，通过调解或法律途径解决",
+     "text": "依法解决纠纷",
      "image": "",
      "audio": ""
     },
@@ -54082,6 +54257,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T3336a3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54114,7 +54290,7 @@
      "audio": ""
     },
     {
-     "text": "防微杜渐，从小事做起，避免违法犯罪",
+     "text": "防微杜渐",
      "image": "",
      "audio": ""
     }
@@ -54127,6 +54303,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T2e262f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54172,6 +54349,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T9e7dca",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54194,7 +54372,7 @@
      "audio": ""
     },
     {
-     "text": "向消费者协会投诉，或向人民法院提起诉讼",
+     "text": "向人民法院起诉",
      "image": "",
      "audio": ""
     },
@@ -54217,6 +54395,7 @@
    "knowledge_point": "提升法治素养",
    "game_ready": true,
    "template": "T22c46c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54257,7 +54436,7 @@
    "question": "关于规则，下列说法中正确的是？",
    "options": [
     {
-     "text": "规则既约束我们的行为，也保障我们的权利",
+     "text": "规则也保障权利",
      "image": "",
      "audio": ""
     },
@@ -54286,6 +54465,7 @@
    "game_ready": true,
    "template": "T95de2b",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54303,7 +54483,7 @@
    "question": "“法律是底线的道德，道德是高线的法律。”这说明？",
    "options": [
     {
-     "text": "法律和道德相互补充，共同维护社会秩序",
+     "text": "法律和道德相互补充",
      "image": "",
      "audio": ""
     },
@@ -54332,6 +54512,7 @@
    "game_ready": true,
    "template": "T693213",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54388,7 +54569,7 @@
      "audio": ""
     },
     {
-     "text": "故意伤害他人造成重伤",
+     "text": "故意伤人致重伤",
      "image": "",
      "audio": ""
     }
@@ -54402,6 +54583,7 @@
    "game_ready": true,
    "template": "Ta08321",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "提升法治素养"
@@ -54443,7 +54625,7 @@
    "question": "对“自由”理解正确的是？",
    "options": [
     {
-     "text": "自由受法律的保障，也受法律的约束",
+     "text": "自由受法律保障和约束",
      "image": "",
      "audio": ""
     },
@@ -54471,6 +54653,7 @@
    "knowledge_point": "追求自由平等",
    "game_ready": true,
    "template": "T83c25d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "追求自由平等"
@@ -54516,6 +54699,7 @@
    "knowledge_point": "追求自由平等",
    "game_ready": true,
    "template": "T681315",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "追求自由平等"
@@ -54538,12 +54722,12 @@
      "audio": ""
     },
     {
-     "text": "平等对待来自不同地区的同学",
+     "text": "平等对待不同地区的同学",
      "image": "",
      "audio": ""
     },
     {
-     "text": "嘲笑家庭经济条件不好的同学",
+     "text": "嘲笑家庭条件不好的同学",
      "image": "",
      "audio": ""
     },
@@ -54692,7 +54876,7 @@
    "question": "下列做法中，正确行使言论自由的是？",
    "options": [
     {
-     "text": "在班会上理性发表自己的看法",
+     "text": "理性发表看法",
      "image": "",
      "audio": ""
     },
@@ -54720,6 +54904,7 @@
    "knowledge_point": "追求自由平等",
    "game_ready": true,
    "template": "T6f8565",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "追求自由平等"
@@ -54737,7 +54922,7 @@
    "question": "社会生活中存在一些不平等的现象，我们应该？",
    "options": [
     {
-     "text": "歧视他人",
+     "text": "歧视比自己弱的人",
      "image": "",
      "audio": ""
     },
@@ -54752,7 +54937,7 @@
      "audio": ""
     },
     {
-     "text": "理性看待，依法追求平等",
+     "text": "依法维护平等",
      "image": "",
      "audio": ""
     }
@@ -54765,6 +54950,7 @@
    "knowledge_point": "追求自由平等",
    "game_ready": true,
    "template": "T81c9f9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "追求自由平等"
@@ -54787,7 +54973,7 @@
      "audio": ""
     },
     {
-     "text": "我国宪法规定中华人民共和国公民在法律面前一律平等",
+     "text": "公民在法律面前平等",
      "image": "",
      "audio": ""
     },
@@ -54810,6 +54996,7 @@
    "knowledge_point": "追求自由平等",
    "game_ready": true,
    "template": "Tee9947",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "追求自由平等"
@@ -54827,12 +55014,12 @@
    "question": "对自由和法律的关系，理解正确的是？",
    "options": [
     {
-     "text": "自由可以超越法律",
+     "text": "自由可以不受法律约束",
      "image": "",
      "audio": ""
     },
     {
-     "text": "法律保障自由，又约束自由",
+     "text": "法律保障又约束自由",
      "image": "",
      "audio": ""
     },
@@ -54855,6 +55042,7 @@
    "knowledge_point": "追求自由平等",
    "game_ready": true,
    "template": "T152df2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "追求自由平等"
@@ -54918,12 +55106,12 @@
    "question": "下列体现公平的是？",
    "options": [
     {
-     "text": "同样的错误对不同的人处罚轻重不同",
+     "text": "同样的错误对不同的人处罚不同",
      "image": "",
      "audio": ""
     },
     {
-     "text": "学校按统一标准评选“三好学生”",
+     "text": "按统一标准评选三好学生",
      "image": "",
      "audio": ""
     },
@@ -55060,7 +55248,7 @@
      "audio": ""
     },
     {
-     "text": "理性表达，通过合理合法的途径维护公平",
+     "text": "依法维护公平",
      "image": "",
      "audio": ""
     },
@@ -55070,7 +55258,7 @@
      "audio": ""
     },
     {
-     "text": "视而不见",
+     "text": "私下找人报复",
      "image": "",
      "audio": ""
     }
@@ -55083,6 +55271,7 @@
    "knowledge_point": "维护公平正义",
    "game_ready": true,
    "template": "Tc49ca2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护公平正义"
@@ -55173,12 +55362,12 @@
      "audio": ""
     },
     {
-     "text": "发现同学被欺凌，及时报告老师",
+     "text": "及时报告老师",
      "image": "",
      "audio": ""
     },
     {
-     "text": "装作没看见",
+     "text": "录视频发到网上",
      "image": "",
      "audio": ""
     },
@@ -55196,6 +55385,7 @@
    "knowledge_point": "维护公平正义",
    "game_ready": true,
    "template": "T66f670",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护公平正义"
@@ -55223,7 +55413,7 @@
      "audio": ""
     },
     {
-     "text": "量力而行，讲究方法，如及时报警、呼救",
+     "text": "量力而行，讲究方法",
      "image": "",
      "audio": ""
     },
@@ -55241,6 +55431,7 @@
    "knowledge_point": "维护公平正义",
    "game_ready": true,
    "template": "T0a1c08",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护公平正义"
@@ -55263,7 +55454,7 @@
      "audio": ""
     },
     {
-     "text": "公平是正义的基础和前提，二者都是社会的重要价值",
+     "text": "公平是正义的基础",
      "image": "",
      "audio": ""
     },
@@ -55286,6 +55477,7 @@
    "knowledge_point": "维护公平正义",
    "game_ready": true,
    "template": "T16d03a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护公平正义"
@@ -55313,7 +55505,7 @@
      "audio": ""
     },
     {
-     "text": "公平要求机会、规则平等，而不是所有人得到的完全一样",
+     "text": "机会和规则平等",
      "image": "",
      "audio": ""
     },
@@ -55331,6 +55523,7 @@
    "knowledge_point": "维护公平正义",
    "game_ready": true,
    "template": "T2ef0ea",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护公平正义"
@@ -55394,7 +55587,7 @@
    "question": "下列属于奉献社会的行为是？",
    "options": [
     {
-     "text": "在公共场所随意吸烟",
+     "text": "在公共场所吸烟",
      "image": "",
      "audio": ""
     },
@@ -55409,7 +55602,7 @@
      "audio": ""
     },
     {
-     "text": "到养老院做志愿者",
+     "text": "去养老院做义工",
      "image": "",
      "audio": ""
     }
@@ -55445,7 +55638,7 @@
      "audio": ""
     },
     {
-     "text": "努力学习，提高自身素质",
+     "text": "努力学习",
      "image": "",
      "audio": ""
     },
@@ -55468,6 +55661,7 @@
    "knowledge_point": "积极奉献社会",
    "game_ready": true,
    "template": "T62019e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "积极奉献社会"
@@ -55530,7 +55724,7 @@
    "question": "“我为人人，人人为我”说明个人与社会之间是什么关系？",
    "options": [
     {
-     "text": "奉献社会与个人发展相统一",
+     "text": "奉献与发展相统一",
      "image": "",
      "audio": ""
     },
@@ -55545,7 +55739,7 @@
      "audio": ""
     },
     {
-     "text": "不需要帮助他人",
+     "text": "个人利益高于社会",
      "image": "",
      "audio": ""
     }
@@ -55558,6 +55752,7 @@
    "knowledge_point": "积极奉献社会",
    "game_ready": true,
    "template": "Tc403a7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "积极奉献社会"
@@ -55743,7 +55938,7 @@
      "audio": ""
     },
     {
-     "text": "对同一件事，可能同时承担多种责任",
+     "text": "可能同时承担多种责任",
      "image": "",
      "audio": ""
     },
@@ -55761,6 +55956,7 @@
    "knowledge_point": "积极奉献社会",
    "game_ready": true,
    "template": "Ta4b5e7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "积极奉献社会"
@@ -55778,7 +55974,7 @@
    "question": "面对“为什么要承担责任”，下列认识正确的是？",
    "options": [
     {
-     "text": "承担责任能培养自立能力，让我们更好地成长，赢得他人尊重",
+     "text": "能帮我们更好成长",
      "image": "",
      "audio": ""
     },
@@ -55806,6 +56002,7 @@
    "knowledge_point": "积极奉献社会",
    "game_ready": true,
    "template": "T41ba2f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "积极奉献社会"
@@ -55851,7 +56048,7 @@
      "audio": ""
     },
     {
-     "text": "参与社区垃圾分类宣传活动",
+     "text": "参与垃圾分类宣传",
      "image": "",
      "audio": ""
     },
@@ -55875,6 +56072,7 @@
    "game_ready": true,
    "template": "T2a51c1",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "积极奉献社会"
@@ -55991,6 +56189,7 @@
    "game_ready": true,
    "template": "Tf0d727",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "积极奉献社会"
@@ -56046,7 +56245,7 @@
      "audio": ""
     },
     {
-     "text": "国家利益与人民利益是根本一致的",
+     "text": "二者根本一致",
      "image": "",
      "audio": ""
     }
@@ -56059,6 +56258,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "T5eca33",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56137,7 +56337,7 @@
      "audio": ""
     },
     {
-     "text": "发现可疑人员拍摄军事设施，及时报告",
+     "text": "发现可疑偷拍及时报告",
      "image": "",
      "audio": ""
     }
@@ -56150,6 +56350,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "T187b06",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56172,7 +56373,7 @@
      "audio": ""
     },
     {
-     "text": "只有政治利益",
+     "text": "只有政治和军事利益",
      "image": "",
      "audio": ""
     },
@@ -56182,7 +56383,7 @@
      "audio": ""
     },
     {
-     "text": "安全利益、政治利益、经济利益、文化利益等",
+     "text": "政治、经济利益等",
      "image": "",
      "audio": ""
     }
@@ -56195,6 +56396,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "T96a705",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56240,12 +56442,12 @@
      "audio": ""
     },
     {
-     "text": "国家主权、国家安全、领土完整、国家统一等",
+     "text": "国家主权、领土完整",
      "image": "",
      "audio": ""
     },
     {
-     "text": "个人收入",
+     "text": "地方政府的财政收入",
      "image": "",
      "audio": ""
     },
@@ -56263,6 +56465,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "T6a7f21",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56285,7 +56488,7 @@
      "audio": ""
     },
     {
-     "text": "从身边小事做起，增强国家利益意识",
+     "text": "从身边小事做起",
      "image": "",
      "audio": ""
     },
@@ -56308,6 +56511,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "Tadcf82",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56330,7 +56534,7 @@
      "audio": ""
     },
     {
-     "text": "把国家利益放在首位的担当",
+     "text": "以国家利益为先",
      "image": "",
      "audio": ""
     },
@@ -56353,6 +56557,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "Tee7272",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56380,7 +56585,7 @@
      "audio": ""
     },
     {
-     "text": "增强国家利益意识，自觉维护国家利益",
+     "text": "自觉维护国家利益",
      "image": "",
      "audio": ""
     },
@@ -56398,6 +56603,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "T3ac7b1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56425,7 +56631,7 @@
      "audio": ""
     },
     {
-     "text": "在国家利益与个人利益冲突时，以国家利益为重",
+     "text": "冲突时以国家利益为重",
      "image": "",
      "audio": ""
     },
@@ -56443,6 +56649,7 @@
    "knowledge_point": "国家利益至上",
    "game_ready": true,
    "template": "Td6b64d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家利益至上"
@@ -56566,7 +56773,7 @@
      "audio": ""
     },
     {
-     "text": "追求个人利益",
+     "text": "为军队自身利益服务",
      "image": "",
      "audio": ""
     }
@@ -56579,6 +56786,7 @@
    "knowledge_point": "军强才能国安",
    "game_ready": true,
    "template": "T9a2e06",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "军强才能国安"
@@ -56656,7 +56864,7 @@
      "audio": ""
     },
     {
-     "text": "学习国防知识，尊重军人",
+     "text": "学习国防知识",
      "image": "",
      "audio": ""
     }
@@ -56669,6 +56877,7 @@
    "knowledge_point": "军强才能国安",
    "game_ready": true,
    "template": "T1c50d2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "军强才能国安"
@@ -56754,7 +56963,7 @@
    "question": "“没有一个人民的军队，便没有人民的一切。”这说明？",
    "options": [
     {
-     "text": "人民军队对国家和人民十分重要",
+     "text": "人民军队十分重要",
      "image": "",
      "audio": ""
     },
@@ -56782,6 +56991,7 @@
    "knowledge_point": "军强才能国安",
    "game_ready": true,
    "template": "T2a0c71",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "军强才能国安"
@@ -56804,7 +57014,7 @@
      "audio": ""
     },
     {
-     "text": "强大的国防是国家生存和发展的安全保障",
+     "text": "国防保障国家安全",
      "image": "",
      "audio": ""
     },
@@ -56827,6 +57037,7 @@
    "knowledge_point": "军强才能国安",
    "game_ready": true,
    "template": "T8ec01e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "军强才能国安"
@@ -56859,7 +57070,7 @@
      "audio": ""
     },
     {
-     "text": "为实现中华民族伟大复兴提供坚强的安全保障",
+     "text": "保障民族复兴",
      "image": "",
      "audio": ""
     }
@@ -56872,6 +57083,7 @@
    "knowledge_point": "军强才能国安",
    "game_ready": true,
    "template": "T2bb225",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "军强才能国安"
@@ -56899,7 +57111,7 @@
      "audio": ""
     },
     {
-     "text": "增强国防意识，积极参加国防教育活动",
+     "text": "增强国防意识",
      "image": "",
      "audio": ""
     },
@@ -56917,6 +57129,7 @@
    "knowledge_point": "军强才能国安",
    "game_ready": true,
    "template": "T128bf7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "军强才能国安"
@@ -57194,7 +57407,7 @@
      "audio": ""
     },
     {
-     "text": "不随意在网上发布涉及军事设施的照片",
+     "text": "不在网上发军事设施照片",
      "image": "",
      "audio": ""
     },
@@ -57212,6 +57425,7 @@
    "knowledge_point": "树立总体国家安全观",
    "game_ready": true,
    "template": "T960455",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "树立总体国家安全观"
@@ -57239,7 +57453,7 @@
      "audio": ""
     },
     {
-     "text": "增强网络安全意识，不泄露个人和国家的重要信息",
+     "text": "不泄露重要信息",
      "image": "",
      "audio": ""
     },
@@ -57257,6 +57471,7 @@
    "knowledge_point": "树立总体国家安全观",
    "game_ready": true,
    "template": "T7086a6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "树立总体国家安全观"
@@ -57347,6 +57562,7 @@
    "knowledge_point": "树立总体国家安全观",
    "game_ready": true,
    "template": "T14d0cc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "树立总体国家安全观"
@@ -57364,7 +57580,7 @@
    "question": "维护国家安全，青少年应该？",
    "options": [
     {
-     "text": "树立国家安全意识，自觉履行维护国家安全的义务",
+     "text": "树立国家安全意识",
      "image": "",
      "audio": ""
     },
@@ -57392,6 +57608,7 @@
    "knowledge_point": "树立总体国家安全观",
    "game_ready": true,
    "template": "Td22922",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "树立总体国家安全观"
@@ -57442,7 +57659,7 @@
      "audio": ""
     },
     {
-     "text": "国家利益至上，维护国家安全人人有责",
+     "text": "维护国家安全人人有责",
      "image": "",
      "audio": ""
     },
@@ -57461,6 +57678,7 @@
    "game_ready": true,
    "template": "Td2eec3",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "树立总体国家安全观"
@@ -57564,7 +57782,7 @@
      "audio": ""
     },
     {
-     "text": "记下特征，及时向国家安全机关或公安机关报告",
+     "text": "及时报告有关机关",
      "image": "",
      "audio": ""
     }
@@ -57578,6 +57796,7 @@
    "game_ready": true,
    "template": "Tb60357",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "树立总体国家安全观"
@@ -100835,7 +101054,7 @@
      "audio": ""
     },
     {
-     "text": "中国人民政治协商会议第一届全体会议",
+     "text": "政协第一届全体会议",
      "image": "",
      "audio": ""
     },
@@ -100853,6 +101072,7 @@
    "knowledge_point": "中华人民共和国成立",
    "game_ready": true,
    "template": "Tbad335",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国成立"
@@ -100875,7 +101095,7 @@
      "audio": ""
     },
     {
-     "text": "《中国人民政治协商会议共同纲领》",
+     "text": "《共同纲领》",
      "image": "",
      "audio": ""
     },
@@ -100898,6 +101118,7 @@
    "knowledge_point": "中华人民共和国成立",
    "game_ready": true,
    "template": "T93509f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国成立"
@@ -100988,6 +101209,7 @@
    "knowledge_point": "中华人民共和国成立",
    "game_ready": true,
    "template": "T1a0b3b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国成立"
@@ -101102,6 +101324,7 @@
    "knowledge_point": "中华人民共和国成立",
    "game_ready": true,
    "template": "Tf28a81",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国成立"
@@ -101147,6 +101370,7 @@
    "knowledge_point": "中华人民共和国成立",
    "game_ready": true,
    "template": "T45efe2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国成立"
@@ -101192,6 +101416,7 @@
    "knowledge_point": "中华人民共和国成立",
    "game_ready": true,
    "template": "T84cfec",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国成立"
@@ -101219,7 +101444,7 @@
      "audio": ""
     },
     {
-     "text": "《中华人民共和国土地改革法》",
+     "text": "《土地改革法》",
      "image": "",
      "audio": ""
     },
@@ -101237,6 +101462,7 @@
    "knowledge_point": "巩固人民民主政权",
    "game_ready": true,
    "template": "Teb8878",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "巩固人民民主政权"
@@ -101259,7 +101485,7 @@
      "audio": ""
     },
     {
-     "text": "废除地主阶级封建剥削的土地所有制，实行农民的土地所有制",
+     "text": "废除封建土地所有制，实行农民土地所有制",
      "image": "",
      "audio": ""
     },
@@ -101282,6 +101508,7 @@
    "knowledge_point": "巩固人民民主政权",
    "game_ready": true,
    "template": "Tce5924",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "巩固人民民主政权"
@@ -101517,7 +101744,7 @@
      "audio": ""
     },
     {
-     "text": "赢得了国内和平建设的环境，提高了新中国的国际威望",
+     "text": "提高了国际威望",
      "image": "",
      "audio": ""
     }
@@ -101530,6 +101757,7 @@
    "knowledge_point": "巩固人民民主政权",
    "game_ready": true,
    "template": "Tf31674",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "巩固人民民主政权"
@@ -101547,7 +101775,7 @@
    "question": "土地改革完成的重大意义是？",
    "options": [
     {
-     "text": "农民真正成为土地的主人，解放了农村生产力",
+     "text": "农民成为土地的主人",
      "image": "",
      "audio": ""
     },
@@ -101575,6 +101803,7 @@
    "knowledge_point": "巩固人民民主政权",
    "game_ready": true,
    "template": "Td5e107",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "巩固人民民主政权"
@@ -101602,7 +101831,7 @@
      "audio": ""
     },
     {
-     "text": "巩固人民民主政权，维护社会秩序",
+     "text": "巩固人民政权",
      "image": "",
      "audio": ""
     },
@@ -101620,6 +101849,7 @@
    "knowledge_point": "巩固人民民主政权",
    "game_ready": true,
    "template": "Tc748c2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "巩固人民民主政权"
@@ -101727,7 +101957,7 @@
    "question": "“一五”期间，我国第一个生产汽车的工厂是？",
    "options": [
     {
-     "text": "武汉长江大桥",
+     "text": "洛阳第一拖拉机制造厂",
      "image": "",
      "audio": ""
     },
@@ -101755,6 +101985,7 @@
    "knowledge_point": "社会主义制度建立",
    "game_ready": true,
    "template": "T75b34d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义制度建立"
@@ -101777,7 +102008,7 @@
      "audio": ""
     },
     {
-     "text": "《中华人民共和国宪法》",
+     "text": "《宪法》",
      "image": "",
      "audio": ""
     },
@@ -101800,6 +102031,7 @@
    "knowledge_point": "社会主义制度建立",
    "game_ready": true,
    "template": "T6c9ced",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义制度建立"
@@ -101936,12 +102168,12 @@
      "audio": ""
     },
     {
-     "text": "全面建成小康社会",
+     "text": "全面建成小康社会的目标实现",
      "image": "",
      "audio": ""
     },
     {
-     "text": "我国初步建立起社会主义基本制度，进入社会主义初级阶段",
+     "text": "初步建立社会主义基本制度",
      "image": "",
      "audio": ""
     },
@@ -101959,6 +102191,7 @@
    "knowledge_point": "社会主义制度建立",
    "game_ready": true,
    "template": "Td61edd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义制度建立"
@@ -102166,7 +102399,7 @@
      "audio": ""
     },
     {
-     "text": "万隆会议（亚非会议）",
+     "text": "万隆会议",
      "image": "",
      "audio": ""
     },
@@ -102184,6 +102417,7 @@
    "knowledge_point": "独立自主的和平外交",
    "game_ready": true,
    "template": "T1320b8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102274,7 +102508,7 @@
      "audio": ""
     },
     {
-     "text": "另起炉灶",
+     "text": "另起炉灶，打扫干净屋子",
      "image": "",
      "audio": ""
     },
@@ -102297,6 +102531,7 @@
    "knowledge_point": "独立自主的和平外交",
    "game_ready": true,
    "template": "T1d0bdb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102329,7 +102564,7 @@
      "audio": ""
     },
     {
-     "text": "不承认国民党政府同各国建立的旧的外交关系",
+     "text": "不承认旧的外交关系",
      "image": "",
      "audio": ""
     }
@@ -102342,6 +102577,7 @@
    "knowledge_point": "独立自主的和平外交",
    "game_ready": true,
    "template": "T21ffbd",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102364,7 +102600,7 @@
      "audio": ""
     },
     {
-     "text": "促进了会议的成功，增进了中国同亚非国家的团结与合作",
+     "text": "促进了会议的成功",
      "image": "",
      "audio": ""
     },
@@ -102387,6 +102623,7 @@
    "knowledge_point": "独立自主的和平外交",
    "game_ready": true,
    "template": "T125f3c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102414,7 +102651,7 @@
      "audio": ""
     },
     {
-     "text": "标志着新中国外交政策走向成熟",
+     "text": "外交走向成熟",
      "image": "",
      "audio": ""
     },
@@ -102432,6 +102669,7 @@
    "knowledge_point": "独立自主的和平外交",
    "game_ready": true,
    "template": "T44f707",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102454,7 +102692,7 @@
      "audio": ""
     },
     {
-     "text": "站在社会主义阵营一边",
+     "text": "站在社会主义阵营",
      "image": "",
      "audio": ""
     },
@@ -102477,6 +102715,7 @@
    "knowledge_point": "独立自主的和平外交",
    "game_ready": true,
    "template": "T68a02b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102591,7 +102830,7 @@
      "audio": ""
     },
     {
-     "text": "独立自主的和平外交政策",
+     "text": "独立自主的和平外交",
      "image": "",
      "audio": ""
     },
@@ -102615,6 +102854,7 @@
    "game_ready": true,
    "template": "T2965e9",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102637,7 +102877,7 @@
      "audio": ""
     },
     {
-     "text": "土地改革、抗美援朝、镇压反革命",
+     "text": "土改、抗美援朝、镇反",
      "image": "",
      "audio": ""
     },
@@ -102661,6 +102901,7 @@
    "game_ready": true,
    "template": "Td1265a",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "独立自主的和平外交"
@@ -102723,7 +102964,7 @@
    "question": "1956年召开的中共八大指出，国内主要矛盾已经是？",
    "options": [
     {
-     "text": "人民对于经济文化迅速发展的需要同当前经济文化不能满足人民需要的状况之间的矛盾",
+     "text": "人民对经济文化迅速发展的需要同经济文化不能满足需要的矛盾",
      "image": "",
      "audio": ""
     },
@@ -102751,6 +102992,7 @@
    "knowledge_point": "艰辛探索与曲折发展",
    "game_ready": true,
    "template": "T095b1f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "艰辛探索与曲折发展"
@@ -102773,7 +103015,7 @@
      "audio": ""
     },
     {
-     "text": "集中力量发展社会生产力",
+     "text": "发展社会生产力",
      "image": "",
      "audio": ""
     },
@@ -102796,6 +103038,7 @@
    "knowledge_point": "艰辛探索与曲折发展",
    "game_ready": true,
    "template": "T241d45",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "艰辛探索与曲折发展"
@@ -102931,7 +103174,7 @@
      "audio": ""
     },
     {
-     "text": "一国两制",
+     "text": "调整、改革、整顿、提高",
      "image": "",
      "audio": ""
     },
@@ -102954,6 +103197,7 @@
    "knowledge_point": "艰辛探索与曲折发展",
    "game_ready": true,
    "template": "T2d1dcc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "艰辛探索与曲折发展"
@@ -102976,7 +103220,7 @@
      "audio": ""
     },
     {
-     "text": "经济建设必须遵循客观经济规律，从实际出发",
+     "text": "遵循客观经济规律",
      "image": "",
      "audio": ""
     },
@@ -102999,6 +103243,7 @@
    "knowledge_point": "艰辛探索与曲折发展",
    "game_ready": true,
    "template": "T385815",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "艰辛探索与曲折发展"
@@ -103021,7 +103266,7 @@
      "audio": ""
     },
     {
-     "text": "它使党、国家和人民遭到新中国成立以来最严重的挫折和损失",
+     "text": "使党和人民遭受最严重的挫折和损失",
      "image": "",
      "audio": ""
     },
@@ -103044,6 +103289,7 @@
    "knowledge_point": "艰辛探索与曲折发展",
    "game_ready": true,
    "template": "T26751f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "艰辛探索与曲折发展"
@@ -103399,7 +103645,7 @@
    "question": "“两弹一星”中的“两弹”指的是？",
    "options": [
     {
-     "text": "原子弹和炮弹",
+     "text": "氢弹和核潜艇",
      "image": "",
      "audio": ""
     },
@@ -103414,7 +103660,7 @@
      "audio": ""
     },
     {
-     "text": "原子弹和导弹（氢弹）",
+     "text": "原子弹和导弹",
      "image": "",
      "audio": ""
     }
@@ -103427,6 +103673,7 @@
    "knowledge_point": "社会主义建设的巨大成就和先锋模范",
    "game_ready": true,
    "template": "Tf0f8a0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义建设的巨大成就和先锋模范"
@@ -103459,7 +103706,7 @@
      "audio": ""
     },
     {
-     "text": "艰苦奋斗、无私奉献的精神",
+     "text": "艰苦奋斗、无私奉献",
      "image": "",
      "audio": ""
     }
@@ -103472,6 +103719,7 @@
    "knowledge_point": "社会主义建设的巨大成就和先锋模范",
    "game_ready": true,
    "template": "T46e471",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义建设的巨大成就和先锋模范"
@@ -103549,7 +103797,7 @@
      "audio": ""
     },
     {
-     "text": "观察员身份",
+     "text": "联合国观察员身份",
      "image": "",
      "audio": ""
     }
@@ -103562,6 +103810,7 @@
    "knowledge_point": "国防现代化起步和外交工作新突破",
    "game_ready": true,
    "template": "T0a1687",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防现代化起步和外交工作新突破"
@@ -103684,7 +103933,7 @@
      "audio": ""
     },
     {
-     "text": "1979年1月1日",
+     "text": "1979年1月",
      "image": "",
      "audio": ""
     }
@@ -103697,6 +103946,7 @@
    "knowledge_point": "国防现代化起步和外交工作新突破",
    "game_ready": true,
    "template": "T82d0e0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防现代化起步和外交工作新突破"
@@ -103787,7 +104037,7 @@
      "audio": ""
     },
     {
-     "text": "亚非拉发展中国家的支持",
+     "text": "发展中国家支持",
      "image": "",
      "audio": ""
     },
@@ -103810,6 +104060,7 @@
    "knowledge_point": "国防现代化起步和外交工作新突破",
    "game_ready": true,
    "template": "Tae0977",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防现代化起步和外交工作新突破"
@@ -103827,7 +104078,7 @@
    "question": "20世纪70年代中国外交出现新突破的根本原因是？",
    "options": [
     {
-     "text": "新中国综合国力增强，国际地位提高",
+     "text": "综合国力增强",
      "image": "",
      "audio": ""
     },
@@ -103855,6 +104106,7 @@
    "knowledge_point": "国防现代化起步和外交工作新突破",
    "game_ready": true,
    "template": "T826156",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防现代化起步和外交工作新突破"
@@ -104018,7 +104270,7 @@
      "audio": ""
     },
     {
-     "text": "焦裕禄——带领兰考人民治理“三害”",
+     "text": "焦裕禄——治理“三害”",
      "image": "",
      "audio": ""
     },
@@ -104037,6 +104289,7 @@
    "game_ready": true,
    "template": "T803c8b",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防现代化起步和外交工作新突破"
@@ -104064,7 +104317,7 @@
      "audio": ""
     },
     {
-     "text": "“大跃进”和人民公社化运动",
+     "text": "“大跃进”和人民公社化",
      "image": "",
      "audio": ""
     },
@@ -104083,6 +104336,7 @@
    "game_ready": true,
    "template": "T953a0c",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防现代化起步和外交工作新突破"
@@ -104151,12 +104405,12 @@
      "audio": ""
     },
     {
-     "text": "中共十一届三中全会",
+     "text": "十一届三中全会",
      "image": "",
      "audio": ""
     },
     {
-     "text": "中共十二大",
+     "text": "十二届三中全会",
      "image": "",
      "audio": ""
     },
@@ -104174,6 +104428,7 @@
    "knowledge_point": "伟大的历史转折",
    "game_ready": true,
    "template": "T37b6ad",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "伟大的历史转折"
@@ -104201,7 +104456,7 @@
      "audio": ""
     },
     {
-     "text": "“两个凡是”",
+     "text": "“两个凡是”的方针",
      "image": "",
      "audio": ""
     },
@@ -104219,6 +104474,7 @@
    "knowledge_point": "伟大的历史转折",
    "game_ready": true,
    "template": "Tbb2eb9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "伟大的历史转折"
@@ -104422,6 +104678,7 @@
    "knowledge_point": "伟大的历史转折",
    "game_ready": true,
    "template": "Tada52f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "伟大的历史转折"
@@ -104454,7 +104711,7 @@
      "audio": ""
     },
     {
-     "text": "实现了思想、政治、组织路线的拨乱反正，开启了改革开放新时期",
+     "text": "实现了拨乱反正",
      "image": "",
      "audio": ""
     }
@@ -104467,6 +104724,7 @@
    "knowledge_point": "伟大的历史转折",
    "game_ready": true,
    "template": "T065b4a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "伟大的历史转折"
@@ -104494,7 +104752,7 @@
      "audio": ""
     },
     {
-     "text": "一国两制",
+     "text": "“以阶级斗争为纲”",
      "image": "",
      "audio": ""
     },
@@ -104512,6 +104770,7 @@
    "knowledge_point": "伟大的历史转折",
    "game_ready": true,
    "template": "T5c54b7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "伟大的历史转折"
@@ -104589,7 +104848,7 @@
      "audio": ""
     },
     {
-     "text": "安徽凤阳小岗村",
+     "text": "小岗村",
      "image": "",
      "audio": ""
     }
@@ -104602,6 +104861,7 @@
    "knowledge_point": "改革开放的起步",
    "game_ready": true,
    "template": "T6cbde7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放的起步"
@@ -104647,6 +104907,7 @@
    "knowledge_point": "改革开放的起步",
    "game_ready": true,
    "template": "T2b1ea0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放的起步"
@@ -104878,7 +105139,7 @@
      "audio": ""
     },
     {
-     "text": "调动了农民的生产积极性，解放了农村生产力",
+     "text": "调动了农民积极性",
      "image": "",
      "audio": ""
     },
@@ -104896,6 +105157,7 @@
    "knowledge_point": "改革开放的起步",
    "game_ready": true,
    "template": "T3a4243",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放的起步"
@@ -104941,6 +105203,7 @@
    "knowledge_point": "改革开放的起步",
    "game_ready": true,
    "template": "T036a09",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放的起步"
@@ -104986,6 +105249,7 @@
    "knowledge_point": "改革开放的起步",
    "game_ready": true,
    "template": "T0305e1",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放的起步"
@@ -105053,12 +105317,12 @@
      "audio": ""
     },
     {
-     "text": "社会主义市场经济",
+     "text": "建立社会主义市场经济体制",
      "image": "",
      "audio": ""
     },
     {
-     "text": "走自己的路，建设有中国特色的社会主义",
+     "text": "建设有中国特色的社会主义",
      "image": "",
      "audio": ""
     },
@@ -105076,6 +105340,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "T63d527",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105093,7 +105358,7 @@
    "question": "1987年，中共十三大系统阐述了什么理论？",
    "options": [
     {
-     "text": "社会主义初级阶段理论",
+     "text": "初级阶段理论",
      "image": "",
      "audio": ""
     },
@@ -105121,6 +105386,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "Tdaa355",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105138,7 +105404,7 @@
    "question": "改革开放后，我国制定了“三步走”发展战略，第三步的目标是到21世纪中叶？",
    "options": [
     {
-     "text": "人均国民生产总值达到中等发达国家水平，基本实现现代化",
+     "text": "基本实现现代化",
      "image": "",
      "audio": ""
     },
@@ -105166,6 +105432,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "Tbef41e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105188,7 +105455,7 @@
      "audio": ""
     },
     {
-     "text": "全面建成小康社会",
+     "text": "人民生活达到小康水平",
      "image": "",
      "audio": ""
     },
@@ -105198,7 +105465,7 @@
      "audio": ""
     },
     {
-     "text": "实现小康",
+     "text": "实现全面小康",
      "image": "",
      "audio": ""
     }
@@ -105211,6 +105478,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "T74017d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105296,7 +105564,7 @@
    "question": "改革开放和社会主义现代化建设全面展开时期，我国政治建设的重要成果是？",
    "options": [
     {
-     "text": "颁布1982年宪法，加强民主法治建设",
+     "text": "颁布1982年宪法",
      "image": "",
      "audio": ""
     },
@@ -105324,6 +105592,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "T0f534d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105341,12 +105610,12 @@
    "question": "1980年代我国经济体制改革的方向逐步明确，十二届三中全会提出社会主义经济是？",
    "options": [
     {
-     "text": "在公有制基础上的有计划的商品经济",
+     "text": "有计划的商品经济",
      "image": "",
      "audio": ""
     },
     {
-     "text": "完全的市场经济",
+     "text": "社会主义市场经济",
      "image": "",
      "audio": ""
     },
@@ -105369,6 +105638,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "T9380a8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105401,7 +105671,7 @@
      "audio": ""
     },
     {
-     "text": "有了长远的、分阶段的目标",
+     "text": "有分阶段目标",
      "image": "",
      "audio": ""
     }
@@ -105414,6 +105684,7 @@
    "knowledge_point": "改革开放和社会主义现代化建设的全面展开",
    "game_ready": true,
    "template": "Ta351de",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "改革开放和社会主义现代化建设的全面展开"
@@ -105784,7 +106055,7 @@
      "audio": ""
     },
     {
-     "text": "要从实际出发，不能超越发展阶段",
+     "text": "不能超越发展阶段",
      "image": "",
      "audio": ""
     }
@@ -105797,6 +106068,7 @@
    "knowledge_point": "社会主义初级阶段基本路线",
    "game_ready": true,
    "template": "T8adc5a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义初级阶段基本路线"
@@ -105829,7 +106101,7 @@
      "audio": ""
     },
     {
-     "text": "相互贯通、相互依存，统一于建设中国特色社会主义的伟大实践",
+     "text": "相互贯通",
      "image": "",
      "audio": ""
     }
@@ -105842,6 +106114,7 @@
    "knowledge_point": "社会主义初级阶段基本路线",
    "game_ready": true,
    "template": "T7ba968",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义初级阶段基本路线"
@@ -105869,7 +106142,7 @@
      "audio": ""
     },
     {
-     "text": "小岗村实行“包产到户”",
+     "text": "包产到户",
      "image": "",
      "audio": ""
     },
@@ -105888,6 +106161,7 @@
    "game_ready": true,
    "template": "T9c8999",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义初级阶段基本路线"
@@ -105920,7 +106194,7 @@
      "audio": ""
     },
     {
-     "text": "十一届三中全会→设立经济特区→十三大提出基本路线",
+     "text": "十一届三中全会→设立经济特区→十三大",
      "image": "",
      "audio": ""
     }
@@ -105934,6 +106208,7 @@
    "game_ready": true,
    "template": "T76e381",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义初级阶段基本路线"
@@ -106007,7 +106282,7 @@
      "audio": ""
     },
     {
-     "text": "深圳、珠海、汕头、厦门四个经济特区",
+     "text": "深圳等四个经济特区",
      "image": "",
      "audio": ""
     },
@@ -106026,6 +106301,7 @@
    "game_ready": true,
    "template": "Taafdda",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "社会主义初级阶段基本路线"
@@ -106088,7 +106364,7 @@
    "question": "1992年，中共十四大确立我国经济体制改革的目标是？",
    "options": [
     {
-     "text": "建立社会主义市场经济体制",
+     "text": "社会主义市场经济体制",
      "image": "",
      "audio": ""
     },
@@ -106098,7 +106374,7 @@
      "audio": ""
     },
     {
-     "text": "有计划的商品经济",
+     "text": "有计划的商品经济体制",
      "image": "",
      "audio": ""
     },
@@ -106116,6 +106392,7 @@
    "knowledge_point": "加快改革开放和社会主义现代化建设步伐",
    "game_ready": true,
    "template": "Tfed230",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "加快改革开放和社会主义现代化建设步伐"
@@ -106342,7 +106619,7 @@
      "audio": ""
     },
     {
-     "text": "进一步解放了思想，把改革开放和现代化建设推进到一个新阶段",
+     "text": "推进改革开放",
      "image": "",
      "audio": ""
     },
@@ -106365,6 +106642,7 @@
    "knowledge_point": "加快改革开放和社会主义现代化建设步伐",
    "game_ready": true,
    "template": "T63f0cc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "加快改革开放和社会主义现代化建设步伐"
@@ -106387,7 +106665,7 @@
      "audio": ""
     },
     {
-     "text": "我国对外开放进入新阶段，更深地融入世界经济",
+     "text": "对外开放进入新阶段",
      "image": "",
      "audio": ""
     },
@@ -106410,6 +106688,7 @@
    "knowledge_point": "加快改革开放和社会主义现代化建设步伐",
    "game_ready": true,
    "template": "T89b54e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "加快改革开放和社会主义现代化建设步伐"
@@ -106442,7 +106721,7 @@
      "audio": ""
     },
     {
-     "text": "使市场在国家宏观调控下对资源配置起基础性作用",
+     "text": "市场起基础性作用",
      "image": "",
      "audio": ""
     }
@@ -106455,6 +106734,7 @@
    "knowledge_point": "加快改革开放和社会主义现代化建设步伐",
    "game_ready": true,
    "template": "T05173d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "加快改革开放和社会主义现代化建设步伐"
@@ -106766,7 +107046,7 @@
    "question": "香港、澳门回归的意义是？",
    "options": [
     {
-     "text": "洗雪了百年国耻，是中华民族走向伟大复兴的重要一步",
+     "text": "洗雪了百年国耻",
      "image": "",
      "audio": ""
     },
@@ -106794,6 +107074,7 @@
    "knowledge_point": "中国特色社会主义事业取得新成就",
    "game_ready": true,
    "template": "Td8646f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国特色社会主义事业取得新成就"
@@ -106821,12 +107102,12 @@
      "audio": ""
     },
     {
-     "text": "在一个中国的前提下，国家主体实行社会主义制度，香港、澳门、台湾保持原有的资本主义制度长期不变",
+     "text": "一个中国前提下，主体实行社会主义，港澳台保持资本主义",
      "image": "",
      "audio": ""
     },
     {
-     "text": "特别行政区可以独立",
+     "text": "港澳台各自成为独立国家",
      "image": "",
      "audio": ""
     }
@@ -106839,6 +107120,7 @@
    "knowledge_point": "中国特色社会主义事业取得新成就",
    "game_ready": true,
    "template": "T67b365",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中国特色社会主义事业取得新成就"
@@ -107036,7 +107318,7 @@
    "question": "上海合作组织倡导的“上海精神”包括？",
    "options": [
     {
-     "text": "互信、互利、平等、协商、尊重多样文明、谋求共同发展",
+     "text": "互信、互利、平等、协商",
      "image": "",
      "audio": ""
     },
@@ -107064,6 +107346,7 @@
    "knowledge_point": "国防和外交工作新局面",
    "game_ready": true,
    "template": "T97226e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防和外交工作新局面"
@@ -107109,7 +107392,7 @@
      "audio": ""
     },
     {
-     "text": "独立自主的和平外交政策",
+     "text": "独立自主的和平外交",
      "image": "",
      "audio": ""
     },
@@ -107119,7 +107402,7 @@
      "audio": ""
     },
     {
-     "text": "“一边倒”政策",
+     "text": "“一边倒”外交政策",
      "image": "",
      "audio": ""
     }
@@ -107132,6 +107415,7 @@
    "knowledge_point": "国防和外交工作新局面",
    "game_ready": true,
    "template": "Tb31693",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防和外交工作新局面"
@@ -107154,7 +107438,7 @@
      "audio": ""
     },
     {
-     "text": "与邻为善、以邻为伴",
+     "text": "与邻为善",
      "image": "",
      "audio": ""
     },
@@ -107177,6 +107461,7 @@
    "knowledge_point": "国防和外交工作新局面",
    "game_ready": true,
    "template": "T93ae59",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防和外交工作新局面"
@@ -107199,7 +107484,7 @@
      "audio": ""
     },
     {
-     "text": "促进了地区的安全、稳定与发展",
+     "text": "促进了地区安全稳定",
      "image": "",
      "audio": ""
     },
@@ -107222,6 +107507,7 @@
    "knowledge_point": "国防和外交工作新局面",
    "game_ready": true,
    "template": "Tbdf670",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防和外交工作新局面"
@@ -107254,7 +107540,7 @@
      "audio": ""
     },
     {
-     "text": "加入世界贸易组织、承办亚太经合组织会议",
+     "text": "加入世界贸易组织",
      "image": "",
      "audio": ""
     }
@@ -107267,6 +107553,7 @@
    "knowledge_point": "国防和外交工作新局面",
    "game_ready": true,
    "template": "Tfae145",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防和外交工作新局面"
@@ -107299,7 +107586,7 @@
      "audio": ""
     },
     {
-     "text": "我国是维护世界和平的坚定力量",
+     "text": "我国坚定维护和平",
      "image": "",
      "audio": ""
     }
@@ -107312,6 +107599,7 @@
    "knowledge_point": "国防和外交工作新局面",
    "game_ready": true,
    "template": "T214248",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国防和外交工作新局面"
@@ -107568,7 +107856,7 @@
      "audio": ""
     },
     {
-     "text": "“三个代表”重要思想",
+     "text": "三个代表",
      "image": "",
      "audio": ""
     },
@@ -107586,6 +107874,7 @@
    "knowledge_point": "开始全面建设小康社会",
    "game_ready": true,
    "template": "Tebb794",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开始全面建设小康社会"
@@ -107658,7 +107947,7 @@
      "audio": ""
     },
     {
-     "text": "非典（SARS）",
+     "text": "非典",
      "image": "",
      "audio": ""
     },
@@ -107676,6 +107965,7 @@
    "knowledge_point": "开始全面建设小康社会",
    "game_ready": true,
    "template": "T6798d7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开始全面建设小康社会"
@@ -107766,7 +108056,7 @@
      "audio": ""
     },
     {
-     "text": "个别地区的利益",
+     "text": "个别发达地区的利益",
      "image": "",
      "audio": ""
     },
@@ -107789,6 +108079,7 @@
    "knowledge_point": "开始全面建设小康社会",
    "game_ready": true,
    "template": "Tf1366d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开始全面建设小康社会"
@@ -107806,7 +108097,7 @@
    "question": "全面建设小康社会目标的提出说明？",
    "options": [
     {
-     "text": "我国人民生活总体上达到小康水平后，向更高目标前进",
+     "text": "人民生活总体达到小康",
      "image": "",
      "audio": ""
     },
@@ -107834,6 +108125,7 @@
    "knowledge_point": "开始全面建设小康社会",
    "game_ready": true,
    "template": "T199576",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开始全面建设小康社会"
@@ -107906,7 +108198,7 @@
      "audio": ""
     },
     {
-     "text": "促进了西部地区经济发展和民族团结",
+     "text": "促进西部发展",
      "image": "",
      "audio": ""
     },
@@ -107924,6 +108216,7 @@
    "knowledge_point": "开始全面建设小康社会",
    "game_ready": true,
    "template": "T01c045",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开始全面建设小康社会"
@@ -108240,7 +108533,7 @@
      "audio": ""
     },
     {
-     "text": "中华民族团结互助的精神",
+     "text": "团结互助",
      "image": "",
      "audio": ""
     },
@@ -108263,6 +108556,7 @@
    "knowledge_point": "夺取全面建设小康社会新胜利",
    "game_ready": true,
    "template": "Te27155",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "夺取全面建设小康社会新胜利"
@@ -108280,7 +108574,7 @@
    "question": "2008年北京奥运会、2010年上海世博会的成功举办，说明？",
    "options": [
     {
-     "text": "我国综合国力增强，国际影响力扩大",
+     "text": "我国综合国力增强",
      "image": "",
      "audio": ""
     },
@@ -108308,6 +108602,7 @@
    "knowledge_point": "夺取全面建设小康社会新胜利",
    "game_ready": true,
    "template": "T885d38",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "夺取全面建设小康社会新胜利"
@@ -108375,7 +108670,7 @@
      "audio": ""
     },
     {
-     "text": "亚丁湾、索马里海域",
+     "text": "亚丁湾",
      "image": "",
      "audio": ""
     },
@@ -108398,6 +108693,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "Te293a2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108430,7 +108726,7 @@
      "audio": ""
     },
     {
-     "text": "维护地区和平与稳定",
+     "text": "维护地区和平",
      "image": "",
      "audio": ""
     }
@@ -108443,6 +108739,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "Ta0b2bf",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108470,7 +108767,7 @@
      "audio": ""
     },
     {
-     "text": "维和部队和警察等",
+     "text": "维和部队",
      "image": "",
      "audio": ""
     },
@@ -108488,6 +108785,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "Tcc42c7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108510,12 +108808,12 @@
      "audio": ""
     },
     {
-     "text": "中国同非洲国家友好合作关系的发展",
+     "text": "中非友好合作关系发展",
      "image": "",
      "audio": ""
     },
     {
-     "text": "中国只同欧洲合作",
+     "text": "中国只同欧洲开展合作",
      "image": "",
      "audio": ""
     },
@@ -108533,6 +108831,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "T0442b3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108623,7 +108922,7 @@
      "audio": ""
     },
     {
-     "text": "各国和平共处，共同发展",
+     "text": "和平共处",
      "image": "",
      "audio": ""
     },
@@ -108646,6 +108945,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "T6bcbfe",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108678,7 +108978,7 @@
      "audio": ""
     },
     {
-     "text": "维护国际航道安全，展示负责任大国形象",
+     "text": "维护航道安全",
      "image": "",
      "audio": ""
     }
@@ -108691,6 +108991,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "T7fcdc8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108723,7 +109024,7 @@
      "audio": ""
     },
     {
-     "text": "积极承担国际责任，维护世界和平",
+     "text": "承担国际责任",
      "image": "",
      "audio": ""
     }
@@ -108736,6 +109037,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "T812d1b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108753,7 +109055,7 @@
    "question": "进入21世纪，我国外交的基本立场是？",
    "options": [
     {
-     "text": "实行“一边倒”",
+     "text": "实行“一边倒”外交",
      "image": "",
      "audio": ""
     },
@@ -108763,7 +109065,7 @@
      "audio": ""
     },
     {
-     "text": "坚持独立自主的和平外交政策，推动建设和谐世界",
+     "text": "独立自主的和平外交",
      "image": "",
      "audio": ""
     },
@@ -108781,6 +109083,7 @@
    "knowledge_point": "推进国防军队建设和外交工作",
    "game_ready": true,
    "template": "Tcec71b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108849,7 +109152,7 @@
      "audio": ""
     },
     {
-     "text": "“神舟五号”载人飞行→北京奥运会→上海世博会",
+     "text": "神舟五号→北京奥运会→上海世博会",
      "image": "",
      "audio": ""
     },
@@ -108873,6 +109176,7 @@
    "game_ready": true,
    "template": "Tb54c07",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "推进国防军队建设和外交工作"
@@ -108997,7 +109301,7 @@
      "audio": ""
     },
     {
-     "text": "个人发财",
+     "text": "个人发财致富",
      "image": "",
      "audio": ""
     }
@@ -109010,6 +109314,7 @@
    "knowledge_point": "擘画中国梦宏伟蓝图",
    "game_ready": true,
    "template": "T11c60a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "擘画中国梦宏伟蓝图"
@@ -109087,7 +109392,7 @@
      "audio": ""
     },
     {
-     "text": "“三个代表”",
+     "text": "“三个代表”重要思想",
      "image": "",
      "audio": ""
     }
@@ -109100,6 +109405,7 @@
    "knowledge_point": "擘画中国梦宏伟蓝图",
    "game_ready": true,
    "template": "T140f21",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "擘画中国梦宏伟蓝图"
@@ -109117,7 +109423,7 @@
    "question": "十九大指出，新时代我国社会主要矛盾已经转化为？",
    "options": [
     {
-     "text": "人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾",
+     "text": "美好生活需要和不平衡不充分的发展之间的矛盾",
      "image": "",
      "audio": ""
     },
@@ -109145,6 +109451,7 @@
    "knowledge_point": "擘画中国梦宏伟蓝图",
    "game_ready": true,
    "template": "Taab54c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "擘画中国梦宏伟蓝图"
@@ -109258,6 +109565,7 @@
    "knowledge_point": "擘画中国梦宏伟蓝图",
    "game_ready": true,
    "template": "T9888e2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "擘画中国梦宏伟蓝图"
@@ -109285,7 +109593,7 @@
      "audio": ""
     },
     {
-     "text": "中国梦归根到底是人民的梦，需要每个人共同奋斗",
+     "text": "人民的梦",
      "image": "",
      "audio": ""
     },
@@ -109303,6 +109611,7 @@
    "knowledge_point": "擘画中国梦宏伟蓝图",
    "game_ready": true,
    "template": "T9562b0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "擘画中国梦宏伟蓝图"
@@ -109320,7 +109629,7 @@
    "question": "十九大对我国社会主要矛盾作出新判断，主要依据是？",
    "options": [
     {
-     "text": "我国不再是社会主义初级阶段",
+     "text": "我国已不处于社会主义初级阶段",
      "image": "",
      "audio": ""
     },
@@ -109330,7 +109639,7 @@
      "audio": ""
     },
     {
-     "text": "我国社会生产力水平显著提高，人民对美好生活的需要日益广泛",
+     "text": "社会生产力水平显著提高",
      "image": "",
      "audio": ""
     },
@@ -109348,6 +109657,7 @@
    "knowledge_point": "擘画中国梦宏伟蓝图",
    "game_ready": true,
    "template": "T1acfb4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "擘画中国梦宏伟蓝图"
@@ -109470,7 +109780,7 @@
      "audio": ""
     },
     {
-     "text": "扶贫要实事求是，因地制宜，精准到户到人",
+     "text": "精准到户",
      "image": "",
      "audio": ""
     }
@@ -109483,6 +109793,7 @@
    "knowledge_point": "决胜全面建成小康社会",
    "game_ready": true,
    "template": "T016041",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "决胜全面建成小康社会"
@@ -109641,6 +109952,7 @@
    "knowledge_point": "决胜全面建成小康社会",
    "game_ready": true,
    "template": "T17618d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "决胜全面建成小康社会"
@@ -109748,12 +110060,12 @@
    "question": "“绿水青山就是金山银山”说明经济发展与环境保护的关系是？",
    "options": [
     {
-     "text": "只要环境不要经济",
+     "text": "只要环境不要发展",
      "image": "",
      "audio": ""
     },
     {
-     "text": "二者是统一的，保护生态环境就是保护生产力",
+     "text": "二者是统一的",
      "image": "",
      "audio": ""
     },
@@ -109776,6 +110088,7 @@
    "knowledge_point": "决胜全面建成小康社会",
    "game_ready": true,
    "template": "Tc0e6a6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "决胜全面建成小康社会"
@@ -109821,6 +110134,7 @@
    "knowledge_point": "决胜全面建成小康社会",
    "game_ready": true,
    "template": "T61bcc2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "决胜全面建成小康社会"
@@ -110056,7 +110370,7 @@
      "audio": ""
     },
     {
-     "text": "直接通邮、通商、通航",
+     "text": "通邮、通商、通航",
      "image": "",
      "audio": ""
     }
@@ -110069,6 +110383,7 @@
    "knowledge_point": "维护国家安全和推进祖国统一",
    "game_ready": true,
    "template": "Ta0e590",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护国家安全和推进祖国统一"
@@ -110091,7 +110406,7 @@
      "audio": ""
     },
     {
-     "text": "《香港特别行政区维护国家安全法》",
+     "text": "《香港国安法》",
      "image": "",
      "audio": ""
     },
@@ -110114,6 +110429,7 @@
    "knowledge_point": "维护国家安全和推进祖国统一",
    "game_ready": true,
    "template": "T4bdc1d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护国家安全和推进祖国统一"
@@ -110131,7 +110447,7 @@
    "question": "解决台湾问题的基本方针是？",
    "options": [
     {
-     "text": "“和平统一、一国两制”",
+     "text": "和平统一、一国两制",
      "image": "",
      "audio": ""
     },
@@ -110159,6 +110475,7 @@
    "knowledge_point": "维护国家安全和推进祖国统一",
    "game_ready": true,
    "template": "T341961",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护国家安全和推进祖国统一"
@@ -110176,12 +110493,12 @@
    "question": "总体国家安全观强调？",
    "options": [
     {
-     "text": "只重视军事安全",
+     "text": "只重视军事领域安全",
      "image": "",
      "audio": ""
     },
     {
-     "text": "统筹发展和安全，以人民安全为宗旨",
+     "text": "统筹发展和安全",
      "image": "",
      "audio": ""
     },
@@ -110204,6 +110521,7 @@
    "knowledge_point": "维护国家安全和推进祖国统一",
    "game_ready": true,
    "template": "Tea51c6",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护国家安全和推进祖国统一"
@@ -110221,7 +110539,7 @@
    "question": "“九二共识”的核心意涵是？",
    "options": [
     {
-     "text": "海峡两岸同属一个中国",
+     "text": "同属一个中国",
      "image": "",
      "audio": ""
     },
@@ -110249,6 +110567,7 @@
    "knowledge_point": "维护国家安全和推进祖国统一",
    "game_ready": true,
    "template": "T340bf2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护国家安全和推进祖国统一"
@@ -110361,7 +110680,7 @@
      "audio": ""
     },
     {
-     "text": "亚洲基础设施投资银行",
+     "text": "亚投行",
      "image": "",
      "audio": ""
     },
@@ -110384,6 +110703,7 @@
    "knowledge_point": "构建人类命运共同体与中国特色大国外交",
    "game_ready": true,
    "template": "T63383f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110514,7 +110834,7 @@
    "question": "中国提出的全球发展倡议、全球安全倡议、全球文明倡议，体现了？",
    "options": [
     {
-     "text": "中国为世界和平与发展贡献中国智慧",
+     "text": "中国贡献中国智慧",
      "image": "",
      "audio": ""
     },
@@ -110542,6 +110862,7 @@
    "knowledge_point": "构建人类命运共同体与中国特色大国外交",
    "game_ready": true,
    "template": "T40a274",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110574,7 +110895,7 @@
      "audio": ""
     },
     {
-     "text": "各国利益相融、命运与共，应合作共赢",
+     "text": "合作共赢",
      "image": "",
      "audio": ""
     }
@@ -110587,6 +110908,7 @@
    "knowledge_point": "构建人类命运共同体与中国特色大国外交",
    "game_ready": true,
    "template": "T1e33e4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110614,7 +110936,7 @@
      "audio": ""
     },
     {
-     "text": "都促进了沿线国家的经济文化交流",
+     "text": "促进了交流",
      "image": "",
      "audio": ""
     },
@@ -110632,6 +110954,7 @@
    "knowledge_point": "构建人类命运共同体与中国特色大国外交",
    "game_ready": true,
    "template": "Ta0b46d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110649,7 +110972,7 @@
    "question": "新时代中国特色大国外交的总目标是？",
    "options": [
     {
-     "text": "推动构建人类命运共同体",
+     "text": "人类命运共同体",
      "image": "",
      "audio": ""
     },
@@ -110664,7 +110987,7 @@
      "audio": ""
     },
     {
-     "text": "谋求世界霸权",
+     "text": "谋求世界霸权地位",
      "image": "",
      "audio": ""
     }
@@ -110677,6 +111000,7 @@
    "knowledge_point": "构建人类命运共同体与中国特色大国外交",
    "game_ready": true,
    "template": "Tad5928",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110755,7 +111079,7 @@
      "audio": ""
     },
     {
-     "text": "制定香港特别行政区维护国家安全法",
+     "text": "制定香港国安法",
      "image": "",
      "audio": ""
     }
@@ -110769,6 +111093,7 @@
    "game_ready": true,
    "template": "Tf33ece",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110847,7 +111172,7 @@
      "audio": ""
     },
     {
-     "text": "脱贫攻坚战取得全面胜利",
+     "text": "脱贫攻坚全面胜利",
      "image": "",
      "audio": ""
     }
@@ -110861,6 +111186,7 @@
    "game_ready": true,
    "template": "T6bc8c9",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "构建人类命运共同体与中国特色大国外交"
@@ -110923,7 +111249,7 @@
    "question": "第一个百年奋斗目标是？",
    "options": [
     {
-     "text": "在新中国成立一百年时建成现代化强国",
+     "text": "新中国成立百年时建成现代化强国",
      "image": "",
      "audio": ""
     },
@@ -110933,7 +111259,7 @@
      "audio": ""
     },
     {
-     "text": "在中国共产党成立一百年时全面建成小康社会",
+     "text": "建党百年时全面建成小康",
      "image": "",
      "audio": ""
     },
@@ -110951,6 +111277,7 @@
    "knowledge_point": "实现第一个百年奋斗目标",
    "game_ready": true,
    "template": "T35350e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实现第一个百年奋斗目标"
@@ -111110,6 +111437,7 @@
    "knowledge_point": "实现第一个百年奋斗目标",
    "game_ready": true,
    "template": "T1450a3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实现第一个百年奋斗目标"
@@ -111187,7 +111515,7 @@
      "audio": ""
     },
     {
-     "text": "中华民族伟大复兴向前迈出了新的一大步",
+     "text": "民族复兴迈出一大步",
      "image": "",
      "audio": ""
     }
@@ -111200,6 +111528,7 @@
    "knowledge_point": "实现第一个百年奋斗目标",
    "game_ready": true,
    "template": "Tb18183",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实现第一个百年奋斗目标"
@@ -111217,7 +111546,7 @@
    "question": "北京成为世界上首个“双奥之城”，是因为它？",
    "options": [
     {
-     "text": "先后举办了夏季奥运会和冬季奥运会",
+     "text": "举办过夏奥和冬奥",
      "image": "",
      "audio": ""
     },
@@ -111245,6 +111574,7 @@
    "knowledge_point": "实现第一个百年奋斗目标",
    "game_ready": true,
    "template": "Tdd547a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实现第一个百年奋斗目标"
@@ -111357,7 +111687,7 @@
      "audio": ""
     },
     {
-     "text": "在新中国成立一百年时建成富强民主文明和谐美丽的社会主义现代化强国",
+     "text": "新中国成立百年时建成社会主义现代化强国",
      "image": "",
      "audio": ""
     },
@@ -111380,6 +111710,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "Tba803e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -111447,7 +111778,7 @@
      "audio": ""
     },
     {
-     "text": "全体人民共同富裕的现代化",
+     "text": "共同富裕的现代化",
      "image": "",
      "audio": ""
     },
@@ -111470,6 +111801,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "T18e03d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -111520,7 +111852,7 @@
      "audio": ""
     },
     {
-     "text": "中国不走殖民掠夺的老路",
+     "text": "不走殖民掠夺老路",
      "image": "",
      "audio": ""
     },
@@ -111538,6 +111870,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "Tf6f3f2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -111565,12 +111898,12 @@
      "audio": ""
     },
     {
-     "text": "全面建设社会主义现代化国家的新征程",
+     "text": "全面建设社会主义现代化国家",
      "image": "",
      "audio": ""
     },
     {
-     "text": "新民主主义革命",
+     "text": "新民主主义革命的征程",
      "image": "",
      "audio": ""
     }
@@ -111583,6 +111916,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "T28c35a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -111628,6 +111962,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "T022268",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -111650,7 +111985,7 @@
      "audio": ""
     },
     {
-     "text": "既要物质富足，也要精神富有",
+     "text": "物质精神都要富足",
      "image": "",
      "audio": ""
     },
@@ -111673,6 +112008,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "T591c14",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -111705,7 +112041,7 @@
      "audio": ""
     },
     {
-     "text": "在实践中不断丰富和发展",
+     "text": "不断发展",
      "image": "",
      "audio": ""
     }
@@ -111718,6 +112054,7 @@
    "knowledge_point": "开启全面建设社会主义现代化国家新征程",
    "game_ready": true,
    "template": "T73fd11",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "开启全面建设社会主义现代化国家新征程"
@@ -112009,7 +112346,7 @@
    "question": "我国宪法的核心价值追求是？",
    "options": [
     {
-     "text": "规范国家权力运行以保障公民权利",
+     "text": "保障公民权利",
      "image": "",
      "audio": ""
     },
@@ -112037,6 +112374,7 @@
    "knowledge_point": "治国安邦的总章程",
    "game_ready": true,
    "template": "T20619a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "治国安邦的总章程"
@@ -112302,7 +112640,7 @@
    "question": "宪法与普通法律的关系是？",
    "options": [
     {
-     "text": "宪法是普通法律的立法基础，普通法律不得与宪法相抵触",
+     "text": "法律不得与宪法抵触",
      "image": "",
      "audio": ""
     },
@@ -112330,6 +112668,7 @@
    "knowledge_point": "治国安邦的总章程",
    "game_ready": true,
    "template": "T64404e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "治国安邦的总章程"
@@ -112357,7 +112696,7 @@
      "audio": ""
     },
     {
-     "text": "规定国家权力由人民赋予，国家机关依法行使职权",
+     "text": "国家权力由人民赋予",
      "image": "",
      "audio": ""
     },
@@ -112375,6 +112714,7 @@
    "knowledge_point": "治国安邦的总章程",
    "game_ready": true,
    "template": "Tecc266",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "治国安邦的总章程"
@@ -112407,7 +112747,7 @@
      "audio": ""
     },
     {
-     "text": "规定了国家的根本制度、根本任务等最重要的问题",
+     "text": "规定了根本制度",
      "image": "",
      "audio": ""
     }
@@ -112420,6 +112760,7 @@
    "knowledge_point": "治国安邦的总章程",
    "game_ready": true,
    "template": "T547454",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "治国安邦的总章程"
@@ -112577,7 +112918,7 @@
      "audio": ""
     },
     {
-     "text": "全社会尊崇宪法、遵守宪法",
+     "text": "全社会尊崇宪法",
      "image": "",
      "audio": ""
     },
@@ -112600,6 +112941,7 @@
    "knowledge_point": "维护宪法权威",
    "game_ready": true,
    "template": "Tb15a8d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -112672,7 +113014,7 @@
      "audio": ""
     },
     {
-     "text": "看情况决定",
+     "text": "视情节决定是否追究",
      "image": "",
      "audio": ""
     },
@@ -112690,6 +113032,7 @@
    "knowledge_point": "维护宪法权威",
    "game_ready": true,
    "template": "Te05cde",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -112735,7 +113078,7 @@
      "audio": ""
     },
     {
-     "text": "在国家宪法日参加宪法宣传活动",
+     "text": "参加宪法宣传活动",
      "image": "",
      "audio": ""
     },
@@ -112758,6 +113101,7 @@
    "knowledge_point": "维护宪法权威",
    "game_ready": true,
    "template": "T0e9d08",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -112798,7 +113142,7 @@
    "question": "“宪法的生命在于实施，宪法的权威也在于实施”说明？",
    "options": [
     {
-     "text": "维护宪法权威要保证宪法全面实施",
+     "text": "保证宪法全面实施",
      "image": "",
      "audio": ""
     },
@@ -112826,6 +113170,7 @@
    "knowledge_point": "维护宪法权威",
    "game_ready": true,
    "template": "T0e05ca",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -112898,12 +113243,12 @@
      "audio": ""
     },
     {
-     "text": "健全保证宪法全面实施的体制机制",
+     "text": "健全宪法实施机制",
      "image": "",
      "audio": ""
     },
     {
-     "text": "家庭讨论法律",
+     "text": "社区开展普法讲座",
      "image": "",
      "audio": ""
     }
@@ -112916,6 +113261,7 @@
    "knowledge_point": "维护宪法权威",
    "game_ready": true,
    "template": "T4208d3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -113008,6 +113354,7 @@
    "game_ready": true,
    "template": "T2b6417",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -113025,7 +113372,7 @@
    "question": "关于宪法的核心价值，正确的理解是？",
    "options": [
     {
-     "text": "宪法是公民权利的保障书",
+     "text": "宪法是公民权利保障书",
      "image": "",
      "audio": ""
     },
@@ -113035,7 +113382,7 @@
      "audio": ""
     },
     {
-     "text": "普通法律的效力高于宪法",
+     "text": "普通法律效力高于宪法",
      "image": "",
      "audio": ""
     },
@@ -113087,7 +113434,7 @@
      "audio": ""
     },
     {
-     "text": "1982年12月4日现行宪法正式通过",
+     "text": "现行宪法在这天通过",
      "image": "",
      "audio": ""
     }
@@ -113101,6 +113448,7 @@
    "game_ready": true,
    "template": "T8486af",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "维护宪法权威"
@@ -113213,7 +113561,7 @@
      "audio": ""
     },
     {
-     "text": "人格尊严不受侵犯",
+     "text": "人格尊严",
      "image": "",
      "audio": ""
     },
@@ -113236,6 +113584,7 @@
    "knowledge_point": "公民的基本权利和义务",
    "game_ready": true,
    "template": "T3a1a0e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "公民的基本权利和义务"
@@ -113511,7 +113860,7 @@
      "audio": ""
     },
     {
-     "text": "向有关部门举报某企业违法排污",
+     "text": "举报企业违法排污",
      "image": "",
      "audio": ""
     },
@@ -113529,6 +113878,7 @@
    "knowledge_point": "公民的基本权利和义务",
    "game_ready": true,
    "template": "Td138d4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "公民的基本权利和义务"
@@ -113546,7 +113896,7 @@
    "question": "宪法规定公民的基本义务，主要目的是？",
    "options": [
     {
-     "text": "维护国家和社会的整体利益，保障公民权利的实现",
+     "text": "维护整体利益",
      "image": "",
      "audio": ""
     },
@@ -113574,6 +113924,7 @@
    "knowledge_point": "公民的基本权利和义务",
    "game_ready": true,
    "template": "T93dcda",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "公民的基本权利和义务"
@@ -113606,7 +113957,7 @@
      "audio": ""
     },
     {
-     "text": "劳动权和物质帮助权",
+     "text": "劳动权",
      "image": "",
      "audio": ""
     }
@@ -113619,6 +113970,7 @@
    "knowledge_point": "公民的基本权利和义务",
    "game_ready": true,
    "template": "Tdd3c6d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "公民的基本权利和义务"
@@ -113821,7 +114173,7 @@
      "audio": ""
     },
     {
-     "text": "消费者协会、妇联、共青团等社会组织",
+     "text": "消协、妇联等",
      "image": "",
      "audio": ""
     },
@@ -113831,7 +114183,7 @@
      "audio": ""
     },
     {
-     "text": "在网上辱骂",
+     "text": "在网上曝光对方",
      "image": "",
      "audio": ""
     }
@@ -113844,6 +114196,7 @@
    "knowledge_point": "依法行使权利和履行义务",
    "game_ready": true,
    "template": "T02e373",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "依法行使权利和履行义务"
@@ -113866,12 +114219,12 @@
      "audio": ""
     },
     {
-     "text": "受到道德谴责就行",
+     "text": "道德谴责就行",
      "image": "",
      "audio": ""
     },
     {
-     "text": "相应的法律责任",
+     "text": "法律责任",
      "image": "",
      "audio": ""
     },
@@ -113980,12 +114333,12 @@
      "audio": ""
     },
     {
-     "text": "朋友都同意的范围内",
+     "text": "朋友同意的范围",
      "image": "",
      "audio": ""
     },
     {
-     "text": "法律允许的范围内",
+     "text": "法律允许的范围",
      "image": "",
      "audio": ""
     },
@@ -114126,7 +114479,7 @@
      "audio": ""
     },
     {
-     "text": "报告老师并报警，请有关部门帮助解决",
+     "text": "报告老师并报警",
      "image": "",
      "audio": ""
     }
@@ -114139,6 +114492,7 @@
    "knowledge_point": "依法行使权利和履行义务",
    "game_ready": true,
    "template": "T13eadc",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "依法行使权利和履行义务"
@@ -114309,7 +114663,7 @@
      "audio": ""
     },
     {
-     "text": "公民可以用任何方式维护自己的权利",
+     "text": "可以用任何方式维权",
      "image": "",
      "audio": ""
     }
@@ -114323,6 +114677,7 @@
    "game_ready": true,
    "template": "Te572c9",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "依法行使权利和履行义务"
@@ -114435,7 +114790,7 @@
      "audio": ""
     },
     {
-     "text": "地方各级政府领导下",
+     "text": "地方各级政府",
      "image": "",
      "audio": ""
     },
@@ -114445,7 +114800,7 @@
      "audio": ""
     },
     {
-     "text": "国家统一领导下",
+     "text": "国家统一领导",
      "image": "",
      "audio": ""
     }
@@ -114521,7 +114876,7 @@
    "question": "人民政协是？",
    "options": [
     {
-     "text": "国家审判机关",
+     "text": "全国人大的常设机关",
      "image": "",
      "audio": ""
     },
@@ -114536,7 +114891,7 @@
      "audio": ""
     },
     {
-     "text": "中国人民爱国统一战线的组织",
+     "text": "爱国统一战线组织",
      "image": "",
      "audio": ""
     }
@@ -114549,6 +114904,7 @@
    "knowledge_point": "我国的政治制度",
    "game_ready": true,
    "template": "Tc1baf5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的政治制度"
@@ -114740,7 +115096,7 @@
      "audio": ""
     },
     {
-     "text": "它体现了我国人民民主专政的国家性质，是其他制度的基础",
+     "text": "体现国家性质，是其他制度的基础",
      "image": "",
      "audio": ""
     }
@@ -114753,6 +115109,7 @@
    "knowledge_point": "我国的政治制度",
    "game_ready": true,
    "template": "T515893",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的政治制度"
@@ -114780,7 +115137,7 @@
      "audio": ""
     },
     {
-     "text": "保障少数民族当家作主，维护国家统一和民族团结",
+     "text": "维护民族团结",
      "image": "",
      "audio": ""
     },
@@ -114798,6 +115155,7 @@
    "knowledge_point": "我国的政治制度",
    "game_ready": true,
    "template": "T451031",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的政治制度"
@@ -114815,7 +115173,7 @@
    "question": "基层群众自治制度的意义是？",
    "options": [
     {
-     "text": "人民群众依法直接行使民主权利，管理基层公共事务",
+     "text": "群众依法自我管理",
      "image": "",
      "audio": ""
     },
@@ -114843,6 +115201,7 @@
    "knowledge_point": "我国的政治制度",
    "game_ready": true,
    "template": "Td2b473",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的政治制度"
@@ -114920,7 +115279,7 @@
      "audio": ""
     },
     {
-     "text": "国有经济和集体经济",
+     "text": "国有经济",
      "image": "",
      "audio": ""
     }
@@ -114933,6 +115292,7 @@
    "knowledge_point": "我国的基本经济制度",
    "game_ready": true,
    "template": "T289d79",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的基本经济制度"
@@ -115160,6 +115520,7 @@
    "knowledge_point": "我国的基本经济制度",
    "game_ready": true,
    "template": "Tf00371",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的基本经济制度"
@@ -115290,7 +115651,7 @@
    "question": "我国实行社会主义市场经济体制，还要更好发挥政府作用，主要是因为？",
    "options": [
     {
-     "text": "政府要包办一切",
+     "text": "政府要直接决定企业生产",
      "image": "",
      "audio": ""
     },
@@ -115305,7 +115666,7 @@
      "audio": ""
     },
     {
-     "text": "市场调节存在自发性、盲目性、滞后性等弱点",
+     "text": "市场调节存在弱点",
      "image": "",
      "audio": ""
     }
@@ -115318,6 +115679,7 @@
    "knowledge_point": "我国的基本经济制度",
    "game_ready": true,
    "template": "T632444",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的基本经济制度"
@@ -115345,7 +115707,7 @@
      "audio": ""
     },
     {
-     "text": "调动各方面的积极性，实现共同富裕",
+     "text": "实现共同富裕",
      "image": "",
      "audio": ""
     },
@@ -115363,6 +115725,7 @@
    "knowledge_point": "我国的基本经济制度",
    "game_ready": true,
    "template": "T7893c3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的基本经济制度"
@@ -115482,7 +115845,7 @@
      "audio": ""
     },
     {
-     "text": "村民委员会——基层群众自治",
+     "text": "村委会——基层群众自治",
      "image": "",
      "audio": ""
     },
@@ -115501,6 +115864,7 @@
    "game_ready": true,
    "template": "T54d60c",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的基本经济制度"
@@ -115533,7 +115897,7 @@
      "audio": ""
     },
     {
-     "text": "教师在公办学校领取的工资",
+     "text": "公办教师的工资",
      "image": "",
      "audio": ""
     }
@@ -115547,6 +115911,7 @@
    "game_ready": true,
    "template": "T67c2e0",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "我国的基本经济制度"
@@ -115615,7 +115980,7 @@
      "audio": ""
     },
     {
-     "text": "全国人民代表大会常务委员会",
+     "text": "全国人大常委会",
      "image": "",
      "audio": ""
     },
@@ -115638,6 +116003,7 @@
    "knowledge_point": "国家权力机关",
    "game_ready": true,
    "template": "T5bf9e0",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家权力机关"
@@ -115700,7 +116066,7 @@
    "question": "下列属于全国人大职权的是？",
    "options": [
     {
-     "text": "修改宪法、制定和修改基本法律",
+     "text": "修改宪法",
      "image": "",
      "audio": ""
     },
@@ -115728,6 +116094,7 @@
    "knowledge_point": "国家权力机关",
    "game_ready": true,
    "template": "T5e479e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家权力机关"
@@ -115750,7 +116117,7 @@
      "audio": ""
     },
     {
-     "text": "省、自治区、直辖市的人民代表大会和特别行政区、军队",
+     "text": "省级人大等",
      "image": "",
      "audio": ""
     },
@@ -115773,6 +116140,7 @@
    "knowledge_point": "国家权力机关",
    "game_ready": true,
    "template": "T97838c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家权力机关"
@@ -115805,7 +116173,7 @@
      "audio": ""
     },
     {
-     "text": "代表人民的利益和意志，依法参加行使国家权力",
+     "text": "代表人民利益",
      "image": "",
      "audio": ""
     }
@@ -115818,6 +116186,7 @@
    "knowledge_point": "国家权力机关",
    "game_ready": true,
    "template": "T5afbec",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家权力机关"
@@ -115840,7 +116209,7 @@
      "audio": ""
     },
     {
-     "text": "地方国家行政机关",
+     "text": "地方行政机关",
      "image": "",
      "audio": ""
     },
@@ -115850,7 +116219,7 @@
      "audio": ""
     },
     {
-     "text": "地方国家权力机关",
+     "text": "地方权力机关",
      "image": "",
      "audio": ""
     }
@@ -115977,6 +116346,7 @@
    "knowledge_point": "国家权力机关",
    "game_ready": true,
    "template": "T161114",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家权力机关"
@@ -116039,7 +116409,7 @@
    "question": "人大代表的权利包括？",
    "options": [
     {
-     "text": "审议权、表决权、提案权、质询权等",
+     "text": "提案权",
      "image": "",
      "audio": ""
     },
@@ -116067,6 +116437,7 @@
    "knowledge_point": "国家权力机关",
    "game_ready": true,
    "template": "T463e3e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家权力机关"
@@ -116084,7 +116455,7 @@
    "question": "中华人民共和国主席由谁选举产生？",
    "options": [
     {
-     "text": "全国人民代表大会",
+     "text": "全国人大",
      "image": "",
      "audio": ""
     },
@@ -116094,7 +116465,7 @@
      "audio": ""
     },
     {
-     "text": "全国人民代表大会常务委员会",
+     "text": "全国人大常委会",
      "image": "",
      "audio": ""
     },
@@ -116145,7 +116516,7 @@
      "audio": ""
     },
     {
-     "text": "国家机构的重要组成部分，对外代表中华人民共和国",
+     "text": "对外代表国家",
      "image": "",
      "audio": ""
     }
@@ -116158,6 +116529,7 @@
    "knowledge_point": "中华人民共和国主席",
    "game_ready": true,
    "template": "Tc5cc88",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国主席"
@@ -116230,12 +116602,12 @@
      "audio": ""
     },
     {
-     "text": "审判权",
+     "text": "法律解释权",
      "image": "",
      "audio": ""
     },
     {
-     "text": "公布法律的职权",
+     "text": "公布法律权",
      "image": "",
      "audio": ""
     }
@@ -116248,6 +116620,7 @@
    "knowledge_point": "中华人民共和国主席",
    "game_ready": true,
    "template": "Tdd53be",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国主席"
@@ -116378,12 +116751,12 @@
    "question": "国家主席行使职权的特点是？",
    "options": [
     {
-     "text": "个人随意决定",
+     "text": "可以独立决定国家大事",
      "image": "",
      "audio": ""
     },
     {
-     "text": "结合全国人大及其常委会的决定行使职权",
+     "text": "依人大决定行使职权",
      "image": "",
      "audio": ""
     },
@@ -116406,6 +116779,7 @@
    "knowledge_point": "中华人民共和国主席",
    "game_ready": true,
    "template": "Taa1c94",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中华人民共和国主席"
@@ -116433,7 +116807,7 @@
      "audio": ""
     },
     {
-     "text": "是最高国家权力机关",
+     "text": "是最高权力机关",
      "image": "",
      "audio": ""
     },
@@ -116704,12 +117078,12 @@
      "audio": ""
     },
     {
-     "text": "地方各级国家权力机关",
+     "text": "地方国家权力机关",
      "image": "",
      "audio": ""
     },
     {
-     "text": "地方各级国家行政机关",
+     "text": "地方国家行政机关",
      "image": "",
      "audio": ""
     }
@@ -116824,7 +117198,7 @@
      "audio": ""
     },
     {
-     "text": "有利于保障人民的权利和自由，提高政府的威信",
+     "text": "保障人民权利",
      "image": "",
      "audio": ""
     }
@@ -116837,6 +117211,7 @@
    "knowledge_point": "国家行政机关",
    "game_ready": true,
    "template": "T780fc5",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家行政机关"
@@ -116854,7 +117229,7 @@
    "question": "国家行政机关的性质决定了它的主要职能是？",
    "options": [
     {
-     "text": "监督法律实施",
+     "text": "监督宪法和法律实施",
      "image": "",
      "audio": ""
     },
@@ -116864,7 +117239,7 @@
      "audio": ""
     },
     {
-     "text": "管理国家行政事务，为人民服务",
+     "text": "管理国家行政事务",
      "image": "",
      "audio": ""
     },
@@ -116882,6 +117257,7 @@
    "knowledge_point": "国家行政机关",
    "game_ready": true,
    "template": "Te9fea7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家行政机关"
@@ -116949,7 +117325,7 @@
      "audio": ""
     },
     {
-     "text": "中华人民共和国中央军事委员会",
+     "text": "中央军事委员会",
      "image": "",
      "audio": ""
     },
@@ -116959,7 +117335,7 @@
      "audio": ""
     },
     {
-     "text": "最高人民法院",
+     "text": "最高人民检察院",
      "image": "",
      "audio": ""
     }
@@ -116972,6 +117348,7 @@
    "knowledge_point": "中央军事委员会",
    "game_ready": true,
    "template": "Tf27823",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中央军事委员会"
@@ -117299,7 +117676,7 @@
      "audio": ""
     },
     {
-     "text": "巩固国防、抵抗侵略、保卫祖国，参加国家建设事业",
+     "text": "保卫祖国",
      "image": "",
      "audio": ""
     }
@@ -117312,6 +117689,7 @@
    "knowledge_point": "中央军事委员会",
    "game_ready": true,
    "template": "T724b79",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "中央军事委员会"
@@ -117492,6 +117870,7 @@
    "knowledge_point": "国家监察机关",
    "game_ready": true,
    "template": "T876c55",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家监察机关"
@@ -117622,7 +118001,7 @@
    "question": "监察机关的职责包括？",
    "options": [
     {
-     "text": "审判、执行",
+     "text": "侦查、起诉、审判",
      "image": "",
      "audio": ""
     },
@@ -117650,6 +118029,7 @@
    "knowledge_point": "国家监察机关",
    "game_ready": true,
    "template": "Tddaa62",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家监察机关"
@@ -117667,7 +118047,7 @@
    "question": "设立国家监察机关的意义是？",
    "options": [
     {
-     "text": "加强对公权力的监督，推进反腐败工作",
+     "text": "推进反腐败",
      "image": "",
      "audio": ""
     },
@@ -117695,6 +118075,7 @@
    "knowledge_point": "国家监察机关",
    "game_ready": true,
    "template": "Tbd1ce8",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家监察机关"
@@ -117757,7 +118138,7 @@
    "question": "下列属于监察机关管辖的是？",
    "options": [
     {
-     "text": "公职人员涉嫌贪污受贿",
+     "text": "公职人员受贿",
      "image": "",
      "audio": ""
     },
@@ -117785,6 +118166,7 @@
    "knowledge_point": "国家监察机关",
    "game_ready": true,
    "template": "Tf004aa",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家监察机关"
@@ -118055,6 +118437,7 @@
    "knowledge_point": "国家司法机关",
    "game_ready": true,
    "template": "T6e9c40",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家司法机关"
@@ -118150,12 +118533,12 @@
      "audio": ""
     },
     {
-     "text": "维护少数人的利益",
+     "text": "维护少数人利益",
      "image": "",
      "audio": ""
     },
     {
-     "text": "维护社会公平正义",
+     "text": "维护公平正义",
      "image": "",
      "audio": ""
     }
@@ -118191,7 +118574,7 @@
      "audio": ""
     },
     {
-     "text": "都是国家司法机关，都由同级人大产生，对它负责",
+     "text": "都是国家司法机关",
      "image": "",
      "audio": ""
     },
@@ -118214,6 +118597,7 @@
    "knowledge_point": "国家司法机关",
    "game_ready": true,
    "template": "T0d5e25",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家司法机关"
@@ -118336,7 +118720,7 @@
      "audio": ""
     },
     {
-     "text": "国务院、国家监察委员会、最高人民法院",
+     "text": "国务院",
      "image": "",
      "audio": ""
     }
@@ -118350,6 +118734,7 @@
    "game_ready": true,
    "template": "T26c956",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家司法机关"
@@ -118464,7 +118849,7 @@
      "audio": ""
     },
     {
-     "text": "由全国人大选举产生，对外代表中华人民共和国",
+     "text": "由全国人大选举产生",
      "image": "",
      "audio": ""
     },
@@ -118488,6 +118873,7 @@
    "game_ready": true,
    "template": "Tfcac1e",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "国家司法机关"
@@ -118606,7 +118992,7 @@
      "audio": ""
     },
     {
-     "text": "有法可依、有法必依",
+     "text": "有法可依、有法必依、执法必严、违法必究",
      "image": "",
      "audio": ""
     },
@@ -118624,6 +119010,7 @@
    "knowledge_point": "坚持全面依法治国",
    "game_ready": true,
    "template": "Te6edc3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "坚持全面依法治国"
@@ -118741,7 +119128,7 @@
      "audio": ""
     },
     {
-     "text": "舆论监督",
+     "text": "加强舆论监督",
      "image": "",
      "audio": ""
     },
@@ -118759,6 +119146,7 @@
    "knowledge_point": "坚持全面依法治国",
    "game_ready": true,
    "template": "T894a7d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "坚持全面依法治国"
@@ -118845,7 +119233,7 @@
    "question": "“法律面前人人平等”体现的是？",
    "options": [
     {
-     "text": "任何组织和个人都没有超越法律的特权",
+     "text": "没有超越法律的特权",
      "image": "",
      "audio": ""
     },
@@ -118873,6 +119261,7 @@
    "knowledge_point": "坚持全面依法治国",
    "game_ready": true,
    "template": "Td5fab7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "坚持全面依法治国"
@@ -118900,7 +119289,7 @@
      "audio": ""
     },
     {
-     "text": "依法行政，规范公正文明执法",
+     "text": "依法行政",
      "image": "",
      "audio": ""
     },
@@ -118918,6 +119307,7 @@
    "knowledge_point": "坚持全面依法治国",
    "game_ready": true,
    "template": "T2f7aad",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "坚持全面依法治国"
@@ -118940,7 +119330,7 @@
      "audio": ""
     },
     {
-     "text": "增强全民法治观念，使人人都成为社会主义法治的忠实崇尚者、自觉遵守者、坚定捍卫者",
+     "text": "增强全民法治观念",
      "image": "",
      "audio": ""
     },
@@ -118963,6 +119353,7 @@
    "knowledge_point": "坚持全面依法治国",
    "game_ready": true,
    "template": "Tf56312",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "坚持全面依法治国"
@@ -118995,7 +119386,7 @@
      "audio": ""
     },
     {
-     "text": "学法、尊法、守法、用法",
+     "text": "尊法、守法、用法",
      "image": "",
      "audio": ""
     }
@@ -119008,6 +119399,7 @@
    "knowledge_point": "坚持全面依法治国",
    "game_ready": true,
    "template": "T90174d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "坚持全面依法治国"
@@ -119080,7 +119472,7 @@
      "audio": ""
     },
     {
-     "text": "相互促进，如鸟之两翼、车之两轮",
+     "text": "相互促进",
      "image": "",
      "audio": ""
     },
@@ -119098,6 +119490,7 @@
    "knowledge_point": "以法治推进国家治理现代化",
    "game_ready": true,
    "template": "T1f191b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119233,7 +119626,7 @@
      "audio": ""
     },
     {
-     "text": "把见义勇为等道德要求写进法律，同时加强道德教育",
+     "text": "道德入法",
      "image": "",
      "audio": ""
     },
@@ -119256,6 +119649,7 @@
    "knowledge_point": "以法治推进国家治理现代化",
    "game_ready": true,
    "template": "T15edb9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119328,7 +119722,7 @@
      "audio": ""
     },
     {
-     "text": "为道德建设提供制度保障",
+     "text": "制度保障",
      "image": "",
      "audio": ""
     },
@@ -119346,6 +119740,7 @@
    "knowledge_point": "以法治推进国家治理现代化",
    "game_ready": true,
    "template": "Tecce05",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119378,7 +119773,7 @@
      "audio": ""
     },
     {
-     "text": "为法治提供滋养",
+     "text": "滋养法治",
      "image": "",
      "audio": ""
     }
@@ -119391,6 +119786,7 @@
    "knowledge_point": "以法治推进国家治理现代化",
    "game_ready": true,
    "template": "Tee68a3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119413,7 +119809,7 @@
      "audio": ""
     },
     {
-     "text": "唯一作用",
+     "text": "决定性作用",
      "image": "",
      "audio": ""
     },
@@ -119436,6 +119832,7 @@
    "knowledge_point": "以法治推进国家治理现代化",
    "game_ready": true,
    "template": "T1acae4",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119503,7 +119900,7 @@
      "audio": ""
     },
     {
-     "text": "法治建设要体现道德理念",
+     "text": "法治体现道德理念",
      "image": "",
      "audio": ""
     },
@@ -119526,6 +119923,7 @@
    "knowledge_point": "以法治推进国家治理现代化",
    "game_ready": true,
    "template": "T8db5f2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119604,7 +120002,7 @@
      "audio": ""
     },
     {
-     "text": "法治和德治相辅相成",
+     "text": "二者相辅相成",
      "image": "",
      "audio": ""
     }
@@ -119618,6 +120016,7 @@
    "game_ready": true,
    "template": "Tca5357",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"
@@ -119645,7 +120044,7 @@
      "audio": ""
     },
     {
-     "text": "法治政府",
+     "text": "社会主义法治社会",
      "image": "",
      "audio": ""
     },
@@ -119664,6 +120063,7 @@
    "game_ready": true,
    "template": "Te3a3c3",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "以法治推进国家治理现代化"

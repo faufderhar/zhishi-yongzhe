@@ -1,0 +1,1180 @@
+{
+ "judge": [
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-050",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第一单元·5 一着惊海天",
+    "type": "判断",
+    "question": "新闻特写和消息一样，都要求真实地反映客观事实。",
+    "answer": "对",
+    "explanation": "真实性是所有新闻的生命。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "一着惊海天",
+    "game_ready": true,
+    "template": "Ta806c5",
+    "change_tag": "新增",
+    "tags": [
+     "一着惊海天"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-041",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第二单元 维护社会秩序·第四课 遵守社会规则",
+    "type": "判断",
+    "question": "社会规则划定了人们行为的界限。",
+    "answer": "对",
+    "explanation": "规则告诉我们应该做什么、不应该做什么。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "遵守社会规则",
+    "game_ready": true,
+    "template": "T042785",
+    "change_tag": "新增",
+    "tags": [
+     "遵守社会规则"
+    ]
+   }
+  },
+  {
+   "grade": "10",
+   "old": {
+    "id": "Y10-085",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 10,
+    "textbook": "统编版2019",
+    "unit": "拓展·必修下 整本书阅读《红楼梦》",
+    "type": "判断",
+    "question": "《红楼梦》是我国古典四大名著之一。",
+    "answer": "对",
+    "explanation": "另有《三国演义》《水浒传》《西游记》。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "必修下册",
+    "knowledge_point": "整本书阅读",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "template": "T681dc2",
+    "change_tag": "新增",
+    "tags": [
+     "整本书阅读",
+     "红楼梦"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "Y11-143",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "选择性必修上·第三单元·百年孤独（节选）",
+    "type": "判断",
+    "question": "《百年孤独》的作者加西亚·马尔克斯是哥伦比亚作家。",
+    "answer": "对",
+    "explanation": "他于 1982 年获诺贝尔文学奖。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "选择性必修上册",
+    "knowledge_point": "百年孤独（节选）",
+    "game_ready": true,
+    "template": "Ta0cbf8",
+    "change_tag": "新增",
+    "tags": [
+     "百年孤独（节选）"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "D11-089",
+    "status": "AI初审通过",
+    "subject": "地理",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修1·第三章 大气的运动·第二节 气压带和风带",
+    "type": "判断",
+    "question": "全球近地面共有七个气压带。",
+    "answer": "对",
+    "explanation": "赤道低气压带、副热带高气压带、副极地低气压带、极地高气压带（南北半球各一）。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "气压带和风带",
+    "game_ready": true,
+    "template": "T443623",
+    "change_tag": "新增",
+    "tags": [
+     "气压带和风带"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "D11-145",
+    "status": "AI初审通过",
+    "subject": "地理",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中地理由设区市选用：南京、无锡、常州、苏州、南通用人教版2019，其余市用鲁教版；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修1·第四章 水的运动·第三节 海—气相互作用",
+    "type": "判断",
+    "question": "海洋是大气中水汽的主要来源。",
+    "answer": "对",
+    "explanation": "海洋蒸发为大气提供大量水汽。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "海—气相互作用",
+    "game_ready": true,
+    "template": "Tcf2c89",
+    "change_tag": "新增",
+    "tags": [
+     "海—气相互作用"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "Z11-066",
+    "status": "AI初审通过",
+    "subject": "政治",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "必修4·第二单元 认识社会与价值选择·第五课 寻觅社会的真谛",
+    "type": "判断",
+    "question": "社会历史发展的总趋势是前进上升的。",
+    "answer": "对",
+    "explanation": "社会发展是前进性和曲折性的统一。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "必修第四册",
+    "knowledge_point": "寻觅社会的真谛",
+    "game_ready": true,
+    "template": "Te87a78",
+    "change_tag": "新增",
+    "tags": [
+     "寻觅社会的真谛"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "Z11-095",
+    "status": "AI初审通过",
+    "subject": "政治",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "必修4·第三单元 文化传承与文化创新·第八课 学习借鉴外来文化的有益成果",
+    "type": "判断",
+    "question": "文化具有民族性。",
+    "answer": "对",
+    "explanation": "不同民族有不同的文化。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "必修第四册",
+    "knowledge_point": "学习借鉴外来文化的有益成果",
+    "game_ready": true,
+    "template": "Ta4a098",
+    "change_tag": "新增",
+    "tags": [
+     "学习借鉴外来文化的有益成果"
+    ]
+   }
+  }
+ ],
+ "opt": [
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-248",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第四单元 走近国家机构·第七课 国家权力机关",
+    "type": "选择",
+    "question": "下列属于全国人大职权的是？",
+    "options": [
+     {
+      "text": "修改宪法、制定和修改基本法律",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "审理案件",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "管理具体行政事务",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "领导军队作战",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "A",
+    "explanation": "全国人大有立法权、任免权、决定权、监督权。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "国家权力机关",
+    "game_ready": true,
+    "template": "T5e479e",
+    "change_tag": "新增",
+    "tags": [
+     "国家权力机关"
+    ]
+   }
+  },
+  {
+   "grade": "10",
+   "old": {
+    "id": "H10-266",
+    "status": "AI初审通过",
+    "subject": "历史",
+    "grade": 10,
+    "textbook": "统编版2019",
+    "unit": "纲要下·第四单元 资本主义制度的确立·第8课 欧洲的思想解放运动",
+    "type": "选择",
+    "question": "提出“三权分立”学说的启蒙思想家是？",
+    "options": [
+     {
+      "text": "伏尔泰",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "约翰·洛克",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "卢梭",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "孟德斯鸠",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "代表作是《论法的精神》。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "必修下册",
+    "knowledge_point": "欧洲的思想解放运动",
+    "game_ready": true,
+    "review_changed": "是",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "template": "T2972c2",
+    "change_tag": "新增",
+    "tags": [
+     "欧洲的思想解放运动"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-174",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第四单元·16 白杨礼赞",
+    "type": "选择",
+    "question": "《白杨礼赞》主要运用的表现手法是？",
+    "options": [
+     {
+      "text": "对比",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "夸张",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "衬托",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "象征（托物言志）",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "以白杨树象征北方农民和抗战军民。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "白杨礼赞",
+    "game_ready": true,
+    "template": "T1ea497",
+    "change_tag": "新增",
+    "tags": [
+     "白杨礼赞"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "H8-278",
+    "status": "AI初审通过",
+    "subject": "历史",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第一单元 中华人民共和国成立和社会主义制度建立·第4课 独立自主的和平外交",
+    "type": "选择",
+    "question": "新中国初期外交方针中，“一边倒”的意思是？",
+    "options": [
+     {
+      "text": "只发展经济关系",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "站在社会主义阵营一边",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只与美国交往",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "不和任何国家建交",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "“一边倒”即站在以苏联为首的社会主义阵营一边。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "独立自主的和平外交",
+    "game_ready": true,
+    "template": "T68a02b",
+    "change_tag": "新增",
+    "tags": [
+     "独立自主的和平外交"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-285",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第四单元 走近国家机构·第十课 中央军事委员会",
+    "type": "选择",
+    "question": "我国武装力量的任务包括？",
+    "options": [
+     {
+      "text": "维护少数人利益",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "对外扩张",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "干涉他国内政",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "巩固国防、抵抗侵略、保卫祖国，参加国家建设事业",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "这是宪法规定的武装力量任务。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "中央军事委员会",
+    "game_ready": true,
+    "template": "T724b79",
+    "change_tag": "新增",
+    "tags": [
+     "中央军事委员会"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-176",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第一单元 坚持宪法至上·第二课 维护宪法权威",
+    "type": "选择",
+    "question": "维护宪法权威的根本是？",
+    "options": [
+     {
+      "text": "只要领导干部遵守",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "全社会尊崇宪法、遵守宪法",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只要学生学习",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只要法官遵守",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "尊崇宪法是维护宪法权威的基础。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "维护宪法权威",
+    "game_ready": true,
+    "template": "Tb15a8d",
+    "change_tag": "新增",
+    "tags": [
+     "维护宪法权威"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "Y8-252",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第五单元·22 梦回繁华",
+    "type": "选择",
+    "question": "《清明上河图》的画面按什么顺序展开？",
+    "options": [
+     {
+      "text": "从城内到城外",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "从城外郊野到汴河再到城内街市",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "没有顺序",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "从上到下",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "这是长卷画的特点。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "梦回繁华",
+    "game_ready": true,
+    "template": "Tc1aeb4",
+    "change_tag": "新增",
+    "tags": [
+     "梦回繁华"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "Z11-285",
+    "status": "AI初审通过",
+    "subject": "政治",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "选择性必修2·第一单元 民事权利与义务·第四课 侵权责任与权利界限",
+    "type": "选择",
+    "question": "一般侵权责任的构成要件包括？",
+    "options": [
+     {
+      "text": "只有损害事实",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只有侵权行为",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "侵权行为、损害事实、因果关系、主观过错",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只有过错",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "四个要件缺一不可。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第二册",
+    "knowledge_point": "侵权责任与权利界限",
+    "game_ready": true,
+    "template": "Tdfae0e",
+    "change_tag": "新增",
+    "tags": [
+     "侵权责任与权利界限"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "H8-224",
+    "status": "AI初审通过",
+    "subject": "历史",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第七单元 人民解放战争·第20课 国民党挑起内战",
+    "type": "选择",
+    "question": "国民党挑起全面内战的根本目的是？",
+    "options": [
+     {
+      "text": "实现国内和平",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "帮助人民群众",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "抵抗外国侵略",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "维护大地主大资产阶级的独裁统治",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "国民党要消灭共产党和人民武装力量。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "国民党挑起内战",
+    "game_ready": true,
+    "template": "T952c61",
+    "change_tag": "新增",
+    "tags": [
+     "国民党挑起内战"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-131",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第四单元 维护国家利益·第十课 国家利益至上",
+    "type": "选择",
+    "question": "国家利益至上，意味着？",
+    "options": [
+     {
+      "text": "国家利益和个人利益永远冲突",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "不允许有个人利益",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "在国家利益与个人利益冲突时，以国家利益为重",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "个人利益不重要",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "国家利益与个人利益在根本上是一致的。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "国家利益至上",
+    "game_ready": true,
+    "template": "Td6b64d",
+    "change_tag": "新增",
+    "tags": [
+     "国家利益至上"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-274",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第四单元 走近国家机构·第九课 国家行政机关",
+    "type": "选择",
+    "question": "政府依法行政的意义是？",
+    "options": [
+     {
+      "text": "可以随意扩大权力",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "取消公民权利",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "让政府不受监督",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "有利于保障人民的权利和自由，提高政府的威信",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "D",
+    "explanation": "依法行政是建设法治政府的关键。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "国家行政机关",
+    "game_ready": true,
+    "template": "T780fc5",
+    "change_tag": "新增",
+    "tags": [
+     "国家行政机关"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "H8-271",
+    "status": "AI初审通过",
+    "subject": "历史",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八下·第一单元 中华人民共和国成立和社会主义制度建立·第4课 独立自主的和平外交",
+    "type": "选择",
+    "question": "1955年，周恩来提出“求同存异”方针的会议是？",
+    "options": [
+     {
+      "text": "雅尔塔会议",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "联合国大会",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "万隆会议（亚非会议）",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "日内瓦会议",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "周恩来在万隆会议上提出“求同存异”的方针。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级下册",
+    "knowledge_point": "独立自主的和平外交",
+    "game_ready": true,
+    "template": "T1320b8",
+    "change_tag": "新增",
+    "tags": [
+     "独立自主的和平外交"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "Y11-210",
+    "status": "AI初审通过",
+    "subject": "语文",
+    "grade": 11,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "选择性必修中·第一单元·实践是检验真理的唯一标准",
+    "type": "选择",
+    "question": "文章为增强说服力，大量引用了？",
+    "options": [
+     {
+      "text": "神话传说",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "小说中的情节",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "马克思主义经典作家的论述和科学史上的事例",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "个人日记",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "以理服人。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "选择性必修中册",
+    "knowledge_point": "实践是检验真理的唯一标准",
+    "game_ready": true,
+    "template": "T7b2b9a",
+    "change_tag": "新增",
+    "tags": [
+     "实践是检验真理的唯一标准"
+    ]
+   }
+  },
+  {
+   "grade": "10",
+   "old": {
+    "status": "AI初审通过",
+    "options": [
+     {
+      "text": "取消执法",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "扩大执法特权",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "推行三权分立式改革",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "行政执法体制改革",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "source": "AI",
+    "review_changed": "是",
+    "id": "Z10-330",
+    "subject": "政治",
+    "grade": 10,
+    "textbook": "统编版2019",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "volume": "必修第三册",
+    "unit": "必修3·第八课 法治中国建设·8.2 法治政府",
+    "question": "建设法治政府，要求坚持严格规范公正文明执法，同时深化？",
+    "explanation": "建设职能科学、权责法定的法治政府。",
+    "difficulty": 2,
+    "knowledge_point": "法治政府",
+    "type": "选择",
+    "answer": "D",
+    "game_ready": true,
+    "template": "T9f1267",
+    "change_tag": "新增",
+    "tags": [
+     "法治政府"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "H8-168",
+    "status": "AI初审通过",
+    "subject": "历史",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第五单元 从国共合作到农村革命根据地的建立·第14课 毛泽东开辟井冈山道路",
+    "type": "选择",
+    "question": "“星星之火，可以燎原”体现的中国革命道路是？",
+    "options": [
+     {
+      "text": "议会斗争",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "以城市为中心的武装起义道路",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "农村包围城市、武装夺取政权",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "依靠外国援助",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "C",
+    "explanation": "毛泽东总结井冈山斗争经验，形成了这条道路。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "毛泽东开辟井冈山道路",
+    "game_ready": true,
+    "template": "Td08d83",
+    "usage": "boss",
+    "review_changed": "是",
+    "change_tag": "新增",
+    "tags": [
+     "毛泽东开辟井冈山道路"
+    ]
+   }
+  },
+  {
+   "grade": "8",
+   "old": {
+    "id": "D8-015",
+    "status": "AI初审通过",
+    "subject": "道德与法治",
+    "grade": 8,
+    "textbook": "统编版2024",
+    "textbook_note": "国家统编教材，全国统一，无苏教版",
+    "unit": "八上·第一单元 走进社会生活·第二课 在社会中健康成长",
+    "type": "选择",
+    "question": "中学生养成亲社会行为的途径是？",
+    "options": [
+     {
+      "text": "积极参与社会实践活动",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "只关心自己的事",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "不与他人交往",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "整天待在家里",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "A",
+    "explanation": "在社会实践中学会关心他人、服务社会。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "八年级上册",
+    "knowledge_point": "在社会中健康成长",
+    "game_ready": true,
+    "template": "Tc043ca",
+    "change_tag": "新增",
+    "tags": [
+     "在社会中健康成长"
+    ]
+   }
+  }
+ ],
+ "stem": [
+  {
+   "grade": "K2",
+   "old": {
+    "id": "K2N-033",
+    "status": "AI初审通过",
+    "subject": "数数",
+    "grade": "K2",
+    "unit": "多1和少1",
+    "type": "选择",
+    "question": "🐤🐤，又来了1个🐤，现在有几个小鸡？",
+    "tts_text": "有两个小鸡，又来了一个小鸡，现在有几个小鸡？",
+    "options": [
+     {
+      "text": "3",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "2",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "4",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "A",
+    "explanation": "2个再多1个，是3个。",
+    "difficulty": 1,
+    "source": "AI",
+    "volume": "中班",
+    "knowledge_point": "多1和少1",
+    "game_ready": true,
+    "template": "T4acedb",
+    "change_tag": "新增",
+    "tags": [
+     "多1和少1"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "B11-065",
+    "status": "AI初审通过",
+    "subject": "生物",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修1·第2章 神经调节·第3节 神经冲动的产生和传导",
+    "type": "选择",
+    "question": "适当降低神经纤维外 $\\ce{Na+}$ 的浓度，受刺激后动作电位的峰值会？",
+    "tts_text": "-",
+    "options": [
+     {
+      "text": "降低",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "不变",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "变为零",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "升高",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "A",
+    "explanation": "膜内外 $\\ce{Na+}$ 浓度差减小，内流的 $\\ce{Na+}$ 减少。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "神经冲动的产生和传导",
+    "game_ready": true,
+    "template": "T0eacab",
+    "change_tag": "新增",
+    "tags": [
+     "神经冲动的产生和传导"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "B11-093",
+    "status": "AI初审通过",
+    "subject": "生物",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修1·第2章 神经调节·第5节 人脑的高级功能",
+    "type": "选择",
+    "question": "神经纤维受刺激时，$\\ce{Na+}$ 内流的方式是？",
+    "tts_text": "-",
+    "options": [
+     {
+      "text": "自由扩散",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "协助扩散",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "胞吞",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "主动运输",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "顺浓度梯度，通过通道蛋白。",
+    "difficulty": 3,
+    "source": "AI",
+    "volume": "选择性必修第一册",
+    "knowledge_point": "人脑的高级功能",
+    "game_ready": true,
+    "template": "Td8d683",
+    "usage": "boss",
+    "change_tag": "新增",
+    "tags": [
+     "人脑的高级功能"
+    ]
+   }
+  },
+  {
+   "grade": "11",
+   "old": {
+    "id": "B11-346",
+    "status": "AI初审通过",
+    "subject": "生物",
+    "grade": 11,
+    "textbook": "人教版2019",
+    "textbook_note": "江苏高中生物由设区市选用：苏州、无锡、常州、南通、盐城、镇江、泰州用人教版2019，南京、徐州、连云港、淮安、扬州、宿迁用苏教版2019；本题库按苏州默认采用人教版2019",
+    "unit": "选择性必修2·第3章 生态系统及其稳定性·第3节 生态系统的物质循环",
+    "type": "选择",
+    "question": "大气中的 $\\ce{CO2}$ 进入生物群落主要通过？",
+    "tts_text": "-",
+    "options": [
+     {
+      "text": "分解作用",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "光合作用",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "燃烧",
+      "image": "",
+      "audio": ""
+     },
+     {
+      "text": "呼吸作用",
+      "image": "",
+      "audio": ""
+     }
+    ],
+    "answer": "B",
+    "explanation": "此外还有化能合成作用。",
+    "difficulty": 2,
+    "source": "AI",
+    "volume": "选择性必修第二册",
+    "knowledge_point": "生态系统的物质循环",
+    "game_ready": true,
+    "template": "T19ce1b",
+    "change_tag": "新增",
+    "tags": [
+     "生态系统的物质循环"
+    ]
+   }
+  }
+ ]
+}
