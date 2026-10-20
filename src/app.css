@@ -316,7 +316,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @keyframes nudge{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
 .kind-tag{font-size:16px;border-radius:99px;padding:0 10px;background:#0002;font-weight:700}
 .kind-tag.boss{background:#ff6b6b;color:#fff}.kind-tag.elite{background:#ff9f0a;color:#fff}
-.map-tip{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#fff;color:#223;border-radius:20px;padding:14px 24px;font-size:24px;box-shadow:0 6px 0 #0003;z-index:40;max-width:80vw}
+.map-tip{pointer-events:none /* r16.1 (n) 技术QA P4-2：气泡不挡下面的关卡卡片 */;position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#fff;color:#223;border-radius:20px;padding:14px 24px;font-size:24px;box-shadow:0 6px 0 #0003;z-index:40;max-width:80vw}
 .time-left,.left-time,.star-total{font-size:clamp(22px,2vw,28px)}
 .profile-card small.left-time{font-size:24px;opacity:1}
 .theme-std .qtext,.theme-g1 .qtext{font-size:clamp(28px,2.8vw,40px)}
