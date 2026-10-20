@@ -60,6 +60,7 @@ type Screen =
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean; playN?: number }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
+const parentReloadNote = (kind: string) => `刚才在家长设置里：${CAUSE_TEXT[kind] ?? '页面被重新加载了'}。请重新进入家长设置。`;
 const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内存把页面回收了（不是游戏自己退出的）', sw: '游戏在更新版本时刷新了', reload: '页面被重新加载了（下拉刷新或浏览器重载）', crash: '页面崩溃或内存不足被浏览器重启了（不是游戏自己刷新的，已记录）', restore: '刚才从备份恢复 / 合并 / 撤销后重新打开了', tab: '在这个标签页点了「在这里继续」，重新打开了', navigate: '答题中途游戏被关掉了（平板把切到后台的游戏关掉）' };
 const EXIT_TEXT: Record<string, string> = { quit: '刚才在暂停里点了〔回地图〕，还没答题，所以没有结算。', timeup: '今天的游戏时间用完了，关卡已结束。' };
 /* r15 学霸：选角色页（幼儿园以外）也列出另一套角色；这里必须同样接受，否则高一选「算算」后角色为空，点关卡永远跳回选角色 */
@@ -160,7 +161,7 @@ export default function App() {
       // r14 较真家长：在家长设置 / 密码页里被重载（选备份文件时浏览器回收页面、崩溃）——不要「恢复」到孩子的学段 / 选角色页，回首页并说明
       const beat0 = (() => { try { return JSON.parse(localStorage.getItem('zy.beat') ?? 'null') as { screen: string; at: number } | null; } catch { return null; } })();
       const inParent = !['navigate', 'restore', 'tab'].includes(cause0.kind) && !!beat0 && ['parent', 'gate', 'gate-grade'].includes(beat0.screen) && Date.now() - beat0.at < 30 * 60e3;
-      if (inParent) setExitNote(`刚才在家长设置里时页面被重新加载了：${CAUSE_TEXT[cause0.kind] ?? ''}。请重新进入家长设置。`);
+      if (inParent) setExitNote(parentReloadNote(cause0.kind));   // r16.2 较真家长：以前「…页面被重新加载了：页面被重新加载了（…）」说两遍
       if (!inParent && nav && pp && Date.now() - nav.at < 2 * 3600e3 && nav.s !== 'profiles') {
         // r13：不只新版本刷新——浏览器回收 / 崩溃重载 / 下拉刷新后（30 分钟内）也直接回到原来的孩子和地图，并在地图上说明原因，不再一声不响停在首页
         if (swReload || (cause0.kind !== 'navigate' && Date.now() - nav.at < 30 * 60e3) ) restoreRef.current = { nav, pp };

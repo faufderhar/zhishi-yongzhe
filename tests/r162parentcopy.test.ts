@@ -13,3 +13,11 @@ it('时长写成「9 分 16 秒」而不是像钟点的「9:16」', () => {
   const t = cancelLeftLine(c[D], 300, 0)!; expect(t).not.toMatch(/\d:\d\d/); expect(t).not.toMatch(/按今天上限/); expect(t).toMatch(/今天的上限是 \d+ 分/);
   expect(P).toMatch(/今天上限 \{cancelled \? fmtDur\(m \* 60\) : fmtDur\(base\)\}/);
 });
+it('在家长设置里 F5：提示不再说两遍「页面被重新加载了」', () => {
+  expect(A).toMatch(/if \(inParent\) setExitNote\(parentReloadNote\(cause0\.kind\)\)/);
+  const tpl = A.match(/const parentReloadNote = \(kind: string\) => `([^`]*)`/)![1];
+  const reload = A.match(/reload: '([^']*)'/)![1];
+  const note = tpl.replace(/\$\{CAUSE_TEXT\[kind\] \?\? '页面被重新加载了'\}/, reload);
+  expect(note).toBe('刚才在家长设置里：页面被重新加载了（下拉刷新或浏览器重载）。请重新进入家长设置。');
+  expect(note.split('重新加载').length - 1).toBe(1);
+});
