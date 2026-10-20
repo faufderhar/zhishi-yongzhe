@@ -353,9 +353,7 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
         <label>名字 <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} data-testid="profile-name" value={f.name} maxLength={8} onChange={e => setF({ ...f, name: e.target.value })} /></label>
         <div className="row gap16 wrap avatars">{AVATARS.map(a => <button key={a} className={`chip ${a === f.avatar ? 'on' : ''}`} onClick={() => setF({ ...f, avatar: a })}>{a}</button>)}</div>
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
-        <div><b>已学册别</b>（只从勾选的册别出题）<div className="row gap16 wrap">{vols.map(([v, n]) =>
-          <button key={v} className={`chip ${!f.volumes || f.volumes.includes(v) ? 'on' : ''}`} data-testid={'vol-' + v} aria-pressed={!f.volumes || f.volumes.includes(v)} onClick={() => toggleVol(v)}>{v}（{n}）</button>)}
-          <button className={`chip ${!f.volumes ? 'on' : ''}`} data-testid="vol-all" aria-pressed={!f.volumes} onClick={() => setF({ ...f, volumes: toggleAllVols(f.volumes) })}>全部册别</button></div>
+        <div><b>已学册别</b>（只从勾选的册别出题）<VolChips vols={vols} volumes={f.volumes} onVol={toggleVol} onAll={() => setF({ ...f, volumes: toggleAllVols(f.volumes) })} />
           {!volsValid(f.volumes) && <p className="warn-text" data-testid="vol-none">⚠ 至少要选一册才能保存（点〔全部册别〕可以全选）</p>}</div>
         <div className="row gap16 wrap"><b>每日时长（分钟，最少 5）</b>
           {(['weekday', 'weekend'] as const).map(k => <span key={k} className="stepper" data-testid={'limit-' + k}>{k === 'weekday' ? '上学日' : '周末'}
@@ -722,4 +720,17 @@ function LockLeft({ lk, k, onEnd, text }: { lk: LockState; k: string; onEnd: (n:
     setL(cur => { if (!lockLeft(cur)) return cur; const n = tickLock(cur, dt, Date.now()); void saveLock(n, k); if (!lockLeft(n)) setTimeout(() => end.current(n)); return n; }); }, 1000);
     return () => clearInterval(t); }, [k]);
   return <span data-testid={'lock-left-' + k}>{text(Math.ceil(lockLeft(l) / 1000))}</span>;
+}
+
+/** r16 较真家长 4：〔全部册别〕单独样式——选中 = 实心 + ✓、没选 = 虚线框；放在最前面、和各册之间有分隔。
+ *  选了全部时各册是浅色「含在全部里」（不是和单独勾选一样的黄色实心），一眼看得出现在是「全部」还是「只选了这几册」 */
+export function VolChips({ vols, volumes, onVol, onAll }: { vols: [string, number][]; volumes: string[] | null; onVol: (v: string) => void; onAll: () => void }) {
+  const all = !volumes;
+  return <div className="row gap16 wrap vol-chips">
+    <button className={`chip vol-all-chip ${all ? 'on' : ''}`} data-testid="vol-all" aria-pressed={all} onClick={onAll}>{all ? '✓ ' : ''}全部册别</button>
+    <span className="vol-sep" aria-hidden="true" />
+    {vols.map(([v, n]) => { const on = all || volumes.includes(v);
+      return <button key={v} className={`chip ${all ? 'in-all' : on ? 'on' : ''}`} data-testid={'vol-' + v} aria-pressed={on} onClick={() => onVol(v)}>{v}（{n}）{all && <small className="in-all-tag">含在全部里</small>}</button>; })}
+    {all && <small className="hint" data-testid="volnote-all">现在是〔全部册别〕：以后题库新增的册别也会自动出题。点某一册 = 去掉这一册。</small>}
+  </div>;
 }

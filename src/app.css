@@ -129,6 +129,12 @@ img.unit{height:min(260px,30vh);width:auto;object-fit:contain;filter:drop-shadow
 .chip{min-height:56px;padding:0 18px;border-radius:28px;background:#fff2;font-size:18px;display:inline-flex;align-items:center;gap:6px}
 .chip.on{background:#ffd54a;color:#333}.chip.hot{background:#ff8a3d;color:#fff}.chip.sm{min-height:40px;padding:0 10px;font-size:14px;margin:2px}
 .chip-img{height:40px;width:auto}
+/* r16 较真家长 4：〔全部册别〕 */
+.chip.vol-all-chip{border:2px dashed #ffd54a;background:transparent;font-weight:700}
+.chip.vol-all-chip.on{border:2px solid #ffb300;background:#ffb300;color:#222;box-shadow:0 0 0 3px #ffb30055}
+.vol-sep{width:2px;align-self:stretch;background:#fff4;margin:4px 0}
+.chip.in-all{background:#ffd54a33;color:inherit;border:1px solid #ffd54a88;flex-direction:column;justify-content:center;gap:0;line-height:1.15}
+.in-all-tag{font-size:12px;opacity:.8}
 .theme-kinder .chip,.theme-g1 .chip{background:#fff9;color:#5a3a1a}
 .map-body{flex:1;display:grid;grid-template-columns:300px 1fr;min-height:0}
 .chapters{display:flex;flex-direction:column;gap:10px;padding:16px;overflow:auto;background:#0002}
