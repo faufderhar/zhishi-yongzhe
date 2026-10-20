@@ -19,9 +19,15 @@ export const numTypeable = (a: string, sci: boolean) => { const u = a.normalize(
   return (sci ? /^[0-9.\-/e]+$/ : /^[0-9.\-/]+$/).test(u) && !/^[e]|e$/.test(u); };
 /** 字母键盘能直接按出来（a–z 不分大小写、空格、' -；弯撇号 / 各种连字符判分时归一） */
 export const lettersTypeable = (a: string) => /^[a-z '\-]+$/.test(a.normalize('NFKC').toLowerCase().replace(/[’‘ʼ′`]/g, "'").replace(/[‐‑‒–—−]/g, '-').trim().replace(/\s+/g, ' '));
-export function fillKind(q: Pick<Question, 'subject' | 'answer'>, sci = false): FillKind {
+/* r16.1（题库 v48 input_type）：唯一的键盘决定点。
+   - 题目带 input_type：numeric → 数字键盘（高中照旧有 ×10ⁿ）；text → 不出数字键盘，在字母键盘 / 系统输入法里按下面同一条字母规则选：
+       答案都能用字母键盘打（a–z、空格、' -），且是英语题或答案里有字母 → 字母键盘；否则 → 系统输入法。
+   - 不带字段（家长自己出的题、旧备份）→ 按答案自动判断（下面 num / letters / ime 三条）。
+   题库的标注规则和这里的自动判断逐字相同（v48 说明 §1），所以带不带字段结果一样；字段只是让题库能明确指定。 */
+export function fillKind(q: Pick<Question, 'subject' | 'answer'> & { input_type?: 'numeric' | 'text' }, sci = false): FillKind {
   const ans = q.answer.filter(a => a.trim() !== '');
-  if (ans.length && ans.every(isPureNumber) && ans.some(a => numTypeable(a, sci))) return 'num';
+  if (q.input_type === 'numeric') return 'num';
+  if (q.input_type !== 'text' && ans.length && ans.every(isPureNumber) && ans.some(a => numTypeable(a, sci))) return 'num';
   if (ans.length && ans.every(lettersTypeable) && (q.subject === '英语' || ans.some(a => /[a-z]/i.test(a)))) return 'letters';
   return 'ime';
 }

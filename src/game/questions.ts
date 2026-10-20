@@ -20,6 +20,8 @@ export interface Question {
   type: QType; question: string; question_image?: string; question_audio?: string; tts_text?: string;
   options: Option[]; answer: string[]; template?: string; visual?: Visual; tolerance?: number; explanation: string; difficulty: number;
   tags: string[]; knowledge_point?: string; time?: number; source?: string; review_note?: string;
+  /** r16.1（题库 v48）：填空题的输入方式——numeric = 数字键盘；text = 不弹数字键盘（字母键盘 / 系统输入法由 inputKind.fillKind 再分）。不参与 qRev */
+  input_type?: 'numeric' | 'text';
   order: number;          // 在源文件中的顺序（章节排序用）
 }
 export const KEYS = 'ABCDEF'.split('');
@@ -34,7 +36,7 @@ export function qRev(q: Pick<Question, 'type' | 'question' | 'options' | 'answer
     题型 / 题干 / 选项 / 答案 / 容差——给错题本和 base_rev 用，不能改，否则已存的 base_rev 全部对不上）。
     只改了解析、难度、停用（status）、朗读文字等也算「不一样」，要存下来。预览和确认导入用同一个函数。 */
 export const EDIT_FIELDS = ['status', 'subject', 'textbook', 'unit', 'volume', 'type', 'question', 'question_image', 'question_audio', 'tts_text', 'options', 'answer',
-  'tolerance', 'explanation', 'difficulty', 'tags', 'knowledge_point', 'time', 'source', 'usage', 'template', 'visual'] as const;
+  'tolerance', 'explanation', 'difficulty', 'tags', 'knowledge_point', 'time', 'source', 'usage', 'template', 'visual', 'input_type'] as const;
 type EditField = typeof EDIT_FIELDS[number];
 const nil = (v: unknown) => v === '' || v == null || (Array.isArray(v) && !v.length) ? null : v;
 export function editRev(q: Question, fields: readonly EditField[] = EDIT_FIELDS): string {
@@ -136,6 +138,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
     knowledge_point: q.knowledge_point || undefined, time: t > 0 ? t : undefined, source: q.source, review_note: q.review_note || undefined,
     tolerance: q.tolerance === undefined || q.tolerance === '' || q.tolerance === null ? undefined : Number(q.tolerance),
     ...(q.usage === 'boss' ? { usage: 'boss' as const } : {}),
+    ...(q.type === '填空' && (q.input_type === 'numeric' || q.input_type === 'text') ? { input_type: q.input_type as 'numeric' | 'text' } : {}),
     explanation: cleanExplanation(q.explanation ?? ''), order, template: q.template ? String(q.template) : undefined, visual: parseVisual(q.visual),
   };
 }
