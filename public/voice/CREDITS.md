@@ -52,3 +52,7 @@ Intended for the 知识勇者 family learning game (non-commercial family use). 
 ## r16 — final pack for bank v44 (generated 2026-10-19 16:57 PDT, 音频设计)
 - Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3253 keys / 1862 mp3 (16.92 MB); pack banks K1 v34 · K2 v44 · K3 v44 (game bank v44)
 - Re-recorded for v44 量词 个→只: K2N-033#stem (→ K2N-033_stem.560350450b.mp3), K3C-058/066/069#stem; 4 old files removed. Same model / voices / speed / post chain as above
+
+## r16 — final pack for bank v45 (generated 2026-10-19 17:42 PDT, 音频设计)
+- Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3253 keys / 1862 mp3 (16.93 MB); pack banks K1 v34 · K2 v44 · K3 v45 (game bank v45; K1/K2 text unchanged since v44)
+- Re-recorded for 大班 v45: K3D-018, K3L-011, K3N-025 stems (3 old files removed). 大班 stays hidden in r16

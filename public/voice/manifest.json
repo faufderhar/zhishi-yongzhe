@@ -6,14 +6,14 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v34 · K2 v44 · K3 v44",
+ "bank_version": "K1 v34 · K2 v44 · K3 v45",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
   "en": 1.2
  },
  "pron_overrides": 57,
- "generated": "2026-10-19T16:57:12-07:00",
+ "generated": "2026-10-19T17:42:33-07:00",
  "complete": true,
  "items": {
   "K-001#opt0": "K-001_opt0.f0d0f7a55e.mp3",
@@ -1709,7 +1709,7 @@
   "K3D-017#opt1": "K3D-015_opt1.a056191b63.mp3",
   "K3D-017#opt2": "K3D-017_opt2.d4aac3bd38.mp3",
   "K3D-017#stem": "K3D-017_stem.723daa5d38.mp3",
-  "K3D-018#stem": "K3D-018_stem.e25363c4b5.mp3",
+  "K3D-018#stem": "K3D-018_stem.27d1653a0b.mp3",
   "K3D-019#opt0": "K-016_opt0.0fb5e7dc04.mp3",
   "K3D-019#opt1": "KD-006_opt0.0a363c1eed.mp3",
   "K3D-019#opt2": "K-071_opt1.9820a6bcbf.mp3",
@@ -2173,7 +2173,7 @@
   "K3L-010#opt1": "K3L-010_opt1.618b5d1fc6.mp3",
   "K3L-010#opt2": "K3L-010_opt2.65b8e6d245.mp3",
   "K3L-010#stem": "K3L-010_stem.a12348dc4e.mp3",
-  "K3L-011#stem": "K3L-011_stem.0c78ba707d.mp3",
+  "K3L-011#stem": "K3L-011_stem.c78c37cd1c.mp3",
   "K3L-012#opt0": "K3L-012_opt0.c489ff3d9a.mp3",
   "K3L-012#opt1": "K3L-012_opt1.e15cbe015b.mp3",
   "K3L-012#opt2": "K3L-012_opt2.3b72f6eab8.mp3",
@@ -2435,7 +2435,7 @@
   "K3N-024#opt1": "K3N-024_opt1.0c59a9f653.mp3",
   "K3N-024#opt2": "K3N-024_opt2.2fdf690667.mp3",
   "K3N-024#stem": "K3N-024_stem.0c063b801e.mp3",
-  "K3N-025#stem": "K3N-025_stem.a50a997430.mp3",
+  "K3N-025#stem": "K3N-025_stem.e786e1df8b.mp3",
   "K3N-026#opt0": "K3N-026_opt0.b43fc9f836.mp3",
   "K3N-026#opt1": "K3N-026_opt1.5bb97e3b36.mp3",
   "K3N-026#opt2": "K3N-026_opt2.54efa24ba6.mp3",
@@ -65357,27 +65357,27 @@
    "grade": "K3"
   },
   "K3D-018#stem": {
-   "file": "K3D-018_stem.e25363c4b5.mp3",
-   "text": "刺猬冬天要冬眠。",
+   "file": "K3D-018_stem.27d1653a0b.mp3",
+   "text": "刺猬冬天不冬眠。",
    "segments": [
     [
      "zh",
-     "刺猬冬天要冬眠。"
+     "刺猬冬天不冬眠。"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "e25363c4b5eadb9fe1681ab32a09a8fdb13c3e121c83ca8978268d2687ae12f6",
+   "hash": "27d1653a0b529993947de65add5310211919f368adf36cb34c2765b1498955c1",
    "phonemes": [
-    "zh|zf_002|1.2|ㄘㄭ4为5/ㄉ中1ㄊ言1/要4/ㄉ中1ㄇ言2."
+    "zh|zf_002|1.2|ㄘㄭ4为5/ㄉ中1ㄊ言1/ㄅㄨ4ㄉ中1ㄇ言2."
    ],
-   "synth_s": 1.43,
+   "synth_s": 1.05,
    "status": "AI初审通过",
-   "duration": 1.92,
+   "duration": 1.848,
    "lufs": -16.4,
-   "tp": -2.4,
-   "pregain_db": 6.71,
-   "limiter_gr_db": 0.43,
+   "tp": -2.0,
+   "pregain_db": 6.57,
+   "limiter_gr_db": 0.35,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -78527,27 +78527,27 @@
    "grade": "K3"
   },
   "K3L-011#stem": {
-   "file": "K3L-011_stem.0c78ba707d.mp3",
-   "text": "下雨打雷时，可以躲到大树下面。",
+   "file": "K3L-011_stem.c78c37cd1c.mp3",
+   "text": "打雷下雨的时候，要躲进房子里，不能躲到大树下面。",
    "segments": [
     [
      "zh",
-     "下雨打雷时，可以躲到大树下面。"
+     "打雷下雨的时候，要躲进房子里，不能躲到大树下面。"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "0c78ba707d62696d7246030aba822f4c76323aba9b231f9b435fdc5ae2d7b686",
+   "hash": "c78c37cd1c976f7b5448c11dc596e3383ea1fd42909d5e6d7f8a003401511736",
    "phonemes": [
-    "zh|zf_002|1.2|ㄒ压4ㄩ3/ㄉㄚ3ㄌㄟ2/ㄕ十2, ㄎㄜ2ㄧ3/ㄉ我3ㄉㄠ4/ㄉㄚ4ㄕㄨ4/ㄒ压4ㄇ言4."
+    "zh|zf_002|1.2|ㄉㄚ3ㄌㄟ2/ㄒ压4ㄩ3/ㄉㄜ5/ㄕ十2ㄏㄡ5, 要4/ㄉ我3ㄐ阴4/ㄈㄤ2ㄗㄭ5/ㄌㄧ3, ㄅㄨ4ㄋㄥ2/ㄉ我3ㄉㄠ4/ㄉㄚ4ㄕㄨ4/ㄒ压4ㄇ言4."
    ],
-   "synth_s": 1.62,
+   "synth_s": 1.96,
    "status": "AI初审通过",
-   "duration": 3.168,
-   "lufs": -16.2,
-   "tp": -1.8,
-   "pregain_db": 8.24,
-   "limiter_gr_db": 1.42,
+   "duration": 4.512,
+   "lufs": -16.3,
+   "tp": -2.1,
+   "pregain_db": 8.46,
+   "limiter_gr_db": 1.1,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -85578,27 +85578,27 @@
    "grade": "K3"
   },
   "K3N-025#stem": {
-   "file": "K3N-025_stem.a50a997430.mp3",
-   "text": "5和5合起来是10。",
+   "file": "K3N-025_stem.e786e1df8b.mp3",
+   "text": "5和4合起来是10。",
    "segments": [
     [
      "zh",
-     "5和5合起来是10。"
+     "5和4合起来是10。"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "a50a997430bdeec63f96569d1726ef5accd3f841c4622158a6eb20fdadba954a",
+   "hash": "e786e1df8b46e1d922a0f41f6d3fa517fd4b06625b5e3a82d1e6b432a7514044",
    "phonemes": [
-    "zh|zf_002|1.2|ㄨ3/ㄏㄜ2/ㄨ3ㄏㄜ2/ㄑㄧ3ㄌㄞ5/ㄕ十4/ㄕ十2."
+    "zh|zf_002|1.2|ㄨ3/ㄏㄜ2/ㄙㄭ4ㄏㄜ2/ㄑㄧ3ㄌㄞ5/ㄕ十4/ㄕ十2."
    ],
-   "synth_s": 3.01,
+   "synth_s": 0.8,
    "status": "AI初审通过",
-   "duration": 1.944,
-   "lufs": -16.4,
-   "tp": -2.3,
-   "pregain_db": 6.7,
-   "limiter_gr_db": 0.19,
+   "duration": 2.064,
+   "lufs": -16.3,
+   "tp": -2.2,
+   "pregain_db": 7.27,
+   "limiter_gr_db": 0.91,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -91553,6 +91553,20 @@
     ]
    },
    "note": "v44: K2N-033, K3C-058/066/069 stem tts_text 个→只 (量词只 rule → zhī); K1 text identical to v44"
+  },
+  "v45": {
+   "date": "2026-10-19",
+   "changes": {
+    "K3D-018#stem": "K3D-018_stem.e25363c4b5.mp3 -> K3D-018_stem.27d1653a0b.mp3",
+    "K3L-011#stem": "K3L-011_stem.0c78ba707d.mp3 -> K3L-011_stem.c78c37cd1c.mp3",
+    "K3N-025#stem": "K3N-025_stem.a50a997430.mp3 -> K3N-025_stem.e786e1df8b.mp3",
+    "removed_unreferenced": [
+     "K3D-018_stem.e25363c4b5.mp3",
+     "K3L-011_stem.0c78ba707d.mp3",
+     "K3N-025_stem.a50a997430.mp3"
+    ]
+   },
+   "note": "v45: K3D-018/K3L-011/K3N-025 判断 stem tts_text changed; K1/K2 text identical to v45"
   }
  },
  "banks": {
@@ -91567,7 +91581,7 @@
   },
   "K3": {
    "bank": "题库_幼儿园大班.json",
-   "version": "v44",
+   "version": "v45",
    "keys": 1246
   }
  },
