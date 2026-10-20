@@ -79,7 +79,8 @@ export function ensureBoss(chs: Chapter[]): Chapter[] {
       const ls = ch.levels.filter(l => l.volume === v && !l.redirect); const pool = [...new Set(ls.flatMap(l => l.pool))];
       if (ls.length < 2 || pool.length < 8) continue;
       const last = ls[ls.length - 1];
-      ch.levels.splice(ch.levels.indexOf(last) + 1, 0, { id: `${ch.subject}|VB|${pool[0]}`, chapter: ch.subject, index: 0, kind: 'boss', name: '本册 Boss', pool, volume: v, unit: last.unit });
+      const id = `${ch.subject}|VB|${pool[0]}`;   // r16.1（题库 v47）：5B / 6B 从 Unit 1 开始，本册 Boss id 变了（E5-034→E5-031、E6-031→E6-028）——旧 id 走 levelAliases.json，星星不丢
+      ch.levels.splice(ch.levels.indexOf(last) + 1, 0, { id, chapter: ch.subject, index: 0, kind: 'boss', name: '本册 Boss', pool, volume: v, unit: last.unit, ...(ALIASES[id] ? { aliases: [...ALIASES[id]] } : {}) });
     }
     ch.levels.forEach((l, i) => { l.index = i + 1; });
   }

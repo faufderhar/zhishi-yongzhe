@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-6年级-v46（AI初审）",
- "version": "v46",
+ "bank_name": "三兄妹题库-6年级-v47（AI初审）",
+ "version": "v47",
  "questions": [
   {
    "id": "M6-001",
@@ -2497,6 +2497,150 @@
    ]
   },
   {
+   "id": "E6-028",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 1 The lion and the mouse",
+   "type": "选择",
+   "question": "The lion ___ the mouse go.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "to let",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "let",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "lets",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "letting",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "故事用过去时，let 的过去式还是 let。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 1 The lion and the mouse",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tfb5cd1",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 The lion and the mouse"
+   ]
+  },
+  {
+   "id": "E6-029",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 1 The lion and the mouse",
+   "type": "选择",
+   "question": "The mouse made a big hole in the net ___ his teeth.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "on",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "by",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "in",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "with",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "用牙齿 with his teeth。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 1 The lion and the mouse",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tfb5cd1",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 The lion and the mouse"
+   ]
+  },
+  {
+   "id": "E6-030",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 1 The lion and the mouse",
+   "type": "选择",
+   "question": "这个故事告诉我们：",
+   "tts_text": "这个故事告诉我们：",
+   "options": [
+    {
+     "text": "网很结实",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "小的朋友也能帮大忙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老鼠很危险",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "狮子不会说话",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "寓意：不要小看弱小者。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 1 The lion and the mouse",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tdd7e23",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 The lion and the mouse"
+   ]
+  },
+  {
    "id": "E6-031",
    "status": "AI初审通过",
    "subject": "英语",
@@ -3058,6 +3202,55 @@
    "tags": [
     "英语",
     "Unit 5 A party"
+   ]
+  },
+  {
+   "id": "E6-044",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 6 An interesting country",
+   "type": "选择",
+   "question": "The capital of Australia is ___.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "Canberra",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Sydney",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Melbourne",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "London",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "澳大利亚首都堪培拉。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 6 An interesting country",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T06275c",
+   "usage": "boss",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 6 An interesting country"
    ]
   },
   {
@@ -3767,6 +3960,102 @@
    ]
   },
   {
+   "id": "E6-060",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 1 The lion and the mouse",
+   "type": "选择",
+   "question": "The mouse was small, but it ___ the lion.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "helped",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "help",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "helping",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "helps",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "故事用过去时。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 1 The lion and the mouse",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tf6f28b",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 The lion and the mouse"
+   ]
+  },
+  {
+   "id": "E6-157",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 1 The lion and the mouse",
+   "type": "选择",
+   "question": "At the end of the story, the lion and the mouse became ___.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "friends",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "friend",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "a friend",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "enemies",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "故事最后狮子和老鼠成了朋友：became friends。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 1 The lion and the mouse",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T051823",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 The lion and the mouse"
+   ]
+  },
+  {
    "id": "Y6-001",
    "status": "AI初审通过",
    "subject": "语文",
@@ -4257,6 +4546,53 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tf760e6",
    "change_tag": "未改",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y6-014",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "unit": "六下·文言文 学弈",
+   "type": "选择",
+   "question": "弈秋教两人下棋，谁学得好？",
+   "options": [
+    {
+     "text": "两人都一样",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "都不学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "专心致志的那个",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一边学一边想着射天鹅的",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "学习要专心。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "语文",
+   "review_note": "暂用旧版，新版目录未公开（统编六下 2027 春新版，核对日期 2026-10-19）；《学弈》按旧版六下第五单元出",
+   "game_ready": true,
+   "review_changed": "是",
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T8dae25",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -4753,6 +5089,52 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T786ca3",
    "change_tag": "未改",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y6-026",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 6,
+   "textbook": "统编版",
+   "unit": "六下·文言文 学弈",
+   "type": "选择",
+   "question": "学弈的道理和下面哪句最接近？",
+   "options": [
+    {
+     "text": "天才不用学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "三心二意也能成功",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一心不能二用",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不用老师",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "专心致志。",
+   "difficulty": 1,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "语文",
+   "review_note": "暂用旧版，新版目录未公开（统编六下 2027 春新版，核对日期 2026-10-19）；《学弈》按旧版六下第五单元出",
+   "game_ready": true,
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T6917a5",
+   "change_tag": "修改",
    "tags": [
     "语文"
    ]
@@ -26764,6 +27146,54 @@
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T33ff13",
    "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 6 An interesting country"
+   ]
+  },
+  {
+   "id": "E6-043",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 6,
+   "textbook": "译林版（三年级起点）",
+   "unit": "6B Unit 6 An interesting country",
+   "type": "选择",
+   "question": "Australia is famous for kangaroos and ___.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "tigers",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "koalas",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "pandas",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "elephants",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "澳大利亚：袋鼠和考拉。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "六年级下册",
+   "knowledge_point": "Unit 6 An interesting country",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T06275c",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "Unit 6 An interesting country"

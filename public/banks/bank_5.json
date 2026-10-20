@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-5年级-v46（AI初审）",
- "version": "v46",
+ "bank_name": "三兄妹题库-5年级-v47（AI初审）",
+ "version": "v47",
  "questions": [
   {
    "id": "M5-001",
@@ -3128,6 +3128,246 @@
    "tags": [
     "英语",
     "Unit 8 We love festivals"
+   ]
+  },
+  {
+   "id": "E5-031",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "Cinderella can't go to the party because she has no ___ clothes.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "nicely",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "nicer",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "nices",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "nice",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "no nice clothes。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tfb5cd1",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-032",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "The prince ___ Cinderella's shoe.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "finds",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "find",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "finding",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "to find",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "一般现在时三单 finds（课文叙述）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tfb5cd1",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-033",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "— Why are you sad? — ___ I can't go to the party.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "So",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "But",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Because",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "And",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "回答 Why 用 Because。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T06ddd4",
+   "change_tag": "修改",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-154",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "The fairy gives Cinderella ___ nice clothes and a pair of shoes.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "any",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "some",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "much",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "a",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "肯定句里表示「一些」用 some。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Tc697d8",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-155",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "— ___ can't Cinderella go to the party? — Because she has no nice clothes.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "What",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Where",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Why",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "When",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "答句用 Because 说原因，问句用 Why。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T978416",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
    ]
   },
   {
@@ -21322,6 +21562,31 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T4807dd",
+   "change_tag": "新增",
+   "tags": [
+    "语文"
+   ]
+  },
+  {
+   "id": "Y5-169",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 5,
+   "textbook": "统编版",
+   "unit": "五上·白鹭",
+   "type": "判断",
+   "question": "在新版中，《白鹭》放在五上第七单元。",
+   "answer": "对",
+   "explanation": "新版五年级上册把《白鹭》编在第七单元（旧版在第一单元）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级上册",
+   "knowledge_point": "语文",
+   "review_note": "已用两个来源核对：新版五年级上册《白鹭》在第七单元（电子课本网 dzkbw 五上 2026 版目录、教习网）",
+   "game_ready": true,
+   "review_changed": "是",
+   "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
+   "template": "T2f0143",
    "change_tag": "新增",
    "tags": [
     "语文"

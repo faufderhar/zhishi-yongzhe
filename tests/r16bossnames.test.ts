@@ -14,6 +14,9 @@ const BOSS_CSV = [...readFileSync('scripts/import-boss-names.py', 'utf8').matchA
 it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
   const miss = missing(...BOSS_CSV);
   skip(miss.length > 0, `开发机题库源不在（CI）：缺 ${miss.join('、')}——不重新生成比对`);
+  // r16.1：游戏用的是题库 v47；盒子上的源目录已经升到 v48（v48 原地改了 初二Boss名对照_v36.csv 的两个名字，见 README v48）——源版本不是 v46 / v47 就不重新生成（也不会把 gen.json 改成 v48 的名字）
+  const ver = missing(boxPath('questions/src/VERSION')).length ? '' : readFileSync(boxPath('questions/src/VERSION'), 'utf8').trim();
+  skip(!['v46', 'v47'].includes(ver), `题库源是 ${ver}，gen.json 钉在 v47——不重新生成比对`);
   const before = readFileSync('src/game/chapterBoss.gen.json', 'utf8');
   execFileSync('python3', ['scripts/import-boss-names.py', boxPath('questions')]);
   expect(readFileSync('src/game/chapterBoss.gen.json', 'utf8')).toBe(before);
@@ -39,5 +42,5 @@ it('中班 / 初二 / 高二每个章节 Boss 都有对照表名字；对照表�
 });
 it('Boss 数（只算可见的科目 / 册别，第 10 步 visibility）：中班 23 / 初二 77 / 高二 75（v46 高二地理选必二第三节进游戏后整册可见，第三节并进第二章，Boss 数同 v45 题库；设计稿 26 / 107 / 89 含还没开 / 还没进题库的初二生物地理、高二物理；中班差 3 个待策划确认）', () => {
   const n = (g: string) => { const all0 = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const vis = computeVisibility(all0); const all = all0.filter(q => !isHiddenBy(vis, q)); return buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.kind === 'boss').length; };
-  expect([n('K2'), n('8'), n('11')]).toEqual([23, 77, 75]);
+  expect([n('K2'), n('8'), n('11')]).toEqual([23, 107, 75]);   // r16.1 题库 v47：初二生物 14 + 地理 16 个章 Boss 开放 → 77 + 30 = 107（= 设计稿初二 107）
 });

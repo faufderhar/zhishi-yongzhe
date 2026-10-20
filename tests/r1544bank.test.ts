@@ -24,8 +24,8 @@ describe('题库 v32 / v33 / v34 导入', () => {
     for (const g of G) { const b = loadBank(raw(g), ''); for (const c of buildChapters(playable(b.all, false), null, b.all)) for (const l of c.levels) { cov.add(l.id); (l.aliases ?? []).forEach(a => cov.add(a)); (l.parts ?? []).forEach(a => cov.add(a)); } }
     expect(old.length).toBe(1165); expect(old.filter(i => !cov.has(i))).toEqual([]);
   });
-  it('其他年级没有 usage 字段 → 普通 / Boss 关不受 v34 新列影响', () => {
-    for (const g of G) expect(raw(g).questions.filter((q: { usage?: string }) => q.usage != null).length, g).toBe(0);
+  it('其他年级没有 usage 字段 → 普通 / Boss 关不受 v34 新列影响（v47：六年级只有 E6-044 = usage boss，进 6B 本册 Boss 题池，见 给程序的配合说明_v47 §5）', () => {
+    for (const g of G) expect(raw(g).questions.filter((q: { usage?: string }) => q.usage != null).map((q: { id: string; usage?: string }) => `${q.id}:${q.usage}`), g).toEqual(g === '6' ? ['E6-044:boss'] : []);
   });
   it('游戏题库里没有一道「需家长确认」的题', () => {
     for (const g of G) expect(raw(g).questions.filter((q: { status: string }) => q.status === '需家长确认').map((q: { id: string }) => q.id), g).toEqual([]);

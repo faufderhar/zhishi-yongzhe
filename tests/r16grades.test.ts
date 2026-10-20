@@ -23,10 +23,10 @@ it('档案年级 / 内置题库 / 首页 / 学段入口：K2、8、11 打开；K
   expect(STAGES.find(s => s.id === 'K')!.grades.map(x => x.key)).toEqual(['K1', 'K2']);
   expect([bandOf('K2'), bandOf('8'), bandOf('11')]).toEqual(['K', 'J', 'H']);
 });
-it('强制隐藏：初二生物 / 地理、高二物理；别的年级同名科目不受影响（不依赖题库里有没有这些题）', () => {
-  expect(FORCE_HIDDEN).toEqual({ '8': ['生物', '地理'], '11': ['物理'] });
+it('强制隐藏：高二物理（r16.1 起初二生物 / 地理不再强制隐藏）；别的年级同名科目不受影响（不依赖题库里有没有这些题）', () => {
+  expect(FORCE_HIDDEN).toEqual({ '11': ['物理'] });   // r16.1（总管）：题库 v47 初二生物 / 地理够题，解除强制隐藏
   const v = computeVisibility([]); const q = (grade: string, subject: string) => ({ grade, subject, volume: '任意册' }) as Question;
-  expect(isHiddenBy(v, q('8', '生物'))).toBe(true); expect(isHiddenBy(v, q('8', '地理'))).toBe(true); expect(isHiddenBy(v, q('11', '物理'))).toBe(true);
+  expect(isHiddenBy(v, q('8', '生物'))).toBe(false); expect(isHiddenBy(v, q('8', '地理'))).toBe(false); expect(isHiddenBy(v, q('11', '物理'))).toBe(true);
   expect(isHiddenBy(v, q('8', '物理'))).toBe(false); expect(isHiddenBy(v, q('10', '物理'))).toBe(false); expect(isHiddenBy(v, q('11', '生物'))).toBe(false); expect(isHiddenBy(v, q('7', '生物'))).toBe(false);
 });
 it('三个新年级题库能读、0 坏题，能建关；每章有 Boss', () => {

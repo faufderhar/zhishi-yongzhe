@@ -23,11 +23,11 @@ describe('题量门槛', () => {
     expect(isHiddenBy(v, q('数学', '上册'))).toBe(true); expect(isHiddenBy(v, q('数学', '下册'))).toBe(false);
     expect(v.hiddenSubj.has('7|英语')).toBe(true); expect(v.hiddenSubj.has('7|数学')).toBe(false);
   });
-  it('强制隐藏（总管）独立于门槛：题量够也藏；可以只藏一个册别', () => {
-    const v = computeVisibility([...mk('8', '生物', '八年级上册', 'A', 40), ...mk('8', '数学', '八年级上册', 'A', 40)]);
-    expect(isHiddenBy(v, { grade: '8', subject: '生物', volume: '八年级上册' })).toBe(true); expect(v.rows.find(r => r.subject === '生物')?.why).toBe('force');
-    expect(isHiddenBy(v, { grade: '8', subject: '数学', volume: '八年级上册' })).toBe(false);
-    expect(FORCE_HIDDEN).toEqual({ '8': ['生物', '地理'], '11': ['物理'] });   // 总管 r16：先不开；以后取消 = 删这一行
+  it('强制隐藏（总管）独立于门槛：题量够也藏；可以只藏一个册别', () => {   // r16.1：初二生物解除后，用仍强制隐藏的高二物理验证
+    const v = computeVisibility([...mk('11', '物理', '必修第三册', 'A', 40), ...mk('11', '数学', '选择性必修第一册', 'A', 40)]);
+    expect(isHiddenBy(v, { grade: '11', subject: '物理', volume: '必修第三册' })).toBe(true); expect(v.rows.find(r => r.subject === '物理')?.why).toBe('force');
+    expect(isHiddenBy(v, { grade: '11', subject: '数学', volume: '选择性必修第一册' })).toBe(false);
+    expect(FORCE_HIDDEN).toEqual({ '11': ['物理'] });   // 总管 r16：先不开；r16.1（v47）初二生物 / 地理已解除
   });
   it('幼儿园不用门槛', () => { expect(AUTO_EXEMPT_GRADES.has('K2')).toBe(true); expect(autoHidden(mk('K2', '数数', '中班', 'A', 3))).toEqual([]); });
 });

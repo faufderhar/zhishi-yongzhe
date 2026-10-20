@@ -16,8 +16,9 @@ for (const g of ['7', '10']) it.skipIf(!existsSync(`/tmp/v24/bank_${g}.json`))(`
 });
 it('r15.4.4（总管）：需家长确认的题不进游戏题库（导入时去掉，打开「显示待审核题」也不出）；「五上·白鹭」照常成关', () => {
   const all = loadBank(JSON.parse(readFileSync('public/banks/bank_5.json', 'utf8')), '').all;
-  expect(all.some(x => x.id === 'Y5-169')).toBe(false);
-  expect(playable(all, true).some(x => x.id === 'Y5-169')).toBe(false);
+  // r16.1 题库 v47：Y5-169《白鹭》两源核对后解除需家长确认、进游戏（给程序的配合说明_v47 §5）；需家长确认的题仍不进
+  expect(all.some(x => x.id === 'Y5-169')).toBe(true); expect(all.some(x => x.status === '需家长确认')).toBe(false);
+  expect(playable(all, true).length).toBe(playable(all, false).length);
   const lv = buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.lesson?.includes('白鹭') && !l.redirect && l.kind !== 'boss');
   expect(lv.length).toBeGreaterThan(0); expect(lv.reduce((a, l) => a + l.pool.length, 0)).toBeGreaterThanOrEqual(9);
 });

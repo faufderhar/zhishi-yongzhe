@@ -32,6 +32,7 @@ describe('r16 sections', () => {
     expect(new Set(names).size).toBe(names.length);
   });
   // r16.1 (h)：初一「基础积累（字词·病句）」、高一「拓展（课外·毛泽东诗词）」的关名 / 显示单元名不再在括号里截断（原来是「病句）」「毛泽东诗词）」），
+  // r16.1 (o) 题库 v47：5 / 6 年级只多了 5B / 6B Unit 1 普通关，本册 Boss 换 id（旧 id 作别名，tests/r161v47.test.ts），已有关卡不变——5 / 6 的指纹按此更新
   // 7 / 10 的指纹按此更新；逐关对比确认只有这 2 关的 name / unit 变了，id / 题池 / 章不变（tests/r161titles.test.ts）
   it('existing grades: chapters / level ids / names unchanged', () => {
     const want = JSON.parse(readFileSync('tests/fixtures/r16_old_levels.json', 'utf8')) as Record<string, string>;

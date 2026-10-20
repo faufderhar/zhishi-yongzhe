@@ -10,10 +10,13 @@ import { playable } from './questions';
 
 export const MIN_SECTION_QS = 10;
 /** 总管强制隐藏：'科目'（整科）或 '科目|册别'。r16：初二生物 / 地理、高二物理（教材版本已定，但 r16 先不开） */
-export const FORCE_HIDDEN: Partial<Record<GradeKey, string[]>> = { '8': ['生物', '地理'], '11': ['物理'] };
+// r16.1（总管，题库 v47）：初二生物 532 题 / 地理 524 题，80 个小节都 ≥ 10 题 → 解除强制隐藏，交给自动规则；高二物理仍强制隐藏
+export const FORCE_HIDDEN: Partial<Record<GradeKey, string[]>> = { '11': ['物理'] };
 export const AUTO_EXEMPT_GRADES = new Set<GradeKey>(['K1', 'K2', 'K3']);
 /** 自动规则豁免：'年级|科目|册别' */
-export const AUTO_EXEMPT = new Set<string>([]);
+/* r16.1（题库 v47）：小学下册新放进游戏的小节只有 5 题（5B / 6B Unit 1）和 2 题（六下《学弈》）——按规则整册会被藏掉，
+   但这三册 r16 线上就有（五下英语 69 题、六下英语 / 语文 271 题），藏掉 = 线上内容消失；豁免，见 STATUS.md（待总管确认） */
+export const AUTO_EXEMPT = new Set<string>(['5|英语|五年级下册', '6|英语|六年级下册', '6|语文|六年级下册']);
 
 export interface HideRow { grade: GradeKey; subject: string; volume: string; why: 'force' | 'auto'; unit?: string; n?: number }
 export interface Visibility { hiddenVol: Set<string>; hiddenSubj: Set<string>; rows: HideRow[] }

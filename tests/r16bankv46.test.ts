@@ -11,10 +11,13 @@ import { computeVisibility } from '../src/game/visibility';
 const fx = JSON.parse(readFileSync('tests/fixtures/r16_v45_revs.json', 'utf8')) as Record<string, { n: number; digest: string }>;
 const bank = (g: string) => loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), `bank_${g}.json`);
 const NEW = Array.from({ length: 12 }, (_, i) => `D11-${241 + i}`);
-it('内置题库是 v46', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v46'); });
+/** r16.1 题库 v47 新进游戏的题（纯新增：v46 已有的题 id / rev / 全部字段都没变） */
+const NEW47 = new Set(['E5-031', 'E5-032', 'E5-033', 'E5-154', 'E5-155', 'Y5-169', 'E6-028', 'E6-029', 'E6-030', 'E6-043', 'E6-044', 'E6-060', 'E6-157', 'Y6-014', 'Y6-026']);
+const isNew47 = (q: { id: string; grade: string; subject: string }) => NEW47.has(q.id) || (q.grade === '8' && (q.subject === '生物' || q.subject === '地理'));
+it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v4[67]$/); });
 it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）；高二只多了 D11-241～252', () => {
   for (const [g, f] of Object.entries(fx)) {
-    const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)));
+    const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)) && !isNew47(q));
     const lines = all.map(q => `${q.id}:${qRev(q)}`).sort();
     expect(lines.length, g).toBe(f.n); expect(createHash('sha256').update(lines.join('\n')).digest('hex').slice(0, 16), g).toBe(f.digest);
   }
