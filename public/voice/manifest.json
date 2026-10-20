@@ -6,14 +6,14 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v34 · K2 v42 · K3 v43",
+ "bank_version": "K1 v34 · K2 v44 · K3 v44",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
   "en": 1.2
  },
  "pron_overrides": 57,
- "generated": "2026-10-19T16:06:29-07:00",
+ "generated": "2026-10-19T16:57:12-07:00",
  "complete": true,
  "items": {
   "K-001#opt0": "K-001_opt0.f0d0f7a55e.mp3",
@@ -1253,7 +1253,7 @@
   "K2N-033#opt0": "K-001_opt0.f0d0f7a55e.mp3",
   "K2N-033#opt1": "K-001_opt1.deeceeab80.mp3",
   "K2N-033#opt2": "K-003_opt0.6925bfb3b8.mp3",
-  "K2N-033#stem": "K2N-033_stem.5df7c846f2.mp3",
+  "K2N-033#stem": "K2N-033_stem.560350450b.mp3",
   "K2N-034#opt0": "K-042_opt1.2addcea881.mp3",
   "K2N-034#opt1": "K-044_opt1.409ab3cc04.mp3",
   "K2N-034#opt2": "K-004_opt2.44d9e22494.mp3",
@@ -1595,7 +1595,7 @@
   "K3C-058#opt0": "K3C-058_opt0.e764a2f5ae.mp3",
   "K3C-058#opt1": "K-001_opt1.deeceeab80.mp3",
   "K3C-058#opt2": "K-001_opt2.9e21c5e89f.mp3",
-  "K3C-058#stem": "K3C-058_stem.5ee0455405.mp3",
+  "K3C-058#stem": "K3C-058_stem.f9901852f2.mp3",
   "K3C-059#opt0": "K2N-022_opt0.ed029e7ed2.mp3",
   "K3C-059#opt1": "K3C-059_opt1.a9198fa23f.mp3",
   "K3C-059#opt2": "K3C-059_opt2.4e587fc65f.mp3",
@@ -1627,7 +1627,7 @@
   "K3C-066#opt0": "K-034_opt0.6a9e17298c.mp3",
   "K3C-066#opt1": "K-003_opt0.6925bfb3b8.mp3",
   "K3C-066#opt2": "K-004_opt2.44d9e22494.mp3",
-  "K3C-066#stem": "K3C-066_stem.4f77031a79.mp3",
+  "K3C-066#stem": "K3C-066_stem.b0943b2c8f.mp3",
   "K3C-067#opt0": "K3C-067_opt0.3c5913e09a.mp3",
   "K3C-067#opt1": "K3C-067_opt1.d1209c9e7c.mp3",
   "K3C-067#opt2": "K3C-067_opt2.cdacfce782.mp3",
@@ -1639,7 +1639,7 @@
   "K3C-069#opt0": "K-003_opt0.6925bfb3b8.mp3",
   "K3C-069#opt1": "K-042_opt1.2addcea881.mp3",
   "K3C-069#opt2": "K-004_opt2.44d9e22494.mp3",
-  "K3C-069#stem": "K3C-069_stem.4ab87eef7c.mp3",
+  "K3C-069#stem": "K3C-069_stem.9a725f3041.mp3",
   "K3C-070#opt0": "K3C-070_opt0.51f98e986c.mp3",
   "K3C-070#opt1": "K3C-070_opt1.b8fd40dd77.mp3",
   "K3C-070#opt2": "K3C-070_opt2.09e1cce9db.mp3",
@@ -52980,27 +52980,27 @@
    "grade": "K2"
   },
   "K2N-033#stem": {
-   "file": "K2N-033_stem.5df7c846f2.mp3",
-   "text": "有两个小鸡，又来了一个小鸡，现在有几个小鸡？",
+   "file": "K2N-033_stem.560350450b.mp3",
+   "text": "有两只小鸡，又来了一只小鸡，现在有几只小鸡？",
    "segments": [
     [
      "zh",
-     "有两个小鸡，又来了一个小鸡，现在有几个小鸡？"
+     "有两支小鸡，又来了一支小鸡，现在有几支小鸡？"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "5df7c846f22bd61046d2a1d286589b94f9748f0483c4d2cf53183e65f0821e02",
+   "hash": "560350450b82c2a819cc8563fa04eb4a68922733e706cc52cd887d46f6b21cfa",
    "phonemes": [
-    "zh|zf_002|1.2|又2ㄌ阳3ㄍㄜ5/ㄒ要3ㄐㄧ1, 又4/ㄌㄞ2/ㄌㄜ5/ㄧ2ㄍㄜ5/ㄒ要3ㄐㄧ1, ㄒ言4ㄗㄞ4/又2ㄐㄧ3ㄍㄜ5/ㄒ要3ㄐㄧ1?"
+    "zh|zf_002|1.2|又2ㄌ阳3ㄓ十1/ㄒ要3ㄐㄧ1, 又4/ㄌㄞ2/ㄌㄜ5/ㄧ4ㄓ十1/ㄒ要3ㄐㄧ1, ㄒ言4ㄗㄞ4/又2ㄐㄧ3ㄓ十1/ㄒ要3ㄐㄧ1?"
    ],
-   "synth_s": 17.26,
+   "synth_s": 1.24,
    "status": "AI初审通过",
-   "duration": 3.936,
-   "lufs": -16.3,
-   "tp": -2.0,
-   "pregain_db": 8.3,
-   "limiter_gr_db": 2.7,
+   "duration": 4.104,
+   "lufs": -16.4,
+   "tp": -2.1,
+   "pregain_db": 8.21,
+   "limiter_gr_db": 1.79,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K2"
@@ -62304,27 +62304,27 @@
    "grade": "K3"
   },
   "K3C-058#stem": {
-   "file": "K3C-058_stem.5ee0455405.mp3",
-   "text": "看一看，小狗比小猫多几个？",
+   "file": "K3C-058_stem.f9901852f2.mp3",
+   "text": "看一看，小狗比小猫多几只？",
    "segments": [
     [
      "zh",
-     "看一看，小狗比小猫多几个？"
+     "看一看，小狗比小猫多几支？"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "5ee0455405a442522ba89a3367a945d2d2530610be8f334c56e6ff421db7d595",
+   "hash": "f9901852f2455acf5efe762f0161ebd1786482a59bc859bc191b13be3bb7952e",
    "phonemes": [
-    "zh|zf_002|1.2|ㄎㄢ4ㄧ5ㄎㄢ4, ㄒ要2ㄍㄡ2ㄅㄧ3/ㄒ要3ㄇㄠ1/ㄉ我1/ㄐㄧ3ㄍㄜ5?"
+    "zh|zf_002|1.2|ㄎㄢ4ㄧ5ㄎㄢ4, ㄒ要2ㄍㄡ2ㄅㄧ3/ㄒ要3ㄇㄠ1/ㄉ我1/ㄐㄧ3ㄓ十1?"
    ],
-   "synth_s": 4.78,
+   "synth_s": 0.68,
    "status": "AI初审通过",
-   "duration": 2.64,
+   "duration": 2.688,
    "lufs": -16.4,
-   "tp": -2.1,
-   "pregain_db": 7.77,
-   "limiter_gr_db": 2.48,
+   "tp": -2.2,
+   "pregain_db": 7.78,
+   "limiter_gr_db": 2.02,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -63177,27 +63177,27 @@
    "grade": "K3"
   },
   "K3C-066#stem": {
-   "file": "K3C-066_stem.4f77031a79.mp3",
-   "text": "看一看，蜜蜂和蝴蝶一共有几个？",
+   "file": "K3C-066_stem.b0943b2c8f.mp3",
+   "text": "看一看，蜜蜂和蝴蝶一共有几只？",
    "segments": [
     [
      "zh",
-     "看一看，蜜蜂和蝴蝶一共有几个？"
+     "看一看，蜜蜂和蝴蝶一共有几支？"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "4f77031a7917a681ff48b80ddf215abc1e9d72c550bcbc9c439c09a1930aaf02",
+   "hash": "b0943b2c8fab1063945474c792606ead54b0af521947831a33b6a09679c3d284",
    "phonemes": [
-    "zh|zf_002|1.2|ㄎㄢ4ㄧ5ㄎㄢ4, ㄇㄧ4ㄈㄥ1/ㄏㄜ2/ㄏㄨ2ㄉㄝ2/ㄧ2ㄍ中4/又2ㄐㄧ3ㄍㄜ5?"
+    "zh|zf_002|1.2|ㄎㄢ4ㄧ5ㄎㄢ4, ㄇㄧ4ㄈㄥ1/ㄏㄜ2/ㄏㄨ2ㄉㄝ2/ㄧ2ㄍ中4/又2ㄐㄧ3ㄓ十1?"
    ],
-   "synth_s": 14.59,
+   "synth_s": 1.25,
    "status": "AI初审通过",
-   "duration": 2.952,
-   "lufs": -16.3,
-   "tp": -2.1,
-   "pregain_db": 7.71,
-   "limiter_gr_db": 2.08,
+   "duration": 2.976,
+   "lufs": -16.4,
+   "tp": -1.8,
+   "pregain_db": 7.83,
+   "limiter_gr_db": 2.37,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -63501,27 +63501,27 @@
    "grade": "K3"
   },
   "K3C-069#stem": {
-   "file": "K3C-069_stem.4ab87eef7c.mp3",
-   "text": "看一看，蜜蜂有几个？",
+   "file": "K3C-069_stem.9a725f3041.mp3",
+   "text": "看一看，蜜蜂有几只？",
    "segments": [
     [
      "zh",
-     "看一看，蜜蜂有几个？"
+     "看一看，蜜蜂有几支？"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "4ab87eef7c3e311d2d2f9df7dacb145310e14d7ba760bc4f3332917116c6762a",
+   "hash": "9a725f30416d420cea2be2e13cc31a0172014310c837dd95b1c0dd4d561f6bb5",
    "phonemes": [
-    "zh|zf_002|1.2|ㄎㄢ4ㄧ5ㄎㄢ4, ㄇㄧ4ㄈㄥ1/又2ㄐㄧ3ㄍㄜ5?"
+    "zh|zf_002|1.2|ㄎㄢ4ㄧ5ㄎㄢ4, ㄇㄧ4ㄈㄥ1/又2ㄐㄧ3ㄓ十1?"
    ],
-   "synth_s": 14.66,
+   "synth_s": 1.14,
    "status": "AI初审通过",
-   "duration": 1.896,
+   "duration": 1.872,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 6.96,
-   "limiter_gr_db": 1.24,
+   "tp": -2.0,
+   "pregain_db": 6.8,
+   "limiter_gr_db": 1.01,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -91537,6 +91537,22 @@
     ]
    },
    "note": "大班 v43: K3N-005/K3N-033 tts_text 个→只 (量词只 rule → zhī); K1/K2 text identical to v43"
+  },
+  "v44": {
+   "date": "2026-10-19",
+   "changes": {
+    "K2N-033#stem": "K2N-033_stem.5df7c846f2.mp3 -> K2N-033_stem.560350450b.mp3",
+    "K3C-058#stem": "K3C-058_stem.5ee0455405.mp3 -> K3C-058_stem.f9901852f2.mp3",
+    "K3C-066#stem": "K3C-066_stem.4f77031a79.mp3 -> K3C-066_stem.b0943b2c8f.mp3",
+    "K3C-069#stem": "K3C-069_stem.4ab87eef7c.mp3 -> K3C-069_stem.9a725f3041.mp3",
+    "removed_unreferenced": [
+     "K2N-033_stem.5df7c846f2.mp3",
+     "K3C-058_stem.5ee0455405.mp3",
+     "K3C-066_stem.4f77031a79.mp3",
+     "K3C-069_stem.4ab87eef7c.mp3"
+    ]
+   },
+   "note": "v44: K2N-033, K3C-058/066/069 stem tts_text 个→只 (量词只 rule → zhī); K1 text identical to v44"
   }
  },
  "banks": {
@@ -91546,12 +91562,12 @@
   },
   "K2": {
    "bank": "题库_幼儿园中班.json",
-   "version": "v42",
+   "version": "v44",
    "keys": 1170
   },
   "K3": {
    "bank": "题库_幼儿园大班.json",
-   "version": "v43",
+   "version": "v44",
    "keys": 1246
   }
  },
