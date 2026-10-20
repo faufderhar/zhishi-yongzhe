@@ -1,4 +1,5 @@
 /* 题库 v0.3 schema（GDD §6.2）。JSON: {bank_name, version, questions:[...]}；CSV 见 csv.ts */
+import { STEM_MAX, OPTION_MAX } from './importCheck';
 export type QType = '选择' | '多选' | '判断' | '填空';
 export type Status = '待审核' | 'AI初审通过' | '需家长确认' | '已通过' | '停用';
 export const STATUSES: Status[] = ['待审核', 'AI初审通过', '需家长确认', '已通过', '停用'];
@@ -59,6 +60,7 @@ export function validateQuestion(q: any, ctxGrade?: GradeKey): string[] {
   if (!q || typeof q !== 'object') return ['不是对象'];
   if (!q.id) e.push('缺少 id');
   if (!String(q.question ?? '').trim() && !q.question_image) e.push('题干为空');
+  if (String(q.question ?? '').length > STEM_MAX) e.push(`题干太长（${String(q.question).length} 字，最多 ${STEM_MAX} 字）`);   // r16 技术QA P4
   const g = parseGradeKey(q.grade ?? ctxGrade);
   if (g === null) e.push(`grade 非法（应为 K1-K3 或 1-12）: ${q.grade}`);
   if (!String(q.subject ?? '').trim()) e.push('缺少 subject');
@@ -71,6 +73,7 @@ export function validateQuestion(q: any, ctxGrade?: GradeKey): string[] {
     if (opts.length < 2) e.push('选项少于 2 个');
     if (opts.length > 6) e.push('选项多于 6 个');
     if (opts.some(o => !String(o?.text ?? '').trim() && !o?.image)) e.push('有空选项');
+    if (opts.some(o => String(o?.text ?? '').length > OPTION_MAX)) e.push(`选项太长（最多 ${OPTION_MAX} 字）`);
     const letters = (Array.isArray(ans) ? ans.join('') : String(ans ?? '')).toUpperCase().replace(/[^A-Z]/g, '').split('');   // 数组答案先 join（技术QA P2-7）
     const valid = KEYS.slice(0, opts.length);
     if (letters.some(l => !valid.includes(l))) e.push(`answer 为 ${ans}，但只有 ${opts.length} 个选项`);

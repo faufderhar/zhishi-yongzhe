@@ -53,6 +53,7 @@ import { mergeAll, mergePreview } from '../db';
 import { exportAll, importAll, putImported, clearImported, validateBackup, currentPin, backupSecretOk, checkPinSaved } from '../db';
 import { logErr } from '../navLog';
 import { exportQuestion } from '../game/questions';
+import { sizeIssue, encodingIssue, countIssue, totalIssue, yieldFrame, IMPORT_MAX_BYTES, IMPORT_MAX_QUESTIONS, STEM_MAX } from '../game/importCheck';
 import { getKVStrict } from '../db';
 import { ResetWhy } from './ResetCancel';
 import { setKV, getKV, answersOf, wrongOf, rollupOf, rollupAdd, type AnswerRecord, type Rollup } from '../db';
@@ -378,26 +379,38 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
   const [pv, setPv] = useState<Preview | null>(null);
   const [msg, setMsg] = useState<string>();
   const rows = Object.entries(bank.builtin);
+  const [busy, setBusy] = useState<string>();
+  /* r16 技术QA P3/P4：选了新文件先清掉上一个文件的错误 / 预览；先看大小、再看编码（GBK 只报一条）、再看题数；每一步之前让出一帧画进度 */
   const onFile = async (f: File) => {
-    const text = await f.text();
-    let raw: any;
-    try { raw = /\.csv$/i.test(f.name) ? { questions: csvToQuestions(text) } : JSON.parse(text); }
-    catch (e) { setMsg('文件解析失败：' + (e as Error).message); return; }
-    const b = loadBank(raw, f.name);
-    const isUpd = b.all.filter(q => bank.byKey.has(q.key)).length;
-    const list: any[] = Array.isArray(raw) ? raw : raw?.questions ?? [];
-    setPv({ file: f.name, bank: b, isNew: b.all.length - isUpd, isUpd, raw: list });
+    setMsg(undefined); setPv(null);
+    const big = sizeIssue(f.size); if (big) { setMsg(big); return; }
+    setBusy(`正在读取 ${f.name}（${(f.size / 1024).toFixed(0)} KB）…`); await yieldFrame();
+    try {
+      const text = await f.text();
+      const enc = encodingIssue(text, f.name); if (enc) { setMsg(enc); return; }
+      setBusy('正在解析…'); await yieldFrame();
+      let raw: any;
+      try { raw = /\.csv$/i.test(f.name) ? { questions: csvToQuestions(text) } : JSON.parse(text); }
+      catch (e) { setMsg('文件解析失败：' + (e as Error).message); return; }
+      const list: any[] = Array.isArray(raw) ? raw : raw?.questions ?? [];
+      const many = countIssue(list.length); if (many) { setMsg(many); return; }
+      setBusy(`正在检查 ${list.length} 题…`); await yieldFrame();
+      const b = loadBank(raw, f.name);
+      const isUpd = b.all.filter(q => bank.byKey.has(q.key)).length;
+      setPv({ file: f.name, bank: b, isNew: b.all.length - isUpd, isUpd, raw: list });
+    } finally { setBusy(undefined); }
   };
   const doImport = async () => {
     if (!pv) return;
+    const over = totalIssue(bank.importedCount, pv.isNew); if (over) { setMsg(over); setPv(null); return; }
     const bad = new Set(pv.bank.bad.map(x => x.row - 1));
     // 存原始题目（补上年级与唯一键），状态以 status 为准，game_ready 重新计算
     /* r16：和内置题同号的——内容一样就不存（导出再导入的内置题不会变成「导入题」，以后题库升级照样生效）；
        内容不同就记下导入时内置题的版本 base_rev（内置题以后更新了，以新版为准，见 bankStore.mergeImported） */
     const builtinBy = new Map<string, Question>(); for (const b of Object.values(bank.builtin)) for (const q of b.all) builtinBy.set(q.key, q);
-    let same = 0;
+    let same = 0; const byOrder = new Map(pv.bank.all.map(x => [x.order, x]));   // r16：以前每行 find 一遍（题多时 O(n²)）
     const good = pv.raw.map((r, i) => [r, i] as const).filter(([, i]) => !bad.has(i)).flatMap(([r, i]) => {
-      const q = pv.bank.all.find(x => x.order === i)!; const bq = builtinBy.get(q.key);
+      const q = byOrder.get(i); if (!q) return []; const bq = builtinBy.get(q.key);
       if (bq && qRev(bq) === qRev(q)) { same++; return []; }
       return [{ ...r, grade: q.grade, key: q.key, status: q.status, game_ready: q.status === '已通过' || q.status === 'AI初审通过', ...(bq ? { base_rev: qRev(bq) } : {}) }];
     });
@@ -442,14 +455,15 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
       </table>
       <div className="row gap16 wrap">
         <input ref={fileRef} type="file" accept=".json,.csv,application/json,text/csv" hidden data-testid="import-file" onChange={e => { const f = e.target.files?.[0]; if (f) onFile(f); e.target.value = ''; }} />
-        <button className="btn" onClick={() => fileRef.current?.click()}>📥 导入题库（JSON / CSV）</button>
+        <button className="btn" data-testid="import-pick" disabled={!!busy} onClick={() => fileRef.current?.click()}>📥 导入题库（JSON / CSV）</button>
+        {busy && <p className="note" data-testid="import-busy" role="status"><span className="spin" aria-hidden="true">⏳</span> {busy}</p>}
         <button className="btn ghost" disabled={!bank.importedCount} onClick={async () => { await clearImported(); await reloadBank(); setMsg('已清除导入的题，恢复内置题库'); }}>清除已导入（{bank.importedCount}）</button>
         {(bank.importedSuperseded ?? 0) > 0 && <p className="hint" data-testid="import-superseded">有 {bank.importedSuperseded} 道导入题和内置题同号，内置题已经更新，现在用内置的新版（需要的话可以重新导入）。</p>}
         {bank.importedInvalid > 0 && <p className="warn" data-testid="import-invalid">有 {bank.importedInvalid} 道导入题格式不对，已暂停使用（请修改后重新导入）。</p>}
       </div>
-      {msg && <p className="note">{msg}</p>}
+      {msg && <p className="note" data-testid="import-msg">{msg}</p>}
       {flagged.length > 0 && <div><b>孩子标记「这题有错」：</b>{flagged.map(([k, n]) => <span key={k} className="tag">{k} ×{n}</span>)}</div>}
-      <p className="hint">导入规则：相同 年级+id 覆盖更新；以 status 为准重新计算 game_ready；年级取文件内 grade 字段或文件名，不看 id 前缀。xlsx 请先另存为 CSV（UTF-8）。</p>
+      <p className="hint">导入规则：相同 年级+id 覆盖更新；以 status 为准重新计算 game_ready；年级取文件内 grade 字段或文件名，不看 id 前缀。xlsx 请先另存为 CSV（UTF-8）。一次最多 {IMPORT_MAX_BYTES / 1024 / 1024} MB / {IMPORT_MAX_QUESTIONS} 题，题干最多 {STEM_MAX} 字。</p>
       {pv && <Modal onClose={() => setPv(null)}>
         <div className="editor" data-testid="import-preview">
           <h2>导入预览：{pv.file}</h2>
