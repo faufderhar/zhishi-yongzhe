@@ -31,6 +31,8 @@ describe('r16 sections', () => {
     const names = po.levels.filter(l => l.kind === 'normal' && /古诗词诵读/.test(l.name)).map(l => l.name);
     expect(new Set(names).size).toBe(names.length);
   });
+  // r16.1 (h)：初一「基础积累（字词·病句）」、高一「拓展（课外·毛泽东诗词）」的关名 / 显示单元名不再在括号里截断（原来是「病句）」「毛泽东诗词）」），
+  // 7 / 10 的指纹按此更新；逐关对比确认只有这 2 关的 name / unit 变了，id / 题池 / 章不变（tests/r161titles.test.ts）
   it('existing grades: chapters / level ids / names unchanged', () => {
     const want = JSON.parse(readFileSync('tests/fixtures/r16_old_levels.json', 'utf8')) as Record<string, string>;
     for (const g of Object.keys(want)) {

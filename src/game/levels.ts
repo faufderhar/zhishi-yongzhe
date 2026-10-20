@@ -42,7 +42,8 @@ export function splitDot(u: string, parens?: boolean): string[] {
 }
 export function shortUnit(u?: string) {
   if (!u) return '';
-  const parts = splitDot(u);   // 书名号 / 括号里的「·」（《清平乐·村居》）不拆
+  // r16.1：显示名一律不拆括号里的「·」（旧年级 splitDot 默认拆，导致地图显示「病句）」「毛泽东诗词）」）；章 key 仍用 chapterOf 的旧拆法，关卡 id 不变
+  const parts = splitDot(u, true);   // 书名号 / 括号里的「·」（《清平乐·村居》）不拆
   return (parts[parts.length - 1] || u).replace(/^第[一二三四五六七八九十\d]+(?:单元|[章课节])\s*/, '');
 }
 
