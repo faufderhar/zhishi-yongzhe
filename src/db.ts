@@ -75,11 +75,12 @@ export const wrongOf = (pid: string) => safe<WrongEntry[]>(async () => (await db
 export const putWrong = (e: WrongEntry) => safeW(async () => { await (await db()).put('wrong', e); });
 export const delWrong = (id: string) => safe(async () => { await (await db()).delete('wrong', id); }, undefined);
 export const importedQuestions = () => safe<any[]>(async () => (await db()).getAll('bank'), []);
-export const putImported = (qs: any[]) => safe(async () => {
+/** r16.2 技术QA B5：返回是否真的存下（事务 complete 之后才算 true）；配额满 / 隐私模式 / 被回收时 false（以前吞掉错误，界面照样说「已导入」） */
+export const putImported = (qs: any[]): Promise<boolean> => safeW(async () => {
   const tx = (await db()).transaction('bank', 'readwrite');
   for (const q of qs) await tx.store.put(q);
   await tx.done;
-}, undefined);
+});
 export const clearImported = () => safe(async () => { await (await db()).clear('bank'); }, undefined);
 
 /** 备份：导出全部数据为 JSON */

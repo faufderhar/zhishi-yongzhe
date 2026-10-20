@@ -413,6 +413,18 @@ export function SupersededNote({ n, list }: { n: number; list: SupRow[] }) {
 interface Preview { file: string; bank: Bank; isNew: number; isUpd: number; same: number; raw: any[]; hidden: number; playable: number; over: string | null }
 /** r16.1 (m) 技术QA P3-2：导入题里属于隐藏科目 / 册别的（如初二生物地理、高二物理）照样存下，但游戏里看不到——单独数出来 */
 export const hiddenCount = (bank: Pick<BankState, 'vis'>, qs: Question[]) => bank.vis ? qs.filter(q => q.status !== '停用' && isHiddenBy(bank.vis!, q)).length : 0;
+/* r16.2 技术QA B4–B8：导入题库没有一条路径是「什么都不说」 */
+/** 预览关掉（取消 / ✕）——点弹窗外面不再关 */
+export const IMPORT_CANCELLED = '未导入：预览已关闭，没有导入任何题。';
+/** 读文件 / 解析 / 检查时出的任何错，同一句话 */
+export const importFailMsg = (why: string) => `导入失败：${why}。没有导入任何题。`;
+export const IMPORT_SAVE_FAILED = '保存失败：题目没能存进这台设备（可能是存储空间不足，或浏览器在隐私 / 无痕模式）。这次没有导入任何题，请清理空间或换普通窗口后再试。';
+/** 把 JSON 里的 questions 取出来；不是列表就报原因（以前 {questions:{…}} 直接抛 n.forEach is not a function，界面什么都没有） */
+export function questionList(raw: unknown): { list: any[] } | { error: string } {
+  if (Array.isArray(raw)) return { list: raw };
+  if (raw && typeof raw === 'object' && 'questions' in raw) { const q = (raw as { questions: unknown }).questions; return Array.isArray(q) ? { list: q } : { error: '文件格式不对：questions 应该是题目列表（数组）' }; }
+  return { error: '文件格式不对：找不到题目列表（应为题目数组，或带 questions 数组的对象）' };
+}
 /** r16.2 技术QA B2（P3-2 剩下的一半）：导入预览和导入结果共用的计数——「可玩」不含会被隐藏的题（以前预览「可玩 25」、结果「已导入 25 题」，其中 12 题高二物理玩不到）。
     可玩 = 状态可玩（已通过 / AI初审通过）且不在隐藏科目 / 册别里；会被隐藏 = hiddenCount（和内置题一样的不算，那些仍用内置题） */
 export function importCounts(bank: Pick<BankState, 'vis'>, b: Pick<Bank, 'all'>, same: Set<number>) {
@@ -437,6 +449,8 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
   const fileRef = useRef<HTMLInputElement>(null);
   const [pv, setPv] = useState<Preview | null>(null);
   const [msg, setMsg] = useState<string>();
+  const msgRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => { if (msg) msgRef.current?.scrollIntoView?.({ block: 'nearest' }); }, [msg]);   // r16.2 B8：360×640 结果提示第二行在屏幕外
   const rows = Object.entries(bank.builtin);
   const [busy, setBusy] = useState<string>();
   /* r16 技术QA P3/P4：选了新文件先清掉上一个文件的错误 / 预览；先看大小、再看编码（GBK 只报一条）、再看题数；每一步之前让出一帧画进度 */
@@ -445,19 +459,22 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
     const big = sizeIssue(f.size); if (big) { setMsg(big); return; }
     setBusy(`正在读取 ${f.name}（${(f.size / 1024).toFixed(0)} KB）…`); await yieldFrame();
     try {
-      const text = await f.text();
+      let text: string;
+      try { text = await f.text(); } catch (e) { setMsg(importFailMsg(`文件读不出来（${(e as Error)?.message || e}）`)); return; }
       const enc = encodingIssue(text, f.name); if (enc) { setMsg(enc); return; }
       setBusy('正在解析…'); await yieldFrame();
       let raw: any;
       try { raw = /\.csv$/i.test(f.name) ? { questions: csvToQuestions(text) } : JSON.parse(text); }
-      catch (e) { setMsg('文件解析失败：' + (e as Error).message); return; }
-      const list: any[] = Array.isArray(raw) ? raw : raw?.questions ?? [];
+      catch (e) { setMsg(importFailMsg(`文件解析失败（${(e as Error)?.message || e}）`)); return; }
+      const ql = questionList(raw); if ('error' in ql) { setMsg(importFailMsg(ql.error)); return; }
+      const list = ql.list; if (!list.length) { setMsg(importFailMsg('文件里没有题目')); return; }
       const many = countIssue(list.length); if (many) { setMsg(many); return; }
       setBusy(`正在检查 ${list.length} 题…`); await yieldFrame();
       const b = loadBank(raw, f.name);
       const cls = classifyImport(bank, b, list);
       setPv({ file: f.name, bank: b, isNew: cls.isNew, isUpd: cls.isUpd, same: cls.same.size, raw: list, ...importCounts(bank, b, cls.same), over: totalIssue(bank.importedCount, cls.isNew) });   // r16.1 (n)：超总量在预览就说
-    } finally { setBusy(undefined); }
+    } catch (e) { setPv(null); setMsg(importFailMsg(`检查题目时出错（${(e as Error)?.message || e}）`)); }   // r16.2 B6：loadBank / classifyImport 抛错也要说
+    finally { setBusy(undefined); }
   };
   const doImport = async () => {
     if (!pv) return;
@@ -474,7 +491,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
       if (cls.same.has(i)) return [];
       return [{ ...r, grade: q.grade, key: q.key, status: q.status, game_ready: q.status === '已通过' || q.status === 'AI初审通过', ...(bq ? { base_rev: qRev(bq) } : {}) }];
     });
-    await putImported(good);
+    if (!(await putImported(good))) { setPv(null); setMsg(IMPORT_SAVE_FAILED); return; }   // r16.2 B5：事务完成才算成功
     const n = importCounts(bank, pv.bank, cls.same);   // r16.2：和预览同一个计数函数
     setMsg(importResultMsg({ saved: good.length, isNew: pv.isNew, isUpd: pv.isUpd, same, bad: pv.bank.bad.length, ...n }));
     setPv(null); await reloadBank();
@@ -516,16 +533,16 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
       </table>
       <div className="row gap16 wrap">
         <input ref={fileRef} type="file" accept=".json,.csv,application/json,text/csv" hidden data-testid="import-file" onChange={e => { const f = e.target.files?.[0]; if (f) onFile(f); e.target.value = ''; }} />
-        <button className="btn" data-testid="import-pick" disabled={!!busy} onClick={() => fileRef.current?.click()}>📥 导入题库（JSON / CSV）</button>
+        <button className="btn" data-testid="import-pick" disabled={!!busy} onClick={() => { setMsg(undefined); fileRef.current?.click(); }}>📥 导入题库（JSON / CSV）</button>
         {busy && <p className="note" data-testid="import-busy" role="status"><span className="spin" aria-hidden="true">⏳</span> {busy}</p>}
         <button className="btn ghost" disabled={!bank.importedCount} onClick={async () => { await clearImported(); await reloadBank(); setMsg('已清除导入的题，恢复内置题库'); }}>清除已导入（{bank.importedCount}）</button>
         {(bank.importedSuperseded ?? 0) > 0 && <SupersededNote n={bank.importedSuperseded!} list={bank.importedSupersededList ?? []} />}
         {bank.importedInvalid > 0 && <p className="warn" data-testid="import-invalid">有 {bank.importedInvalid} 道导入题格式不对，已暂停使用（请修改后重新导入）。</p>}
       </div>
-      {msg && <p className="note" data-testid="import-msg">{msg}</p>}
+      {msg && <p className="note" data-testid="import-msg" role="status" ref={msgRef}>{msg}</p>}
       {flagged.length > 0 && <div><b>孩子标记「这题有错」：</b>{flagged.map(([k, n]) => <span key={k} className="tag">{k} ×{n}</span>)}</div>}
       <p className="hint">导入规则：相同 年级+id 覆盖更新；以 status 为准重新计算 game_ready；年级取文件内 grade 字段或文件名，不看 id 前缀。xlsx 请先另存为 CSV（UTF-8）。一次最多 {IMPORT_MAX_BYTES / 1024 / 1024} MB / {IMPORT_MAX_QUESTIONS} 题，题干最多 {STEM_MAX} 字。</p>
-      {pv && <Modal onClose={() => setPv(null)}>
+      {pv && <Modal>{/* r16.2 B4：点弹窗外面不关（以前一点就悄悄关掉、没导入也不说）；只能点「取消」 */}
         <div className="editor" data-testid="import-preview">
           <h2>导入预览：{pv.file}</h2>
           <p>年级：{pv.bank.grade ? GRADE_LABEL[pv.bank.grade] : '按每题 grade'} · 共 {pv.bank.all.length + pv.bank.bad.length} 行</p>
@@ -538,7 +555,7 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
           </div>
           {pv.bank.bad.length > 0 && <div className="issues"><b>错误（不会导入）：</b>{pv.bank.bad.slice(0, 15).map(x => <div key={x.row}>第 {x.row} 行（{x.id}）：{x.errors.join('；')}</div>)}</div>}
           {pv.bank.warnings.length > 0 && <div className="issues warnbox"><b>提示：</b>{pv.bank.warnings.slice(0, 10).map((x, i) => <div key={i}>第 {x.row} 行（{x.id}）：{x.errors.join('；')}</div>)}{pv.bank.warnings.length > 10 && <div>……共 {pv.bank.warnings.length} 条</div>}</div>}
-          <div className="row gap16"><button className="btn ghost" onClick={() => setPv(null)}>取消，修改后重新导入</button>
+          <div className="row gap16"><button className="btn ghost" data-testid="import-cancel" onClick={() => { setPv(null); setMsg(IMPORT_CANCELLED); }}>取消，修改后重新导入</button>
             {pv.over && <p className="warn" data-testid="pv-over">{pv.over}</p>}<button className="btn" data-testid="import-confirm" disabled={!pv.bank.all.length || !!pv.over} onClick={doImport}>只导入正确的 {pv.bank.all.length} 题</button></div>
         </div>
       </Modal>}
