@@ -1101,3 +1101,13 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .pintab-pad .pin-keys{gap:10px}
   .pintab-pad .pin-keys button{height:min(64px,calc((100dvh - 170px) / 4))}
 }
+/* r16.2 技术QA B1（P2）：横屏 800–1100 宽、高 > 500（小笔记本 / 横屏平板）回合制战斗顶栏一行放不下——答题时多出「⏱ 44s」和「保底」，
+   ⏸（960×600）/ ❓ ⏸（800×600）被挤到屏幕外，又没有横向滚动，孩子没法暂停。这一档顶栏允许换行：关名占剩下的宽度（放不下就两行省略），
+   ❓ ⏸ 和能量圈不缩，血条随宽度缩。≤500 高的紧凑顶栏（一行、藏关名）和竖屏不变。tests：scripts/r162-hud.mjs（800 / 960 / 1024 × 600 / 800，最长关名） */
+@media (orientation:landscape) and (min-height:501px) and (max-width:1100px){
+  .battle .hud,.battle.rounds .hud{flex-wrap:wrap;white-space:normal;row-gap:4px;column-gap:12px;padding:8px 12px;min-width:0}
+  .battle .hud>*{flex-shrink:1;min-width:0}
+  .battle .hud .pause-btn,.battle .hud .rules-btn,.battle .hud .energy-ring{flex-shrink:0}
+  .battle .hud .track{width:clamp(90px,14vw,180px)}
+  .battle .hud .lvl-title,.battle.rounds .hud .lvl-title{flex:1 1 140px;max-width:none !important}
+}
