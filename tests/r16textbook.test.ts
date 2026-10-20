@@ -54,7 +54,10 @@ it('高二物理册别顺序：必修第三册 → 选必第一册 → 选必第
 it('VOL_ADDED：初二学考复习（七年级）、初三九年级下册、高二必修第三册；高一政治必修3 仍在', () => {
   expect(VOL_ADDED).toEqual({ '10': ['必修第三册'], '8': ['学考复习（七年级）'], '9': ['九年级下册'], '11': ['必修第三册'] });
 });
-const extBank = (n: string, g: string) => { const f = `/workspace/questions/题库_游戏可用_${n}.json`; return existsSync(f) ? loadBank(JSON.parse(readFileSync(f, 'utf8')), `bank_${g}.json`) : undefined; };
+// r16.1：这几条断言钉的是题库 v46（r16 / r16.1 用的版本）；盒子上的源题库升级（v47 起初三化学 298 → 565 题）后跳过并写明原因，不算回归
+const PIN = 'v46';
+const extBank = (n: string, g: string) => { const f = `/workspace/questions/题库_游戏可用_${n}.json`; if (!existsSync(f)) return undefined; const j = JSON.parse(readFileSync(f, 'utf8'));
+  if (j.version !== PIN) { console.warn(`[skip] ${f} 是 ${j.version}，断言钉在 ${PIN}`); return undefined; } return loadBank(j, `bank_${g}.json`); };
 const bossNames = (b: NonNullable<ReturnType<typeof extBank>>, g: string, s: string) => { const all = b.all.filter(q => q.subject === s);
   return buildChapters(playable(all, false), null, all).flatMap(c => c.levels).filter(l => l.kind === 'boss').map(l => `${l.unit}→${chapterBoss(undefined, s, l.unit, { grade: g })?.name ?? '∅'}`); };
 it('初三化学（题库 v46 人教版2024，298 题）：构建完整读入，11 个章 Boss 全按人教单元名对上（题库在 /workspace/questions，没有就跳过）', () => {
