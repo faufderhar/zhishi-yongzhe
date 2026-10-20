@@ -15,8 +15,9 @@ import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
-import { calcD, estimateDealt, estimateInfo, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById } from '../game/skills';
+import { guardText, phaseCapText } from '../game/dmgText';
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
 import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX, HURT_CAP } from '../game/balance';
@@ -278,12 +279,14 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     // r8b：致命一击在命中帧之后不再等受击/收招动作，直接进怪物 defeat（≤0.8 s）→ 结算
     /* r15.4.2 学霸：护盾挡掉的点数在命中时飘字显示——这一击打死怪物（直接去结算、看不到反馈文字）时也能看到 */
     const shieldFloat = () => { if (o.absorbed) setTimeout(() => D.dir.current?.float(D.dir.current.r.monster, `🛡 护盾挡掉 ${o.absorbed}`, 'soft'), 120); };
+    /* r16.1 (w) Boss补测裁定_r17 §2：打穿第一阶段线时飘字说明多出的被护体挡住（溢出不带入，数值不变） */
+    const ovN = phaseOverflow(o); const guardFloat = () => { if (ovN > 0) setTimeout(() => D.dir.current?.float(D.dir.current.r.monster, guardText(ovN), 'soft'), o.absorbed ? 420 : 160); };
     let hitDone = () => {}; const hitP = new Promise<void>(r => { hitDone = r; });
     const show = k && d && o.side === 'P'   // 攻击技能：横幅 + 技能特效替代普攻演出，命中帧结算数字（≤1.5 s）
-      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, `✨${k.name} ` + (o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt), 'crit'); shieldFloat(); } }); }   /* r15.4.2 学霸：技能打出来的数字前写技能名（预计伤害不含技能，以前看不出为什么多了） */
+      ? async () => { await d.playSkill(k, { maxMs: 1450, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); d.float(d.r.monster, `✨${k.name} ` + (o.hits.length > 1 ? o.hits.map(x => '-' + x).join(' ') : '-' + o.dealt), 'crit'); shieldFloat(); guardFloat(); } }); }   /* r15.4.2 学霸：技能打出来的数字前写技能名（预计伤害不含技能，以前看不出为什么多了） */
       : k && d ? async () => { await sleep(250); await d.playSkill(k, { maxMs: 1000, onImpact: () => { setView(v => ({ ...v, p: ns.playerHp })); if (o.healed) d.float(d.r.hero, '+' + o.healed, 'heal'); } }); }   // 守护技能：闪避后 ≤1.0 s
       : o.side === 'P'
-      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); shieldFloat(); } })
+      ? ok ? () => D.dir.current?.playerAttack({ subject: qq.subject, major: c.major, dealt: o.dealt, crit: ns.combo >= 3, dodge: false, healed: o.healed, onImpact: () => { hitDone(); setView(v => ({ ...v, m: ns.monsterHp })); shieldFloat(); guardFloat(); } })
         : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500)
       : o.taken ? () => D.dir.current?.monsterAttack(o.taken, () => setView(v => ({ ...v, p: ns.playerHp }))) : () => sleep(500);
     const lethal = o.side === 'P' && ns.over === 'win';
@@ -394,7 +397,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
             </span>{tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {P && phase === 'question' && (() => { const inp = { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std' as CardKind, wager: hs && wagerOn ? wager : false, challenge: chal && bs.mode === 'j' }; const est = estimateDealt(bs, c, inp), raw = bs.shield > 0 ? estimateDealt({ ...bs, shield: 0 }, c, inp) : est;
             /* r15.4.1 学霸：有护盾时写明「护盾挡掉 n」——预计伤害一直是挡完以后的数，以前只写「已含护盾」，看起来像护盾没挡 */
-            return <small className="q-dmg" data-testid="q-dmg" data-raw={raw} data-est={est}>本题答对预计伤害 ≈ {est}{raw > est && <b data-testid="q-dmg-shield">（护盾挡掉 {raw - est}，没有护盾是 {raw}）</b>}<em className="q-dmg-sk" data-testid="q-dmg-sk">技能另算</em><span className="hint">（已含连击{hs ? '、押注' : ''}{bs.mode === 'j' ? '、挑战' : ''}、被动、护盾；技能触发时另外乘）</span><DmgSum d={estimateInfo(bs, c, inp)} detail={false} tid="q-sum" /></small>; })()}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
+            const ov = estimateOverflow(bs, c, inp);
+            return <small className="q-dmg" data-testid="q-dmg" data-raw={raw} data-est={est} data-over={ov}>本题答对预计伤害 ≈ {est}{ov > 0 && <b data-testid="q-dmg-phase">（{phaseCapText(est)}）</b>}{raw > est && <b data-testid="q-dmg-shield">（护盾挡掉 {raw - est}，没有护盾是 {raw}）</b>}<em className="q-dmg-sk" data-testid="q-dmg-sk">技能另算</em><span className="hint">（已含连击{hs ? '、押注' : ''}{bs.mode === 'j' ? '、挑战' : ''}、被动、护盾；技能触发时另外乘）</span><DmgSum d={estimateInfo(bs, c, inp)} detail={false} tid="q-sum" /></small>; })()}   {/* r15.3 学霸：和 resolveRound 同一套结算 */}
           {consol && showConsolidateTag(cfg.band) && phase !== 'revive-q' && <span className="consol-tag" data-testid="consol-tag">巩固题</span>}
           <div className="qtext" data-ans={import.meta.env.DEV || (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean }).__zyTest) ? cq.answer[0] : undefined}><Tex text={cq.question} /></div>
         </>}

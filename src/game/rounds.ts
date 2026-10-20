@@ -136,7 +136,7 @@ function hit(s: RState, d: number, pierce = false, o?: ROut) {
   if (!pierce) s.shield -= ab;
   if (o && ab > 0) o.absorbed = (o.absorbed ?? 0) + ab;
   let dealt = d - ab;
-  // 高一 Boss 两阶段（策划裁定 7）：第一阶段溢出伤害不带入第二阶段，第二阶段满 117 开始
+  // 高一 Boss 两阶段（策划裁定 7）：第二阶段从 phases[1].hp 开始，溢出不带入（Boss补测裁定_r17 §2）
   if (s.def.phases && phaseOf(s) === 0) { const floor = s.def.phases[1].hp; if (s.monsterHp - dealt <= floor) { dealt = s.monsterHp - floor; s.monsterHp = floor; if (o) o.phaseShift = true; s.shield = 0;
     // D14：Boss 怒了——换循环（从头开始），攻击 ×1.2
     if (s.def.half) { s.pattern = s.def.half; s.mi = 0; }
@@ -262,6 +262,15 @@ export const roundsLeft = (s: RState) => s.cap - s.turn;
     押注（我方）、挑战、题卡、专注、被动加成、封顶、护盾抵扣、Boss 阶段下限）全算进去；只有技能是答完才随机判定，不含 */
 export function estimateDealt(s: RState, c: Character, i: Omit<RInput, 'correct'>): number {
   return resolveRound(s, c, { ...i, correct: true, partial: false, noSkill: true, rng: () => 0.999999 })[1].dealt;
+}
+/** r16.1 (v)(w) Boss补测裁定_r17 §2：本击打穿第一阶段线时被「护体」挡掉的点数（原始伤害 − 护盾 − 实际扣血）；只用于显示，不改结算 */
+export function phaseOverflow(o: Pick<ROut, 'phaseShift' | 'dmg' | 'absorbed' | 'dealt'>): number {
+  if (!o.phaseShift || !o.dmg) return 0;
+  return Math.max(0, o.dmg.per * o.dmg.hits - (o.absorbed ?? 0) - o.dealt);
+}
+/** r16.1 (v)：预计伤害会被阶段线截住多少（同 estimateDealt 的结算；0 = 不会截） */
+export function estimateOverflow(s: RState, c: Character, i: Omit<RInput, 'correct'>): number {
+  return phaseOverflow(resolveRound(s, c, { ...i, correct: true, partial: false, noSkill: true, rng: () => 0.999999 })[1]);
 }
 /** r16 D15：预计伤害的加成明细（同 estimateDealt 的结算） */
 export function estimateInfo(s: RState, c: Character, i: Omit<RInput, 'correct'>): DmgInfo | undefined {
