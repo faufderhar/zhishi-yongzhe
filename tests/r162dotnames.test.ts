@@ -38,9 +38,15 @@ describe('r16.2 章 / 单元名里的「·」和括号（63 个）', () => {
     expect(shortUnit('英语单词·动物')).toBe('动物'); expect(shortUnit('拓展·纲要下')).toBe('纲要下'); expect(shortUnit('初高衔接·语法复习')).toBe('语法复习');
     expect(shortUnit('七上·第2章 有理数·2.2 数轴')).toBe('2.2 数轴'); expect(shortUnit('《清平乐·村居》')).toBe('《清平乐·村居》');
   });
-  it('整份内置题库（v48）：只有这 4 关的显示名变了；所有关卡 id / 题池 / 册 / Boss 名和 eefc5aa 一样', () => {
+  it('整份内置题库（v48；r16.2 起 v50）：只有这 4 关的显示名变了；所有关卡 id / 题池 / 册 / Boss 名和 eefc5aa 一样', () => {
     const fx = JSON.parse(readFileSync('tests/fixtures/r162_levels_eefc5aa.json', 'utf8')) as { struct_sha: string; names: Record<string, [string, string]> };
-    const now = levelSnapshot();
+    const all = levelSnapshot();
+    // r16.2 题库 v50：只多了六下《学弈》一关（语文|N|6:Y6-014）和高二物理（强制隐藏）；去掉 v50 新题后，其余关卡的题池 / 册 / Boss 名仍和 eefc5aa 一模一样
+    //   （《学弈》原来的 2 题 Y6-014 / Y6-026 在 v48 不够开关，也不在任何题池里）
+    const added = Object.keys(all).filter(k => !(k in fx.names)).sort();
+    expect(added.filter(k => !(k.startsWith('物理|') && all[k].pool.split(',').every(x => x.startsWith('11:P11-'))))).toEqual(['语文|N|6:Y6-014']);
+    const NEW50 = new Set(['E5-156', 'E5-157', 'E5-158', 'E5-159', 'E5-160', 'E6-158', 'E6-159', 'E6-160', 'E6-161', 'E6-162', 'Y6-470', 'Y6-471', 'Y6-472', 'Y6-473', 'Y6-474', 'Y6-475', 'Y6-476', 'Y6-477', 'Y6-014', 'Y6-026']);
+    const now = Object.fromEntries(Object.entries(all).filter(([k]) => k in fx.names).map(([k, v]) => [k, { ...v, pool: v.pool.split(',').filter(x => !NEW50.has(x.split(':')[1])).join(',') }]));
     expect(Object.keys(now).sort()).toEqual(Object.keys(fx.names).sort());
     expect(createHash('sha1').update(JSON.stringify(Object.fromEntries(Object.entries(now).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0).map(([k, v]) => [k, [v.pool, v.volume, v.boss ?? null]])))).digest('hex')).toBe(fx.struct_sha);
     const diff = Object.entries(now).filter(([k, v]) => v.name !== fx.names[k][0] || v.unit !== fx.names[k][1]).map(([k, v]) => [k, v.name, v.unit]);

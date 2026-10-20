@@ -1,4 +1,5 @@
 import { qRev, type Question } from './questions';
+import { REV_CHANGED_SINCE_R16 } from './revChanged';
 /* 错题本盒子法（GDD §7.3）：1 号盒→第 2 天；2 号盒→3 天后；3 号盒→7 天后；3 号盒答对→已掌握 */
 export interface WrongEntry {
   id: string;            // profileId + '|' + questionKey
@@ -26,6 +27,7 @@ export const isDue = (e: WrongEntry, today = dayStr()) => e.due <= today;
 export function wrongStale(e: Pick<WrongEntry, 'rev' | 'lastAnswer'>, q: Question): boolean {
   if (e.rev) return e.rev !== qRev(q);
   if (!e.lastAnswer) return false;
+  if (REV_CHANGED_SINCE_R16.has(q.id)) return true;   // r16.2：已知改过题面的题，旧记录（没有 rev）不再猜
   const a = e.lastAnswer.trim();
   return q.type === '填空' ? q.answer.some(x => x.trim() === a) : [...a].sort().join('') === [...q.answer].sort().join('');
 }

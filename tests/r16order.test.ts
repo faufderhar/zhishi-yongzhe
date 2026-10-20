@@ -36,6 +36,8 @@ describe('r16 sections', () => {
   // 7 / 10 的指纹按此更新；逐关对比确认只有这 2 关的 name / unit 变了，id / 题池 / 章不变（tests/r161titles.test.ts）
   // r16.2：题名本身带「·」不再截断（四下「古诗词 清平乐·村居」、六下「汤姆·索亚历险记」、高一「沁园春·长沙」）——4 / 6 / 10 的指纹按此更新；
   //   逐关对比确认只有这 3 关（+ 高二 1 关）的 name / unit 变了，id / 题池 / 册 / Boss 名不变（tests/r162dotnames.test.ts）
+  // r16.2 题库 v50：六下语文多了《学弈》一关（语文|N|6:Y6-014，排在第 34 位，后面 14 关序号后移、id 不变）→ 6 的指纹按此更新；
+  //   逐关对比（tests/r162dotnames.test.ts、tests/r162v50.test.ts）确认没有关卡 id 消失、其余题池不变
   it('existing grades: chapters / level ids / names unchanged', () => {
     const want = JSON.parse(readFileSync('tests/fixtures/r16_old_levels.json', 'utf8')) as Record<string, string>;
     for (const g of Object.keys(want)) {

@@ -16,7 +16,8 @@ export const AUTO_EXEMPT_GRADES = new Set<GradeKey>(['K1', 'K2', 'K3']);
 /** 自动规则豁免：'年级|科目|册别' */
 /* r16.1（题库 v47）：小学下册新放进游戏的小节只有 5 题（5B / 6B Unit 1）和 2 题（六下《学弈》）——按规则整册会被藏掉，
    但这三册 r16 线上就有（五下英语 69 题、六下英语 / 语文 271 题），藏掉 = 线上内容消失；豁免，见 STATUS.md（待总管确认） */
-export const AUTO_EXEMPT = new Set<string>(['5|英语|五年级下册', '6|英语|六年级下册', '6|语文|六年级下册']);
+// r16.2（总管，题库 v50）：5B / 6B Unit 1 补到 10 题、六下《学弈》补到 10 题 → 三条豁免删掉，规则下这三册照样可见（tests/r162v50.test.ts）
+export const AUTO_EXEMPT = new Set<string>([]);
 
 export interface HideRow { grade: GradeKey; subject: string; volume: string; why: 'force' | 'auto'; unit?: string; n?: number }
 export interface Visibility { hiddenVol: Set<string>; hiddenSubj: Set<string>; rows: HideRow[] }

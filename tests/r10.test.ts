@@ -60,7 +60,7 @@ describe('题库 v19：已学册别迁移', () => {
     const all = new Set(Object.values(al).flat());
     for (const v of [...migrateVolumes('7', ['七年级上册(7A)', '七年级下册(7B)', ''])!, ...migrateVolumes('10', ['必修上', '纲要上', '必修1 中国特色社会主义', '必修2 经济与社会', '必修1 分子与细胞', ''])!]) expect(all.has(v)).toBe(true);
   });
-  it('题库发布号 v47，可玩 17453（r16：+K2 324 / 初二 3006 / 高二 2784；v44 +P10-321；v46 高二地理 +12；r16.1 v47 初二生物 532 + 地理 524、五下 +6、六下 +9）', () => { expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v48', playable: 17453 }); });   // v48：题量不变
+  it('题库发布号 v47，可玩 17453（r16：+K2 324 / 初二 3006 / 高二 2784；v44 +P10-321；v46 高二地理 +12；r16.1 v47 初二生物 532 + 地理 524、五下 +6、六下 +9；r16.2 v50 +18 可见 + 高二物理 810（强制隐藏，也算在 playable 里）= 18281）', () => { expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v50', playable: 18281 }); });   // v48：题量不变；release.json 由 vite.config 按题库生成
 });
 describe('技术QA R9-7：负数时长按默认，只有合法的 0 才迁移成不限', () => {
   it('-5 → 默认、不是不限；0 → 不限', () => {

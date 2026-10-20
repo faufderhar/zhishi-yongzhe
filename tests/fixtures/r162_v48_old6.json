@@ -1,0 +1,204 @@
+{
+ "E5-129": {
+  "grade": "5",
+  "q": {
+   "id": "E5-129",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 2 How do you come to school?",
+   "type": "选择",
+   "question": "— How does your dad go to work? — He goes to work ___ car.",
+   "options": [
+    {
+     "text": "on",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "by",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "in a",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "at",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "by car 乘小汽车。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "B Unit 2 How do you come to school?",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T360b83",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 2 How do you come to scho"
+   ]
+  }
+ },
+ "H11-123": {
+  "grade": "11",
+  "q": {
+   "id": "H11-123",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 11,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "选择性必修1·第三单元 法律与教化·第10课 当代中国的法治与精神文明建设",
+   "type": "填空",
+   "question": "社会主义核心价值观共有多少个字？",
+   "answer": [
+    "24",
+    "二十四"
+   ],
+   "explanation": "国家、社会、个人三个层面，每个层面 8 个字。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "选择性必修第一册",
+   "knowledge_point": "当代中国的法治与精神文明建设",
+   "game_ready": true,
+   "template": "T5c5809",
+   "usage": "boss",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "当代中国的法治与精神文明建设"
+   ]
+  }
+ },
+ "H11-151": {
+  "grade": "11",
+  "q": {
+   "id": "H11-151",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 11,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "选择性必修1·第四单元 民族关系与国家关系·第13课 当代中国的民族政策",
+   "type": "填空",
+   "question": "我国现有几个省级民族自治区？",
+   "answer": [
+    "5",
+    "五"
+   ],
+   "explanation": "内蒙古、新疆、广西、宁夏、西藏。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "选择性必修第一册",
+   "knowledge_point": "当代中国的民族政策",
+   "game_ready": true,
+   "template": "T835c93",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "当代中国的民族政策"
+   ]
+  }
+ },
+ "D11-026": {
+  "grade": "11",
+  "q": {
+   "id": "D11-026",
+   "status": "AI初审通过",
+   "subject": "地理",
+   "grade": 11,
+   "textbook": "人教版2019",
+   "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中地理用人教版）",
+   "unit": "选择性必修1·第一章 地球的运动·第二节 地球运动的地理意义",
+   "type": "填空",
+   "question": "春分日，北京（按 40°N 计）的正午太阳高度是多少度？",
+   "answer": [
+    "50",
+    "50°"
+   ],
+   "explanation": "$H=90^\\circ-40^\\circ=50^\\circ$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "选择性必修第一册",
+   "knowledge_point": "地球运动的地理意义",
+   "game_ready": true,
+   "template": "T1ef339",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "地球运动的地理意义"
+   ]
+  }
+ },
+ "Z11-353": {
+  "grade": "11",
+  "q": {
+   "id": "Z11-353",
+   "status": "AI初审通过",
+   "subject": "政治",
+   "grade": 11,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "选择性必修2·第三单元 就业与创业·第八课 自主创业与诚信经营",
+   "type": "填空",
+   "question": "根据《消费者权益保护法》，经营者有欺诈行为的，消费者可以要求增加赔偿购买商品价款的几倍？",
+   "answer": [
+    "3",
+    "三"
+   ],
+   "explanation": "增加赔偿的金额不足五百元的，为五百元。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "选择性必修第二册",
+   "knowledge_point": "自主创业与诚信经营",
+   "game_ready": true,
+   "template": "T84b225",
+   "usage": "boss",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "自主创业与诚信经营"
+   ]
+  }
+ },
+ "Z11-382": {
+  "grade": "11",
+  "q": {
+   "id": "Z11-382",
+   "status": "AI初审通过",
+   "subject": "政治",
+   "grade": 11,
+   "textbook": "统编版2019",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "选择性必修2·第四单元 社会争议解决·第十课 诉讼实现公平正义",
+   "type": "填空",
+   "question": "向人民法院请求保护民事权利的一般诉讼时效期间是几年？",
+   "answer": [
+    "3",
+    "三"
+   ],
+   "explanation": "法律另有规定的，依照其规定。",
+   "difficulty": 3,
+   "source": "AI",
+   "volume": "选择性必修第二册",
+   "knowledge_point": "诉讼实现公平正义",
+   "game_ready": true,
+   "template": "T338479",
+   "usage": "boss",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "诉讼实现公平正义"
+   ]
+  }
+ }
+}

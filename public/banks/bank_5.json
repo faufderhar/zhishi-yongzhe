@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-5年级-v48（AI初审）",
- "version": "v48",
+ "bank_name": "三兄妹题库-5年级-v50（AI初审）",
+ "version": "v50",
  "questions": [
   {
    "id": "M5-001",
@@ -2637,14 +2637,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "Unit 6 Getting along with othe",
+   "knowledge_point": "Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
    "change_tag": "未改",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -2684,14 +2684,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "Unit 6 Getting along with othe",
+   "knowledge_point": "Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb60b11",
    "change_tag": "未改",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -2731,14 +2731,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "Unit 6 Getting along with othe",
+   "knowledge_point": "Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tc69596",
    "change_tag": "未改",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -2778,14 +2778,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "Unit 6 Getting along with othe",
+   "knowledge_point": "Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tfb5cd1",
    "change_tag": "未改",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -3406,6 +3406,205 @@
    ]
   },
   {
+   "id": "E5-156",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "Cinderella ___ go home before 12 o'clock.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "have to",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "having to",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "has",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "has to",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "主语 Cinderella 是第三人称单数，「不得不」用 has to + 动词原形。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "Taa2dec",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-157",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "Who helps Cinderella go to the party in the story?",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "A fairy",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "Her sisters",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "The prince's mum",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "A little cat",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "故事里是仙女（fairy）给了灰姑娘漂亮的衣服和鞋子。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T1a957f",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-158",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "选择",
+   "question": "Cinderella ___ to the party in nice clothes.",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "goes",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "go",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "to go",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "going",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "主语是第三人称单数，故事用一般现在时叙述：goes。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T332d7d",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-159",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "判断",
+   "question": "In the story, the shoe fits Cinderella.",
+   "tts_text": "-",
+   "answer": "对",
+   "explanation": "鞋子正好合灰姑娘的脚（The shoe fits!），王子就这样找到了她。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T534aef",
+   "change_tag": "新增",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
+   "id": "E5-160",
+   "status": "AI初审通过",
+   "subject": "英语",
+   "grade": 5,
+   "textbook": "译林版（三年级起点）",
+   "unit": "5B Unit 1 Cinderella",
+   "type": "填空",
+   "question": "看中文写单词（小写）：王子 ____",
+   "tts_text": "看中文写单词（小写）：王子 ____",
+   "answer": [
+    "prince"
+   ],
+   "explanation": "prince 王子。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "五年级下册",
+   "knowledge_point": "Unit 1 Cinderella",
+   "review_note": "暂用旧版，新版目录未公开（译林 5B/6B 2027 春新版，核对日期 2026-10-19）；本题按旧版课文出",
+   "game_ready": true,
+   "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
+   "template": "T61cb4a",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "英语",
+    "Unit 1 Cinderella"
+   ]
+  },
+  {
    "id": "E5-034",
    "status": "AI初审通过",
    "subject": "英语",
@@ -3442,14 +3641,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "Unit 2 How do you come to scho",
+   "knowledge_point": "Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T49f146",
    "change_tag": "修改",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -3489,14 +3688,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "Unit 2 How do you come to scho",
+   "knowledge_point": "Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tfb5cd1",
    "change_tag": "修改",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -3536,14 +3735,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "Unit 2 How do you come to scho",
+   "knowledge_point": "Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
    "change_tag": "修改",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -3583,14 +3782,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "Unit 2 How do you come to scho",
+   "knowledge_point": "Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tc2bd84",
    "change_tag": "修改",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -4570,14 +4769,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "Unit 2 How do you come to scho",
+   "knowledge_point": "Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
    "change_tag": "修改",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -16104,7 +16303,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "Unit 6 Getting along with othe",
+   "knowledge_point": "Unit 6 Getting along with others",
    "game_ready": true,
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
@@ -16112,7 +16311,7 @@
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -16131,7 +16330,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "Unit 6 Getting along with othe",
+   "knowledge_point": "Unit 6 Getting along with others",
    "game_ready": true,
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
@@ -16140,7 +16339,7 @@
    "input_type": "text",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -16263,7 +16462,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "Unit 2 How do you come to scho",
+   "knowledge_point": "Unit 2 How do you come to school?",
    "game_ready": true,
    "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
@@ -16271,7 +16470,7 @@
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -25836,7 +26035,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 1 Good habits",
+   "knowledge_point": "5A Unit 1 Good habits",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T62a72f",
@@ -25882,7 +26081,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 1 Good habits",
+   "knowledge_point": "5A Unit 1 Good habits",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tfce723",
@@ -25928,7 +26127,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 1 Good habits",
+   "knowledge_point": "5A Unit 1 Good habits",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb704e7",
@@ -25954,7 +26153,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 1 Good habits",
+   "knowledge_point": "5A Unit 1 Good habits",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T429ffa",
@@ -26001,7 +26200,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 2 I feel good",
+   "knowledge_point": "5A Unit 2 I feel good",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T5564a0",
@@ -26047,7 +26246,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 2 I feel good",
+   "knowledge_point": "5A Unit 2 I feel good",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T8fd6bf",
@@ -26073,7 +26272,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 2 I feel good",
+   "knowledge_point": "5A Unit 2 I feel good",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tf0d557",
@@ -26120,7 +26319,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 2 I feel good",
+   "knowledge_point": "5A Unit 2 I feel good",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tc3bf13",
@@ -26166,7 +26365,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 3 Hobbies",
+   "knowledge_point": "5A Unit 3 Hobbies",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1770b4",
@@ -26212,7 +26411,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 3 Hobbies",
+   "knowledge_point": "5A Unit 3 Hobbies",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T3707c6",
@@ -26238,7 +26437,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 3 Hobbies",
+   "knowledge_point": "5A Unit 3 Hobbies",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Teef170",
@@ -26285,7 +26484,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 3 Hobbies",
+   "knowledge_point": "5A Unit 3 Hobbies",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb86693",
@@ -26331,7 +26530,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 4 Safety first",
+   "knowledge_point": "5A Unit 4 Safety first",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T06bd08",
@@ -26377,7 +26576,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 4 Safety first",
+   "knowledge_point": "5A Unit 4 Safety first",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T0ccda4",
@@ -26403,7 +26602,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 4 Safety first",
+   "knowledge_point": "5A Unit 4 Safety first",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T6e3a99",
@@ -26450,7 +26649,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 4 Safety first",
+   "knowledge_point": "5A Unit 4 Safety first",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T2521b9",
@@ -26496,7 +26695,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 5 At weekends",
+   "knowledge_point": "5A Unit 5 At weekends",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T6ea2a8",
@@ -26542,7 +26741,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 5 At weekends",
+   "knowledge_point": "5A Unit 5 At weekends",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T882b31",
@@ -26568,7 +26767,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 5 At weekends",
+   "knowledge_point": "5A Unit 5 At weekends",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T195f64",
@@ -26615,7 +26814,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 5 At weekends",
+   "knowledge_point": "5A Unit 5 At weekends",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T5b57ab",
@@ -26661,14 +26860,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 6 Getting along with others",
+   "knowledge_point": "5A Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T52d873",
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -26707,14 +26906,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 6 Getting along with others",
+   "knowledge_point": "5A Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Teeca71",
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -26733,7 +26932,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 6 Getting along with others",
+   "knowledge_point": "5A Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tea70a1",
@@ -26741,7 +26940,7 @@
    "input_type": "text",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -26780,14 +26979,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 6 Getting along with others",
+   "knowledge_point": "5A Unit 6 Getting along with others",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb2577a",
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 6 Getting along with othe"
+    "Unit 6 Getting along with others"
    ]
   },
   {
@@ -26826,7 +27025,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 7 Shopping smart",
+   "knowledge_point": "5A Unit 7 Shopping smart",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tf5caa8",
@@ -26872,7 +27071,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 7 Shopping smart",
+   "knowledge_point": "5A Unit 7 Shopping smart",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T7d5807",
@@ -26898,7 +27097,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 7 Shopping smart",
+   "knowledge_point": "5A Unit 7 Shopping smart",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tf58e40",
@@ -26945,7 +27144,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 7 Shopping smart",
+   "knowledge_point": "5A Unit 7 Shopping smart",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T522444",
@@ -26991,7 +27190,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 8 We love festivals",
+   "knowledge_point": "5A Unit 8 We love festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T4408e0",
@@ -27037,7 +27236,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 8 We love festivals",
+   "knowledge_point": "5A Unit 8 We love festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T699e3e",
@@ -27063,7 +27262,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 8 We love festivals",
+   "knowledge_point": "5A Unit 8 We love festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T8a0e47",
@@ -27110,7 +27309,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级上册",
-   "knowledge_point": "A Unit 8 We love festivals",
+   "knowledge_point": "5A Unit 8 We love festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1f315a",
@@ -27156,14 +27355,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 2 How do you come to school?",
+   "knowledge_point": "5B Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1852a2",
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -27202,14 +27401,14 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 2 How do you come to school?",
+   "knowledge_point": "5B Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T3d12d3",
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -27228,7 +27427,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 2 How do you come to school?",
+   "knowledge_point": "5B Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tc228d9",
@@ -27236,7 +27435,7 @@
    "input_type": "text",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -27260,7 +27459,7 @@
      "audio": ""
     },
     {
-     "text": "in a",
+     "text": "in",
      "image": "",
      "audio": ""
     },
@@ -27271,18 +27470,18 @@
     }
    ],
    "answer": "B",
-   "explanation": "by car 乘小汽车。",
+   "explanation": "by car 乘小汽车。by car 中间不加冠词；用 in 时要说 in a car / in his car。",
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 2 How do you come to school?",
+   "knowledge_point": "5B Unit 2 How do you come to school?",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T360b83",
    "change_tag": "新增",
    "tags": [
     "英语",
-    "Unit 2 How do you come to scho"
+    "Unit 2 How do you come to school?"
    ]
   },
   {
@@ -27321,7 +27520,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 3 Asking the way",
+   "knowledge_point": "5B Unit 3 Asking the way",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T6c8d7f",
@@ -27367,7 +27566,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 3 Asking the way",
+   "knowledge_point": "5B Unit 3 Asking the way",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tab4ab4",
@@ -27393,7 +27592,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 3 Asking the way",
+   "knowledge_point": "5B Unit 3 Asking the way",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T2a7770",
@@ -27440,7 +27639,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 3 Asking the way",
+   "knowledge_point": "5B Unit 3 Asking the way",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T309cbe",
@@ -27486,7 +27685,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 4 Seeing the doctor",
+   "knowledge_point": "5B Unit 4 Seeing the doctor",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T11fe67",
@@ -27532,7 +27731,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 4 Seeing the doctor",
+   "knowledge_point": "5B Unit 4 Seeing the doctor",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T697e48",
@@ -27558,7 +27757,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 4 Seeing the doctor",
+   "knowledge_point": "5B Unit 4 Seeing the doctor",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T975cc9",
@@ -27605,7 +27804,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 4 Seeing the doctor",
+   "knowledge_point": "5B Unit 4 Seeing the doctor",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb6c65e",
@@ -27651,7 +27850,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 5 Helping our parents",
+   "knowledge_point": "5B Unit 5 Helping our parents",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T7a7881",
@@ -27697,7 +27896,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 5 Helping our parents",
+   "knowledge_point": "5B Unit 5 Helping our parents",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T1b8c64",
@@ -27743,7 +27942,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 5 Helping our parents",
+   "knowledge_point": "5B Unit 5 Helping our parents",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T879e8a",
@@ -27769,7 +27968,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 5 Helping our parents",
+   "knowledge_point": "5B Unit 5 Helping our parents",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T48c55f",
@@ -27816,7 +28015,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 6 In the kitchen",
+   "knowledge_point": "5B Unit 6 In the kitchen",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tde8c73",
@@ -27862,7 +28061,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 6 In the kitchen",
+   "knowledge_point": "5B Unit 6 In the kitchen",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T4d8024",
@@ -27888,7 +28087,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 6 In the kitchen",
+   "knowledge_point": "5B Unit 6 In the kitchen",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T768570",
@@ -27935,7 +28134,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 6 In the kitchen",
+   "knowledge_point": "5B Unit 6 In the kitchen",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9de9e7",
@@ -27981,7 +28180,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 7 Chinese festivals",
+   "knowledge_point": "5B Unit 7 Chinese festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T6de73d",
@@ -28027,7 +28226,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 7 Chinese festivals",
+   "knowledge_point": "5B Unit 7 Chinese festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tb3fb11",
@@ -28073,7 +28272,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 7 Chinese festivals",
+   "knowledge_point": "5B Unit 7 Chinese festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Td588ec",
@@ -28099,7 +28298,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 7 Chinese festivals",
+   "knowledge_point": "5B Unit 7 Chinese festivals",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tc2f1cf",
@@ -28146,7 +28345,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 8 Birthdays",
+   "knowledge_point": "5B Unit 8 Birthdays",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T19f2e2",
@@ -28192,7 +28391,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 8 Birthdays",
+   "knowledge_point": "5B Unit 8 Birthdays",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T0fb179",
@@ -28218,7 +28417,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 8 Birthdays",
+   "knowledge_point": "5B Unit 8 Birthdays",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T8ca568",
@@ -28265,7 +28464,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "五年级下册",
-   "knowledge_point": "B Unit 8 Birthdays",
+   "knowledge_point": "5B Unit 8 Birthdays",
    "game_ready": true,
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T2f77d9",

@@ -10,7 +10,7 @@ const base = { id: 'x', status: 'AI初审通过', subject: '数学', grade: 7, t
   options: [{ text: '1' }, { text: '2' }, { text: '3' }, { text: '4' }], answer: 'B', explanation: '', difficulty: 2, tags: [] };
 
 describe('内置题库（v5/v6）', () => {
-  const EXPECT: Record<string, number> = { K1: 258, 1: 985, 2: 684, 3: 1029, 4: 1069, 5: 1018, 6: 1054, 7: 1221, 10: 2965 };   // v25；r16.1 题库 v47：五下 +6（E5-031/032/033/154/155、Y5-169）、六下 +9
+  const EXPECT: Record<string, number> = { K1: 258, 1: 985, 2: 684, 3: 1029, 4: 1069, 5: 1023, 6: 1067, 7: 1221, 10: 2965 };   // v25；r16.1 题库 v47：五下 +6（E5-031/032/033/154/155、Y5-169）、六下 +9；r16.2 题库 v50：5B Unit 1 +5、6B Unit 1 +5、六下《学弈》+8
   for (const g of Object.keys(EXPECT)) {
     it(`${g}：全部通过校验，可玩 ${EXPECT[g]} 题，年级来自文件/字段`, () => {
       const b = loadBank(pub(g), `bank_${g}.json`);
@@ -21,9 +21,9 @@ describe('内置题库（v5/v6）', () => {
       expect(b.warnings.filter(w => w.errors[0].includes('game_ready'))).toEqual([]);
     });
   }
-  it('小学 1–6 年级可玩合计 5839（v34 六上曹冲称象 +7 −3 需家长确认；v47 五下 +6、六下 +9）', () => {
+  it('小学 1–6 年级可玩合计 5857（v34 六上曹冲称象 +7 −3 需家长确认；v47 五下 +6、六下 +9；v50 五下 +5、六下 +13）', () => {
     const t = ['1', '2', '3', '4', '5', '6'].reduce((a, g) => a + loadBank(pub(g), `bank_${g}.json`).counts.playable, 0);
-    expect(t).toBe(5839);
+    expect(t).toBe(5857);
   });
   it('跨文件唯一键不冲突（科学题 K3-xxx 与幼儿园 K1 区分）', () => {
     const keys = new Set<string>(); let n = 0;

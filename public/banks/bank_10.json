@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-v48（AI初审）",
- "version": "v48",
+ "bank_name": "三兄妹题库-高一-v50（AI初审）",
+ "version": "v50",
  "questions": [
   {
    "id": "Y10-001",
@@ -76145,7 +76145,7 @@
    "difficulty": 2,
    "source": "AI",
    "volume": "必修上册",
-   "knowledge_point": "运动与中国共产党的诞生",
+   "knowledge_point": "五四运动与中国共产党的诞生",
    "game_ready": true,
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T12ba6f",

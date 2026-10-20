@@ -17,12 +17,19 @@ const NEW = Array.from({ length: 12 }, (_, i) => `D11-${241 + i}`);
 const NEW47 = new Set(['E5-031', 'E5-032', 'E5-033', 'E5-154', 'E5-155', 'Y5-169', 'E6-028', 'E6-029', 'E6-030', 'E6-043', 'E6-044', 'E6-060', 'E6-157', 'Y6-014', 'Y6-026']);
 const isNew47 = (q: { id: string; grade: string; subject: string }) => NEW47.has(q.id) || (q.grade === '8' && (q.subject === '生物' || q.subject === '地理'));
 /** r16.1 题库 v48：有意改了题面的 130 题（判断题绝对词 98、数学「或」/ 区间选项 32 里属于已导入年级的；中班 4 题加 question_image）——rev 变是预期的（错题本里这些题按新版重新算），其余全不变 */
+/** r16.2 题库 v50：新增的题（5B/6B Unit 1、六下《学弈》补到 10 题；高二物理 810 题，强制隐藏）和改了题面的 6 题（E5-129 选项、高二 5 道填空答案）。
+    改了的 6 题按 v48 原题（tests/fixtures/r162_v48_old6.json）的 rev 算指纹——指纹仍要和 v48 完全一样，证明别的题一题没变 */
+const NEW50 = new Set(['E5-156', 'E5-157', 'E5-158', 'E5-159', 'E5-160', 'E6-158', 'E6-159', 'E6-160', 'E6-161', 'E6-162', 'Y6-470', 'Y6-471', 'Y6-472', 'Y6-473', 'Y6-474', 'Y6-475', 'Y6-476', 'Y6-477']);
+const isNew50 = (q: { id: string; grade: string; subject: string }) => NEW50.has(q.id) || (q.grade === '11' && q.subject === '物理');
+const OLD6 = JSON.parse(readFileSync('tests/fixtures/r162_v48_old6.json', 'utf8')) as Record<string, { grade: string; q: Record<string, unknown> }>;
 const REV48 = new Set(JSON.parse(readFileSync('tests/fixtures/r161_v48_revchanged.json', 'utf8')) as string[]);
-it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v4[678]$/); });
+it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|50)$/); });   // r16.2：v50
 it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）；高二只多了 D11-241～252', () => {
   for (const [g, f] of Object.entries(fx)) {
-    const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)) && !isNew47(q));
-    const lines = all.map(q => `${q.id}:${qRev(q)}`).sort();
+    const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)) && !isNew47(q) && !isNew50(q));
+    const old6 = (id: string) => loadBank({ questions: [OLD6[id].q] }, `bank_${g}.json`).all[0];
+    for (const q of all) if (OLD6[q.id]) expect(qRev(q), q.id).not.toBe(qRev(old6(q.id)));   // 这 6 题确实改了
+    const lines = all.map(q => `${q.id}:${OLD6[q.id] ? qRev(old6(q.id)) : qRev(q)}`).sort();
     expect(lines.length, g).toBe(f.n); expect(createHash('sha256').update(lines.join('\n')).digest('hex').slice(0, 16), g).toBe(f.digest);
   }
   expect(Object.keys(fx).sort()).toEqual(Object.keys(fx45).sort()); for (const g of Object.keys(fx)) expect(fx[g].n, g).toBe(fx45[g].n);   // 题数和 v45 一样（没有删题）
