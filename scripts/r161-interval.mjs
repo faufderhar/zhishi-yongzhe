@@ -44,7 +44,8 @@ for (const [vp, mobile] of [['1280x600', false], ['844x390', true]]) { const ctx
     ok(await openLevel('数学', id === 'M11-001' ? '倾斜角 $\\alpha$ 的取值范围' : '斜率 $k\\in[-1,1]$', id), `${vp} 找到 ${id}`); ok(await toQuestion(), `${vp} ${id} 出题`);
     const o = await pg.evaluate(() => [...document.querySelectorAll('.quiz .opt')].map(b => ({ k: b.dataset.testid, ann: [...b.querySelectorAll('annotation')].map(a => a.textContent).join(' '), txt: b.querySelector('.katex-html')?.textContent ?? b.textContent })));
     console.log(id, JSON.stringify(o)); await pg.screenshot({ path: `${OUT}interval-${id}-${vp}.png` });
-    if (id === 'M11-001') ok(o.length === 4 && new Set(o.map(x => x.txt)).size === 4 && o.some(x => /π\)$/.test(x.txt)) && o.some(x => /π\]$/.test(x.txt)), `${vp} M11-001 四个选项显示各不相同，有「π)」也有「π]」`);
+    /* v48 起 M11-001 改写成不等式（0≤α<π / 0≤α≤π / 0<α<π / 0≤α≤π/2）：四个显示各不相同，而且 A 是「<π」、B 是「≤π」（和源码一致） */
+    if (id === 'M11-001') ok(o.length === 4 && new Set(o.map(x => x.txt)).size === 4 && /<π$/.test(o[0].txt) && /≤π$/.test(o[1].txt) && o.every(x => !/katex-error/.test(x.txt)), `${vp} M11-001（v48 不等式）四个选项显示各不相同，A「<π」B「≤π」`);
     else ok(o.some(x => /π\)$/.test(x.txt)), `${vp} M11-009 有以「π)」结尾的选项`);
     await quit(); ok(await toMap('iv'), `${vp} 回地图`);
   }
