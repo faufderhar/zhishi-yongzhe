@@ -3,6 +3,7 @@
 import { XP_MAX, MASTERED_MAX } from './limits';
 import { clampLock, LK_PIN, LK_HINT, LK_REC, LK_CANCEL, LK_IMPORT } from './pin';
 import { RESET_DELAY_MS } from './pinVault';
+import { cleanElectives } from './electives';
 type R = Record<string, unknown>;
 const isObj = (x: unknown): x is R => !!x && typeof x === 'object' && !Array.isArray(x);
 /** 有限数且在 [lo, hi] 内；可选取整。不合格返回 undefined（调用方丢掉该项） */
@@ -105,7 +106,8 @@ export function cleanProfiles(x: unknown) {
   if (!Array.isArray(x)) return x;
   return x.map(p => { if (!isObj(p) || !isObj(p.limit)) return p; const lim: R = {};
     for (const k of ['weekday', 'weekend']) { const n = cleanLimitMin(p.limit[k]); if (n !== undefined) lim[k] = n; }
-    return { ...p, limit: lim }; });
+    const { electives: el, ...rest } = p; const e = cleanElectives(el);   // r16.1：选科
+    return { ...rest, limit: lim, ...(e ? { electives: e } : {}) }; });
 }
 export function cleanAnswer(v: unknown) { if (!isObj(v)) return undefined; const at = num(v.at, 0, tsMax(), true); return at === undefined ? undefined : { ...v, at, correct: v.correct === true }; }
 export function cleanWrong(v: unknown) {

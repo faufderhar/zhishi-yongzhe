@@ -57,6 +57,7 @@ it('审计（R16_KB_AUDIT=1）', () => {
   const L = ['# 填空键盘审计（题库 v46，r16.1）', '',
     `规则见 src/game/inputKind.ts。共 ${rows.length} 道填空（内置 ${builtIn.length}，另含开发机上未开放的大班 / 初三 / 高三 ${extra.length}）。`, '',
     `- 改了键盘的：**${cnt(r => r.o !== r.n)}** 道（其中 r16 打不出答案的：${cnt(r => r.po.length > 0)} 道；改后打不出：${cnt(r => r.pn.length > 0)} 道）`,
+    `- 其中内置题库（线上 r16 的 12 个年级）：改键盘 ${rows.filter(r => r.o !== r.n && builtIn.includes(r.q)).length} 道，r16 打不出答案 ${rows.filter(r => r.po.length && builtIn.includes(r.q)).length} 道；r15.4.4 已上线年级（小班、1–7、高一）：${rows.filter(r => r.po.length && ['K1', '1', '2', '3', '4', '5', '6', '7', '10'].includes(r.q.grade)).length} 道`,
     `- 新规则分布：数字键盘 ${cnt(r => r.n === 'num')}，字母键盘 ${cnt(r => r.n === 'letters')}，系统输入法 ${cnt(r => r.n === 'ime')}`, '',
     '## 按年级 / 科目', '', '| 年级 | 科目 | r16 键盘 → r16.1 键盘 | 题数 |', '|---|---|---|---|',
     ...[...by].sort().map(([k, n]) => { const [g, s, t] = k.split('|'); return `| ${g} | ${s} | ${t} | ${n} |`; }), '',

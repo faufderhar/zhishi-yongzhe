@@ -1,4 +1,5 @@
 import { backupVault } from '../game/backupPin';
+import { ALL_SUBJECTS, ELECTIVE_FIRST, ELECTIVE_SECOND, electivesValid, isAllSubjects, needsElectives, electivesLabel, type Electives } from '../game/electives';
 import { logReload } from '../swUpdate';
 import { ReduceToggle } from './Battle';
 import { prefetchAll } from '../fx/sheets';
@@ -314,6 +315,7 @@ function ProfilesTab({ profiles, setProfiles, bank, skills, usage, setUsage }: P
           <div key={p.id} className="p-card">
             <span className="big-emoji">{p.avatar}</span>
             <b>{p.name}</b><small>{GRADE_LABEL[p.grade]} · {p.volumes ? (learnedCount(p.volumes) ? `已选：${p.volumes.join('、')}` : '未选册别') : '全部册别'}</small>
+            {needsElectives(p.grade) && <small data-testid={'el-label-' + p.id}>选科：{electivesLabel(p.electives)}</small>}
             <small>每日 上学日 {effLimit(p).weekday || '不限'} / 周末 {effLimit(p).weekend || '不限'} 分钟</small>
             {skills[p.id] && <small>难度：{Object.entries(skills[p.id]).map(([s, v]) => `${s}${v.level}`).join(' · ') || '还没开始答题'}</small>}
             <div className="row gap16"><button className="chip" data-testid={'edit-' + p.id} onClick={() => setEdit(p)}>编辑</button>
@@ -340,7 +342,7 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
   const setF = (x: Profile) => { setF0(x); try { sessionStorage.setItem(DK, JSON.stringify(x)); } catch { /* */ } };
   const clearDraft = () => { try { sessionStorage.removeItem(DK); } catch { /* */ } };
   const vols = useMemo(() => { const m = new Map<string, number>(); for (const q of questionsOfGrade(bank, f.grade)) m.set(q.volume, (m.get(q.volume) ?? 0) + 1); return [...m]; }, [bank, f.grade]);
-  const setGrade = (g: GradeKey) => { const d = bandConfig(g).dailyMinutes; setF({ ...f, grade: g, volumes: null, limit: { weekday: Math.max(MIN_LIMIT, d.weekday), weekend: Math.max(MIN_LIMIT, d.weekend) }, unlimited: { weekday: d.weekday <= 0, weekend: d.weekend <= 0 } }); };
+  const setGrade = (g: GradeKey) => { const d = bandConfig(g).dailyMinutes; setF({ ...f, ...(needsElectives(g) && !f.electives ? { electives: { ...ALL_SUBJECTS } } : {}), grade: g, volumes: null, limit: { weekday: Math.max(MIN_LIMIT, d.weekday), weekend: Math.max(MIN_LIMIT, d.weekend) }, unlimited: { weekday: d.weekday <= 0, weekend: d.weekend <= 0 } }); };
   // r9（较真家长）：「全部册别」时点某一册 = 只选这一册（以前是把它取消，选二年级上册反而存成「下册+通用」）
   // r10：「全部册别」时每一册都显示为选中；点某一册 = 取消这一册（其余保留）
   const toggleVol = (v: string) => setF({ ...f, volumes: toggleVolS(f.volumes, v, vols.map(x => x[0])) });   // r11：状态定义见 game/volumes.ts
@@ -354,6 +356,7 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
         <label>名字 <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} data-testid="profile-name" value={f.name} maxLength={8} onChange={e => setF({ ...f, name: e.target.value })} /></label>
         <div className="row gap16 wrap avatars">{AVATARS.map(a => <button key={a} className={`chip ${a === f.avatar ? 'on' : ''}`} onClick={() => setF({ ...f, avatar: a })}>{a}</button>)}</div>
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
+        {needsElectives(f.grade) && <ElectivesPicker e={f.electives} onChange={e => setF({ ...f, electives: e })} />}
         <div><b>已学册别</b>（只从勾选的册别出题）<VolChips vols={vols} volumes={f.volumes} onVol={toggleVol} onAll={() => setF({ ...f, volumes: toggleAllVols(f.volumes) })} />
           {!volsValid(f.volumes) && <p className="warn-text" data-testid="vol-none">⚠ 至少要选一册才能保存（点〔全部册别〕可以全选）</p>}</div>
         <div className="row gap16 wrap"><b>每日时长（分钟，最少 5）</b>
@@ -367,10 +370,27 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
             {askCancel && left > 0 && <div className="p-card warn-box" data-testid="bonus-cancel-confirm"><b>取消没用的加时？</b><p className="hint" data-testid="bonus-cancel-text">会取消 {fmtMS(left)} 临时加时。取消后今天还能玩 <b data-testid="bonus-cancel-left">{Number.isFinite(pv.leftAfter) ? fmtMS(pv.leftAfter) : '不限'}</b>{Number.isFinite(pv.leftAfter) && pv.leftAfter >= 60 ? `（约 ${Math.floor(pv.leftAfter / 60)} 分钟）` : ''}（按这里现在的每日上限计算）。</p>
               <div className="row gap16"><button className="btn" data-testid="bonus-cancel-ok" onClick={() => { setAskCancel(false); onCancelBonus?.(lim); }}>确定取消</button><button className="btn ghost" data-testid="bonus-cancel-no" onClick={() => setAskCancel(false)}>算了</button></div></div>}</>; })()}
         <div className="row gap16 wrap"><button className="chip" data-testid="reset-tips" disabled={!f.tips || !Object.keys(f.tips).length} onClick={() => setF({ ...f, tips: {} })}>💡 重置提示（首次提示再弹一次）</button></div>
-        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes)} onClick={() => { clearDraft(); const { volsKnown: _k, ...g } = f; onSave(f.volumes ? { ...g, volsKnown: vols.map(x => x[0]) } : g); }}>保存</button></div>
+        <div className="row gap16"><button className="btn ghost" onClick={() => { clearDraft(); onCancel(); }}>取消</button><button className="btn" data-testid="profile-save" disabled={!f.name.trim() || !volsValid(f.volumes) || (needsElectives(f.grade) && !electivesValid(f.electives))} onClick={() => { clearDraft(); const { volsKnown: _k, ...g } = f; onSave(f.volumes ? { ...g, volsKnown: vols.map(x => x[0]) } : g); }}>保存</button></div>
       </div>
     </Modal>
   );
+}
+
+/* r16.1：高二选科——默认「还没选科（全科）」（所有科目都能玩、Boss 没有弱点加成）；已选科 = 首选 1 门 + 再选 2 门（game/electives.ts） */
+function ElectivesPicker({ e, onChange }: { e?: Electives; onChange: (e: Electives) => void }) {
+  const all = isAllSubjects(e) && !(e && e.all !== true);   // 已选科但还没勾任何一门时仍显示「已选科」
+  const second = e?.second ?? [];
+  const toggle2 = (x: string) => onChange({ first: e?.first, second: second.includes(x) ? second.filter(y => y !== x) : second.length >= 2 ? second : [...second, x] });
+  return <div data-testid="electives"><b>选科</b>（江苏 3+1+2；语数英、诗词都在）
+    <div className="row gap16 wrap">
+      <button className={`chip ${all ? 'on' : ''}`} data-testid="el-all" onClick={() => onChange({ ...ALL_SUBJECTS })}>还没选科（全科）</button>
+      <button className={`chip ${!all ? 'on' : ''}`} data-testid="el-picked" onClick={() => { if (all) onChange({ first: undefined, second: [] }); }}>已选科</button></div>
+    {all ? <p className="hint" data-testid="el-all-hint">所有科目都能玩；Boss 没有弱点加成。以后随时可以在这里改。</p> : <>
+      <div className="row gap16 wrap">首选（二选一）{ELECTIVE_FIRST.map(x => <button key={x} className={`chip ${e?.first === x ? 'on' : ''}`} data-testid={'el-first-' + x} onClick={() => onChange({ first: x, second })}>{x}</button>)}</div>
+      <div className="row gap16 wrap">再选（四选二）{ELECTIVE_SECOND.map(x => <button key={x} className={`chip ${second.includes(x) ? 'on' : ''}`} data-testid={'el-second-' + x} disabled={!second.includes(x) && second.length >= 2} onClick={() => toggle2(x)}>{x}</button>)}</div>
+      {!electivesValid(e) && <p className="warn-text" data-testid="el-invalid">⚠ 已选科要选首选 1 门、再选 2 门才能保存（还没定可以点〔还没选科（全科）〕）</p>}
+      <p className="hint">Boss 弱点按选的科目来；所有科目仍都能玩。</p></>}
+  </div>;
 }
 
 interface Preview { file: string; bank: Bank; isNew: number; isUpd: number; raw: any[] }

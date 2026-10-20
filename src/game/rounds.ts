@@ -32,12 +32,13 @@ const SEG_OF: Record<RoundMode, SkillSeg> = { p36: 'P36', j: 'J', h: 'H' };
    grade ≤ 10（及非数字年级）→ null = 不动（balance.ts 现值：数学 / 化学）；
    grade ≥ 11 已选科 → 一阶段 = 本关科目，二阶段 = 已选科目里另一个（首选 → 再选按勾选顺序 → 语数英诗词）；
    grade ≥ 11 未选科 → 两阶段都没有弱点。倍率仍 × WEAK（1.5），HP / 攻击 / 回合上限不变。 */
-export interface Electives { first?: string /* 首选：物理 / 历史 */; second?: string[] /* 再选：按勾选顺序 */ }
+import { isAllSubjects, type Electives } from './electives';
+export type { Electives };
 export const CORE_SUBJECTS = ['语文', '数学', '英语', '诗词'];
 export function bossWeak(grade: string | undefined, subject: string | undefined, el?: Electives | null): [string | undefined, string | undefined] | null {
   const g = Number(grade); if (!grade || !Number.isFinite(g) || g <= 10) return null;
+  if (isAllSubjects(el)) return [undefined, undefined];   // r16.1：「还没选科（全科）」/ 没选 → 两阶段都没有弱点
   const picked = [el?.first, ...(el?.second ?? [])].filter((x): x is string => !!x);
-  if (!picked.length) return [undefined, undefined];
   return [subject, [...picked, ...CORE_SUBJECTS].find(x => x !== subject)];
 }
 export function newRound(mode: RoundMode, kind: LevelKind, opts: { lowGrade?: boolean; level?: number; noDeath?: boolean; weak?: [string | undefined, string | undefined] | null } = {}): RState {

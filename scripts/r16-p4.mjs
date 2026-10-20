@@ -28,7 +28,8 @@ async function toLevel(grade) { await pg.fill('[data-testid=add-name]', 'p4'); a
   if (!(await vis('[data-testid=level-1]'))) { await pg.screenshot({ path: OUT + 'tolevel-fail.png' }); console.log('toLevel stuck:', await pg.evaluate(() => [...document.querySelectorAll('[data-testid]')].filter(e => e.offsetParent).map(e => e.dataset.testid).slice(0, 30).join(','))); return false; }
   await w(800); await pg.click('[data-testid=level-1]'); await w(1000); return true; }
 const inView = (sel) => pg.evaluate(s => { const e = document.querySelector(s); if (!e) return null; const r = e.getBoundingClientRect(); return { l: Math.round(r.left), t: Math.round(r.top), r: Math.round(r.right), b: Math.round(r.bottom), ok: r.width > 0 && r.left >= 0 && r.top >= 0 && r.right <= innerWidth + 0.5 && r.bottom <= innerHeight + 0.5 }; }, sel);
-const answer = async () => { if (await vis('.keypad')) { const a = await pg.$eval('.qtext', e => e.getAttribute('data-ans') || '1').catch(() => '1'); for (const ch of a) await tap(`.keypad [data-key="${ch}"]`); await tap('[data-testid=ok]'); return; }
+const answer = async () => { if (await vis('.ime-input')) { const a = await pg.$eval('.qtext', e => e.getAttribute('data-ans') || '1').catch(() => '1'); await pg.fill('.ime-input', a); await tap('[data-testid=ok]'); return; }   // r16.1：系统输入法填空
+  if (await vis('.keypad')) { const a = await pg.$eval('.qtext', e => e.getAttribute('data-ans') || '1').catch(() => '1'); for (const ch of a) await tap(`.keypad [data-key="${ch}"]`); await tap('[data-testid=ok]'); return; }
   if (await vis('[data-testid=multi-ok]')) { for (const h of await pg.$$('.quiz .opt[data-correct="1"]')) { const bb = await h.boundingBox(); if (bb) await pg.touchscreen.tap(bb.x + bb.width / 2, bb.y + bb.height / 2); } await tap('[data-testid=multi-ok]'); return; }
   await tap('.quiz .opt[data-correct="1"]'); };
 async function drive(until, max = 120) { for (let s = 0; s < max; s++) { const r = await until(); if (r) return r;
@@ -38,7 +39,7 @@ async function drive(until, max = 120) { for (let s = 0; s < max; s++) { const r
     if (await vis('[data-testid=chal-normal]')) { await w(2700); await tap('[data-testid=chal-normal]'); await w(300); continue; }
     if (await vis('[data-testid=card-std]')) { await tap('[data-testid=card-std]'); await w(300); continue; }
     if (await vis('[data-testid=bet-go]')) { await tap('[data-testid=bet-go]'); await w(300); continue; }
-    if (await vis('.quiz .opt, .keypad')) { await answer(); await w(500); continue; }
+    if (await vis('.quiz .opt, .keypad, .ime-input')) { await answer(); await w(500); continue; }
     if (await vis('[data-testid=next]')) { await tap('[data-testid=next]'); await w(400); continue; }
     await w(300); } return null; }
 
@@ -66,7 +67,7 @@ if (PARTS.includes('B')) for (const vp of ['800x280', '800x360', '915x412']) { c
   await ctx.close(); }
 
 if (PARTS.includes('D')) { const ctx = await ctxNew('640x360', { font: 1.3 }); await setup(); await toLevel('10'); const seen = [];
-  await drive(async () => { if (await vis('[data-testid=tts]') && await vis('.quiz .opt, .keypad')) { const r = await inView('[data-testid=tts]'); const id = await pg.$eval('.qtext', e => e.textContent.slice(0, 12)).catch(() => '?');
+  await drive(async () => { if (await vis('[data-testid=tts]') && await vis('.quiz .opt, .keypad, .ime-input')) { const r = await inView('[data-testid=tts]'); const id = await pg.$eval('.qtext', e => e.textContent.slice(0, 12)).catch(() => '?');
       if (!seen.find(x => x.id === id)) { seen.push({ id, ...r }); if (seen.length === 1 || !r.ok) await pg.screenshot({ path: `${OUT}D-640x360-130-${seen.length}.png` }); } } return seen.length >= 8; }, 160);
   ok(seen.length >= 3 && seen.every(x => x.ok), `P4-d 130% 640×360 高一 ${seen.length} 题朗读按钮都在屏内 ${JSON.stringify(seen.filter(x => !x.ok).slice(0, 3))}`); await ctx.close(); }
 console.log(bad ? `r16-p4 FAIL ${bad}` : 'r16-p4 ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

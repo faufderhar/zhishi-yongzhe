@@ -22,6 +22,7 @@ async function fresh(vp, grade) { const mob = vp === '390x844'; const [W, H] = v
   if (await vis('[data-testid=pin-verify]')) await pinIn('2468');   // r16 8c：设完密码再输一次
   await pg.fill('[data-testid=add-name]', 'd15'); await tap(`[data-testid=home-grade-${grade}]`); await w(400); await toMap(); return ctx; }
 async function answer() {
+  if (await vis('.ime-input')) { const a = await pg.$eval('.qtext', e => e.getAttribute('data-ans') || '1').catch(() => '1'); await pg.fill('.ime-input', a); await tap('[data-testid=ok]'); return; }   // r16.1：系统输入法填空
   if (await vis('.keypad')) { const a = await pg.$eval('.qtext', e => e.getAttribute('data-ans') || '1').catch(() => '1'); for (const ch of a) await tap(`.keypad [data-key="${ch}"]`); await tap('[data-testid=ok]'); return; }
   if (await vis('.opts.multi, [data-testid=multi-ok]')) { for (const h of await pg.$$('.quiz .opt[data-correct="1"]')) { const bb = await h.boundingBox(); if (bb) await pg.touchscreen.tap(bb.x + bb.width / 2, bb.y + bb.height / 2); await w(100); } await tap('[data-testid=multi-ok], [data-testid=ok]'); return; }
   await tap('.quiz .opt[data-correct="1"]'); }
@@ -37,7 +38,7 @@ for (const vp of VPS) for (const grade of (process.env.GR || '10,7').split(','))
     if (await vis('[data-testid=card-heavy]')) { if (!cardLines.length) { cardLines = await oneLine('.qcard .dmg-sum-line'); await pg.screenshot({ path: `${OUT}${vp}-g${grade}-cards.png` }); }
       if (await vis('[data-testid=bet-toggle][data-on="0"]')) await tap('[data-testid=bet-toggle]'); await w(100); await tap(`[data-testid=card-${['heavy', 'std', 'light'][cardN++ % 3]}]`); await w(300); continue; }
     if (await vis('[data-testid=bet-go]')) { await tap('[data-testid=bet-go]'); await w(300); continue; }
-    if (await vis('.quiz .opt, .keypad')) { await answer(); await w(500); continue; }
+    if (await vis('.quiz .opt, .keypad, .ime-input')) { await answer(); await w(500); continue; }
     if (await vis('[data-testid=feedback]')) {
       const h3 = (await pg.textContent('[data-testid=feedback] h3')).trim(); const m = h3.match(/造成 ([\d+]+)/);
       if (m && await vis('[data-testid=dmg-sum]')) { turn++;

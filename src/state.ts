@@ -11,6 +11,7 @@ const saveKV = (k: string, v: unknown) => restoring() ? Promise.resolve() : rawS
 const setKV = rawSetKV;
 import type { GradeKey } from './game/questions';
 import { bandConfig } from './game/grades';
+import { cleanElectives, needsElectives, ALL_SUBJECTS, type Electives } from './game/electives';
 import type { TimeLimit, Usage } from './game/playtime';
 import type { Skills } from './game/adaptive';
 export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit: boolean; hsWager?: boolean; lenientTime?: boolean /* 时限宽松 ×1.5（r7） */;
@@ -29,7 +30,7 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
   pinResetDoneAt?: number                          // r11：密码被重设的时间（家长页一直提示，点〔知道了〕清掉）
 }
 export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit;
-  electives?: { first?: string; second?: string[] }   /* r16 R-13：高二选科（首选 1 + 再选 2，R-11 的档案勾选界面以后做；没有 = 未选科） */;
+  electives?: Electives   /* r16 R-13 / r16.1：高二选科（{ all: true } =「还没选科（全科）」，高二及以上新档案默认；首选 1 + 再选 2；没有 = 全科），见 game/electives.ts */;
   volsKnown?: string[]   /* r15.4.4：保存「已学册别」时题库里有哪些册别（之后题库新增的册别自动勾上一次） */; volNotice?: string[]   /* r15.4.4：自动勾上的新册别（家长页提示一次） */; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */; pinVault?: PinVault /* r11：家长密码副本 */; recHash?: string /* r12：恢复码哈希独立副本 */ }
 /** 实际生效的每日时长（0 = 不限）：r9 起 limit 最少 5 分钟，不限由 unlimited 开关决定 */
 export const effLimit = (p: Pick<Profile, 'limit' | 'unlimited'>): TimeLimit => ({ weekday: p.unlimited?.weekday ? 0 : Math.max(MIN_LIMIT, p.limit.weekday), weekend: p.unlimited?.weekend ? 0 : Math.max(MIN_LIMIT, p.limit.weekend) });
@@ -38,7 +39,7 @@ export interface Progress { stars: Record<string, number>; plays: Record<string,
 export const DEFAULT_SETTINGS: Settings = { includePending: false, g1NoLimit: false };
 export const AVATARS = ['🧒', '👧', '👦', '🧑‍🎓', '🧑‍🔬', '🐱', '🐶', '🐰', '🦊', '🐼', '🦁', '🐯'];
 export const newProfile = (name: string, grade: GradeKey, avatar = '🧒'): Profile =>
-  ({ id: 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, avatar, grade, volumes: null, limit: { ...bandConfig(grade).dailyMinutes } });
+  ({ id: 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, avatar, grade, volumes: null, limit: { ...bandConfig(grade).dailyMinutes }, ...(needsElectives(grade) ? { electives: { ...ALL_SUBJECTS } } : {}) });
 export const DEFAULT_PROFILES = (): Profile[] => [
   { ...newProfile('小班宝贝', 'K1', '🐰'), id: 'kid-k' },
   { ...newProfile('初一同学', '7', '🧑‍🎓'), id: 'kid-7' },
@@ -78,6 +79,7 @@ export function repairProfile(x: unknown): Profile | null {
       const a = one('weekday'), b = one('weekend');
       return { limit: { weekday: a.v, weekend: b.v }, ...(a.off || b.off ? { unlimited: { weekday: a.off, weekend: b.off } } : {}) };
     })(),
+    ...(() => { const e = cleanElectives(x.electives); return e ? { electives: e } : {}; })(),   // r16.1：选科（以前读档时被丢掉）
     charId: typeof x.charId === 'string' ? x.charId : undefined, ...(x.tutorialDone === true ? { tutorialDone: true } : {}), ...(x.tutorialV036 === true ? { tutorialV036: true } : {}),
     // r9：修复时保留 r8b/D14 的新字段（以前被丢掉，导致「记住上次选择」、各学段角色丢失）
     ...(typeof x.lastGrade === 'string' && GRADES.has(x.lastGrade) ? { lastGrade: x.lastGrade as GradeKey } : {}),
