@@ -2,17 +2,22 @@
 // state.ts 的保存在 __zyRestoring 期间不写
 import 'fake-indexeddb/auto';
 const mem = new Map<string, string>(); (globalThis as any).localStorage ??= { getItem: (k: string) => mem.get(k) ?? null, setItem: (k: string, v: string) => void mem.set(k, String(v)), removeItem: (k: string) => void mem.delete(k), clear: () => mem.clear() };
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, beforeEach, vi } from 'vitest';
+import { dayStr } from '../src/game/wrongbook';
 import { cancelBonus, effBonus, remainingSec, bonusAllSpent, cancelPreview, bonusUsedSec, addBonus, SPENT_LINE, type Usage } from '../src/game/playtime';
 import { cleanUsage } from '../src/game/sanitize';
 import * as S from '../src/state';
 import { importAll, exportAll, getKV, setKV, mergeAll } from '../src/db';
 import { makePinHash } from '../src/game/pin';
-const D = '2026-10-19'; const mon = new Date(2026, 9, 19, 12);   // 周一
+const mon = new Date(2026, 9, 19, 12);   // 周一（本地时间正午：任何时区都是 10 月 19 日）
+/* 覆盖恢复只保留「本机今天」那条用时，「今天」= 设备本地日期（db.ts / wrongbook.dayStr，按用户手机的时区，例如 Asia/Shanghai）。
+   以前 D 写死 '2026-10-19'、却用真实时钟：换一天（或 CI 在 UTC 已是 10 月 20 日）就对不上。现在把时钟固定在 mon，D 用 App 的同一个日期函数算 */
+const D = dayStr(mon);
+beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(mon); });
 const L = (m: number) => ({ weekday: m, weekend: m });
 // 报告复现：上限 5:00，用了 14:17（含 10 分钟加时），取消 → 已用加时 9:17
 const cancelled = (): Usage => cancelBonus({ [D]: { used: 14 * 60 + 17, bonus: 600 } }, D, 300);
-afterEach(() => { (globalThis as any).__zyRestoring = false; });
+afterEach(() => { (globalThis as any).__zyRestoring = false; vi.useRealTimers(); });
 
 describe('刷新 / 恢复 / 合并后仍是已取消', () => {
   const pid = 'kid';

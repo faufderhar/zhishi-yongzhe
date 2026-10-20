@@ -1,6 +1,7 @@
 // r16 2e：Boss 名对照表（中班 v34 / 初二 v36 / 高一 v39 / 高二 v37）→ chapterBoss.gen.json（scripts/import-boss-names.py 生成，不手改）
 import { it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { boxPath, missing } from './boxSrc';
 import { execFileSync } from 'node:child_process';
 import { loadBank, playable } from '../src/game/questions';
 import { computeVisibility, isHiddenBy } from '../src/game/visibility';
@@ -8,11 +9,18 @@ import { buildChapters } from '../src/game/levels';
 import { chapterBoss, CHAPTER_BOSS } from '../src/game/monsterSkin';
 import GEN from '../src/game/chapterBoss.gen.json';
 const UNUSED = ['10|历史|必修下册|星球合唱家'];   // 纲要下第九单元可玩题不够 12 道，暂时没有 Boss 关
-it('gen.json = 导入脚本输出（没被手改）', () => {
+// 对照表 CSV 只在开发机的题库源目录里（CI 上没有）：缺了就跳过「重新生成再比对」，提交的 gen.json 本身照样检查
+const BOSS_CSV = [...readFileSync('scripts/import-boss-names.py', 'utf8').matchAll(/'([^']+\.csv)'/g)].map(m => boxPath(`questions/${m[1]}`));
+it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
+  const miss = missing(...BOSS_CSV);
+  skip(miss.length > 0, `开发机题库源不在（CI）：缺 ${miss.join('、')}——不重新生成比对`);
   const before = readFileSync('src/game/chapterBoss.gen.json', 'utf8');
-  execFileSync('python3', ['scripts/import-boss-names.py']);
+  execFileSync('python3', ['scripts/import-boss-names.py', boxPath('questions')]);
   expect(readFileSync('src/game/chapterBoss.gen.json', 'utf8')).toBe(before);
+});
+it('提交的 chapterBoss.gen.json：206 行，每行 7 列、名字非空', () => {
   expect((GEN as unknown[]).length).toBe(206);
+  for (const r of GEN as unknown[][]) { expect(r.length).toBe(7); expect(String(r[4]).length).toBeGreaterThan(0); }
 });
 it('中班 / 初二 / 高二每个章节 Boss 都有对照表名字；对照表每行都用上；同年级不重名', () => {
   const used = new Set<string>();

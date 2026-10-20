@@ -6,11 +6,18 @@ import { loadBank, playable } from '../src/game/questions';
 import { buildChapters } from '../src/game/levels';
 import { kinderMon, kinderSkin, KINDER_BOSS, KBOSS_SCALE, dashScale, chapterBoss } from '../src/game/monsterSkin';
 import { offlineList } from '../src/offlineCache';
+import { boxPath, missing } from './boxSrc';
 const levels = (g: string) => { const all = loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), '').all; const qs = playable(all, false); const by = new Map(qs.map(q => [q.key, q]));
   return buildChapters(qs, null, all).flatMap(c => c.levels.map(l => ({ l, q0: by.get(l.pool[0])!, subject: c.subject }))); };
-it('gen.json = 导入脚本输出；序列帧文件都在', () => {
+// 美术源（manifest / todo / Boss 名对照表）只在开发机上（CI 上没有）：缺了就跳过「重新生成再比对」；序列帧文件在 public/，照样检查
+const K2_SRC = ['art/monsters/manifest.json', 'art/k2/todo.json', 'questions/中班Boss名对照_v34.csv'].map(boxPath);
+it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
+  const miss = missing(...K2_SRC);
+  skip(miss.length > 0 || boxPath('') !== '/workspace/', `开发机美术源不在（CI）：缺 ${miss.join('、') || '（ZY_BOX_ROOT 不是 /workspace，导入脚本只认 /workspace）'}——不重新生成比对`);
   const before = readFileSync('src/game/kinderBoss.gen.json', 'utf8'); execFileSync('python3', ['scripts/import-k2-monsters.py']);
   expect(readFileSync('src/game/kinderBoss.gen.json', 'utf8')).toBe(before);
+});
+it('提交的 kinderBoss.gen.json：23 个 Boss，引用的序列帧 json / 图片都在 public/', () => {
   expect(KINDER_BOSS.length).toBe(23);
   for (const b of KINDER_BOSS) for (const a of Object.values(b.anims)) {
     const j = `public/${b.dir}/${a.soft}.json`; expect(existsSync(j), j).toBe(true);
