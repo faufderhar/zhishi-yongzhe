@@ -1081,6 +1081,10 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .result-screen .big-emoji.xl{font-size:52px;height:58px}.result-screen h1{font-size:24px;margin:2px 0}.result-screen .stars{transform:none;font-size:40px !important;line-height:1.1}
   .result-screen .ksub{font-size:22px;margin:2px 0}.result-screen .klines{font-size:24px;gap:4px}.result-screen .kfirst{padding:3px 12px}.result-screen .kfirst-icons{font-size:24px}.result-screen .knostar-why{font-size:34px;margin:2px 0}
   .result-screen .result-actions{padding-top:4px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}.result-screen .result-actions .btn{padding-top:10px;padding-bottom:10px}}
+/* r16.2 小萌新 #2：「1280×600 的窗口」实际视口只有约 510 高；第 2 次结算页（多一行「真棒！再玩一关吧」）要 512 → 多出 2px 滚动条。矮屏把结算页的 🔊 从 100 缩到 72（仍 ≥64 好点），伙伴图随高度缩到 ≥60 */
+@media (min-height:481px) and (max-height:560px){.result-screen .kspeaker,.theme-kinder .result-screen .kspeaker{width:72px;height:72px;min-width:72px;min-height:72px;font-size:40px}
+  .result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:clamp(60px,calc(100vh - 420px),84px)}.result-screen .row.friends .kmon-face{height:clamp(60px,calc(100vh - 420px),84px)}}
+@media (min-height:481px) and (max-height:500px){.result-screen{gap:6px}}
 /* r16.1 (a)：800 高也一样——第 2 次玩时溢出约 130px，被吸底按钮盖住；721–860px 高度时收紧（立绘 150px、间距 14px） */
 @media (min-height:721px) and (max-height:860px){.result-screen{gap:14px;padding:14px 20px}.result-screen>p,.result-screen .klines{margin:2px 0}}
 @media (min-height:761px) and (max-height:860px){.result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:150px}.result-screen .row.friends .kmon-face{height:150px}}
