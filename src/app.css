@@ -1089,3 +1089,11 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .skill-banner .skill-tag{font-size:12px;opacity:.85;margin-left:4px;padding:1px 6px;border-radius:999px;background:rgba(255,255,255,.18)}
 .energy-ring .ring-tag{font-size:10px;opacity:.8;margin-left:2px}
 .char-card .char-skill{display:block;font-size:12px;line-height:1.35;opacity:.85;max-width:220px;text-align:left}
+/* r16.1 (s) 较真家长 P3：家长页「修改家长密码」在矮屏（≤ 760 高，例如 1280×600）改左右两栏：左边标题 / 圆点 / 提示，右边键盘，不用往下滚 */
+@media (max-height:760px){
+  .pintab-pad .pinpad{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-auto-flow:row dense;column-gap:28px;row-gap:8px;align-items:center;justify-items:center;width:min(100%,720px);margin:0 auto}
+  .pintab-pad .pinpad > *{grid-column:1;margin:0}
+  .pintab-pad .pinpad > .pin-keys{grid-column:2;grid-row:1 / span 12;align-self:center}
+  .pintab-pad .pin-keys{gap:10px}
+  .pintab-pad .pin-keys button{height:min(64px,calc((100dvh - 170px) / 4))}
+}

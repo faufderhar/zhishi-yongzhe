@@ -47,3 +47,10 @@ describe('r16.1 (s)(t) 键盘位置 / 按钮', () => {
     expect(tab).toMatch(/const changeBtn = <button [^\n]*data-testid="pintab-change"[^\n]*setStep\('old'\)/);
   });
 });
+describe('r16.1 (s) 矮屏两栏', () => {
+  it('app.css：≤760 高时 .pintab-pad 的键盘放右栏', () => {
+    const css = readFileSync('src/app.css', 'utf8');
+    expect(css).toMatch(/@media \(max-height:760px\)\{\s*\.pintab-pad \.pinpad\{display:grid;grid-template-columns:minmax\(0,1fr\) auto/);
+    expect(css).toMatch(/\.pintab-pad \.pinpad > \.pin-keys\{grid-column:2;grid-row:1 \/ span 12/);
+  });
+});
