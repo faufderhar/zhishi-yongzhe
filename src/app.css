@@ -1075,3 +1075,12 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .friends .kmon-face{height:220px;background-repeat:no-repeat;background-position:0 0}
 @media (max-height:760px){.center-screen .row.friends .kmon-face{height:110px}}
 @media (max-height:480px){.center-screen .row.friends .kmon-face{height:76px}}
+/* r16.1 (a) 小萌新：可视高度 ~600（1280×600 / 610）第 2 次玩时结算页多一行「再玩…」，内容溢出后被吸底的按钮盖住（星星压「下一关」、「自己答对 3 题」被切）——
+   481–720px 高度时收紧间距、立绘、字号，保证整页放得下、不用滚动 */
+@media (min-height:481px) and (max-height:720px){.result-screen{gap:8px;padding:8px 16px}.result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:84px}.result-screen .row.friends .kmon-face{height:84px}
+  .result-screen .big-emoji.xl{font-size:52px;height:58px}.result-screen h1{font-size:24px;margin:2px 0}.result-screen .stars{transform:none;font-size:40px !important;line-height:1.1}
+  .result-screen .ksub{font-size:22px;margin:2px 0}.result-screen .klines{font-size:24px;gap:4px}.result-screen .kfirst{padding:3px 12px}.result-screen .kfirst-icons{font-size:24px}.result-screen .knostar-why{font-size:34px;margin:2px 0}
+  .result-screen .result-actions{padding-top:4px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}.result-screen .result-actions .btn{padding-top:10px;padding-bottom:10px}}
+/* r16.1 (a)：800 高也一样——第 2 次玩时溢出约 130px，被吸底按钮盖住；721–860px 高度时收紧（立绘 150px、间距 14px） */
+@media (min-height:721px) and (max-height:860px){.result-screen{gap:14px;padding:14px 20px}.result-screen>p,.result-screen .klines{margin:2px 0}}
+@media (min-height:761px) and (max-height:860px){.result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:150px}.result-screen .row.friends .kmon-face{height:150px}}

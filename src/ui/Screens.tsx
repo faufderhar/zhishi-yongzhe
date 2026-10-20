@@ -265,7 +265,7 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
   useEffect(() => { if (kNoStar) { const id = setTimeout(noStarSay, 1200); return () => clearTimeout(id); } }, [kNoStar]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
-    <div className="center-screen" data-ktime={kTime ? '1' : undefined}>
+    <div className="center-screen result-screen" data-ktime={kTime ? '1' : undefined}>
       {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><div className="row gap16 kt-title"><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={() => speak(TIMEUP_K_TEXT)}>🔊</button>}</div><p data-testid="timeup">⏰ 今天的时间到啦</p></>
       : kNoStar ? <><div className="big-emoji xl" aria-hidden data-testid="result-k-icon">🌈</div><div className="row gap16 kt-title"><h1 data-testid="result-k-done">{K_NOSTAR_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="result-k-replay" onClick={noStarSay}>🔊</button>}</div>
         {/* r16 小萌新：不认字也看得懂——今天玩了 3 次 → 月亮（睡一觉）→ 明天的星星 */}
