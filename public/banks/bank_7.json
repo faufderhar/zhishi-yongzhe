@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初一-v47（AI初审）",
- "version": "v47",
+ "bank_name": "三兄妹题库-初一-v48（AI初审）",
+ "version": "v48",
  "questions": [
   {
    "id": "M7-001",
@@ -71,6 +71,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T64d3a8",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "找规律"
    ]
@@ -331,6 +332,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T37ca99",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "数轴",
     "平移"
@@ -451,6 +453,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "绝对值"
    ]
@@ -616,6 +619,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te641ce",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "绝对值",
     "非负性"
@@ -643,6 +647,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加法"
    ]
@@ -670,6 +675,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8c95b2",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "有理数减法"
    ]
@@ -721,6 +727,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加法",
     "小数分数"
@@ -748,6 +755,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -774,6 +782,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tce3c32",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数减法",
     "应用"
@@ -801,6 +810,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减",
     "规律"
@@ -828,6 +838,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘法"
    ]
@@ -902,6 +913,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T12201b",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘法"
    ]
@@ -974,6 +986,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘法",
     "符号"
@@ -1001,6 +1014,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T56cc2e",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘法分配律"
    ]
@@ -1027,6 +1041,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfcad14",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除",
     "运算顺序"
@@ -1101,6 +1116,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -1176,6 +1192,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3673ef",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "乘方",
     "-1的幂"
@@ -1249,6 +1266,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8cb190",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方",
     "分数"
@@ -1276,6 +1294,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算"
    ]
@@ -1349,6 +1368,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta4cf27",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算",
     "新定义"
@@ -1422,6 +1442,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc196d9",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -1541,6 +1562,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te641ce",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "代数式求值",
     "整体代入"
@@ -1614,6 +1636,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -1713,6 +1736,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T93d8cd",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用"
    ]
@@ -3774,6 +3798,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T07e51b",
    "change_tag": "修改",
+   "input_type": "text",
    "tags": [
     "词汇",
     "数字"
@@ -3800,6 +3825,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T7e7446",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇",
     "序数词"
@@ -3827,6 +3853,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T2a029e",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "名词复数"
    ]
@@ -3853,6 +3880,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T2a029e",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "名词复数"
    ]
@@ -3879,6 +3907,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T2a029e",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "名词复数"
    ]
@@ -4319,6 +4348,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T07e51b",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇",
     "星期"
@@ -8448,6 +8478,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T10156f",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "三单变化"
    ]
@@ -8473,6 +8504,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T10156f",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "三单变化"
    ]
@@ -8498,6 +8530,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T8b61d4",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -10516,6 +10549,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta9347d",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "观察"
@@ -10543,6 +10577,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tce912a",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "观察"
@@ -10617,6 +10652,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T15e4f4",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "活动思考",
     "分类计数"
@@ -10690,6 +10726,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -10716,6 +10753,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -10742,6 +10780,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -10768,6 +10807,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -10794,6 +10834,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -10820,6 +10861,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数加减混合"
    ]
@@ -10847,6 +10889,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除"
    ]
@@ -10873,6 +10916,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除"
    ]
@@ -10899,6 +10943,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除"
    ]
@@ -10925,6 +10970,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除"
    ]
@@ -10951,6 +10997,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除"
    ]
@@ -10977,6 +11024,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘除"
    ]
@@ -11004,6 +11052,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "有理数乘法",
     "分数"
@@ -11031,6 +11080,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -11058,6 +11108,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -11085,6 +11136,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -11112,6 +11164,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -11138,6 +11191,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -11165,6 +11219,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "乘方",
     "易错"
@@ -11192,6 +11247,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T17d130",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "科学记数法"
    ]
@@ -11218,6 +11274,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11245,6 +11302,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11272,6 +11330,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11299,6 +11358,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11326,6 +11386,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "混合运算",
     "运算顺序"
@@ -11445,6 +11506,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te63689",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -11519,6 +11581,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb431a3",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -11546,6 +11609,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te63689",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -11646,6 +11710,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc00155",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "整式加减",
     "合并同类项"
@@ -12051,6 +12116,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12149,6 +12215,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12175,6 +12242,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12201,6 +12269,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12227,6 +12296,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12253,6 +12323,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12279,6 +12350,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12305,6 +12377,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -12331,6 +12404,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12358,6 +12432,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12385,6 +12460,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12412,6 +12488,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6342a6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程",
     "去分母"
@@ -12438,6 +12515,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6ae194",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用",
     "打折"
@@ -12464,6 +12542,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T78d091",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用",
     "行程"
@@ -12490,6 +12569,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2adf62",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用",
     "工程"
@@ -12516,6 +12596,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T51845b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用"
    ]
@@ -12586,6 +12667,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T36a56c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "立体图形"
    ]
@@ -12884,6 +12966,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T33597b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "线段中点"
    ]
@@ -12910,6 +12993,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc28a3",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "余角"
    ]
@@ -12984,6 +13068,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta9ae67",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "余角"
    ]
@@ -13010,6 +13095,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8d0894",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "补角"
    ]
@@ -13036,6 +13122,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbc28a3",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "余角"
    ]
@@ -13062,6 +13149,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8d0894",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "补角"
    ]
@@ -13088,6 +13176,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2fca39",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "角的度量"
    ]
@@ -13114,6 +13203,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf04ec8",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "角",
     "钟表"
@@ -13141,6 +13231,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tde382b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -13268,7 +13359,7 @@
    "textbook": "苏科版2024",
    "unit": "七上·第6章 平面图形的初步认识·6.4 平行线",
    "type": "判断",
-   "question": "在同一平面内，垂直于同一条直线的两条直线互相平行。",
+   "question": "在同一平面内，垂直于同一条直线的两条直线一定互相平行。",
    "answer": "对",
    "explanation": "同一平面内垂直于同一直线的两直线平行。",
    "difficulty": 2,
@@ -13276,9 +13367,10 @@
    "volume": "七年级上册",
    "knowledge_point": "平行线",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7bfde8",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "平行线"
    ]
@@ -13304,6 +13396,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8ed457",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "多边形",
     "对角线"
@@ -13403,6 +13496,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T740e7b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13430,6 +13524,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc9ab98",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13481,6 +13576,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -13553,6 +13649,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T740e7b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "幂的乘方"
    ]
@@ -13672,6 +13769,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "积的乘方",
     "逆用"
@@ -13699,6 +13797,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te0c88b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -13726,6 +13825,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "负整数指数幂"
    ]
@@ -13752,6 +13852,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "零指数幂"
    ]
@@ -13778,6 +13879,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T740e7b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "科学记数法",
     "较小数"
@@ -13991,6 +14093,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te641ce",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "多项式乘法"
    ]
@@ -14247,6 +14350,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdab9ad",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平方差公式",
     "简便运算"
@@ -14274,6 +14378,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdab9ad",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "完全平方公式",
     "简便运算"
@@ -14301,6 +14406,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T73705d",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "完全平方公式",
     "变形"
@@ -14328,6 +14434,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfa674b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "完全平方式"
    ]
@@ -14467,6 +14574,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc0755b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对称轴"
    ]
@@ -14492,6 +14600,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T239d4b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "旋转对称"
    ]
@@ -14504,7 +14613,7 @@
    "textbook": "苏科版2024",
    "unit": "七下·第9章 图形的变换·9.3 旋转",
    "type": "判断",
-   "question": "旋转前后对应点到旋转中心的距离相等。",
+   "question": "旋转前后，每一对对应点到旋转中心的距离都相等。",
    "answer": "对",
    "explanation": "旋转的性质。",
    "difficulty": 2,
@@ -14512,9 +14621,10 @@
    "volume": "七年级下册",
    "knowledge_point": "旋转",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T70ae05",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "旋转"
    ]
@@ -14610,6 +14720,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14712,6 +14823,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14740,6 +14852,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14768,6 +14881,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14796,6 +14910,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14823,6 +14938,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -14850,6 +14966,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e0532",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "三元一次方程组"
    ]
@@ -14875,6 +14992,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3cdf18",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -14901,6 +15019,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdfae70",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -15112,6 +15231,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T79e22c",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "解一元一次不等式"
    ]
@@ -15230,6 +15350,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T436bc8",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "不等式的整数解"
    ]
@@ -15302,6 +15423,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tde4886",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "不等式组",
     "整数解"
@@ -15328,6 +15450,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T300ed5",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -22856,6 +22979,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta98355",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "观察"
@@ -22930,6 +23054,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T68aa16",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "活动思考",
     "分类计数"
@@ -23030,6 +23155,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T02b261",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正数与负数"
    ]
@@ -23129,6 +23255,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T076b26",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等式的性质"
    ]
@@ -23201,6 +23328,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta09d9c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用",
     "打折"
@@ -23368,6 +23496,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb53364",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "展开图"
    ]
@@ -23440,6 +23569,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec1d87",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线性质"
    ]
@@ -23492,6 +23622,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2047f4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -23610,6 +23741,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T998d22",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行公理"
    ]
@@ -23710,6 +23842,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdc39cb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二元一次方程"
    ]
@@ -23855,6 +23988,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec2383",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三元一次方程组"
    ]
@@ -23927,6 +24061,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T68f5c3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -24119,6 +24254,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta1b4ed",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次不等式"
    ]
@@ -24217,6 +24353,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te4c45d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -24243,6 +24380,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbf2c7c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -24552,6 +24690,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T102f7c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -25074,6 +25213,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc78ffe",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "旋转对称"
    ]
@@ -25171,6 +25311,7 @@
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T732563",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "户外",
     "词汇语法"
@@ -25244,6 +25385,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T179d21",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "小学复习"
    ]
@@ -26412,6 +26554,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0fae0d",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "默写",
     "诫子书"
@@ -29603,6 +29746,7 @@
    ],
    "template": "Tc3f3b9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "2.2"
@@ -29702,6 +29846,7 @@
    ],
    "template": "Td9d064",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "1.2"
@@ -29851,6 +29996,7 @@
    ],
    "template": "T843911",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "1.3"
@@ -29999,6 +30145,7 @@
    ],
    "template": "T542e65",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "4.1"
@@ -30167,6 +30314,7 @@
    ],
    "template": "T88e52d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "5.3"
@@ -30409,6 +30557,7 @@
    ],
    "template": "T373495",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "6.5"
@@ -30485,6 +30634,7 @@
    ],
    "template": "T740e7b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "8.1"
@@ -30587,6 +30737,7 @@
    ],
    "template": "T740e7b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "8.2"
@@ -30709,6 +30860,7 @@
    ],
    "template": "T45d409",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "9.1"
@@ -30736,6 +30888,7 @@
    ],
    "template": "T2a257c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "9.2"
@@ -30861,6 +31014,7 @@
    ],
    "template": "Ta5ce51",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "10.1"
@@ -31083,6 +31237,7 @@
    ],
    "template": "Tec2383",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "10.4"
@@ -31136,6 +31291,7 @@
    ],
    "template": "Tec2383",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "10.4"
@@ -31163,6 +31319,7 @@
    ],
    "template": "T0b4563",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "10.5"
@@ -31190,6 +31347,7 @@
    ],
    "template": "Tbbcf41",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "10.5"
@@ -31391,6 +31549,7 @@
    ],
    "template": "Ta1b4ed",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "11.2"
@@ -31419,6 +31578,7 @@
    ],
    "template": "Td1380a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "11.4"
@@ -31494,6 +31654,7 @@
    ],
    "template": "Ta316ee",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "11.5"
@@ -31521,6 +31682,7 @@
    ],
    "template": "Tfd66a5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数学",
     "11.5"
@@ -33363,6 +33525,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb6dc2f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "数学与生活"
@@ -33390,6 +33553,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Teaaea0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "数学与生活"
@@ -33417,6 +33581,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T75b183",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "活动思考",
     "分类计数"
@@ -33443,6 +33608,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T32c0d0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "活动思考",
     "分类计数"
@@ -33470,6 +33636,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T884a60",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用字母表达"
    ]
@@ -33496,6 +33663,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T660dfc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用字母表达"
    ]
@@ -33522,6 +33690,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb5b28c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用字母表达"
    ]
@@ -33777,6 +33946,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td149f0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正数与负数"
    ]
@@ -33849,6 +34019,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Teb2ea6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数轴"
    ]
@@ -34103,6 +34274,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf149f2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有理数加法"
    ]
@@ -34129,6 +34301,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3a6a43",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有理数加法"
    ]
@@ -34155,6 +34328,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tff1491",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有理数加法"
    ]
@@ -34181,6 +34355,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5e7dd6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有理数加法"
    ]
@@ -34207,6 +34382,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T50ed47",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有理数乘法"
    ]
@@ -34233,6 +34409,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te48b2f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有理数乘法"
    ]
@@ -34304,6 +34481,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T92c5be",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -34330,6 +34508,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T97c049",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "乘方"
    ]
@@ -34447,6 +34626,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T656409",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "混合运算"
    ]
@@ -34473,6 +34653,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tcdd276",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "混合运算"
    ]
@@ -34499,6 +34680,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T327dd5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "混合运算"
    ]
@@ -34801,6 +34983,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0acf24",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -34827,6 +35010,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T85590f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -34853,6 +35037,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb12d46",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -34879,6 +35064,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Taf0f25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "代数式求值"
    ]
@@ -34905,6 +35091,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T1a1f97",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式"
    ]
@@ -34931,6 +35118,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T4f3078",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式"
    ]
@@ -34957,6 +35145,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8ad062",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式"
    ]
@@ -35074,6 +35263,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tab1cc2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等式的性质"
    ]
@@ -35100,6 +35290,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb0de85",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等式的性质"
    ]
@@ -35171,6 +35362,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T823003",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -35197,6 +35389,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0bbff9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解一元一次方程"
    ]
@@ -35222,6 +35415,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tecff11",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用"
    ]
@@ -35247,6 +35441,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T011103",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用"
    ]
@@ -35272,6 +35467,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T708b95",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用"
    ]
@@ -35343,6 +35539,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tafaa35",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段"
    ]
@@ -35369,6 +35566,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T46cc1c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段"
    ]
@@ -35394,6 +35592,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tca771d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段"
    ]
@@ -35420,6 +35619,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6b2c5b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余角补角"
    ]
@@ -35446,6 +35646,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc4c18f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余角补角"
    ]
@@ -35471,6 +35672,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T11debc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余角补角"
    ]
@@ -35496,6 +35698,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc45cd5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余角补角"
    ]
@@ -35522,6 +35725,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb6c6b4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余角补角"
    ]
@@ -35547,6 +35751,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T83e8ad",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -35573,6 +35778,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T4c9ef7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -35599,6 +35805,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5bda9a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -35671,6 +35878,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tcf89c1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -35696,6 +35904,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T96769d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对顶角"
    ]
@@ -35722,6 +35931,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta16a91",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行公理"
    ]
@@ -35794,6 +36004,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T1c691b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行公理"
    ]
@@ -35820,6 +36031,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T030bfb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行公理"
    ]
@@ -35846,6 +36058,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T61636a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行公理"
    ]
@@ -35871,6 +36084,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T083f6a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多边形",
     "对角线"
@@ -35897,6 +36111,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T719229",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多边形",
     "对角线"
@@ -35923,6 +36138,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td04dc5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多边形",
     "对角线"
@@ -35949,6 +36165,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T773b31",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多边形",
     "对角线"
@@ -35975,6 +36192,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td50fda",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多边形",
     "对角线"
@@ -36002,6 +36220,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5c2c80",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -36028,6 +36247,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T351f7f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -36054,6 +36274,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0e4b16",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -36080,6 +36301,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8c57af",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -36106,6 +36328,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T9e2754",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂乘法"
    ]
@@ -36132,6 +36355,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2c75ea",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "幂的乘方"
    ]
@@ -36158,6 +36382,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T34c94c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "幂的乘方"
    ]
@@ -36184,6 +36409,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8cf185",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "幂的乘方"
    ]
@@ -36256,6 +36482,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ted2289",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "幂的乘方"
    ]
@@ -36282,6 +36509,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6c0682",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -36308,6 +36536,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T45129e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -36334,6 +36563,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T37e8f0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -36360,6 +36590,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6a1206",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -36386,6 +36617,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T1aaba3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -36412,6 +36644,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf6fa64",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "同底数幂除法"
    ]
@@ -36530,6 +36763,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T4b8afc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘法"
    ]
@@ -36602,6 +36836,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tce42c7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘法"
    ]
@@ -36628,6 +36863,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tddddb0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘法"
    ]
@@ -36700,6 +36936,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T116292",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘多项式"
    ]
@@ -36726,6 +36963,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T824c64",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘多项式"
    ]
@@ -36752,6 +36990,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te8414a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘多项式"
    ]
@@ -36778,6 +37017,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T185c16",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘多项式"
    ]
@@ -36804,6 +37044,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T80c94b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "单项式乘多项式"
    ]
@@ -36876,6 +37117,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6c8967",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多项式乘法"
    ]
@@ -36902,6 +37144,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td60688",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多项式乘法"
    ]
@@ -36928,6 +37171,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T753169",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多项式乘法"
    ]
@@ -36954,6 +37198,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tc398cc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多项式乘法"
    ]
@@ -36979,6 +37224,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta2e752",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "多项式乘法"
    ]
@@ -37005,6 +37251,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbd6647",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "完全平方公式"
    ]
@@ -37031,6 +37278,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T619221",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "完全平方公式"
    ]
@@ -37057,6 +37305,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T71bfe5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "完全平方公式"
    ]
@@ -37083,6 +37332,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0ee213",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "完全平方公式"
    ]
@@ -37109,6 +37359,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T426c70",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平移"
    ]
@@ -37180,6 +37431,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T121122",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平移"
    ]
@@ -37205,6 +37457,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T54e55c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平移"
    ]
@@ -37230,6 +37483,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T60cae9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平移"
    ]
@@ -37256,6 +37510,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3154ed",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平移"
    ]
@@ -37327,6 +37582,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb82669",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "轴对称图形"
    ]
@@ -37443,6 +37699,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0cfcb5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "轴对称图形"
    ]
@@ -37468,6 +37725,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T381ea1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "旋转对称"
    ]
@@ -37493,6 +37751,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Teac8b4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "旋转对称"
    ]
@@ -37518,6 +37777,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T5a622e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "旋转对称"
    ]
@@ -37543,6 +37803,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfa05e8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "旋转对称"
    ]
@@ -37569,6 +37830,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T820f6a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二元一次方程"
    ]
@@ -37595,6 +37857,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbd0585",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二元一次方程"
    ]
@@ -37667,6 +37930,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td67ca3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二元一次方程"
    ]
@@ -37692,6 +37956,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T873b2c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二元一次方程"
    ]
@@ -37718,6 +37983,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8586b9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二元一次方程"
    ]
@@ -37744,6 +38010,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T7a3882",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "方程组的解"
    ]
@@ -37862,6 +38129,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Td9e0ec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -37889,6 +38157,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb947c2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -37916,6 +38185,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T33e04e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解二元一次方程组",
     "消元"
@@ -37943,6 +38213,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T114b7b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三元一次方程组"
    ]
@@ -37969,6 +38240,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T364ce5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三元一次方程组"
    ]
@@ -37995,6 +38267,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0f2ba2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三元一次方程组"
    ]
@@ -38020,6 +38293,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0e3d6b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三元一次方程组"
    ]
@@ -38045,6 +38319,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te19fec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -38070,6 +38345,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Ta6bd7b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -38095,6 +38371,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb94e86",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -38120,6 +38397,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T648a0a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "方程组应用"
    ]
@@ -38422,6 +38700,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T82b639",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次不等式"
    ]
@@ -38540,6 +38819,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T0e59fa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解一元一次不等式"
    ]
@@ -38566,6 +38846,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tedf166",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解一元一次不等式"
    ]
@@ -38592,6 +38873,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tac2e8c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解一元一次不等式"
    ]
@@ -38618,6 +38900,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T3b4741",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "解一元一次不等式"
    ]
@@ -38690,6 +38973,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf87762",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式组"
    ]
@@ -38716,6 +39000,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tfdccfd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式组"
    ]
@@ -38742,6 +39027,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T764bac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式组"
    ]
@@ -38768,6 +39054,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T6e2dc1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式组"
    ]
@@ -38793,6 +39080,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tb31857",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -38818,6 +39106,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T146f5e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -38843,6 +39132,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T353770",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -38868,6 +39158,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T24f3ee",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式应用"
    ]
@@ -39389,6 +39680,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T67069e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立体图形"
    ]
@@ -39414,6 +39706,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2a8bf5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立体图形"
    ]
@@ -39439,6 +39732,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2e0464",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立体图形"
    ]
@@ -39555,6 +39849,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T35c476",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点线面体"
    ]
@@ -39580,6 +39875,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tafadb4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "展开图"
    ]
@@ -39605,6 +39901,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2306e1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "展开图"
    ]
@@ -39630,6 +39927,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf1b18d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "展开图"
    ]
@@ -44773,6 +45071,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T28c822",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "数学与生活"
@@ -44799,6 +45098,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T48f92c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "找规律",
     "数学与生活"
@@ -44825,6 +45125,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Te7ade2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元一次方程应用"
    ]
@@ -44850,6 +45151,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8acba0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "活动思考",
     "分类计数"
@@ -44876,6 +45178,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T296728",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "活动思考",
     "分类计数"
@@ -44948,6 +45251,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T2c2f01",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立体图形"
    ]

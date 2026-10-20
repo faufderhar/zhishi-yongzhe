@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高二-v47（AI初审）",
- "version": "v47",
+ "bank_name": "三兄妹题库-高二-v48（AI初审）",
+ "version": "v48",
  "questions": [
   {
    "id": "Y11-001",
@@ -2155,6 +2155,7 @@
    "game_ready": true,
    "template": "T2be226",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《论语》十二章"
    ]
@@ -2615,6 +2616,7 @@
    "game_ready": true,
    "template": "T3b72dc",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "大学之道"
    ]
@@ -3417,6 +3419,7 @@
    "game_ready": true,
    "template": "T0de296",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《老子》四章"
    ]
@@ -3626,6 +3629,7 @@
    "game_ready": true,
    "template": "T867689",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《老子》四章"
    ]
@@ -3993,6 +3997,7 @@
    "game_ready": true,
    "template": "T21e6ef",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "石之瓠"
    ]
@@ -4405,6 +4410,7 @@
    "game_ready": true,
    "template": "Tcbaff7",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "兼爱"
    ]
@@ -4614,6 +4620,7 @@
    "template": "T97ee92",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "兼爱"
    ]
@@ -9435,6 +9442,7 @@
    "game_ready": true,
    "template": "Tca9ebb",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "记念刘和珍君"
    ]
@@ -9460,6 +9468,7 @@
    "game_ready": true,
    "template": "T6903e6",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "记念刘和珍君"
    ]
@@ -11015,6 +11024,7 @@
    "game_ready": true,
    "template": "T271dd1",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "屈原列传"
    ]
@@ -11176,6 +11186,7 @@
    "game_ready": true,
    "template": "T8b5461",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "屈原列传"
    ]
@@ -11970,6 +11981,7 @@
    "game_ready": true,
    "template": "Td25a59",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "过秦论"
    ]
@@ -12040,6 +12052,7 @@
    "game_ready": true,
    "template": "Tf8c0c9",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "过秦论"
    ]
@@ -14507,6 +14520,7 @@
    "game_ready": true,
    "template": "T1942f3",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14532,6 +14546,7 @@
    "game_ready": true,
    "template": "T253a97",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14557,6 +14572,7 @@
    "game_ready": true,
    "template": "Tfcfa17",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14582,6 +14598,7 @@
    "game_ready": true,
    "template": "T2d1d78",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14607,6 +14624,7 @@
    "game_ready": true,
    "template": "Tac9c26",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14632,6 +14650,7 @@
    "game_ready": true,
    "template": "T9b2b5a",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14882,6 +14901,7 @@
    "game_ready": true,
    "template": "T175380",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14909,6 +14929,7 @@
    "template": "T19cc28",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14935,6 +14956,7 @@
    "template": "T77fd21",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -14961,6 +14983,7 @@
    "template": "T65236a",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15122,6 +15145,7 @@
    "game_ready": true,
    "template": "T3ab13c",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15147,6 +15171,7 @@
    "game_ready": true,
    "template": "Tf824ca",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15172,6 +15197,7 @@
    "game_ready": true,
    "template": "Tbbba4b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15197,6 +15223,7 @@
    "game_ready": true,
    "template": "T2d7974",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15222,6 +15249,7 @@
    "game_ready": true,
    "template": "T092a34",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15247,6 +15275,7 @@
    "game_ready": true,
    "template": "T053e7f",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15362,6 +15391,7 @@
    "game_ready": true,
    "template": "T201157",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15523,6 +15553,7 @@
    "template": "Te764c0",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15549,6 +15580,7 @@
    "template": "T80394b",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15621,6 +15653,7 @@
    "template": "Tf773b5",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "古诗词诵读"
    ]
@@ -15638,22 +15671,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[0,\\pi)$",
+     "text": "$0\\le\\alpha<\\pi$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[0,\\pi]$",
+     "text": "$0\\le\\alpha\\le\\pi$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,\\pi)$",
+     "text": "$0<\\alpha<\\pi$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[0,\\frac{\\pi}{2}]$",
+     "text": "$0\\le\\alpha\\le\\frac{\\pi}{2}$",
      "image": "",
      "audio": ""
     }
@@ -15666,6 +15699,7 @@
    "knowledge_point": "直线的斜率与倾斜角",
    "game_ready": true,
    "template": "T3bbf4e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "直线的斜率与倾斜角"
@@ -15693,6 +15727,7 @@
    "game_ready": true,
    "template": "Tf71e2d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的斜率与倾斜角"
    ]
@@ -15719,6 +15754,7 @@
    "game_ready": true,
    "template": "Tf1fdf3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的斜率与倾斜角"
    ]
@@ -15860,6 +15896,7 @@
    "game_ready": true,
    "template": "Tb81949",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的斜率与倾斜角"
    ]
@@ -15877,22 +15914,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[-1,2]$",
+     "text": "$-1\\le k\\le 2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-1]\\cup[2,+\\infty)$",
+     "text": "$k\\le -1$ 或 $k\\ge 2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-2]\\cup[1,+\\infty)$",
+     "text": "$k\\le -2$ 或 $k\\ge 1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-1,2)$",
+     "text": "$-1<k<2$",
      "image": "",
      "audio": ""
     }
@@ -15905,6 +15942,7 @@
    "knowledge_point": "直线的斜率与倾斜角",
    "game_ready": true,
    "template": "T9b9c66",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "直线的斜率与倾斜角"
@@ -15979,6 +16017,7 @@
    "game_ready": true,
    "template": "T864308",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的斜率与倾斜角"
    ]
@@ -16005,6 +16044,7 @@
    "game_ready": true,
    "template": "Td5841c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的斜率与倾斜角"
    ]
@@ -16240,6 +16280,7 @@
    "game_ready": true,
    "template": "T7a77ed",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的方程"
    ]
@@ -16266,6 +16307,7 @@
    "game_ready": true,
    "template": "T53ed6e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的方程"
    ]
@@ -16522,6 +16564,7 @@
    "game_ready": true,
    "template": "T2fb79b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线的方程"
    ]
@@ -16585,22 +16628,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[0,+\\infty)$",
+     "text": "$k\\ge 0$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-\\frac12,+\\infty)$",
+     "text": "$k\\ge -\\frac12$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$k>0$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,0]$",
+     "text": "$k\\le 0$",
      "image": "",
      "audio": ""
     }
@@ -16613,6 +16656,7 @@
    "knowledge_point": "直线的方程",
    "game_ready": true,
    "template": "T3db02f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "直线的方程"
@@ -16756,6 +16800,7 @@
    "game_ready": true,
    "template": "T4537fd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的平行与垂直"
    ]
@@ -16783,6 +16828,7 @@
    "game_ready": true,
    "template": "T8afbb6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的平行与垂直"
    ]
@@ -17085,6 +17131,7 @@
    "game_ready": true,
    "template": "T9392c9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的平行与垂直"
    ]
@@ -17227,6 +17274,7 @@
    "game_ready": true,
    "template": "T0b0f34",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的交点"
    ]
@@ -17299,6 +17347,7 @@
    "game_ready": true,
    "template": "T9a27b3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的交点"
    ]
@@ -17509,6 +17558,7 @@
    "game_ready": true,
    "template": "Ta4dcfb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的交点"
    ]
@@ -17536,6 +17586,7 @@
    "game_ready": true,
    "template": "T2f38a3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两条直线的交点"
    ]
@@ -17562,6 +17613,7 @@
    "game_ready": true,
    "template": "T445741",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面上的距离"
    ]
@@ -17634,6 +17686,7 @@
    "game_ready": true,
    "template": "T0f814b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面上的距离"
    ]
@@ -17661,6 +17714,7 @@
    "game_ready": true,
    "template": "T105417",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面上的距离"
    ]
@@ -17895,6 +17949,7 @@
    "game_ready": true,
    "template": "T1afbcc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面上的距离"
    ]
@@ -18106,6 +18161,7 @@
    "template": "T3ec496",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面上的距离"
    ]
@@ -18319,6 +18375,7 @@
    "game_ready": true,
    "template": "Tf71153",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆的方程"
    ]
@@ -18391,6 +18448,7 @@
    "game_ready": true,
    "template": "Tb78f64",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆的方程"
    ]
@@ -18764,6 +18822,7 @@
    "game_ready": true,
    "template": "T30bd81",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆的方程"
    ]
@@ -18790,6 +18849,7 @@
    "game_ready": true,
    "template": "T1b07b4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆的方程"
    ]
@@ -19069,6 +19129,7 @@
    "game_ready": true,
    "template": "T4a55aa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线与圆的位置关系"
    ]
@@ -19279,6 +19340,7 @@
    "game_ready": true,
    "template": "T196c2c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线与圆的位置关系"
    ]
@@ -19672,6 +19734,7 @@
    "game_ready": true,
    "template": "T4516a5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆与圆的位置关系"
    ]
@@ -19685,9 +19748,9 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修一·第2章 圆与方程·2.3 圆与圆的位置关系",
    "type": "判断",
-   "question": "两圆没有公共点时，一定是外离。",
+   "question": "圆心距大于两圆半径之和时，两圆内含。",
    "answer": "错",
-   "explanation": "错。两圆没有公共点时，可能外离，也可能内含。",
+   "explanation": "错。圆心距大于两圆半径之和时两圆外离；圆心距小于两圆半径之差的绝对值时才内含。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
@@ -19805,22 +19868,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(3,7)$",
+     "text": "$3<r<7$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(3,5)$",
+     "text": "$3<r<5$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(2,7)$",
+     "text": "$2<r<7$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[3,7]$",
+     "text": "$3\\le r\\le 7$",
      "image": "",
      "audio": ""
     }
@@ -19833,6 +19896,7 @@
    "knowledge_point": "圆与圆的位置关系",
    "game_ready": true,
    "template": "Tcad091",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "圆与圆的位置关系"
@@ -19860,6 +19924,7 @@
    "game_ready": true,
    "template": "T1c238d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆与圆的位置关系"
    ]
@@ -19979,6 +20044,7 @@
    "template": "Tf62e4e",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆与圆的位置关系"
    ]
@@ -20053,6 +20119,7 @@
    "template": "T123418",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆与圆的位置关系"
    ]
@@ -20080,6 +20147,7 @@
    "template": "T253ce5",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆与圆的位置关系"
    ]
@@ -20130,6 +20198,7 @@
    "game_ready": true,
    "template": "T6ab047",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "椭圆"
    ]
@@ -20156,6 +20225,7 @@
    "game_ready": true,
    "template": "Tf1fe1b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "椭圆"
    ]
@@ -20320,6 +20390,7 @@
    "game_ready": true,
    "template": "T628150",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "椭圆"
    ]
@@ -20392,6 +20463,7 @@
    "game_ready": true,
    "template": "Td0bd7a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "椭圆"
    ]
@@ -20510,6 +20582,7 @@
    "game_ready": true,
    "template": "Tce2695",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "椭圆"
    ]
@@ -20665,22 +20738,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[\\frac{\\sqrt2}2,1)$",
+     "text": "$\\frac{\\sqrt2}2\\le e<1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,\\frac{\\sqrt2}2]$",
+     "text": "$0<e\\le\\frac{\\sqrt2}2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(\\frac{\\sqrt2}2,1)$",
+     "text": "$\\frac{\\sqrt2}2<e<1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[\\frac12,1)$",
+     "text": "$\\frac12\\le e<1$",
      "image": "",
      "audio": ""
     }
@@ -20693,6 +20766,7 @@
    "knowledge_point": "椭圆",
    "game_ready": true,
    "template": "Tc5911e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "椭圆"
@@ -20720,6 +20794,7 @@
    "game_ready": true,
    "template": "T41cfee",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "双曲线"
    ]
@@ -21184,6 +21259,7 @@
    "game_ready": true,
    "template": "T700d9a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "双曲线"
    ]
@@ -21197,7 +21273,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修一·第3章 圆锥曲线与方程·3.2 双曲线",
    "type": "判断",
-   "question": "双曲线 $\\frac{x^2}{a^2}-\\frac{y^2}{b^2}=1$ 的焦点到渐近线的距离等于 b。",
+   "question": "双曲线 $\\frac{x^2}{a^2}-\\frac{y^2}{b^2}=1$ 的任意一个焦点到任意一条渐近线的距离都等于 $b$。",
    "tts_text": "-",
    "answer": "对",
    "explanation": "焦点 $(c,0)$ 到 $bx-ay=0$ 的距离 $\\frac{bc}{\\sqrt{a^2+b^2}}=b$。",
@@ -21207,6 +21283,7 @@
    "knowledge_point": "双曲线",
    "game_ready": true,
    "template": "T2a8ebb",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "双曲线"
@@ -21510,6 +21587,7 @@
    "game_ready": true,
    "template": "T77bbe2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21628,6 +21706,7 @@
    "game_ready": true,
    "template": "Tadcfa6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21678,6 +21757,7 @@
    "game_ready": true,
    "template": "T255585",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21704,6 +21784,7 @@
    "game_ready": true,
    "template": "T9e2e54",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21730,6 +21811,7 @@
    "game_ready": true,
    "template": "T651e26",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21848,6 +21930,7 @@
    "game_ready": true,
    "template": "Te0cfd0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21874,6 +21957,7 @@
    "game_ready": true,
    "template": "T2570dc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -21900,6 +21984,7 @@
    "game_ready": true,
    "template": "T44f7f7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -22021,6 +22106,7 @@
    "template": "T608c68",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -22048,6 +22134,7 @@
    "template": "T064edc",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "抛物线"
    ]
@@ -22073,6 +22160,7 @@
    "game_ready": true,
    "template": "T405a60",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数列"
    ]
@@ -22099,6 +22187,7 @@
    "game_ready": true,
    "template": "T6aed02",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数列"
    ]
@@ -22194,6 +22283,7 @@
    "game_ready": true,
    "template": "T9c31be",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数列"
    ]
@@ -22220,6 +22310,7 @@
    "game_ready": true,
    "template": "Tbce684",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数列"
    ]
@@ -22292,6 +22383,7 @@
    "game_ready": true,
    "template": "Tcde8ca",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数列"
    ]
@@ -22365,6 +22457,7 @@
    "game_ready": true,
    "template": "T1c7d7d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "数列"
    ]
@@ -22482,6 +22575,7 @@
    "game_ready": true,
    "template": "T03a765",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22495,9 +22589,9 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修一·第4章 数列·4.2 等差数列",
    "type": "判断",
-   "question": "常数列一定是等比数列。",
+   "question": "数列 $0,0,0,\\cdots$ 是等比数列。",
    "answer": "错",
-   "explanation": "错。常数列一定是等差数列（公差为 0），但 $0,0,0,\\cdots$ 不是等比数列，因为等比数列各项不能为 0。",
+   "explanation": "错。等比数列的各项都不能为 0，$0,0,0,\\cdots$ 是等差数列（公差为 0），但不是等比数列。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
@@ -22532,6 +22626,7 @@
    "game_ready": true,
    "template": "Tec9cf2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22558,6 +22653,7 @@
    "game_ready": true,
    "template": "T8002a0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22583,6 +22679,7 @@
    "game_ready": true,
    "template": "T2aba46",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22609,6 +22706,7 @@
    "game_ready": true,
    "template": "Teda240",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22634,6 +22732,7 @@
    "game_ready": true,
    "template": "Tb24e08",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22706,6 +22805,7 @@
    "game_ready": true,
    "template": "T4d2183",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22732,6 +22832,7 @@
    "game_ready": true,
    "template": "Te5cde6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22804,6 +22905,7 @@
    "game_ready": true,
    "template": "T6aface",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22860,19 +22962,20 @@
      "audio": ""
     },
     {
-     "text": "9",
+     "text": "9 或 10",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "B",
-   "explanation": "$S_{12}-S_5=7a_9=0$，$a_9=0$，且 $a_1>0$ 时 d<0，前 8 项为正，$S_8=S_9$ 最大。",
+   "explanation": "$S_{12}-S_5=7a_9=0$，$a_9=0$，且 $a_1>0$ 时 d<0，前 8 项为正，$S_8=S_9$ 最大；$a_{10}<0$，$S_{10}<S_9$。",
    "difficulty": 4,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "等差数列",
    "game_ready": true,
    "template": "T63fc5f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "等差数列"
@@ -22901,6 +23004,7 @@
    "game_ready": true,
    "template": "Te70a9a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22927,6 +23031,7 @@
    "game_ready": true,
    "template": "T2f738f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等差数列"
    ]
@@ -22952,6 +23057,7 @@
    "game_ready": true,
    "template": "T1fb152",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23002,6 +23108,7 @@
    "game_ready": true,
    "template": "T436bb4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23073,6 +23180,7 @@
    "game_ready": true,
    "template": "T37f01d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23099,6 +23207,7 @@
    "game_ready": true,
    "template": "T82d841",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23125,6 +23234,7 @@
    "game_ready": true,
    "template": "Tfd628d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23151,6 +23261,7 @@
    "game_ready": true,
    "template": "T596ff2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23201,6 +23312,7 @@
    "game_ready": true,
    "template": "T1fcda5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23227,6 +23339,7 @@
    "game_ready": true,
    "template": "Tb447fc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23253,6 +23366,7 @@
    "game_ready": true,
    "template": "T881c5d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23279,6 +23393,7 @@
    "game_ready": true,
    "template": "T847904",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23397,6 +23512,7 @@
    "game_ready": true,
    "template": "T2b6948",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23424,6 +23540,7 @@
    "template": "Tec1af7",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23451,6 +23568,7 @@
    "template": "Te2c0b4",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等比数列"
    ]
@@ -23594,6 +23712,7 @@
    "game_ready": true,
    "template": "Tdb6ab0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23620,6 +23739,7 @@
    "game_ready": true,
    "template": "T648b53",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23646,6 +23766,7 @@
    "game_ready": true,
    "template": "Ta6a714",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23672,6 +23793,7 @@
    "game_ready": true,
    "template": "T410999",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23698,6 +23820,7 @@
    "game_ready": true,
    "template": "T586a09",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23724,6 +23847,7 @@
    "game_ready": true,
    "template": "Tcdb66e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23796,6 +23920,7 @@
    "game_ready": true,
    "template": "Tdd7093",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -23823,7 +23948,7 @@
      "audio": ""
     },
     {
-     "text": "$y=2x-2$",
+     "text": "$y=0$ 或 $y=2x-2$",
      "image": "",
      "audio": ""
     },
@@ -23834,13 +23959,14 @@
     }
    ],
    "answer": "A",
-   "explanation": "点不在曲线上。设切点 $(t,t^2)$，切线 $y=2tx-t^2$ 过 $(1,0)$：$2t-t^2=0$，t=0 或 2。",
+   "explanation": "点不在曲线上。设切点 $(t,t^2)$，切线 $y=2tx-t^2$ 过 $(1,0)$：$2t-t^2=0$，t=0 或 2；$y=2x-2$ 是误把 $(1,0)$ 当切点、用 $x=1$ 处斜率 2 得到的。",
    "difficulty": 4,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "导数的概念",
    "game_ready": true,
    "template": "T79c49a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "导数的概念"
@@ -23868,6 +23994,7 @@
    "game_ready": true,
    "template": "T1a05ac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的概念"
    ]
@@ -24078,6 +24205,7 @@
    "game_ready": true,
    "template": "T70cccb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的运算"
    ]
@@ -24196,6 +24324,7 @@
    "game_ready": true,
    "template": "T96eb05",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的运算"
    ]
@@ -24314,6 +24443,7 @@
    "game_ready": true,
    "template": "T10c422",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的运算"
    ]
@@ -24340,6 +24470,7 @@
    "game_ready": true,
    "template": "Tae411a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数的运算"
    ]
@@ -24621,6 +24752,7 @@
    "game_ready": true,
    "template": "Ta278a3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -24647,6 +24779,7 @@
    "game_ready": true,
    "template": "T0f60b6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -24719,6 +24852,7 @@
    "game_ready": true,
    "template": "Te4d310",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -24732,15 +24866,16 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修一·第5章 导数及其应用·5.3 导数在研究函数中的应用",
    "type": "判断",
-   "question": "导数为 0 的点一定是极值点。",
+   "question": "函数 $f(x)=x^3$ 在 $x=0$ 处取得极小值。",
    "answer": "错",
-   "explanation": "如 $f(x)=x^3$ 在 x=0 处导数为 0，但不是极值点。",
+   "explanation": "错。$f'(0)=0$，但 $f'(x)=3x^2\\ge0$，$f(x)$ 在 $\\mathbb R$ 上单调递增，$x=0$ 不是极值点。",
    "difficulty": 2,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "导数在研究函数中的应用",
    "game_ready": true,
    "template": "T3f068d",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "导数在研究函数中的应用"
@@ -24768,6 +24903,7 @@
    "game_ready": true,
    "template": "T3c46d5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -24840,6 +24976,7 @@
    "game_ready": true,
    "template": "T03ba3b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -24949,22 +25086,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(1,+\\infty)$",
+     "text": "$a>1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[1,+\\infty)$",
+     "text": "$a\\ge 1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,1]$",
+     "text": "$0<a\\le 1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,1]$",
+     "text": "$a\\le 1$",
      "image": "",
      "audio": ""
     }
@@ -24977,6 +25114,7 @@
    "knowledge_point": "导数在研究函数中的应用",
    "game_ready": true,
    "template": "Tbbd425",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "导数在研究函数中的应用"
@@ -24995,22 +25133,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(-\\infty,-2)$",
+     "text": "$a<-2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-2,2]$",
+     "text": "$-2\\le a\\le 2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(2,+\\infty)$",
+     "text": "$a>2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-2,2)$",
+     "text": "$-2<a<2$",
      "image": "",
      "audio": ""
     }
@@ -25023,6 +25161,7 @@
    "knowledge_point": "导数在研究函数中的应用",
    "game_ready": true,
    "template": "Te3b077",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "导数在研究函数中的应用"
@@ -25096,6 +25235,7 @@
    "game_ready": true,
    "template": "T9cfe27",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -25121,6 +25261,7 @@
    "game_ready": true,
    "template": "T5ce446",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -25195,6 +25336,7 @@
    "template": "T8f90a1",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "导数在研究函数中的应用"
    ]
@@ -25385,6 +25527,7 @@
    "game_ready": true,
    "template": "T5164fe",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量及其运算"
    ]
@@ -25398,7 +25541,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修二·第6章 空间向量与立体几何·6.1 空间向量及其运算",
    "type": "判断",
-   "question": "空间中两个非零向量的数量积等于 0，则这两个向量互相垂直。",
+   "question": "空间中两个非零向量的数量积等于 0，则这两个向量一定互相垂直。",
    "answer": "对",
    "explanation": "非零向量数量积为 0 等价于垂直。",
    "difficulty": 2,
@@ -25407,6 +25550,7 @@
    "knowledge_point": "空间向量及其运算",
    "game_ready": true,
    "template": "Taa096c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "空间向量及其运算"
@@ -25434,6 +25578,7 @@
    "game_ready": true,
    "template": "Teb9b56",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量及其运算"
    ]
@@ -25460,6 +25605,7 @@
    "game_ready": true,
    "template": "T77edb8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量及其运算"
    ]
@@ -25624,6 +25770,7 @@
    "game_ready": true,
    "template": "Te3d60a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量及其运算"
    ]
@@ -25650,6 +25797,7 @@
    "game_ready": true,
    "template": "T5b4cd1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量及其运算"
    ]
@@ -25768,6 +25916,7 @@
    "game_ready": true,
    "template": "T42aa79",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -25794,6 +25943,7 @@
    "game_ready": true,
    "template": "T27efbc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -25866,6 +26016,7 @@
    "game_ready": true,
    "template": "Tb06220",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -25892,6 +26043,7 @@
    "game_ready": true,
    "template": "Td5479e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -25965,6 +26117,7 @@
    "game_ready": true,
    "template": "T48a236",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -26037,6 +26190,7 @@
    "game_ready": true,
    "template": "T10a44e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -26202,6 +26356,7 @@
    "game_ready": true,
    "template": "T93b7e4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的坐标表示"
    ]
@@ -26435,6 +26590,7 @@
    "game_ready": true,
    "template": "Tdadabc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的应用"
    ]
@@ -26921,6 +27077,7 @@
    "game_ready": true,
    "template": "T2bf2c4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的应用"
    ]
@@ -26995,6 +27152,7 @@
    "template": "T320516",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间向量的应用"
    ]
@@ -27114,6 +27272,7 @@
    "game_ready": true,
    "template": "Tf5ce0d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27139,6 +27298,7 @@
    "game_ready": true,
    "template": "Tf20ff6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27164,6 +27324,7 @@
    "game_ready": true,
    "template": "T25c60b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27212,6 +27373,7 @@
    "game_ready": true,
    "template": "T4f4502",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27237,6 +27399,7 @@
    "game_ready": true,
    "template": "T0e59a3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27262,6 +27425,7 @@
    "game_ready": true,
    "template": "Te3e6dc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27287,6 +27451,7 @@
    "game_ready": true,
    "template": "Tcf2eba",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27312,6 +27477,7 @@
    "game_ready": true,
    "template": "T532f47",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27337,6 +27503,7 @@
    "game_ready": true,
    "template": "T1efd3f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27362,6 +27529,7 @@
    "game_ready": true,
    "template": "Td83dce",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27388,6 +27556,7 @@
    "game_ready": true,
    "template": "T9978ff",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两个基本计数原理"
    ]
@@ -27414,6 +27583,7 @@
    "game_ready": true,
    "template": "T62dc79",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27462,6 +27632,7 @@
    "game_ready": true,
    "template": "Te4e375",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27488,6 +27659,7 @@
    "game_ready": true,
    "template": "T2488e3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27513,6 +27685,7 @@
    "game_ready": true,
    "template": "T53eae5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27538,6 +27711,7 @@
    "game_ready": true,
    "template": "T0f18a4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27563,6 +27737,7 @@
    "game_ready": true,
    "template": "T1c54b1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27588,6 +27763,7 @@
    "game_ready": true,
    "template": "T5ff9e7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27613,6 +27789,7 @@
    "game_ready": true,
    "template": "T728183",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27638,6 +27815,7 @@
    "game_ready": true,
    "template": "Tae26cd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27663,6 +27841,7 @@
    "game_ready": true,
    "template": "T58b712",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27688,6 +27867,7 @@
    "game_ready": true,
    "template": "T3c2e04",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27713,6 +27893,7 @@
    "game_ready": true,
    "template": "T08030a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27738,6 +27919,7 @@
    "game_ready": true,
    "template": "T3fe5c0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "排列"
    ]
@@ -27764,6 +27946,7 @@
    "game_ready": true,
    "template": "T0b10f4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27777,7 +27960,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修二·第7章 计数原理·7.3 组合",
    "type": "判断",
-   "question": "$C_n^m=C_n^{n-m}$。",
+   "question": "对任意满足 $0\\le m\\le n$ 的整数 $m,n$，$C_n^m=C_n^{n-m}$ 都成立。",
    "tts_text": "-",
    "answer": "对",
    "explanation": "组合数的对称性。",
@@ -27787,6 +27970,7 @@
    "knowledge_point": "组合",
    "game_ready": true,
    "template": "T1c3098",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "组合"
@@ -27813,6 +27997,7 @@
    "game_ready": true,
    "template": "T78425e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27839,6 +28024,7 @@
    "game_ready": true,
    "template": "T59eff6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27864,6 +28050,7 @@
    "game_ready": true,
    "template": "T58aff1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27889,6 +28076,7 @@
    "game_ready": true,
    "template": "Tf426da",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27914,6 +28102,7 @@
    "game_ready": true,
    "template": "T0e5fe9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27939,6 +28128,7 @@
    "game_ready": true,
    "template": "T15b0a2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27964,6 +28154,7 @@
    "game_ready": true,
    "template": "T113c7e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -27989,6 +28180,7 @@
    "game_ready": true,
    "template": "T51d86c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -28014,6 +28206,7 @@
    "game_ready": true,
    "template": "T21af8e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -28039,6 +28232,7 @@
    "game_ready": true,
    "template": "T7b3cb3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -28064,6 +28258,7 @@
    "game_ready": true,
    "template": "T17a58f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -28089,6 +28284,7 @@
    "game_ready": true,
    "template": "T579e5c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "组合"
    ]
@@ -28115,6 +28311,7 @@
    "game_ready": true,
    "template": "T6c17a9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28166,6 +28363,7 @@
    "game_ready": true,
    "template": "T529146",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28192,6 +28390,7 @@
    "game_ready": true,
    "template": "Tcda148",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28218,6 +28417,7 @@
    "game_ready": true,
    "template": "T4b2a25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28244,6 +28444,7 @@
    "game_ready": true,
    "template": "T9582b9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28270,6 +28471,7 @@
    "game_ready": true,
    "template": "Tdb4509",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28296,6 +28498,7 @@
    "game_ready": true,
    "template": "Tbde71d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28322,6 +28525,7 @@
    "game_ready": true,
    "template": "T0cd4d4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28348,6 +28552,7 @@
    "game_ready": true,
    "template": "T49f791",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28374,6 +28579,7 @@
    "game_ready": true,
    "template": "Tee5040",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28400,6 +28606,7 @@
    "game_ready": true,
    "template": "Tece48c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28426,6 +28633,7 @@
    "game_ready": true,
    "template": "T5aa630",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28452,6 +28660,7 @@
    "game_ready": true,
    "template": "Te2dcbf",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28478,6 +28687,7 @@
    "template": "Ta201fb",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28504,6 +28714,7 @@
    "template": "T3c4931",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28531,6 +28742,7 @@
    "template": "Tba6a1e",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28557,6 +28769,7 @@
    "template": "T055515",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二项式定理"
    ]
@@ -28654,6 +28867,7 @@
    "game_ready": true,
    "template": "T59d1c8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28680,6 +28894,7 @@
    "game_ready": true,
    "template": "Ta015c0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28706,6 +28921,7 @@
    "game_ready": true,
    "template": "T9e83aa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28732,6 +28948,7 @@
    "game_ready": true,
    "template": "Te16221",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28757,6 +28974,7 @@
    "game_ready": true,
    "template": "Tb4beab",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28783,6 +29001,7 @@
    "game_ready": true,
    "template": "T8d50d4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28808,6 +29027,7 @@
    "game_ready": true,
    "template": "Te87b8f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28834,6 +29054,7 @@
    "game_ready": true,
    "template": "T042dff",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28860,6 +29081,7 @@
    "game_ready": true,
    "template": "Tf565bd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28885,6 +29107,7 @@
    "game_ready": true,
    "template": "Td4f56c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28910,6 +29133,7 @@
    "game_ready": true,
    "template": "T607dde",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28935,6 +29159,7 @@
    "game_ready": true,
    "template": "T94261f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "条件概率"
    ]
@@ -28948,7 +29173,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "unit": "选择性必修二·第8章 概率·8.2 离散型随机变量及其分布列",
    "type": "判断",
-   "question": "离散型随机变量的分布列中，各个概率之和等于 1。",
+   "question": "离散型随机变量的分布列中，各个概率之和一定等于 1。",
    "answer": "对",
    "explanation": "分布列的性质。",
    "difficulty": 1,
@@ -28957,6 +29182,7 @@
    "knowledge_point": "离散型随机变量及其分布列",
    "game_ready": true,
    "template": "T4056ad",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "离散型随机变量及其分布列"
@@ -28984,6 +29210,7 @@
    "game_ready": true,
    "template": "T448d22",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29010,6 +29237,7 @@
    "game_ready": true,
    "template": "T201470",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29036,6 +29264,7 @@
    "game_ready": true,
    "template": "T3556f8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29062,6 +29291,7 @@
    "game_ready": true,
    "template": "T164875",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29088,6 +29318,7 @@
    "game_ready": true,
    "template": "T59b850",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29114,6 +29345,7 @@
    "game_ready": true,
    "template": "T31cc25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29140,6 +29372,7 @@
    "game_ready": true,
    "template": "T6e868b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29165,6 +29398,7 @@
    "game_ready": true,
    "template": "Tcf2640",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29191,6 +29425,7 @@
    "game_ready": true,
    "template": "T3ff0d6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29216,6 +29451,7 @@
    "game_ready": true,
    "template": "Tf84e25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29242,6 +29478,7 @@
    "game_ready": true,
    "template": "T400dd7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29267,6 +29504,7 @@
    "game_ready": true,
    "template": "T7b08d3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29292,6 +29530,7 @@
    "game_ready": true,
    "template": "T0e634f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29318,6 +29557,7 @@
    "game_ready": true,
    "template": "T9bd141",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29343,6 +29583,7 @@
    "game_ready": true,
    "template": "T367741",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "离散型随机变量及其分布列"
    ]
@@ -29394,6 +29635,7 @@
    "game_ready": true,
    "template": "Tb4093f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29513,6 +29755,7 @@
    "game_ready": true,
    "template": "Taf81df",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29585,6 +29828,7 @@
    "game_ready": true,
    "template": "T8ab697",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29703,6 +29947,7 @@
    "game_ready": true,
    "template": "T46b301",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29729,6 +29974,7 @@
    "game_ready": true,
    "template": "T718d0e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29755,6 +30001,7 @@
    "game_ready": true,
    "template": "Tfdd0b9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29783,6 +30030,7 @@
    "template": "T96cd4c",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29810,6 +30058,7 @@
    "template": "Tc80fe3",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29837,6 +30086,7 @@
    "template": "T7fe0b0",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29864,6 +30114,7 @@
    "template": "Tac7173",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正态分布"
    ]
@@ -29914,6 +30165,7 @@
    "game_ready": true,
    "template": "Td5674a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线性回归分析"
    ]
@@ -29940,6 +30192,7 @@
    "game_ready": true,
    "template": "Tf356a7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线性回归分析"
    ]
@@ -30128,6 +30381,7 @@
    "game_ready": true,
    "template": "T1ee59d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线性回归分析"
    ]
@@ -30200,6 +30454,7 @@
    "game_ready": true,
    "template": "T194de1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线性回归分析"
    ]
@@ -30226,6 +30481,7 @@
    "game_ready": true,
    "template": "T89de1c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线性回归分析"
    ]
@@ -30414,6 +30670,7 @@
    "game_ready": true,
    "template": "T091626",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立性检验"
    ]
@@ -30509,6 +30766,7 @@
    "game_ready": true,
    "template": "T5b4291",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立性检验"
    ]
@@ -30744,6 +31002,7 @@
    "template": "Tc357cb",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立性检验"
    ]
@@ -30865,6 +31124,7 @@
    "template": "T4653eb",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立性检验"
    ]
@@ -31297,6 +31557,7 @@
    "game_ready": true,
    "template": "Ta55cf3",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Food matters"
    ]
@@ -38075,6 +38336,7 @@
    "game_ready": true,
    "template": "T1e3884",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应的热效应"
    ]
@@ -38259,6 +38521,7 @@
    "game_ready": true,
    "template": "Te45fef",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应的热效应"
    ]
@@ -38285,6 +38548,7 @@
    "game_ready": true,
    "template": "T720a45",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应的热效应"
    ]
@@ -38402,6 +38666,7 @@
    "game_ready": true,
    "template": "T4a64e1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应的热效应"
    ]
@@ -38474,6 +38739,7 @@
    "game_ready": true,
    "template": "Td996d6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应的热效应"
    ]
@@ -38957,6 +39223,7 @@
    "game_ready": true,
    "template": "T085e03",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 化学能与电能的转化"
    ]
@@ -39028,6 +39295,7 @@
    "game_ready": true,
    "template": "T5eb5a4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 化学能与电能的转化"
    ]
@@ -39100,6 +39368,7 @@
    "game_ready": true,
    "template": "T902cc4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 化学能与电能的转化"
    ]
@@ -39318,7 +39587,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修1·专题1 化学反应与能量变化·第三单元 金属的腐蚀与防护",
    "type": "判断",
-   "question": "金属的化学腐蚀过程中没有电流产生。",
+   "question": "金属的化学腐蚀过程中一定没有电流产生。",
    "answer": "对",
    "explanation": "化学腐蚀是金属直接与氧化剂反应，不形成原电池。",
    "difficulty": 2,
@@ -39327,6 +39596,7 @@
    "knowledge_point": "第三单元 金属的腐蚀与防护",
    "game_ready": true,
    "template": "Ta7fe12",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第三单元 金属的腐蚀与防护"
@@ -39535,6 +39805,7 @@
    "game_ready": true,
    "template": "T7ca475",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 金属的腐蚀与防护"
    ]
@@ -39748,6 +40019,7 @@
    "template": "T325e90",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 金属的腐蚀与防护"
    ]
@@ -39843,6 +40115,7 @@
    "game_ready": true,
    "template": "Tee80da",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应速率"
    ]
@@ -39869,6 +40142,7 @@
    "game_ready": true,
    "template": "Td3dcd9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应速率"
    ]
@@ -40192,6 +40466,7 @@
    "game_ready": true,
    "template": "Ta164f1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应速率"
    ]
@@ -40217,6 +40492,7 @@
    "game_ready": true,
    "template": "Tbb24b3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 化学反应速率"
    ]
@@ -40276,7 +40552,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修1·专题2 化学反应速率与化学平衡·第二单元 化学反应的方向与限度",
    "type": "判断",
-   "question": "化学平衡状态时，正、逆反应都停止了。",
+   "question": "达到化学平衡时，正反应和逆反应停止进行。",
    "answer": "错",
    "explanation": "错。化学平衡是动态平衡，正、逆反应仍在进行，只是速率相等。",
    "difficulty": 1,
@@ -40659,6 +40935,7 @@
    "game_ready": true,
    "template": "T60c475",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 化学反应的方向与限度"
    ]
@@ -40732,6 +41009,7 @@
    "game_ready": true,
    "template": "T45137e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 化学反应的方向与限度"
    ]
@@ -41585,6 +41863,7 @@
    "template": "Te13052",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 化学平衡的移动"
    ]
@@ -41660,6 +41939,7 @@
    "template": "Tf7a0ec",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 化学平衡的移动"
    ]
@@ -41983,6 +42263,7 @@
    "game_ready": true,
    "template": "T91d660",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 弱电解质的电离平衡"
    ]
@@ -42330,6 +42611,7 @@
    "game_ready": true,
    "template": "T9a77d1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 溶液的酸碱性"
    ]
@@ -42355,6 +42637,7 @@
    "game_ready": true,
    "template": "T728e45",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 溶液的酸碱性"
    ]
@@ -42470,6 +42753,7 @@
    "game_ready": true,
    "template": "T4683e0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 溶液的酸碱性"
    ]
@@ -42495,6 +42779,7 @@
    "game_ready": true,
    "template": "Te50378",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 溶液的酸碱性"
    ]
@@ -42567,6 +42852,7 @@
    "game_ready": true,
    "template": "T08dbfb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 溶液的酸碱性"
    ]
@@ -42807,9 +43093,9 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修1·专题3 水溶液中的离子反应·第三单元 盐类的水解",
    "type": "判断",
-   "question": "盐的水溶液都呈中性。",
+   "question": "$\\ce{NH4Cl}$ 溶液呈中性。",
    "answer": "错",
-   "explanation": "错。强酸弱碱盐（如 $\\ce{NH4Cl}$）水解后溶液呈酸性，强碱弱酸盐（如 $\\ce{CH3COONa}$）呈碱性，强酸强碱盐（如 NaCl）才呈中性。",
+   "explanation": "错。$\\ce{NH4Cl}$ 是强酸弱碱盐，$\\ce{NH4+}$ 水解使溶液呈酸性。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第一册",
@@ -43383,7 +43669,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修1·专题3 水溶液中的离子反应·第四单元 沉淀溶解平衡",
    "type": "判断",
-   "question": "难溶电解质在水中的溶解度不等于零。",
+   "question": "任何难溶电解质在水中的溶解度都不等于零。",
    "answer": "对",
    "explanation": "\"难溶\"只是溶解度很小，仍存在沉淀溶解平衡。",
    "difficulty": 1,
@@ -43392,6 +43678,7 @@
    "knowledge_point": "第四单元 沉淀溶解平衡",
    "game_ready": true,
    "template": "T1a1a8e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第四单元 沉淀溶解平衡"
@@ -43809,6 +44096,7 @@
    "game_ready": true,
    "template": "Ta457f5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第四单元 沉淀溶解平衡"
    ]
@@ -43835,6 +44123,7 @@
    "game_ready": true,
    "template": "Tad4fd1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第四单元 沉淀溶解平衡"
    ]
@@ -44682,6 +44971,7 @@
    "game_ready": true,
    "template": "T9025e9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 原子核外电子的运动"
    ]
@@ -44731,6 +45021,7 @@
    "game_ready": true,
    "template": "Tfd3378",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 原子核外电子的运动"
    ]
@@ -45029,6 +45320,7 @@
    "game_ready": true,
    "template": "Tfa9e8b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 原子核外电子的运动"
    ]
@@ -46237,6 +46529,7 @@
    "game_ready": true,
    "template": "Tc9ff13",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 金属键 金属晶体"
    ]
@@ -46262,6 +46555,7 @@
    "game_ready": true,
    "template": "T06db8f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 金属键 金属晶体"
    ]
@@ -46287,6 +46581,7 @@
    "game_ready": true,
    "template": "T570e64",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 金属键 金属晶体"
    ]
@@ -46312,6 +46607,7 @@
    "game_ready": true,
    "template": "Tec4032",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 金属键 金属晶体"
    ]
@@ -46337,6 +46633,7 @@
    "game_ready": true,
    "template": "T98f324",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第一单元 金属键 金属晶体"
    ]
@@ -46396,7 +46693,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修2·专题3 微粒间作用力与物质性质·第二单元 离子键 离子晶体",
    "type": "判断",
-   "question": "离子键没有方向性和饱和性。",
+   "question": "离子键都没有方向性和饱和性。",
    "answer": "对",
    "explanation": "离子的电场在各方向上都存在。",
    "difficulty": 1,
@@ -46405,6 +46702,7 @@
    "knowledge_point": "第二单元 离子键 离子晶体",
    "game_ready": true,
    "template": "T43ff7b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 离子键 离子晶体"
@@ -46432,6 +46730,7 @@
    "game_ready": true,
    "template": "T0dc1fc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 离子键 离子晶体"
    ]
@@ -46458,6 +46757,7 @@
    "game_ready": true,
    "template": "Tdb627e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 离子键 离子晶体"
    ]
@@ -46619,6 +46919,7 @@
    "game_ready": true,
    "template": "T9b807d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 离子键 离子晶体"
    ]
@@ -46690,6 +46991,7 @@
    "game_ready": true,
    "template": "T6026f9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 离子键 离子晶体"
    ]
@@ -46716,6 +47018,7 @@
    "game_ready": true,
    "template": "T1d48b8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 离子键 离子晶体"
    ]
@@ -46902,6 +47205,7 @@
    "game_ready": true,
    "template": "T96dd0e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 共价键 共价晶体"
    ]
@@ -47109,6 +47413,7 @@
    "game_ready": true,
    "template": "T4faf05",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 共价键 共价晶体"
    ]
@@ -47135,6 +47440,7 @@
    "game_ready": true,
    "template": "Tce43ac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 共价键 共价晶体"
    ]
@@ -47161,6 +47467,7 @@
    "game_ready": true,
    "template": "T365662",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 共价键 共价晶体"
    ]
@@ -47232,6 +47539,7 @@
    "game_ready": true,
    "template": "T160685",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第三单元 共价键 共价晶体"
    ]
@@ -47464,6 +47772,7 @@
    "game_ready": true,
    "template": "T01be9a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第四单元 分子间作用力 分子晶体"
    ]
@@ -47490,6 +47799,7 @@
    "game_ready": true,
    "template": "T10f419",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第四单元 分子间作用力 分子晶体"
    ]
@@ -47893,15 +48203,16 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "unit": "选择性必修2·专题4 分子空间结构与物质性质·第二单元 配合物的形成和应用",
    "type": "判断",
-   "question": "配位键是一种特殊的共价键。",
+   "question": "配位键一定属于共价键。",
    "answer": "对",
-   "explanation": "共用电子对由一方单独提供。",
+   "explanation": "对。配位键是一方提供孤电子对、另一方提供空轨道形成的共价键，是一种特殊的共价键。",
    "difficulty": 1,
    "source": "AI",
    "volume": "选择性必修第二册",
    "knowledge_point": "第二单元 配合物的形成和应用",
    "game_ready": true,
    "template": "Te1de99",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "第二单元 配合物的形成和应用"
@@ -48021,6 +48332,7 @@
    "game_ready": true,
    "template": "Tdaf79d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 配合物的形成和应用"
    ]
@@ -48138,6 +48450,7 @@
    "game_ready": true,
    "template": "T256d53",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 配合物的形成和应用"
    ]
@@ -48210,6 +48523,7 @@
    "game_ready": true,
    "template": "Tfcdbe1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 配合物的形成和应用"
    ]
@@ -48516,6 +48830,7 @@
    "template": "T5bf372",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "第二单元 配合物的形成和应用"
    ]
@@ -53441,7 +53756,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "unit": "选择性必修1·第3章 体液调节·第2节 激素调节的过程",
    "type": "判断",
-   "question": "激素一经靶细胞接受并起作用后就会失活。",
+   "question": "激素一经靶细胞接受并起作用后都会失活。",
    "answer": "对",
    "explanation": "所以体内需要源源不断地产生激素。",
    "difficulty": 2,
@@ -53450,6 +53765,7 @@
    "knowledge_point": "激素调节的过程",
    "game_ready": true,
    "template": "Tdc5f43",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "激素调节的过程"
@@ -59100,6 +59416,7 @@
    "game_ready": true,
    "template": "T814b3b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "种群的数量特征"
    ]
@@ -59204,7 +59521,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "unit": "选择性必修2·第1章 种群及其动态·第2节 种群数量的变化",
    "type": "判断",
-   "question": "\"J\"形增长的种群没有 K 值。",
+   "question": "“J”形增长的种群一定没有 K 值。",
    "answer": "对",
    "explanation": "理想条件下种群数量连续增长。",
    "difficulty": 1,
@@ -59213,6 +59530,7 @@
    "knowledge_point": "种群数量的变化",
    "game_ready": true,
    "template": "Te3628e",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "种群数量的变化"
@@ -59650,6 +59968,7 @@
    "game_ready": true,
    "template": "Tfe0d8a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "种群数量的变化"
    ]
@@ -60318,6 +60637,7 @@
    "template": "T686eba",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "影响种群数量变化的因素"
    ]
@@ -62397,6 +62717,7 @@
    "game_ready": true,
    "template": "Ta44739",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生态系统的结构"
    ]
@@ -62903,6 +63224,7 @@
    "game_ready": true,
    "template": "T15f00d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生态系统的能量流动"
    ]
@@ -62928,6 +63250,7 @@
    "game_ready": true,
    "template": "Tb09e83",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生态系统的能量流动"
    ]
@@ -62954,6 +63277,7 @@
    "game_ready": true,
    "template": "Tecdc38",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生态系统的能量流动"
    ]
@@ -64514,6 +64838,7 @@
    "template": "T13d925",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生态系统的稳定性"
    ]
@@ -71459,6 +71784,7 @@
    "template": "T5c5809",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "当代中国的法治与精神文明建设"
    ]
@@ -72615,6 +72941,7 @@
    "game_ready": true,
    "template": "T835c93",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "当代中国的民族政策"
    ]
@@ -84057,9 +84384,9 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中地理用人教版）",
    "unit": "选择性必修1·第一章 地球的运动·第一节 地球的自转和公转",
    "type": "判断",
-   "question": "地球表面各处的自转线速度都相等。",
+   "question": "地球表面赤道处的自转线速度最小。",
    "answer": "错",
-   "explanation": "错。除南北两极点外，各处自转角速度相等；线速度由赤道向两极递减。",
+   "explanation": "错。自转线速度由赤道向两极递减，赤道处最大，两极点为 0。",
    "difficulty": 3,
    "source": "AI",
    "volume": "选择性必修第一册",
@@ -84256,6 +84583,7 @@
    "game_ready": true,
    "template": "T56a49c",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "地球运动的地理意义"
    ]
@@ -84576,6 +84904,7 @@
    "game_ready": true,
    "template": "T1ef339",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "地球运动的地理意义"
    ]
@@ -84649,6 +84978,7 @@
    "game_ready": true,
    "template": "Tf4cd2f",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "地球运动的地理意义"
    ]
@@ -84812,6 +85142,7 @@
    "template": "T270efe",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "地球运动的地理意义"
    ]
@@ -90381,7 +90712,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中地理用人教版）",
    "unit": "选择性必修1·第五章 自然环境的整体性与差异性·第一节 自然环境的整体性",
    "type": "判断",
-   "question": "自然环境的各要素相互联系、相互影响，构成一个整体。",
+   "question": "自然环境的各要素都是相互联系、相互影响的。",
    "answer": "对",
    "explanation": "这就是自然环境的整体性。",
    "difficulty": 1,
@@ -90390,6 +90721,7 @@
    "knowledge_point": "自然环境的整体性",
    "game_ready": true,
    "template": "Tb94db7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然环境的整体性"
@@ -107387,15 +107719,16 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "unit": "选择性必修1·第四单元 国际组织·第八课 主要的国际组织",
    "type": "判断",
-   "question": "所有的国际组织都是政府间组织。",
+   "question": "国际奥林匹克委员会是政府间国际组织。",
    "answer": "错",
-   "explanation": "还有非政府组织，如国际奥林匹克委员会。",
+   "explanation": "错。国际奥林匹克委员会是非政府国际组织；联合国、世界贸易组织等才是政府间国际组织。",
    "difficulty": 3,
    "source": "AI",
    "volume": "选择性必修第一册",
    "knowledge_point": "主要的国际组织",
    "game_ready": true,
    "template": "Tb39ba7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "主要的国际组织"
@@ -111372,6 +111705,7 @@
    "template": "T2d0078",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "珍惜婚姻关系"
    ]
@@ -111398,6 +111732,7 @@
    "template": "Ta20a46",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "珍惜婚姻关系"
    ]
@@ -112555,6 +112890,7 @@
    "template": "T84b225",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "自主创业与诚信经营"
    ]
@@ -113758,6 +114094,7 @@
    "template": "T338479",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "诉讼实现公平正义"
    ]

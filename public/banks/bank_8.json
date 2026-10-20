@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初二-v47（AI初审）",
- "version": "v47",
+ "bank_name": "三兄妹题库-初二-v48（AI初审）",
+ "version": "v48",
  "questions": [
   {
    "id": "Y8-001",
@@ -5178,6 +5178,7 @@
    "game_ready": true,
    "template": "T0e5d41",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "三峡"
    ]
@@ -5634,6 +5635,7 @@
    "game_ready": true,
    "template": "Tdbcd87",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "短文二篇"
    ]
@@ -5795,6 +5797,7 @@
    "game_ready": true,
    "template": "Te419d8",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "短文二篇"
    ]
@@ -6119,6 +6122,7 @@
    "game_ready": true,
    "template": "Ta7cbce",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "与朱元思书"
    ]
@@ -6281,6 +6285,7 @@
    "game_ready": true,
    "template": "T0b57ce",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "与朱元思书"
    ]
@@ -10973,6 +10978,7 @@
    "game_ready": true,
    "template": "Tff3e29",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《孟子》三章"
    ]
@@ -11135,6 +11141,7 @@
    "game_ready": true,
    "template": "Td6fa0a",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《孟子》三章"
    ]
@@ -11498,6 +11505,7 @@
    "game_ready": true,
    "template": "T4c06e9",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "愚公移山"
    ]
@@ -11613,6 +11621,7 @@
    "game_ready": true,
    "template": "Tbfc6ec",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "愚公移山"
    ]
@@ -11976,6 +11985,7 @@
    "game_ready": true,
    "template": "Ta9bf98",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "周亚夫军细柳"
    ]
@@ -12457,6 +12467,7 @@
    "game_ready": true,
    "template": "T6041e2",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗五首"
    ]
@@ -12482,6 +12493,7 @@
    "game_ready": true,
    "template": "T8e184b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗五首"
    ]
@@ -12507,6 +12519,7 @@
    "game_ready": true,
    "template": "T112c22",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗五首"
    ]
@@ -12532,6 +12545,7 @@
    "game_ready": true,
    "template": "T7480db",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗五首"
    ]
@@ -12602,6 +12616,7 @@
    "game_ready": true,
    "template": "Teb1216",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗五首"
    ]
@@ -12900,6 +12915,7 @@
    "game_ready": true,
    "template": "T74bde2",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -12925,6 +12941,7 @@
    "game_ready": true,
    "template": "T6227e7",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -13085,6 +13102,7 @@
    "game_ready": true,
    "template": "T7bd094",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -13431,6 +13449,7 @@
    "template": "Tb8961d",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -13547,6 +13566,7 @@
    "game_ready": true,
    "template": "Tb5b203",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "诗词五首"
    ]
@@ -13572,6 +13592,7 @@
    "game_ready": true,
    "template": "T693bc4",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "诗词五首"
    ]
@@ -13597,6 +13618,7 @@
    "game_ready": true,
    "template": "T989857",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "诗词五首"
    ]
@@ -13622,6 +13644,7 @@
    "game_ready": true,
    "template": "T8e5836",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "诗词五首"
    ]
@@ -13692,6 +13715,7 @@
    "game_ready": true,
    "template": "T543768",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "诗词五首"
    ]
@@ -13989,6 +14013,7 @@
    "game_ready": true,
    "template": "T0f4954",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -14014,6 +14039,7 @@
    "game_ready": true,
    "template": "Tc3c0bb",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -14129,6 +14155,7 @@
    "game_ready": true,
    "template": "T9387dc",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -14474,6 +14501,7 @@
    "template": "Td8e747",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -14624,7 +14652,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第1章 三角形·1.1 三角形中的线段和角",
    "type": "判断",
-   "question": "三角形的内角和是 $180^\\circ$。",
+   "question": "任何三角形的内角和都是 $180^\\circ$。",
    "tts_text": "-",
    "answer": "对",
    "explanation": "三角形三个内角的和等于 $180^\\circ$。",
@@ -14634,6 +14662,7 @@
    "knowledge_point": "三角形中的线段和角",
    "game_ready": true,
    "template": "Tb80a02",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "三角形中的线段和角"
@@ -14661,6 +14690,7 @@
    "game_ready": true,
    "template": "Tc3c2db",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形中的线段和角"
    ]
@@ -14846,6 +14876,7 @@
    "game_ready": true,
    "template": "T5d93f8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形中的线段和角"
    ]
@@ -14872,6 +14903,7 @@
    "game_ready": true,
    "template": "Tcc3641",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形中的线段和角"
    ]
@@ -14942,6 +14974,7 @@
    "game_ready": true,
    "template": "Ta2f1ec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形中的线段和角"
    ]
@@ -14968,6 +15001,7 @@
    "game_ready": true,
    "template": "T55b551",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形中的线段和角"
    ]
@@ -14993,6 +15027,7 @@
    "game_ready": true,
    "template": "T099b10",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形中的线段和角"
    ]
@@ -15052,7 +15087,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第1章 三角形·1.2 全等三角形",
    "type": "判断",
-   "question": "全等三角形的对应边相等，对应角相等。",
+   "question": "全等三角形的对应边一定相等，对应角也一定相等。",
    "answer": "对",
    "explanation": "这是全等三角形的性质。",
    "difficulty": 1,
@@ -15061,6 +15096,7 @@
    "knowledge_point": "全等三角形",
    "game_ready": true,
    "template": "T2d616a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "全等三角形"
@@ -15133,6 +15169,7 @@
    "game_ready": true,
    "template": "T7096bd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形"
    ]
@@ -15159,6 +15196,7 @@
    "game_ready": true,
    "template": "T31bbb3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形"
    ]
@@ -15254,6 +15292,7 @@
    "game_ready": true,
    "template": "T824340",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形"
    ]
@@ -15349,6 +15388,7 @@
    "game_ready": true,
    "template": "Te21c25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形"
    ]
@@ -15375,6 +15415,7 @@
    "game_ready": true,
    "template": "T93c772",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形"
    ]
@@ -15401,6 +15442,7 @@
    "game_ready": true,
    "template": "Tc9f1b2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形"
    ]
@@ -16001,6 +16043,7 @@
    "game_ready": true,
    "template": "Tf4639f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "全等三角形的判定"
    ]
@@ -16060,7 +16103,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第1章 三角形·1.4 线段垂直平分线与角平分线",
    "type": "判断",
-   "question": "线段垂直平分线上的点到这条线段两个端点的距离相等。",
+   "question": "线段垂直平分线上的所有点到这条线段两个端点的距离都相等。",
    "answer": "对",
    "explanation": "这是线段垂直平分线的性质。",
    "difficulty": 1,
@@ -16069,6 +16112,7 @@
    "knowledge_point": "线段垂直平分线与角平分线",
    "game_ready": true,
    "template": "Tdf1852",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "线段垂直平分线与角平分线"
@@ -16141,6 +16185,7 @@
    "game_ready": true,
    "template": "Tabb72b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16167,6 +16212,7 @@
    "game_ready": true,
    "template": "T940e80",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16306,6 +16352,7 @@
    "game_ready": true,
    "template": "T97295f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16332,6 +16379,7 @@
    "game_ready": true,
    "template": "T36616a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16426,6 +16474,7 @@
    "game_ready": true,
    "template": "T708a9a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16452,6 +16501,7 @@
    "game_ready": true,
    "template": "T1480f1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16478,6 +16528,7 @@
    "game_ready": true,
    "template": "Ta042bd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "线段垂直平分线与角平分线"
    ]
@@ -16491,7 +16542,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第1章 三角形·1.5 等腰三角形",
    "type": "判断",
-   "question": "等腰三角形的两个底角相等。",
+   "question": "等腰三角形的两个底角一定相等。",
    "answer": "对",
    "explanation": "简称“等边对等角”。",
    "difficulty": 1,
@@ -16500,6 +16551,7 @@
    "knowledge_point": "等腰三角形",
    "game_ready": true,
    "template": "T01b346",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "等腰三角形"
@@ -16572,6 +16624,7 @@
    "game_ready": true,
    "template": "Te04851",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16598,6 +16651,7 @@
    "game_ready": true,
    "template": "Tdc20be",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16668,6 +16722,7 @@
    "game_ready": true,
    "template": "Tee3ba9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16763,6 +16818,7 @@
    "game_ready": true,
    "template": "Tab0179",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16789,6 +16845,7 @@
    "game_ready": true,
    "template": "T55ae86",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16860,6 +16917,7 @@
    "game_ready": true,
    "template": "T2add9d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16886,6 +16944,7 @@
    "game_ready": true,
    "template": "T21e898",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16912,6 +16971,7 @@
    "game_ready": true,
    "template": "Tb4ca80",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -16984,6 +17044,7 @@
    "game_ready": true,
    "template": "Td3b6ba",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -17011,6 +17072,7 @@
    "template": "Tbf3477",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -17083,6 +17145,7 @@
    "template": "T47dc77",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -17110,6 +17173,7 @@
    "template": "Tf145d8",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "等腰三角形"
    ]
@@ -17135,6 +17199,7 @@
    "game_ready": true,
    "template": "Tf213cd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17231,6 +17296,7 @@
    "game_ready": true,
    "template": "Te604f7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17302,6 +17368,7 @@
    "game_ready": true,
    "template": "Tc9daf1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17328,6 +17395,7 @@
    "game_ready": true,
    "template": "Tf0d21e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17354,6 +17422,7 @@
    "game_ready": true,
    "template": "Tf0a2cb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17376,7 +17445,7 @@
      "audio": ""
     },
     {
-     "text": "$4$",
+     "text": "$4$ 或 $-4$",
      "image": "",
      "audio": ""
     },
@@ -17392,13 +17461,14 @@
     }
    ],
    "answer": "C",
-   "explanation": "$\\sqrt{16}=4$，4 的平方根是 $\\pm2$。",
+   "explanation": "$\\sqrt{16}=4$，4 的平方根是 $\\pm2$；「$4$ 或 $-4$」是 16 的平方根，不是 $\\sqrt{16}$ 的。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "平方根",
    "game_ready": true,
    "template": "T21c247",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "平方根"
@@ -17426,6 +17496,7 @@
    "game_ready": true,
    "template": "Tbd2e5a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17452,6 +17523,7 @@
    "game_ready": true,
    "template": "T97d140",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17477,6 +17549,7 @@
    "game_ready": true,
    "template": "T53e6d7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平方根"
    ]
@@ -17502,6 +17575,7 @@
    "game_ready": true,
    "template": "T1c95b1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17528,6 +17602,7 @@
    "game_ready": true,
    "template": "Td4add5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17541,15 +17616,16 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第2章 实数的初步认识·2.2 立方根",
    "type": "判断",
-   "question": "负数也有立方根。",
+   "question": "任何负数都有立方根。",
    "answer": "对",
-   "explanation": "负数有一个负的立方根，例如 $\\sqrt[3]{-8}=-2$。",
+   "explanation": "对。负数的立方根是负数，如 $\\sqrt[3]{-8}=-2$；负数没有平方根，但有立方根。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "立方根",
    "game_ready": true,
    "template": "Tb66be3",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "立方根"
@@ -17622,6 +17698,7 @@
    "game_ready": true,
    "template": "Te7a171",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17648,6 +17725,7 @@
    "game_ready": true,
    "template": "Tc4444d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17674,6 +17752,7 @@
    "game_ready": true,
    "template": "T3c81b1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17723,6 +17802,7 @@
    "game_ready": true,
    "template": "T3eed0b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17749,6 +17829,7 @@
    "game_ready": true,
    "template": "Tf246de",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17774,6 +17855,7 @@
    "game_ready": true,
    "template": "Tfd2a37",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17800,6 +17882,7 @@
    "game_ready": true,
    "template": "Td89b20",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "立方根"
    ]
@@ -17858,9 +17941,9 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第2章 实数的初步认识·2.3 实数",
    "type": "判断",
-   "question": "无限小数都是无理数。",
+   "question": "无限循环小数是无理数。",
    "answer": "错",
-   "explanation": "错。无限循环小数（如 $0.\\dot{3}=\\frac13$）是有理数；无限不循环小数才叫无理数。",
+   "explanation": "错。无限循环小数（如 $0.\\dot{3}=\\frac13$）可以化成分数，是有理数；无限不循环小数才是无理数。",
    "difficulty": 1,
    "source": "AI",
    "volume": "八年级上册",
@@ -17974,7 +18057,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第2章 实数的初步认识·2.3 实数",
    "type": "判断",
-   "question": "实数与数轴上的点一一对应。",
+   "question": "所有实数与数轴上的点都是一一对应的。",
    "answer": "对",
    "explanation": "每个实数都可以用数轴上的一个点表示，反之亦然。",
    "difficulty": 2,
@@ -17983,6 +18066,7 @@
    "knowledge_point": "实数",
    "game_ready": true,
    "template": "T52c83b",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实数"
@@ -18101,6 +18185,7 @@
    "game_ready": true,
    "template": "Taa0415",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "实数"
    ]
@@ -18173,6 +18258,7 @@
    "game_ready": true,
    "template": "T575122",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "实数"
    ]
@@ -18186,15 +18272,16 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第2章 实数的初步认识·2.3 实数",
    "type": "判断",
-   "question": "带根号的数都是无理数。",
+   "question": "$\\sqrt4$ 是无理数。",
    "answer": "错",
-   "explanation": "如 $\\sqrt4=2$ 是有理数。",
+   "explanation": "错。$\\sqrt4=2$，是有理数。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "实数",
    "game_ready": true,
    "template": "T3d5732",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "实数"
@@ -18222,6 +18309,7 @@
    "game_ready": true,
    "template": "T72228f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "实数"
    ]
@@ -18294,6 +18382,7 @@
    "game_ready": true,
    "template": "T5736e4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "实数"
    ]
@@ -18319,6 +18408,7 @@
    "game_ready": true,
    "template": "T482a02",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18344,6 +18434,7 @@
    "game_ready": true,
    "template": "Tfea16b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18437,6 +18528,7 @@
    "game_ready": true,
    "template": "T415705",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18598,6 +18690,7 @@
    "game_ready": true,
    "template": "T1e9fa9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18671,6 +18764,7 @@
    "template": "Te8246e",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18744,6 +18838,7 @@
    "template": "T5d19ac",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18771,6 +18866,7 @@
    "template": "T3c2a42",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "近似值"
    ]
@@ -18796,6 +18892,7 @@
    "game_ready": true,
    "template": "T98ba37",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -18809,7 +18906,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第3章 勾股定理·3.1 勾股定理的探究",
    "type": "判断",
-   "question": "直角三角形两条直角边的平方和等于斜边的平方。",
+   "question": "任何直角三角形两条直角边的平方和都等于斜边的平方。",
    "answer": "对",
    "explanation": "这就是勾股定理。",
    "difficulty": 1,
@@ -18818,6 +18915,7 @@
    "knowledge_point": "勾股定理的探究",
    "game_ready": true,
    "template": "T916d2f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "勾股定理的探究"
@@ -18844,6 +18942,7 @@
    "game_ready": true,
    "template": "T632224",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -18869,6 +18968,7 @@
    "game_ready": true,
    "template": "Tb534dc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -18894,6 +18994,7 @@
    "game_ready": true,
    "template": "Tffc1cd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19010,6 +19111,7 @@
    "game_ready": true,
    "template": "Tc2d23f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19035,6 +19137,7 @@
    "game_ready": true,
    "template": "T293a30",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19060,6 +19163,7 @@
    "game_ready": true,
    "template": "T0e0419",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19091,19 +19195,20 @@
      "audio": ""
     },
     {
-     "text": "7",
+     "text": "5 或 7",
      "image": "",
      "audio": ""
     }
    ],
    "answer": "C",
-   "explanation": "4 可能是直角边（第三边 5），也可能是斜边（第三边 $\\sqrt7$）。",
+   "explanation": "4 可能是直角边（第三边 5），也可能是斜边（第三边 $\\sqrt7$）；7 是把两边相加，不符合勾股定理。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "勾股定理的探究",
    "game_ready": true,
    "template": "T210c27",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "勾股定理的探究"
@@ -19130,6 +19235,7 @@
    "game_ready": true,
    "template": "Tc848cc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19156,6 +19262,7 @@
    "game_ready": true,
    "template": "Tf91e43",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19182,6 +19289,7 @@
    "game_ready": true,
    "template": "Tb3ec23",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的探究"
    ]
@@ -19320,6 +19428,7 @@
    "game_ready": true,
    "template": "T2be88b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的逆定理"
    ]
@@ -19462,6 +19571,7 @@
    "game_ready": true,
    "template": "T23ba8d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的逆定理"
    ]
@@ -19511,6 +19621,7 @@
    "game_ready": true,
    "template": "T4058f5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的逆定理"
    ]
@@ -19537,6 +19648,7 @@
    "game_ready": true,
    "template": "T73c8fd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的逆定理"
    ]
@@ -19608,6 +19720,7 @@
    "game_ready": true,
    "template": "Ta6f818",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19656,6 +19769,7 @@
    "game_ready": true,
    "template": "T8da928",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19681,6 +19795,7 @@
    "game_ready": true,
    "template": "T60e1f6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19706,6 +19821,7 @@
    "game_ready": true,
    "template": "T8073e8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19732,6 +19848,7 @@
    "game_ready": true,
    "template": "T704297",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19802,6 +19919,7 @@
    "game_ready": true,
    "template": "T353e59",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19828,6 +19946,7 @@
    "game_ready": true,
    "template": "Taa90c7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19853,6 +19972,7 @@
    "game_ready": true,
    "template": "T138b48",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19878,6 +19998,7 @@
    "game_ready": true,
    "template": "T7cf409",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19904,6 +20025,7 @@
    "game_ready": true,
    "template": "Td35dd2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19930,6 +20052,7 @@
    "game_ready": true,
    "template": "T4adc3b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19955,6 +20078,7 @@
    "game_ready": true,
    "template": "T6d03ec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -19981,6 +20105,7 @@
    "template": "T6577cf",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -20008,6 +20133,7 @@
    "template": "T07aed6",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -20080,6 +20206,7 @@
    "template": "T4c2c27",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "勾股定理的简单应用"
    ]
@@ -20152,6 +20279,7 @@
    "game_ready": true,
    "template": "Tf390df",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20178,6 +20306,7 @@
    "game_ready": true,
    "template": "T29c1f2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20321,6 +20450,7 @@
    "game_ready": true,
    "template": "T26ea85",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20347,6 +20477,7 @@
    "game_ready": true,
    "template": "T33a180",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20419,6 +20550,7 @@
    "game_ready": true,
    "template": "Tdbdf98",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20445,6 +20577,7 @@
    "game_ready": true,
    "template": "T3fa772",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20471,6 +20604,7 @@
    "game_ready": true,
    "template": "T4b8472",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "点的位置与坐标表示"
    ]
@@ -20705,6 +20839,7 @@
    "game_ready": true,
    "template": "T3493a3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -20731,6 +20866,7 @@
    "game_ready": true,
    "template": "Tb48aab",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -20803,6 +20939,7 @@
    "game_ready": true,
    "template": "T497286",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -20829,6 +20966,7 @@
    "game_ready": true,
    "template": "Taefc3c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -20901,6 +21039,7 @@
    "game_ready": true,
    "template": "Tddea07",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -20928,6 +21067,7 @@
    "template": "T8ec941",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -21002,6 +21142,7 @@
    "template": "Ta07d5b",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -21029,6 +21170,7 @@
    "template": "Tf96ef4",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "图形变换与坐标变化"
    ]
@@ -21125,6 +21267,7 @@
    "game_ready": true,
    "template": "T5e6e2a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "变量与函数"
    ]
@@ -21312,6 +21455,7 @@
    "game_ready": true,
    "template": "Tb6638d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "变量与函数"
    ]
@@ -21338,6 +21482,7 @@
    "game_ready": true,
    "template": "T0d0c9e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "变量与函数"
    ]
@@ -21410,6 +21555,7 @@
    "game_ready": true,
    "template": "T01ed59",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "变量与函数"
    ]
@@ -21436,6 +21582,7 @@
    "game_ready": true,
    "template": "T3f505b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "变量与函数"
    ]
@@ -21494,9 +21641,9 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第5章 一次函数·5.2 一次函数的概念",
    "type": "判断",
-   "question": "一次函数都是正比例函数。",
+   "question": "$y=2x+1$ 是正比例函数。",
    "answer": "错",
-   "explanation": "错。正比例函数是特殊的一次函数（$b=0$），一次函数 $y=kx+b$ 在 $b\\neq0$ 时不是正比例函数。",
+   "explanation": "错。$y=2x+1$ 中 $b=1\\neq0$，它是一次函数，但不是正比例函数；正比例函数是 $b=0$ 的一次函数。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
@@ -21577,6 +21724,7 @@
    "game_ready": true,
    "template": "T199ebc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的概念"
    ]
@@ -21603,6 +21751,7 @@
    "game_ready": true,
    "template": "T3cf3d7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的概念"
    ]
@@ -21699,6 +21848,7 @@
    "game_ready": true,
    "template": "T1bd1d9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的概念"
    ]
@@ -21725,6 +21875,7 @@
    "game_ready": true,
    "template": "T2007a5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的概念"
    ]
@@ -21784,7 +21935,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第5章 一次函数·5.3 一次函数的图象与性质",
    "type": "判断",
-   "question": "一次函数的图象是一条直线。",
+   "question": "一次函数的图象都是一条直线。",
    "answer": "对",
    "explanation": "一次函数 $y=kx+b$ 的图象是一条直线。",
    "difficulty": 1,
@@ -21793,6 +21944,7 @@
    "knowledge_point": "一次函数的图象与性质",
    "game_ready": true,
    "template": "Tb7dd45",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "一次函数的图象与性质"
@@ -21957,6 +22109,7 @@
    "game_ready": true,
    "template": "T0ce54c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的图象与性质"
    ]
@@ -21983,6 +22136,7 @@
    "game_ready": true,
    "template": "T84e854",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的图象与性质"
    ]
@@ -22172,6 +22326,7 @@
    "game_ready": true,
    "template": "T07bab5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的图象与性质"
    ]
@@ -22244,6 +22399,7 @@
    "game_ready": true,
    "template": "T0397b8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的图象与性质"
    ]
@@ -22270,6 +22426,7 @@
    "game_ready": true,
    "template": "T6254b9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的图象与性质"
    ]
@@ -22297,6 +22454,7 @@
    "game_ready": true,
    "template": "T05362f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数的图象与性质"
    ]
@@ -22368,6 +22526,7 @@
    "game_ready": true,
    "template": "Tdafb92",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22417,6 +22576,7 @@
    "game_ready": true,
    "template": "Tda8817",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22488,6 +22648,7 @@
    "game_ready": true,
    "template": "Tbee3c4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22513,6 +22674,7 @@
    "game_ready": true,
    "template": "T5050ef",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22538,6 +22700,7 @@
    "game_ready": true,
    "template": "T773375",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22564,6 +22727,7 @@
    "game_ready": true,
    "template": "T340d26",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22589,6 +22753,7 @@
    "game_ready": true,
    "template": "T81cccb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22660,6 +22825,7 @@
    "game_ready": true,
    "template": "Tbbbffb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22686,6 +22852,7 @@
    "game_ready": true,
    "template": "T352236",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22712,6 +22879,7 @@
    "game_ready": true,
    "template": "T1577d2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22737,6 +22905,7 @@
    "game_ready": true,
    "template": "T295989",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "用一次函数解决问题"
    ]
@@ -22948,6 +23117,7 @@
    "game_ready": true,
    "template": "Ted1b65",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -22975,6 +23145,7 @@
    "game_ready": true,
    "template": "T704caf",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23047,6 +23218,7 @@
    "game_ready": true,
    "template": "T0ff808",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23073,6 +23245,7 @@
    "game_ready": true,
    "template": "T33d108",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23099,6 +23272,7 @@
    "game_ready": true,
    "template": "Te22875",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23125,6 +23299,7 @@
    "game_ready": true,
    "template": "Tc7ca70",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23152,6 +23327,7 @@
    "template": "T167faf",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23226,6 +23402,7 @@
    "template": "Tee0bf5",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23252,6 +23429,7 @@
    "template": "T6f125e",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一次函数与二元一次方程"
    ]
@@ -23457,6 +23635,7 @@
    "game_ready": true,
    "template": "Tb4478d",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Friendship"
    ]
@@ -23482,6 +23661,7 @@
    "game_ready": true,
    "template": "Tfd5656",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Friendship"
    ]
@@ -23642,6 +23822,7 @@
    "game_ready": true,
    "template": "T2eca1b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Friendship"
    ]
@@ -23802,6 +23983,7 @@
    "game_ready": true,
    "template": "T060072",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Friendship"
    ]
@@ -23872,6 +24054,7 @@
    "game_ready": true,
    "template": "T892315",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Friendship"
    ]
@@ -23944,6 +24127,7 @@
    "template": "Td9b728",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Friendship"
    ]
@@ -24466,6 +24650,7 @@
    "game_ready": true,
    "template": "T762c0b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "School life"
    ]
@@ -24581,6 +24766,7 @@
    "game_ready": true,
    "template": "T631875",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "School life"
    ]
@@ -24788,6 +24974,7 @@
    "template": "T83b37c",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "School life"
    ]
@@ -25220,6 +25407,7 @@
    "game_ready": true,
    "template": "T0fb02c",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "To be a good learner"
    ]
@@ -25335,6 +25523,7 @@
    "game_ready": true,
    "template": "T8e7ab3",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "To be a good learner"
    ]
@@ -25405,6 +25594,7 @@
    "game_ready": true,
    "template": "T351866",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "To be a good learner"
    ]
@@ -25658,6 +25848,7 @@
    "template": "T13da6c",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "To be a good learner"
    ]
@@ -26090,6 +26281,7 @@
    "game_ready": true,
    "template": "T58bf04",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Hands-on fun"
    ]
@@ -26250,6 +26442,7 @@
    "game_ready": true,
    "template": "T93cde2",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Hands-on fun"
    ]
@@ -26504,6 +26697,7 @@
    "template": "T86c465",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Hands-on fun"
    ]
@@ -26935,6 +27129,7 @@
    "game_ready": true,
    "template": "Td7fc69",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Wild animals"
    ]
@@ -27095,6 +27290,7 @@
    "game_ready": true,
    "template": "T87f82e",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Wild animals"
    ]
@@ -27302,6 +27498,7 @@
    "template": "Te6e592",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Wild animals"
    ]
@@ -27824,6 +28021,7 @@
    "game_ready": true,
    "template": "T276ae0",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Seasons"
    ]
@@ -28029,6 +28227,7 @@
    "game_ready": true,
    "template": "T575eed",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Seasons"
    ]
@@ -28192,6 +28391,7 @@
    "template": "T4c0493",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Seasons"
    ]
@@ -28713,6 +28913,7 @@
    "game_ready": true,
    "template": "T5aebdb",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "The natural world"
    ]
@@ -28828,6 +29029,7 @@
    "game_ready": true,
    "template": "Tc5a4c1",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "The natural world"
    ]
@@ -29036,6 +29238,7 @@
    "template": "Td7db51",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "The natural world"
    ]
@@ -29467,6 +29670,7 @@
    "game_ready": true,
    "template": "T1b6149",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Safe and sound"
    ]
@@ -29627,6 +29831,7 @@
    "game_ready": true,
    "template": "T3969d7",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Safe and sound"
    ]
@@ -29880,6 +30085,7 @@
    "template": "T28dc40",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Safe and sound"
    ]
@@ -31266,6 +31472,7 @@
    "game_ready": true,
    "template": "T783781",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "声音的特性"
    ]
@@ -33157,7 +33364,7 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第二章 光现象·二 光的直线传播",
    "type": "判断",
-   "question": "光在同种均匀介质中沿直线传播。",
+   "question": "光在同种均匀介质中总是沿直线传播。",
    "answer": "对",
    "explanation": "这是光的直线传播规律。",
    "difficulty": 1,
@@ -33166,6 +33373,7 @@
    "knowledge_point": "光的直线传播",
    "game_ready": true,
    "template": "T641e26",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "光的直线传播"
@@ -33734,6 +33942,7 @@
    "game_ready": true,
    "template": "T9924c4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面镜"
    ]
@@ -33759,6 +33968,7 @@
    "game_ready": true,
    "template": "T9c53fd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面镜"
    ]
@@ -33987,6 +34197,7 @@
    "game_ready": true,
    "template": "T588982",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面镜"
    ]
@@ -34057,6 +34268,7 @@
    "game_ready": true,
    "template": "T088fe2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平面镜"
    ]
@@ -34160,7 +34372,7 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第二章 光现象·四 光的反射",
    "type": "判断",
-   "question": "在光的反射现象中，反射角等于入射角。",
+   "question": "在光的反射现象中，反射角总是等于入射角。",
    "answer": "对",
    "explanation": "这是光的反射定律的内容之一。",
    "difficulty": 1,
@@ -34169,6 +34381,7 @@
    "knowledge_point": "光的反射",
    "game_ready": true,
    "template": "Tf2686f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "光的反射"
@@ -34240,6 +34453,7 @@
    "game_ready": true,
    "template": "Tbfdfdf",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的反射"
    ]
@@ -34265,6 +34479,7 @@
    "game_ready": true,
    "template": "Ta9910c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的反射"
    ]
@@ -34448,6 +34663,7 @@
    "game_ready": true,
    "template": "Tc07a90",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的反射"
    ]
@@ -34518,6 +34734,7 @@
    "game_ready": true,
    "template": "Tc69db9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的反射"
    ]
@@ -34588,6 +34805,7 @@
    "game_ready": true,
    "template": "T5899ec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的反射"
    ]
@@ -34659,6 +34877,7 @@
    "template": "T09234a",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的反射"
    ]
@@ -34936,6 +35155,7 @@
    "game_ready": true,
    "template": "T4755a8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "光的折射"
    ]
@@ -35445,7 +35665,7 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第三章 光的折射 透镜·二 透镜",
    "type": "判断",
-   "question": "经过凸透镜光心的光线，传播方向不改变。",
+   "question": "所有经过凸透镜光心的光线，传播方向都不改变。",
    "answer": "对",
    "explanation": "这是凸透镜的三条特殊光线之一。",
    "difficulty": 2,
@@ -35454,6 +35674,7 @@
    "knowledge_point": "透镜",
    "game_ready": true,
    "template": "Tf50416",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "透镜"
@@ -36011,9 +36232,9 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第三章 光的折射 透镜·三 凸透镜成像的规律",
    "type": "判断",
-   "question": "凸透镜成的像一定是倒立的。",
+   "question": "用放大镜看物体时，看到的是倒立的像。",
    "answer": "错",
-   "explanation": "错。凸透镜成实像时是倒立的；物距小于焦距时成正立、放大的虚像（放大镜）。",
+   "explanation": "错。用放大镜时物距小于焦距，凸透镜成正立、放大的虚像。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
@@ -37698,6 +37919,7 @@
    "game_ready": true,
    "template": "Te2be73",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物质的三态 温度的测量"
    ]
@@ -37837,6 +38059,7 @@
    "game_ready": true,
    "template": "T5119ea",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物质的三态 温度的测量"
    ]
@@ -37908,6 +38131,7 @@
    "game_ready": true,
    "template": "T40a55f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物质的三态 温度的测量"
    ]
@@ -38972,6 +39196,7 @@
    "game_ready": true,
    "template": "Tcb9295",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "熔化和凝固"
    ]
@@ -38997,6 +39222,7 @@
    "game_ready": true,
    "template": "T0d3cf8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "熔化和凝固"
    ]
@@ -40222,6 +40448,7 @@
    "game_ready": true,
    "template": "T214014",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "长度与时间的测量"
    ]
@@ -40247,6 +40474,7 @@
    "game_ready": true,
    "template": "Tfeb0e2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "长度与时间的测量"
    ]
@@ -40453,6 +40681,7 @@
    "game_ready": true,
    "template": "T93106e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "长度与时间的测量"
    ]
@@ -40478,6 +40707,7 @@
    "game_ready": true,
    "template": "T2b0cb1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "长度与时间的测量"
    ]
@@ -40504,6 +40734,7 @@
    "game_ready": true,
    "template": "T3ce9c2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "长度与时间的测量"
    ]
@@ -40575,6 +40806,7 @@
    "game_ready": true,
    "template": "T1125a1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "长度与时间的测量"
    ]
@@ -40669,6 +40901,7 @@
    "game_ready": true,
    "template": "T1489ad",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40695,6 +40928,7 @@
    "game_ready": true,
    "template": "T7ffb6a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40721,6 +40955,7 @@
    "game_ready": true,
    "template": "T8b7d3e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40747,6 +40982,7 @@
    "game_ready": true,
    "template": "T1e7bf6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40818,6 +41054,7 @@
    "game_ready": true,
    "template": "T4359c5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40844,6 +41081,7 @@
    "game_ready": true,
    "template": "T805cfd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40870,6 +41108,7 @@
    "game_ready": true,
    "template": "T862ec5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40942,6 +41181,7 @@
    "game_ready": true,
    "template": "T2e65a3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40968,6 +41208,7 @@
    "game_ready": true,
    "template": "T11c54c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -40994,6 +41235,7 @@
    "game_ready": true,
    "template": "T9dd168",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度"
    ]
@@ -41203,6 +41445,7 @@
    "game_ready": true,
    "template": "T010b65",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线运动"
    ]
@@ -41365,6 +41608,7 @@
    "game_ready": true,
    "template": "T2552a5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线运动"
    ]
@@ -41436,6 +41680,7 @@
    "game_ready": true,
    "template": "Tf20b1e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "直线运动"
    ]
@@ -41607,7 +41852,7 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八上·第五章 物体的运动·四 运动的相对性",
    "type": "判断",
-   "question": "物体的运动和静止是相对的。",
+   "question": "物体的运动和静止都是相对的。",
    "answer": "对",
    "explanation": "选择不同的参照物，描述同一物体的运动情况可能不同。",
    "difficulty": 2,
@@ -41616,6 +41861,7 @@
    "knowledge_point": "运动的相对性",
    "game_ready": true,
    "template": "T34ff3a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "运动的相对性"
@@ -41823,6 +42069,7 @@
    "game_ready": true,
    "template": "T1d6be8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "运动的相对性"
    ]
@@ -41940,6 +42187,7 @@
    "template": "T986f09",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "运动的相对性"
    ]
@@ -42013,6 +42261,7 @@
    "template": "Tdbb689",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "运动的相对性"
    ]
@@ -58149,6 +58398,7 @@
    "game_ready": true,
    "template": "T999d58",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "社戏"
    ]
@@ -58467,6 +58717,7 @@
    "game_ready": true,
    "template": "T1cb6fc",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "回延安"
    ]
@@ -58831,6 +59082,7 @@
    "game_ready": true,
    "template": "T1ee0b2",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "安塞腰鼓"
    ]
@@ -61702,6 +61954,7 @@
    "game_ready": true,
    "template": "T875103",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "桃花源记"
    ]
@@ -61727,6 +61980,7 @@
    "game_ready": true,
    "template": "Ta6bef0",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "桃花源记"
    ]
@@ -61752,6 +62006,7 @@
    "game_ready": true,
    "template": "T2b03ad",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "桃花源记"
    ]
@@ -61777,6 +62032,7 @@
    "game_ready": true,
    "template": "T085289",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "桃花源记"
    ]
@@ -62163,6 +62419,7 @@
    "game_ready": true,
    "template": "T9f91bf",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "小石潭记"
    ]
@@ -62188,6 +62445,7 @@
    "game_ready": true,
    "template": "T420535",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "小石潭记"
    ]
@@ -62213,6 +62471,7 @@
    "game_ready": true,
    "template": "T4ddd9b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "小石潭记"
    ]
@@ -62823,6 +63082,7 @@
    "game_ready": true,
    "template": "T28f295",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "核舟记"
    ]
@@ -63866,6 +64126,7 @@
    "game_ready": true,
    "template": "T643e2f",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "最后一次讲演"
    ]
@@ -67978,6 +68239,7 @@
    "game_ready": true,
    "template": "Te6c48d",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《庄子》二则"
    ]
@@ -68003,6 +68265,7 @@
    "game_ready": true,
    "template": "T703a48",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《庄子》二则"
    ]
@@ -68028,6 +68291,7 @@
    "game_ready": true,
    "template": "T64887c",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《庄子》二则"
    ]
@@ -68143,6 +68407,7 @@
    "game_ready": true,
    "template": "Tdef985",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《庄子》二则"
    ]
@@ -68438,6 +68703,7 @@
    "game_ready": true,
    "template": "Tc041e1",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《礼记》二则"
    ]
@@ -68463,6 +68729,7 @@
    "game_ready": true,
    "template": "Td26326",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《礼记》二则"
    ]
@@ -68533,6 +68800,7 @@
    "game_ready": true,
    "template": "T71c133",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《礼记》二则"
    ]
@@ -68648,6 +68916,7 @@
    "game_ready": true,
    "template": "T992a58",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《礼记》二则"
    ]
@@ -68898,6 +69167,7 @@
    "game_ready": true,
    "template": "Te31f2e",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "马说"
    ]
@@ -68923,6 +69193,7 @@
    "game_ready": true,
    "template": "Tf7e77a",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "马说"
    ]
@@ -69173,6 +69444,7 @@
    "game_ready": true,
    "template": "T8ab0ad",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "马说"
    ]
@@ -69562,6 +69834,7 @@
    "game_ready": true,
    "template": "T40380e",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《诗经》二首"
    ]
@@ -69587,6 +69860,7 @@
    "game_ready": true,
    "template": "Tbc3065",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《诗经》二首"
    ]
@@ -69612,6 +69886,7 @@
    "game_ready": true,
    "template": "Tca36e4",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《诗经》二首"
    ]
@@ -69637,6 +69912,7 @@
    "game_ready": true,
    "template": "T70a5fb",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《诗经》二首"
    ]
@@ -69752,6 +70028,7 @@
    "game_ready": true,
    "template": "Tcaf279",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "《诗经》二首"
    ]
@@ -70003,6 +70280,7 @@
    "game_ready": true,
    "template": "T0deec3",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -70028,6 +70306,7 @@
    "game_ready": true,
    "template": "T897e20",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -70053,6 +70332,7 @@
    "game_ready": true,
    "template": "Tb3c25b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -70078,6 +70358,7 @@
    "game_ready": true,
    "template": "T6331e4",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -70193,6 +70474,7 @@
    "game_ready": true,
    "template": "T0d8d67",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -70493,6 +70775,7 @@
    "template": "T201b9b",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -70609,6 +70892,7 @@
    "game_ready": true,
    "template": "T878faf",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗三首"
    ]
@@ -70634,6 +70918,7 @@
    "game_ready": true,
    "template": "T97117a",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗三首"
    ]
@@ -70659,6 +70944,7 @@
    "game_ready": true,
    "template": "T6c8952",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗三首"
    ]
@@ -70684,6 +70970,7 @@
    "game_ready": true,
    "template": "T6ec9b3",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗三首"
    ]
@@ -70754,6 +71041,7 @@
    "game_ready": true,
    "template": "Tc4351b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗三首"
    ]
@@ -70779,6 +71067,7 @@
    "game_ready": true,
    "template": "T347e0e",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "唐诗三首"
    ]
@@ -71032,6 +71321,7 @@
    "game_ready": true,
    "template": "T48f445",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -71057,6 +71347,7 @@
    "game_ready": true,
    "template": "T89eee9",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -71082,6 +71373,7 @@
    "game_ready": true,
    "template": "Tb8664e",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -71107,6 +71399,7 @@
    "game_ready": true,
    "template": "Te9b2f1",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -71222,6 +71515,7 @@
    "game_ready": true,
    "template": "Tb5c911",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -71522,6 +71816,7 @@
    "template": "T63f117",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "课外古诗词诵读"
    ]
@@ -71773,6 +72068,7 @@
    "game_ready": true,
    "template": "Te57697",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "普查与抽样调查"
    ]
@@ -72136,6 +72432,7 @@
    "game_ready": true,
    "template": "T0688cc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图"
    ]
@@ -72162,6 +72459,7 @@
    "game_ready": true,
    "template": "T277aed",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图"
    ]
@@ -72210,6 +72508,7 @@
    "game_ready": true,
    "template": "Td309bc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图"
    ]
@@ -72281,6 +72580,7 @@
    "game_ready": true,
    "template": "Tf66a69",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图"
    ]
@@ -72307,6 +72607,7 @@
    "game_ready": true,
    "template": "T087cac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图"
    ]
@@ -72333,6 +72634,7 @@
    "game_ready": true,
    "template": "T2312ae",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图"
    ]
@@ -72538,6 +72840,7 @@
    "game_ready": true,
    "template": "Tc845d0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：货比三家"
    ]
@@ -72721,6 +73024,7 @@
    "game_ready": true,
    "template": "Te6630c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：货比三家"
    ]
@@ -72881,6 +73185,7 @@
    "game_ready": true,
    "template": "T6d8499",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -72906,6 +73211,7 @@
    "game_ready": true,
    "template": "T0af4e9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -72919,7 +73225,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八下·第6章 数据的收集、整理、描述·6.4 频数和频率",
    "type": "判断",
-   "question": "各组频率之和等于 1。",
+   "question": "频数分布表中，各组频率之和一定等于 1。",
    "answer": "对",
    "explanation": "各组频数之和等于数据总数，所以频率之和为 1。",
    "difficulty": 2,
@@ -72928,6 +73234,7 @@
    "knowledge_point": "频数和频率",
    "game_ready": true,
    "template": "T783d75",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "频数和频率"
@@ -72999,6 +73306,7 @@
    "game_ready": true,
    "template": "Tb7553b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -73069,6 +73377,7 @@
    "game_ready": true,
    "template": "T33ce66",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -73094,6 +73403,7 @@
    "game_ready": true,
    "template": "Tff3e92",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -73119,6 +73429,7 @@
    "game_ready": true,
    "template": "Tf4fba6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -73144,6 +73455,7 @@
    "game_ready": true,
    "template": "T92fe4f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数和频率"
    ]
@@ -73259,6 +73571,7 @@
    "game_ready": true,
    "template": "T42889e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73284,6 +73597,7 @@
    "game_ready": true,
    "template": "T2ef344",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73377,6 +73691,7 @@
    "game_ready": true,
    "template": "T28a5ab",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73402,6 +73717,7 @@
    "game_ready": true,
    "template": "Tfb5252",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73472,6 +73788,7 @@
    "game_ready": true,
    "template": "Tec8b34",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73497,6 +73814,7 @@
    "game_ready": true,
    "template": "T572b35",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73522,6 +73840,7 @@
    "game_ready": true,
    "template": "T68c7ad",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频数分布表和频数分布直方图"
    ]
@@ -73682,6 +74001,7 @@
    "game_ready": true,
    "template": "T3ec3da",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：初中生的视力情况调查"
    ]
@@ -73865,6 +74185,7 @@
    "game_ready": true,
    "template": "T8f0901",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：初中生的视力情况调查"
    ]
@@ -73982,6 +74303,7 @@
    "template": "T311dd3",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：初中生的视力情况调查"
    ]
@@ -74008,6 +74330,7 @@
    "template": "T61ec77",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：初中生的视力情况调查"
    ]
@@ -74034,6 +74357,7 @@
    "template": "T500ecb",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计案例：初中生的视力情况调查"
    ]
@@ -74534,6 +74858,7 @@
    "game_ready": true,
    "template": "T549365",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74559,6 +74884,7 @@
    "game_ready": true,
    "template": "Tc0a465",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74631,6 +74957,7 @@
    "game_ready": true,
    "template": "T520cda",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74644,7 +74971,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八下·第7章 认识概率·7.2 概率",
    "type": "判断",
-   "question": "不可能事件发生的概率是 0。",
+   "question": "不可能事件发生的概率一定是 0。",
    "answer": "对",
    "explanation": "一定不会发生。",
    "difficulty": 2,
@@ -74653,6 +74980,7 @@
    "knowledge_point": "概率",
    "game_ready": true,
    "template": "Tfae891",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "概率"
@@ -74680,6 +75008,7 @@
    "game_ready": true,
    "template": "Tbcbb54",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74706,6 +75035,7 @@
    "game_ready": true,
    "template": "T51d96f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74732,6 +75062,7 @@
    "game_ready": true,
    "template": "T5093f9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74758,6 +75089,7 @@
    "game_ready": true,
    "template": "Tb2934a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74783,6 +75115,7 @@
    "game_ready": true,
    "template": "T08c783",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74808,6 +75141,7 @@
    "game_ready": true,
    "template": "T635704",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "概率"
    ]
@@ -74968,6 +75302,7 @@
    "game_ready": true,
    "template": "Tc9698e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75061,6 +75396,7 @@
    "game_ready": true,
    "template": "Te75e85",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75086,6 +75422,7 @@
    "game_ready": true,
    "template": "T4f3e25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75156,6 +75493,7 @@
    "game_ready": true,
    "template": "T64a8f8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75181,6 +75519,7 @@
    "game_ready": true,
    "template": "T3e679a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75206,6 +75545,7 @@
    "game_ready": true,
    "template": "Taa8146",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75278,6 +75618,7 @@
    "template": "Tc2688d",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75305,6 +75646,7 @@
    "template": "T45575b",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75331,6 +75673,7 @@
    "template": "T837974",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "频率与概率"
    ]
@@ -75493,6 +75836,7 @@
    "game_ready": true,
    "template": "Tff1e7d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -75564,6 +75908,7 @@
    "game_ready": true,
    "template": "T2f4ce5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -75704,6 +76049,7 @@
    "game_ready": true,
    "template": "T96691f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -75730,6 +76076,7 @@
    "game_ready": true,
    "template": "T4e6bdc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -75800,6 +76147,7 @@
    "game_ready": true,
    "template": "T3d8cf8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -75826,6 +76174,7 @@
    "game_ready": true,
    "template": "T5337f2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -75852,6 +76201,7 @@
    "game_ready": true,
    "template": "Tb1200f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平行四边形"
    ]
@@ -76103,6 +76453,7 @@
    "game_ready": true,
    "template": "T55068a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76128,6 +76479,7 @@
    "game_ready": true,
    "template": "T9e9a68",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76267,6 +76619,7 @@
    "game_ready": true,
    "template": "Tc0c259",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76292,6 +76645,7 @@
    "game_ready": true,
    "template": "T4c94a3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76318,6 +76672,7 @@
    "game_ready": true,
    "template": "T0a4366",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76389,6 +76744,7 @@
    "game_ready": true,
    "template": "Ta5b601",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76414,6 +76770,7 @@
    "game_ready": true,
    "template": "T1cddc7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76440,6 +76797,7 @@
    "game_ready": true,
    "template": "T7fbe92",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊的平行四边形"
    ]
@@ -76556,6 +76914,7 @@
    "game_ready": true,
    "template": "T754b04",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形的中位线"
    ]
@@ -76582,6 +76941,7 @@
    "game_ready": true,
    "template": "Tc2665a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形的中位线"
    ]
@@ -76675,6 +77035,7 @@
    "game_ready": true,
    "template": "Tfd07c3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形的中位线"
    ]
@@ -76701,6 +77062,7 @@
    "game_ready": true,
    "template": "T4b534d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形的中位线"
    ]
@@ -76771,6 +77133,7 @@
    "game_ready": true,
    "template": "Ta85946",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "三角形的中位线"
    ]
@@ -76797,6 +77160,7 @@
    "game_ready": true,
    "template": "T68b8df",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角形的中位线"
    ]
@@ -76822,6 +77186,7 @@
    "game_ready": true,
    "template": "T77198b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "三角形的中位线"
    ]
@@ -77027,6 +77392,7 @@
    "game_ready": true,
    "template": "T1697ef",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77040,7 +77406,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八下·第8章 四边形·8.4 梯形",
    "type": "判断",
-   "question": "等腰梯形是轴对称图形。",
+   "question": "所有等腰梯形都是轴对称图形。",
    "answer": "对",
    "explanation": "对称轴是过两底中点的直线。",
    "difficulty": 2,
@@ -77049,6 +77415,7 @@
    "knowledge_point": "梯形",
    "game_ready": true,
    "template": "Tdce7cf",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "梯形"
@@ -77076,6 +77443,7 @@
    "game_ready": true,
    "template": "Tbd7af7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77101,6 +77469,7 @@
    "game_ready": true,
    "template": "T3e237b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77126,6 +77495,7 @@
    "game_ready": true,
    "template": "T219154",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77152,6 +77522,7 @@
    "game_ready": true,
    "template": "T40a4eb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77177,6 +77548,7 @@
    "game_ready": true,
    "template": "T95ed70",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77203,6 +77575,7 @@
    "game_ready": true,
    "template": "Te98767",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77276,6 +77649,7 @@
    "template": "T92f695",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77302,6 +77676,7 @@
    "template": "T2cc316",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77329,6 +77704,7 @@
    "template": "Tc5d979",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "梯形"
    ]
@@ -77696,6 +78072,7 @@
    "game_ready": true,
    "template": "Tac2f90",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "因式分解的概念"
    ]
@@ -78067,6 +78444,7 @@
    "game_ready": true,
    "template": "T4b0cdc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "提公因式法"
    ]
@@ -78139,6 +78517,7 @@
    "game_ready": true,
    "template": "T74845b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "提公因式法"
    ]
@@ -78165,6 +78544,7 @@
    "game_ready": true,
    "template": "Tf1a9f9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "提公因式法"
    ]
@@ -78580,6 +78960,7 @@
    "game_ready": true,
    "template": "Tb1239b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "公式法"
    ]
@@ -78606,6 +78987,7 @@
    "game_ready": true,
    "template": "T1a0f16",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "公式法"
    ]
@@ -78678,6 +79060,7 @@
    "game_ready": true,
    "template": "T22c9df",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "公式法"
    ]
@@ -78750,6 +79133,7 @@
    "game_ready": true,
    "template": "T420d2c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "公式法"
    ]
@@ -78870,6 +79254,7 @@
    "template": "T19389b",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "公式法"
    ]
@@ -79034,6 +79419,7 @@
    "game_ready": true,
    "template": "Te347e2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的概念"
    ]
@@ -79106,6 +79492,7 @@
    "game_ready": true,
    "template": "T33b155",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的概念"
    ]
@@ -79248,6 +79635,7 @@
    "game_ready": true,
    "template": "T88e8b5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的概念"
    ]
@@ -79756,6 +80144,7 @@
    "game_ready": true,
    "template": "Tcc1421",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的基本性质"
    ]
@@ -80173,6 +80562,7 @@
    "game_ready": true,
    "template": "T892b53",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的加减"
    ]
@@ -80291,6 +80681,7 @@
    "game_ready": true,
    "template": "Tf8e389",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的加减"
    ]
@@ -80317,6 +80708,7 @@
    "game_ready": true,
    "template": "T7276f6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的加减"
    ]
@@ -80343,6 +80735,7 @@
    "game_ready": true,
    "template": "T31796a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的加减"
    ]
@@ -80715,6 +81108,7 @@
    "game_ready": true,
    "template": "Tc87407",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的乘除"
    ]
@@ -80833,6 +81227,7 @@
    "game_ready": true,
    "template": "T41f748",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的乘除"
    ]
@@ -80859,6 +81254,7 @@
    "game_ready": true,
    "template": "T421f1a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的乘除"
    ]
@@ -80885,6 +81281,7 @@
    "game_ready": true,
    "template": "Td0e980",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式的乘除"
    ]
@@ -81001,6 +81398,7 @@
    "game_ready": true,
    "template": "T32ea98",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81027,6 +81425,7 @@
    "game_ready": true,
    "template": "T59ec9e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81167,6 +81566,7 @@
    "game_ready": true,
    "template": "T51e9b5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81193,6 +81593,7 @@
    "game_ready": true,
    "template": "Te02c6c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81264,6 +81665,7 @@
    "game_ready": true,
    "template": "Ta3ef64",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81290,6 +81692,7 @@
    "game_ready": true,
    "template": "Tc71c0c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81316,6 +81719,7 @@
    "game_ready": true,
    "template": "T218271",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81341,6 +81745,7 @@
    "game_ready": true,
    "template": "T2009e0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81462,6 +81867,7 @@
    "template": "Tc9997a",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81489,6 +81895,7 @@
    "template": "Tb197b9",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分式方程"
    ]
@@ -81652,6 +82059,7 @@
    "game_ready": true,
    "template": "T32cb15",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的概念"
    ]
@@ -81678,6 +82086,7 @@
    "game_ready": true,
    "template": "Tba757d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的概念"
    ]
@@ -81820,6 +82229,7 @@
    "game_ready": true,
    "template": "Tf4a5a6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的概念"
    ]
@@ -81984,6 +82394,7 @@
    "game_ready": true,
    "template": "T8ef731",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的乘除"
    ]
@@ -82263,6 +82674,7 @@
    "game_ready": true,
    "template": "T2ae3a5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的乘除"
    ]
@@ -82335,6 +82747,7 @@
    "game_ready": true,
    "template": "T021fc1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的乘除"
    ]
@@ -82407,6 +82820,7 @@
    "game_ready": true,
    "template": "T0ab8cc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的乘除"
    ]
@@ -82733,6 +83147,7 @@
    "game_ready": true,
    "template": "T240b9a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -82851,6 +83266,7 @@
    "game_ready": true,
    "template": "T22ecce",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -82877,6 +83293,7 @@
    "game_ready": true,
    "template": "Tab7ffc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -82903,6 +83320,7 @@
    "game_ready": true,
    "template": "T9a7c0b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -82929,6 +83347,7 @@
    "game_ready": true,
    "template": "Tc83745",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -83049,6 +83468,7 @@
    "template": "Tff51be",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -83076,6 +83496,7 @@
    "template": "Ta05e95",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次根式的加减"
    ]
@@ -83461,6 +83882,7 @@
    "game_ready": true,
    "template": "Tdbfb79",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Past and present"
    ]
@@ -83940,6 +84362,7 @@
    "template": "Tedfe9e",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Past and present"
    ]
@@ -84370,6 +84793,7 @@
    "game_ready": true,
    "template": "Tfb2d2d",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Amazing China"
    ]
@@ -85254,6 +85678,7 @@
    "game_ready": true,
    "template": "Tca5f3b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "The world at one click"
    ]
@@ -86138,6 +86563,7 @@
    "game_ready": true,
    "template": "T080b1c",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "A good read"
    ]
@@ -86572,6 +86998,7 @@
    "template": "Tf47e71",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "A good read"
    ]
@@ -87002,6 +87429,7 @@
    "game_ready": true,
    "template": "T218cb1",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Good manners"
    ]
@@ -87436,6 +87864,7 @@
    "template": "T639a3b",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Good manners"
    ]
@@ -87866,6 +88295,7 @@
    "game_ready": true,
    "template": "T23616b",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Sunshine for all"
    ]
@@ -88300,6 +88730,7 @@
    "template": "Taa29f7",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Sunshine for all"
    ]
@@ -88730,6 +89161,7 @@
    "game_ready": true,
    "template": "Tfa8299",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Charities"
    ]
@@ -89164,6 +89596,7 @@
    "template": "Tda0d62",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "Charities"
    ]
@@ -89594,6 +90027,7 @@
    "game_ready": true,
    "template": "T2d4475",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "A green world"
    ]
@@ -90028,6 +90462,7 @@
    "template": "T50a676",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "A green world"
    ]
@@ -90143,6 +90578,7 @@
    "game_ready": true,
    "template": "T093e07",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "质量及其测量"
    ]
@@ -90281,6 +90717,7 @@
    "game_ready": true,
    "template": "Tef8d80",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "质量及其测量"
    ]
@@ -90486,6 +90923,7 @@
    "game_ready": true,
    "template": "T9f2c58",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "质量及其测量"
    ]
@@ -90602,6 +91040,7 @@
    "game_ready": true,
    "template": "T3be8ef",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -90628,6 +91067,7 @@
    "game_ready": true,
    "template": "T574de2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -90698,6 +91138,7 @@
    "game_ready": true,
    "template": "Tc5c2ff",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -90747,6 +91188,7 @@
    "game_ready": true,
    "template": "Ted25bb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -90819,6 +91261,7 @@
    "game_ready": true,
    "template": "T4c9f07",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -90889,6 +91332,7 @@
    "game_ready": true,
    "template": "T7320e6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -90914,6 +91358,7 @@
    "game_ready": true,
    "template": "T5c05e8",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "密度"
    ]
@@ -90939,6 +91384,7 @@
    "game_ready": true,
    "template": "T5b605c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度"
    ]
@@ -91054,6 +91500,7 @@
    "game_ready": true,
    "template": "T694bd0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度知识的应用"
    ]
@@ -91079,6 +91526,7 @@
    "game_ready": true,
    "template": "T717722",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度知识的应用"
    ]
@@ -91217,6 +91665,7 @@
    "game_ready": true,
    "template": "T3aed90",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度知识的应用"
    ]
@@ -91287,6 +91736,7 @@
    "game_ready": true,
    "template": "T334ddd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度知识的应用"
    ]
@@ -91357,6 +91807,7 @@
    "game_ready": true,
    "template": "T3f1047",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度知识的应用"
    ]
@@ -91427,6 +91878,7 @@
    "game_ready": true,
    "template": "T7ccae9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "密度知识的应用"
    ]
@@ -91973,6 +92425,7 @@
    "template": "T46ef82",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物质的物理属性"
    ]
@@ -91999,6 +92452,7 @@
    "template": "T382e0f",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物质的物理属性"
    ]
@@ -92237,15 +92691,16 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八下·第七章 力·一 力 弹力",
    "type": "判断",
-   "question": "力是物体对物体的作用，一个物体不能产生力。",
+   "question": "发生力的作用时，一定同时存在施力物体和受力物体。",
    "answer": "对",
-   "explanation": "力的产生需要两个物体。",
+   "explanation": "对。力是物体对物体的作用，一个力一定有施力物体和受力物体，一个物体不能产生力。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "力 弹力",
    "game_ready": true,
    "template": "Tcc3611",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "力 弹力"
@@ -92272,6 +92727,7 @@
    "game_ready": true,
    "template": "T1c7286",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力 弹力"
    ]
@@ -92342,6 +92798,7 @@
    "game_ready": true,
    "template": "Tcc87e1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力 弹力"
    ]
@@ -92457,6 +92914,7 @@
    "game_ready": true,
    "template": "T49e2f0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力 弹力"
    ]
@@ -92527,6 +92985,7 @@
    "game_ready": true,
    "template": "T5938f1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力 力的示意图"
    ]
@@ -92711,6 +93170,7 @@
    "game_ready": true,
    "template": "T90b22a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力 力的示意图"
    ]
@@ -92782,6 +93242,7 @@
    "game_ready": true,
    "template": "T2346a5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力 力的示意图"
    ]
@@ -92853,6 +93314,7 @@
    "game_ready": true,
    "template": "T5bf84b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力 力的示意图"
    ]
@@ -92879,6 +93341,7 @@
    "game_ready": true,
    "template": "T5bbaad",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力 力的示意图"
    ]
@@ -93197,6 +93660,7 @@
    "game_ready": true,
    "template": "T492cd5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "摩擦力"
    ]
@@ -93402,6 +93866,7 @@
    "game_ready": true,
    "template": "Tb39d68",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "摩擦力"
    ]
@@ -94084,6 +94549,7 @@
    "template": "Tbb74c0",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力的作用是相互的"
    ]
@@ -94110,6 +94576,7 @@
    "template": "Tab8f31",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力的作用是相互的"
    ]
@@ -94315,6 +94782,7 @@
    "game_ready": true,
    "template": "Ta4b7d6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二力平衡"
    ]
@@ -94409,6 +94877,7 @@
    "game_ready": true,
    "template": "T9a1e4d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二力平衡"
    ]
@@ -94569,6 +95038,7 @@
    "game_ready": true,
    "template": "T492c4f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二力平衡"
    ]
@@ -94639,6 +95109,7 @@
    "game_ready": true,
    "template": "Tbcdd90",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二力平衡"
    ]
@@ -95362,6 +95833,7 @@
    "game_ready": true,
    "template": "Td0064a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力与运动的关系"
    ]
@@ -95501,6 +95973,7 @@
    "game_ready": true,
    "template": "Tc979a2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力与运动的关系"
    ]
@@ -95616,6 +96089,7 @@
    "game_ready": true,
    "template": "T584a67",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力与运动的关系"
    ]
@@ -95641,6 +96115,7 @@
    "game_ready": true,
    "template": "Teef3e1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力与运动的关系"
    ]
@@ -95804,6 +96279,7 @@
    "template": "T2e1fbf",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力与运动的关系"
    ]
@@ -95830,6 +96306,7 @@
    "template": "Tbddf72",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力与运动的关系"
    ]
@@ -96035,6 +96512,7 @@
    "game_ready": true,
    "template": "T3ffb78",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "压强"
    ]
@@ -96048,15 +96526,16 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八下·第九章 压强和浮力·一 压强",
    "type": "判断",
-   "question": "压力的方向总是竖直向下的。",
+   "question": "放在斜面上的物体对斜面的压力方向竖直向下。",
    "answer": "错",
-   "explanation": "压力方向垂直于受力面，不一定竖直向下。",
+   "explanation": "错。压力方向垂直于受力面，物体对斜面的压力垂直于斜面向下，不是竖直向下。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "压强",
    "game_ready": true,
    "template": "T55d6ad",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "压强"
@@ -96129,6 +96608,7 @@
    "game_ready": true,
    "template": "Te7cf7d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "压强"
    ]
@@ -96155,6 +96635,7 @@
    "game_ready": true,
    "template": "Td80170",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "压强"
    ]
@@ -96225,6 +96706,7 @@
    "game_ready": true,
    "template": "T895136",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "压强"
    ]
@@ -96251,6 +96733,7 @@
    "game_ready": true,
    "template": "Tca5162",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "压强"
    ]
@@ -96277,6 +96760,7 @@
    "game_ready": true,
    "template": "T91ab7f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "压强"
    ]
@@ -96483,6 +96967,7 @@
    "game_ready": true,
    "template": "T934bd2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "液体的压强"
    ]
@@ -96622,6 +97107,7 @@
    "game_ready": true,
    "template": "Ta12b0a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "液体的压强"
    ]
@@ -96692,6 +97178,7 @@
    "game_ready": true,
    "template": "T0ee6ea",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "液体的压强"
    ]
@@ -96762,6 +97249,7 @@
    "game_ready": true,
    "template": "T3ee28a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "液体的压强"
    ]
@@ -96788,6 +97276,7 @@
    "game_ready": true,
    "template": "T9a7a36",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "液体的压强"
    ]
@@ -97511,6 +98000,7 @@
    "game_ready": true,
    "template": "Te8499f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -97739,6 +98229,7 @@
    "game_ready": true,
    "template": "T3eaa77",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -97764,6 +98255,7 @@
    "game_ready": true,
    "template": "T760c54",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -97834,6 +98326,7 @@
    "game_ready": true,
    "template": "Tb3187f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -97860,6 +98353,7 @@
    "game_ready": true,
    "template": "Tb3308e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -97885,6 +98379,7 @@
    "game_ready": true,
    "template": "T53b0e9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -97910,6 +98405,7 @@
    "game_ready": true,
    "template": "Ta6e4c7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "浮力"
    ]
@@ -98229,6 +98725,7 @@
    "game_ready": true,
    "template": "T279bf7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物体的浮与沉"
    ]
@@ -98345,6 +98842,7 @@
    "game_ready": true,
    "template": "T8d6e5c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物体的浮与沉"
    ]
@@ -98371,6 +98869,7 @@
    "game_ready": true,
    "template": "Td26bc5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物体的浮与沉"
    ]
@@ -98397,6 +98896,7 @@
    "game_ready": true,
    "template": "Tb1d034",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物体的浮与沉"
    ]
@@ -98560,6 +99060,7 @@
    "template": "T75975a",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物体的浮与沉"
    ]
@@ -98586,6 +99087,7 @@
    "template": "Tb6186a",
    "usage": "boss",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物体的浮与沉"
    ]
@@ -99388,7 +99890,7 @@
    "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "unit": "八下·第十章 从粒子到宇宙·二 静电现象",
    "type": "判断",
-   "question": "验电器的工作原理是同种电荷相互排斥。",
+   "question": "验电器都是利用同种电荷相互排斥的原理工作的。",
    "answer": "对",
    "explanation": "两片金属箔带同种电荷而张开。",
    "difficulty": 2,
@@ -99397,6 +99899,7 @@
    "knowledge_point": "静电现象",
    "game_ready": true,
    "template": "T101ff7",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "静电现象"
@@ -120931,15 +121434,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八上·第12章 消化系统·第2节 消化和吸收",
    "type": "判断",
-   "question": "胃没有吸收功能，食物中的水和酒精都只能在小肠被吸收。",
+   "question": "胃能直接吸收蛋白质。",
    "answer": "错",
-   "explanation": "胃能吸收少量的水和酒精；小肠是吸收的主要场所。",
+   "explanation": "错。胃能初步消化蛋白质，但不能直接吸收蛋白质；胃只能吸收少量的水和酒精，蛋白质在小肠中被分解为氨基酸后才被吸收。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "消化和吸收",
    "game_ready": true,
    "template": "T37dc09",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "消化和吸收"
@@ -120954,15 +121458,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八上·第12章 消化系统·第2节 消化和吸收",
    "type": "判断",
-   "question": "大肠没有消化功能，也不能吸收任何物质。",
+   "question": "大肠是消化食物的主要场所。",
    "answer": "错",
-   "explanation": "大肠虽无消化功能，但能吸收少量的水、无机盐和部分维生素。",
+   "explanation": "错。小肠是消化和吸收的主要场所；大肠没有消化功能，能吸收少量的水、无机盐和部分维生素。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "消化和吸收",
    "game_ready": true,
    "template": "T32f307",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "消化和吸收"
@@ -122245,15 +122750,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八上·第13章 循环系统·第1节 血液、血管和心脏",
    "type": "判断",
-   "question": "动脉内流动的血液一定是含氧丰富的动脉血。",
+   "question": "肺动脉里流的是动脉血。",
    "answer": "错",
-   "explanation": "肺动脉是动脉，但流的是静脉血。",
+   "explanation": "错。肺动脉把右心室的静脉血送往肺，流的是静脉血；肺静脉里流的才是动脉血。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "血液、血管和心脏",
    "game_ready": true,
    "template": "T82907a",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "血液、血管和心脏"
@@ -125485,15 +125991,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八上·第16章 人体生命活动的调节·第1节 神经系统的调节",
    "type": "判断",
-   "question": "脊髓只有反射功能，没有传导功能。",
+   "question": "脊髓是人体神经系统的最高级中枢。",
    "answer": "错",
-   "explanation": "脊髓既有反射功能，又有传导功能。",
+   "explanation": "错。大脑皮层是调节人体生命活动的最高级中枢；脊髓是低级中枢，有反射和传导功能。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "神经系统的调节",
    "game_ready": true,
    "template": "Td87e43",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "神经系统的调节"
@@ -126298,15 +126805,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八上·第16章 人体生命活动的调节·第3节 内分泌系统的调节",
    "type": "判断",
-   "question": "侏儒症患者身材矮小，智力也一定低下。",
+   "question": "侏儒症是幼年时甲状腺激素分泌不足引起的。",
    "answer": "错",
-   "explanation": "侏儒症患者智力正常；智力低下是呆小症的特点。",
+   "explanation": "错。侏儒症是幼年时生长激素分泌不足引起的，患者身材矮小、智力正常；幼年时甲状腺激素分泌不足会患呆小症。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级上册",
    "knowledge_point": "内分泌系统的调节",
    "game_ready": true,
    "template": "Tc15b39",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "内分泌系统的调节"
@@ -127815,7 +128323,7 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八下·第17章 传染病和免疫·第2节 传染病的传播和控制",
    "type": "判断",
-   "question": "传染病具有传染性和流行性的特点。",
+   "question": "传染病都具有传染性和流行性的特点。",
    "answer": "对",
    "explanation": "这是传染病区别于其他疾病的特点。",
    "difficulty": 2,
@@ -127824,6 +128332,7 @@
    "knowledge_point": "传染病的传播和控制",
    "game_ready": true,
    "template": "Tf66165",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "传染病的传播和控制"
@@ -130968,15 +131477,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八下·第20章 生物的遗传和变异·第1节 生物的遗传物质",
    "type": "判断",
-   "question": "人的体细胞和生殖细胞中，染色体都是成对存在的。",
+   "question": "人的生殖细胞中，染色体是成对存在的。",
    "answer": "错",
-   "explanation": "体细胞中染色体成对存在，生殖细胞中染色体成单存在。",
+   "explanation": "错。体细胞中染色体成对存在，生殖细胞（精子、卵细胞）中染色体成单存在，人的生殖细胞中有 23 条染色体。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "生物的遗传物质",
    "game_ready": true,
    "template": "T812154",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生物的遗传物质"
@@ -131036,15 +131546,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八下·第20章 生物的遗传和变异·第1节 生物的遗传物质",
    "type": "判断",
-   "question": "一个DNA分子上只有一个基因。",
+   "question": "一个DNA分子就是一个基因。",
    "answer": "错",
-   "explanation": "一个 DNA 分子上有许多个基因。",
+   "explanation": "错。基因是有遗传效应的DNA片段，一个DNA分子上有许多个基因。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "生物的遗传物质",
    "game_ready": true,
    "template": "Tf49dda",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生物的遗传物质"
@@ -131397,15 +131908,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八下·第20章 生物的遗传和变异·第2节 生物性状的决定",
    "type": "判断",
-   "question": "隐性性状是指在后代中永远不会表现出来的性状。",
+   "question": "基因组成为 Aa 的个体表现出隐性性状。",
    "answer": "错",
-   "explanation": "基因组成为两个隐性基因时，隐性性状就会表现出来。",
+   "explanation": "错。显性基因和隐性基因同时存在时（Aa），表现显性性状；基因组成为 aa 时才表现隐性性状。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "生物性状的决定",
    "game_ready": true,
    "template": "Ta12726",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生物性状的决定"
@@ -131523,6 +132035,7 @@
    "game_ready": true,
    "template": "Tb5bf02",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生物性状的决定"
    ]
@@ -131978,6 +132491,7 @@
    "game_ready": true,
    "template": "T3ac5dd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "人的性别决定"
    ]
@@ -132918,9 +133432,9 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "八下·第20章 生物的遗传和变异·第5节 杂交育种与转基因育种",
    "type": "判断",
-   "question": "人的精子中只含有23条染色体，其中一条一定是Y染色体。",
+   "question": "男性精子中的性染色体组成是 XY。",
    "answer": "错",
-   "explanation": "精子中的性染色体是 X 或 Y。",
+   "explanation": "错。精子中只含一条性染色体，是 X 或 Y；男性体细胞中的性染色体才是 XY。",
    "difficulty": 3,
    "source": "AI",
    "volume": "八年级下册",
@@ -132928,6 +133442,7 @@
    "game_ready": true,
    "template": "T5662ba",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "杂交育种与转基因育种"
@@ -135116,7 +135631,7 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "学考复习·第1单元 生物体的结构层次·第1章 认识细胞",
    "type": "判断",
-   "question": "植物细胞有细胞壁，动物细胞没有细胞壁。",
+   "question": "植物细胞都有细胞壁，动物细胞都没有细胞壁。",
    "answer": "对",
    "explanation": "细胞壁有保护和支持作用。",
    "difficulty": 2,
@@ -135125,6 +135640,7 @@
    "knowledge_point": "认识细胞",
    "game_ready": true,
    "template": "Tf67c8c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "认识细胞"
@@ -137130,7 +137646,7 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "学考复习·第2单元 生物的多样性·第5章 无处不在的微生物",
    "type": "判断",
-   "question": "病毒不能独立生活，必须寄生在其他生物的活细胞内。",
+   "question": "病毒都不能独立生活，必须寄生在其他生物的活细胞内。",
    "answer": "对",
    "explanation": "病毒离开活细胞会变成结晶体。",
    "difficulty": 2,
@@ -137139,6 +137655,7 @@
    "knowledge_point": "无处不在的微生物",
    "game_ready": true,
    "template": "T656508",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "无处不在的微生物"
@@ -138218,7 +138735,7 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "学考复习·第3单元 生物与环境·第7章 生态系统",
    "type": "判断",
-   "question": "食物链的起点是生产者。",
+   "question": "食物链的起点一定是生产者。",
    "answer": "对",
    "explanation": "食物链反映生产者和消费者之间吃与被吃的关系。",
    "difficulty": 2,
@@ -138227,6 +138744,7 @@
    "knowledge_point": "生态系统",
    "game_ready": true,
    "template": "T9a72f2",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生态系统"
@@ -139010,9 +139528,9 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "学考复习·第3单元 生物与环境·第8章 生态系统的自我调节和生态安全",
    "type": "判断",
-   "question": "生态系统中的物质和能量都能沿着食物链循环利用。",
+   "question": "生态系统中的能量可以沿着食物链循环利用。",
    "answer": "错",
-   "explanation": "物质可以循环，能量是单向流动、逐级递减的，不能循环。",
+   "explanation": "错。物质可以循环，能量沿食物链单向流动、逐级递减，不能循环利用。",
    "difficulty": 3,
    "source": "AI",
    "volume": "学考复习（七年级）",
@@ -139020,6 +139538,7 @@
    "game_ready": true,
    "template": "Taa4b31",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "生态系统的自我调节和生态安全"
@@ -140277,15 +140796,16 @@
    "textbook_note": "按教材版本规则用苏教版（江苏凤凰教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、教习网两个来源核对；初二新开科",
    "unit": "学考复习·第4单元 植物的生活·第11章 植物的光合作用和呼吸作用",
    "type": "判断",
-   "question": "植物的呼吸作用只在夜间进行。",
+   "question": "植物的呼吸作用需要光照才能进行。",
    "answer": "错",
-   "explanation": "只要是活细胞，白天和夜间都进行呼吸作用。",
+   "explanation": "错。呼吸作用不需要光，活细胞白天、夜间都进行呼吸作用；需要光的是光合作用。",
    "difficulty": 2,
    "source": "AI",
    "volume": "学考复习（七年级）",
    "knowledge_point": "植物的光合作用和呼吸作用",
    "game_ready": true,
    "template": "Tc07fc9",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "植物的光合作用和呼吸作用"
@@ -140936,7 +141456,7 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "八上·第一章 从世界看中国·第一节 疆域",
    "type": "判断",
-   "question": "我国大部分地区位于北温带，小部分位于热带，没有寒带。",
+   "question": "我国大部分地区位于北温带，小部分位于热带，没有任何地区位于寒带。",
    "answer": "对",
    "explanation": "我国南部有少部分地区位于北回归线以南的热带，没有地区位于北极圈以北。",
    "difficulty": 2,
@@ -140945,6 +141465,7 @@
    "knowledge_point": "疆域",
    "game_ready": true,
    "template": "T4cad9c",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "疆域"
@@ -142904,7 +143425,7 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "八上·第二章 中国的自然环境·第二节 气候",
    "type": "判断",
-   "question": "我国降水的季节分配不均，大部分地区降水集中在夏季。",
+   "question": "我国大部分地区的降水都集中在夏季。",
    "answer": "对",
    "explanation": "这与夏季风的影响有关。",
    "difficulty": 2,
@@ -142913,6 +143434,7 @@
    "knowledge_point": "气候",
    "game_ready": true,
    "template": "T74d601",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "气候"
@@ -151824,15 +152346,16 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "八下·第八章 南方地区·第三节 特别行政区——香港和澳门",
    "type": "判断",
-   "question": "香港和澳门都位于长江入海口附近。",
+   "question": "香港和澳门位于长江入海口两侧。",
    "answer": "错",
-   "explanation": "香港和澳门位于珠江口两侧，香港在东侧，澳门在西侧。",
+   "explanation": "错。香港和澳门位于珠江口两侧，香港在东侧，澳门在西侧。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "特别行政区——香港和澳门",
    "game_ready": true,
    "template": "T7f18ed",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "特别行政区——香港和澳门"
@@ -153774,15 +154297,16 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "八下·第十章 青藏地区·第一节 自然特征与农业",
    "type": "判断",
-   "question": "青藏地区海拔高，所以全年气温都很高。",
+   "question": "青藏地区海拔高，所以夏季气温比同纬度的长江中下游地区高。",
    "answer": "错",
-   "explanation": "海拔越高，气温越低，青藏地区气温低。",
+   "explanation": "错。海拔越高气温越低，青藏地区夏季气温比同纬度的长江中下游地区低得多。",
    "difficulty": 2,
    "source": "AI",
    "volume": "八年级下册",
    "knowledge_point": "自然特征与农业",
    "game_ready": true,
    "template": "Tb46afa",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "自然特征与农业"
@@ -155838,7 +156362,7 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "学考复习·第一单元 地球和地图·第二章 地图",
    "type": "判断",
-   "question": "海拔是指某个地点高出海平面的垂直距离。",
+   "question": "任何地点的海拔都是指它高出海平面的垂直距离。",
    "answer": "对",
    "explanation": "相对高度是指某个地点高出另一个地点的垂直距离。",
    "difficulty": 2,
@@ -155847,6 +156371,7 @@
    "knowledge_point": "地图",
    "game_ready": true,
    "template": "Ta5271f",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "地图"
@@ -156498,15 +157023,16 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "学考复习·第二单元 海陆与天气气候·第三章 陆地和海洋",
    "type": "判断",
-   "question": "非洲全部位于南半球。",
+   "question": "非洲大部分位于南半球。",
    "answer": "错",
-   "explanation": "赤道穿过非洲中部，非洲地跨南北两半球。",
+   "explanation": "错。赤道穿过非洲中部，非洲地跨南北两半球，大部分位于北半球。",
    "difficulty": 2,
    "source": "AI",
    "volume": "学考复习（七年级）",
    "knowledge_point": "陆地和海洋",
    "game_ready": true,
    "template": "Tae0372",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "陆地和海洋"
@@ -157382,9 +157908,9 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "学考复习·第二单元 海陆与天气气候·第四章 天气与气候",
    "type": "判断",
-   "question": "在所有大洲中面积最大的是非洲，在所有大洋中面积最大的是大西洋。",
+   "question": "世界上面积最大的大洋是大西洋。",
    "answer": "错",
-   "explanation": "面积最大的大洲是亚洲，面积最大的大洋是太平洋。",
+   "explanation": "错。面积最大的大洋是太平洋，大西洋是第二大洋。",
    "difficulty": 3,
    "source": "AI",
    "volume": "学考复习（七年级）",
@@ -157392,6 +157918,7 @@
    "game_ready": true,
    "template": "T36075f",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "天气与气候"
@@ -160012,9 +160539,9 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "学考复习·第四单元 认识东半球·第九章 东半球其他的地区和国家",
    "type": "判断",
-   "question": "东南亚的中南半岛和马来群岛都以温带气候为主。",
+   "question": "东南亚以温带季风气候为主。",
    "answer": "错",
-   "explanation": "东南亚以热带季风气候和热带雨林气候为主。",
+   "explanation": "错。东南亚以热带季风气候和热带雨林气候为主。",
    "difficulty": 3,
    "source": "AI",
    "volume": "学考复习（七年级）",
@@ -160022,6 +160549,7 @@
    "game_ready": true,
    "template": "Te5161b",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "东半球其他的地区和国家"
@@ -160940,9 +161468,9 @@
    "textbook_note": "按教材版本规则用人教版2024（人民教育出版社）：八年级上册 2025 秋新版、八年级下册 2026 春新版；学考复习（七年级）按七年级上册 2024 秋、下册 2025 春；目录已用电子课本网 dzkbw、中学课本网两个来源核对；初二新开科",
    "unit": "学考复习·第五单元 西半球与极地·第十一章 极地地区",
    "type": "判断",
-   "question": "南极地区和北极地区都以陆地为主。",
+   "question": "北极地区以陆地为主。",
    "answer": "错",
-   "explanation": "南极地区以南极洲大陆为主，北极地区以北冰洋为主。",
+   "explanation": "错。北极地区以北冰洋为主；南极地区才以南极洲大陆为主。",
    "difficulty": 3,
    "source": "AI",
    "volume": "学考复习（七年级）",
@@ -160950,6 +161478,7 @@
    "game_ready": true,
    "template": "T2e8ca4",
    "usage": "boss",
+   "review_changed": "是",
    "change_tag": "新增",
    "tags": [
     "极地地区"

@@ -14,7 +14,7 @@ const all = [...fx.judge, ...fx.opt];
 
 describe('题库 v45：按 id 读当前题库', () => {
   it('内置题库是 v45 或更新（v46 只改 textbook_note，内容同 v45）；样本里判断题答案翻了、选项题改了', () => {
-    for (const g of ['1', '7', '8', '10', '11', 'K2']) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version).toMatch(/^v4[567]$/);   // r16.1：v47 已有题内容同 v46
+    for (const g of ['1', '7', '8', '10', '11', 'K2']) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version).toMatch(/^v4[5678]$/);   // r16.1：v47 已有题内容同 v46
     expect(fx.judge.length).toBe(16); expect(fx.opt.length).toBe(16);
     for (const x of fx.judge) expect(cur(x.grade, x.old.id).answer[0]).not.toBe(x.old.answer);
   });

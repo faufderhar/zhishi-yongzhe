@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-高一-v47（AI初审）",
- "version": "v47",
+ "bank_name": "三兄妹题库-高一-v48（AI初审）",
+ "version": "v48",
  "questions": [
   {
    "id": "Y10-001",
@@ -1852,6 +1852,7 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "template": "T8b61d4",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -1877,6 +1878,7 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "template": "T8b61d4",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -1902,6 +1904,7 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "template": "T4f1759",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -4664,6 +4667,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7b725c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "集合",
     "互异性"
@@ -4691,6 +4695,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7ba075",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -4947,6 +4952,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T47adec",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "集合运算",
     "容斥"
@@ -5505,6 +5511,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T25318f",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "不等式性质",
     "范围"
@@ -5532,6 +5539,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T210f35",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -5558,6 +5566,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T210f35",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式",
     "配凑"
@@ -5585,6 +5594,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbd21d5",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式",
     "1的代换"
@@ -5612,6 +5622,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95c2cd",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式",
     "应用"
@@ -5639,6 +5650,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbd21d5",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -5665,6 +5677,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbd21d5",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式",
     "1的代换"
@@ -5753,22 +5766,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[-3,1]$",
+     "text": "$\\{x\\mid -3\\le x\\le 1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-1]\\cup[3,+\\infty)$",
+     "text": "$\\{x\\mid x\\le -1\\ \\text{或}\\ x\\ge 3\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-1,3)$",
+     "text": "$\\{x\\mid -1<x<3\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-1,3]$",
+     "text": "$\\{x\\mid -1\\le x\\le 3\\}$",
      "image": "",
      "audio": ""
     }
@@ -5780,9 +5793,10 @@
    "volume": "必修第一册",
    "knowledge_point": "一元二次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -5856,6 +5870,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb8a607",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "一元二次不等式",
     "根与系数"
@@ -5919,22 +5934,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(-1,2)$",
+     "text": "$\\{x\\mid -1<x<2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-2)\\cup(1,+\\infty)$",
+     "text": "$\\{x\\mid x<-2\\ \\text{或}\\ x>1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-2,1)$",
+     "text": "$\\{x\\mid -2<x<1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-2,1]$",
+     "text": "$\\{x\\mid -2\\le x\\le 1\\}$",
      "image": "",
      "audio": ""
     }
@@ -5946,9 +5961,10 @@
    "volume": "必修第一册",
    "knowledge_point": "分式不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "分式不等式"
    ]
@@ -5975,6 +5991,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3bf86a",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -6001,6 +6018,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3bf86a",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "对数"
    ]
@@ -6027,6 +6045,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3bf86a",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "对数运算"
    ]
@@ -6053,6 +6072,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te641ce",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "指数运算"
    ]
@@ -6125,6 +6145,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4cbb5d",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "函数值"
    ]
@@ -6243,6 +6264,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbc7a95",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "二次函数最值"
    ]
@@ -6351,7 +6373,7 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(1,+\\infty)$",
+     "text": "$\\{x\\mid x>1\\}$",
      "image": "",
      "audio": ""
     },
@@ -6361,12 +6383,12 @@
      "audio": ""
     },
     {
-     "text": "$[1,+\\infty)$",
+     "text": "$\\{x\\mid x\\ge 1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{x\\mid x>0\\}$",
      "image": "",
      "audio": ""
     }
@@ -6378,6 +6400,7 @@
    "volume": "必修第一册",
    "knowledge_point": "对数函数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T012df8",
    "change_tag": "修改",
@@ -6771,6 +6794,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T181457",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移"
    ]
@@ -6797,6 +6821,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T9e43b2",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移与路程"
    ]
@@ -6846,6 +6871,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Taa92fa",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平均速度"
    ]
@@ -6872,6 +6898,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T7c2ae1",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平均速度"
    ]
@@ -6943,6 +6970,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T9bd15f",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "单位换算"
    ]
@@ -6969,6 +6997,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T8394d3",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "加速度",
     "矢量"
@@ -7028,17 +7057,18 @@
    "textbook": "人教版2019",
    "unit": "必修一·第一章 运动的描述·4 速度变化快慢的描述——加速度",
    "type": "判断",
-   "question": "物体速度为零时，加速度也一定为零。",
+   "question": "竖直上抛的物体到达最高点时，加速度为零。",
    "answer": "错",
-   "explanation": "如竖直上抛到最高点，$v=0$，$a=g$。",
+   "explanation": "错。到达最高点时速度为零，但物体仍只受重力，加速度为 $g$，方向竖直向下。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第一册",
    "knowledge_point": "加速度",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tbf6a65",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "加速度"
    ]
@@ -7065,6 +7095,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T60e484",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -7091,6 +7122,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T018334",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -7209,6 +7241,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T692a1a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移公式"
    ]
@@ -7235,6 +7268,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T63f567",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移公式"
    ]
@@ -7261,6 +7295,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T1cce2a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度位移公式"
    ]
@@ -7287,6 +7322,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T0c9ba0",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平均速度公式"
    ]
@@ -7313,6 +7349,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5cd24b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "刹车问题"
    ]
@@ -7339,6 +7376,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tab657f",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "逐差法"
    ]
@@ -7366,6 +7404,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tac2ee9",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "中间时刻速度"
    ]
@@ -7391,6 +7430,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T412d22",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "比例规律"
    ]
@@ -7417,6 +7457,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T8550d5",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "追及相遇"
    ]
@@ -7443,6 +7484,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T920e72",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "追及相遇"
    ]
@@ -7469,6 +7511,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Td59ea1",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "追及相遇"
    ]
@@ -7495,6 +7538,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tc14e6e",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -7566,6 +7610,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdad8d2",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -7592,6 +7637,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T2338af",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -7618,6 +7664,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tc17af5",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -7738,6 +7785,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T6c9df3",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "胡克定律"
    ]
@@ -7811,6 +7859,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tc50b1f",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "滑动摩擦力"
    ]
@@ -8001,6 +8050,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T482e2a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -8028,6 +8078,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T739f01",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "共点力平衡",
     "斜面"
@@ -8056,6 +8107,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T305a13",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "共点力平衡"
    ]
@@ -8129,6 +8181,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdd38b7",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -8156,6 +8209,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tb0b76c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -8183,6 +8237,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T31f102",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "超重"
    ]
@@ -8256,6 +8311,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Td5862f",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -8543,14 +8599,15 @@
    "textbook": "苏教版2019",
    "unit": "必修一·专题1 物质的分类及计量·第一单元 物质及其反应的分类",
    "type": "判断",
-   "question": "有单质参加的反应一定是氧化还原反应。",
+   "question": "$\\ce{3O2 ->[放电] 2O3}$ 是氧化还原反应。",
    "answer": "错",
-   "explanation": "如 $\\ce{3O2 -> 2O3}$ 无化合价变化。",
+   "explanation": "错。反应前后氧元素的化合价都是 0，没有化合价变化，不是氧化还原反应。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修第一册",
    "knowledge_point": "氧化还原反应",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T479d7b",
    "change_tag": "修改",
@@ -8625,6 +8682,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T1834dc",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "摩尔质量"
    ]
@@ -8651,6 +8709,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T1834dc",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "摩尔质量"
    ]
@@ -8677,6 +8736,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T55501b",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "物质的量计算"
    ]
@@ -8703,6 +8763,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Ta301c2",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "物质的量计算"
    ]
@@ -8775,6 +8836,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T946fbe",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "阿伏加德罗常数"
    ]
@@ -8801,6 +8863,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tca74d1",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "气体摩尔体积"
    ]
@@ -8827,6 +8890,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tf3fc2e",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "气体摩尔体积"
    ]
@@ -8990,6 +9054,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T1fbd22",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "气体摩尔体积",
     "计算"
@@ -9470,6 +9535,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tc7a2bd",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "物质的量浓度"
    ]
@@ -9496,6 +9562,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T5dc953",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "离子浓度"
    ]
@@ -9522,6 +9589,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T1eb78f",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "溶液稀释"
    ]
@@ -9641,6 +9709,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T05af06",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "溶液配制",
     "容量瓶规格"
@@ -9806,6 +9875,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T682fa9",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "原子结构",
     "离子"
@@ -9879,6 +9949,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T6862bf",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "核外电子排布"
    ]
@@ -10233,6 +10304,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T91e0a2",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "离子反应",
     "计算"
@@ -11592,6 +11664,7 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "template": "T8b61d4",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -11617,6 +11690,7 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "template": "Tb515f9",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -12051,6 +12125,7 @@
    "textbook_note": "苏教版无高中英语，用江苏通用的译林版2020替代",
    "template": "T8b61d4",
    "change_tag": "未改",
+   "input_type": "text",
    "tags": [
     "词汇"
    ]
@@ -14752,6 +14827,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -14778,6 +14854,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -14804,6 +14881,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -14830,6 +14908,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -14856,6 +14935,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数运算"
    ]
@@ -14882,6 +14962,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数运算"
    ]
@@ -14908,6 +14989,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数运算"
    ]
@@ -14934,6 +15016,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数运算"
    ]
@@ -14960,6 +15043,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数运算"
    ]
@@ -14986,6 +15070,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数运算性质"
    ]
@@ -15012,6 +15097,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "换底公式"
    ]
@@ -15038,6 +15124,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "对数恒等式"
    ]
@@ -15110,6 +15197,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数值"
    ]
@@ -15136,6 +15224,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数值"
    ]
@@ -15162,6 +15251,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数值"
    ]
@@ -15326,6 +15416,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tdf5c4c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "奇偶性"
    ]
@@ -15435,17 +15526,17 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{x\\mid x>0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[1,+\\infty)$",
+     "text": "$\\{x\\mid x\\ge 1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(1,+\\infty)$",
+     "text": "$\\{x\\mid x>1\\}$",
      "image": "",
      "audio": ""
     },
@@ -15462,9 +15553,10 @@
    "volume": "必修第一册",
    "knowledge_point": "对数函数定义域",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T012df8",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "对数函数定义域"
    ]
@@ -15537,6 +15629,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61a01c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -15563,6 +15656,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61a01c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -15589,6 +15683,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61a01c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -15615,6 +15710,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61a01c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -15640,6 +15736,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te38b13",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "弧长公式"
    ]
@@ -15805,6 +15902,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T720d72",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "正弦函数周期"
    ]
@@ -15831,6 +15929,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T720d72",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "正弦函数周期"
    ]
@@ -15857,6 +15956,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T720d72",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "正弦函数周期"
    ]
@@ -15975,6 +16075,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0da762",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数零点"
    ]
@@ -16000,6 +16101,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3fc2c7",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -16097,6 +16199,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3ecd34",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -16124,6 +16227,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3ecd34",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -16151,6 +16255,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3ecd34",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -16178,6 +16283,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3ecd34",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -16204,6 +16310,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61ac58",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "向量共线"
    ]
@@ -16230,6 +16337,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T73705d",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "数量积坐标运算"
    ]
@@ -16256,6 +16364,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T73705d",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "数量积坐标运算"
    ]
@@ -16282,6 +16391,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T73705d",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "数量积坐标运算"
    ]
@@ -16308,6 +16418,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T73705d",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "数量积坐标运算"
    ]
@@ -16334,6 +16445,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61ac58",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "向量垂直"
    ]
@@ -16360,6 +16472,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "向量的模"
    ]
@@ -16478,6 +16591,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T73705d",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "两角和正切"
    ]
@@ -16504,6 +16618,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "二倍角公式"
    ]
@@ -16531,6 +16646,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "二倍角公式"
    ]
@@ -16649,6 +16765,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tad2805",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -16675,6 +16792,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tad2805",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -16701,6 +16819,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tad2805",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -16727,6 +16846,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T495cbe",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "正弦定理"
    ]
@@ -16753,6 +16873,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T642f87",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "三角形面积"
    ]
@@ -16872,6 +16993,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T59a2d6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -16898,6 +17020,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T59a2d6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -16924,6 +17047,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T59a2d6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -16950,6 +17074,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T59a2d6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -16976,6 +17101,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T59a2d6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -17002,6 +17128,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T60be33",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "虚数单位幂"
    ]
@@ -17028,6 +17155,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3bf86a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "复数的模"
    ]
@@ -17131,17 +17259,18 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第13章 立体几何初步·13.2 基本图形位置关系",
    "type": "判断",
-   "question": "平行于同一条直线的两条直线互相平行。",
+   "question": "平行于同一条直线的两条直线一定互相平行。",
    "answer": "对",
-   "explanation": "基本事实 4。",
+   "explanation": "对。这是平行公理的推论（平行线的传递性），在平面和空间中都成立。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "空间平行",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T8a521b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "空间平行"
    ]
@@ -17238,6 +17367,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Teb107a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -17264,6 +17394,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Teb107a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -17290,6 +17421,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Teb107a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -17316,6 +17448,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te90331",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "圆锥体积"
    ]
@@ -17341,6 +17474,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7fd2ee",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "外接球"
    ]
@@ -17412,6 +17546,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4eb55c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -17438,6 +17573,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T16cfe8",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "方差"
    ]
@@ -17464,6 +17600,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4eb55c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -17490,6 +17627,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T16cfe8",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "方差"
    ]
@@ -17516,6 +17654,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4eb55c",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -17542,6 +17681,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T16cfe8",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "方差"
    ]
@@ -17568,6 +17708,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tec2a03",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "百分位数"
    ]
@@ -17593,6 +17734,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T121472",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -17618,6 +17760,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3bb556",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -17643,6 +17786,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4ba63b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -17669,6 +17813,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T24fa39",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -17695,6 +17840,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T24fa39",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "独立事件",
     "对立事件"
@@ -17708,17 +17854,18 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第15章 概率·15.3 互斥事件和独立事件",
    "type": "判断",
-   "question": "互斥事件一定是对立事件。",
+   "question": "掷一枚骰子，“点数为 1”与“点数为 2”是对立事件。",
    "answer": "错",
-   "explanation": "对立事件一定互斥，反之不成立。",
+   "explanation": "错。这两个事件不能同时发生，是互斥事件；但它们的并不是必然事件，所以不是对立事件。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
    "knowledge_point": "互斥与对立",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T116004",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "互斥与对立"
    ]
@@ -17745,6 +17892,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T47d717",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "加速度"
    ]
@@ -17771,6 +17919,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T47d717",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "加速度"
    ]
@@ -17797,6 +17946,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T47d717",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "加速度"
    ]
@@ -17823,6 +17973,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5cce80",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -17849,6 +18000,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5cce80",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -17875,6 +18027,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5cce80",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -17901,6 +18054,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T38e113",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移公式"
    ]
@@ -17927,6 +18081,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T38e113",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移公式"
    ]
@@ -17953,6 +18108,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T38e113",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移公式"
    ]
@@ -17979,6 +18135,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T38e113",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "位移公式"
    ]
@@ -18007,6 +18164,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tda0f01",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "刹车问题"
    ]
@@ -18033,6 +18191,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tee3e5a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "速度位移关系"
    ]
@@ -18059,6 +18218,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdcee92",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -18085,6 +18245,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdcee92",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -18111,6 +18272,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdcee92",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -18138,6 +18300,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5a2321",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -18165,6 +18328,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T288f8b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "胡克定律"
    ]
@@ -18192,6 +18356,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T288f8b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "胡克定律"
    ]
@@ -18219,6 +18384,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T288f8b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "胡克定律"
    ]
@@ -18245,6 +18411,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T597a74",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "滑动摩擦力"
    ]
@@ -18257,17 +18424,18 @@
    "textbook": "人教版2019",
    "unit": "必修一·第三章 相互作用——力·2 摩擦力",
    "type": "判断",
-   "question": "静摩擦力的方向一定与物体运动方向相反。",
+   "question": "随水平传送带一起加速向前运动的物体，受到的静摩擦力方向与运动方向相反。",
    "answer": "错",
-   "explanation": "与相对运动趋势方向相反，可以与运动方向相同。",
+   "explanation": "错。物体随传送带加速向前，是静摩擦力提供加速度，静摩擦力方向与运动方向相同。",
    "difficulty": 3,
    "source": "AI",
    "volume": "必修第一册",
    "knowledge_point": "静摩擦力",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Ta4a993",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "静摩擦力"
    ]
@@ -18294,6 +18462,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T2163e0",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -18320,6 +18489,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T2163e0",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -18346,6 +18516,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T2163e0",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -18419,6 +18590,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T302855",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "共点力平衡",
     "斜面"
@@ -18491,6 +18663,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Ta74f27",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -18517,6 +18690,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Ta74f27",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -18543,6 +18717,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Ta74f27",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -18615,6 +18790,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T14cb18",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "已知力求运动"
    ]
@@ -18642,6 +18818,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tfe357b",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "超重"
    ]
@@ -18669,6 +18846,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Te5106e",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "失重"
    ]
@@ -18967,6 +19145,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Te7cd9f",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "化学计算"
    ]
@@ -19268,6 +19447,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T418b08",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "化合价"
    ]
@@ -19294,6 +19474,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T418b08",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "化合价"
    ]
@@ -19409,6 +19590,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tf12423",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "周期表"
    ]
@@ -19752,6 +19934,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb1747a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -19779,6 +19962,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T06f16b",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "并集"
    ]
@@ -19805,6 +19989,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb1747a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -19832,6 +20017,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T06f16b",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "并集"
    ]
@@ -19858,6 +20044,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb1747a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -19885,6 +20072,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T06f16b",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "并集"
    ]
@@ -19911,6 +20099,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb1747a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -19938,6 +20127,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T06f16b",
    "change_tag": "修改",
+   "input_type": "numeric",
    "tags": [
     "并集"
    ]
@@ -19963,6 +20153,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta724ce",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -19988,6 +20179,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta724ce",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -20013,6 +20205,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta724ce",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -20029,22 +20222,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(-6,-5)$",
+     "text": "$\\{x\\mid -6<x<-5\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,5)\\cup(6,+\\infty)$",
+     "text": "$\\{x\\mid x<5\\ \\text{或}\\ x>6\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[5,6]$",
+     "text": "$\\{x\\mid 5\\le x\\le 6\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(5,6)$",
+     "text": "$\\{x\\mid 5<x<6\\}$",
      "image": "",
      "audio": ""
     }
@@ -20056,9 +20249,10 @@
    "volume": "必修第一册",
    "knowledge_point": "一元二次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -20075,22 +20269,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(-6,3)$",
+     "text": "$\\{x\\mid -6<x<3\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-3,6]$",
+     "text": "$\\{x\\mid -3\\le x\\le 6\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-3)\\cup(6,+\\infty)$",
+     "text": "$\\{x\\mid x<-3\\ \\text{或}\\ x>6\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-3,6)$",
+     "text": "$\\{x\\mid -3<x<6\\}$",
      "image": "",
      "audio": ""
     }
@@ -20102,9 +20296,10 @@
    "volume": "必修第一册",
    "knowledge_point": "一元二次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -20121,22 +20316,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(-2,0)$",
+     "text": "$\\{x\\mid -2<x<0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,0)\\cup(2,+\\infty)$",
+     "text": "$\\{x\\mid x<0\\ \\text{或}\\ x>2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,2)$",
+     "text": "$\\{x\\mid 0<x<2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[0,2]$",
+     "text": "$\\{x\\mid 0\\le x\\le 2\\}$",
      "image": "",
      "audio": ""
     }
@@ -20151,7 +20346,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -20168,22 +20363,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(-1,0)$",
+     "text": "$\\{x\\mid -1<x<0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[0,1]$",
+     "text": "$\\{x\\mid 0\\le x\\le 1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,1)$",
+     "text": "$\\{x\\mid 0<x<1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,0)\\cup(1,+\\infty)$",
+     "text": "$\\{x\\mid x<0\\ \\text{或}\\ x>1\\}$",
      "image": "",
      "audio": ""
     }
@@ -20198,7 +20393,7 @@
    "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -20215,22 +20410,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(2,5)$",
+     "text": "$\\{x\\mid 2<x<5\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-5,-2]$",
+     "text": "$\\{x\\mid -5\\le x\\le -2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-5)\\cup(-2,+\\infty)$",
+     "text": "$\\{x\\mid x<-5\\ \\text{或}\\ x>-2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-5,-2)$",
+     "text": "$\\{x\\mid -5<x<-2\\}$",
      "image": "",
      "audio": ""
     }
@@ -20242,9 +20437,10 @@
    "volume": "必修第一册",
    "knowledge_point": "一元二次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -20261,22 +20457,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[-5,3]$",
+     "text": "$\\{x\\mid -5\\le x\\le 3\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-3,5)$",
+     "text": "$\\{x\\mid -3<x<5\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-5)\\cup(3,+\\infty)$",
+     "text": "$\\{x\\mid x<-5\\ \\text{或}\\ x>3\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-5,3)$",
+     "text": "$\\{x\\mid -5<x<3\\}$",
      "image": "",
      "audio": ""
     }
@@ -20288,9 +20484,10 @@
    "volume": "必修第一册",
    "knowledge_point": "一元二次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T95307a",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元二次不等式"
    ]
@@ -20318,6 +20515,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc7fef6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -20344,6 +20542,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc7fef6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -20370,6 +20569,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc7fef6",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -20396,6 +20596,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -20422,6 +20623,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -20449,6 +20651,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T283783",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -20475,6 +20678,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tdaa882",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "幂函数"
    ]
@@ -20501,6 +20705,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tdaa882",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "幂函数"
    ]
@@ -20616,6 +20821,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc68e5a",
    "change_tag": "未改",
+   "input_type": "numeric",
    "tags": [
     "样本空间"
    ]
@@ -33113,6 +33319,7 @@
    "game_ready": true,
    "template": "Tfa3358",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "反应速率"
    ]
@@ -33638,7 +33845,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "volume": "必修第二册",
    "unit": "必修二·专题7 氮与社会可持续发展·第二单元 重要的含氮化工原料",
-   "question": "铵盐与强碱共热会放出氨气。",
+   "question": "铵盐都能与强碱共热放出氨气。",
    "explanation": "可用于检验 NH₄⁺。",
    "difficulty": 2,
    "knowledge_point": "氨气",
@@ -36534,7 +36741,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中地理用人教版）",
    "volume": "必修第一册",
    "unit": "必修第一册·第三章 地球上的水·第一节 水循环",
-   "question": "水循环使地球上各种水体处于不断更新的状态。",
+   "question": "水循环使地球上各种水体都处于不断更新的状态。",
    "explanation": "水循环维持全球水的动态平衡。",
    "difficulty": 1,
    "knowledge_point": "水循环",
@@ -39130,6 +39337,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T76f22c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "集合",
     "确定性"
@@ -39350,6 +39558,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T248fe4",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "充要条件"
    ]
@@ -39784,6 +39993,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0a26b5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次函数最值"
    ]
@@ -39796,10 +40006,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第5章 函数概念与性质·5.4 函数的奇偶性",
    "type": "判断",
-   "question": "奇函数的图象一定经过原点。",
+   "question": "奇函数 $y=\\dfrac1x$ 的图象经过原点。",
    "tts_text": "-",
    "answer": "错",
-   "explanation": "错。奇函数在 $x=0$ 处有定义时才有 $f(0)=0$；如 $y=\\dfrac1x$ 是奇函数，图象不过原点。",
+   "explanation": "错。$y=\\dfrac1x$ 在 $x=0$ 处没有定义，图象不过原点；奇函数在 $x=0$ 处有定义时才有 $f(0)=0$。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -39882,6 +40092,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T526d25",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "奇偶性"
    ]
@@ -39969,17 +40180,17 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{x\\mid x>0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,0]$",
+     "text": "$\\{x\\mid x\\le 0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[0,+\\infty)$",
+     "text": "$\\{x\\mid x\\ge 0\\}$",
      "image": "",
      "audio": ""
     },
@@ -40037,10 +40248,10 @@
    "textbook": "苏教版2019",
    "unit": "必修一·第6章 幂函数、指数函数和对数函数·6.2 指数函数",
    "type": "判断",
-   "question": "指数函数 $y=a^x$（$a>0$ 且 $a\\ne1$）在 $\\mathbb R$ 上都单调递增。",
+   "question": "指数函数 $y=\\left(\\dfrac12\\right)^x$ 在 $\\mathbb R$ 上单调递增。",
    "tts_text": "-",
    "answer": "错",
-   "explanation": "错。$a>1$ 时递增，$0<a<1$ 时递减，如 $y=\\left(\\dfrac12\\right)^x$。",
+   "explanation": "错。底数 $0<\\dfrac12<1$，$y=\\left(\\dfrac12\\right)^x$ 在 $\\mathbb R$ 上单调递减。",
    "difficulty": 1,
    "source": "AI",
    "volume": "必修第一册",
@@ -40066,7 +40277,7 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(1,+\\infty)$",
+     "text": "$\\{y\\mid y>1\\}$",
      "image": "",
      "audio": ""
     },
@@ -40076,12 +40287,12 @@
      "audio": ""
     },
     {
-     "text": "$[0,+\\infty)$",
+     "text": "$\\{y\\mid y\\ge 0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{y\\mid y>0\\}$",
      "image": "",
      "audio": ""
     }
@@ -40124,6 +40335,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T914415",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数函数"
    ]
@@ -40322,6 +40534,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3e7856",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "零点存在定理"
    ]
@@ -40373,6 +40586,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T6ae791",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -40470,6 +40684,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbdccea",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -40496,6 +40711,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T889492",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -40548,6 +40764,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T914415",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两角和正弦"
    ]
@@ -40560,7 +40777,7 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第10章 三角恒等变换·10.2 二倍角的三角函数",
    "type": "判断",
-   "question": "$\\sin2\\alpha=2\\sin\\alpha\\cos\\alpha$。",
+   "question": "对任意角 $\\alpha$，$\\sin2\\alpha=2\\sin\\alpha\\cos\\alpha$ 都成立。",
    "tts_text": "-",
    "answer": "对",
    "explanation": "二倍角正弦公式。",
@@ -40822,7 +41039,7 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第11章 解三角形·11.2 正弦定理",
    "type": "判断",
-   "question": "在 $\\triangle ABC$ 中，若 $A>B$，则 $\\sin A>\\sin B$。",
+   "question": "在 $\\triangle ABC$ 中，若 $A>B$，则一定有 $\\sin A>\\sin B$。",
    "tts_text": "-",
    "answer": "对",
    "explanation": "大角对大边，$a>b$，由正弦定理得 $\\sin A>\\sin B$。",
@@ -40909,6 +41126,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T422c6f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正弦定理"
    ]
@@ -41053,6 +41271,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T6b7e28",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -41129,6 +41348,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tad0856",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数概念"
    ]
@@ -41156,6 +41376,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5dc806",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数概念"
    ]
@@ -41254,6 +41475,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4d66cd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -41266,9 +41488,9 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第12章 复数·12.3 复数的几何意义",
    "type": "判断",
-   "question": "复平面内，虚轴上的点都表示纯虚数。",
+   "question": "复数 0 是纯虚数。",
    "answer": "错",
-   "explanation": "错。虚轴上的原点表示实数 0，不是纯虚数；虚轴上除原点外的点才表示纯虚数。",
+   "explanation": "错。纯虚数要求实部为 0 且虚部不为 0；0 的虚部为 0，是实数。",
    "difficulty": 2,
    "source": "AI",
    "volume": "必修第二册",
@@ -41352,6 +41574,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tf6e64f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -41427,6 +41650,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T2b68db",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "棱柱"
    ]
@@ -41523,6 +41747,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5a4298",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "棱柱"
    ]
@@ -41619,6 +41844,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T1eb56d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间平行"
    ]
@@ -41645,6 +41871,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T060906",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -41717,6 +41944,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T88ad34",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "调查方式"
    ]
@@ -41823,7 +42051,7 @@
    "textbook": "苏教版2019",
    "unit": "必修二·第14章 统计·14.2 抽样",
    "type": "判断",
-   "question": "简单随机抽样中，每个个体被抽到的可能性相等。",
+   "question": "简单随机抽样中，每个个体被抽到的可能性都相等。",
    "answer": "对",
    "explanation": "简单随机抽样的特点。",
    "difficulty": 2,
@@ -41861,6 +42089,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0ab131",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分层抽样"
    ]
@@ -42074,6 +42303,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tdd068f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -42101,6 +42331,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5999b4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -42197,6 +42428,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc95c82",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "样本空间"
    ]
@@ -42363,6 +42595,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T46feab",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -42462,6 +42695,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta53baa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -42629,6 +42863,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0767cb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量概念"
    ]
@@ -42728,6 +42963,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tce7fff",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量加减"
    ]
@@ -43504,6 +43740,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T21ef5d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -43614,7 +43851,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "volume": "必修第二册",
    "unit": "必修二·第五章 抛体运动·1 曲线运动",
-   "question": "平抛运动是匀变速曲线运动。",
+   "question": "平抛运动一定是匀变速曲线运动。",
    "explanation": "加速度恒为 $g$。",
    "difficulty": 2,
    "knowledge_point": "曲线运动",
@@ -43638,8 +43875,8 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "volume": "必修第二册",
    "unit": "必修二·第五章 抛体运动·1 曲线运动",
-   "question": "物体做曲线运动时，速度大小一定变化。",
-   "explanation": "如匀速圆周运动速度大小不变。",
+   "question": "做匀速圆周运动的物体，速度大小时刻在变化。",
+   "explanation": "错。匀速圆周运动的速度大小不变，方向时刻改变。",
    "difficulty": 2,
    "knowledge_point": "曲线运动",
    "type": "判断",
@@ -43720,6 +43957,7 @@
    "game_ready": true,
    "template": "T793fdd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "小船渡河"
    ]
@@ -43771,6 +44009,7 @@
    "game_ready": true,
    "template": "T3fd5e0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "小船渡河"
    ]
@@ -44055,6 +44294,7 @@
    "game_ready": true,
    "template": "T00e9ac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛运动"
    ]
@@ -44116,7 +44356,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "volume": "必修第二册",
    "unit": "必修二·第六章 圆周运动·1 圆周运动",
-   "question": "匀速圆周运动的线速度方向时刻改变。",
+   "question": "做匀速圆周运动的物体，线速度方向一定时刻在改变。",
    "explanation": "线速度沿圆周切线方向。",
    "difficulty": 2,
    "knowledge_point": "圆周运动",
@@ -44198,6 +44438,7 @@
    "game_ready": true,
    "template": "Ta6da4c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆周运动"
    ]
@@ -44341,6 +44582,7 @@
    "game_ready": true,
    "template": "Tb57464",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生活中的圆周运动"
    ]
@@ -44508,6 +44750,7 @@
    "game_ready": true,
    "template": "T4d5384",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向心加速度"
    ]
@@ -44675,6 +44918,7 @@
    "game_ready": true,
    "template": "T8761b5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "火车转弯"
    ]
@@ -44760,7 +45004,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第1章 走近细胞·第1节 细胞是生命活动的基本单位",
-   "question": "病毒必须寄生在活细胞中才能进行生命活动。",
+   "question": "病毒都必须寄生在活细胞中才能进行生命活动。",
    "explanation": "病毒没有细胞结构。",
    "difficulty": 2,
    "knowledge_point": "细胞学说",
@@ -44876,7 +45120,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第1章 走近细胞·第2节 细胞的多样性和统一性",
-   "question": "原核细胞没有以核膜为界限的细胞核。",
+   "question": "原核细胞都没有以核膜为界限的细胞核。",
    "explanation": "这是原核细胞与真核细胞最主要的区别。",
    "difficulty": 1,
    "knowledge_point": "原核与真核",
@@ -45202,7 +45446,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第2章 组成细胞的分子·第4节 蛋白质是生命活动的主要承担者",
-   "question": "不同氨基酸的区别在于 R 基不同。",
+   "question": "组成蛋白质的各种氨基酸，区别都在于 R 基不同。",
    "explanation": "氨基酸结构通式中 R 基决定种类。",
    "difficulty": 2,
    "knowledge_point": "蛋白质",
@@ -45272,7 +45516,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第2章 组成细胞的分子·第5节 核酸是遗传信息的携带者",
-   "question": "真核细胞的 DNA 全部分布在细胞核中。",
+   "question": "线粒体和叶绿体中不含 DNA。",
    "explanation": "错。真核细胞的 DNA 主要分布在细胞核中，线粒体、叶绿体中也含有少量 DNA。",
    "difficulty": 2,
    "knowledge_point": "核酸",
@@ -45388,7 +45632,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第3章 细胞的基本结构·第1节 细胞膜的结构和功能",
-   "question": "细胞膜具有选择透过性。",
+   "question": "活细胞的细胞膜都具有选择透过性。",
    "explanation": "这是细胞膜的功能特性。",
    "difficulty": 2,
    "knowledge_point": "细胞膜",
@@ -45620,7 +45864,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第3章 细胞的基本结构·第3节 细胞核的结构和功能",
-   "question": "哺乳动物成熟的红细胞没有细胞核。",
+   "question": "哺乳动物成熟的红细胞都没有细胞核。",
    "explanation": "常用来制备纯净的细胞膜。",
    "difficulty": 2,
    "knowledge_point": "细胞核",
@@ -46051,6 +46295,7 @@
    "game_ready": true,
    "template": "Tfea6b6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "ATP"
    ]
@@ -46112,8 +46357,8 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第一册",
    "unit": "必修1·第5章 细胞的能量供应和利用·第3节 细胞呼吸的原理和应用",
-   "question": "有氧呼吸的全过程都在线粒体中进行。",
-   "explanation": "错。有氧呼吸第一阶段在细胞质基质中进行，第二、三阶段在线粒体中进行，线粒体是主要场所。",
+   "question": "有氧呼吸第一阶段在线粒体基质中进行。",
+   "explanation": "错。有氧呼吸第一阶段在细胞质基质中进行，第二阶段在线粒体基质中，第三阶段在线粒体内膜上。",
    "difficulty": 1,
    "knowledge_point": "有氧呼吸",
    "type": "判断",
@@ -46797,6 +47042,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T96af2e",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "静女"
    ]
@@ -47596,6 +47842,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0fae0d",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "文学常识",
     "赤壁赋"
@@ -47720,6 +47967,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T081947",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "整本书阅读"
    ]
@@ -48309,6 +48557,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T0fae0d",
    "change_tag": "新增",
+   "input_type": "text",
    "tags": [
     "文学常识",
     "拓展"
@@ -53887,6 +54136,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb19a1b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "集合",
     "确定性"
@@ -53960,6 +54210,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3c103c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "集合",
     "确定性"
@@ -53987,6 +54238,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7921ee",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "集合",
     "确定性"
@@ -54014,6 +54266,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc3a790",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "集合",
     "确定性"
@@ -54041,6 +54294,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5b3716",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -54113,6 +54367,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tf31d35",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -54139,6 +54394,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T97013d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -54165,6 +54421,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0247d9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "子集个数"
    ]
@@ -54191,6 +54448,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Taa9b0b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -54217,6 +54475,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te74288",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -54243,6 +54502,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tf17c05",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -54268,6 +54528,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T264c70",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "交集"
    ]
@@ -54796,6 +55057,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta553f6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "量词命题的否定"
    ]
@@ -54960,6 +55222,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5cb0ec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "不等式性质"
    ]
@@ -55032,6 +55295,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Td0c213",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -55058,6 +55322,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4e68e1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -55084,6 +55349,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T44e0ea",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "基本不等式"
    ]
@@ -55110,6 +55376,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tdbc18a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元二次不等式"
    ]
@@ -55136,6 +55403,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tfa91b3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元二次不等式"
    ]
@@ -55162,6 +55430,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7c4bd9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "一元二次不等式"
    ]
@@ -55188,6 +55457,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta0f008",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -55214,6 +55484,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T412ee7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -55240,6 +55511,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te36f09",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -55266,6 +55538,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbccbfe",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -55292,6 +55565,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T1a4c2b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分数指数幂"
    ]
@@ -55318,6 +55592,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T750db8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对数"
    ]
@@ -55344,6 +55619,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Teb8814",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对数"
    ]
@@ -55370,6 +55646,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4bdbd8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对数"
    ]
@@ -55396,6 +55673,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T949a85",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对数"
    ]
@@ -55422,6 +55700,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T25fc85",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对数"
    ]
@@ -55438,22 +55717,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(0,2]$",
+     "text": "$\\{x\\mid 0<x\\le 2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-2,2]$",
+     "text": "$\\{x\\mid -2\\le x\\le 2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-2,0)\\cup(0,2)$",
+     "text": "$\\{x\\mid -2<x<2,\\ x\\ne 0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-2,0)\\cup(0,2]$",
+     "text": "$\\{x\\mid -2\\le x\\le 2,\\ x\\ne 0\\}$",
      "image": "",
      "audio": ""
     }
@@ -55465,6 +55744,7 @@
    "volume": "必修第一册",
    "knowledge_point": "函数的概念和图象",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T9f3fb6",
    "change_tag": "新增",
@@ -55494,6 +55774,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbfdfdf",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "定义域"
    ]
@@ -55510,22 +55791,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$[0,1]$",
+     "text": "$\\{y\\mid 0\\le y\\le 1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,1)$",
+     "text": "$\\{y\\mid 0<y<1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,1]$",
+     "text": "$\\{y\\mid 0<y\\le 1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{y\\mid y>0\\}$",
      "image": "",
      "audio": ""
     }
@@ -55537,6 +55818,7 @@
    "volume": "必修第一册",
    "knowledge_point": "函数的概念和图象",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tccdeee",
    "change_tag": "新增",
@@ -55658,6 +55940,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T86868b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -55684,6 +55967,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tfb067c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -55710,6 +55994,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tcebcd5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -55736,6 +56021,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T20cd5c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -55762,6 +56048,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T3a553d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "函数解析式"
    ]
@@ -55926,6 +56213,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T86576c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次函数最值"
    ]
@@ -55952,6 +56240,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Teb5230",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次函数最值"
    ]
@@ -56024,6 +56313,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T951380",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二次函数最值"
    ]
@@ -56050,6 +56340,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T420e0f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "奇偶性"
    ]
@@ -56168,6 +56459,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T2b85df",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "奇偶性"
    ]
@@ -56194,6 +56486,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T88c611",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "奇偶性"
    ]
@@ -56220,6 +56513,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T68b0f2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "奇偶性"
    ]
@@ -56236,17 +56530,17 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{x\\mid x>0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,0)\\cup(0,+\\infty)$",
+     "text": "$\\{x\\mid x\\ne 0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[0,+\\infty)$",
+     "text": "$\\{x\\mid x\\ge 0\\}$",
      "image": "",
      "audio": ""
     },
@@ -56263,6 +56557,7 @@
    "volume": "必修第一册",
    "knowledge_point": "幂函数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T6340fe",
    "change_tag": "新增",
@@ -56475,6 +56770,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T57826f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "幂函数"
    ]
@@ -56491,17 +56787,17 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(0,+\\infty)$",
+     "text": "$\\{y\\mid y>0\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-1,+\\infty)$",
+     "text": "$\\{y\\mid y\\ge -1\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-1,+\\infty)$",
+     "text": "$\\{y\\mid y>-1\\}$",
      "image": "",
      "audio": ""
     },
@@ -56518,6 +56814,7 @@
    "volume": "必修第一册",
    "knowledge_point": "指数函数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tcb8504",
    "change_tag": "新增",
@@ -56639,6 +56936,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Td55caf",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数函数"
    ]
@@ -56701,22 +56999,22 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$(0,2)$",
+     "text": "$\\{x\\mid 0<x<2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$[-2,2]$",
+     "text": "$\\{x\\mid -2\\le x\\le 2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-2,2)$",
+     "text": "$\\{x\\mid -2<x<2\\}$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$(-\\infty,-2)\\cup(2,+\\infty)$",
+     "text": "$\\{x\\mid x<-2\\ \\text{或}\\ x>2\\}$",
      "image": "",
      "audio": ""
     }
@@ -56728,6 +57026,7 @@
    "volume": "必修第一册",
    "knowledge_point": "对数函数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tcca68e",
    "change_tag": "新增",
@@ -56941,6 +57240,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb4b603",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "对数函数单调性"
    ]
@@ -57012,6 +57312,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T76f57f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -57083,6 +57384,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T734e5f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -57109,6 +57411,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T6dcad1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -57135,6 +57438,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tda8b93",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "弧度制"
    ]
@@ -57161,6 +57465,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T6c8e3a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊角"
    ]
@@ -57233,6 +57538,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T698288",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊角"
    ]
@@ -57259,6 +57565,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb28ffe",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊角"
    ]
@@ -57285,6 +57592,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T32c140",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "特殊角"
    ]
@@ -57449,6 +57757,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb251ac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角函数图象性质"
    ]
@@ -57475,6 +57784,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta90aab",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "三角函数图象性质"
    ]
@@ -57546,6 +57856,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T1c7179",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "零点存在定理"
    ]
@@ -57572,6 +57883,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T78fa2d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "零点存在定理"
    ]
@@ -57598,6 +57910,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta83057",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "零点存在定理"
    ]
@@ -57624,6 +57937,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T943809",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "零点存在定理"
    ]
@@ -57650,6 +57964,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te1fec2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "零点存在定理"
    ]
@@ -57675,6 +57990,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbb34c0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -57747,6 +58063,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T52667f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -57772,6 +58089,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T164570",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -57797,6 +58115,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T52359a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -57823,6 +58142,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T75c384",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "指数模型"
    ]
@@ -58031,6 +58351,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb9bd93",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量加减"
    ]
@@ -58057,6 +58378,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T950cb6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量加减"
    ]
@@ -58083,6 +58405,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0b60d6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量加减"
    ]
@@ -58109,6 +58432,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T67bf3a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量加减"
    ]
@@ -58135,6 +58459,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T94b21c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量加减"
    ]
@@ -58161,6 +58486,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T9c67dd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -58187,6 +58513,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T31f970",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -58213,6 +58540,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4166ff",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -58239,6 +58567,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T297596",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -58265,6 +58594,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T110f4b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -58291,6 +58621,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7783c2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向量坐标运算"
    ]
@@ -58317,6 +58648,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te176d3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两角和正弦"
    ]
@@ -58343,6 +58675,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T74847f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两角和正弦"
    ]
@@ -58369,6 +58702,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T163429",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两角和正弦"
    ]
@@ -58395,6 +58729,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T9b2c1a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二倍角公式"
    ]
@@ -58421,6 +58756,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tea6282",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二倍角公式"
    ]
@@ -58447,6 +58783,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Taa3df2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二倍角公式"
    ]
@@ -58473,6 +58810,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tbd245c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "二倍角公式"
    ]
@@ -58499,6 +58837,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tf6787d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -58525,6 +58864,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T9ff220",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -58597,6 +58937,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Teb8e09",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -58623,6 +58964,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T18e749",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -58649,6 +58991,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T8e8e0b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "余弦定理"
    ]
@@ -58675,6 +59018,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7d24c0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正弦定理"
    ]
@@ -58747,6 +59091,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T92d5ac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正弦定理"
    ]
@@ -58865,6 +59210,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0625ae",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "正弦定理"
    ]
@@ -58891,6 +59237,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T07b522",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -58916,6 +59263,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T12a863",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -58942,6 +59290,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T61cf5f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -58968,6 +59317,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T10cf96",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -58994,6 +59344,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T1e2536",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -59020,6 +59371,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta895aa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "判断三角形形状"
    ]
@@ -59046,6 +59398,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T07c009",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数概念"
    ]
@@ -59072,6 +59425,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T878618",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数概念"
    ]
@@ -59143,6 +59497,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T89115c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数概念"
    ]
@@ -59215,6 +59570,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tfa9acc",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -59241,6 +59597,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tf68bfe",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -59267,6 +59624,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T184257",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -59293,6 +59651,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T07d310",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -59319,6 +59678,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T492b76",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数乘法"
    ]
@@ -59345,6 +59705,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tfa1ebf",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -59371,6 +59732,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T449f31",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -59397,6 +59759,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tb6b533",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -59423,6 +59786,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T828248",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -59449,6 +59813,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc8d1fd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -59475,6 +59840,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0392bd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "复数几何意义"
    ]
@@ -59545,6 +59911,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0900b2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "棱柱"
    ]
@@ -59708,6 +60075,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T751b16",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间平行"
    ]
@@ -59734,6 +60102,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T76d235",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间平行"
    ]
@@ -59760,6 +60129,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T0a64d7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "空间平行"
    ]
@@ -59786,6 +60156,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tda8412",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -59812,6 +60183,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T2c6705",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -59838,6 +60210,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5eaffe",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -59864,6 +60237,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T6ca71d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -59890,6 +60264,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Ta69e05",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "球的体积"
    ]
@@ -60051,6 +60426,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T8bceae",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分层抽样"
    ]
@@ -60076,6 +60452,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T020ab2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分层抽样"
    ]
@@ -60101,6 +60478,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T78cece",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分层抽样"
    ]
@@ -60126,6 +60504,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T43b7f2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -60151,6 +60530,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Td22774",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -60177,6 +60557,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T7b7188",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -60203,6 +60584,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T759e74",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -60229,6 +60611,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5dd722",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -60255,6 +60638,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Td99963",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -60281,6 +60665,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T93dbd9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均数"
    ]
@@ -60306,6 +60691,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4a8ef8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "样本空间"
    ]
@@ -60331,6 +60717,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T5089b7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "样本空间"
    ]
@@ -60356,6 +60743,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tc4c12b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "样本空间"
    ]
@@ -60381,6 +60769,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T23da97",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -60406,6 +60795,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Td57e92",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -60431,6 +60821,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Td1384d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -60456,6 +60847,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T768f62",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -60481,6 +60873,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tf919b2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "古典概型"
    ]
@@ -60507,6 +60900,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T54c9fa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -60533,6 +60927,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T225844",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -60559,6 +60954,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T92a97e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -60584,6 +60980,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tccdc02",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -60609,6 +61006,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T072eb3",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "独立事件"
    ]
@@ -60679,6 +61077,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T170187",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "时间与时刻"
    ]
@@ -60704,6 +61103,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T3b00c1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "时间与时刻"
    ]
@@ -60729,6 +61129,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T98e198",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "时间与时刻"
    ]
@@ -60754,6 +61155,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T17d7e9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "时间与时刻"
    ]
@@ -60780,6 +61182,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T26e2be",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "时间与时刻"
    ]
@@ -60805,6 +61208,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Taef8bb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均速度"
    ]
@@ -60875,6 +61279,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T0f7d24",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均速度"
    ]
@@ -60900,6 +61305,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T8a4e29",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平均速度"
    ]
@@ -60971,6 +61377,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tea0818",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "加速度",
     "矢量"
@@ -60997,6 +61404,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5244f8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "加速度",
     "矢量"
@@ -61023,6 +61431,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T58611b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -61048,6 +61457,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T97468b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -61073,6 +61483,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T930dc6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -61098,6 +61509,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Teff02d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -61123,6 +61535,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tb1e2ad",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "速度公式"
    ]
@@ -61149,6 +61562,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tff5f1a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -61175,6 +61589,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T456442",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -61201,6 +61616,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Te06884",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -61227,6 +61643,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T3a77d9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "自由落体"
    ]
@@ -61252,6 +61669,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T8db481",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力",
     "重心"
@@ -61278,6 +61696,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdda54f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力",
     "重心"
@@ -61304,6 +61723,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T8c5227",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力",
     "重心"
@@ -61330,6 +61750,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T2e802e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "重力",
     "重心"
@@ -61356,6 +61777,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Td92fd2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "静摩擦力"
    ]
@@ -61381,6 +61803,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tc6b2e4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "静摩擦力"
    ]
@@ -61406,6 +61829,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T1e2eb6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "静摩擦力"
    ]
@@ -61657,6 +62081,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T409d64",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -61683,6 +62108,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T3d7389",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -61709,6 +62135,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T5c3409",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -61734,6 +62161,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T290f47",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "力的合成"
    ]
@@ -61760,6 +62188,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Te24fa8",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "共点力平衡",
     "斜面"
@@ -61787,6 +62216,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T7b5427",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "共点力平衡",
     "斜面"
@@ -61948,6 +62378,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Te1e94c",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -61974,6 +62405,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tc211ac",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -62000,6 +62432,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T488ca6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -62026,6 +62459,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T712119",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -62051,6 +62485,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T9aaf4a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律"
    ]
@@ -62077,6 +62512,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T3ac14a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "超重"
    ]
@@ -62103,6 +62539,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T9fd0a1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "超重"
    ]
@@ -62129,6 +62566,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tdbbd2f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "超重"
    ]
@@ -62381,6 +62819,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T636b68",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -62407,6 +62846,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Teb1608",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -62434,6 +62874,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T144bb2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -62461,6 +62902,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tcd7ab2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -62488,6 +62930,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Td88573",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -62515,6 +62958,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tf59b4f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "牛顿第二定律",
     "斜面"
@@ -62541,6 +62985,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Te711d9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "打点计时器"
    ]
@@ -62657,6 +63102,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T559f56",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "打点计时器"
    ]
@@ -62683,6 +63129,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tf34c92",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "打点计时器"
    ]
@@ -62892,6 +63339,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Te4c886",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "控制变量法"
    ]
@@ -62918,6 +63366,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T81cb14",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "控制变量法"
    ]
@@ -63168,6 +63617,7 @@
    "game_ready": true,
    "template": "T384ce2",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "小船渡河"
    ]
@@ -63193,6 +63643,7 @@
    "game_ready": true,
    "template": "Ta14c4e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "小船渡河"
    ]
@@ -63218,6 +63669,7 @@
    "game_ready": true,
    "template": "T21c068",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "小船渡河"
    ]
@@ -63289,6 +63741,7 @@
    "game_ready": true,
    "template": "T388d1f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛运动"
    ]
@@ -63315,6 +63768,7 @@
    "game_ready": true,
    "template": "T90925d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛运动"
    ]
@@ -63341,6 +63795,7 @@
    "game_ready": true,
    "template": "T41e003",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛运动"
    ]
@@ -63367,6 +63822,7 @@
    "game_ready": true,
    "template": "Tc8e177",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛运动"
    ]
@@ -63393,6 +63849,7 @@
    "game_ready": true,
    "template": "Tcd3a0a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛运动"
    ]
@@ -63553,6 +64010,7 @@
    "game_ready": true,
    "template": "Tea95cd",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛实验"
    ]
@@ -63579,6 +64037,7 @@
    "game_ready": true,
    "template": "T8bef5a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛实验"
    ]
@@ -63605,6 +64064,7 @@
    "game_ready": true,
    "template": "T964244",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "平抛实验"
    ]
@@ -63630,6 +64090,7 @@
    "game_ready": true,
    "template": "Tce4a89",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆周运动"
    ]
@@ -63655,6 +64116,7 @@
    "game_ready": true,
    "template": "T6c9984",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆周运动"
    ]
@@ -63681,6 +64143,7 @@
    "game_ready": true,
    "template": "T87ed5f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆周运动"
    ]
@@ -63707,6 +64170,7 @@
    "game_ready": true,
    "template": "T3cc0b1",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆周运动"
    ]
@@ -63733,6 +64197,7 @@
    "game_ready": true,
    "template": "T0120b5",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "圆周运动"
    ]
@@ -63758,6 +64223,7 @@
    "game_ready": true,
    "template": "T0c3934",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生活中的圆周运动"
    ]
@@ -63784,6 +64250,7 @@
    "game_ready": true,
    "template": "T4bed4e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生活中的圆周运动"
    ]
@@ -63810,6 +64277,7 @@
    "game_ready": true,
    "template": "T238466",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生活中的圆周运动"
    ]
@@ -63836,6 +64304,7 @@
    "game_ready": true,
    "template": "Tc0406a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "生活中的圆周运动"
    ]
@@ -63861,6 +64330,7 @@
    "game_ready": true,
    "template": "T322db9",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向心加速度"
    ]
@@ -63886,6 +64356,7 @@
    "game_ready": true,
    "template": "T63f66b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向心加速度"
    ]
@@ -63957,6 +64428,7 @@
    "game_ready": true,
    "template": "T881349",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向心加速度"
    ]
@@ -63983,6 +64455,7 @@
    "game_ready": true,
    "template": "T293284",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向心加速度"
    ]
@@ -64009,6 +64482,7 @@
    "game_ready": true,
    "template": "T77ebab",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "向心加速度"
    ]
@@ -64035,6 +64509,7 @@
    "game_ready": true,
    "template": "T1fb405",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "火车转弯"
    ]
@@ -64061,6 +64536,7 @@
    "game_ready": true,
    "template": "T587466",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "火车转弯"
    ]
@@ -64087,6 +64563,7 @@
    "game_ready": true,
    "template": "T374d6a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "火车转弯"
    ]
@@ -64113,6 +64590,7 @@
    "game_ready": true,
    "template": "Tb9c9c0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "火车转弯"
    ]
@@ -66866,6 +67344,7 @@
    "game_ready": true,
    "template": "T7dcf81",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "蛋白质"
    ]
@@ -67793,6 +68272,7 @@
    "game_ready": true,
    "template": "Tac3c47",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "有丝分裂"
    ]
@@ -69985,6 +70465,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T5ccef7",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "摩尔质量"
    ]
@@ -70011,6 +70492,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T394123",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "摩尔质量"
    ]
@@ -70309,6 +70791,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T97164b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "物质的量浓度"
    ]
@@ -70335,6 +70818,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Taa3393",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "原子结构"
    ]
@@ -70406,6 +70890,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tabae2d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "原子结构"
    ]
@@ -70432,6 +70917,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T2b55ba",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "原子结构"
    ]
@@ -70638,6 +71124,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tbe9a55",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "氯气制备"
    ]
@@ -70802,6 +71289,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T95baef",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "钠的保存"
    ]
@@ -70828,6 +71316,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T4e2e70",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "钠的保存"
    ]
@@ -70991,6 +71480,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T22a075",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "海水提镁"
    ]
@@ -71428,6 +71918,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T2113bb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "化合价"
    ]
@@ -71545,6 +72036,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Te1fbf0",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "酸雨"
    ]
@@ -71616,6 +72108,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "T1f5d3b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "酸雨"
    ]
@@ -71821,6 +72314,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中化学用苏教版）",
    "template": "Tfc7cc4",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "周期表"
    ]
@@ -72298,6 +72792,7 @@
    "game_ready": true,
    "template": "T402b57",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "反应速率"
    ]
@@ -72415,6 +72910,7 @@
    "game_ready": true,
    "template": "T17c071",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "反应速率"
    ]
@@ -72441,6 +72937,7 @@
    "game_ready": true,
    "template": "T68d4d6",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "反应速率"
    ]
@@ -72558,6 +73055,7 @@
    "game_ready": true,
    "template": "T34ce76",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "吸热放热"
    ]
@@ -72584,6 +73082,7 @@
    "game_ready": true,
    "template": "T1bd148",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "吸热放热"
    ]
@@ -72744,6 +73243,7 @@
    "game_ready": true,
    "template": "Tc7fe4b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "原电池"
    ]
@@ -72951,6 +73451,7 @@
    "game_ready": true,
    "template": "Tcab19a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "氮的固定"
    ]
@@ -72977,6 +73478,7 @@
    "game_ready": true,
    "template": "T94ed44",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "氮的固定"
    ]
@@ -73138,6 +73640,7 @@
    "game_ready": true,
    "template": "T7fb827",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "氨气"
    ]
@@ -73437,6 +73940,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tfd959d",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "两角和正弦"
    ]
@@ -73462,6 +73966,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T99c076",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "棱柱"
    ]
@@ -73487,6 +73992,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Te3a130",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "分层抽样"
    ]
@@ -73557,6 +74063,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T4d86ec",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -73628,6 +74135,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "Tab8a2e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "统计图表"
    ]
@@ -73653,6 +74161,7 @@
    "textbook_note": "苏教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中数学用苏教版）",
    "template": "T863b21",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "样本空间"
    ]
@@ -73768,6 +74277,7 @@
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "Tf21ffa",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "共点力平衡",
     "斜面"
@@ -81168,6 +81678,7 @@
    "game_ready": true,
    "template": "T99b86a",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "孟德尔的豌豆杂交实验（一）"
    ]
@@ -81490,6 +82001,7 @@
    "game_ready": true,
    "template": "T14ca95",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "孟德尔的豌豆杂交实验（二）"
    ]
@@ -81677,6 +82189,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-230",
    "subject": "生物",
    "grade": 10,
@@ -81684,8 +82197,8 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第二册",
    "unit": "必修2·第1章 遗传因子的发现·第2节 孟德尔的豌豆杂交实验（二）",
-   "question": "表型相同的个体，基因型一定相同。",
-   "explanation": "如 DD 和 Dd 都表现为显性性状。",
+   "question": "基因型为 DD 和 Dd 的豌豆（D 为高茎基因）表型不同。",
+   "explanation": "错。D 对 d 为显性，DD 和 Dd 都表现为高茎，表型相同、基因型不同。",
    "difficulty": 2,
    "knowledge_point": "孟德尔的豌豆杂交实验（二）",
    "type": "判断",
@@ -81989,6 +82502,7 @@
    "game_ready": true,
    "template": "T782653",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "减数分裂和受精作用"
    ]
@@ -82293,6 +82807,7 @@
   {
    "status": "AI初审通过",
    "source": "AI",
+   "review_changed": "是",
    "id": "B10-245",
    "subject": "生物",
    "grade": 10,
@@ -82300,7 +82815,7 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第二册",
    "unit": "必修2·第2章 基因和染色体的关系·第2节 基因在染色体上",
-   "question": "一条染色体上有许多个基因，基因在染色体上呈线性排列。",
+   "question": "每条染色体上都有许多个基因，基因在染色体上呈线性排列。",
    "explanation": "摩尔根和他的学生测定了基因在染色体上的相对位置。",
    "difficulty": 2,
    "knowledge_point": "基因在染色体上",
@@ -82471,6 +82986,7 @@
    "game_ready": true,
    "template": "Tf6639b",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "基因在染色体上"
    ]
@@ -82856,6 +83372,7 @@
    "game_ready": true,
    "template": "T13d15e",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "伴性遗传"
    ]
@@ -83563,6 +84080,7 @@
    "game_ready": true,
    "template": "T646e8f",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "DNA的结构"
    ]
@@ -83997,6 +84515,7 @@
    "game_ready": true,
    "template": "T5c0515",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "DNA的复制"
    ]
@@ -84782,8 +85301,8 @@
    "textbook_note": "人教版2019（按教材版本规则：统编、苏科、译林保留，其余科目只用人教版或苏教版；高中生物用人教版）",
    "volume": "必修第二册",
    "unit": "必修2·第4章 基因的表达·第1节 基因指导蛋白质的合成",
-   "question": "每种氨基酸都只由一种密码子决定。",
-   "explanation": "错。多数氨基酸由几种不同的密码子决定，这叫密码子的简并。",
+   "question": "密码子的简并是指一种密码子可以决定几种氨基酸。",
+   "explanation": "错。密码子的简并是指一种氨基酸可以由几种不同的密码子决定。",
    "difficulty": 2,
    "knowledge_point": "基因指导蛋白质的合成",
    "type": "判断",
@@ -84816,6 +85335,7 @@
    "game_ready": true,
    "template": "T1f06eb",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "基因指导蛋白质的合成"
    ]
@@ -86574,6 +87094,7 @@
    "game_ready": true,
    "template": "T15a8ed",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "人类遗传病"
    ]
@@ -87620,6 +88141,7 @@
    "game_ready": true,
    "template": "Te1e113",
    "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "种群基因组成的变化与物种的形成"
    ]
@@ -116804,7 +117326,7 @@
    "textbook": "人教版2019",
    "unit": "必修一·第三章 相互作用——力·5 共点力的平衡",
    "type": "判断",
-   "question": "物体处于静止或匀速直线运动状态时，所受合力为零。",
+   "question": "物体处于静止或匀速直线运动状态时，所受合力一定为零。",
    "answer": "对",
    "explanation": "这两种状态都叫平衡状态。",
    "difficulty": 2,
@@ -116812,6 +117334,7 @@
    "volume": "必修第一册",
    "knowledge_point": "5 共点力的平衡",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无高中物理，按教材版本规则（统编、苏科、译林保留，其余科目只用人教版或苏教版）用人教版2019",
    "template": "T4d57c9",
    "change_tag": "新增",

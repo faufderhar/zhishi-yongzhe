@@ -12,8 +12,8 @@ const all: Question[] = BUILTIN_GRADES.flatMap(g => B(g)); const vis = computeVi
 const lv = (g: string, s: string) => { const a = B(g).filter(q => q.subject === s); return buildChapters(playable(a, false), null, a).flatMap(c => c.levels); };
 describe('r16.1 题库 v47', () => {
   it('发布号 v47；初三 / 大班 / 高三没有导入', () => {
-    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8')).release).toBe('v47');
-    for (const g of BUILTIN_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v47');
+    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8')).release).toBe('v48');   // r16.1：v47 → v48（关卡结构相同）
+    for (const g of BUILTIN_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v48');
     expect(BUILTIN_GRADES).not.toContain('9'); expect(existsSync('public/banks/bank_9.json')).toBe(false);
     expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual([]);
     expect(all.some(q => /^C9-/.test(q.id))).toBe(false);   // C9-156→C9-360、删掉的 C9-060/109/146 不影响 r16.1

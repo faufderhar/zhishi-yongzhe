@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园中班-v47（AI初审）",
- "version": "v47",
+ "bank_name": "三兄妹题库-幼儿园中班-v48（AI初审）",
+ "version": "v48",
  "questions": [
   {
    "id": "K2N-001",
@@ -415,6 +415,7 @@
    "unit": "数到10",
    "type": "选择",
    "question": "数数的时候，7后面是几？",
+   "question_image": "images/k2/stems/K2N-010_stem_train_after7.webp",
    "tts_text": "数数的时候，7后面是几？",
    "options": [
     {
@@ -454,6 +455,7 @@
    "unit": "数到10",
    "type": "选择",
    "question": "数数的时候，9前面是几？",
+   "question_image": "images/k2/stems/K2N-011_stem_train_before9.webp",
    "tts_text": "数数的时候，9前面是几？",
    "options": [
     {
@@ -493,6 +495,7 @@
    "unit": "数到10",
    "type": "选择",
    "question": "从1数到10，最后一个数是几？",
+   "question_image": "images/k2/stems/K2N-012_stem_train_1to10.webp",
    "tts_text": "从一数到十，最后一个数是几？",
    "options": [
     {
@@ -579,6 +582,7 @@
    "unit": "数到10",
    "type": "选择",
    "question": "小朋友排队报数：1、2、3、4、5、6，下一个小朋友报几？",
+   "question_image": "images/k2/stems/K2N-014_stem_kids_count_off.webp",
    "tts_text": "小朋友排队报数：1、2、3、4、5、6，下一个小朋友报几？",
    "options": [
     {

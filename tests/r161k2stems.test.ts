@@ -26,3 +26,8 @@ it('中班题干渲染：有 question_image 时画出图片', async () => {
   const h = renderToStaticMarkup(createElement(QImage, { image: 'images/k2/stems/K2N-014_stem_kids_count_off.webp', cls: 'q-img', fallback: null }));
   expect(h).toMatch(/<img[^>]+K2N-014_stem_kids_count_off\.webp/);
 });
+it('题库 v48 已填好：4 题的 question_image 正是 public/images/k2/stems/ 里的文件', () => {
+  const got = Object.fromEntries(raw.questions.filter((q: any) => STEMS[q.id]).map((q: any) => [q.id, q.question_image]));
+  expect(got).toEqual(Object.fromEntries(Object.entries(STEMS).map(([id, f]) => [id, `images/k2/stems/${f}`])));
+  for (const p of Object.values(got) as string[]) expect(existsSync('public/' + p), p).toBe(true);
+});
