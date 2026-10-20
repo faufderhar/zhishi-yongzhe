@@ -1085,6 +1085,11 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (min-height:481px) and (max-height:560px){.result-screen .kspeaker,.theme-kinder .result-screen .kspeaker{width:72px;height:72px;min-width:72px;min-height:72px;font-size:40px}
   .result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:clamp(60px,calc(100vh - 420px),84px)}.result-screen .row.friends .kmon-face{height:clamp(60px,calc(100vh - 420px),84px)}}
 @media (min-height:481px) and (max-height:500px){.result-screen{gap:6px}}
+/* r16.3 小萌新 #2：「1280×600 的窗口」再弹出 Chrome 的「恢复标签页」提示条时视口只有约 455 高（≤480 的规则原本只管手机横屏）；
+   第 2 次结算页（多一行「真棒！再玩一关吧」）要 490 → 滚动条回来、顶上的伙伴被切一半。≤480 高：🔊 缩到 64（仍好点）、伙伴图随高度缩（≥44）、间距 4px、字小一号 */
+@media (max-height:480px){.result-screen{gap:4px;padding:4px 12px}.result-screen .kspeaker,.theme-kinder .result-screen .kspeaker{width:64px;height:64px;min-width:64px;min-height:64px;font-size:34px}
+  .result-screen .row.friends>*,.result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:clamp(44px,calc(100vh - 396px),76px)}.result-screen .row.friends .kmon-face{height:clamp(44px,calc(100vh - 396px),76px)}
+  .result-screen h1{font-size:18px}.result-screen .ksub{font-size:20px;margin:0}.result-screen .klines{font-size:20px;gap:2px;margin:0}.result-screen .stars{font-size:28px !important}}
 /* r16.1 (a)：800 高也一样——第 2 次玩时溢出约 130px，被吸底按钮盖住；721–860px 高度时收紧（立绘 150px、间距 14px） */
 @media (min-height:721px) and (max-height:860px){.result-screen{gap:14px;padding:14px 20px}.result-screen>p,.result-screen .klines{margin:2px 0}}
 @media (min-height:761px) and (max-height:860px){.result-screen .row.friends img,.result-screen .row.friends .sprite{max-height:150px}.result-screen .row.friends .kmon-face{height:150px}}
