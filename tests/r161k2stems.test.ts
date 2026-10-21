@@ -7,9 +7,28 @@ import { loadBank, validateQuestion } from '../src/game/questions';
 import { parseImage } from '../src/game/shapes';
 const STEMS: Record<string, string> = { 'K2N-011': 'K2N-011_stem_train_before9.webp', 'K2N-010': 'K2N-010_stem_train_after7.webp', 'K2N-012': 'K2N-012_stem_train_1to10.webp', 'K2N-014': 'K2N-014_stem_kids_count_off.webp' };
 const raw = JSON.parse(readFileSync('public/banks/bank_K2.json', 'utf8'));
-it('4 张图在 public/images/k2/stems/（构建会原样拷进 dist，离线包从 dist 打）；512×512 WebP', () => {
+/** WebP 宽高（VP8 / VP8L / VP8X 三种头） */
+function webpSize(b: Buffer): [number, number] {
+  const t = b.subarray(12, 16).toString();
+  if (t === 'VP8X') return [1 + b.readUIntLE(24, 3), 1 + b.readUIntLE(27, 3)];
+  if (t === 'VP8L') { const n = b.readUInt32LE(21); return [1 + (n & 0x3fff), 1 + ((n >> 14) & 0x3fff)]; }
+  return [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff];
+}
+it('4 张图在 public/images/k2/stems/（构建会原样拷进 dist，离线包从 dist 打）；r17 新版：1024 宽横图 WebP（高宽比 0.3–0.6）', () => {
   for (const f of Object.values(STEMS)) { const p = `public/images/k2/stems/${f}`; expect(existsSync(p), p).toBe(true); const b = readFileSync(p);
-    expect(b.subarray(0, 4).toString()).toBe('RIFF'); expect(b.subarray(8, 12).toString()).toBe('WEBP'); }
+    expect(b.subarray(0, 4).toString()).toBe('RIFF'); expect(b.subarray(8, 12).toString()).toBe('WEBP');
+    const [w, h] = webpSize(b); expect(w, f).toBe(1024); expect(h / w, f).toBeGreaterThan(0.3); expect(h / w, f).toBeLessThan(0.6); }
+});
+it('r17 C5：可重跑的拷贝脚本管这 4 张（K2N-014 用当前版，不是 alt）', () => {
+  const s = readFileSync('scripts/copy-kinder-art.mjs', 'utf8');
+  for (const f of Object.values(STEMS)) expect(s).toContain(`'${f}'`);
+  expect(s).not.toMatch(/K2N-014[^'\n]*alt[^'\n]*\.webp'/);
+});
+it('r17 C5：题干配图放宽到约气泡宽 60%（只管 images/k2/stems/，其它题干图仍是 22vh 上限）', () => {
+  const css = readFileSync('src/app.css', 'utf8');
+  expect(css).toContain('.q-img{display:block;max-height:22vh;');
+  expect(css).toMatch(/\.kbubble \.q-img\[src\*="k2\/stems\/"\]\{max-width:76%;max-height:28dvh/);
+  expect(css).toMatch(/\.kbubble \.kq:has\(>\.q-img\[src\*="k2\/stems\/"\]\)\{flex:1 1 auto/);
 });
 it('离线：Service Worker 预缓存包含 images/k2/（webp 在 globPatterns，images/k2 不在 globIgnores）', () => {
   const v = readFileSync('vite.config.ts', 'utf8'); expect(v).toMatch(/globPatterns: \['\*\*\/\*\.\{[^}]*webp/); expect(v).not.toMatch(/globIgnores:[^\]]*images\/k2/);
