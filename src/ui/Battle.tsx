@@ -270,10 +270,13 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
   useKFit(D.stage);
   useEffect(() => { if (D.dir.current) D.dir.current.dashK = dashScale(km.aspect); }, [D.monState, km.aspect]);   // 宽 Boss：走近主角的距离按宽度缩短
   // 宽 Boss 跳进来（hop-in 从右边 160px 处进场）：按实际右侧空间缩短，整只（序列帧框）不出战斗区
-  useLayoutEffect(() => { const wrap = D.monster.current, st = D.stage.current; if (!wrap || !st || km.aspect <= 0.85) return;
-    const box = (wrap.querySelector('[data-testid=monster-sheet]') as HTMLElement | null) ?? wrap; const tx = new DOMMatrix(getComputedStyle(wrap).transform === 'none' ? undefined : getComputedStyle(wrap).transform).m41;
-    const room = st.getBoundingClientRect().right - (box.getBoundingClientRect().right - tx) - 4;
-    wrap.style.setProperty('--kdash', String(Math.max(0, Math.min(dashScale(km.aspect), room / 160)))); }, [D.monState, km.aspect]);
+  // r17：Q版图（宽高比各不相同）一律按实际右侧空间算；图片加载完再算一次
+  useLayoutEffect(() => { const wrap = D.monster.current, st = D.stage.current; if (!wrap || !st || (!useQ && km.aspect <= 0.85)) return;
+    const fit = () => { const box = (wrap.querySelector('[data-testid=monster-sheet], img.kmon.qban') as HTMLElement | null) ?? wrap; const tx = new DOMMatrix(getComputedStyle(wrap).transform === 'none' ? undefined : getComputedStyle(wrap).transform).m41;
+      const sc = parseFloat(getComputedStyle(wrap).scale) || 1;   // --kfit 缩放也作用在 translateX 上
+      const room = st.getBoundingClientRect().right - (box.getBoundingClientRect().right - tx * sc) - 6;
+      wrap.style.setProperty('--kdash', String(Math.max(0, Math.min(useQ ? 1 : dashScale(km.aspect), room / (160 * sc))))); };
+    fit(); const q = useQ ? wrap.querySelector('img.kmon.qban') as HTMLImageElement | null : null; if (q && !q.complete) { q.addEventListener('load', fit, { once: true }); return () => q.removeEventListener('load', fit); } }, [D.monState, km.aspect, useQ, qid]);
   const gskin = gskin0 && (useQ || D.monState !== 'fail') ? gskin0 : null;   // 柔和版怪兽没加载出来 → 小乌云，文字也跟着说小乌云
   const monName = term ? TERM_MON_NAME[term] : gskin?.name ?? '小乌云';
   const kMon: KMonOut | undefined = gskin ? { name: gskin.name, dir: gskin.art.dir, idle: gskin.art.anims.idle.soft, ...(useQ ? { qban: qid } : {}) } : useQ ? { name: '小乌云', dir: '', idle: '', qban: qid } : undefined;

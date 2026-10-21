@@ -22,15 +22,15 @@ for (const vp of VPS) {
     const idx = await pg.evaluate(([s, u, k]) => { const c = window.__zyLevels.find(c => c.subject === s); return c.levels.findIndex(l => l.kind === k && l.qs.some(q => q.unit === u)); }, [subj, unit, kind]);
     await pg.evaluate(f => { window.__zyForceQ = f || undefined; }, fq);
     await pg.click(`[data-testid=level-${idx + 1}]`);
-    // 跳进来（hop-in 1.4s）：序列帧框不出战斗区
-    let hop = 1e9; for (let t = 0; t < 22; t++) { const m = await pg.evaluate(() => { const st = document.querySelector('.kstage')?.getBoundingClientRect(), sh = document.querySelector('[data-testid=monster-sheet]')?.getBoundingClientRect(); return st && sh ? Math.min(sh.left - st.left, st.right - sh.right) : null; }); if (m !== null) hop = Math.min(hop, m); await w(70); }
+    // 跳进来（hop-in 1.4s）：序列帧框不出战斗区（r17：有 Q版的怪物不再加载序列帧，量 Q版图 [data-testid=kmon].qban）
+    let hop = 1e9; for (let t = 0; t < 22; t++) { const m = await pg.evaluate(() => { const st = document.querySelector('.kstage')?.getBoundingClientRect(), sh = document.querySelector('[data-testid=monster-sheet], [data-testid=kmon].qban')?.getBoundingClientRect(); return st && sh ? Math.min(sh.left - st.left, st.right - sh.right) : null; }); if (m !== null) hop = Math.min(hop, m); await w(70); }
     await w(200);
     for (let i = 0; i < 10; i++) { const t = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!t) break; await t.click().catch(() => {}); await w(300); }
-    await pg.waitForSelector('.kopt:not([disabled])', { timeout: 15000 }); if (kind !== 'normal') await pg.waitForSelector('[data-testid=monster-sheet]', { timeout: 8000 }).catch(() => {}); await w(700);
+    await pg.waitForSelector('.kopt:not([disabled])', { timeout: 15000 }); if (kind !== 'normal') await pg.waitForSelector('[data-testid=monster-sheet], [data-testid=kmon].qban', { timeout: 8000 }).catch(() => {}); await w(700);
     const tag = `${subj}-${unit}-${kind}${fq ? '-' + fq : ''}-${vp}`;
-    const info = await pg.evaluate(() => { const R = e => e && e.getBoundingClientRect(); const st = R(document.querySelector('.kstage')), sh = R(document.querySelector('[data-testid=monster-sheet]'));
+    const info = await pg.evaluate(() => { const R = e => e && e.getBoundingClientRect(); const st = R(document.querySelector('.kstage')), sh = R(document.querySelector('[data-testid=monster-sheet], [data-testid=kmon].qban'));
       const imgs = [...document.querySelectorAll('.kopts img, .kq img, .kbubble img')].map(i => ({ src: i.getAttribute('src'), w: Math.round(i.getBoundingClientRect().width), h: Math.round(i.getBoundingClientRect().height), ok: i.complete && i.naturalWidth > 0 }));
-      return { mon: document.querySelector('[data-testid=monster-sheet]')?.dataset.mon ?? document.querySelector('[data-testid=kmon]')?.dataset.mon, kboss: document.querySelector('[data-kboss]')?.dataset.kboss, crown: !!document.querySelector('[data-testid=boss-crown]'),
+      return { mon: document.querySelector('[data-testid=monster-sheet], [data-testid=kmon].qban')?.dataset.mon ?? document.querySelector('[data-testid=kmon]')?.dataset.mon, kboss: document.querySelector('[data-kboss]')?.dataset.kboss, crown: !!document.querySelector('[data-testid=boss-crown]'),
         inStage: st && sh ? sh.left >= st.left - 1 && sh.right <= st.right + 1 : null, sizeRatio: sh ? +(sh.height / (Math.max(1, R(document.querySelector('[data-testid=kpup] .sheet-box') ?? document.querySelector('[data-testid=kpup]'))?.height ?? 0))).toFixed(2) : null, imgs }; });
     await pg.screenshot({ path: `${OUT}${tag}-start.png` });
     let fin = null;
@@ -43,11 +43,11 @@ for (const vp of VPS) {
         await pg.click('.kopt[data-correct="1"]').catch(() => {}); if (left === 1) break; await w(400);
       }
       // 结尾走近主角（kinderFinale 900ms，中点约 450ms）：多次取样，看序列帧框是否一直在战斗区内
-      let worst = 1e9; for (let t = 0; t < 30; t++) { if (await pg.$('[data-testid=gentle-mon].go-home')) break; const m = await pg.evaluate(() => { const st = document.querySelector('.kstage')?.getBoundingClientRect(), sh = document.querySelector('[data-testid=monster-sheet]')?.getBoundingClientRect(); return st && sh ? Math.min(sh.left - st.left, st.right - sh.right) : null; }); if (m !== null) worst = Math.min(worst, m); if (t === 5) await pg.screenshot({ path: `${OUT}${tag}-finale.png` }); await w(80); }
+      let worst = 1e9; for (let t = 0; t < 30; t++) { if (await pg.$('[data-testid=gentle-mon].go-home')) break; const m = await pg.evaluate(() => { const st = document.querySelector('.kstage')?.getBoundingClientRect(), sh = document.querySelector('[data-testid=monster-sheet], [data-testid=kmon].qban')?.getBoundingClientRect(); return st && sh ? Math.min(sh.left - st.left, st.right - sh.right) : null; }); if (m !== null) worst = Math.min(worst, m); if (t === 5) await pg.screenshot({ path: `${OUT}${tag}-finale.png` }); await w(80); }
       fin = Math.round(worst);
     }
     rep.push({ vp, subj, unit, kind, fq, ...info, hopMinMargin: hop === 1e9 ? null : Math.round(hop), playMinMargin: fin });
-    if (kind === 'boss') { ok(info.kboss === 'art' && !info.crown && /^mon_k2_/.test(info.mon ?? ''), `${tag} 专属 Boss ${info.mon} 无王冠`); ok((info.sizeRatio ?? 0) >= 0.6, `${tag} 序列帧高度 / 伙伴高度 = ${info.sizeRatio}`); ok(info.inStage !== false && (fin === null || fin >= -1) && (hop === 1e9 || hop >= -1), `${tag} 序列帧在战斗区内（跳进来最小边距 ${hop === 1e9 ? '-' : Math.round(hop)}px，答题到回家前最小边距 ${fin}px）`); }
+    if (kind === 'boss') { ok(info.kboss === 'art' && !info.crown && /^mon_k2_/.test(info.mon ?? ''), `${tag} 专属 Boss ${info.mon} 无王冠`); ok((info.sizeRatio ?? 0) >= 0.6, `${tag} 序列帧 / Q版（r17）高度 / 伙伴高度 = ${info.sizeRatio}`); ok(info.inStage !== false && (fin === null || fin >= -1) && (hop === 1e9 || hop >= -1), `${tag} 序列帧在战斗区内（跳进来最小边距 ${hop === 1e9 ? '-' : Math.round(hop)}px，答题到回家前最小边距 ${fin}px）`); }
     if (fq) { const im = info.imgs.filter(i => /obj_(thread|paper_sheet)/.test(i.src ?? '')); ok(im.length > 0 && im.every(i => i.ok && i.w >= 60 && i.h >= 60), `${tag} ${fq} 题图 ${JSON.stringify(im)}`); }
     // 回地图
     await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(300); await pg.click('text=k2').catch(() => {}); await w(400); await toMap();
