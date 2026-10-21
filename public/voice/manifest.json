@@ -6,14 +6,14 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v51 · K2 v51 · K3 v57 · r17 prompts · r17 term",
+ "bank_version": "K1 v57 · K2 v57 · K3 v57 · r17 prompts · r17 term",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
   "en": 1.2
  },
  "pron_overrides": 57,
- "generated": "2026-10-20T19:12:16-07:00",
+ "generated": "2026-10-20T19:14:33-07:00",
  "complete": true,
  "items": {
   "K-001#opt0": "K-001_opt0.f0d0f7a55e.mp3",
@@ -173,12 +173,12 @@
   "K-049#opt1": "K-044_opt1.409ab3cc04.mp3",
   "K-049#opt2": "K-048_opt0.ffc6868798.mp3",
   "K-049#stem": "K-007_stem.c57bdb0b07.mp3",
-  "K-050#opt0": "K-044_opt1.409ab3cc04.mp3",
+  "K-050#opt0": "p_num_11.2dfe343220.mp3",
   "K-050#opt1": "K-046_opt0.72e016675c.mp3",
   "K-050#opt2": "K-048_opt0.ffc6868798.mp3",
   "K-050#stem": "K-028_stem.1c6e7e4c8d.mp3",
   "K-051#opt0": "K-046_opt0.72e016675c.mp3",
-  "K-051#opt1": "K-044_opt1.409ab3cc04.mp3",
+  "K-051#opt1": "p_num_11.2dfe343220.mp3",
   "K-051#opt2": "K-048_opt0.ffc6868798.mp3",
   "K-051#stem": "K-005_stem.fe510256c6.mp3",
   "K-055#opt0": "K-048_opt0.ffc6868798.mp3",
@@ -490,7 +490,7 @@
   "K2D-005#stem": "K2D-005_stem.7cce343b5f.mp3",
   "K2D-006#opt0": "K2D-006_opt0.850523d00d.mp3",
   "K2D-006#opt1": "K2D-006_opt1.fc286c7ca4.mp3",
-  "K2D-006#opt2": "K2D-006_opt2.4ebda7b6ec.mp3",
+  "K2D-006#opt2": "K2D-006_opt2.ab4d7a1966.mp3",
   "K2D-006#stem": "K2D-006_stem.3bea64e106.mp3",
   "K2D-007#opt0": "K2D-007_opt0.8200113513.mp3",
   "K2D-007#opt1": "K2C-042_opt2.2b083be2a9.mp3",
@@ -521,8 +521,8 @@
   "K2D-013#opt2": "K-073_opt0.179db923c7.mp3",
   "K2D-013#stem": "K2D-013_stem.5e734daff0.mp3",
   "K2D-014#opt0": "K2D-014_opt0.375a957d42.mp3",
-  "K2D-014#opt1": "KS-014_opt2.bc9ce1c6b2.mp3",
-  "K2D-014#opt2": "K2D-014_opt2.3fc14f60db.mp3",
+  "K2D-014#opt1": "K2D-014_opt1.9c7e25b3c1.mp3",
+  "K2D-014#opt2": "K2D-014_opt2.814b6db3d1.mp3",
   "K2D-014#stem": "K2D-014_stem.43cc4c6937.mp3",
   "K2D-015#opt0": "K2D-002_opt2.e6a135ca71.mp3",
   "K2D-015#opt1": "KD-013_opt1.0722150b1e.mp3",
@@ -558,7 +558,7 @@
   "K2D-022#stem": "K2D-022_stem.4bd06f7162.mp3",
   "K2D-023#opt0": "K2D-023_opt0.1f5750c422.mp3",
   "K2D-023#opt1": "K2D-023_opt1.5399ddcd09.mp3",
-  "K2D-023#opt2": "K2D-023_opt2.d9d410c50a.mp3",
+  "K2D-023#opt2": "K2D-023_opt2.b07fe39360.mp3",
   "K2D-023#stem": "K2D-023_stem.225c2faa62.mp3",
   "K2D-024#opt0": "K2D-024_opt0.11394af457.mp3",
   "K2D-024#opt1": "K2D-024_opt1.e2f8e2ea7e.mp3",
@@ -601,7 +601,7 @@
   "K2D-033#opt2": "K2D-033_opt2.9dcc2e0c21.mp3",
   "K2D-033#stem": "K2D-033_stem.09a955e9fd.mp3",
   "K2D-034#opt0": "K2D-009_opt2.6fc8d48593.mp3",
-  "K2D-034#opt1": "K2D-034_opt1.bf60d3cb94.mp3",
+  "K2D-034#opt1": "K2D-034_opt1.88bfd584f9.mp3",
   "K2D-034#opt2": "K2D-034_opt2.1441b8d5ca.mp3",
   "K2D-034#stem": "K2D-034_stem.74b308e1ae.mp3",
   "K2D-035#opt0": "K2D-035_opt0.1d4ef27f30.mp3",
@@ -630,7 +630,7 @@
   "K2D-040#stem": "K2D-040_stem.83603484b9.mp3",
   "K2D-041#opt0": "K2D-009_opt2.6fc8d48593.mp3",
   "K2D-041#opt1": "K2D-041_opt1.15f1b6f238.mp3",
-  "K2D-041#opt2": "K2D-034_opt1.bf60d3cb94.mp3",
+  "K2D-041#opt2": "K2D-034_opt1.88bfd584f9.mp3",
   "K2D-041#stem": "K2D-041_stem.c5b77fcc84.mp3",
   "K2D-042#opt0": "KD-010_opt1.2e7c1ab4f1.mp3",
   "K2D-042#opt1": "K2D-021_opt1.0af66557c9.mp3",
@@ -843,7 +843,7 @@
   "K2G-002#stem": "K2G-002_stem.4eda8d467b.mp3",
   "K2G-003#opt0": "K2G-003_opt0.b3e9899573.mp3",
   "K2G-003#opt1": "K2G-003_opt1.fa7c0388c1.mp3",
-  "K2G-003#opt2": "K2L-044_opt0.206048309b.mp3",
+  "K2G-003#opt2": "K2G-003_opt2.5fe207544e.mp3",
   "K2G-003#stem": "K2G-003_stem.f351881f0d.mp3",
   "K2G-004#opt0": "K2G-004_opt0.0b0cb07e28.mp3",
   "K2G-004#opt1": "K2G-004_opt1.dffeea02cd.mp3",
@@ -879,14 +879,14 @@
   "K2G-011#stem": "K2G-011_stem.04f157d43f.mp3",
   "K2G-012#opt0": "K2G-012_opt0.fb41904471.mp3",
   "K2G-012#opt1": "K2G-001_opt1.ed280c0b27.mp3",
-  "K2G-012#opt2": "K2G-005_opt1.4c8466c83c.mp3",
+  "K2G-012#opt2": "K2G-012_opt2.08fda7a672.mp3",
   "K2G-012#stem": "K2G-012_stem.47339bf718.mp3",
   "K2G-013#opt0": "K2G-013_opt0.9dae5514cd.mp3",
   "K2G-013#opt1": "K2G-004_opt1.dffeea02cd.mp3",
   "K2G-013#opt2": "K2G-013_opt2.4a67104d9d.mp3",
   "K2G-013#stem": "K2G-013_stem.946f3f5047.mp3",
   "K2G-014#opt0": "K2G-014_opt0.064f0c2052.mp3",
-  "K2G-014#opt1": "K2G-014_opt1.5e86e409cc.mp3",
+  "K2G-014#opt1": "K2G-014_opt1.7f241acea5.mp3",
   "K2G-014#opt2": "K2G-014_opt2.9a9d776acb.mp3",
   "K2G-014#stem": "K2G-014_stem.6e37ba35e0.mp3",
   "K2G-015#opt0": "K2G-015_opt0.12ee169ca2.mp3",
@@ -946,7 +946,7 @@
   "K2G-028#opt2": "K2G-028_opt2.12a25708c3.mp3",
   "K2G-028#stem": "K2G-028_stem.62f25b1bad.mp3",
   "K2G-029#opt0": "K2G-029_opt0.6a532688c5.mp3",
-  "K2G-029#opt1": "K2G-029_opt1.7bc00b3828.mp3",
+  "K2G-029#opt1": "K2G-029_opt1.0114117a3a.mp3",
   "K2G-029#opt2": "K2G-029_opt2.527444c28b.mp3",
   "K2G-029#stem": "K2G-029_stem.8681aa36b0.mp3",
   "K2G-030#opt0": "K2G-030_opt0.1cbc319889.mp3",
@@ -1162,7 +1162,7 @@
   "K2N-006#opt1": "K-048_opt0.ffc6868798.mp3",
   "K2N-006#opt2": "K-044_opt1.409ab3cc04.mp3",
   "K2N-006#stem": "K2N-006_stem.590e53b208.mp3",
-  "K2N-007#opt0": "K-044_opt1.409ab3cc04.mp3",
+  "K2N-007#opt0": "p_num_11.2dfe343220.mp3",
   "K2N-007#opt1": "K-046_opt0.72e016675c.mp3",
   "K2N-007#opt2": "K-048_opt0.ffc6868798.mp3",
   "K2N-007#stem": "K2N-007_stem.337e248733.mp3",
@@ -1170,7 +1170,7 @@
   "K2N-008#opt1": "K-042_opt1.2addcea881.mp3",
   "K2N-008#opt2": "K-044_opt1.409ab3cc04.mp3",
   "K2N-008#stem": "K2N-008_stem.1a94a919c2.mp3",
-  "K2N-009#opt0": "K-044_opt1.409ab3cc04.mp3",
+  "K2N-009#opt0": "p_num_11.2dfe343220.mp3",
   "K2N-009#opt1": "K-048_opt0.ffc6868798.mp3",
   "K2N-009#opt2": "K-046_opt0.72e016675c.mp3",
   "K2N-009#stem": "K2N-009_stem.1257c3620d.mp3",
@@ -1182,11 +1182,11 @@
   "K2N-011#opt1": "K-048_opt0.ffc6868798.mp3",
   "K2N-011#opt2": "K-044_opt1.409ab3cc04.mp3",
   "K2N-011#stem": "K2N-011_stem.6aed9ca5ce.mp3",
-  "K2N-012#opt0": "K-044_opt1.409ab3cc04.mp3",
+  "K2N-012#opt0": "p_num_11.2dfe343220.mp3",
   "K2N-012#opt1": "K-048_opt0.ffc6868798.mp3",
   "K2N-012#opt2": "K-046_opt0.72e016675c.mp3",
   "K2N-012#stem": "K2N-012_stem.8a20dee63c.mp3",
-  "K2N-013#opt0": "K-044_opt1.409ab3cc04.mp3",
+  "K2N-013#opt0": "p_num_11.2dfe343220.mp3",
   "K2N-013#opt1": "K-048_opt0.ffc6868798.mp3",
   "K2N-013#opt2": "K-046_opt0.72e016675c.mp3",
   "K2N-013#stem": "K2N-013_stem.cf88eb21bb.mp3",
@@ -1565,7 +1565,7 @@
   "K3C-049#stem": "K3C-049_stem.83dcfecba8.mp3",
   "K3C-050#opt0": "K3C-050_opt0.12e40f46ba.mp3",
   "K3C-050#opt1": "K3C-050_opt1.c682c59257.mp3",
-  "K3C-050#opt2": "K3C-050_opt2.d4b3dfe80d.mp3",
+  "K3C-050#opt2": "K3C-050_opt2.4abed95556.mp3",
   "K3C-050#stem": "K3C-050_stem.ce5ea83a47.mp3",
   "K3C-051#opt0": "K3C-051_opt0.7d3ea854ab.mp3",
   "K3C-051#opt1": "K3C-051_opt1.d6e8fc6272.mp3",
@@ -2179,7 +2179,7 @@
   "K3L-011#stem": "K3L-011_stem.65fd0fc1c2.mp3",
   "K3L-012#opt0": "K3L-012_opt0.c489ff3d9a.mp3",
   "K3L-012#opt1": "K3L-012_opt1.e15cbe015b.mp3",
-  "K3L-012#opt2": "K3L-012_opt2.3b72f6eab8.mp3",
+  "K3L-012#opt2": "K3L-012_opt2.f333419701.mp3",
   "K3L-012#stem": "K3L-012_stem.5575c9a00e.mp3",
   "K3L-013#opt0": "K3L-013_opt0.0f42dd3868.mp3",
   "K3L-013#opt1": "K3L-013_opt1.51d3992a51.mp3",
@@ -2187,7 +2187,7 @@
   "K3L-013#stem": "K3L-013_stem.2e25e00c49.mp3",
   "K3L-014#opt0": "K3L-014_opt0.30d53d9aac.mp3",
   "K3L-014#opt1": "K3L-014_opt1.4d8d154167.mp3",
-  "K3L-014#opt2": "K3L-014_opt2.1180ab048c.mp3",
+  "K3L-014#opt2": "K3L-014_opt2.16126b4e15.mp3",
   "K3L-014#stem": "K3L-014_stem.fafefbb5c5.mp3",
   "K3L-015#opt0": "K3L-015_opt0.d94b907844.mp3",
   "K3L-015#opt1": "K2L-017_opt0.58626b8ad5.mp3",
@@ -2204,7 +2204,7 @@
   "K3L-018#stem": "K3L-018_stem.5c0595f3a4.mp3",
   "K3L-019#opt0": "K3L-019_opt0.e74b1ca003.mp3",
   "K3L-019#opt1": "K3L-019_opt1.168a39aeca.mp3",
-  "K3L-019#opt2": "K3L-019_opt2.6212ae56d1.mp3",
+  "K3L-019#opt2": "K3L-019_opt2.f7d8e95bd1.mp3",
   "K3L-019#stem": "K3L-019_stem.77938ed528.mp3",
   "K3L-020#opt0": "K3L-020_opt0.1895191b68.mp3",
   "K3L-020#opt1": "K3L-020_opt1.e4a5bfc7da.mp3",
@@ -2212,11 +2212,11 @@
   "K3L-020#stem": "K3L-020_stem.a5d9af66e1.mp3",
   "K3L-021#opt0": "K2L-023_opt0.d849e9e062.mp3",
   "K3L-021#opt1": "K3L-021_opt1.0f13d25093.mp3",
-  "K3L-021#opt2": "K3L-021_opt2.81a3c8861c.mp3",
+  "K3L-021#opt2": "K3L-021_opt2.3af20d3ac7.mp3",
   "K3L-021#stem": "K3L-021_stem.1b3d6d4cb2.mp3",
   "K3L-022#opt0": "K3L-022_opt0.c7aef38d91.mp3",
   "K3L-022#opt1": "K3L-022_opt1.c4ad98e5b5.mp3",
-  "K3L-022#opt2": "K3L-022_opt2.55bc325e2d.mp3",
+  "K3L-022#opt2": "K3L-022_opt2.d343c5308a.mp3",
   "K3L-022#stem": "K3L-022_stem.e91e667a05.mp3",
   "K3L-023#opt0": "K3L-023_opt0.0a83ee8465.mp3",
   "K3L-023#opt1": "K3L-023_opt1.e13742647d.mp3",
@@ -2229,10 +2229,10 @@
   "K3L-025#stem": "K3L-025_stem.96d966e525.mp3",
   "K3L-026#opt0": "K3L-026_opt0.7544d45928.mp3",
   "K3L-026#opt1": "K3L-026_opt1.582e4be3f9.mp3",
-  "K3L-026#opt2": "K3L-026_opt2.b282459c17.mp3",
+  "K3L-026#opt2": "K3L-026_opt2.10acafe408.mp3",
   "K3L-026#stem": "K3L-026_stem.f347f13cc5.mp3",
   "K3L-027#opt0": "K3L-027_opt0.21ade38eaa.mp3",
-  "K3L-027#opt1": "K3L-027_opt1.e97d5b03d7.mp3",
+  "K3L-027#opt1": "K3L-027_opt1.86bcf002bb.mp3",
   "K3L-027#opt2": "K3L-027_opt2.60a9ad38c5.mp3",
   "K3L-027#stem": "K3L-027_stem.4062cc1153.mp3",
   "K3L-028#opt0": "K3L-028_opt0.d3a0005ebd.mp3",
@@ -2279,7 +2279,7 @@
   "K3L-039#stem": "K3L-039_stem.5355f74e3b.mp3",
   "K3L-040#opt0": "K3L-040_opt0.de8bcf455e.mp3",
   "K3L-040#opt1": "K3L-040_opt1.fc658ca01e.mp3",
-  "K3L-040#opt2": "K3L-040_opt2.249fa017f6.mp3",
+  "K3L-040#opt2": "K3L-040_opt2.ecb60c4bd8.mp3",
   "K3L-040#stem": "K3L-040_stem.19324883a3.mp3",
   "K3L-041#opt0": "K3L-041_opt0.51eab799b3.mp3",
   "K3L-041#opt1": "K3L-041_opt1.55c92788c7.mp3",
@@ -2334,7 +2334,7 @@
   "K3L-054#opt1": "K3L-054_opt1.5f9e7dfc28.mp3",
   "K3L-054#opt2": "K2N-059_opt2.fb38634ace.mp3",
   "K3L-054#stem": "K3L-054_stem.4f718084cc.mp3",
-  "K3L-055#opt0": "K3L-055_opt0.47e51d01c4.mp3",
+  "K3L-055#opt0": "K3L-055_opt0.374e0f4b23.mp3",
   "K3L-055#opt1": "K3L-055_opt1.cb2fd7f3c9.mp3",
   "K3L-055#opt2": "K3L-055_opt2.d607cc7805.mp3",
   "K3L-055#stem": "K3L-055_stem.0fdef5e51a.mp3",
@@ -2849,7 +2849,7 @@
   "KE-033#stem": "KE-033_stem.eb15942ee1.mp3",
   "KE-034#opt0": "KE-034_opt0.5086299c37.mp3",
   "KE-034#opt1": "KE-033_opt2.6cc7a918ac.mp3",
-  "KE-034#opt2": "KE-033_opt0.853d883239.mp3",
+  "KE-034#opt2": "KE-036_opt1.4d0472739a.mp3",
   "KE-034#stem": "KE-034_stem.1b4ac9cff0.mp3",
   "KE-035#opt0": "KE-034_opt0.5086299c37.mp3",
   "KE-035#opt1": "KE-033_opt1.d395c617af.mp3",
@@ -2859,7 +2859,7 @@
   "KE-036#opt1": "KE-036_opt1.4d0472739a.mp3",
   "KE-036#opt2": "KE-033_opt2.6cc7a918ac.mp3",
   "KE-036#stem": "KE-036_stem.3ddc903ea3.mp3",
-  "KE-037#opt0": "KE-033_opt0.853d883239.mp3",
+  "KE-037#opt0": "KE-037_opt0.7af25daa5d.mp3",
   "KE-037#opt1": "KE-036_opt0.aff21efd8b.mp3",
   "KE-037#opt2": "KE-036_opt1.4d0472739a.mp3",
   "KE-037#stem": "KE-037_stem.7b7acf054d.mp3",
@@ -7341,30 +7341,31 @@
    "status": "AI初审通过"
   },
   "K-050#opt0": {
-   "file": "K-044_opt1.409ab3cc04.mp3",
-   "text": "8",
+   "file": "p_num_11.2dfe343220.mp3",
+   "text": "11",
    "segments": [
     [
      "zh",
-     "8"
+     "11"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "409ab3cc044d88e88bc24d1f4305633e31f8b54c33ae4ba7badc20c1414e3666",
+   "hash": "2dfe343220deb5550b32d99c4eeeec04060b5243a5c6d3b06397307ba28567fb",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄚ1"
+    "zh|zf_002|1.2|ㄕ十2ㄧ1"
    ],
-   "synth_s": 3.06,
-   "duration": 0.624,
+   "synth_s": 3.79,
+   "duration": 0.696,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 8.82,
-   "limiter_gr_db": 1.55,
+   "tp": -2.4,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.09,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "K-044#opt1",
-   "status": "AI初审通过"
+   "dup_of": "p:num_11",
+   "status": "AI初审通过",
+   "reused_from": "p:num_11"
   },
   "K-050#opt1": {
    "file": "K-046_opt0.72e016675c.mp3",
@@ -7471,30 +7472,31 @@
    "status": "AI初审通过"
   },
   "K-051#opt1": {
-   "file": "K-044_opt1.409ab3cc04.mp3",
-   "text": "8",
+   "file": "p_num_11.2dfe343220.mp3",
+   "text": "11",
    "segments": [
     [
      "zh",
-     "8"
+     "11"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "409ab3cc044d88e88bc24d1f4305633e31f8b54c33ae4ba7badc20c1414e3666",
+   "hash": "2dfe343220deb5550b32d99c4eeeec04060b5243a5c6d3b06397307ba28567fb",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄚ1"
+    "zh|zf_002|1.2|ㄕ十2ㄧ1"
    ],
-   "synth_s": 3.06,
-   "duration": 0.624,
+   "synth_s": 3.79,
+   "duration": 0.696,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 8.82,
-   "limiter_gr_db": 1.55,
+   "tp": -2.4,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.09,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "K-044#opt1",
-   "status": "AI初审通过"
+   "dup_of": "p:num_11",
+   "status": "AI初审通过",
+   "reused_from": "p:num_11"
   },
   "K-051#opt2": {
    "file": "K-048_opt0.ffc6868798.mp3",
@@ -14200,30 +14202,31 @@
    "status": "AI初审通过"
   },
   "KE-034#opt2": {
-   "file": "KE-033_opt0.853d883239.mp3",
-   "text": "Hello!",
+   "file": "KE-036_opt1.4d0472739a.mp3",
+   "text": "Good morning!",
    "segments": [
     [
      "en",
-     "Hello!"
+     "Good morning!"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "853d883239f94e7cfc4c051a7ae65864909ca0f90cd542888a430e6516e71e40",
+   "hash": "4d0472739aa9cd8760424f497bd4a623e461904b9756842465fdc4ee78c962a9",
    "phonemes": [
-    "en|af_maple|1.2|həlˈO!"
+    "en|af_maple|1.2|ɡˈʊd mˈɔɹnɪŋ!"
    ],
-   "synth_s": 2.16,
-   "duration": 0.6,
-   "lufs": -16.3,
-   "tp": -2.2,
-   "pregain_db": 10.35,
-   "limiter_gr_db": 0.76,
+   "synth_s": 2.17,
+   "duration": 0.792,
+   "lufs": -16.4,
+   "tp": -2.5,
+   "pregain_db": 10.0,
+   "limiter_gr_db": 0.84,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "KE-033#opt0",
-   "status": "AI初审通过"
+   "dup_of": "KE-037#opt2",
+   "status": "AI初审通过",
+   "reused_from": "KE-035#opt2"
   },
   "KE-034#stem": {
    "file": "KE-034_stem.1b4ac9cff0.mp3",
@@ -14456,30 +14459,29 @@
    "norm": "linear"
   },
   "KE-037#opt0": {
-   "file": "KE-033_opt0.853d883239.mp3",
-   "text": "Hello!",
+   "file": "KE-037_opt0.7af25daa5d.mp3",
+   "text": "Good afternoon!",
    "segments": [
     [
      "en",
-     "Hello!"
+     "Good afternoon!"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "853d883239f94e7cfc4c051a7ae65864909ca0f90cd542888a430e6516e71e40",
+   "hash": "7af25daa5d92bf2a9d6d7d0b6f5cca6555da384a29a656880df9968265e42956",
    "phonemes": [
-    "en|af_maple|1.2|həlˈO!"
+    "en|af_maple|1.2|ɡˈʊd ˌæftəɹnˈun!"
    ],
-   "synth_s": 2.16,
-   "duration": 0.6,
+   "synth_s": 0.51,
+   "status": "AI初审通过",
+   "duration": 0.888,
    "lufs": -16.3,
-   "tp": -2.2,
-   "pregain_db": 10.35,
-   "limiter_gr_db": 0.76,
-   "gr_flag": false,
-   "norm": "linear",
-   "dup_of": "KE-033#opt0",
-   "status": "AI初审通过"
+   "tp": -1.5,
+   "pregain_db": 11.75,
+   "limiter_gr_db": 4.88,
+   "gr_flag": true,
+   "norm": "linear"
   },
   "KE-037#opt1": {
    "file": "KE-036_opt0.aff21efd8b.mp3",
@@ -31968,27 +31970,27 @@
    "grade": "K2"
   },
   "K2D-006#opt2": {
-   "file": "K2D-006_opt2.4ebda7b6ec.mp3",
-   "text": "硬硬的壳",
+   "file": "K2D-006_opt2.ab4d7a1966.mp3",
+   "text": "厚厚的硬壳",
    "segments": [
     [
      "zh",
-     "硬硬的壳"
+     "厚厚的硬壳"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "4ebda7b6ec36a2e9e92cef6bdf626eba18f90c9301147cd8a2603f2a34b5388f",
+   "hash": "ab4d7a1966dd7f732bd6b7bc98cc3521d32cfa8b180f1e5cb1ce746dbfb80d9d",
    "phonemes": [
-    "zh|zf_002|1.2|应4应4ㄉㄜ5/ㄎㄜ2"
+    "zh|zf_002|1.2|ㄏㄡ4ㄏㄡ4ㄉㄜ5/应4ㄎㄜ2"
    ],
-   "synth_s": 1.22,
+   "synth_s": 0.54,
    "status": "AI初审通过",
-   "duration": 1.152,
-   "lufs": -16.3,
-   "tp": -2.3,
-   "pregain_db": 5.24,
-   "limiter_gr_db": 0.37,
+   "duration": 1.32,
+   "lufs": -16.4,
+   "tp": -2.7,
+   "pregain_db": 5.79,
+   "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K2"
@@ -32779,54 +32781,52 @@
    "grade": "K2"
   },
   "K2D-014#opt1": {
-   "file": "KS-014_opt2.bc9ce1c6b2.mp3",
-   "text": "耳朵",
+   "file": "K2D-014_opt1.9c7e25b3c1.mp3",
+   "text": "大大的耳朵",
    "segments": [
     [
      "zh",
-     "耳朵"
+     "大大的耳朵"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "bc9ce1c6b2c1cbb0807a3c64224eaebfd6967d43c0a9d34b72273a2595d26fff",
+   "hash": "9c7e25b3c14fa67b9e39416e6395eac4763259d94f0f3b5b1bc4dfc9278f2d79",
    "phonemes": [
-    "zh|zf_002|1.2|ㄦ3ㄉ我5"
+    "zh|zf_002|1.2|ㄉㄚ4ㄉㄚ4ㄉㄜ5/ㄦ3ㄉ我5"
    ],
-   "synth_s": 3.0,
-   "duration": 0.696,
+   "synth_s": 0.74,
+   "status": "AI初审通过",
+   "duration": 1.272,
    "lufs": -16.4,
-   "tp": -2.3,
-   "pregain_db": 7.01,
-   "limiter_gr_db": 0.71,
+   "tp": -3.6,
+   "pregain_db": 6.53,
+   "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "KS-015#opt1",
-   "status": "AI初审通过",
-   "reused_from": "KE-047#opt1",
    "grade": "K2"
   },
   "K2D-014#opt2": {
-   "file": "K2D-014_opt2.3fc14f60db.mp3",
-   "text": "翅膀",
+   "file": "K2D-014_opt2.814b6db3d1.mp3",
+   "text": "宽宽的翅膀",
    "segments": [
     [
      "zh",
-     "翅膀"
+     "宽宽的翅膀"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "3fc14f60db63c4270720af43be72b08d6983da0f82a7045988adc3d467406168",
+   "hash": "814b6db3d17b6a800dcb1136dd6ebb34875b3467a4e925fe54024b5f3167c08e",
    "phonemes": [
-    "zh|zf_002|1.2|ㄔ十4ㄅㄤ3"
+    "zh|zf_002|1.2|ㄎ万1ㄎ万1ㄉㄜ5/ㄔ十4ㄅㄤ3"
    ],
-   "synth_s": 1.53,
+   "synth_s": 1.3,
    "status": "AI初审通过",
-   "duration": 0.72,
-   "lufs": -16.3,
-   "tp": -3.4,
-   "pregain_db": 5.58,
+   "duration": 1.416,
+   "lufs": -16.4,
+   "tp": -3.0,
+   "pregain_db": 6.04,
    "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
@@ -33771,27 +33771,27 @@
    "grade": "K2"
   },
   "K2D-023#opt2": {
-   "file": "K2D-023_opt2.d9d410c50a.mp3",
-   "text": "树上的鸟窝里",
+   "file": "K2D-023_opt2.b07fe39360.mp3",
+   "text": "高高的树上的鸟窝里",
    "segments": [
     [
      "zh",
-     "树上的鸟窝里"
+     "高高的树上的鸟窝里"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "d9d410c50a426cf3019f05f3dd8acf03867d3c847acb52d74f385aae7128cfa1",
+   "hash": "b07fe39360c2670ff444cc0fe68736f2c77d1573c8380ea67b0e6d0ad4b607a3",
    "phonemes": [
-    "zh|zf_002|1.2|ㄕㄨ4ㄕㄤ5/ㄉㄜ5/ㄋ要3我1/ㄌㄧ3"
+    "zh|zf_002|1.2|ㄍㄠ1ㄍㄠ1ㄉㄜ5/ㄕㄨ4ㄕㄤ5/ㄉㄜ5/ㄋ要3我1/ㄌㄧ3"
    ],
-   "synth_s": 3.19,
+   "synth_s": 1.36,
    "status": "AI初审通过",
-   "duration": 1.584,
-   "lufs": -16.3,
-   "tp": -2.4,
-   "pregain_db": 6.28,
-   "limiter_gr_db": 1.06,
+   "duration": 1.968,
+   "lufs": -16.4,
+   "tp": -2.3,
+   "pregain_db": 7.43,
+   "limiter_gr_db": 0.33,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K2"
@@ -34915,27 +34915,27 @@
    "grade": "K2"
   },
   "K2D-034#opt1": {
-   "file": "K2D-034_opt1.bf60d3cb94.mp3",
-   "text": "爬树",
+   "file": "K2D-034_opt1.88bfd584f9.mp3",
+   "text": "爬上高高的树",
    "segments": [
     [
      "zh",
-     "爬树"
+     "爬上高高的树"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "bf60d3cb94656d8befdf6c621997e7ec29249432043613e0f94262b688d56007",
+   "hash": "88bfd584f9a3a4ccac204e56dd2386c6d53115d37c990ea82d4ff96722d99f76",
    "phonemes": [
-    "zh|zf_002|1.2|ㄆㄚ2ㄕㄨ4"
+    "zh|zf_002|1.2|ㄆㄚ2/ㄕㄤ4/ㄍㄠ1ㄍㄠ1ㄉㄜ5/ㄕㄨ4"
    ],
-   "synth_s": 1.17,
+   "synth_s": 0.79,
    "status": "AI初审通过",
-   "duration": 0.792,
+   "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.3,
-   "pregain_db": 5.92,
-   "limiter_gr_db": 0.22,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.16,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K2"
@@ -35685,26 +35685,26 @@
    "grade": "K2"
   },
   "K2D-041#opt2": {
-   "file": "K2D-034_opt1.bf60d3cb94.mp3",
-   "text": "爬树",
+   "file": "K2D-034_opt1.88bfd584f9.mp3",
+   "text": "爬上高高的树",
    "segments": [
     [
      "zh",
-     "爬树"
+     "爬上高高的树"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "bf60d3cb94656d8befdf6c621997e7ec29249432043613e0f94262b688d56007",
+   "hash": "88bfd584f9a3a4ccac204e56dd2386c6d53115d37c990ea82d4ff96722d99f76",
    "phonemes": [
-    "zh|zf_002|1.2|ㄆㄚ2ㄕㄨ4"
+    "zh|zf_002|1.2|ㄆㄚ2/ㄕㄤ4/ㄍㄠ1ㄍㄠ1ㄉㄜ5/ㄕㄨ4"
    ],
-   "synth_s": 1.17,
-   "duration": 0.792,
+   "synth_s": 0.79,
+   "duration": 1.584,
    "lufs": -16.4,
    "tp": -2.3,
-   "pregain_db": 5.92,
-   "limiter_gr_db": 0.22,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.16,
    "gr_flag": false,
    "norm": "linear",
    "dup_of": "K2D-034#opt1",
@@ -42094,30 +42094,29 @@
    "grade": "K2"
   },
   "K2G-003#opt2": {
-   "file": "K2L-044_opt0.206048309b.mp3",
-   "text": "‍ 老师",
+   "file": "K2G-003_opt2.5fe207544e.mp3",
+   "text": "‍ 幼儿园老师",
    "segments": [
     [
      "zh",
-     "老师"
+     "幼儿园老师"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "206048309b4b2cca72ef58819507660e9163ba03ec8e0eabb8e54e4ba94f3fac",
+   "hash": "5fe207544e71c95a067e9da5c7e57c8f08c9e9d3a866026e1895a31f389eb765",
    "phonemes": [
-    "zh|zf_002|1.2|ㄌㄠ3ㄕ十1"
+    "zh|zf_002|1.2|又4ㄦ2元2/ㄌㄠ3ㄕ十1"
    ],
-   "synth_s": 2.36,
-   "duration": 0.744,
+   "synth_s": 0.76,
+   "status": "AI初审通过",
+   "duration": 1.344,
    "lufs": -16.4,
-   "tp": -2.3,
-   "pregain_db": 5.83,
+   "tp": -2.6,
+   "pregain_db": 5.99,
    "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "K2L-044#opt0",
-   "status": "AI初审通过",
    "grade": "K2"
   },
   "K2G-003#stem": {
@@ -43044,30 +43043,29 @@
    "grade": "K2"
   },
   "K2G-012#opt2": {
-   "file": "K2G-005_opt1.4c8466c83c.mp3",
-   "text": "我要进来",
+   "file": "K2G-012_opt2.08fda7a672.mp3",
+   "text": "我要进来啦，快开门",
    "segments": [
     [
      "zh",
-     "我要进来"
+     "我要进来啦，快开门"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "4c8466c83c17ba257e95160ceb3d06ea1edde32e7978fa80afdb25a9dbaba6a2",
+   "hash": "08fda7a6725a217c3ecba4002a2219aed73ba21afdeca9e84ca98b5ed0636afb",
    "phonemes": [
-    "zh|zf_002|1.2|我3/要4/ㄐ阴4ㄌㄞ5"
+    "zh|zf_002|1.2|我3/要4/ㄐ阴4ㄌㄞ5/ㄌㄚ5, ㄎ外4/ㄎㄞ1ㄇㄣ2"
    ],
-   "synth_s": 2.57,
-   "duration": 1.08,
+   "synth_s": 0.8,
+   "status": "AI初审通过",
+   "duration": 1.968,
    "lufs": -16.4,
-   "tp": -2.9,
-   "pregain_db": 5.7,
-   "limiter_gr_db": 0.0,
+   "tp": -2.3,
+   "pregain_db": 7.26,
+   "limiter_gr_db": 0.51,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "K2G-005#opt1",
-   "status": "AI初审通过",
    "grade": "K2"
   },
   "K2G-012#stem": {
@@ -43228,26 +43226,26 @@
    "grade": "K2"
   },
   "K2G-014#opt1": {
-   "file": "K2G-014_opt1.5e86e409cc.mp3",
-   "text": "回家睡觉",
+   "file": "K2G-014_opt1.7f241acea5.mp3",
+   "text": "马上回家睡觉",
    "segments": [
     [
      "zh",
-     "回家睡觉"
+     "马上回家睡觉"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "5e86e409cc5e8b0b2b56afef85f2105abf88839390236d5fc28e4acd875ab1d3",
+   "hash": "7f241acea5cd3b452c49031edc019c1554af6ef8ca97642270e1d9c850112a03",
    "phonemes": [
-    "zh|zf_002|1.2|ㄏ为2ㄐ压1/ㄕ为4ㄐ要4"
+    "zh|zf_002|1.2|ㄇㄚ3ㄕㄤ4/ㄏ为2ㄐ压1/ㄕ为4ㄐ要4"
    ],
-   "synth_s": 1.39,
+   "synth_s": 0.8,
    "status": "AI初审通过",
-   "duration": 1.2,
-   "lufs": -16.4,
-   "tp": -3.1,
-   "pregain_db": 5.79,
+   "duration": 1.68,
+   "lufs": -16.3,
+   "tp": -3.0,
+   "pregain_db": 6.49,
    "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
@@ -44818,27 +44816,27 @@
    "grade": "K2"
   },
   "K2G-029#opt1": {
-   "file": "K2G-029_opt1.7bc00b3828.mp3",
-   "text": "下起了大雨",
+   "file": "K2G-029_opt1.0114117a3a.mp3",
+   "text": "天上下起了大雨",
    "segments": [
     [
      "zh",
-     "下起了大雨"
+     "天上下起了大雨"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "7bc00b3828f3d7c7d16ee97b6caef3566e991f4db60609a26419bc8c44c43f54",
+   "hash": "0114117a3ad0b40f66fcdc7139b11ad7d08c96c12d9486d0ff948b58f24d09d2",
    "phonemes": [
-    "zh|zf_002|1.2|ㄒ压4ㄑㄧ3/ㄌㄜ5/ㄉㄚ4ㄩ3"
+    "zh|zf_002|1.2|ㄊ言1ㄕㄤ5/ㄒ压4ㄑㄧ3/ㄌㄜ5/ㄉㄚ4ㄩ3"
    ],
-   "synth_s": 1.41,
+   "synth_s": 0.8,
    "status": "AI初审通过",
-   "duration": 1.368,
+   "duration": 1.68,
    "lufs": -16.4,
-   "tp": -2.5,
-   "pregain_db": 6.0,
-   "limiter_gr_db": 0.86,
+   "tp": -1.9,
+   "pregain_db": 6.9,
+   "limiter_gr_db": 2.22,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K2"
@@ -50536,31 +50534,31 @@
    "grade": "K2"
   },
   "K2N-007#opt0": {
-   "file": "K-044_opt1.409ab3cc04.mp3",
-   "text": "8",
+   "file": "p_num_11.2dfe343220.mp3",
+   "text": "11",
    "segments": [
     [
      "zh",
-     "8"
+     "11"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "409ab3cc044d88e88bc24d1f4305633e31f8b54c33ae4ba7badc20c1414e3666",
+   "hash": "2dfe343220deb5550b32d99c4eeeec04060b5243a5c6d3b06397307ba28567fb",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄚ1"
+    "zh|zf_002|1.2|ㄕ十2ㄧ1"
    ],
-   "synth_s": 3.06,
-   "duration": 0.624,
+   "synth_s": 3.79,
+   "duration": 0.696,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 8.82,
-   "limiter_gr_db": 1.55,
+   "tp": -2.4,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.09,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "p:num_8",
+   "dup_of": "p:num_11",
    "status": "AI初审通过",
-   "reused_from": "K-044#opt1",
+   "reused_from": "p:num_11",
    "grade": "K2"
   },
   "K2N-007#opt1": {
@@ -50756,31 +50754,31 @@
    "grade": "K2"
   },
   "K2N-009#opt0": {
-   "file": "K-044_opt1.409ab3cc04.mp3",
-   "text": "8",
+   "file": "p_num_11.2dfe343220.mp3",
+   "text": "11",
    "segments": [
     [
      "zh",
-     "8"
+     "11"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "409ab3cc044d88e88bc24d1f4305633e31f8b54c33ae4ba7badc20c1414e3666",
+   "hash": "2dfe343220deb5550b32d99c4eeeec04060b5243a5c6d3b06397307ba28567fb",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄚ1"
+    "zh|zf_002|1.2|ㄕ十2ㄧ1"
    ],
-   "synth_s": 3.06,
-   "duration": 0.624,
+   "synth_s": 3.79,
+   "duration": 0.696,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 8.82,
-   "limiter_gr_db": 1.55,
+   "tp": -2.4,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.09,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "p:num_8",
+   "dup_of": "p:num_11",
    "status": "AI初审通过",
-   "reused_from": "K-044#opt1",
+   "reused_from": "p:num_11",
    "grade": "K2"
   },
   "K2N-009#opt1": {
@@ -51086,30 +51084,31 @@
    "grade": "K2"
   },
   "K2N-012#opt0": {
-   "file": "K-044_opt1.409ab3cc04.mp3",
-   "text": "8",
+   "file": "p_num_11.2dfe343220.mp3",
+   "text": "11",
    "segments": [
     [
      "zh",
-     "8"
+     "11"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "409ab3cc044d88e88bc24d1f4305633e31f8b54c33ae4ba7badc20c1414e3666",
+   "hash": "2dfe343220deb5550b32d99c4eeeec04060b5243a5c6d3b06397307ba28567fb",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄚ1"
+    "zh|zf_002|1.2|ㄕ十2ㄧ1"
    ],
-   "synth_s": 3.06,
-   "duration": 0.624,
+   "synth_s": 3.79,
+   "duration": 0.696,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 8.82,
-   "limiter_gr_db": 1.55,
+   "tp": -2.4,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.09,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "p:num_8",
+   "dup_of": "p:num_11",
    "status": "AI初审通过",
+   "reused_from": "p:num_11",
    "grade": "K2"
   },
   "K2N-012#opt1": {
@@ -51193,31 +51192,31 @@
    "grade": "K2"
   },
   "K2N-013#opt0": {
-   "file": "K-044_opt1.409ab3cc04.mp3",
-   "text": "8",
+   "file": "p_num_11.2dfe343220.mp3",
+   "text": "11",
    "segments": [
     [
      "zh",
-     "8"
+     "11"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "409ab3cc044d88e88bc24d1f4305633e31f8b54c33ae4ba7badc20c1414e3666",
+   "hash": "2dfe343220deb5550b32d99c4eeeec04060b5243a5c6d3b06397307ba28567fb",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄚ1"
+    "zh|zf_002|1.2|ㄕ十2ㄧ1"
    ],
-   "synth_s": 3.06,
-   "duration": 0.624,
+   "synth_s": 3.79,
+   "duration": 0.696,
    "lufs": -16.4,
-   "tp": -2.2,
-   "pregain_db": 8.82,
-   "limiter_gr_db": 1.55,
+   "tp": -2.4,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.09,
    "gr_flag": false,
    "norm": "linear",
-   "dup_of": "p:num_8",
+   "dup_of": "p:num_11",
    "status": "AI初审通过",
-   "reused_from": "K-044#opt1",
+   "reused_from": "p:num_11",
    "grade": "K2"
   },
   "K2N-013#opt1": {
@@ -61537,26 +61536,26 @@
    "grade": "K3"
   },
   "K3C-050#opt2": {
-   "file": "K3C-050_opt2.d4b3dfe80d.mp3",
-   "text": "不用放",
+   "file": "K3C-050_opt2.4abed95556.mp3",
+   "text": "随便放哪里都行",
    "segments": [
     [
      "zh",
-     "不用放"
+     "随便放哪里都行"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "d4b3dfe80d75144152d6615177acbf0d99088c98c2be896975d33fad621e230d",
+   "hash": "4abed955568271ffcc7d138263ff1823608c096cbd9a9113ba0d6ce882778a49",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄨ2用4/ㄈㄤ4"
+    "zh|zf_002|1.2|ㄙ为2ㄅ言4/ㄈㄤ4/ㄋㄚ2ㄌㄧ3/ㄉㄡ1ㄒ应2"
    ],
-   "synth_s": 13.33,
+   "synth_s": 0.62,
    "status": "AI初审通过",
-   "duration": 0.936,
+   "duration": 1.848,
    "lufs": -16.4,
-   "tp": -3.5,
-   "pregain_db": 4.9,
+   "tp": -2.7,
+   "pregain_db": 6.65,
    "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
@@ -78627,27 +78626,27 @@
    "grade": "K3"
   },
   "K3L-012#opt2": {
-   "file": "K3L-012_opt2.3b72f6eab8.mp3",
-   "text": "在池边追着跑",
+   "file": "K3L-012_opt2.f333419701.mp3",
+   "text": "在池边追着跑来跑去",
    "segments": [
     [
      "zh",
-     "在池边追着跑"
+     "在池边追着跑来跑去"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "3b72f6eab8b7250d9e1de5dd4be3332d051e74653241c2f682024c8acbfca8ea",
+   "hash": "f333419701b57450f62474c63c5ee00b95249b0cec7cca1dcd6a4c7870d0f911",
    "phonemes": [
-    "zh|zf_002|1.2|ㄗㄞ4/ㄔ十2ㄅ言1/ㄓ为1/ㄓㄜ5/ㄆㄠ3"
+    "zh|zf_002|1.2|ㄗㄞ4/ㄔ十2ㄅ言1/ㄓ为1/ㄓㄜ5/ㄆㄠ3ㄌㄞ2ㄆㄠ3ㄑㄩ4"
    ],
-   "synth_s": 1.74,
+   "synth_s": 0.98,
    "status": "AI初审通过",
-   "duration": 1.632,
-   "lufs": -16.4,
-   "tp": -2.4,
-   "pregain_db": 6.66,
-   "limiter_gr_db": 0.67,
+   "duration": 2.256,
+   "lufs": -16.3,
+   "tp": -2.2,
+   "pregain_db": 7.45,
+   "limiter_gr_db": 1.3,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -78835,27 +78834,27 @@
    "grade": "K3"
   },
   "K3L-014#opt2": {
-   "file": "K3L-014_opt2.1180ab048c.mp3",
-   "text": "玩打火机",
+   "file": "K3L-014_opt2.16126b4e15.mp3",
+   "text": "打开打火机看看",
    "segments": [
     [
      "zh",
-     "玩打火机"
+     "打开打火机看看"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "1180ab048c492c4d79d6420ddd971f38bef27d511901ce37d54acda066cc3c65",
+   "hash": "16126b4e15fac164a39aadf82c09c0f96b3c89d74de8ff686b2fe5ca44cb6913",
    "phonemes": [
-    "zh|zf_002|1.2|万2/ㄉㄚ2ㄏ我3ㄐㄧ1"
+    "zh|zf_002|1.2|ㄉㄚ3ㄎㄞ1/ㄉㄚ2ㄏ我3ㄐㄧ1/ㄎㄢ4ㄎㄢ5"
    ],
-   "synth_s": 1.17,
+   "synth_s": 1.05,
    "status": "AI初审通过",
-   "duration": 1.2,
-   "lufs": -16.3,
+   "duration": 1.824,
+   "lufs": -16.4,
    "tp": -2.3,
-   "pregain_db": 5.53,
-   "limiter_gr_db": 0.58,
+   "pregain_db": 6.98,
+   "limiter_gr_db": 0.12,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -79287,27 +79286,27 @@
    "grade": "K3"
   },
   "K3L-019#opt2": {
-   "file": "K3L-019_opt2.6212ae56d1.mp3",
-   "text": "一个小时",
+   "file": "K3L-019_opt2.f7d8e95bd1.mp3",
+   "text": "整整一个小时",
    "segments": [
     [
      "zh",
-     "一个小时"
+     "整整一个小时"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "6212ae56d1712b3b50ff01dab9ac4a6add2dc73a87e0e94590270a01c9012008",
+   "hash": "f7d8e95bd173300b26da2269cf5b7edb2326fcf05e11fb3da3eac15f568d4e1a",
    "phonemes": [
-    "zh|zf_002|1.2|ㄧ2ㄍㄜ5/ㄒ要3ㄕ十2"
+    "zh|zf_002|1.2|ㄓㄥ2ㄓㄥ3/ㄧ2ㄍㄜ5/ㄒ要3ㄕ十2"
    ],
-   "synth_s": 1.56,
+   "synth_s": 0.83,
    "status": "AI初审通过",
-   "duration": 1.152,
-   "lufs": -16.3,
-   "tp": -2.4,
-   "pregain_db": 5.04,
-   "limiter_gr_db": 0.07,
+   "duration": 1.656,
+   "lufs": -16.4,
+   "tp": -2.5,
+   "pregain_db": 6.2,
+   "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -79497,27 +79496,27 @@
    "grade": "K3"
   },
   "K3L-021#opt2": {
-   "file": "K3L-021_opt2.81a3c8861c.mp3",
-   "text": "凑近屏幕看",
+   "file": "K3L-021_opt2.3af20d3ac7.mp3",
+   "text": "凑近屏幕继续看下去",
    "segments": [
     [
      "zh",
-     "凑近屏幕看"
+     "凑近屏幕继续看下去"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "81a3c8861ca9fdfec8afa46f93f95e227eb5237234bec8cea590a09d11662c8f",
+   "hash": "3af20d3ac7aa30be3dd9d830564db1057fb07492a4a431056de4e0afde633035",
    "phonemes": [
-    "zh|zf_002|1.2|ㄘㄡ4ㄐ阴4/ㄆ应2ㄇㄨ4/ㄎㄢ4"
+    "zh|zf_002|1.2|ㄘㄡ4ㄐ阴4/ㄆ应2ㄇㄨ4/ㄐㄧ4ㄒㄩ4/ㄎㄢ4/ㄒ压4ㄑㄩ5"
    ],
-   "synth_s": 1.63,
+   "synth_s": 0.84,
    "status": "AI初审通过",
-   "duration": 1.488,
+   "duration": 2.304,
    "lufs": -16.4,
-   "tp": -2.1,
-   "pregain_db": 6.18,
-   "limiter_gr_db": 1.41,
+   "tp": -2.2,
+   "pregain_db": 7.39,
+   "limiter_gr_db": 2.57,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -79601,27 +79600,27 @@
    "grade": "K3"
   },
   "K3L-022#opt2": {
-   "file": "K3L-022_opt2.55bc325e2d.mp3",
-   "text": "边吃边跑",
+   "file": "K3L-022_opt2.d343c5308a.mp3",
+   "text": "一边吃一边跑",
    "segments": [
     [
      "zh",
-     "边吃边跑"
+     "一边吃一边跑"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "55bc325e2d25e27641661a90eb8bb94fb93fb27a5459f0bc83f7eab898efe3d6",
+   "hash": "d343c5308abf9e6fbb45b8243e04bbf564bd20af6024c1b72bb4fc46dbf76a83",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅ言1/ㄔ十1/ㄅ言1/ㄆㄠ3"
+    "zh|zf_002|1.2|ㄧ4ㄅ言1/ㄔ十1/ㄧ4ㄅ言1/ㄆㄠ3"
    ],
-   "synth_s": 1.35,
+   "synth_s": 0.93,
    "status": "AI初审通过",
-   "duration": 1.296,
+   "duration": 1.632,
    "lufs": -16.3,
-   "tp": -2.3,
-   "pregain_db": 6.23,
-   "limiter_gr_db": 0.0,
+   "tp": -2.2,
+   "pregain_db": 6.19,
+   "limiter_gr_db": 0.87,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -79947,27 +79946,27 @@
    "grade": "K3"
   },
   "K3L-026#opt2": {
-   "file": "K3L-026_opt2.b282459c17.mp3",
-   "text": "贴着书",
+   "file": "K3L-026_opt2.10acafe408.mp3",
+   "text": "贴着书本看",
    "segments": [
     [
      "zh",
-     "贴着书"
+     "贴着书本看"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "b282459c17a05809831f9efb07455dfa75ff3e0782bbd881f128006389a8f777",
+   "hash": "10acafe408b2cb5bc87be0039802fb4d0dec07f47f2d7bc4916ba305bff3e69f",
    "phonemes": [
-    "zh|zf_002|1.2|ㄊㄝ1ㄓㄜ5/ㄕㄨ1"
+    "zh|zf_002|1.2|ㄊㄝ1ㄓㄜ5/ㄕㄨ1ㄅㄣ3/ㄎㄢ4"
    ],
-   "synth_s": 0.97,
+   "synth_s": 0.78,
    "status": "AI初审通过",
-   "duration": 0.96,
-   "lufs": -16.3,
-   "tp": -2.4,
-   "pregain_db": 5.11,
-   "limiter_gr_db": 0.12,
+   "duration": 1.392,
+   "lufs": -16.4,
+   "tp": -2.2,
+   "pregain_db": 6.14,
+   "limiter_gr_db": 1.55,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -80025,27 +80024,27 @@
    "grade": "K3"
   },
   "K3L-027#opt1": {
-   "file": "K3L-027_opt1.e97d5b03d7.mp3",
-   "text": "只刷前面",
+   "file": "K3L-027_opt1.86bcf002bb.mp3",
+   "text": "只刷前面的牙齿",
    "segments": [
     [
      "zh",
-     "只刷前面"
+     "只刷前面的牙齿"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "e97d5b03d7adcd51a2ada949c90119a4d4db8358edebc4dcaa214f35dc2a0dd9",
+   "hash": "86bcf002bbd978c66616237636d3a85291e31c0ba010c4bd13ff911549cb95e9",
    "phonemes": [
-    "zh|zf_002|1.2|ㄓ十3/ㄕ穵1/ㄑ言2ㄇ言4"
+    "zh|zf_002|1.2|ㄓ十3/ㄕ穵1/ㄑ言2ㄇ言4/ㄉㄜ5/压2ㄔ十3"
    ],
-   "synth_s": 1.32,
+   "synth_s": 0.93,
    "status": "AI初审通过",
-   "duration": 1.2,
+   "duration": 1.68,
    "lufs": -16.4,
-   "tp": -2.4,
-   "pregain_db": 5.61,
-   "limiter_gr_db": 0.06,
+   "tp": -2.5,
+   "pregain_db": 6.77,
+   "limiter_gr_db": 0.0,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -81284,27 +81283,27 @@
    "grade": "K3"
   },
   "K3L-040#opt2": {
-   "file": "K3L-040_opt2.249fa017f6.mp3",
-   "text": "半夜",
+   "file": "K3L-040_opt2.ecb60c4bd8.mp3",
+   "text": "晴天中午太阳最大的时候",
    "segments": [
     [
      "zh",
-     "半夜"
+     "晴天中午太阳最大的时候"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "249fa017f6ca65d4f1feb2231086e7268c7c4cb713d2fc888ced9709e72ea485",
+   "hash": "ecb60c4bd8071f409fb95fd169aeba2fdf261c68494ec82564f23b09c964a559",
    "phonemes": [
-    "zh|zf_002|1.2|ㄅㄢ4ㄝ4"
+    "zh|zf_002|1.2|ㄑ应2ㄊ言1/ㄓ中1ㄨ3/ㄊㄞ4阳5/ㄗ为4ㄉㄚ4/ㄉㄜ5/ㄕ十2ㄏㄡ5"
    ],
-   "synth_s": 1.23,
+   "synth_s": 0.9,
    "status": "AI初审通过",
-   "duration": 0.696,
-   "lufs": -16.4,
-   "tp": -2.3,
-   "pregain_db": 6.46,
-   "limiter_gr_db": 0.87,
+   "duration": 2.544,
+   "lufs": -16.3,
+   "tp": -2.2,
+   "pregain_db": 7.47,
+   "limiter_gr_db": 0.72,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -82746,27 +82745,27 @@
    "grade": "K3"
   },
   "K3L-055#opt0": {
-   "file": "K3L-055_opt0.47e51d01c4.mp3",
-   "text": "开得更快",
+   "file": "K3L-055_opt0.374e0f4b23.mp3",
+   "text": "加速开得更快",
    "segments": [
     [
      "zh",
-     "开得更快"
+     "加速开得更快"
     ]
    ],
    "voice": "zf_002",
    "speed": 1.2,
-   "hash": "47e51d01c4365ea5b09b49fa1ed60efe0301b1a93c3d6a8b1d15f4e742d60b4a",
+   "hash": "374e0f4b231478dd23d7a0e04dd02bc01268301046317dc83b88b8d6bd56d899",
    "phonemes": [
-    "zh|zf_002|1.2|ㄎㄞ1ㄉㄜ5/ㄍㄥ4ㄎ外4"
+    "zh|zf_002|1.2|ㄐ压1ㄙㄨ4/ㄎㄞ1ㄉㄜ5/ㄍㄥ4ㄎ外4"
    ],
-   "synth_s": 2.63,
+   "synth_s": 0.86,
    "status": "AI初审通过",
-   "duration": 1.176,
+   "duration": 1.68,
    "lufs": -16.4,
-   "tp": -3.6,
-   "pregain_db": 5.57,
-   "limiter_gr_db": 0.0,
+   "tp": -2.4,
+   "pregain_db": 6.5,
+   "limiter_gr_db": 0.11,
    "gr_flag": false,
    "norm": "linear",
    "grade": "K3"
@@ -92357,17 +92356,61 @@
      "reused_from": "K2N-015#opt0"
     }
    },
-   "note": "v57: new 大班 K3C-071 (stem + 2 text options; options reuse identical 右边/左边 clips). Other v57 text diffs (28 option keys K1/K2/K3) NOT regenerated — see report; K3C-013 kept (still in full bank 题库_幼儿园大班.json, only dropped from 游戏可用; pack has never removed keys for 游戏可用-only drops)."
+   "note": "v57: new 大班 K3C-071 (stem + 2 text options; options reuse identical 右边/左边 clips). Other v57 text diffs (28 option keys K1/K2/K3) regenerated afterwards (deploy.v57.options); K3C-013 kept (still in full bank 题库_幼儿园大班.json, only dropped from 游戏可用; pack has never removed keys for 游戏可用-only drops).",
+   "options": {
+    "stats": {
+     "K1": {
+      "reuse": 3,
+      "new": 1,
+      "gapfix": 0
+     },
+     "K2": {
+      "reuse": 4,
+      "new": 10,
+      "gapfix": 0
+     },
+     "K3": {
+      "reuse": 0,
+      "new": 10,
+      "gapfix": 0
+     }
+    },
+    "changed_keys": 28,
+    "removed_unreferenced": [
+     "K2D-023_opt2.d9d410c50a.mp3",
+     "K2D-034_opt1.bf60d3cb94.mp3",
+     "K2G-005_opt1.4c8466c83c.mp3",
+     "K2G-014_opt1.5e86e409cc.mp3",
+     "K2G-029_opt1.7bc00b3828.mp3",
+     "K2D-006_opt2.4ebda7b6ec.mp3",
+     "K3C-050_opt2.d4b3dfe80d.mp3",
+     "K3L-012_opt2.3b72f6eab8.mp3",
+     "K3L-014_opt2.1180ab048c.mp3",
+     "K3L-019_opt2.6212ae56d1.mp3",
+     "K3L-021_opt2.81a3c8861c.mp3",
+     "K3L-022_opt2.55bc325e2d.mp3",
+     "K3L-026_opt2.b282459c17.mp3",
+     "K3L-027_opt1.e97d5b03d7.mp3",
+     "K3L-040_opt2.249fa017f6.mp3",
+     "K3L-055_opt0.47e51d01c4.mp3"
+    ],
+    "pron_added": [
+     "厚厚的 hou4 hou4 de5",
+     "大大的 da4 da4 de5",
+     "宽宽的 kuan1 kuan1 de5"
+    ],
+    "note": "28 v57 option-text diffs (K1 4 / K2 14 / K3 10) regenerated at 1.2, all rules; list analysis/v57_changes.md"
+   }
   }
  },
  "banks": {
   "K1": {
    "bank": "题库_幼儿园小班.json",
-   "version": "v51"
+   "version": "v57"
   },
   "K2": {
    "bank": "题库_幼儿园中班.json",
-   "version": "v51",
+   "version": "v57",
    "keys": 1170
   },
   "K3": {

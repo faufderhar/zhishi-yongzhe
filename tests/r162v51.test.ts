@@ -56,7 +56,7 @@ describe('r16.2 题库 v51', () => {
       expect(readFileSync(f, 'utf8'), f).not.toMatch(/knowledge_point/);
   });
   it('录音包 v51：小班 / 中班每道开放题的题干和能朗读的文字选项都有录音，文字和题库一致（缺 0）', () => {
-    expect(man.banks.K1.version).toBe('v51'); expect(man.banks.K2.version).toBe('v51');
+    expect(man.banks.K1.version).toBe('v57'); expect(man.banks.K2.version).toBe('v57');   // r17：音频设计按 v57 重录了 28 个改字的选项（K1 4 / K2 14 / K3 10）
     const norm = (s: string) => s.replace(/[\u200d\ufe0f]/g, '').trim(); const miss: string[] = [], diff: string[] = [];
     for (const g of ['K1', 'K2']) { const r = raw(g); const play = new Set(playable(loadBank(r, '').all, false).map(q => q.id));
       for (const q of r.questions) { if (!play.has(q.id)) continue;
