@@ -51,10 +51,11 @@ for (const vp of Object.keys(ALLVP)) for (const rm of [false, true]) for (const 
   await pg.waitForSelector('.kopts:not(.kwait) .kopt[data-correct="0"]', { timeout: 15000 });
   await pg.click('.kopts:not(.kwait) .kopt[data-correct="0"] >> nth=0'); await w(500);
   const sayR = await pg.textContent('[data-testid=ksay]').catch(() => '');
-  ok(sayR === TXT.retry, `${tag} 点错：「${sayR}」，爱心还是 ${await pg.$$eval('[data-testid=term-heart][data-on="1"]', e => e.length)} 颗亮`);
+  const demo = /^我来帮你看看/.test(sayR || '');   // 只有两个选项的题：点错一次就是「我来帮你看看」（小班规则，也亮一颗）
+  ok(sayR === TXT.retry || demo, `${tag} 点错：「${sayR}」（不扣分）`);
   ok(await answerRight(pg), `${tag} 第 1 题答对`); await w(900);
   const lit1 = await pg.$$eval('[data-testid=term-heart][data-on="1"]', e => e.length);
-  ok(lit1 === 1, `${tag} 答对一题亮一颗爱心（${lit1}）`);
+  ok(lit1 === (demo ? 2 : 1), `${tag} 答对一题亮一颗爱心（${lit1}${demo ? '，前一题演示也亮了一颗' : ''}）`);
   const popAnim = await pg.evaluate(() => { const e = document.querySelector('.kheart.pop'); return e ? getComputedStyle(e).animationName : 'none(no pop)'; });
   ok(rm ? /none/.test(popAnim) : popAnim === 'kheartPop' || /no pop/.test(popAnim), `${tag} 爱心点亮动效：${popAnim}${rm ? '（减少动态：不弹）' : ''}`);
   await pg.screenshot({ path: `${OUT}${tag}_2mid.png` });
@@ -77,7 +78,7 @@ for (const vp of Object.keys(ALLVP)) for (const rm of [false, true]) for (const 
   ok(!/打败|胜利/.test(seen), `${tag} 全程没有「打败 / 胜利」`);
   ok(!/未通关|复活|血量|中途退出/.test(seen) && !(await pg.$('[data-testid=revive-yes], [data-testid=lose-why]')), `${tag} 没有失败 / 复活页`);
   const order = [TXT.intro[t], TXT.end[t], TXT.medal[t]].map(s => says.indexOf(s));
-  ok(order.every(x => x >= 0) && order[0] < order[1] && order[1] < order[2] && says.includes(TXT.retry), `${tag} 说话顺序：${says.join(' → ')}`);
+  ok(order.every(x => x >= 0) && order[0] < order[1] && order[1] < order[2] && (says.includes(TXT.retry) || says.some(x => /^我来帮你看看/.test(x))), `${tag} 说话顺序：${says.join(' → ')}`);
   // 地图：这关拿到奖章
   await pg.click('[data-testid=to-map]'); await w(600); await pg.click('[data-testid="chapter-期末庆祝"]').catch(() => {}); await w(300);
   ok(await pg.isVisible(`[data-testid=term-medal-${t}]`), `${tag} 地图上第 ${t} 关显示奖章`);
