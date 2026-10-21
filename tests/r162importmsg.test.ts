@@ -45,5 +45,7 @@ it('B7：「内置题已更新」说重新导入导出的题目文件（恢复�
 });
 it('B8：点「导入题库」先清掉旧提示；结果提示出现时滚进视野', () => {
   expect(tab).toMatch(/data-testid="import-pick"[^>]*onClick=\{\(\) => \{ setMsg\(undefined\); fileRef\.current\?\.click\(\); \}\}/);
-  expect(tab).toMatch(/useEffect\(\(\) => \{ if \(msg\) msgRef\.current\?\.scrollIntoView/);
+  expect(tab).toMatch(/useEffect\(\(\) => \{ if \(!msg\) return; const id = requestAnimationFrame\(\(\) => msgRef\.current\?\.scrollIntoView\?\.\(\{ block: 'nearest' \}\)\)/);
+  // r17：重排（reloadBank / 关预览 / busy 收起）之后再滚一次
+  expect(tab).toMatch(/cancelAnimationFrame\(id\); \}, \[msg, busy, pv, bank\]\)/);
 });

@@ -450,9 +450,10 @@ function BankTab({ settings, setSettings, bank, reloadBank, flags, profiles }: P
   const [pv, setPv] = useState<Preview | null>(null);
   const [msg, setMsg] = useState<string>();
   const msgRef = useRef<HTMLParagraphElement>(null);
-  useEffect(() => { if (msg) msgRef.current?.scrollIntoView?.({ block: 'nearest' }); }, [msg]);   // r16.2 B8：360×640 结果提示第二行在屏幕外
   const rows = Object.entries(bank.builtin);
   const [busy, setBusy] = useState<string>();
+  // r16.2 B8：360×640 结果提示第二行在屏幕外。r17：慢机器上 reloadBank / 关预览 / busy 提示收起在 setMsg 之后才重排，提示又被挤出屏幕 → 这些变了也再滚一次（下一帧、排版完）
+  useEffect(() => { if (!msg) return; const id = requestAnimationFrame(() => msgRef.current?.scrollIntoView?.({ block: 'nearest' })); return () => cancelAnimationFrame(id); }, [msg, busy, pv, bank]);
   /* r16 技术QA P3/P4：选了新文件先清掉上一个文件的错误 / 预览；先看大小、再看编码（GBK 只报一条）、再看题数；每一步之前让出一帧画进度 */
   const onFile = async (f: File) => {
     setMsg(undefined); setPv(null);
