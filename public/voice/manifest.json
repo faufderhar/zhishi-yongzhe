@@ -6,14 +6,14 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v51 · K2 v51 · K3 v51 · r17 prompts · r17 term",
+ "bank_version": "K1 v51 · K2 v51 · K3 v57 · r17 prompts · r17 term",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
   "en": 1.2
  },
  "pron_overrides": 57,
- "generated": "2026-10-20T18:55:37-07:00",
+ "generated": "2026-10-20T19:12:16-07:00",
  "complete": true,
  "items": {
   "K-001#opt0": "K-001_opt0.f0d0f7a55e.mp3",
@@ -1644,6 +1644,9 @@
   "K3C-070#opt1": "K3C-070_opt1.b8fd40dd77.mp3",
   "K3C-070#opt2": "K3C-070_opt2.09e1cce9db.mp3",
   "K3C-070#stem": "K3C-070_stem.9333b173ae.mp3",
+  "K3C-071#opt0": "K2N-015_opt1.2a6551784f.mp3",
+  "K3C-071#opt1": "K2N-015_opt0.406b831b0d.mp3",
+  "K3C-071#stem": "K3C-071_stem.8e5a13849d.mp3",
   "K3D-001#opt0": "KD-034_opt1.594d51a163.mp3",
   "K3D-001#opt1": "KD-011_opt2.9ca677ad8e.mp3",
   "K3D-001#opt2": "K3D-001_opt2.d554e143b7.mp3",
@@ -91921,6 +91924,88 @@
    "limiter_gr_db": 2.27,
    "gr_flag": false,
    "norm": "linear"
+  },
+  "K3C-071#stem": {
+   "file": "K3C-071_stem.8e5a13849d.mp3",
+   "text": "我站在镜子前，举起右手。镜子里举起来的那只手，在我的哪一边？",
+   "segments": [
+    [
+     "zh",
+     "我站在镜子前，举起右手。镜子里举起来的那支手，在我的哪一边？"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "8e5a13849d141db802f3652608e38b868aa27196e47a5084528a177023dbfc3c",
+   "phonemes": [
+    "zh|zf_002|1.2|我3/ㄓㄢ4/ㄗㄞ4/ㄐ应4ㄗㄭ5/ㄑ言2, ㄐㄩ2ㄑㄧ3/又4ㄕㄡ3. ㄐ应4ㄗㄭ5/ㄌㄧ2ㄐㄩ3/ㄑㄧ3ㄌㄞ5/ㄉㄜ5/ㄋㄚ4/ㄓ十1ㄕㄡ3, ㄗㄞ4/我3/ㄉㄜ5/ㄋㄚ3/ㄧ4ㄅ言1?"
+   ],
+   "synth_s": 1.12,
+   "status": "AI初审通过",
+   "duration": 5.424,
+   "lufs": -16.4,
+   "tp": -2.0,
+   "pregain_db": 8.64,
+   "limiter_gr_db": 2.74,
+   "gr_flag": false,
+   "norm": "linear",
+   "grade": "K3"
+  },
+  "K3C-071#opt0": {
+   "file": "K2N-015_opt1.2a6551784f.mp3",
+   "text": "右边",
+   "segments": [
+    [
+     "zh",
+     "右边"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "2a6551784fb937a782d315287fff8b7a14ee4a1912b97001b8935606e04a8ef0",
+   "phonemes": [
+    "zh|zf_002|1.2|又4ㄅ言5"
+   ],
+   "synth_s": 9.5,
+   "duration": 0.744,
+   "lufs": -16.3,
+   "tp": -2.8,
+   "pregain_db": 5.6,
+   "limiter_gr_db": 0.0,
+   "gr_flag": false,
+   "norm": "linear",
+   "dup_of": "K3C-012#opt1",
+   "status": "AI初审通过",
+   "reused_from": "K2N-015#opt1",
+   "grade": "K3"
+  },
+  "K3C-071#opt1": {
+   "file": "K2N-015_opt0.406b831b0d.mp3",
+   "text": "左边",
+   "segments": [
+    [
+     "zh",
+     "左边"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "406b831b0db37907f6f21e1681e2013252591a8575b2c4356125e082703effa2",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗ我3ㄅ言5"
+   ],
+   "synth_s": 6.74,
+   "duration": 0.744,
+   "lufs": -16.4,
+   "tp": -2.5,
+   "pregain_db": 5.87,
+   "limiter_gr_db": 0.16,
+   "gr_flag": false,
+   "norm": "linear",
+   "dup_of": "K3C-012#opt2",
+   "status": "AI初审通过",
+   "reused_from": "K2N-015#opt0",
+   "grade": "K3"
   }
  },
  "deploy": {
@@ -92252,6 +92337,27 @@
    "source": "prompts_r17_term.json",
    "out": "/workspace/tts/out_r17term/zf_002",
    "note": "小班 期末庆祝关 (上/下学期) voice lines; zf_002 speed 1.1 (user decision: gentler/slower than pack 1.2), chain v2.1; keys proposed by 音频设计 (no strings/keys in zy-r16 yet); 句尾 ～ deleted by synth_text rule"
+  },
+  "v57": {
+   "date": "2026-10-20",
+   "added": {
+    "K3C-071#stem": {
+     "text": "我站在镜子前，举起右手。镜子里举起来的那只手，在我的哪一边？",
+     "file": "K3C-071_stem.8e5a13849d.mp3",
+     "reused_from": null
+    },
+    "K3C-071#opt0": {
+     "text": "右边",
+     "file": "K2N-015_opt1.2a6551784f.mp3",
+     "reused_from": "K2N-015#opt1"
+    },
+    "K3C-071#opt1": {
+     "text": "左边",
+     "file": "K2N-015_opt0.406b831b0d.mp3",
+     "reused_from": "K2N-015#opt0"
+    }
+   },
+   "note": "v57: new 大班 K3C-071 (stem + 2 text options; options reuse identical 右边/左边 clips). Other v57 text diffs (28 option keys K1/K2/K3) NOT regenerated — see report; K3C-013 kept (still in full bank 题库_幼儿园大班.json, only dropped from 游戏可用; pack has never removed keys for 游戏可用-only drops)."
   }
  },
  "banks": {
@@ -92266,8 +92372,8 @@
   },
   "K3": {
    "bank": "题库_幼儿园大班.json",
-   "version": "v51",
-   "keys": 1246
+   "version": "v57",
+   "keys": 1249
   }
  },
  "test": false

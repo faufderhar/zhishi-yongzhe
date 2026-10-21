@@ -66,3 +66,4 @@ Intended for the 知识勇者 family learning game (non-commercial family use). 
 - New: p:happy_total_1..5 (开心值一共 m 个), p:res_k_first_1..10 (自己答对 N 题; 2 → 两). Same model / voices / speed / post chain as above
 - Not yet re-recorded for bank v56: 18 option keys whose text changed in v55 (tests/fixtures/r17_voice_stale_v56.json); the game skips a clip whose recorded text no longer matches the shown text
 - r17 (2026-10-20 18:55 PDT, 音频设计): +8 小班期末庆祝关 prompts p:k_term1_intro / k_term_heart / k_term_retry / k_term1_end / k_term1_medal / k_term2_intro / k_term2_end / k_term2_medal at speed 1.1 (user decision: gentler; declared in manifest deploy.r17_term). Pack now 3276 keys / 1919 mp3 (17.45 MB)
+- r17 (2026-10-20, 音频设计): + K3C-071 stem (options 右边/左边 reuse 中班 clips). 3279 keys / 1920 mp3. Interim pack: 28 option keys changed in bank v56/v57 are being re-recorded (final import pending)

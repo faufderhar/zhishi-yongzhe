@@ -2,8 +2,6 @@
 import { describe, it, expect, vi, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
-const STALE: string[] = JSON.parse(readFileSync('tests/fixtures/r17_voice_stale_v56.json', 'utf8')).keys;
-const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8'));
 const played: string[] = [];
 beforeAll(() => {
   (globalThis as any).window = globalThis; (globalThis as any).document = { baseURI: 'http://x/app/', visibilityState: 'visible', addEventListener() {} };
@@ -19,28 +17,28 @@ describe('r17 录音', () => {
     for (let n = 1; n <= 10; n++) expect(man.meta['p:res_k_first_' + n].text, String(n)).toBe(K_FIRST_LINE(n));
     for (let m = 1; m <= 5; m++) expect(man.meta['p:happy_total_' + m].text, String(m)).toBe(HAPPY_TOTAL_LINE(m));
   });
-  it('期末庆祝关 8 句（k_term*）：包里登记的例外语速 1.1，其他键都是 1.2；共 3276 键', () => {
+  it('期末庆祝关 8 句（k_term*）：包里登记的例外语速 1.1，其他键都是 1.2；共 3279 键', () => {
     const term = man.deploy.r17_term; expect(term.speed).toBe(1.1); expect(term.keys.length).toBe(8);
     for (const k of term.keys) { expect(man.items[k], k).toBeTruthy(); expect(man.meta[k].speed, k).toBe(1.1); }
     const other = Object.entries(man.meta as Record<string, { speed?: number }>).filter(([k, m]) => !term.keys.includes(k) && typeof m?.speed === 'number' && m.speed !== 1.2).map(([k]) => k);
-    expect(other).toEqual([]); expect(Object.keys(man.items).length).toBe(3276);
+    expect(other).toEqual([]); expect(Object.keys(man.items).length).toBe(3279);
     expect(man.meta['p:k_term1_end'].text).toBe('大乌云被你逗笑啦！');
   });
-  it('v56 改了字的 18 个选项：登记了题库文字就判为过期；文字一致的照常', async () => {
+  it('录音文字过期判断（用假的 meta，不依赖当前包）：登记了期望文字且对不上 → 过期；一致（标点 / 表情 / 零宽字符不算）→ 不过期；没登记 / 包里没文字 → 不过期', async () => {
     const t = await import('../src/tts');
-    const opt = (k: string) => { const [id, o] = k.split('#'); const g = id.startsWith('K2') ? 'K2' : 'K1'; const q = raw(g).questions.find((x: any) => x.id === id); return q.options[+o.slice(3)].text as string; };
-    expect(STALE.length).toBe(18);
-    for (const k of STALE) { expect(t.voiceTextStale(k, man.meta), k + ' 没登记').toBe(false); t.expectVoiceText(k, opt(k)); expect(t.voiceTextStale(k, man.meta), k).toBe(true); }
-    // 文字一致（标点 / 表情 / 零宽字符不算）→ 不过期
-    t.expectVoiceText('K-050#opt1', opt('K-050#opt1')); expect(t.voiceTextStale('K-050#opt1', man.meta)).toBe(false);
-    t.expectVoiceText('K2G-003#opt0', opt('K2G-003#opt0')); expect(t.voiceTextStale('K2G-003#opt0', man.meta)).toBe(false);
+    const meta = { 'Z-1#opt0': { text: '8' }, 'Z-1#opt1': { text: '‍ 老师！' }, 'Z-1#opt2': {}, 'Z-2#opt0': { text: '爬树' } };
+    t.expectVoiceText('Z-1#opt0', '11'); expect(t.voiceTextStale('Z-1#opt0', meta)).toBe(true);
+    t.expectVoiceText('Z-1#opt1', '👩‍🏫 老师'); expect(t.voiceTextStale('Z-1#opt1', meta)).toBe(false);
+    t.expectVoiceText('Z-1#opt2', '随便'); expect(t.voiceTextStale('Z-1#opt2', meta)).toBe(false);
+    expect(t.voiceTextStale('Z-2#opt0', meta)).toBe(false);
   });
   it('playRecorded：过期的那段跳过（题干 + 其他选项照常）；只有过期的一段 → false（不读错的数）', async () => {
     const t = await import('../src/tts');
-    const keys = ['K-050#stem', 'K-050#opt0', 'K-050#opt1', 'K-050#opt2'].filter(k => man.items[k]);
+    const id = 'K-050'; const keys = [`${id}#stem`, `${id}#opt0`, `${id}#opt1`].filter(k => man.items[k]); const bad = `${id}#opt0`;
+    t.expectVoiceText(bad, '这不是录音里的字');   // 人为登记一个对不上的文字
     played.length = 0; expect(await t.playRecorded(keys)).toBe(true);
-    expect(played).toEqual(keys.filter(k => k !== 'K-050#opt0').map(k => man.items[k]));
-    played.length = 0; expect(await t.playRecorded(['K-050#opt0'])).toBe(false); expect(played).toEqual([]);
-    played.length = 0; expect(await t.playRecorded(['p:demo_pre', 'K-050#opt0', 'p:demo_post'], true)).toBe(false);   // 演示句缺段 → 改用「是这个哦」
+    expect(played).toEqual(keys.filter(k => k !== bad).map(k => man.items[k]));
+    played.length = 0; expect(await t.playRecorded([bad])).toBe(false); expect(played).toEqual([]);
+    played.length = 0; expect(await t.playRecorded(['p:demo_pre', bad, 'p:demo_post'], true)).toBe(false);   // 演示句缺段 → 改用「是这个哦」
   });
 });
