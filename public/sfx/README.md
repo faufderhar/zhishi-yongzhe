@@ -3,6 +3,7 @@
 - `manifest.json`：`{ "sfx": [...] }`，由 `src/fx/assets.ts` 读取，条目为相对 `public/sfx/` 的文件名（无扩展名默认 .mp3）。
 - `skills/`：85 个角色技能音效 `sfx_skill_<stage>_<characterId>_<n>.mp3`（标准版 -16 LUFS，≤1.2 s）；`skills/kindergarten/` 为小班 15 个技能的 -6 dB 版本。已登记进 `manifest.json`（带 `skills/` 前缀和 .mp3 扩展名）。
 - `skills-manifest.json`：技能 ID → 文件/学段/角色/技能中文名 映射，程序按技能播放时用它查文件。
+- 顶层 `sfx_k_term_celebrate.mp3`（主版）/ `sfx_k_term_celebrate_alt.mp3`（备选）：r17 小班期末庆祝关庆祝短乐句（≈4 s，−22.4 LUFS ≈ 小班技能音效文件，mono 44.1 kHz 96 kbps），已登记进 `manifest.json`；授权 `CREDITS.md` / `credits.csv`（自制合成 CC0），生成脚本 `tools/gen_term_jingle.py`。
 - 授权：`skills/CREDITS.md`、`skills/credits.csv`（全部自制合成 CC0）。生成脚本 `tools/gen_skill_sfx.py`。
 
 ## 技能音效接入（r5）

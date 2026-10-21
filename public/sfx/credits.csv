@@ -1,0 +1,3 @@
+file,sfx_id,stage,use,sfx_brief,source_url,author,license,duration_s,integrated_lufs,true_peak_dbtp
+sfx_k_term_celebrate.mp3,k_term_celebrate,k,小班期末庆祝关（上/下学期）,主版「星星铃」：C 大调钟琴上行琶音 + 马林巴和弦 + 高音小铃长鸣 + 闪光,tools/gen_term_jingle.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),4.127,-22.3,-9.1
+sfx_k_term_celebrate_alt.mp3,k_term_celebrate,k,小班期末庆祝关（上/下学期）,备选「跳跳马林巴」：F 大调马林巴跳音 + 钟琴叠层 + F 大三和弦铃声 + 闪光,tools/gen_term_jingle.py（程序化合成，无外部素材）,知识勇者 音频设计（Grok Bot 程序化合成）,自制合成 CC0 1.0 (CC0-1.0),3.736,-22.4,-8.4
