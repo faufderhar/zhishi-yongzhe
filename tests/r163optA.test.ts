@@ -88,7 +88,7 @@ describe('结算页：「开心值一共 m 个」接在「变成好朋友」后�
     const a = kResultAuto(3, [{ text: '太厉害啦！', key: 'p:res_k2' }], k => !!man.items[k]);
     let autoAt = 0; t.afterVoiceThen(K_RESULT_AUTO.minMs, K_RESULT_AUTO.maxMs, () => { autoAt = now(); t.speak(a.text, 'zh-CN', a.keys ? { keys: a.keys } : {}); });
     await vi.advanceTimersByTimeAsync(10000);
-    const fr = tl.find(e => e.f === fileOf('p:cloud_friend'))!; const hp = tl.find(e => e.f === fileOf('p:happy_3_3'))!;
+    const fr = tl.find(e => e.f === fileOf('p:cloud_friend'))!; const hp = tl.find(e => e.f === fileOf('p:happy_total_3'))!;   // r17：p:happy_total_3 已录
     expect(fr.off! - fr.on).toBeGreaterThanOrEqual(Math.round(man.meta['p:cloud_friend'].duration * 1000) - 1);   // 「好朋友」读完整句
     expect(autoAt).toBeGreaterThanOrEqual(fr.off!); expect(hp.on).toBeGreaterThan(fr.off!); expect(maxOverlap()).toBe(1);
     // 🔊 重播：自动朗读排在重播后面

@@ -60,3 +60,8 @@ Intended for the 知识勇者 family learning game (non-commercial family use). 
 ## r16.2 — pack for bank v51 (generated 2026-10-19 23:50 PDT, 音频设计)
 - Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3253 keys / 1896 mp3 (17.19 MB); pack label K1 v51 · K2 v51 · K3 v51 (game bank v51)
 - 106 keys re-recorded (K1 19, K2 52, K3 35; mostly option text from the v51 option-bias fixes; list: /workspace/tts/analysis/v51_changes.md); 82 new files, 48 old files removed. Same model / voices / speed / post chain as above; pron additions 鱼干 / 小鱼干 / 高高的 / 掉光光
+
+## r17 — +15 prompts (generated 2026-10-20 10:19 PDT, 音频设计)
+- Imported with `node scripts/import-voice.mjs /workspace/tts/deploy/voice --speed 1.2`: 3268 keys / 1911 mp3 (17.31 MB); pack label K1 v51 · K2 v51 · K3 v51 · r17 prompts (game bank v56)
+- New: p:happy_total_1..5 (开心值一共 m 个), p:res_k_first_1..10 (自己答对 N 题; 2 → 两). Same model / voices / speed / post chain as above
+- Not yet re-recorded for bank v56: 18 option keys whose text changed in v55 (tests/fixtures/r17_voice_stale_v56.json); the game skips a clip whose recorded text no longer matches the shown text

@@ -15,7 +15,7 @@ import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newK
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
 import { MONSTER_IMG, type Character } from '../game/characters';
-import { speak, hasVoice, isSpeaking, voiceKey, afterVoice, speechMs } from '../tts';
+import { speak, hasVoice, isSpeaking, voiceKey, expectVoiceText, afterVoice, speechMs } from '../tts';
 /* r15.4.4：小班自动跳转等这句读完再走（录音 1.2 倍速变长）。上限（毫秒）：结算 / 时间到 5 s，下一题 3.5 s */
 /* r15.4.4：语速 1.2 后表扬+技能名+开心值可到 ~6 s（p:praise + p:sk_k_* + p:happy_*）；nextMax 太短会在开心值读到一半就出下一题把它切掉（voice-timeup N(c)(d)） */
 /* r16.3 总管方案 A：答对后只读表扬（+ 触发时的技能名），不再每题读「开心值…」；最后一题直接读「小乌云变成你的好朋友啦！」。
@@ -200,8 +200,9 @@ export function useForceEnd(f: () => void) {
 const PRAISE = ['真棒！', '太厉害了！', '答对啦！', '你好聪明！', '{mon}笑啦！'];   // r11：{mon} 换成这一关的怪兽名
 const KCOLORS = ['#cfe3ff', '#d5f0c4', '#fff0b3'];
 /* r15.4 录音退路：题干和每个选项单独的录音（manifest 键：题号#stem / 题号#optN，N = 题目原始选项序号；判断题用共用提示语 p:dui / p:cuo） */
-const optVoiceKey = (q: Question, ch: Option) => q.type === '判断' ? (ch.key === '对' ? 'p:dui' : 'p:cuo') : voiceKey(q.id, `opt${Math.max(0, q.options.findIndex(o => o.key === ch.key))}`);
-function speakStem(q: Question, shown?: Option[]) { const t = ttsText(q); if (t) speak(t, 'zh-CN', { id: q.id, keys: [voiceKey(q.id, 'stem'), ...(shown ?? []).map(ch => optVoiceKey(q, ch))] }); }
+const optVoiceKey = (q: Question, ch: Option) => q.type === '判断' ? (ch.key === '对' ? 'p:dui' : 'p:cuo') : expectVoiceText(voiceKey(q.id, `opt${Math.max(0, q.options.findIndex(o => o.key === ch.key))}`), ch.text);   // r17：登记选项文字，录音文字对不上就不放（tts.ts staleFilter）
+const stemVoiceKey = (q: Question) => expectVoiceText(voiceKey(q.id, 'stem'), ttsText(q), q.question);
+function speakStem(q: Question, shown?: Option[]) { const t = ttsText(q); if (t) speak(t, 'zh-CN', { id: q.id, keys: [stemVoiceKey(q), ...(shown ?? []).map(ch => optVoiceKey(q, ch))] }); }
 
 /** 题干拆分：连续 emoji 作为「可数的物品」放大显示（较真家长 J-1：题干里的 🍎 不能当普通文字小字显示） */
 const EMO = /(\p{Extended_Pictographic}(?:\uFE0F|\u200D\p{Extended_Pictographic}|\p{Emoji_Modifier})*)/u;
@@ -475,7 +476,7 @@ export function StdBattle({ unit, cfg, c, kind, title, questions, extra, review,
   const falling = view.p <= 0 || view.m <= 0;   // 已被打到 0 血：直接倒地/defeat，不显示「战斗中…」（策划 r7）
 
   useEffect(() => { setTimeLeft(limit); }, [q?.key, phase === 'question' || phase === 'revive-q']);
-  useEffect(() => { if (q && cfg.autoTTS && (phase === 'question' || phase === 'revive-q')) { const t = ttsText(q); if (t) speak(t, q.subject === '英语' ? 'en' : 'zh-CN', { id: q.id, keys: [voiceKey(q.id, 'stem'), ...(q.type === '选择' || q.type === '判断' ? choicesOf(q).map(ch => optVoiceKey(q, ch)) : [])] }); } }, [q?.key, phase]);
+  useEffect(() => { if (q && cfg.autoTTS && (phase === 'question' || phase === 'revive-q')) { const t = ttsText(q); if (t) speak(t, q.subject === '英语' ? 'en' : 'zh-CN', { id: q.id, keys: [stemVoiceKey(q), ...(q.type === '选择' || q.type === '判断' ? choicesOf(q).map(ch => optVoiceKey(q, ch)) : [])] }); } }, [q?.key, phase]);
   useEffect(() => {
     if ((phase !== 'question' && phase !== 'revive-q') || paused || !limit) return;
     if (timeLeft <= 0) { submit(''); return; }

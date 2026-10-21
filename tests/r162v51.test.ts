@@ -20,6 +20,7 @@ const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`
 const B = (g: string) => loadBank(raw(g), `bank_${g}.json`);
 const all: Question[] = BUILTIN_GRADES.flatMap(g => B(g).all); const vis = computeVisibility(all); const byId = new Map(all.map(q => [q.id, q]));
 const V50 = JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.json', 'utf8')) as Record<string, { grade: string; rev50: string }>;
+const STALE56: string[] = JSON.parse(readFileSync('tests/fixtures/r17_voice_stale_v56.json', 'utf8')).keys;
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
 describe('r16.2 题库 v51', () => {
   it('发布号 v51；题量 18344 不变；初三 / 大班 / 高三没导入；高二物理全部隐藏；自动规则不藏任何册', () => {
@@ -63,7 +64,8 @@ describe('r16.2 题库 v51', () => {
         const chk = (k: string, s: string, t: string) => { if (!man.items[k]) { miss.push(k); return; } const mt = man.meta?.[k]?.text; if (mt && norm(mt) !== norm(s) && norm(mt) !== norm(t)) diff.push(`${k}「${mt}」≠「${t}」`); };
         const t = q.tts_text === '-' ? '' : (q.tts_text || q.question); if (t && speakable(t)) chk(q.id + '#stem', speakable(t), t);
         if (q.type === '选择') (q.options || []).forEach((o: { text?: string }, i: number) => { const s = speakable(o.text || ''); if (s) chk(`${q.id}#opt${i}`, s, o.text || ''); }); } }
-    expect(miss).toEqual([]); expect(diff).toEqual([]);
+    // r17：题库 v56 改了字的 18 个选项录音还是旧字（等音频设计按 v56 补录）——只许正好是这 18 个；游戏里不放（tests/r17voice）
+    expect(miss).toEqual([]); expect(diff.map(d => d.split('「')[0])).toEqual(STALE56);
   });
   it('17 道数字键盘修正里进游戏的 16 道（C9-108 是初三，没导入）：每个答案都按得出来、按完判对；百分数题 % 在题干里', () => {
     const ids = ['B8-305', 'B10-276', 'B10-375', 'B11-341', 'C11-070', 'C11-092', 'B8-293', ...['325', '387', '470', '471', '474', '480', '484', '516', '526'].map(n => 'P8-' + n)];

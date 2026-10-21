@@ -6,14 +6,14 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v51 · K2 v51 · K3 v51",
+ "bank_version": "K1 v51 · K2 v51 · K3 v51 · r17 prompts",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
   "en": 1.2
  },
  "pron_overrides": 57,
- "generated": "2026-10-19T23:50:51-07:00",
+ "generated": "2026-10-20T10:19:30-07:00",
  "complete": true,
  "items": {
   "K-001#opt0": "K-001_opt0.f0d0f7a55e.mp3",
@@ -3180,6 +3180,11 @@
   "p:happy_4_4": "p_happy_4_4.bdaf66bebb.mp3",
   "p:happy_4_5": "p_happy_4_5.3929f272df.mp3",
   "p:happy_5_5": "p_happy_5_5.495d2620bb.mp3",
+  "p:happy_total_1": "p_happy_total_1.e1bd464bb3.mp3",
+  "p:happy_total_2": "p_happy_total_2.e828d9dd45.mp3",
+  "p:happy_total_3": "p_happy_total_3.13f3184992.mp3",
+  "p:happy_total_4": "p_happy_total_4.b073445567.mp3",
+  "p:happy_total_5": "p_happy_total_5.01023944ac.mp3",
   "p:hold_pause": "p_hold_pause.20605554b7.mp3",
   "p:home_bio": "p_home_bio.2ecca92d75.mp3",
   "p:home_chem": "p_home_chem.73ef815c4f.mp3",
@@ -3230,6 +3235,16 @@
   "p:res_k2": "p_res_k2.355ce937ed.mp3",
   "p:res_k_again": "p_res_k_again.75105f8424.mp3",
   "p:res_k_done": "p_res_k_done.a751caeacf.mp3",
+  "p:res_k_first_1": "p_res_k_first_1.f41517743e.mp3",
+  "p:res_k_first_10": "p_res_k_first_10.1cb25211c5.mp3",
+  "p:res_k_first_2": "p_res_k_first_2.ae2625ca6b.mp3",
+  "p:res_k_first_3": "p_res_k_first_3.7ce13d8642.mp3",
+  "p:res_k_first_4": "p_res_k_first_4.f85e5f989b.mp3",
+  "p:res_k_first_5": "p_res_k_first_5.045f035a2a.mp3",
+  "p:res_k_first_6": "p_res_k_first_6.164c27f43b.mp3",
+  "p:res_k_first_7": "p_res_k_first_7.c11c20fdec.mp3",
+  "p:res_k_first_8": "p_res_k_first_8.c00ff342ff.mp3",
+  "p:res_k_first_9": "p_res_k_first_9.999c5ee237.mp3",
   "p:retry": "p_retry.44b2233162.mp3",
   "p:rotate_k": "p_rotate_k.ca96a9256c.mp3",
   "p:sk_k_abei_1": "p_sk_k_abei_1.2f7307b3cf.mp3",
@@ -91346,6 +91361,366 @@
    "status": "AI初审通过",
    "reused_from": "K2C-055#opt0",
    "grade": "K2"
+  },
+  "p:happy_total_1": {
+   "file": "p_happy_total_1.e1bd464bb3.mp3",
+   "text": "开心值一共1个。",
+   "segments": [
+    [
+     "zh",
+     "开心值一共1个。"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "e1bd464bb3a51b25560f2580c6acef1f68ce6ec85aeedba0cc8cde8465f3e4d9",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄎㄞ1ㄒ阴1/ㄓ十2/ㄧ2ㄍ中4/ㄧ2ㄍㄜ5."
+   ],
+   "synth_s": 2.31,
+   "duration": 1.704,
+   "lufs": -16.4,
+   "tp": -2.3,
+   "pregain_db": 6.64,
+   "limiter_gr_db": 1.92,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:happy_total_2": {
+   "file": "p_happy_total_2.e828d9dd45.mp3",
+   "text": "开心值一共两个。",
+   "segments": [
+    [
+     "zh",
+     "开心值一共两个。"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "e828d9dd45a3e1ea40a4f171f987dddcf352374d8ecc03b552999970debbbf18",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄎㄞ1ㄒ阴1/ㄓ十2/ㄧ2ㄍ中4/ㄌ阳3ㄍㄜ5."
+   ],
+   "synth_s": 1.87,
+   "duration": 1.728,
+   "lufs": -16.4,
+   "tp": -2.2,
+   "pregain_db": 6.81,
+   "limiter_gr_db": 1.29,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:happy_total_3": {
+   "file": "p_happy_total_3.13f3184992.mp3",
+   "text": "开心值一共3个。",
+   "segments": [
+    [
+     "zh",
+     "开心值一共3个。"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "13f3184992849b34b0dc8d023639e8fc322f87753c10d1a050844d58c28fb5cb",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄎㄞ1ㄒ阴1/ㄓ十2/ㄧ2ㄍ中4/ㄙㄢ1ㄍㄜ5."
+   ],
+   "synth_s": 1.64,
+   "duration": 1.8,
+   "lufs": -16.4,
+   "tp": -2.1,
+   "pregain_db": 6.72,
+   "limiter_gr_db": 1.39,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:happy_total_4": {
+   "file": "p_happy_total_4.b073445567.mp3",
+   "text": "开心值一共4个。",
+   "segments": [
+    [
+     "zh",
+     "开心值一共4个。"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "b073445567a7f7e871a63578ac036ff928ae94b084c724c2fab96a97d4ca72ce",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄎㄞ1ㄒ阴1/ㄓ十2/ㄧ2ㄍ中4/ㄙㄭ4ㄍㄜ5."
+   ],
+   "synth_s": 1.85,
+   "duration": 1.752,
+   "lufs": -16.4,
+   "tp": -2.3,
+   "pregain_db": 6.77,
+   "limiter_gr_db": 2.2,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:happy_total_5": {
+   "file": "p_happy_total_5.01023944ac.mp3",
+   "text": "开心值一共5个。",
+   "segments": [
+    [
+     "zh",
+     "开心值一共5个。"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "01023944acaa0240bb98a9b167fb8ab1282c15fa90195875ea99f201e64c0d66",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄎㄞ1ㄒ阴1/ㄓ十2/ㄧ2ㄍ中4/ㄨ3ㄍㄜ5."
+   ],
+   "synth_s": 2.36,
+   "duration": 1.728,
+   "lufs": -16.4,
+   "tp": -2.2,
+   "pregain_db": 6.68,
+   "limiter_gr_db": 1.92,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_1": {
+   "file": "p_res_k_first_1.f41517743e.mp3",
+   "text": "自己答对1题",
+   "segments": [
+    [
+     "zh",
+     "自己答对1题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "f41517743e2c9c32ff1a1ea55cc7ae83af7ad91f0897c188a7c7dd636cbdab97",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄧ4ㄊㄧ2"
+   ],
+   "synth_s": 1.38,
+   "duration": 1.608,
+   "lufs": -16.4,
+   "tp": -2.4,
+   "pregain_db": 6.23,
+   "limiter_gr_db": 0.54,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_2": {
+   "file": "p_res_k_first_2.ae2625ca6b.mp3",
+   "text": "自己答对两题",
+   "segments": [
+    [
+     "zh",
+     "自己答对两题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "ae2625ca6b4ccacd67ea410466793c806f0e9932132b3e8835b80d3883c6e682",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄌ阳3/ㄊㄧ2"
+   ],
+   "synth_s": 1.31,
+   "duration": 1.632,
+   "lufs": -16.3,
+   "tp": -2.5,
+   "pregain_db": 6.46,
+   "limiter_gr_db": 0.64,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_3": {
+   "file": "p_res_k_first_3.7ce13d8642.mp3",
+   "text": "自己答对3题",
+   "segments": [
+    [
+     "zh",
+     "自己答对3题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "7ce13d8642c77d86d9f82a8e5f6b4cf9f935bf0f18d54150049b8da2dc42a7da",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄙㄢ1ㄊㄧ2"
+   ],
+   "synth_s": 1.69,
+   "duration": 1.68,
+   "lufs": -16.3,
+   "tp": -2.3,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.15,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_4": {
+   "file": "p_res_k_first_4.f85e5f989b.mp3",
+   "text": "自己答对4题",
+   "segments": [
+    [
+     "zh",
+     "自己答对4题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "f85e5f989bf742aad1c754871ff18d3aa7ffa7d3ab05f37d8dce6a0867de819d",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄙㄭ4ㄊㄧ2"
+   ],
+   "synth_s": 1.36,
+   "duration": 1.608,
+   "lufs": -16.4,
+   "tp": -2.1,
+   "pregain_db": 6.35,
+   "limiter_gr_db": 0.69,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_5": {
+   "file": "p_res_k_first_5.045f035a2a.mp3",
+   "text": "自己答对5题",
+   "segments": [
+    [
+     "zh",
+     "自己答对5题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "045f035a2a1cf1e1783b9ae20817f79f0d01853da8f3f797d96f5e5f309ea82c",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄨ3ㄊㄧ2"
+   ],
+   "synth_s": 1.32,
+   "duration": 1.656,
+   "lufs": -16.4,
+   "tp": -1.9,
+   "pregain_db": 6.54,
+   "limiter_gr_db": 0.91,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_6": {
+   "file": "p_res_k_first_6.164c27f43b.mp3",
+   "text": "自己答对6题",
+   "segments": [
+    [
+     "zh",
+     "自己答对6题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "164c27f43b0aaab2570bd5e489a6ee5dbecd5251acd8e8e6a668de5d26a176b0",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄌ又4ㄊㄧ2"
+   ],
+   "synth_s": 1.37,
+   "duration": 1.704,
+   "lufs": -16.4,
+   "tp": -2.3,
+   "pregain_db": 6.45,
+   "limiter_gr_db": 0.47,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_7": {
+   "file": "p_res_k_first_7.c11c20fdec.mp3",
+   "text": "自己答对7题",
+   "segments": [
+    [
+     "zh",
+     "自己答对7题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "c11c20fdecd70608bf219aaf39fc54ad57d68b245bb531c5a229600e8078187b",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄑㄧ1ㄊㄧ2"
+   ],
+   "synth_s": 1.72,
+   "duration": 1.608,
+   "lufs": -16.3,
+   "tp": -2.4,
+   "pregain_db": 6.21,
+   "limiter_gr_db": 0.91,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_8": {
+   "file": "p_res_k_first_8.c00ff342ff.mp3",
+   "text": "自己答对8题",
+   "segments": [
+    [
+     "zh",
+     "自己答对8题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "c00ff342ffaac58b66ed03677959fb64494b22b3aa5186808ee1a055d1afd0d7",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄅㄚ1ㄊㄧ2"
+   ],
+   "synth_s": 0.91,
+   "duration": 1.656,
+   "lufs": -16.3,
+   "tp": -2.3,
+   "pregain_db": 6.63,
+   "limiter_gr_db": 0.2,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_9": {
+   "file": "p_res_k_first_9.999c5ee237.mp3",
+   "text": "自己答对9题",
+   "segments": [
+    [
+     "zh",
+     "自己答对9题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "999c5ee23702b4a10a8365071e731dd8758cef48f0fdeef1c4716dc8f7248612",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄐ又3ㄊㄧ2"
+   ],
+   "synth_s": 1.24,
+   "duration": 1.68,
+   "lufs": -16.4,
+   "tp": -2.3,
+   "pregain_db": 6.43,
+   "limiter_gr_db": 0.54,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:res_k_first_10": {
+   "file": "p_res_k_first_10.1cb25211c5.mp3",
+   "text": "自己答对10题",
+   "segments": [
+    [
+     "zh",
+     "自己答对10题"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.2,
+   "hash": "1cb25211c50a6aac1095f2eefec12b50c4ddc879293ffdec7dd8b3bf45cace3f",
+   "phonemes": [
+    "zh|zf_002|1.2|ㄗㄭ4ㄐㄧ3/ㄉㄚ2ㄉ为4/ㄕ十2ㄊㄧ2"
+   ],
+   "synth_s": 0.83,
+   "duration": 1.608,
+   "lufs": -16.4,
+   "tp": -2.4,
+   "pregain_db": 6.22,
+   "limiter_gr_db": 0.82,
+   "gr_flag": false,
+   "norm": "linear"
   }
  },
  "deploy": {
@@ -91637,6 +92012,29 @@
     "掉光光 diao4 guang1 guang1"
    ],
    "note": "v51: 67 questions (audio list 音频清单_v51.csv); only changed spoken keys regenerated; full list analysis/v51_changes.md"
+  },
+  "r17_prompts": {
+   "date": "2026-10-20",
+   "keys": [
+    "p:happy_total_1",
+    "p:happy_total_2",
+    "p:happy_total_3",
+    "p:happy_total_4",
+    "p:happy_total_5",
+    "p:res_k_first_1",
+    "p:res_k_first_2",
+    "p:res_k_first_3",
+    "p:res_k_first_4",
+    "p:res_k_first_5",
+    "p:res_k_first_6",
+    "p:res_k_first_7",
+    "p:res_k_first_8",
+    "p:res_k_first_9",
+    "p:res_k_first_10"
+   ],
+   "source": "prompts_r17.json (texts = zy-r16 HAPPY_TOTAL_LINE / K_FIRST_LINE)",
+   "out": "/workspace/tts/out_r17p/zf_002",
+   "note": "15 new prompts for r17 (游戏程序): p:happy_total_1..5, p:res_k_first_1..10; zf_002 1.2, chain v2.1; 2→两 (happy text has 两; res_k_first_2 via tts_subst 答对2题→答对两题)"
   }
  },
  "banks": {

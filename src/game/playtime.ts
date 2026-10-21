@@ -142,4 +142,4 @@ export const K_AGAIN_TEXT = '真棒！再玩一关吧';
 /** r16 小萌新：今天第 3 次起不加星时，图形旁边朗读的原因 */
 export const K_NOSTAR_WHY = '这一关今天玩了三次啦，星星明天再来拿哦';
 /** r16 小萌新：结算页「自己答对 N 题」朗读 */
-export const K_FIRST_LINE = (n: number) => `自己答对${n}题`;
+export const K_FIRST_LINE = (n: number) => `自己答对${n === 2 ? '两' : n}题`;   // r17：2 写成「两」（自己答对两题），和录音 p:res_k_first_2 一致

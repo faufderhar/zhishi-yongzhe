@@ -81,7 +81,7 @@ if (synth) { const chk = () => { const n = synth.getVoices().length; if (n === 0
    常用提示语（答对、再试试…）共用文件。小班不再降 6 dB。
    manifest：items 的键 = 「题号#stem」「题号#optN」（N = 原始选项序号）「p:提示语 id」→ 文件名（相对 voice/，或分段文件名数组）；meta 只给生成脚本用。
    manifest 不存在 / 为空时照常工作（全部走系统朗读或提示）。 */
-interface VoiceMan { items?: Record<string, string | string[]>; meta?: Record<string, { duration?: number } | undefined> }
+interface VoiceMan { items?: Record<string, string | string[]>; meta?: Record<string, { duration?: number; text?: string } | undefined> }
 let voiceMan: Promise<VoiceMan> | null = null;
 const vbase = () => (typeof document !== 'undefined' ? (document.baseURI || '/') : '/').replace(/[^/]*$/, '');
 export function voiceManifest() { return voiceMan ??= (typeof fetch === 'undefined' ? Promise.resolve({}) : fetch(vbase() + 'voice/manifest.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))).then(m => (m && typeof m === 'object' ? m : {}) as VoiceMan); }
@@ -147,10 +147,18 @@ const aLog: ALog[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((
 const urlKey = new Map<string, string>();
 const alog = (ev: string, url: string, dur?: number) => { aLog?.push({ ev, key: urlKey.get(url) ?? '', url: url.split('/').pop() ?? url, t: performance.now(), state: sfxCtx?.state ?? 'none', dur }); };
 const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ && typeof window !== 'undefined' ? ((window as unknown as { __zyRecLog?: { url: string; t: number; dur: number }[] }).__zyRecLog = []) : null;
+/* r17：题库改了字、录音包还没跟上（v56：K-050 选项「11」录音还是「8」等 18 个选项）——录音的文字（manifest meta.text）和这道题现在显示 / 朗读的文字对不上，
+   这段录音就当没有（不读错的数）：题干 / 选项朗读跳过这一段，演示句改用「是这个哦」，单独点选项 → 没有录音的提示。
+   期望文字由 Battle 在拼键时登记（expectVoiceText）；只比汉字 / 字母 / 数字（标点、表情、零宽字符不算）。没登记 / 包里没写文字的键照常播。 */
+const expectTexts = new Map<string, string[]>();
+export const expectVoiceText = (key: string, ...texts: (string | undefined)[]) => { const t = texts.filter((x): x is string => !!x); if (t.length) expectTexts.set(key, t); return key; };
+export const voiceTextStale = (key: string, meta: VoiceMan['meta']) => { const want = expectTexts.get(key); const mt = meta?.[key]?.text; if (!want || typeof mt !== 'string') return false; const n = norm(mt); return !!n && !want.some(w => norm(w) === n); };
+function staleFilter(items: Record<string, string | string[]>, meta: VoiceMan['meta'], keys: string[]) {
+  if (!keys.some(k => voiceTextStale(k, meta))) return items; const out = { ...items }; for (const k of keys) if (voiceTextStale(k, meta)) delete out[k]; return out; }
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 let recHad = false;
 export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
-  recPending++; let it: Record<string, string | string[]>; try { it = (await within(voiceManifest(), VOICE_START_MS, {} as VoiceMan)).items ?? {}; } finally { recPending--; }   // r16.2：清单取不到也不等
+  recPending++; let it: Record<string, string | string[]>; try { const m = await within(voiceManifest(), VOICE_START_MS, {} as VoiceMan); it = staleFilter(m.items ?? {}, m.meta, keys); } finally { recPending--; }   // r16.2：清单取不到也不等
   if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
   const steps: { url: string; gap: number }[] = []; let prevKey = '';
   for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;

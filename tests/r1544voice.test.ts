@@ -24,7 +24,7 @@ describe('r15.4.4 小班录音', () => {
     expect(man.items['KC-028#opt0']).toBeUndefined();
   });
   it('题库 v31 / v32：小班每道题的题干、每个能朗读的选项都有录音，文件都在；K-038 读「两个苹果」', () => {
-    expect(['v31', 'v32', 'v33', 'v34', 'v42', 'v43', 'v44', 'v45', 'v46', 'v47', 'v48', 'v50', 'v51', 'v52']).toContain(bank.version);   // v52 没改幼儿园（音频清单_v52 0 题）   // v51 小班 19 键改了文字：录音包同步换成 v51 包（音频设计，label K1 v51），下面逐键比对文字   // v50 小班题和 v48 逐字相同（tests/r162v50）   // v47 小班题和 v46 逐字相同   // v32 的小班题和 v31 相同（录音按 v31 生成）
+    expect(['v31', 'v32', 'v33', 'v34', 'v42', 'v43', 'v44', 'v45', 'v46', 'v47', 'v48', 'v50', 'v51', 'v52', 'v56']).toContain(bank.version);   // v56 小班 4 个选项改字（录音待补，tests/r17voice）   // v52 没改幼儿园（音频清单_v52 0 题）   // v51 小班 19 键改了文字：录音包同步换成 v51 包（音频设计，label K1 v51），下面逐键比对文字   // v50 小班题和 v48 逐字相同（tests/r162v50）   // v47 小班题和 v46 逐字相同   // v32 的小班题和 v31 相同（录音按 v31 生成）
     const miss: string[] = [];
     for (const q of bank.questions) {
       const t = q.tts_text === '-' ? '' : (q.tts_text || q.question); if (t && speakable(t) && !man.items[q.id + '#stem']) miss.push(q.id + '#stem');
@@ -42,8 +42,8 @@ describe('r15.4.4 小班录音', () => {
   it('每句登记过的提示语都有录音（含新句 p:res_k_again）', () => {
     // r16：新开的三个年级名（年级选择里朗读）等录音——列在 /workspace/playtest/r16dev/new_voice_lines.md，录好后这里改回 []
     // r16 新句（/workspace/playtest/r16dev/new_voice_lines.md），等音频设计录：年级名 + 中班 23 只 Boss 的「回家 / 笑啦」
-    // r16.3 总管方案 A：结算页新句「开心值一共 m 个」（p:happy_total_1..5）等音频设计录；没录之前录音模式用 p:happy_m_m
-    const PENDING = [...Array.from({ length: 5 }, (_, i) => `happy_total_${i + 1}`), 'grade_k2', 'grade_8', 'grade_11', 'res_k_why', ...Array.from({ length: 10 }, (_, i) => `res_k_first_${i + 1}`), ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
+    // r16.3 总管方案 A：结算页新句「开心值一共 m 个」（p:happy_total_1..5）——r17 已导入音频设计的录音（连同 p:res_k_first_1..10）
+    const PENDING = ['grade_k2', 'grade_8', 'grade_11', 'res_k_why', ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
     const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss.sort()).toEqual(PENDING.sort());
   });
 });
