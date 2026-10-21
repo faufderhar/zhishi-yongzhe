@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-4年级-v52（AI初审）",
- "version": "v52",
+ "bank_name": "三兄妹题库-4年级-v56（AI初审）",
+ "version": "v56",
  "questions": [
   {
    "id": "M4-001",
@@ -298,7 +298,7 @@
    "question": "1 平方米等于多少平方分米？",
    "options": [
     {
-     "text": "60",
+     "text": "10000",
      "image": "",
      "audio": ""
     },
@@ -325,9 +325,10 @@
    "volume": "四年级上册",
    "knowledge_point": "面积单位",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T615f8d",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "面积单位"
    ]
@@ -705,7 +706,7 @@
      "audio": ""
     },
     {
-     "text": "4600 万",
+     "text": "459.6 万",
      "image": "",
      "audio": ""
     },
@@ -722,9 +723,10 @@
    "volume": "四年级上册",
    "knowledge_point": "近似数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Td4a392",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "近似数"
    ]
@@ -2337,12 +2339,12 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "play",
+     "text": "to played",
      "image": "",
      "audio": ""
     },
     {
-     "text": "plays",
+     "text": "is played",
      "image": "",
      "audio": ""
     },
@@ -2364,9 +2366,10 @@
    "volume": "四年级上册",
    "knowledge_point": "4A Unit 4 I like sport",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Tfb5cd1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "Unit 4 I like sport"
@@ -3372,7 +3375,7 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "I'm fine.",
+     "text": "I'm fine. What's your name?",
      "image": "",
      "audio": ""
     },
@@ -3524,12 +3527,12 @@
      "audio": ""
     },
     {
-     "text": "Look up and down.",
+     "text": "Look up and down carefully.",
      "image": "",
      "audio": ""
     },
     {
-     "text": "Run fast.",
+     "text": "Run fast across the road.",
      "image": "",
      "audio": ""
     }
@@ -3666,12 +3669,12 @@
      "audio": ""
     },
     {
-     "text": "Goodbye!",
+     "text": "Goodbye! See you next time, Grandpa!",
      "image": "",
      "audio": ""
     },
     {
-     "text": "Happy birthday!",
+     "text": "Happy birthday to you, Grandpa!",
      "image": "",
      "audio": ""
     }
@@ -3704,7 +3707,7 @@
    "tts_text": "“关心别人”用英语是？",
    "options": [
     {
-     "text": "care for other",
+     "text": "taking care of other",
      "image": "",
      "audio": ""
     },
@@ -3852,12 +3855,12 @@
      "audio": ""
     },
     {
-     "text": "I like noodle.",
+     "text": "I like eat noodle very much.",
      "image": "",
      "audio": ""
     },
     {
-     "text": "I am noodles.",
+     "text": "I am some noodles, please.",
      "image": "",
      "audio": ""
     },
@@ -4188,12 +4191,12 @@
      "audio": ""
     },
     {
-     "text": "make the floor",
+     "text": "clean the window",
      "image": "",
      "audio": ""
     },
     {
-     "text": "wash the floor",
+     "text": "wipe the windows",
      "image": "",
      "audio": ""
     }
@@ -4205,9 +4208,10 @@
    "volume": "四年级下册",
    "knowledge_point": "4B Unit 7 Doing chores at home",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "Unit 7 Doing chores at home"
@@ -4272,7 +4276,7 @@
    "tts_text": "“整理床铺”用英语是？",
    "options": [
     {
-     "text": "clean bed",
+     "text": "clean the bed",
      "image": "",
      "audio": ""
     },
@@ -4299,9 +4303,10 @@
    "volume": "四年级下册",
    "knowledge_point": "4B Unit 7 Doing chores at home",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Ta71be3",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "Unit 7 Doing chores at home"
@@ -4745,7 +4750,7 @@
      "audio": ""
     },
     {
-     "text": "现代诗不能表达作者自己的感情",
+     "text": "现代诗不能表达作者自己的感情，只能写景",
      "image": "",
      "audio": ""
     },
@@ -5368,7 +5373,7 @@
      "audio": ""
     },
     {
-     "text": "李子是别人家的，摘了怕被主人打",
+     "text": "李子是别人家的，摘了怕被主人发现打骂",
      "image": "",
      "audio": ""
     },
@@ -5601,12 +5606,12 @@
      "audio": ""
     },
     {
-     "text": "荒凉冷清，一年四季都看不到花草",
+     "text": "荒凉冷清，一年四季都看不到一朵花草",
      "image": "",
      "audio": ""
     },
     {
-     "text": "院子里静悄悄的，看不到一只鸡鸭",
+     "text": "院子里静悄悄的，看不到一只鸡鸭和小鸟",
      "image": "",
      "audio": ""
     }
@@ -5688,7 +5693,7 @@
      "audio": ""
     },
     {
-     "text": "这是昨天才发生的事情",
+     "text": "这是昨天才刚刚发生的事情，被人发现了",
      "image": "",
      "audio": ""
     },
@@ -5820,7 +5825,7 @@
    "question": "艾青把绿写成？",
    "options": [
     {
-     "text": "绿是黑色的",
+     "text": "绿色太浓了，看起来像黑色",
      "image": "",
      "audio": ""
     },
@@ -5835,7 +5840,7 @@
      "audio": ""
     },
     {
-     "text": "到处没有一点儿绿色",
+     "text": "到处没有一点儿绿色，一片枯黄",
      "image": "",
      "audio": ""
     }
@@ -5871,7 +5876,7 @@
      "audio": ""
     },
     {
-     "text": "很凶，从来不让人靠近",
+     "text": "性格很凶，从来不让家里人靠近它",
      "image": "",
      "audio": ""
     },
@@ -5957,7 +5962,7 @@
    "question": "进内洞的方式是？",
    "options": [
     {
-     "text": "坐电梯一直下到内洞里",
+     "text": "顺着洞顶的一根绳子慢慢爬下去",
      "image": "",
      "audio": ""
     },
@@ -6694,12 +6699,12 @@
      "audio": ""
     },
     {
-     "text": "下雨",
+     "text": "大雨落在菜花上",
      "image": "",
      "audio": ""
     },
     {
-     "text": "下雪",
+     "text": "雪花飞入菜花丛",
      "image": "",
      "audio": ""
     }
@@ -6910,12 +6915,12 @@
    "question": "“只缘身在此山中”说明？",
    "options": [
     {
-     "text": "爬山太累，不要爬山",
+     "text": "爬山太累，人最好不要去爬高山",
      "image": "",
      "audio": ""
     },
     {
-     "text": "庐山一点也不美",
+     "text": "庐山其实一点也不美，不值得看",
      "image": "",
      "audio": ""
     },
@@ -7001,7 +7006,7 @@
    "question": "“天下谁人不识君”用来？",
    "options": [
     {
-     "text": "责备朋友",
+     "text": "责备朋友不该离开",
      "image": "",
      "audio": ""
     },
@@ -7016,7 +7021,7 @@
      "audio": ""
     },
     {
-     "text": "嘲笑朋友",
+     "text": "嘲笑朋友没有名气",
      "image": "",
      "audio": ""
     }
@@ -7028,9 +7033,10 @@
    "volume": "四年级（上下册通用）",
    "knowledge_point": "诗词",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "Taf9b38",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "诗词"
    ]
@@ -7102,12 +7108,12 @@
      "audio": ""
     },
     {
-     "text": "春和冬没有雪",
+     "text": "冬天和春天的长短",
      "image": "",
      "audio": ""
     },
     {
-     "text": "雪和雨",
+     "text": "雪花和雨水的大小",
      "image": "",
      "audio": ""
     }
@@ -7281,7 +7287,7 @@
      "audio": ""
     },
     {
-     "text": "100℃（标准大气压）",
+     "text": "100℃",
      "image": "",
      "audio": ""
     },
@@ -7303,9 +7309,10 @@
    "volume": "四年级上册",
    "knowledge_point": "科学",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T92ce24",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "科学"
    ]
@@ -7377,7 +7384,7 @@
      "audio": ""
     },
     {
-     "text": "产生磁性",
+     "text": "让电路产生磁性",
      "image": "",
      "audio": ""
     },
@@ -7877,7 +7884,7 @@
      "audio": ""
     },
     {
-     "text": "可再生的清洁能源",
+     "text": "可再生的清洁能源，越用越多",
      "image": "",
      "audio": ""
     },
@@ -7887,7 +7894,7 @@
      "audio": ""
     },
     {
-     "text": "不是能源",
+     "text": "不是能源，只是普通的矿物",
      "image": "",
      "audio": ""
     }
@@ -7923,12 +7930,12 @@
      "audio": ""
     },
     {
-     "text": "不用记录，记在脑子里就行",
+     "text": "不用记录数据，把结果都记在脑子里就行",
      "image": "",
      "audio": ""
     },
     {
-     "text": "先写好结果，再动手做实验",
+     "text": "先把实验结果写好，再照着结果动手做实验",
      "image": "",
      "audio": ""
     },
@@ -9797,7 +9804,7 @@
      "audio": ""
     },
     {
-     "text": "宋·卢钺（卢梅坡）",
+     "text": "宋·卢梅坡",
      "image": "",
      "audio": ""
     },
@@ -9814,6 +9821,7 @@
    "volume": "四年级（上下册通用）",
    "knowledge_point": "作者",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T8ef6dc",
    "change_tag": "修改",
@@ -12434,7 +12442,7 @@
      "audio": ""
     },
     {
-     "text": "切牙（门牙）",
+     "text": "门牙",
      "image": "",
      "audio": ""
     }
@@ -12557,7 +12565,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "43 ℃",
+     "text": "21.5 ℃",
      "image": "",
      "audio": ""
     },
@@ -12603,7 +12611,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "附近的沙漠很多",
+     "text": "南方附近的沙漠很多，空气中沙尘多",
      "image": "",
      "audio": ""
     },
@@ -12618,7 +12626,7 @@
      "audio": ""
     },
     {
-     "text": "太阳一直不出来",
+     "text": "南方的高山很多，把太阳光都挡住了",
      "image": "",
      "audio": ""
     }
@@ -12700,7 +12708,7 @@
      "audio": ""
     },
     {
-     "text": "用茎繁殖（无性繁殖）",
+     "text": "用茎繁殖",
      "image": "",
      "audio": ""
     },
@@ -12930,7 +12938,7 @@
      "audio": ""
     },
     {
-     "text": "可以节省很多电线",
+     "text": "可以节省很多电线和电费",
      "image": "",
      "audio": ""
     },
@@ -13426,7 +13434,7 @@
      "audio": ""
     },
     {
-     "text": "庐山又高又陡，很难爬上去",
+     "text": "庐山又高又陡，很难爬上去，要多锻炼好身体",
      "image": "",
      "audio": ""
     },
@@ -13515,7 +13523,7 @@
    "question": "“但使龙城飞将在”中“飞将”指的是？",
    "options": [
     {
-     "text": "开飞机的飞行员",
+     "text": "唐代名将郭子仪",
      "image": "",
      "audio": ""
     },
@@ -13525,7 +13533,7 @@
      "audio": ""
     },
     {
-     "text": "诗人自己",
+     "text": "诗人王昌龄自己",
      "image": "",
      "audio": ""
     },
@@ -13562,7 +13570,7 @@
    "question": "“春风不度玉门关”表达了怎样的情感？",
    "options": [
     {
-     "text": "春天到来的喜悦之情",
+     "text": "春天终于来到玉门关的喜悦之情",
      "image": "",
      "audio": ""
     },
@@ -13788,12 +13796,12 @@
      "audio": ""
     },
     {
-     "text": "赞美夏天的炎热",
+     "text": "赞美夏日炎热天气里的美丽景色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "思念远方的家乡和亲人",
+     "text": "思念远在北方的家乡和亲人",
      "image": "",
      "audio": ""
     }
@@ -14426,7 +14434,7 @@
    "question": "“童孙未解供耕织”出自哪首诗？",
    "options": [
     {
-     "text": "《咏鹅》",
+     "text": "《黄鹤楼送孟浩然之广陵》",
      "image": "",
      "audio": ""
     },
@@ -14436,7 +14444,7 @@
      "audio": ""
     },
     {
-     "text": "《竹石》",
+     "text": "《饮湖上初晴后雨》",
      "image": "",
      "audio": ""
     },
@@ -15337,7 +15345,7 @@
    "question": "“相看两不厌”出自哪首诗？",
    "options": [
     {
-     "text": "《悯农》",
+     "text": "《黄鹤楼送孟浩然之广陵》",
      "image": "",
      "audio": ""
     },
@@ -15544,12 +15552,12 @@
      "audio": ""
     },
     {
-     "text": "心里很冷，很难过",
+     "text": "心里像冰一样冷，十分难过",
      "image": "",
      "audio": ""
     },
     {
-     "text": "想喝玉壶里的美酒",
+     "text": "想把玉壶送给洛阳的亲友",
      "image": "",
      "audio": ""
     }
@@ -16362,7 +16370,7 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "9998001",
+     "text": "98001",
      "image": "",
      "audio": ""
     },
@@ -16597,7 +16605,7 @@
    "textbook": "苏教版2024",
    "unit": "四下·六 三角形、平行四边形和梯形",
    "type": "判断",
-   "question": "三角形容易变形，不具有稳定性。",
+   "question": "三角形是容易变形的图形。",
    "answer": "错",
    "explanation": "错。三角形具有稳定性，自行车车架就利用了这一点；容易变形的是平行四边形。",
    "difficulty": 2,
@@ -17403,12 +17411,12 @@
      "audio": ""
     },
     {
-     "text": "Hello.",
+     "text": "Nice to meet you.",
      "image": "",
      "audio": ""
     },
     {
-     "text": "Sorry.",
+     "text": "Excuse me, please.",
      "image": "",
      "audio": ""
     },
@@ -17826,7 +17834,7 @@
    "textbook": "苏教版",
    "unit": "四上·实验",
    "type": "判断",
-   "question": "对比实验中，只改变一个条件。",
+   "question": "对比实验中，只改变一个条件，其他条件都保持相同。",
    "answer": "对",
    "explanation": "其他条件保持相同。",
    "difficulty": 2,
@@ -17858,7 +17866,7 @@
      "audio": ""
     },
     {
-     "text": "不用计划，边做边想",
+     "text": "不用提前做计划，边做实验边想办法",
      "image": "",
      "audio": ""
     },
@@ -17868,7 +17876,7 @@
      "audio": ""
     },
     {
-     "text": "拿到器材马上动手操作",
+     "text": "拿到器材就马上动手操作，越快越好",
      "image": "",
      "audio": ""
     }
@@ -18402,7 +18410,7 @@
    "textbook": "苏教版",
    "unit": "四上·热",
    "type": "判断",
-   "question": "铁、铜、铝等金属传热很慢，它们都是热的不良导体。",
+   "question": "铁、铜、铝等金属传热很慢，导热能力差。",
    "answer": "错",
    "explanation": "错。金属是热的良导体，所以铁锅传热快。",
    "difficulty": 2,
@@ -19126,7 +19134,7 @@
    "textbook": "苏教版",
    "unit": "四下·水循环",
    "type": "判断",
-   "question": "水蒸发变成水蒸气，是水的状态变化。",
+   "question": "水蒸发变成水蒸气，只是状态变了，所以仍然是水。",
    "answer": "对",
    "explanation": "水有固态、液态、气态三种状态。",
    "difficulty": 2,
@@ -19535,7 +19543,7 @@
    "textbook": "苏教版",
    "unit": "四下·能源",
    "type": "判断",
-   "question": "煤和石油用完了，很快就能再生出来。",
+   "question": "煤和石油用完了，很快能再生出来。",
    "answer": "错",
    "explanation": "煤和石油要经过很长时间才能形成，是不可再生能源。",
    "difficulty": 2,
@@ -19795,7 +19803,7 @@
      "audio": ""
     },
     {
-     "text": "做生意的商人",
+     "text": "做生意的商人和旅客",
      "image": "",
      "audio": ""
     },
@@ -20606,7 +20614,7 @@
      "audio": ""
     },
     {
-     "text": "菜花太矮了",
+     "text": "田里的菜花长得比孩子还高，挡住了视线",
      "image": "",
      "audio": ""
     },
@@ -20616,7 +20624,7 @@
      "audio": ""
     },
     {
-     "text": "天黑看不见了",
+     "text": "天色已经黑了，孩子什么都看不见了",
      "image": "",
      "audio": ""
     }
@@ -20722,7 +20730,7 @@
    "question": "《清平乐·村居》里，“大儿”在做什么？",
    "options": [
     {
-     "text": "在溪边剥莲蓬",
+     "text": "躺在溪头的草地上剥莲蓬",
      "image": "",
      "audio": ""
     },
@@ -20732,7 +20740,7 @@
      "audio": ""
     },
     {
-     "text": "在山坡上放牛吃草",
+     "text": "在山坡上放牛，让牛吃草",
      "image": "",
      "audio": ""
     },
@@ -21480,7 +21488,7 @@
      "audio": ""
     },
     {
-     "text": "宙斯",
+     "text": "众神之王宙斯",
      "image": "",
      "audio": ""
     },
@@ -21638,7 +21646,7 @@
      "audio": ""
     },
     {
-     "text": "很生气",
+     "text": "很生气，因为爸爸非要带“我”来爬山",
      "image": "",
      "audio": ""
     }
@@ -21771,7 +21779,7 @@
    "question": "王戎说“树在道旁而多子，此必苦李”，他推断的依据是？",
    "options": [
     {
-     "text": "他已经尝过了，知道是苦的",
+     "text": "他已经尝过了这棵树的李子，知道是苦的",
      "image": "",
      "audio": ""
     },
@@ -21786,7 +21794,7 @@
      "audio": ""
     },
     {
-     "text": "别人告诉他这棵树上的李子不能吃",
+     "text": "旁边的人告诉他这棵树上的李子不能吃",
      "image": "",
      "audio": ""
     }
@@ -22364,7 +22372,7 @@
      "audio": ""
     },
     {
-     "text": "大声唱歌",
+     "text": "在海边大声唱歌",
      "image": "",
      "audio": ""
     },
@@ -22798,7 +22806,7 @@
    "question": "老麻雀为什么不怕比自己大得多的猎狗？",
    "options": [
     {
-     "text": "它想吃掉猎狗",
+     "text": "它以为猎狗很弱小",
      "image": "",
      "audio": ""
     },
@@ -22813,7 +22821,7 @@
      "audio": ""
     },
     {
-     "text": "它迷路了",
+     "text": "它飞累了，飞不动了",
      "image": "",
      "audio": ""
     }
@@ -23357,12 +23365,12 @@
    "question": "李白看到老妇人磨铁杵后怎么做？",
    "options": [
     {
-     "text": "继续出去玩",
+     "text": "继续出去玩耍，不去上学",
      "image": "",
      "audio": ""
     },
     {
-     "text": "嘲笑她太傻",
+     "text": "嘲笑她太傻，转身离开",
      "image": "",
      "audio": ""
     },
@@ -23940,7 +23948,7 @@
    "question": "1纳米大约是多少？",
    "options": [
     {
-     "text": "千分之一米",
+     "text": "一千万分之一米",
      "image": "",
      "audio": ""
     },
@@ -24928,7 +24936,7 @@
      "audio": ""
     },
     {
-     "text": "妈妈在厨房里忙着做饭",
+     "text": "妈妈在厨房里忙着做晚饭，饭菜飘着香味",
      "image": "",
      "audio": ""
     }
@@ -25670,7 +25678,7 @@
    "question": "把 4985000 省略万位后面的尾数约是？",
    "options": [
     {
-     "text": "500 万",
+     "text": "498.5 万",
      "image": "",
      "audio": ""
     },
@@ -25697,6 +25705,7 @@
    "volume": "四年级下册",
    "knowledge_point": "认识多位数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "T9662ea",
    "change_tag": "新增",
@@ -26112,7 +26121,7 @@
      "audio": ""
     },
     {
-     "text": "零四五",
+     "text": "零点零四五",
      "image": "",
      "audio": ""
     },
@@ -26134,6 +26143,7 @@
    "volume": "四年级下册",
    "knowledge_point": "小数的意义和性质",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学数学（2024 新版）：1–3 年级及 4–6 年级上册用新版目录；4下/5下按 2026 修订版目录（2027 春新版据公开资料一致）；6下新版目录未公开，暂按旧版",
    "template": "Tf07a4e",
    "change_tag": "新增",
@@ -26759,7 +26769,7 @@
      "audio": ""
     },
     {
-     "text": "Sunday",
+     "text": "Thursday",
      "image": "",
      "audio": ""
     }
@@ -26883,7 +26893,7 @@
    "question": "“踢足球”用英语是？",
    "options": [
     {
-     "text": "skate",
+     "text": "play volleyball",
      "image": "",
      "audio": ""
     },
@@ -26910,6 +26920,7 @@
    "volume": "四年级上册",
    "knowledge_point": "4A Unit 4 I like sport",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T9b81e7",
    "change_tag": "新增",
@@ -27022,7 +27033,7 @@
    "question": "“打篮球”用英语是？",
    "options": [
     {
-     "text": "skate",
+     "text": "play the volleyball",
      "image": "",
      "audio": ""
     },
@@ -27037,7 +27048,7 @@
      "audio": ""
     },
     {
-     "text": "play football",
+     "text": "play the football",
      "image": "",
      "audio": ""
     }
@@ -27049,6 +27060,7 @@
    "volume": "四年级上册",
    "knowledge_point": "4A Unit 4 I like sport",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "Taae627",
    "change_tag": "新增",
@@ -27068,7 +27080,7 @@
    "question": "“机器人”的英文是？",
    "options": [
     {
-     "text": "doll",
+     "text": "teddy bear",
      "image": "",
      "audio": ""
     },
@@ -27161,7 +27173,7 @@
    "question": "“a toy car”的意思是？",
    "options": [
     {
-     "text": "一只纸风筝",
+     "text": "一只彩色的纸风筝",
      "image": "",
      "audio": ""
     },
@@ -27171,7 +27183,7 @@
      "audio": ""
     },
     {
-     "text": "一个皮球",
+     "text": "一个圆圆的红皮球",
      "image": "",
      "audio": ""
     },
@@ -28001,7 +28013,7 @@
      "audio": ""
     },
     {
-     "text": "Goodbye.",
+     "text": "Goodbye. See you later.",
      "image": "",
      "audio": ""
     },
@@ -28099,7 +28111,7 @@
      "audio": ""
     },
     {
-     "text": "See you.",
+     "text": "See you tomorrow.",
      "image": "",
      "audio": ""
     }
@@ -28111,6 +28123,7 @@
    "volume": "四年级下册",
    "knowledge_point": "4B Unit 2 Helping others at school",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无小学英语，用江苏通用的译林版（三年级起点）替代：3A–6A 用 2024 起新版目录；5B/6B 新版（2027 春）未公开，暂按旧版目录",
    "template": "T8ec039",
    "change_tag": "新增",
@@ -28324,7 +28337,7 @@
      "audio": ""
     },
     {
-     "text": "你在哪？",
+     "text": "你在哪里上学？",
      "image": "",
      "audio": ""
     },
@@ -28366,7 +28379,7 @@
      "audio": ""
     },
     {
-     "text": "Good night.",
+     "text": "Good night and sweet dreams.",
      "image": "",
      "audio": ""
     },
@@ -28547,7 +28560,7 @@
    "question": "— What would you like? — I'd like some ____.",
    "options": [
     {
-     "text": "happy",
+     "text": "happiness",
      "image": "",
      "audio": ""
     },
@@ -28557,7 +28570,7 @@
      "audio": ""
     },
     {
-     "text": "run",
+     "text": "swimming",
      "image": "",
      "audio": ""
     },
@@ -28691,12 +28704,12 @@
      "audio": ""
     },
     {
-     "text": "farmer",
+     "text": "delivery man",
      "image": "",
      "audio": ""
     },
     {
-     "text": "cook",
+     "text": "taxi driver",
      "image": "",
      "audio": ""
     },
@@ -29334,7 +29347,7 @@
      "audio": ""
     },
     {
-     "text": "说话的声音很小很小",
+     "text": "说话的声音很小很小，听不清",
      "image": "",
      "audio": ""
     },
@@ -29556,7 +29569,7 @@
    "question": "《花牛歌》中，花牛在草地里做梦时，太阳怎样了？",
    "options": [
     {
-     "text": "躲进了云里",
+     "text": "躲进了厚厚的云里",
      "image": "",
      "audio": ""
     },
@@ -29882,7 +29895,7 @@
      "audio": ""
     },
     {
-     "text": "人类",
+     "text": "人类的首领和国王",
      "image": "",
      "audio": ""
     },
@@ -29899,6 +29912,7 @@
    "volume": "四年级上册",
    "knowledge_point": "普罗米修斯",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tae46f0",
    "change_tag": "新增",
@@ -29962,7 +29976,7 @@
    "question": "普罗米修斯为什么要盗取火种？",
    "options": [
     {
-     "text": "为了自己在山上取暖",
+     "text": "为了自己在山上取暖、烤肉",
      "image": "",
      "audio": ""
     },
@@ -29972,7 +29986,7 @@
      "audio": ""
     },
     {
-     "text": "为了惩罚不听话的人类",
+     "text": "为了用火惩罚不听话的人类",
      "image": "",
      "audio": ""
     },
@@ -30008,7 +30022,7 @@
    "question": "老麻雀落在猎狗面前时，它的羽毛怎样？",
    "options": [
     {
-     "text": "紧紧收起了羽毛",
+     "text": "紧紧收起了全身的羽毛",
      "image": "",
      "audio": ""
     },
@@ -30290,12 +30304,12 @@
      "audio": ""
     },
     {
-     "text": "一根绳子",
+     "text": "一根垂下来的绳子",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一条长龙",
+     "text": "一条弯弯曲曲的长龙",
      "image": "",
      "audio": ""
     }
@@ -30416,12 +30430,12 @@
    "question": "“一道残阳铺水中”中“残阳”指的是？",
    "options": [
     {
-     "text": "天上的月亮",
+     "text": "傍晚升起的一弯月亮",
      "image": "",
      "audio": ""
     },
     {
-     "text": "中午的太阳",
+     "text": "中午火辣辣的大太阳",
      "image": "",
      "audio": ""
     },
@@ -31099,7 +31113,7 @@
      "audio": ""
     },
     {
-     "text": "班长",
+     "text": "教书的先生",
      "image": "",
      "audio": ""
     },
@@ -31109,7 +31123,7 @@
      "audio": ""
     },
     {
-     "text": "伯父",
+     "text": "周恩来的伯父",
      "image": "",
      "audio": ""
     }
@@ -31121,6 +31135,7 @@
    "volume": "四年级上册",
    "knowledge_point": "为中华之崛起而读书",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Tddb678",
    "change_tag": "新增",
@@ -31229,7 +31244,7 @@
    "question": "“取之，信然”中“信然”的意思是？",
    "options": [
     {
-     "text": "写一封信",
+     "text": "写一封回信给别人",
      "image": "",
      "audio": ""
     },
@@ -31280,7 +31295,7 @@
      "audio": ""
     },
     {
-     "text": "种下树枝",
+     "text": "把树枝折下来种下",
      "image": "",
      "audio": ""
     },
@@ -31290,7 +31305,7 @@
      "audio": ""
     },
     {
-     "text": "拿着树枝",
+     "text": "拿着折下的树枝玩",
      "image": "",
      "audio": ""
     }
@@ -31302,6 +31317,7 @@
    "volume": "四年级上册",
    "knowledge_point": "王戎不取道旁李",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "Ta5d0ac",
    "change_tag": "新增",
@@ -31365,7 +31381,7 @@
    "question": "“树头新绿未成阴”的意思是？",
    "options": [
     {
-     "text": "树荫很浓，遮住了太阳",
+     "text": "树荫已经很浓密，把夏天火辣辣的太阳都遮住了",
      "image": "",
      "audio": ""
     },
@@ -31375,7 +31391,7 @@
      "audio": ""
     },
     {
-     "text": "树叶都变黄了，纷纷飘落",
+     "text": "秋天到了，树上的叶子都变黄了，纷纷飘落下来",
      "image": "",
      "audio": ""
     },
@@ -31416,7 +31432,7 @@
      "audio": ""
     },
     {
-     "text": "春天（暮春）",
+     "text": "春天",
      "image": "",
      "audio": ""
     },
@@ -31438,6 +31454,7 @@
    "volume": "四年级下册",
    "knowledge_point": "古诗词 宿新市徐公店",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T707ff8",
    "change_tag": "新增",
@@ -32412,7 +32429,7 @@
      "audio": ""
     },
     {
-     "text": "灰蒙蒙的",
+     "text": "灰蒙蒙的，躲在云里看不清楚",
      "image": "",
      "audio": ""
     },
@@ -32422,7 +32439,7 @@
      "audio": ""
     },
     {
-     "text": "白得发亮",
+     "text": "白得发亮，像一个大银盘",
      "image": "",
      "audio": ""
     }
@@ -33092,7 +33109,7 @@
      "audio": ""
     },
     {
-     "text": "1960 年",
+     "text": "1950 年",
      "image": "",
      "audio": ""
     },
@@ -33114,6 +33131,7 @@
    "volume": "四年级下册",
    "knowledge_point": "黄继光",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版；2024–2026 修订版已覆盖所有年级，课文按单元/篇名标注，未逐课核对页码",
    "template": "T41c2bc",
    "change_tag": "新增",
@@ -33137,7 +33155,7 @@
      "audio": ""
     },
     {
-     "text": "走路要快，才能早点到达远方",
+     "text": "走路要快，才能早点到达远方的目的地",
      "image": "",
      "audio": ""
     },
@@ -33147,7 +33165,7 @@
      "audio": ""
     },
     {
-     "text": "路太远了，最好不要出门",
+     "text": "路太远了，最好不要出门远行，在家里待着",
      "image": "",
      "audio": ""
     }
@@ -33228,7 +33246,7 @@
      "audio": ""
     },
     {
-     "text": "我在写作业",
+     "text": "我坐在书桌前认真地写作业",
      "image": "",
      "audio": ""
     },
@@ -33238,7 +33256,7 @@
      "audio": ""
     },
     {
-     "text": "苹果是红色的",
+     "text": "苹果是红色的，很好吃",
      "image": "",
      "audio": ""
     }
@@ -33539,7 +33557,7 @@
    "question": "下面句子中运用“列数字”说明方法的是？",
    "options": [
     {
-     "text": "长城很长很长",
+     "text": "长城很长很长，望不到头",
      "image": "",
      "audio": ""
     },
@@ -33554,7 +33572,7 @@
      "audio": ""
     },
     {
-     "text": "长城像一条长龙",
+     "text": "长城像一条长龙，蜿蜒起伏",
      "image": "",
      "audio": ""
     }
@@ -33860,12 +33878,12 @@
      "audio": ""
     },
     {
-     "text": "数量很少，一共才几十个",
+     "text": "数量很少，一共才挖出几十个陶俑",
      "image": "",
      "audio": ""
     },
     {
-     "text": "全是陶马，没有一个人俑",
+     "text": "全都是陶马，里面没有一个是人俑",
      "image": "",
      "audio": ""
     }
@@ -35803,7 +35821,7 @@
      "audio": ""
     },
     {
-     "text": "天黑了，看不清楚",
+     "text": "天色已经黑了，孩子看不清楚",
      "image": "",
      "audio": ""
     },
@@ -36352,7 +36370,7 @@
      "audio": ""
     },
     {
-     "text": "问句（反问）",
+     "text": "反问句",
      "image": "",
      "audio": ""
     },
@@ -36369,6 +36387,7 @@
    "volume": "四年级（上下册通用）",
    "knowledge_point": "《蜂》",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T7a7578",
    "change_tag": "新增",
@@ -36702,7 +36721,7 @@
    "question": "“不识庐山真面目”和下面哪句讲的道理相近？",
    "options": [
     {
-     "text": "读书破万卷",
+     "text": "读书破万卷，下笔如有神",
      "image": "",
      "audio": ""
     },
@@ -36729,6 +36748,7 @@
    "volume": "四年级（上下册通用）",
    "knowledge_point": "综合",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材古诗词（课标必背 + 课内），全国统一，无苏教版；年级按旧版安排，修订版个别篇目有调整",
    "template": "T176265",
    "change_tag": "新增",
@@ -36887,12 +36907,12 @@
      "audio": ""
     },
     {
-     "text": "天上的月亮",
+     "text": "倒映在酒杯里的天上明月",
      "image": "",
      "audio": ""
     },
     {
-     "text": "夜里喝水用的杯子",
+     "text": "夜里用来喝水的普通杯子",
      "image": "",
      "audio": ""
     },
@@ -37204,7 +37224,7 @@
      "audio": ""
     },
     {
-     "text": "平坦又明亮",
+     "text": "地势平坦又明亮",
      "image": "",
      "audio": ""
     },
@@ -37481,7 +37501,7 @@
      "audio": ""
     },
     {
-     "text": "喜欢鲜艳的颜色",
+     "text": "诗人喜欢鲜艳的红色和粉色梅花",
      "image": "",
      "audio": ""
     },
@@ -38106,7 +38126,7 @@
    "question": "下面哪种岩石常有一层一层的纹理？",
    "options": [
     {
-     "text": "砂岩（沉积岩）",
+     "text": "砂岩",
      "image": "",
      "audio": ""
     },
@@ -38133,6 +38153,7 @@
    "volume": "四年级上册",
    "knowledge_point": "岩石",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T20ea20",
    "change_tag": "新增",
@@ -38293,12 +38314,12 @@
      "audio": ""
     },
     {
-     "text": "没有什么意义",
+     "text": "箭头没有什么意义，可以随便画",
      "image": "",
      "audio": ""
     },
     {
-     "text": "吃的指向被吃的",
+     "text": "吃的一方指向被吃的一方",
      "image": "",
      "audio": ""
     },
@@ -38520,7 +38541,7 @@
      "audio": ""
     },
     {
-     "text": "平动（直线运动）",
+     "text": "平动",
      "image": "",
      "audio": ""
     },
@@ -38542,6 +38563,7 @@
    "volume": "四年级上册",
    "knowledge_point": "运动",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T0fb20b",
    "change_tag": "新增",
@@ -38560,7 +38582,7 @@
    "question": "判断一个物体是运动还是静止，要先选定？",
    "options": [
     {
-     "text": "温度",
+     "text": "当时的温度",
      "image": "",
      "audio": ""
     },
@@ -39062,7 +39084,7 @@
      "audio": ""
     },
     {
-     "text": "长期歪着身子写字",
+     "text": "长期歪着身子趴在桌上写字",
      "image": "",
      "audio": ""
     },
@@ -39072,7 +39094,7 @@
      "audio": ""
     },
     {
-     "text": "背很重的书包",
+     "text": "每天背很重的书包上学",
      "image": "",
      "audio": ""
     }
@@ -39734,7 +39756,7 @@
    "question": "做实验时，要认真记录？",
    "options": [
     {
-     "text": "自己猜想的结果",
+     "text": "自己猜想的结果和结论",
      "image": "",
      "audio": ""
     },
@@ -39790,7 +39812,7 @@
      "audio": ""
     },
     {
-     "text": "猜想（假设）",
+     "text": "猜想",
      "image": "",
      "audio": ""
     },
@@ -39807,6 +39829,7 @@
    "volume": "四年级上册",
    "knowledge_point": "实验",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版小学科学（江苏常用），单元按主题标注，未逐课核对",
    "template": "T73a4f3",
    "change_tag": "新增",
@@ -40101,7 +40124,7 @@
      "audio": ""
     },
     {
-     "text": "温度计",
+     "text": "温度计和钟表",
      "image": "",
      "audio": ""
     },
@@ -40415,7 +40438,7 @@
      "audio": ""
     },
     {
-     "text": "5 米",
+     "text": "30 米",
      "image": "",
      "audio": ""
     },
@@ -40426,6 +40449,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "K4-185",
    "subject": "科学",
    "grade": 4,
@@ -40586,7 +40610,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "改变物体的温度",
+     "text": "改变物体的温度和重量",
      "image": "",
      "audio": ""
     },
@@ -40601,7 +40625,7 @@
      "audio": ""
     },
     {
-     "text": "让物体消失",
+     "text": "改变物体的材料",
      "image": "",
      "audio": ""
     }
@@ -41353,7 +41377,7 @@
      "audio": ""
     },
     {
-     "text": "马门溪龙的骨架",
+     "text": "四川发现的一具完整的马门溪龙骨架化石",
      "image": "",
      "audio": ""
     },
@@ -41661,7 +41685,7 @@
    "question": "女娲跑出去一看，远远的天空怎样了？",
    "options": [
     {
-     "text": "天边出现了一道美丽的彩虹",
+     "text": "天边出现了一道美丽的七色彩虹，闪闪发光",
      "image": "",
      "audio": ""
     },
@@ -41758,7 +41782,7 @@
      "audio": ""
     },
     {
-     "text": "花草和树木",
+     "text": "茂盛的花草和树木",
      "image": "",
      "audio": ""
     },
@@ -41768,7 +41792,7 @@
      "audio": ""
     },
     {
-     "text": "彩虹和白云",
+     "text": "美丽的彩虹和白云",
      "image": "",
      "audio": ""
     }

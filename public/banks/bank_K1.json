@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园小班-v52（AI初审）",
- "version": "v52",
+ "bank_name": "三兄妹题库-幼儿园小班-v56（AI初审）",
+ "version": "v56",
  "questions": [
   {
    "id": "K-001",
@@ -4602,7 +4602,7 @@
    "tts_text": "数一数，有几块饼干？",
    "options": [
     {
-     "text": "8",
+     "text": "11",
      "image": "",
      "audio": ""
     },
@@ -4625,6 +4625,7 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-050.webp（饼干×10）",
    "game_ready": true,
+   "review_changed": "是",
    "visual": {
     "item": "🍪",
     "emoji": "🍪",
@@ -4632,7 +4633,7 @@
     "label": "饼干"
    },
    "template": "Ta73b83",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "数数",
     "10以内"
@@ -4654,7 +4655,7 @@
      "audio": ""
     },
     {
-     "text": "8",
+     "text": "11",
      "image": "",
      "audio": ""
     },
@@ -4672,6 +4673,7 @@
    "knowledge_point": "数数",
    "assets_todo": "题干图 images/k/K-051.webp（星星×10）",
    "game_ready": true,
+   "review_changed": "是",
    "visual": {
     "item": "⭐",
     "emoji": "⭐",
@@ -4679,7 +4681,7 @@
     "label": "星星"
    },
    "template": "Ta73b83",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "数数",
     "10以内"
@@ -9296,7 +9298,7 @@
      "audio": ""
     },
     {
-     "text": "Hello!",
+     "text": "Good morning!",
      "image": "",
      "audio": ""
     }
@@ -9309,8 +9311,9 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-034.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "T60c90b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "日常用语"
@@ -9410,7 +9413,7 @@
    "tts_text": "晚上睡觉前说什么？",
    "options": [
     {
-     "text": "Hello!",
+     "text": "Good afternoon!",
      "image": "",
      "audio": ""
     },
@@ -9433,8 +9436,9 @@
    "knowledge_point": "英语",
    "assets_todo": "question_audio audio/k/KE-037.m4a（英文单词发音，可用 TTS 代替）；A/B/C_audio 英文选项朗读（孩子不识字，必须能点读；可用 TTS）",
    "game_ready": true,
+   "review_changed": "是",
    "template": "Tbb002b",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "英语",
     "日常用语"

@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初一-v52（AI初审）",
- "version": "v52",
+ "bank_name": "三兄妹题库-初一-v56（AI初审）",
+ "version": "v56",
  "questions": [
   {
    "id": "M7-001",
@@ -2008,12 +2008,12 @@
      "audio": ""
     },
     {
-     "text": "态度谦和",
+     "text": "态度谦和，待人平易近人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "非常惊讶",
+     "text": "说话很快，让人插不上嘴",
      "image": "",
      "audio": ""
     },
@@ -2030,9 +2030,10 @@
    "volume": "七年级上册",
    "knowledge_point": "成语",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4287cc",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "成语"
    ]
@@ -2048,12 +2049,12 @@
    "question": "“各得其所”最恰当的用法是？",
    "options": [
     {
-     "text": "大家各自回家",
+     "text": "大家散会后各自回到自己的家里",
      "image": "",
      "audio": ""
     },
     {
-     "text": "每人分一样多",
+     "text": "每个人都分到一样多的东西",
      "image": "",
      "audio": ""
     },
@@ -2063,7 +2064,7 @@
      "audio": ""
     },
     {
-     "text": "互不相让",
+     "text": "彼此互不相让，各自坚持己见",
      "image": "",
      "audio": ""
     }
@@ -2075,9 +2076,10 @@
    "volume": "七年级上册",
    "knowledge_point": "成语",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T128b09",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "成语"
    ]
@@ -2607,7 +2609,7 @@
      "audio": ""
     },
     {
-     "text": "胡儿（谢朗）",
+     "text": "胡儿",
      "image": "",
      "audio": ""
     },
@@ -2624,9 +2626,10 @@
    "volume": "七年级上册",
    "knowledge_point": "文言理解",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8a81b6",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "文言理解",
     "咏雪"
@@ -3056,7 +3059,7 @@
    "question": "“择其善者而从之，”下一句是？",
    "options": [
     {
-     "text": "必有我师焉",
+     "text": "三人行，必有我师焉",
      "image": "",
      "audio": ""
     },
@@ -3071,7 +3074,7 @@
      "audio": ""
     },
     {
-     "text": "思而不学则殆",
+     "text": "见不贤而内自省也",
      "image": "",
      "audio": ""
     }
@@ -3083,9 +3086,10 @@
    "volume": "七年级上册",
    "knowledge_point": "默写",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tdb6f17",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "默写",
     "论语"
@@ -4456,17 +4460,17 @@
    "question": "北京人生活在距今约多少年前？",
    "options": [
     {
-     "text": "170万年",
+     "text": "距今约170万年",
      "image": "",
      "audio": ""
     },
     {
-     "text": "1万年",
+     "text": "距今约1万年",
      "image": "",
      "audio": ""
     },
     {
-     "text": "3万年",
+     "text": "距今约1.8万年",
      "image": "",
      "audio": ""
     },
@@ -4483,9 +4487,10 @@
    "volume": "七年级上册",
    "knowledge_point": "远古人类",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T821baf",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "远古人类",
     "北京人"
@@ -4502,7 +4507,7 @@
    "question": "北京人遗址位于？",
    "options": [
     {
-     "text": "浙江余姚",
+     "text": "浙江余姚河姆渡",
      "image": "",
      "audio": ""
     },
@@ -4512,12 +4517,12 @@
      "audio": ""
     },
     {
-     "text": "陕西西安",
+     "text": "陕西西安半坡",
      "image": "",
      "audio": ""
     },
     {
-     "text": "云南元谋",
+     "text": "云南元谋上那蚌村",
      "image": "",
      "audio": ""
     }
@@ -4529,9 +4534,10 @@
    "volume": "七年级上册",
    "knowledge_point": "远古人类",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te36460",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "远古人类",
     "北京人"
@@ -4598,17 +4604,17 @@
      "audio": ""
     },
     {
-     "text": "干栏式",
+     "text": "干栏式房屋",
      "image": "",
      "audio": ""
     },
     {
-     "text": "四合院",
+     "text": "北方四合院",
      "image": "",
      "audio": ""
     },
     {
-     "text": "窑洞",
+     "text": "黄土高原的窑洞",
      "image": "",
      "audio": ""
     }
@@ -4620,9 +4626,10 @@
    "volume": "七年级上册",
    "knowledge_point": "原始农耕",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td2dcb1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "原始农耕",
     "半坡"
@@ -4836,7 +4843,7 @@
      "audio": ""
     },
     {
-     "text": "金文",
+     "text": "钟鼎文",
      "image": "",
      "audio": ""
     }
@@ -4848,9 +4855,10 @@
    "volume": "七年级上册",
    "knowledge_point": "商",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T55a152",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "商",
     "甲骨文"
@@ -6203,7 +6211,7 @@
    "question": "《天净沙·秋思》属于哪种体裁？",
    "options": [
     {
-     "text": "宋词",
+     "text": "汉乐府",
      "image": "",
      "audio": ""
     },
@@ -6213,12 +6221,12 @@
      "audio": ""
     },
     {
-     "text": "汉乐府",
+     "text": "宋词（慢词）",
      "image": "",
      "audio": ""
     },
     {
-     "text": "唐诗",
+     "text": "唐诗（绝句）",
      "image": "",
      "audio": ""
     }
@@ -6230,9 +6238,10 @@
    "volume": "七年级上册",
    "knowledge_point": "天净沙秋思",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T34f091",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "天净沙秋思",
     "文学常识"
@@ -7009,7 +7018,7 @@
      "audio": ""
     },
     {
-     "text": "写小草颜色鲜艳",
+     "text": "写出小草长得很快，一下子就从土里冒出来的样子",
      "image": "",
      "audio": ""
     },
@@ -7026,9 +7035,10 @@
    "volume": "七年级上册",
    "knowledge_point": "品析词语",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tae9c00",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "品析词语",
     "春"
@@ -7328,7 +7338,7 @@
      "audio": ""
     },
     {
-     "text": "妻子背起母亲",
+     "text": "“我”背起儿子，妻子扶着母亲",
      "image": "",
      "audio": ""
     },
@@ -7353,7 +7363,7 @@
    "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tfd95ea",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "内容理解",
     "散步"
@@ -7464,17 +7474,17 @@
    "question": "《陈太丘与友期行》中，“太丘舍去”的原因是？",
    "options": [
     {
-     "text": "元方让他走",
+     "text": "元方劝他先走，不要再等了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "下大雨",
+     "text": "天下起了大雨，不便等待",
      "image": "",
      "audio": ""
     },
     {
-     "text": "友人生病",
+     "text": "友人临时生病，派人来说不去了",
      "image": "",
      "audio": ""
     },
@@ -7491,9 +7501,10 @@
    "volume": "七年级上册",
    "knowledge_point": "文言理解",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tceda84",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "文言理解",
     "陈太丘与友期行"
@@ -7786,7 +7797,7 @@
    "question": "“岁寒，然后知松柏之后凋也”比喻？",
    "options": [
     {
-     "text": "松柏比别的树长得慢",
+     "text": "松柏比别的树长得慢，所以寿命更长",
      "image": "",
      "audio": ""
     },
@@ -7796,7 +7807,7 @@
      "audio": ""
     },
     {
-     "text": "冬天很冷",
+     "text": "冬天寒冷，松柏比其他树木凋落得晚一些",
      "image": "",
      "audio": ""
     },
@@ -7813,9 +7824,10 @@
    "volume": "七年级上册",
    "knowledge_point": "文言理解",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T86685e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "文言理解",
     "论语"
@@ -7837,7 +7849,7 @@
      "audio": ""
     },
     {
-     "text": "态度（兴趣）",
+     "text": "态度",
      "image": "",
      "audio": ""
     },
@@ -7859,9 +7871,10 @@
    "volume": "七年级上册",
    "knowledge_point": "文言理解",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tef77fa",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "文言理解",
     "论语"
@@ -8921,12 +8934,12 @@
      "audio": ""
     },
     {
-     "text": "武力夺取",
+     "text": "首领用武力夺取位置",
      "image": "",
      "audio": ""
     },
     {
-     "text": "父亲传给儿子",
+     "text": "父亲把首领位置传给儿子",
      "image": "",
      "audio": ""
     }
@@ -8938,9 +8951,10 @@
    "volume": "七年级上册",
    "knowledge_point": "传说时代",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2f141e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "传说时代",
     "禅让"
@@ -9047,7 +9061,7 @@
    "question": "良渚、陶寺、红山、石峁等遗址分布在全国不同地区，这说明了？",
    "options": [
     {
-     "text": "已经统一",
+     "text": "各地的文化互不往来、相互隔绝",
      "image": "",
      "audio": ""
     },
@@ -9057,7 +9071,7 @@
      "audio": ""
     },
     {
-     "text": "人类刚出现",
+     "text": "这些地区早已形成统一的国家",
      "image": "",
      "audio": ""
     },
@@ -9074,9 +9088,10 @@
    "volume": "七年级上册",
    "knowledge_point": "中华文明起源",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tde8005",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "中华文明起源"
    ]
@@ -9107,7 +9122,7 @@
      "audio": ""
     },
     {
-     "text": "禅让制开始",
+     "text": "“家天下”变为“公天下”",
      "image": "",
      "audio": ""
     }
@@ -9119,9 +9134,10 @@
    "volume": "七年级上册",
    "knowledge_point": "夏朝",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T6ed795",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "夏朝",
     "世袭制"
@@ -9228,7 +9244,7 @@
    "question": "春秋时期的社会变化中，促进生产力发展的是？",
    "options": [
     {
-     "text": "青铜器的出现",
+     "text": "青铜器的出现和使用",
      "image": "",
      "audio": ""
     },
@@ -9255,9 +9271,10 @@
    "volume": "七年级上册",
    "knowledge_point": "春秋战国",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tca6a4f",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "春秋战国",
     "经济"
@@ -9319,12 +9336,12 @@
    "question": "孔子主张“仁”，还提出“有教无类”，这体现了？",
    "options": [
     {
-     "text": "只教男子",
+     "text": "只教男子，不教女子",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只教贵族",
+     "text": "只教贵族子弟，不教平民",
      "image": "",
      "audio": ""
     },
@@ -9346,9 +9363,10 @@
    "volume": "七年级上册",
    "knowledge_point": "孔子",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T645aba",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "孔子"
    ]
@@ -9465,7 +9483,7 @@
      "audio": ""
     },
     {
-     "text": "保护了旧贵族",
+     "text": "保护了旧贵族的利益",
      "image": "",
      "audio": ""
     },
@@ -9482,9 +9500,10 @@
    "volume": "七年级上册",
    "knowledge_point": "商鞅变法",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc141cd",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "商鞅变法"
    ]
@@ -9555,7 +9574,7 @@
      "audio": ""
     },
     {
-     "text": "交子",
+     "text": "圆形圆孔的圜钱",
      "image": "",
      "audio": ""
     },
@@ -9572,9 +9591,10 @@
    "volume": "七年级上册",
    "knowledge_point": "秦",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T249cd4",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "秦",
     "统一措施"
@@ -9681,7 +9701,7 @@
    "question": "“幸甚至哉，歌以咏志”在《观沧海》中是？",
    "options": [
     {
-     "text": "写作者心情悲伤",
+     "text": "写作者面对大海时心情悲伤，感叹人生短暂",
      "image": "",
      "audio": ""
     },
@@ -9696,7 +9716,7 @@
      "audio": ""
     },
     {
-     "text": "诗的主旨句",
+     "text": "诗的主旨句，直接抒发了诗人观海时的悲伤心情",
      "image": "",
      "audio": ""
     }
@@ -9708,9 +9728,10 @@
    "volume": "七年级上册",
    "knowledge_point": "观沧海",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T8049bd",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "观沧海"
    ]
@@ -9726,12 +9747,12 @@
    "question": "“水何澹澹，山岛竦峙”中“澹澹”的意思是？",
    "options": [
     {
-     "text": "水很清",
+     "text": "水很清，能看到底",
      "image": "",
      "audio": ""
     },
     {
-     "text": "水很浅",
+     "text": "水很浅，水流缓慢",
      "image": "",
      "audio": ""
     },
@@ -9753,9 +9774,10 @@
    "volume": "七年级上册",
    "knowledge_point": "观沧海",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td70656",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "观沧海",
     "词义"
@@ -9827,7 +9849,7 @@
      "audio": ""
     },
     {
-     "text": "作者很思乡",
+     "text": "作者思乡，盼望早日回家",
      "image": "",
      "audio": ""
     },
@@ -9844,9 +9866,10 @@
    "volume": "七年级上册",
    "knowledge_point": "次北固山下",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T7f3130",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "次北固山下"
    ]
@@ -10012,7 +10035,7 @@
      "audio": ""
     },
     {
-     "text": "拟人",
+     "text": "拟人和夸张的手法",
      "image": "",
      "audio": ""
     }
@@ -10449,17 +10472,17 @@
    "question": "“思君不见下渝州”中的“君”通常理解为？",
    "options": [
     {
-     "text": "皇帝",
+     "text": "当朝的唐玄宗皇帝",
      "image": "",
      "audio": ""
     },
     {
-     "text": "峨眉山月（或友人）",
+     "text": "峨眉山月或友人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "王昌龄",
+     "text": "诗人的妻子或家人",
      "image": "",
      "audio": ""
     },
@@ -10476,9 +10499,10 @@
    "volume": "七年级上册",
    "knowledge_point": "峨眉山月歌",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T455129",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "峨眉山月歌"
    ]
@@ -11968,7 +11992,7 @@
      "audio": ""
     },
     {
-     "text": "$8$",
+     "text": "$-8x-8$",
      "image": "",
      "audio": ""
     },
@@ -11978,7 +12002,7 @@
      "audio": ""
     },
     {
-     "text": "$8x$",
+     "text": "$-8x+8$",
      "image": "",
      "audio": ""
     }
@@ -11990,9 +12014,10 @@
    "volume": "七年级上册",
    "knowledge_point": "整式加减",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tec441e",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "整式加减",
     "去括号"
@@ -12909,12 +12934,12 @@
    "question": "经过两点有且只有一条直线，生活中的应用是？",
    "options": [
     {
-     "text": "把弯路改直缩短路程",
+     "text": "把弯曲的河道改直，可以缩短航程",
      "image": "",
      "audio": ""
     },
     {
-     "text": "钟表的指针",
+     "text": "钟表的指针绕着中心轴转动一圈",
      "image": "",
      "audio": ""
     },
@@ -12936,9 +12961,10 @@
    "volume": "七年级上册",
    "knowledge_point": "直线性质",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T74e4e2",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "直线性质"
    ]
@@ -13327,7 +13353,7 @@
      "audio": ""
     },
     {
-     "text": "不存在",
+     "text": "一条也没有",
      "image": "",
      "audio": ""
     },
@@ -13344,9 +13370,10 @@
    "volume": "七年级上册",
    "knowledge_point": "平行公理",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T82b6f1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "平行公理"
    ]
@@ -14479,7 +14506,7 @@
      "audio": ""
     },
     {
-     "text": "风车转动",
+     "text": "汽车车轮滚动",
      "image": "",
      "audio": ""
     },
@@ -14489,7 +14516,7 @@
      "audio": ""
     },
     {
-     "text": "荡秋千",
+     "text": "钟表指针转动",
      "image": "",
      "audio": ""
     }
@@ -14501,9 +14528,10 @@
    "volume": "七年级下册",
    "knowledge_point": "平移",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T428df0",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "平移"
    ]
@@ -15081,7 +15109,7 @@
    "question": "下列是一元一次不等式的是？",
    "options": [
     {
-     "text": "$x^2>1$",
+     "text": "$x^2-1>2x$",
      "image": "",
      "audio": ""
     },
@@ -15091,12 +15119,12 @@
      "audio": ""
     },
     {
-     "text": "$\\dfrac1x>2$",
+     "text": "$\\dfrac1x>2x-1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$x+y<3$",
+     "text": "$x^2+2x>1$",
      "image": "",
      "audio": ""
     }
@@ -15108,9 +15136,10 @@
    "volume": "七年级下册",
    "knowledge_point": "一元一次不等式",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T48ecce",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "一元一次不等式"
    ]
@@ -15367,12 +15396,12 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$x\\le2$",
+     "text": "$x\\le2$ 或 $x>-1$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$x>-1$",
+     "text": "$x\\le2$",
      "image": "",
      "audio": ""
     },
@@ -15382,7 +15411,7 @@
      "audio": ""
     },
     {
-     "text": "无解",
+     "text": "$x\\le-1$ 或 $x>2$",
      "image": "",
      "audio": ""
     }
@@ -15394,9 +15423,10 @@
    "volume": "七年级下册",
    "knowledge_point": "不等式组",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T80401f",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "不等式组"
    ]
@@ -15466,17 +15496,17 @@
    "question": "下列语句中，属于定义的是？",
    "options": [
     {
-     "text": "画一个角等于已知角",
+     "text": "用圆规和直尺作一个角等于已知角",
      "image": "",
      "audio": ""
     },
     {
-     "text": "对顶角相等",
+     "text": "如果两个角是对顶角，那么它们相等",
      "image": "",
      "audio": ""
     },
     {
-     "text": "两点之间线段最短",
+     "text": "两点之间的所有连线中，线段最短",
      "image": "",
      "audio": ""
     },
@@ -15493,9 +15523,10 @@
    "volume": "七年级下册",
    "knowledge_point": "定义",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T64b638",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "定义"
    ]
@@ -15630,12 +15661,12 @@
      "audio": ""
     },
     {
-     "text": "$a=2,b=1$",
+     "text": "$a=10,b=-2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$a=0,b=0$",
+     "text": "$a=-1,b=-2$",
      "image": "",
      "audio": ""
     },
@@ -15652,9 +15683,10 @@
    "volume": "七年级下册",
    "knowledge_point": "反例",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T8e8657",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "反例"
    ]
@@ -17423,7 +17455,7 @@
      "audio": ""
     },
     {
-     "text": "garden",
+     "text": "dining room",
      "image": "",
      "audio": ""
     },
@@ -17433,7 +17465,7 @@
      "audio": ""
     },
     {
-     "text": "balcony",
+     "text": "living room",
      "image": "",
      "audio": ""
     }
@@ -17445,9 +17477,10 @@
    "volume": "七年级下册",
    "knowledge_point": "家",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T06275c",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "家",
     "词汇语法"
@@ -17607,12 +17640,12 @@
      "audio": ""
     },
     {
-     "text": "When",
+     "text": "Which",
      "image": "",
      "audio": ""
     },
     {
-     "text": "How",
+     "text": "Whose",
      "image": "",
      "audio": ""
     },
@@ -17629,9 +17662,10 @@
    "volume": "七年级下册",
    "knowledge_point": "家",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tb45bfb",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "家",
     "词汇语法"
@@ -17740,17 +17774,17 @@
    "question": "The bank is ___ the supermarket and the hospital.",
    "options": [
     {
-     "text": "next",
+     "text": "far away from",
      "image": "",
      "audio": ""
     },
     {
-     "text": "among",
+     "text": "in front of",
      "image": "",
      "audio": ""
     },
     {
-     "text": "in",
+     "text": "opposite",
      "image": "",
      "audio": ""
     },
@@ -17767,9 +17801,10 @@
    "volume": "七年级下册",
    "knowledge_point": "社区",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17791,17 +17826,17 @@
      "audio": ""
     },
     {
-     "text": "angry",
+     "text": "unfriendly",
      "image": "",
      "audio": ""
     },
     {
-     "text": "lazy",
+     "text": "unhelpful",
      "image": "",
      "audio": ""
     },
     {
-     "text": "noisy",
+     "text": "unpleasant",
      "image": "",
      "audio": ""
     }
@@ -17813,9 +17848,10 @@
    "volume": "七年级下册",
    "knowledge_point": "社区",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T25b140",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "社区",
     "词汇语法"
@@ -17883,12 +17919,12 @@
      "audio": ""
     },
     {
-     "text": "company centre",
+     "text": "communication centre",
      "image": "",
      "audio": ""
     },
     {
-     "text": "city centre",
+     "text": "community college",
      "image": "",
      "audio": ""
     },
@@ -17905,6 +17941,7 @@
    "volume": "七年级下册",
    "knowledge_point": "社区",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Ta71be3",
    "change_tag": "修改",
@@ -18297,7 +18334,7 @@
      "audio": ""
     },
     {
-     "text": "to cut",
+     "text": "for cutting",
      "image": "",
      "audio": ""
     },
@@ -18307,7 +18344,7 @@
      "audio": ""
     },
     {
-     "text": "cut",
+     "text": "cuttings",
      "image": "",
      "audio": ""
     }
@@ -18319,9 +18356,10 @@
    "volume": "七年级下册",
    "knowledge_point": "民间艺术",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -18430,7 +18468,7 @@
    "question": "The kite looks ___ a bird.",
    "options": [
     {
-     "text": "for",
+     "text": "alike",
      "image": "",
      "audio": ""
     },
@@ -18440,12 +18478,12 @@
      "audio": ""
     },
     {
-     "text": "as",
+     "text": "after",
      "image": "",
      "audio": ""
     },
     {
-     "text": "at",
+     "text": "same as",
      "image": "",
      "audio": ""
     }
@@ -18457,9 +18495,10 @@
    "volume": "七年级下册",
    "knowledge_point": "民间艺术",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "民间艺术",
     "词汇语法"
@@ -18854,12 +18893,12 @@
      "audio": ""
     },
     {
-     "text": "ice",
+     "text": "snowy glaciers",
      "image": "",
      "audio": ""
     },
     {
-     "text": "deserts",
+     "text": "golden deserts",
      "image": "",
      "audio": ""
     }
@@ -18871,6 +18910,7 @@
    "volume": "七年级下册",
    "knowledge_point": "风景",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
    "change_tag": "修改",
@@ -18890,7 +18930,7 @@
    "question": "The view from the top of the mountain is ___.",
    "options": [
     {
-     "text": "amazes",
+     "text": "amazedly",
      "image": "",
      "audio": ""
     },
@@ -18900,12 +18940,12 @@
      "audio": ""
     },
     {
-     "text": "amazed",
+     "text": "amazingly",
      "image": "",
      "audio": ""
     },
     {
-     "text": "amaze",
+     "text": "amazement",
      "image": "",
      "audio": ""
     }
@@ -18917,9 +18957,10 @@
    "volume": "七年级下册",
    "knowledge_point": "风景",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T06275c",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "风景",
     "词汇语法"
@@ -19350,12 +19391,12 @@
    "question": "The story is so ___ that I read it twice.",
    "options": [
     {
-     "text": "interested",
+     "text": "much interested",
      "image": "",
      "audio": ""
     },
     {
-     "text": "interest",
+     "text": "interestedly",
      "image": "",
      "audio": ""
     },
@@ -19365,7 +19406,7 @@
      "audio": ""
     },
     {
-     "text": "interests",
+     "text": "interestingly",
      "image": "",
      "audio": ""
     }
@@ -19377,9 +19418,10 @@
    "volume": "七年级下册",
    "knowledge_point": "奇境",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "奇境",
     "词汇语法"
@@ -20140,7 +20182,7 @@
      "audio": ""
     },
     {
-     "text": "so",
+     "text": "therefore",
      "image": "",
      "audio": ""
     },
@@ -20150,7 +20192,7 @@
      "audio": ""
     },
     {
-     "text": "but",
+     "text": "although",
      "image": "",
      "audio": ""
     }
@@ -20162,9 +20204,10 @@
    "volume": "七年级下册",
    "knowledge_point": "社区",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "Tfb5cd1",
-   "change_tag": "未改",
+   "change_tag": "修改",
    "tags": [
     "社区",
     "连词"
@@ -20271,7 +20314,7 @@
      "audio": ""
     },
     {
-     "text": "只关注学习，从不参加集体活动",
+     "text": "一心关注学习，不参加集体活动",
      "image": "",
      "audio": ""
     },
@@ -20363,7 +20406,7 @@
      "audio": ""
     },
     {
-     "text": "只靠死记硬背",
+     "text": "只靠死记硬背和大量刷题来应付",
      "image": "",
      "audio": ""
     },
@@ -20373,7 +20416,7 @@
      "audio": ""
     },
     {
-     "text": "放弃难的学科",
+     "text": "放弃难学的学科，只学简单的学科",
      "image": "",
      "audio": ""
     }
@@ -20455,12 +20498,12 @@
      "audio": ""
     },
     {
-     "text": "一概拒绝",
+     "text": "别人怎么评价就怎么改，努力让每个人满意",
      "image": "",
      "audio": ""
     },
     {
-     "text": "全部接受",
+     "text": "坚持自我，不用在意别人的评价",
      "image": "",
      "audio": ""
     },
@@ -20501,7 +20544,7 @@
      "audio": ""
     },
     {
-     "text": "只有完美无缺的人才有存在的价值",
+     "text": "完美无缺的人才有存在的价值",
      "image": "",
      "audio": ""
     },
@@ -20542,12 +20585,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "放弃自己的长处",
+     "text": "放弃自己的长处，专门弥补短处",
      "image": "",
      "audio": ""
     },
     {
-     "text": "和别人比坏处",
+     "text": "和别人比坏处，找心理平衡",
      "image": "",
      "audio": ""
     },
@@ -20588,7 +20631,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "等别人帮自己实现",
+     "text": "等待父母和老师帮助自己去实现",
      "image": "",
      "audio": ""
     },
@@ -20598,7 +20641,7 @@
      "audio": ""
     },
     {
-     "text": "梦想越多越好，不必付诸任何行动",
+     "text": "梦想越多越好，不必付诸行动",
      "image": "",
      "audio": ""
     },
@@ -20644,7 +20687,7 @@
      "audio": ""
     },
     {
-     "text": "学习只为考试",
+     "text": "学习只是为了应付考试、取得好成绩",
      "image": "",
      "audio": ""
     },
@@ -20772,7 +20815,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "顶撞父母",
+     "text": "顶撞父母，据理力争到底",
      "image": "",
      "audio": ""
     },
@@ -20782,7 +20825,7 @@
      "audio": ""
     },
     {
-     "text": "离家出走",
+     "text": "离家出走，让父母着急",
      "image": "",
      "audio": ""
     },
@@ -20825,7 +20868,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级上册",
    "unit": "七上·第二单元 成长的时空·第四课 幸福和睦的家庭",
-   "question": "孝敬父母只是道德要求，不是法定义务。",
+   "question": "孝敬父母只是一种道德要求，并不是法律规定的义务。",
    "explanation": "错。孝敬父母不仅是道德要求，也是法定义务，宪法和《民法典》都规定成年子女有赡养扶助父母的义务。",
    "difficulty": 2,
    "knowledge_point": "孝亲敬长",
@@ -20852,7 +20895,7 @@
      "audio": ""
     },
     {
-     "text": "对家人发脾气",
+     "text": "心情不好就对家人发脾气",
      "image": "",
      "audio": ""
     },
@@ -20893,12 +20936,12 @@
      "audio": ""
     },
     {
-     "text": "不理不睬",
+     "text": "先接受下来，以后再找机会反驳",
      "image": "",
      "audio": ""
     },
     {
-     "text": "当面顶撞",
+     "text": "只接受自己认为对的批评",
      "image": "",
      "audio": ""
     },
@@ -20980,17 +21023,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "互不往来",
+     "text": "师生之间互不往来，各管各的",
      "image": "",
      "audio": ""
     },
     {
-     "text": "老师迁就学生",
+     "text": "老师处处迁就学生的各种要求",
      "image": "",
      "audio": ""
     },
     {
-     "text": "学生对老师完全服从，不能提意见",
+     "text": "学生对老师言听计从，不能提意见",
      "image": "",
      "audio": ""
     },
@@ -21072,7 +21115,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "讲义气，帮他作弊",
+     "text": "讲义气，考试时偷偷把答案给他",
      "image": "",
      "audio": ""
     },
@@ -21082,7 +21125,7 @@
      "audio": ""
     },
     {
-     "text": "从此不再理他",
+     "text": "从此不再理他，和他绝交",
      "image": "",
      "audio": ""
     },
@@ -21118,17 +21161,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "网上说的都可以相信",
+     "text": "网友在网上说的话都可以相信，网友都是好人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "把家庭住址告诉网友",
+     "text": "网友聊得来就可以告诉他家庭住址",
      "image": "",
      "audio": ""
     },
     {
-     "text": "独自去见网友",
+     "text": "约网友见面时带上一个同学一起去就安全了",
      "image": "",
      "audio": ""
     },
@@ -21179,7 +21222,7 @@
      "audio": ""
     },
     {
-     "text": "只顾自己的利益",
+     "text": "只顾自己的利益，不管别人",
      "image": "",
      "audio": ""
     }
@@ -21256,7 +21299,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "不遵守班规",
+     "text": "不遵守班级规定，在班里我行我素",
      "image": "",
      "audio": ""
     },
@@ -21271,7 +21314,7 @@
      "audio": ""
     },
     {
-     "text": "互相指责",
+     "text": "出了问题就互相指责、推卸责任",
      "image": "",
      "audio": ""
     }
@@ -21358,7 +21401,7 @@
      "audio": ""
     },
     {
-     "text": "漠视他人生命",
+     "text": "珍爱人类的生命，动物的生命无所谓",
      "image": "",
      "audio": ""
     },
@@ -21440,17 +21483,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "躲到床底下",
+     "text": "躲到床底下或衣柜里，安静地等待救援",
      "image": "",
      "audio": ""
     },
     {
-     "text": "乘电梯逃生",
+     "text": "乘电梯尽快下楼，比走楼梯更快更安全",
      "image": "",
      "audio": ""
     },
     {
-     "text": "先收拾贵重物品",
+     "text": "先收拾好钱包、手机等贵重物品再离开",
      "image": "",
      "audio": ""
     },
@@ -21578,17 +21621,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "走开不管",
+     "text": "假装没看见，悄悄地走开，以免自己惹上麻烦和责任",
      "image": "",
      "audio": ""
     },
     {
-     "text": "自己跳下水去救",
+     "text": "会游泳的话就自己马上跳下水去救，越快越好，不用等大人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "手拉手下水救人",
+     "text": "叫上几个同学一起手拉手组成人链下水救人，人多力量大",
      "image": "",
      "audio": ""
     },
@@ -21745,7 +21788,7 @@
      "audio": ""
     },
     {
-     "text": "没有任何作用",
+     "text": "没有什么作用",
      "image": "",
      "audio": ""
     },
@@ -21929,7 +21972,7 @@
      "audio": ""
     },
     {
-     "text": "骄傲自满",
+     "text": "骄傲自满，看不起他人",
      "image": "",
      "audio": ""
     },
@@ -21975,7 +22018,7 @@
      "audio": ""
     },
     {
-     "text": "只有体力劳动才光荣",
+     "text": "体力劳动才光荣，脑力劳动不算",
      "image": "",
      "audio": ""
     },
@@ -22118,12 +22161,12 @@
      "audio": ""
     },
     {
-     "text": "体重越来越轻",
+     "text": "体重越来越轻，身材变瘦",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不再需要营养",
+     "text": "不再需要营养，可以少吃饭",
      "image": "",
      "audio": ""
     }
@@ -22159,12 +22202,12 @@
      "audio": ""
     },
     {
-     "text": "心理疾病",
+     "text": "需要治疗的心理疾病",
      "image": "",
      "audio": ""
     },
     {
-     "text": "坏习惯",
+     "text": "一种坏习惯，需要改掉",
      "image": "",
      "audio": ""
     },
@@ -22205,7 +22248,7 @@
      "audio": ""
     },
     {
-     "text": "嘲笑异性同学",
+     "text": "嘲笑和异性同学说话的人",
      "image": "",
      "audio": ""
     },
@@ -22256,7 +22299,7 @@
      "audio": ""
     },
     {
-     "text": "压抑不说",
+     "text": "把不开心压在心里，不让别人知道",
      "image": "",
      "audio": ""
     },
@@ -22362,7 +22405,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "嘲笑别人的缺点",
+     "text": "嘲笑别人的缺点和犯过的错误",
      "image": "",
      "audio": ""
     },
@@ -22377,7 +22420,7 @@
      "audio": ""
     },
     {
-     "text": "做错事找借口",
+     "text": "做错事后找各种借口为自己推脱",
      "image": "",
      "audio": ""
     }
@@ -22408,7 +22451,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "自信就是看不起别人",
+     "text": "自信就是看不起别人，而自负就是看不起自己，二者都应该改正",
      "image": "",
      "audio": ""
     },
@@ -22418,7 +22461,7 @@
      "audio": ""
     },
     {
-     "text": "自负比自信好",
+     "text": "自信是相信自己，自负是看不起自己，两者只是程度不同而已",
      "image": "",
      "audio": ""
     },
@@ -22551,17 +22594,17 @@
      "audio": ""
     },
     {
-     "text": "个人主义",
+     "text": "国家兴亡是官员的事，与普通百姓无关",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不关心国家",
+     "text": "不关心国家大事，只关心自己的事",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只顾自己的家",
+     "text": "只顾自己的小家，不必考虑国家的事",
      "image": "",
      "audio": ""
     }
@@ -22827,7 +22870,7 @@
      "audio": ""
     },
     {
-     "text": "不具有任何民事权利",
+     "text": "不具有民事权利的人",
      "image": "",
      "audio": ""
     },
@@ -22878,7 +22921,7 @@
      "audio": ""
     },
     {
-     "text": "行政处罚性",
+     "text": "应受行政处罚性",
      "image": "",
      "audio": ""
     },
@@ -22919,7 +22962,7 @@
      "audio": ""
     },
     {
-     "text": "以牙还牙或约人打架",
+     "text": "以牙还牙，不然别人会觉得自己好欺负",
      "image": "",
      "audio": ""
     },
@@ -24537,7 +24580,7 @@
    "question": "证明中每一步推理都要有根据，下列不能作为推理根据的是？",
    "options": [
     {
-     "text": "已经证明的定理",
+     "text": "已经证明过的定理和推论",
      "image": "",
      "audio": ""
     },
@@ -24547,7 +24590,7 @@
      "audio": ""
     },
     {
-     "text": "基本事实",
+     "text": "公认的基本事实和公理",
      "image": "",
      "audio": ""
     },
@@ -24651,9 +24694,9 @@
    "textbook": "苏科版2024",
    "unit": "七下·第12章 定义 命题 证明·12.4 定理",
    "type": "判断",
-   "question": "“两点确定一条直线”是基本事实，不需要证明。",
+   "question": "经过两点有且只有一条直线。",
    "answer": "对",
-   "explanation": "基本事实是公认的真命题，作为推理的出发点。",
+   "explanation": "这是基本事实（两点确定一条直线），是公认的真命题，作为推理的出发点。",
    "difficulty": 2,
    "source": "AI",
    "volume": "七年级下册",
@@ -24932,7 +24975,7 @@
      "audio": ""
     },
     {
-     "text": "$2a^2-3b$",
+     "text": "$2a^2-3ab$",
      "image": "",
      "audio": ""
     },
@@ -25040,17 +25083,17 @@
    "question": "平移后，对应点所连的线段？",
    "options": [
     {
-     "text": "长度不相等",
+     "text": "一定平行（或在同一条直线上），但长度不相等",
      "image": "",
      "audio": ""
     },
     {
-     "text": "一定垂直",
+     "text": "一定互相垂直（或在同一条直线上）且相等",
      "image": "",
      "audio": ""
     },
     {
-     "text": "平行（或在同一条直线上）且相等",
+     "text": "一定平行（或在同一条直线上）且相等",
      "image": "",
      "audio": ""
     },
@@ -25343,7 +25386,7 @@
      "audio": ""
     },
     {
-     "text": "《赠汪伦》",
+     "text": "《宣州谢朓楼饯别校书叔云》",
      "image": "",
      "audio": ""
     }
@@ -25504,7 +25547,7 @@
      "audio": ""
     },
     {
-     "text": "济南冬天阳光温暖",
+     "text": "济南的冬天阳光温暖，像在摇篮里",
      "image": "",
      "audio": ""
     },
@@ -25610,22 +25653,22 @@
    "question": "《雨的四季》是按照什么顺序来写雨的？",
    "options": [
     {
-     "text": "空间顺序",
+     "text": "由近及远的空间顺序",
      "image": "",
      "audio": ""
     },
     {
-     "text": "由远及近",
+     "text": "由主到次的逻辑顺序",
      "image": "",
      "audio": ""
     },
     {
-     "text": "季节（时间）顺序",
+     "text": "四季更替的时间顺序",
      "image": "",
      "audio": ""
     },
     {
-     "text": "逻辑顺序",
+     "text": "由远及近的空间顺序",
      "image": "",
      "audio": ""
     }
@@ -25776,7 +25819,7 @@
    "question": "《雨的四季》全文抒发的主要情感是？",
    "options": [
     {
-     "text": "对自然灾害的担忧",
+     "text": "对暴雨等自然灾害的担忧",
      "image": "",
      "audio": ""
     },
@@ -25791,7 +25834,7 @@
      "audio": ""
     },
     {
-     "text": "对朋友的怀念",
+     "text": "对童年雨中玩耍的怀念",
      "image": "",
      "audio": ""
     }
@@ -25944,7 +25987,7 @@
      "audio": ""
     },
     {
-     "text": "《野草》",
+     "text": "《故事新编》",
      "image": "",
      "audio": ""
     },
@@ -26082,12 +26125,12 @@
      "audio": ""
     },
     {
-     "text": "咱娘儿俩在一块儿",
+     "text": "咱娘儿俩在一块儿，要好好儿活，好好儿活……",
      "image": "",
      "audio": ""
     },
     {
-     "text": "北海的菊花开了",
+     "text": "北海的菊花开了，我推着你去看看，你要好好儿活下去",
      "image": "",
      "audio": ""
     },
@@ -26287,7 +26330,7 @@
    "question": "文末“就是整个世界”中的“整个世界”主要指？",
    "options": [
     {
-     "text": "全体中国人",
+     "text": "全体中国人民和整个中华民族的未来",
      "image": "",
      "audio": ""
     },
@@ -26297,12 +26340,12 @@
      "audio": ""
     },
     {
-     "text": "地球",
+     "text": "南方初春时节一望无际的金色田野",
      "image": "",
      "audio": ""
     },
     {
-     "text": "所有的田野",
+     "text": "眼前所有的田野、池塘、山坡和村庄",
      "image": "",
      "audio": ""
     }
@@ -26376,7 +26419,7 @@
    "textbook": "统编版2024",
    "unit": "七上·第二单元·7 散文诗二首",
    "type": "判断",
-   "question": "《金色花》选自泰戈尔的诗集《飞鸟集》。",
+   "question": "《金色花》这首散文诗选自泰戈尔的诗集《飞鸟集》。",
    "answer": "错",
    "explanation": "错。《金色花》选自泰戈尔的诗集《新月集》。",
    "difficulty": 2,
@@ -26454,17 +26497,17 @@
      "audio": ""
     },
     {
-     "text": "过度生气",
+     "text": "过度生气、性情急躁",
      "image": "",
      "audio": ""
     },
     {
-     "text": "非常傲慢",
+     "text": "非常傲慢、看不起人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "非常勤奋",
+     "text": "过分勤奋、过于劳累",
      "image": "",
      "audio": ""
     }
@@ -26501,17 +26544,17 @@
      "audio": ""
     },
     {
-     "text": "身体健康的重要性",
+     "text": "保持身体健康的重要性",
      "image": "",
      "audio": ""
     },
     {
-     "text": "勤俭节约的重要性",
+     "text": "勤俭节约、艰苦朴素的重要性",
      "image": "",
      "audio": ""
     },
     {
-     "text": "交朋友的重要性",
+     "text": "交朋友和与人相处的重要性",
      "image": "",
      "audio": ""
     }
@@ -26634,7 +26677,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只做练习题",
+     "text": "只做大量的练习题，不需要预习和复习",
      "image": "",
      "audio": ""
     },
@@ -26704,7 +26747,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "一步登天",
+     "text": "想要一步登天，急于求成",
      "image": "",
      "audio": ""
     },
@@ -26825,17 +26868,17 @@
      "audio": ""
     },
     {
-     "text": "对缺点放任不管",
+     "text": "对自己的缺点放任不管，也不去努力改正",
      "image": "",
      "audio": ""
     },
     {
-     "text": "完全否定自己",
+     "text": "否定自己，觉得自己处处都不如别人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只接受自己的优点",
+     "text": "只看到自己的优点，不去想自己的不足",
      "image": "",
      "audio": ""
     }
@@ -26919,7 +26962,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级上册",
    "unit": "七上·第三单元 珍爱我们的生命·第九课 守护生命安全",
-   "question": "发生地震时如果在楼上，应立即乘电梯逃生。",
+   "question": "发生地震时如果在楼上，应立即乘坐电梯下楼逃生。",
    "explanation": "地震时不能乘电梯，应就近躲避在坚固的桌下或墙角，震后有序撤离。",
    "difficulty": 1,
    "knowledge_point": "安全常识",
@@ -26960,7 +27003,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "消极悲观",
+     "text": "消极悲观，得过且过地生活",
      "image": "",
      "audio": ""
     },
@@ -26970,12 +27013,12 @@
      "audio": ""
     },
     {
-     "text": "冒险尝试危险的事",
+     "text": "趁年轻多尝试危险刺激的事",
      "image": "",
      "audio": ""
     },
     {
-     "text": "及时行乐、不顾一切",
+     "text": "及时行乐，只追求眼前的享受",
      "image": "",
      "audio": ""
     }
@@ -27076,12 +27119,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "长时间沉迷网络",
+     "text": "长时间沉迷网络，周末再补充睡眠",
      "image": "",
      "audio": ""
     },
     {
-     "text": "通宵熬夜学习",
+     "text": "考试前通宵熬夜复习，平时再补觉",
      "image": "",
      "audio": ""
     },
@@ -27146,17 +27189,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "完全不顾个人利益",
+     "text": "不顾个人利益",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只顾个人利益",
+     "text": "只顾个人利益，不用考虑集体利益是否会受到损害",
      "image": "",
      "audio": ""
     },
     {
-     "text": "退出集体",
+     "text": "个人利益放在第一位，集体利益放在第二位",
      "image": "",
      "audio": ""
     },
@@ -27245,7 +27288,7 @@
      "audio": ""
     },
     {
-     "text": "只是为了考试分数",
+     "text": "只是为了提高考试分数和班级排名",
      "image": "",
      "audio": ""
     },
@@ -27325,7 +27368,7 @@
      "audio": ""
     },
     {
-     "text": "课堂上故意捣乱",
+     "text": "课堂上故意捣乱，经常当众和老师顶嘴",
      "image": "",
      "audio": ""
     }
@@ -27363,7 +27406,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级上册",
    "unit": "七上·第二单元 成长的时空·第六课 友谊之树常青",
-   "question": "真正的友谊意味着对朋友无原则的忠诚。",
+   "question": "真正的友谊意味着对朋友无原则的忠诚，什么都要帮。",
    "explanation": "友谊不能没有原则，不能用“哥们义气”替代友谊。",
    "difficulty": 2,
    "knowledge_point": "友谊的真谛",
@@ -27431,7 +27474,7 @@
      "audio": ""
     },
     {
-     "text": "没有什么意义",
+     "text": "朋友之间要少联系，越少见面越好",
      "image": "",
      "audio": ""
     },
@@ -27496,7 +27539,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "冷战，不说话",
+     "text": "和父母冷战，好几天都不跟他们说话，让他们让步",
      "image": "",
      "audio": ""
     },
@@ -27511,7 +27554,7 @@
      "audio": ""
     },
     {
-     "text": "顶撞父母、摔门而去",
+     "text": "父母说什么都照着做，从来不表达自己的想法",
      "image": "",
      "audio": ""
     }
@@ -27549,7 +27592,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级上册",
    "unit": "七上·第四单元 追求美好人生·第十一课 确立人生目标",
-   "question": "人生目标是一成不变的，确定后不能调整。",
+   "question": "人生目标是一成不变的，一旦确定以后就不能再调整。",
    "explanation": "人生目标要根据自身情况和社会需要适时调整。",
    "difficulty": 2,
    "knowledge_point": "人生目标",
@@ -27619,7 +27662,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级上册",
    "unit": "七上·第四单元 追求美好人生·第十一课 确立人生目标",
-   "question": "实现人生目标需要把远大目标分解为一个个切实可行的小目标。",
+   "question": "远大目标要分解成切实可行的小目标。",
    "explanation": "由近及远、循序渐进。",
    "difficulty": 2,
    "knowledge_point": "人生目标",
@@ -27636,12 +27679,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只考虑个人兴趣",
+     "text": "只考虑个人的兴趣爱好，不需要考虑社会需要",
      "image": "",
      "audio": ""
     },
     {
-     "text": "目标越高越好，不必考虑实际",
+     "text": "目标定得越高越好，不必考虑自己的能力和实际情况",
      "image": "",
      "audio": ""
     },
@@ -27651,7 +27694,7 @@
      "audio": ""
     },
     {
-     "text": "没有目标也能过好一生",
+     "text": "目标一旦定下来，无论情况怎么变都不能再调整",
      "image": "",
      "audio": ""
     }
@@ -27757,12 +27800,12 @@
      "audio": ""
     },
     {
-     "text": "等长大了再说",
+     "text": "现在什么都不用做，等长大工作以后再去实现",
      "image": "",
      "audio": ""
     },
     {
-     "text": "什么都不做",
+     "text": "只要考出好成绩，其他都不重要",
      "image": "",
      "audio": ""
     },
@@ -27994,12 +28037,12 @@
      "audio": ""
     },
     {
-     "text": "拒绝一切帮助",
+     "text": "自己的事情自己决定，不用和父母、老师商量",
      "image": "",
      "audio": ""
     },
     {
-     "text": "什么事都和父母对着干",
+     "text": "什么事都故意和父母对着干，以显示自己长大了",
      "image": "",
      "audio": ""
     }
@@ -28037,7 +28080,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第一单元 珍惜青春时光·第二课 做情绪情感的主人",
-   "question": "情绪有积极和消极之分，消极情绪对人只有坏处。",
+   "question": "情绪有积极和消极之分，消极情绪对人有害无益。",
    "explanation": "适度的消极情绪（如紧张）也有一定作用，关键在于合理调节。",
    "difficulty": 2,
    "knowledge_point": "情绪调节",
@@ -28054,17 +28097,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "向别人发脾气",
+     "text": "向别人发脾气，把怒火发泄出来",
      "image": "",
      "audio": ""
     },
     {
-     "text": "摔东西发泄",
+     "text": "摔东西发泄，让情绪释放出来",
      "image": "",
      "audio": ""
     },
     {
-     "text": "把不良情绪闷在心里，不和任何人说",
+     "text": "把不良情绪闷在心里，不和别人说",
      "image": "",
      "audio": ""
     },
@@ -28100,17 +28143,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "变得冷漠",
+     "text": "变得冷漠无情，不再关心身边的人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "更加孤独",
+     "text": "更加孤独，主动远离集体和他人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "逃避现实",
+     "text": "让我们从此不会再有消极的情绪",
      "image": "",
      "audio": ""
     },
@@ -28156,12 +28199,12 @@
      "audio": ""
     },
     {
-     "text": "科学精神",
+     "text": "法家“以法治国”的治国思想",
      "image": "",
      "audio": ""
     },
     {
-     "text": "法治观念",
+     "text": "现代社会的法治观念和规则意识",
      "image": "",
      "audio": ""
     }
@@ -28226,7 +28269,7 @@
      "audio": ""
     },
     {
-     "text": "个人主义",
+     "text": "求同去异的思想",
      "image": "",
      "audio": ""
     },
@@ -28369,7 +28412,7 @@
      "audio": ""
     },
     {
-     "text": "诚实守信",
+     "text": "诚实守信、言行一致",
      "image": "",
      "audio": ""
     }
@@ -28439,7 +28482,7 @@
      "audio": ""
     },
     {
-     "text": "攀比消费",
+     "text": "请客时多点菜，显得有面子",
      "image": "",
      "audio": ""
     }
@@ -28547,7 +28590,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第三单元 传承中华优秀传统文化·第六课 传承核心思想理念",
-   "question": "“民惟邦本，本固邦宁”出自《论语》。",
+   "question": "“民惟邦本，本固邦宁”这句话出自儒家经典《论语》。",
    "explanation": "错。“民惟邦本，本固邦宁”出自《尚书》，体现了民本思想。",
    "difficulty": 2,
    "knowledge_point": "民本",
@@ -28564,7 +28607,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "保守固执",
+     "text": "保守固执，拒绝接受新的事物和观念",
      "image": "",
      "audio": ""
     },
@@ -28574,7 +28617,7 @@
      "audio": ""
     },
     {
-     "text": "安于现状",
+     "text": "坚守祖宗传统，一切按老规矩办",
      "image": "",
      "audio": ""
     },
@@ -28610,7 +28653,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "征服自然",
+     "text": "人定胜天、征服自然的思想",
      "image": "",
      "audio": ""
     },
@@ -28687,7 +28730,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第二单元 焕发青春活力·第三课 人贵自尊",
-   "question": "自尊就是爱面子，什么错都不承认。",
+   "question": "自尊等于爱面子，什么错都不承认。",
    "explanation": "自尊不是爱面子，知错就改才是真正的自尊。",
    "difficulty": 2,
    "knowledge_point": "自尊",
@@ -28704,7 +28747,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "做错事要掩饰",
+     "text": "做错事要想办法掩饰，不让人知道",
      "image": "",
      "audio": ""
     },
@@ -28719,7 +28762,7 @@
      "audio": ""
     },
     {
-     "text": "羞耻的人很勇敢",
+     "text": "经常感到羞耻的人都很勇敢、胆子大",
      "image": "",
      "audio": ""
     }
@@ -28830,7 +28873,7 @@
      "audio": ""
     },
     {
-     "text": "随心所欲",
+     "text": "别人说自己不好就要马上反击",
      "image": "",
      "audio": ""
     },
@@ -28873,7 +28916,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第二单元 焕发青春活力·第五课 人生当自强",
-   "question": "自强就是要比别人强，处处争第一。",
+   "question": "自强意味着要比别人强，处处争第一。",
    "explanation": "自强是努力向上、不断超越自己，不是处处与人攀比。",
    "difficulty": 2,
    "knowledge_point": "自强",
@@ -28890,7 +28933,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "遇到困难就退缩",
+     "text": "遇到困难就退缩，等条件好了以后再说",
      "image": "",
      "audio": ""
     },
@@ -28943,7 +28986,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第二单元 焕发青春活力·第五课 人生当自强",
-   "question": "“天行健，君子以自强不息”出自《论语》。",
+   "question": "“天行健，君子以自强不息”这句话出自《论语》。",
    "explanation": "错。“天行健，君子以自强不息”出自《周易·乾·象传》。",
    "difficulty": 2,
    "knowledge_point": "自强",
@@ -28960,17 +29003,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "让我们可以看不起别人",
+     "text": "让我们变得比别人强，可以看不起比自己弱的人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "没有意义",
+     "text": "没有什么意义，人的命运早就已经注定了",
      "image": "",
      "audio": ""
     },
     {
-     "text": "让我们完全不需要他人的帮助，独来独往",
+     "text": "让我们不再需要他人的帮助，独来独往",
      "image": "",
      "audio": ""
     },
@@ -29091,7 +29134,7 @@
      "audio": ""
     },
     {
-     "text": "盲目自大，看不起别人，觉得自己永远正确",
+     "text": "盲目自大，看不起别人，觉得自己什么都对",
      "image": "",
      "audio": ""
     }
@@ -29221,7 +29264,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第二单元 焕发青春活力·第四课 自信给人力量",
-   "question": "自负的人往往能正确估计自己、尊重别人。",
+   "question": "自负的人往往能正确估计自己的能力，也懂得尊重别人。",
    "explanation": "错。自负的人往往高估自己、轻视别人，要避免自负。",
    "difficulty": 2,
    "knowledge_point": "自信",
@@ -29405,12 +29448,12 @@
      "audio": ""
     },
     {
-     "text": "是否违法",
+     "text": "是否违反了法律规定",
      "image": "",
      "audio": ""
     },
     {
-     "text": "行为人年龄",
+     "text": "行为人年龄大小和身份",
      "image": "",
      "audio": ""
     },
@@ -29523,7 +29566,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第四单元 生活在法治社会·第十一课 远离违法犯罪",
-   "question": "刑罚分为主刑和附加刑，罚金属于主刑。",
+   "question": "刑罚分为主刑和附加刑两大类，其中罚金属于主刑。",
    "explanation": "错。罚金属于附加刑；主刑有管制、拘役、有期徒刑、无期徒刑、死刑。",
    "difficulty": 2,
    "knowledge_point": "犯罪",
@@ -29545,7 +29588,7 @@
      "audio": ""
     },
     {
-     "text": "2022 年",
+     "text": "2017 年",
      "image": "",
      "audio": ""
     },
@@ -29593,7 +29636,7 @@
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "volume": "七年级下册",
    "unit": "七下·第四单元 生活在法治社会·第十课 走近民法典",
-   "question": "不满十周岁的未成年人是无民事行为能力人。",
+   "question": "根据民法典，不满十周岁的未成年人是无民事行为能力人。",
    "explanation": "错。《民法典》第二十条规定，不满八周岁的未成年人是无民事行为能力人。",
    "difficulty": 2,
    "knowledge_point": "民法典",
@@ -29610,7 +29653,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "国家与公民之间的所有关系，包括犯罪与刑罚",
+     "text": "国家与公民之间的各种关系，包括犯罪与刑罚",
      "image": "",
      "audio": ""
     },
@@ -29620,12 +29663,12 @@
      "audio": ""
     },
     {
-     "text": "行政机关内部管理",
+     "text": "行政机关内部上下级之间的行政管理关系",
      "image": "",
      "audio": ""
     },
     {
-     "text": "犯罪与刑罚",
+     "text": "中央与地方国家机关之间的权力分配关系",
      "image": "",
      "audio": ""
     }
@@ -29790,7 +29833,7 @@
    "question": "4 个同学互相握手，每两人握一次，一共握几次？",
    "options": [
     {
-     "text": "4",
+     "text": "16",
      "image": "",
      "audio": ""
     },
@@ -30680,12 +30723,12 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "$a^2+2$",
+     "text": "$a^2+2a+2$",
      "image": "",
      "audio": ""
     },
     {
-     "text": "$3a$",
+     "text": "$a^2+a+2$",
      "image": "",
      "audio": ""
     },
@@ -30695,7 +30738,7 @@
      "audio": ""
     },
     {
-     "text": "$2a^2$",
+     "text": "$2a^2+2a$",
      "image": "",
      "audio": ""
     }
@@ -30767,7 +30810,7 @@
      "audio": ""
     },
     {
-     "text": "$3a+3$",
+     "text": "$6a+6$",
      "image": "",
      "audio": ""
     },
@@ -31151,7 +31194,7 @@
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "volume": "七年级下册",
    "unit": "七下·第10章 二元一次方程组·10.2 二元一次方程组的概念",
-   "question": "方程组的解必须同时满足方程组中的每一个方程。",
+   "question": "只有同时满足每个方程，才是方程组的解。",
    "explanation": "这是方程组的解的含义。",
    "difficulty": 1,
    "knowledge_point": "10.2 二元一次方程组的概念",
@@ -33762,7 +33805,7 @@
      "audio": ""
     },
     {
-     "text": "2 个",
+     "text": "6 个",
      "image": "",
      "audio": ""
     },
@@ -33779,6 +33822,7 @@
    "volume": "七年级上册",
    "knowledge_point": "正数与负数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tf271fa",
    "change_tag": "新增",
@@ -34091,7 +34135,7 @@
      "audio": ""
     },
     {
-     "text": "$8$",
+     "text": "$-8$",
      "image": "",
      "audio": ""
     },
@@ -34108,6 +34152,7 @@
    "volume": "七年级上册",
    "knowledge_point": "数轴",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tdbbee8",
    "change_tag": "新增",
@@ -34886,7 +34931,7 @@
      "audio": ""
     },
     {
-     "text": "$(C-a)$ cm",
+     "text": "$\\left(\\dfrac C2-2a\\right)$ cm",
      "image": "",
      "audio": ""
     },
@@ -34896,7 +34941,7 @@
      "audio": ""
     },
     {
-     "text": "$\\dfrac{C-a}{2}$ cm",
+     "text": "$\\left(\\dfrac{C}{2}-\\dfrac{a}{2}\\right)$ cm",
      "image": "",
      "audio": ""
     }
@@ -34908,6 +34953,7 @@
    "volume": "七年级上册",
    "knowledge_point": "字母表示数",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tbf7f98",
    "change_tag": "新增",
@@ -35316,7 +35362,7 @@
      "audio": ""
     },
     {
-     "text": "150 g",
+     "text": "400 g",
      "image": "",
      "audio": ""
     },
@@ -35333,6 +35379,7 @@
    "volume": "七年级上册",
    "knowledge_point": "等式与方程",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T23d704",
    "change_tag": "新增",
@@ -35822,17 +35869,17 @@
    "tts_text": "-",
    "options": [
     {
-     "text": "小于 3 cm",
-     "image": "",
-     "audio": ""
-    },
-    {
      "text": "等于 4 cm",
      "image": "",
      "audio": ""
     },
     {
-     "text": "等于 3 cm",
+     "text": "大于 3 cm 小于 4 cm",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "4 cm 到 5 cm 之间",
      "image": "",
      "audio": ""
     },
@@ -35849,6 +35896,7 @@
    "volume": "七年级上册",
    "knowledge_point": "相交线",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "T98ff98",
    "change_tag": "新增",
@@ -39988,7 +40036,7 @@
    "question": "《荷叶·母亲》中，雨中的红莲左右欹斜，“我”看到什么情景后“心中深深的受了感动”？",
    "options": [
     {
-     "text": "母亲走过来为红莲撑起了伞",
+     "text": "母亲走过来，在红莲上方撑起了一把伞，替它挡住了风雨",
      "image": "",
      "audio": ""
     },
@@ -39998,7 +40046,7 @@
      "audio": ""
     },
     {
-     "text": "雨停了，红莲重新挺立起来",
+     "text": "雨停了，红莲在阳光下重新挺立起来，开得比原来更加鲜艳",
      "image": "",
      "audio": ""
     },
@@ -40015,6 +40063,7 @@
    "volume": "七年级上册",
    "knowledge_point": "散文诗二首",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4f382c",
    "change_tag": "新增",
@@ -40078,7 +40127,7 @@
    "question": "“我”在三味书屋向先生请教、先生却“不高兴，脸上还有怒色”的问题是？",
    "options": [
     {
-     "text": "怎样对课",
+     "text": "怎样对课，“独角兽”应该对什么才好",
      "image": "",
      "audio": ""
     },
@@ -40093,7 +40142,7 @@
      "audio": ""
     },
     {
-     "text": "美女蛇是怎么回事",
+     "text": "长妈妈讲的美女蛇的故事是不是真的",
      "image": "",
      "audio": ""
     }
@@ -40105,6 +40154,7 @@
    "volume": "七年级上册",
    "knowledge_point": "从百草园到三味书屋",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T83294b",
    "change_tag": "新增",
@@ -40128,17 +40178,17 @@
      "audio": ""
     },
     {
-     "text": "对长妈妈的感激",
+     "text": "对长妈妈和寿镜吾先生的感激",
      "image": "",
      "audio": ""
     },
     {
-     "text": "对读书生活的厌倦",
+     "text": "对三味书屋读书生活的厌恶和批判",
      "image": "",
      "audio": ""
     },
     {
-     "text": "对闰土父亲的赞美",
+     "text": "对闰土父亲捕鸟本领的赞美和佩服",
      "image": "",
      "audio": ""
     }
@@ -40150,6 +40200,7 @@
    "volume": "七年级上册",
    "knowledge_point": "从百草园到三味书屋",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T461de0",
    "change_tag": "新增",
@@ -40214,7 +40265,7 @@
    "question": "《诫子书》中“年与时驰，意与日去，遂成枯落”的意思是？",
    "options": [
     {
-     "text": "年老时要回到故乡",
+     "text": "年纪老了的时候要回到故乡，像枯枝落叶一样落叶归根，安度晚年",
      "image": "",
      "audio": ""
     },
@@ -40224,7 +40275,7 @@
      "audio": ""
     },
     {
-     "text": "时间过得飞快，要及时行乐",
+     "text": "时间过得飞快，人很快就老了，所以要及时行乐，不必太辛苦",
      "image": "",
      "audio": ""
     },
@@ -40241,6 +40292,7 @@
    "volume": "七年级上册",
    "knowledge_point": "诫子书",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T5f51fb",
    "change_tag": "新增",
@@ -40265,17 +40317,17 @@
      "audio": ""
     },
     {
-     "text": "说明北海菊花品种很多",
+     "text": "说明北海的菊花品种很多，黄、白、紫红各种颜色的花都开得很好",
      "image": "",
      "audio": ""
     },
     {
-     "text": "表达作者对北海公园的喜爱",
+     "text": "表达作者对北海公园的喜爱和对秋天菊花盛开景象的赞美之情",
      "image": "",
      "audio": ""
     },
     {
-     "text": "说明母亲最爱看菊花",
+     "text": "说明母亲生前最爱看北海的菊花，“我”要替她多看几眼",
      "image": "",
      "audio": ""
     }
@@ -40287,6 +40339,7 @@
    "volume": "七年级上册",
    "knowledge_point": "秋天的怀念",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2da0fc",
    "change_tag": "新增",
@@ -40305,12 +40358,12 @@
    "question": "《秋天的怀念》中，母亲“悄悄地躲出去，在我看不见的地方偷偷地听着我的动静”，表现了母亲？",
    "options": [
     {
-     "text": "对儿子感到失望",
+     "text": "对儿子感到失望，不愿再管他",
      "image": "",
      "audio": ""
     },
     {
-     "text": "害怕儿子发脾气",
+     "text": "害怕儿子发脾气，不敢待在屋里",
      "image": "",
      "audio": ""
     },
@@ -40320,7 +40373,7 @@
      "audio": ""
     },
     {
-     "text": "想独自休息一会儿",
+     "text": "想独自出去休息一会儿，散散心",
      "image": "",
      "audio": ""
     }
@@ -40332,6 +40385,7 @@
    "volume": "七年级上册",
    "knowledge_point": "秋天的怀念",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Te7b13f",
    "change_tag": "新增",
@@ -40395,12 +40449,12 @@
    "question": "《散步》中“我”决定委屈儿子、走大路，理由是？",
    "options": [
     {
-     "text": "儿子还小，不懂事",
+     "text": "儿子年纪还小，不懂事，小孩子就应该听从大人的安排",
      "image": "",
      "audio": ""
     },
     {
-     "text": "母亲身体不好，走不动小路",
+     "text": "母亲年纪大了，身体也不好，走不动坑坑洼洼的小路",
      "image": "",
      "audio": ""
     },
@@ -40410,7 +40464,7 @@
      "audio": ""
     },
     {
-     "text": "大路比小路更安全",
+     "text": "大路比小路平坦宽阔，母亲和儿子走起来都更加安全",
      "image": "",
      "audio": ""
     }
@@ -40422,6 +40476,7 @@
    "volume": "七年级上册",
    "knowledge_point": "散步",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tb5991a",
    "change_tag": "新增",
@@ -40440,17 +40495,17 @@
    "question": "《散步》中，母亲最后改变主意要走小路，是因为？",
    "options": [
     {
-     "text": "小路比大路近",
+     "text": "小路比大路近，走起来更省时间",
      "image": "",
      "audio": ""
     },
     {
-     "text": "小路上没有行人",
+     "text": "小路上没有来往的行人，比较安静",
      "image": "",
      "audio": ""
     },
     {
-     "text": "她想让儿子背她",
+     "text": "她觉得小路上的风景更好看，想去看看",
      "image": "",
      "audio": ""
     },
@@ -40467,6 +40522,7 @@
    "volume": "七年级上册",
    "knowledge_point": "散步",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T2382ec",
    "change_tag": "新增",
@@ -41488,12 +41544,12 @@
    "question": "There are some volunteers in our community. They often help ____ the old people living alone.",
    "options": [
     {
-     "text": "look like",
+     "text": "look out for",
      "image": "",
      "audio": ""
     },
     {
-     "text": "look for",
+     "text": "look forward to",
      "image": "",
      "audio": ""
     },
@@ -41503,7 +41559,7 @@
      "audio": ""
     },
     {
-     "text": "look at",
+     "text": "look through",
      "image": "",
      "audio": ""
     }
@@ -41515,6 +41571,7 @@
    "volume": "七年级下册",
    "knowledge_point": "7B Unit 2 Neighbourhood",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T38a2b6",
    "change_tag": "新增",
@@ -41631,12 +41688,12 @@
      "audio": ""
     },
     {
-     "text": "by",
+     "text": "about",
      "image": "",
      "audio": ""
     },
     {
-     "text": "to",
+     "text": "with",
      "image": "",
      "audio": ""
     },
@@ -41653,6 +41710,7 @@
    "volume": "七年级下册",
    "knowledge_point": "7B Unit 4 Chinese folk art",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T451c1b",
    "change_tag": "新增",
@@ -41820,12 +41878,12 @@
      "audio": ""
     },
     {
-     "text": "to kill",
+     "text": "to killing",
      "image": "",
      "audio": ""
     },
     {
-     "text": "kill",
+     "text": "to be killed",
      "image": "",
      "audio": ""
     }
@@ -41837,6 +41895,7 @@
    "volume": "七年级下册",
    "knowledge_point": "7B Unit 5 Animal friends",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T664012",
    "change_tag": "新增",
@@ -41999,7 +42058,7 @@
      "audio": ""
     },
     {
-     "text": "high",
+     "text": "more high",
      "image": "",
      "audio": ""
     },
@@ -42021,6 +42080,7 @@
    "volume": "七年级下册",
    "knowledge_point": "7B Unit 6 Beautiful landscapes",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T1ef56d",
    "change_tag": "新增",
@@ -42040,12 +42100,12 @@
    "question": "— What ____ you doing at eight yesterday evening? — I ____ the stars with my dad.",
    "options": [
     {
-     "text": "did; was watching",
+     "text": "were; were watching",
      "image": "",
      "audio": ""
     },
     {
-     "text": "are; am watching",
+     "text": "were; had been watching",
      "image": "",
      "audio": ""
     },
@@ -42055,7 +42115,7 @@
      "audio": ""
     },
     {
-     "text": "were; watched",
+     "text": "were; have been watching",
      "image": "",
      "audio": ""
     }
@@ -42067,6 +42127,7 @@
    "volume": "七年级下册",
    "knowledge_point": "7B Unit 7 Outdoor fun",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中英语，用江苏通用的译林版2024（新版）替代",
    "template": "T5353b8",
    "change_tag": "新增",
@@ -42275,17 +42336,17 @@
      "audio": ""
     },
     {
-     "text": "名词",
+     "text": "名词用作动词，意思是“变成绿色”",
      "image": "",
      "audio": ""
     },
     {
-     "text": "仍是形容词，只表示颜色",
+     "text": "仍是形容词，只表示江南岸的颜色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "副词",
+     "text": "副词，修饰后面的“江南岸”，表示程度",
      "image": "",
      "audio": ""
     }
@@ -42297,6 +42358,7 @@
    "volume": "拓展复习（不分册）",
    "knowledge_point": "小学复习",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T89fbea",
    "change_tag": "新增",
@@ -42360,17 +42422,17 @@
    "question": "“不识庐山真面目，只缘身在此山中”蕴含的道理是？",
    "options": [
     {
-     "text": "登山要选好路线",
+     "text": "登山要选好路线，才能看清庐山的景色",
      "image": "",
      "audio": ""
     },
     {
-     "text": "山中常有云雾",
+     "text": "庐山的山中常有云雾，所以看不清楚",
      "image": "",
      "audio": ""
     },
     {
-     "text": "庐山的景色太美",
+     "text": "庐山的景色太美，怎么看也看不完",
      "image": "",
      "audio": ""
     },
@@ -42387,6 +42449,7 @@
    "volume": "拓展复习（不分册）",
    "knowledge_point": "小学复习",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T3c2ee8",
    "change_tag": "新增",
@@ -42413,12 +42476,13 @@
      "audio": ""
     },
     {
-     "text": "认为自己不适合学数学而放弃",
+     "text": "认为自己不适合学数学，干脆放弃数学",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-157",
    "subject": "道德与法治",
    "grade": 7,
@@ -42443,12 +42507,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "它与小学阶段毫无联系",
+     "text": "它与小学阶段毫无联系，学过的知识都要从零开始",
      "image": "",
      "audio": ""
     },
     {
-     "text": "它只意味着学习科目增多",
+     "text": "它只意味着学习科目增多，课业负担加重",
      "image": "",
      "audio": ""
     },
@@ -42458,12 +42522,13 @@
      "audio": ""
     },
     {
-     "text": "它决定我们一生的命运",
+     "text": "它已经决定了我们一生的成就和命运",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-158",
    "subject": "道德与法治",
    "grade": 7,
@@ -42578,17 +42643,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只有伟人才需要志向",
+     "text": "只有伟人和名人才需要树立远大的志向",
      "image": "",
      "audio": ""
     },
     {
-     "text": "树立志向（梦想）对人生具有重要意义",
+     "text": "树立志向对人生具有重要意义",
      "image": "",
      "audio": ""
     },
     {
-     "text": "有了志向就不需要努力",
+     "text": "立下了志向就能成事，不必再付出什么努力",
      "image": "",
      "audio": ""
     },
@@ -42599,6 +42664,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-161",
    "subject": "道德与法治",
    "grade": 7,
@@ -42678,17 +42744,18 @@
      "audio": ""
     },
     {
-     "text": "梦想越不切实际越好",
+     "text": "梦想越远大越好，不必考虑是否切合实际",
      "image": "",
      "audio": ""
     },
     {
-     "text": "梦想只属于个人，与国家无关",
+     "text": "梦想只属于个人，与国家和社会无关",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-163",
    "subject": "道德与法治",
    "grade": 7,
@@ -42713,7 +42780,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "顶嘴是独立的表现",
+     "text": "顶嘴是独立意识的表现，说明自己长大了",
      "image": "",
      "audio": ""
     },
@@ -42723,7 +42790,7 @@
      "audio": ""
     },
     {
-     "text": "不理会父母就能避免冲突",
+     "text": "不理会父母，少和他们说话就能避免冲突",
      "image": "",
      "audio": ""
     },
@@ -42734,6 +42801,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-164",
    "subject": "道德与法治",
    "grade": 7,
@@ -42803,7 +42871,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "不正确，应该当场与老师争吵",
+     "text": "不正确，应该当场找老师理论，让老师向自己道歉",
      "image": "",
      "audio": ""
     },
@@ -42813,17 +42881,18 @@
      "audio": ""
     },
     {
-     "text": "正确，这样可以维护自尊",
+     "text": "正确，这样做可以维护自己的自尊心和在同学面前的面子",
      "image": "",
      "audio": ""
     },
     {
-     "text": "正确，老师不应该批评学生",
+     "text": "正确，老师本来就不应该当着全班同学的面批评学生",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-166",
    "subject": "道德与法治",
    "grade": 7,
@@ -42853,7 +42922,7 @@
      "audio": ""
     },
     {
-     "text": "老师和学生之间不需要互相尊重",
+     "text": "师生地位完全平等，所以学生不必听从老师的安排",
      "image": "",
      "audio": ""
     },
@@ -42869,6 +42938,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-167",
    "subject": "道德与法治",
    "grade": 7,
@@ -42943,7 +43013,7 @@
      "audio": ""
     },
     {
-     "text": "从此不再来往",
+     "text": "从此不再来往，断绝关系",
      "image": "",
      "audio": ""
     },
@@ -42953,12 +43023,13 @@
      "audio": ""
     },
     {
-     "text": "等对方先道歉",
+     "text": "冷战，等对方先来道歉",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-169",
    "subject": "道德与法治",
    "grade": 7,
@@ -42983,7 +43054,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只和兴趣相同的人交朋友",
+     "text": "只和兴趣爱好相同的人交朋友",
      "image": "",
      "audio": ""
     },
@@ -42993,17 +43064,18 @@
      "audio": ""
     },
     {
-     "text": "要求朋友和自己观点一致",
+     "text": "要求朋友的观点和自己保持一致",
      "image": "",
      "audio": ""
     },
     {
-     "text": "放弃自己的观点迁就朋友",
+     "text": "放弃自己的观点，一味迁就朋友",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-170",
    "subject": "道德与法治",
    "grade": 7,
@@ -43028,12 +43100,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "是保护嗓子的明智选择",
+     "text": "正确，唱不好会拖累集体，不参加是为集体好",
      "image": "",
      "audio": ""
     },
     {
-     "text": "正确，比赛与自己无关",
+     "text": "正确，合唱比赛与自己无关，可以不参加",
      "image": "",
      "audio": ""
     },
@@ -43049,6 +43121,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-171",
    "subject": "道德与法治",
    "grade": 7,
@@ -43073,7 +43146,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "好汉不需要别人帮助",
+     "text": "真正的好汉从来不需要别人帮助",
      "image": "",
      "audio": ""
     },
@@ -43083,17 +43156,18 @@
      "audio": ""
     },
     {
-     "text": "个人比集体更重要",
+     "text": "个人的成长靠自己，不靠集体",
      "image": "",
      "audio": ""
     },
     {
-     "text": "集体可以代替个人",
+     "text": "集体可以代替个人的努力",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-172",
    "subject": "道德与法治",
    "grade": 7,
@@ -43178,12 +43252,13 @@
      "audio": ""
     },
     {
-     "text": "生命的长短最重要",
+     "text": "活得越长、越轻松，生命就越有意义",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-174",
    "subject": "道德与法治",
    "grade": 7,
@@ -43213,7 +43288,7 @@
      "audio": ""
     },
     {
-     "text": "正确，生命是自己的",
+     "text": "正确，生命是自己的，怎么对待自己的生命别人无权干涉",
      "image": "",
      "audio": ""
     },
@@ -43229,6 +43304,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-175",
    "subject": "道德与法治",
    "grade": 7,
@@ -43263,7 +43339,7 @@
      "audio": ""
     },
     {
-     "text": "追赶歹徒",
+     "text": "叫上几个同学一起追赶歹徒，把东西抢回来",
      "image": "",
      "audio": ""
     },
@@ -43274,6 +43350,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-176",
    "subject": "道德与法治",
    "grade": 7,
@@ -43353,7 +43430,7 @@
      "audio": ""
     },
     {
-     "text": "通宵复习",
+     "text": "每天通宵复习，复习得越多越充分就越不焦虑",
      "image": "",
      "audio": ""
     },
@@ -43364,6 +43441,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-178",
    "subject": "道德与法治",
    "grade": 7,
@@ -43403,12 +43481,13 @@
      "audio": ""
     },
     {
-     "text": "只要成绩好就是健康",
+     "text": "身体强壮、不常生病就是健康",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-179",
    "subject": "道德与法治",
    "grade": 7,
@@ -43433,12 +43512,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只在周末熬夜",
+     "text": "只在周末熬夜玩，平时不玩就没关系",
      "image": "",
      "audio": ""
     },
     {
-     "text": "完全不使用手机",
+     "text": "以后再也不使用手机",
      "image": "",
      "audio": ""
     },
@@ -43454,6 +43533,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-180",
    "subject": "道德与法治",
    "grade": 7,
@@ -43478,7 +43558,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "阶段目标不重要",
+     "text": "阶段目标不重要，只要有远大目标就够了",
      "image": "",
      "audio": ""
     },
@@ -43488,7 +43568,7 @@
      "audio": ""
     },
     {
-     "text": "目标一旦确定就不能改变",
+     "text": "目标一旦确定，无论遇到什么情况都不能再调整",
      "image": "",
      "audio": ""
     },
@@ -43499,6 +43579,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-181",
    "subject": "道德与法治",
    "grade": 7,
@@ -43533,7 +43614,7 @@
      "audio": ""
     },
     {
-     "text": "一夜成名",
+     "text": "将来靠参加选秀节目出名，为此现在可以不学习",
      "image": "",
      "audio": ""
     },
@@ -43544,6 +43625,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-182",
    "subject": "道德与法治",
    "grade": 7,
@@ -43618,7 +43700,7 @@
      "audio": ""
     },
     {
-     "text": "抱怨题目太难",
+     "text": "抱怨题目太难，不是自己的问题",
      "image": "",
      "audio": ""
     },
@@ -43634,6 +43716,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-184",
    "subject": "道德与法治",
    "grade": 7,
@@ -43658,7 +43741,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "彩虹只在雨后出现",
+     "text": "彩虹只有在下过雨以后才会出现",
      "image": "",
      "audio": ""
     },
@@ -43668,17 +43751,18 @@
      "audio": ""
     },
     {
-     "text": "人生应该避开一切困难",
+     "text": "人生应该主动去寻找挫折和困难",
      "image": "",
      "audio": ""
     },
     {
-     "text": "挫折只有坏处",
+     "text": "挫折只会给人带来痛苦和各种伤害",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-185",
    "subject": "道德与法治",
    "grade": 7,
@@ -43748,7 +43832,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只有名人才能实现人生价值",
+     "text": "名人才能实现人生价值，普通人不能",
      "image": "",
      "audio": ""
     },
@@ -43769,6 +43853,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-187",
    "subject": "道德与法治",
    "grade": 7,
@@ -43798,12 +43883,12 @@
      "audio": ""
     },
     {
-     "text": "只有轰轰烈烈的事业才有价值",
+     "text": "轰轰烈烈的大事业才有价值，平凡的工作没有",
      "image": "",
      "audio": ""
     },
     {
-     "text": "平凡的人没有价值",
+     "text": "平凡的人没有什么价值，只有名人才有价值",
      "image": "",
      "audio": ""
     },
@@ -43814,6 +43899,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-188",
    "subject": "道德与法治",
    "grade": 7,
@@ -43938,7 +44024,7 @@
      "audio": ""
     },
     {
-     "text": "对父母言听计从",
+     "text": "对父母言听计从，不再有自己的想法和主见",
      "image": "",
      "audio": ""
     },
@@ -43949,6 +44035,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-191",
    "subject": "道德与法治",
    "grade": 7,
@@ -43978,22 +44065,23 @@
      "audio": ""
     },
     {
-     "text": "等以后再努力",
+     "text": "青春很长，等以后再努力也来得及，不必着急",
      "image": "",
      "audio": ""
     },
     {
-     "text": "只追求外表",
+     "text": "青春最重要的是追求外表和穿着打扮的时尚",
      "image": "",
      "audio": ""
     },
     {
-     "text": "及时行乐",
+     "text": "及时行乐，青春就是用来尽情享受生活的",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-192",
    "subject": "道德与法治",
    "grade": 7,
@@ -44073,7 +44161,7 @@
      "audio": ""
     },
     {
-     "text": "消极情绪没有任何作用",
+     "text": "消极情绪对人只有坏处，应该完全消除它",
      "image": "",
      "audio": ""
     },
@@ -44084,6 +44172,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-194",
    "subject": "道德与法治",
    "grade": 7,
@@ -44203,7 +44292,7 @@
      "audio": ""
     },
     {
-     "text": "只在家里唱",
+     "text": "只在家里唱给家人听",
      "image": "",
      "audio": ""
     },
@@ -44219,6 +44308,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-197",
    "subject": "道德与法治",
    "grade": 7,
@@ -44338,7 +44428,7 @@
      "audio": ""
     },
     {
-     "text": "自负",
+     "text": "争强好胜的性格",
      "image": "",
      "audio": ""
     },
@@ -44354,6 +44444,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-200",
    "subject": "道德与法治",
    "grade": 7,
@@ -44378,7 +44469,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "总想走捷径",
+     "text": "总想走捷径，希望不劳而获",
      "image": "",
      "audio": ""
     },
@@ -44388,7 +44479,7 @@
      "audio": ""
     },
     {
-     "text": "依赖父母解决一切问题",
+     "text": "遇到难题就请父母帮忙解决",
      "image": "",
      "audio": ""
     },
@@ -44399,6 +44490,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-201",
    "subject": "道德与法治",
    "grade": 7,
@@ -44563,7 +44655,7 @@
      "audio": ""
     },
     {
-     "text": "人要征服自然",
+     "text": "人要努力征服自然",
      "image": "",
      "audio": ""
     },
@@ -44579,6 +44671,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-205",
    "subject": "道德与法治",
    "grade": 7,
@@ -44783,7 +44876,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "对长辈不礼貌",
+     "text": "对长辈不礼貌，直呼其名",
      "image": "",
      "audio": ""
     },
@@ -44793,7 +44886,7 @@
      "audio": ""
     },
     {
-     "text": "为了面子铺张浪费",
+     "text": "为了面子办酒席铺张浪费",
      "image": "",
      "audio": ""
     },
@@ -44804,6 +44897,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-210",
    "subject": "道德与法治",
    "grade": 7,
@@ -44873,12 +44967,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "找人教训对方",
+     "text": "找几个高年级同学私下教训对方一顿",
      "image": "",
      "audio": ""
     },
     {
-     "text": "在网上曝光对方",
+     "text": "在网上发帖曝光对方的姓名照片",
      "image": "",
      "audio": ""
     },
@@ -44894,6 +44988,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-212",
    "subject": "道德与法治",
    "grade": 7,
@@ -44923,7 +45018,7 @@
      "audio": ""
     },
     {
-     "text": "一定无效",
+     "text": "无效，父母可以直接退货",
      "image": "",
      "audio": ""
     },
@@ -44933,12 +45028,13 @@
      "audio": ""
     },
     {
-     "text": "一定有效",
+     "text": "有效，钱是小明自己的",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-213",
    "subject": "道德与法治",
    "grade": 7,
@@ -45015,7 +45111,7 @@
    "question": "下列句子中，成语使用不恰当的是？",
    "options": [
     {
-     "text": "他做事总是半途而废，结果一事无成",
+     "text": "他做事情总是半途而废，结果到头来一事无成",
      "image": "",
      "audio": ""
     },
@@ -45025,12 +45121,12 @@
      "audio": ""
     },
     {
-     "text": "春天的公园里百花齐放，美不胜收",
+     "text": "春天的公园里百花齐放，五颜六色，美不胜收",
      "image": "",
      "audio": ""
     },
     {
-     "text": "这位老教授德高望重，深受学生爱戴",
+     "text": "这位老教授德高望重，深受学生和同事们的爱戴",
      "image": "",
      "audio": ""
     }
@@ -45042,6 +45138,7 @@
    "volume": "七年级上册",
    "knowledge_point": "病句）",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T302c3b",
    "change_tag": "新增",
@@ -45645,7 +45742,7 @@
      "audio": ""
     },
     {
-     "text": "同角的补角相等",
+     "text": "同角或等角的补角相等",
      "image": "",
      "audio": ""
     }
@@ -45657,6 +45754,7 @@
    "volume": "七年级下册",
    "knowledge_point": "定理",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代",
    "template": "Tcb8e57",
    "change_tag": "新增",
@@ -45725,12 +45823,12 @@
      "audio": ""
     },
     {
-     "text": "开头“盼望着，盼望着”",
+     "text": "开头“盼望着，盼望着，东风来了，春天的脚步近了”",
      "image": "",
      "audio": ""
     },
     {
-     "text": "结尾的三个比喻句",
+     "text": "结尾“春天像刚落地的娃娃”等三个比喻句",
      "image": "",
      "audio": ""
     },
@@ -45747,6 +45845,7 @@
    "volume": "七年级上册",
    "knowledge_point": "春",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T5e651c",
    "change_tag": "新增",
@@ -45765,12 +45864,12 @@
    "question": "《金色花》中孩子想象自己变成金色花，和妈妈“捉迷藏”，主要表达了？",
    "options": [
     {
-     "text": "对宗教的崇拜",
+     "text": "对宗教和神灵的崇拜与敬畏",
      "image": "",
      "audio": ""
     },
     {
-     "text": "孩子想离开母亲",
+     "text": "孩子想离开母亲，到外面去玩",
      "image": "",
      "audio": ""
     },
@@ -45792,6 +45891,7 @@
    "volume": "七年级上册",
    "knowledge_point": "散文诗二首",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Tc6541b",
    "change_tag": "新增",
@@ -45815,17 +45915,17 @@
      "audio": ""
     },
     {
-     "text": "对童年游戏的怀念",
+     "text": "对童年在雨中游戏的怀念",
      "image": "",
      "audio": ""
     },
     {
-     "text": "对雨天的厌恶",
+     "text": "对雨天的厌恶和对晴天的向往",
      "image": "",
      "audio": ""
     },
     {
-     "text": "对荷花的喜爱",
+     "text": "对荷花高洁品格的喜爱",
      "image": "",
      "audio": ""
     }
@@ -45837,6 +45937,7 @@
    "volume": "七年级上册",
    "knowledge_point": "散文诗二首",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T232d3b",
    "change_tag": "新增",
@@ -45945,7 +46046,7 @@
    "question": "“各抒己见”的意思是？",
    "options": [
     {
-     "text": "各人只顾自己的事",
+     "text": "各人只顾做自己的事情，互不干涉",
      "image": "",
      "audio": ""
     },
@@ -45960,7 +46061,7 @@
      "audio": ""
     },
     {
-     "text": "大家意见完全一致",
+     "text": "大家意见都一样",
      "image": "",
      "audio": ""
     }
@@ -45972,6 +46073,7 @@
    "volume": "七年级上册",
    "knowledge_point": "病句）",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T511185",
    "change_tag": "新增",
@@ -46175,12 +46277,12 @@
      "audio": ""
     },
     {
-     "text": "长妈妈要用何首乌做菜",
+     "text": "长妈妈说何首乌的根能做菜，味道很鲜美",
      "image": "",
      "audio": ""
     },
     {
-     "text": "何首乌能卖很多钱",
+     "text": "何首乌能卖很多钱，可以拿去买喜欢的画书",
      "image": "",
      "audio": ""
     },
@@ -46197,6 +46299,7 @@
    "volume": "七年级上册",
    "knowledge_point": "从百草园到三味书屋",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "Td21e98",
    "change_tag": "新增",
@@ -46316,7 +46419,7 @@
      "audio": ""
     },
     {
-     "text": "刘备",
+     "text": "他的哥哥诸葛瑾",
      "image": "",
      "audio": ""
     },
@@ -46333,6 +46436,7 @@
    "volume": "七年级上册",
    "knowledge_point": "诫子书",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T22e666",
    "change_tag": "新增",
@@ -46362,7 +46466,7 @@
      "audio": ""
     },
     {
-     "text": "“我”一直住在医院",
+     "text": "“我”一直住在医院，很少回家",
      "image": "",
      "audio": ""
     },
@@ -46379,6 +46483,7 @@
    "volume": "七年级上册",
    "knowledge_point": "秋天的怀念",
    "game_ready": true,
+   "review_changed": "是",
    "textbook_note": "国家统编教材，全国统一，无苏教版",
    "template": "T4cc2b0",
    "change_tag": "新增",
@@ -47030,7 +47135,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "梦想越大越好",
+     "text": "梦想越大越好，不必考虑自身的能力和实际情况",
      "image": "",
      "audio": ""
     },
@@ -47045,12 +47150,13 @@
      "audio": ""
     },
     {
-     "text": "国家强大与个人无关",
+     "text": "国家强大是大人的事，与少年没有什么关系",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-217",
    "subject": "道德与法治",
    "grade": 7,
@@ -47075,7 +47181,7 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "孝敬父母等长大以后再做",
+     "text": "孝敬父母要等到长大工作、有了能力以后再做",
      "image": "",
      "audio": ""
     },
@@ -47085,7 +47191,7 @@
      "audio": ""
     },
     {
-     "text": "家庭成员之间不需要沟通",
+     "text": "家庭成员之间是亲人，不需要特意沟通交流",
      "image": "",
      "audio": ""
     },
@@ -47096,6 +47202,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-218",
    "subject": "道德与法治",
    "grade": 7,
@@ -47390,12 +47497,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "考虑社会需要",
+     "text": "考虑社会的需要和国家未来发展的需求",
      "image": "",
      "audio": ""
     },
     {
-     "text": "听取父母和老师的建议",
+     "text": "认真听取父母和老师的建议，并认真思考",
      "image": "",
      "audio": ""
     },
@@ -47405,12 +47512,13 @@
      "audio": ""
     },
     {
-     "text": "结合自身实际",
+     "text": "结合自身的兴趣、特长和能力等实际情况",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-225",
    "subject": "道德与法治",
    "grade": 7,
@@ -47435,12 +47543,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "成功不需要经历失败",
+     "text": "成功不需要经历失败，可以一帆风顺",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不怕失败所以不必努力",
+     "text": "不怕失败，所以做事情不必努力准备",
      "image": "",
      "audio": ""
     },
@@ -47450,12 +47558,13 @@
      "audio": ""
     },
     {
-     "text": "失败之后一定会成功",
+     "text": "只要失败的次数够多，就一定会成功",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-226",
    "subject": "道德与法治",
    "grade": 7,
@@ -47485,7 +47594,7 @@
      "audio": ""
     },
     {
-     "text": "只有高收入的工作才有价值",
+     "text": "高收入、体面的工作才有价值",
      "image": "",
      "audio": ""
     },
@@ -47501,6 +47610,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-227",
    "subject": "道德与法治",
    "grade": 7,
@@ -47530,22 +47640,23 @@
      "audio": ""
     },
     {
-     "text": "嘲笑他人的变化",
+     "text": "嘲笑他人身体的变化，给人起外号",
      "image": "",
      "audio": ""
     },
     {
-     "text": "为身体变化感到羞耻",
+     "text": "为身体的变化感到羞耻，不愿见人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "刻意掩饰身体变化",
+     "text": "刻意穿宽大衣服掩饰身体的变化",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-228",
    "subject": "道德与法治",
    "grade": 7,
@@ -47580,7 +47691,7 @@
      "audio": ""
     },
     {
-     "text": "冲动",
+     "text": "一时的冲动",
      "image": "",
      "audio": ""
     },
@@ -47591,6 +47702,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-229",
    "subject": "道德与法治",
    "grade": 7,
@@ -47615,12 +47727,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "只要自己优秀就行",
+     "text": "自己优秀就行，不必管别人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "不需要尊重他人",
+     "text": "不需要尊重他人，只要做好自己就行",
      "image": "",
      "audio": ""
     },
@@ -47630,12 +47742,13 @@
      "audio": ""
     },
     {
-     "text": "尊重别人会降低自己",
+     "text": "尊重别人就是低三下四，会降低自己的身份",
      "image": "",
      "audio": ""
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-230",
    "subject": "道德与法治",
    "grade": 7,
@@ -47705,12 +47818,12 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "勇于挑战自我",
+     "text": "勇于挑战自我，突破自己的极限",
      "image": "",
      "audio": ""
     },
     {
-     "text": "克服困难坚持学习",
+     "text": "身体残疾也克服困难坚持学习",
      "image": "",
      "audio": ""
     },
@@ -47726,6 +47839,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-232",
    "subject": "道德与法治",
    "grade": 7,
@@ -48020,17 +48134,17 @@
    "status": "AI初审通过",
    "options": [
     {
-     "text": "贩卖毒品",
+     "text": "多次向他人贩卖少量的毒品获利",
      "image": "",
      "audio": ""
     },
     {
-     "text": "故意杀人",
+     "text": "因为邻里琐事纠纷故意杀害他人",
      "image": "",
      "audio": ""
     },
     {
-     "text": "抢劫银行",
+     "text": "持刀抢劫他人财物，数额较大",
      "image": "",
      "audio": ""
     },
@@ -48041,6 +48155,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-239",
    "subject": "道德与法治",
    "grade": 7,
@@ -48075,7 +48190,7 @@
      "audio": ""
     },
     {
-     "text": "只要不犯罪就行",
+     "text": "不犯罪就行，违法不要紧",
      "image": "",
      "audio": ""
     },
@@ -48086,6 +48201,7 @@
     }
    ],
    "source": "AI",
+   "review_changed": "是",
    "id": "D7-240",
    "subject": "道德与法治",
    "grade": 7,

@@ -26,8 +26,10 @@ const OLD6 = JSON.parse(readFileSync('tests/fixtures/r162_v48_old6.json', 'utf8'
 const V50REV = JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.json', 'utf8')) as Record<string, { grade: string; rev50: string }>;
 /** r16.2 题库 v52：4–6 年级 636 题 qRev 变了（选项文字 / 判断题干，答案字母不变）——按 v51 的 rev 算（v51 也改过的题再往前用 v50 的） */
 const V51REV = JSON.parse(readFileSync('tests/fixtures/r162_v51_revs_of_v52changed.json', 'utf8')) as Record<string, { grade: string; rev51: string }>;
+/** r17 题库 v56：已导入年级 2825 题 qRev 变了（答案不变）——按 v52 的 rev 算（更早改过的题仍用更早的） */
+const V56REV = JSON.parse(readFileSync('tests/fixtures/r17_v52_revs_of_v56changed.json', 'utf8')) as Record<string, { grade: string; rev52: string }>;
 const REV48 = new Set(JSON.parse(readFileSync('tests/fixtures/r161_v48_revchanged.json', 'utf8')) as string[]);
-it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|5[012])$/); });   // r16.2：v50 → v51
+it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|5[0126])$/); });   // r16.2：v50 → v51
 it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）；高二只多了 D11-241～252', () => {
   for (const [g, f] of Object.entries(fx)) {
     const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)) && !isNew47(q) && !isNew50(q));
@@ -35,7 +37,8 @@ it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）�
     for (const q of all) if (OLD6[q.id]) expect(qRev(q), q.id).not.toBe(qRev(old6(q.id)));   // 这 6 题确实改了
     for (const q of all) if (V50REV[q.id]) expect(qRev(q), q.id).not.toBe(V50REV[q.id].rev50);   // v51 这些题确实改了
     for (const q of all) if (V51REV[q.id]) expect(qRev(q), q.id).not.toBe(V51REV[q.id].rev51);   // v52 这些题确实改了
-    const lines = all.map(q => `${q.id}:${OLD6[q.id] ? qRev(old6(q.id)) : V50REV[q.id]?.rev50 ?? V51REV[q.id]?.rev51 ?? qRev(q)}`).sort();
+    for (const q of all) if (V56REV[q.id]) expect(qRev(q), q.id).not.toBe(V56REV[q.id].rev52);   // v56 这些题确实改了
+    const lines = all.map(q => `${q.id}:${OLD6[q.id] ? qRev(old6(q.id)) : V50REV[q.id]?.rev50 ?? V51REV[q.id]?.rev51 ?? V56REV[q.id]?.rev52 ?? qRev(q)}`).sort();
     expect(lines.length, g).toBe(f.n); expect(createHash('sha256').update(lines.join('\n')).digest('hex').slice(0, 16), g).toBe(f.digest);
   }
   expect(Object.keys(fx).sort()).toEqual(Object.keys(fx45).sort()); for (const g of Object.keys(fx)) expect(fx[g].n, g).toBe(fx45[g].n);   // 题数和 v45 一样（没有删题）

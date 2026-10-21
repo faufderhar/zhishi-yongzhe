@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-幼儿园中班-v52（AI初审）",
- "version": "v52",
+ "bank_name": "三兄妹题库-幼儿园中班-v56（AI初审）",
+ "version": "v56",
  "questions": [
   {
    "id": "K2N-001",
@@ -283,7 +283,7 @@
    "tts_text": "数一数，有几辆公交车？",
    "options": [
     {
-     "text": "8",
+     "text": "11",
      "image": "",
      "audio": ""
     },
@@ -313,6 +313,7 @@
     "label": "公交车"
    },
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "数到10"
    ]
@@ -373,7 +374,7 @@
    "tts_text": "数一数，有几根香蕉？",
    "options": [
     {
-     "text": "8",
+     "text": "11",
      "image": "",
      "audio": ""
     },
@@ -403,6 +404,7 @@
     "label": "香蕉"
    },
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "数到10"
    ]
@@ -499,7 +501,7 @@
    "tts_text": "从一数到十，最后一个数是几？",
    "options": [
     {
-     "text": "8",
+     "text": "11",
      "image": "",
      "audio": ""
     },
@@ -539,7 +541,7 @@
    "tts_text": "数一数，有几颗樱桃？",
    "options": [
     {
-     "text": "8",
+     "text": "11",
      "image": "",
      "audio": ""
     },
@@ -570,6 +572,7 @@
    },
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "数到10"
    ]
@@ -5784,7 +5787,7 @@
      "audio": ""
     },
     {
-     "text": "硬硬的壳",
+     "text": "厚厚的硬壳",
      "image": "",
      "audio": ""
     }
@@ -5798,6 +5801,7 @@
    "game_ready": true,
    "template": "T8c4042",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物的样子和本领"
    ]
@@ -6095,12 +6099,12 @@
      "audio": ""
     },
     {
-     "text": "耳朵",
+     "text": "大大的耳朵",
      "image": "",
      "audio": ""
     },
     {
-     "text": "翅膀",
+     "text": "宽宽的翅膀",
      "image": "",
      "audio": ""
     }
@@ -6115,6 +6119,7 @@
    "template": "Tfe64ae",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物的样子和本领"
    ]
@@ -6455,7 +6460,7 @@
      "audio": ""
     },
     {
-     "text": "树上的鸟窝里",
+     "text": "高高的树上的鸟窝里",
      "image": "",
      "audio": ""
     }
@@ -6469,6 +6474,7 @@
    "game_ready": true,
    "template": "T84113b",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "动物宝宝和妈妈"
    ]
@@ -6881,7 +6887,7 @@
      "audio": ""
     },
     {
-     "text": "爬树",
+     "text": "爬上高高的树",
      "image": "",
      "audio": ""
     },
@@ -7161,7 +7167,7 @@
      "audio": ""
     },
     {
-     "text": "爬树",
+     "text": "爬上高高的树",
      "image": "",
      "audio": ""
     }
@@ -7176,6 +7182,7 @@
    "template": "T32461d",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "会飞会游会跑"
    ]
@@ -9309,7 +9316,7 @@
      "audio": ""
     },
     {
-     "text": "👩‍🏫 老师",
+     "text": "👩‍🏫 幼儿园老师",
      "image": "",
      "audio": ""
     }
@@ -9324,6 +9331,7 @@
    "template": "Te7ee7b",
    "assets_todo": "question_audio audio/k2/K2G-003.m4a（家长朗读/唱，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9671,7 +9679,7 @@
      "audio": ""
     },
     {
-     "text": "我要进来",
+     "text": "我要进来啦，快开门",
      "image": "",
      "audio": ""
     }
@@ -9686,6 +9694,7 @@
    "template": "T1830b4",
    "assets_todo": "question_audio audio/k2/K2G-012.m4a（家长朗读/唱，可用 TTS 代替）",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -9748,7 +9757,7 @@
      "audio": ""
     },
     {
-     "text": "回家睡觉",
+     "text": "马上回家睡觉",
      "image": "",
      "audio": ""
     },
@@ -9769,6 +9778,7 @@
    "assets_todo": "question_audio audio/k2/K2G-014.m4a（家长朗读/唱，可用 TTS 代替）",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "儿歌"
    ]
@@ -10351,7 +10361,7 @@
      "audio": ""
     },
     {
-     "text": "下起了大雨",
+     "text": "天上下起了大雨",
      "image": "",
      "audio": ""
     },
@@ -10372,6 +10382,7 @@
    "assets_todo": "question_audio audio/k2/K2G-029.m4a（家长朗读/唱，可用 TTS 代替）",
    "usage": "boss",
    "change_tag": "新增",
+   "review_changed": "是",
    "tags": [
     "古诗"
    ]
