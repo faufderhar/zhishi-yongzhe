@@ -20,7 +20,7 @@ describe('r16.1 幼儿园结算页的怪物', () => {
     const s = readFileSync('src/ui/Screens.tsx', 'utf8'), b = readFileSync('src/ui/Battle.tsx', 'utf8'), a = readFileSync('src/App.tsx', 'utf8');
     expect(s).not.toMatch(/<h1>小乌云变成你的好朋友啦！<\/h1>/);
     expect(s).toMatch(/kFriendLine\(kMon\)/);
-    expect((b.match(/demo: (k|ns)\.demo \}, kMon \}/g) ?? []).length).toBe(4);
-    expect(a).toMatch(/<ResultScreen kMon=\{screen\.r\.kMon\}/);
+    expect((b.match(/demo: (k|ns)\.demo \}, kMon \}/g) ?? []).length).toBe(7);   // r17 D：+3 处期末关（暂停超时 / 时间到 / 答完）
+    expect(a).toMatch(/<ResultScreen (kTerm=\{screen\.r\.term\} )?kMon=\{screen\.r\.kMon\}/);
   });
 });

@@ -43,6 +43,7 @@ export default defineConfig({
       // 序列帧约 4.3MB：不进预缓存，战斗时懒加载并运行时缓存（家长页可一键预下载供离线）
       globIgnores: ['version.json', 'anim/**', 'fx/**', 'sfx/skills/**', 'art/monsters/subjects/**', 'images/k/**', 'art/monsters/k3_boss/**', 'art/k_qban/mon_k3_*'],   // r17：大班（还没开放）的 Boss 序列帧 / Q版不进预缓存，开放后按需缓存   // 技能特效 fx/skills/ 与音效 sfx/skills/ 也只运行时缓存
       runtimeCaching: [{ urlPattern: /\/(anim|fx)\/.+\.(webp|json)$/, handler: 'CacheFirst', options: { cacheName: 'zy-anim', expiration: { maxEntries: 700 } } },
+        { urlPattern: /\/sfx\/sfx_k_term_[a-z_]+\.mp3$/, handler: 'CacheFirst', options: { cacheName: 'zy-sfx-term', expiration: { maxEntries: 4 }, cacheableResponse: { statuses: [200] } } },   // r17 D：期末庆祝乐句（不预缓存，听过一次后离线可重放）
         { urlPattern: /\/sfx\/skills\/.+\.mp3$/, handler: 'CacheFirst', options: { cacheName: 'zy-sfx-skills', expiration: { maxEntries: 110 }, cacheableResponse: { statuses: [200] } } },
         /* r15.4 朗读录音退路：按需加载，CacheFirst，只缓存完整 200 响应（不缓存 206 分段，Chrome 从缓存回放分段会失败；播放用 new Audio 整段读） */
         { urlPattern: /\/voice\/.+\.(mp3|m4a)$/, handler: 'CacheFirst', options: { cacheName: 'zy-voice', expiration: { maxEntries: 3000 }, cacheableResponse: { statuses: [200] }, rangeRequests: true } },

@@ -9,6 +9,7 @@ import { Stars, Keypad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './comm
 import { Sprite, type KMonOut } from './Battle';
 import { qbanUrl } from '../game/kinderQban';
 import { runKFinale } from './kFinale';
+import { TERM_TEXT, TERM_IMG, TERM_MEDAL_NAME, termOpen, termBlocker, type TermNo } from '../game/kinderTerm';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
@@ -202,7 +203,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         </div>
         <div className="levels" data-testid="levels">
           {ch.levels.map((l, i) => {
-            const open = (__TEST_HOOKS__ && !!(window as unknown as { __zyUnlockAll?: boolean }).__zyUnlockAll) || isUnlocked(ch.levels, i, progress.stars);   // 仅测试构建：全解锁
+            const open = (__TEST_HOOKS__ && !!(window as unknown as { __zyUnlockAll?: boolean }).__zyUnlockAll) || (l.term ? termOpen(chapters, l.term, progress.stars) : isUnlocked(ch.levels, i, progress.stars));   // r17 D：期末关 = 这学期每个单元都打过一关   // 仅测试构建：全解锁
             const s0 = l.redirect ? starOf(chapters.flatMap(c => c.levels).find(x => x.id === l.redirect) ?? l, progress.stars) : starOf(l, progress.stars);
             const s = open ? s0 : 0;   // r14 小萌新：锁着的关不显示星星（Boss 合并单元时从其他小节 Boss 继承来的星，没解锁前不显示）
             const prev = ch.levels[i - 1];
@@ -217,16 +218,17 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
                   if (timeUp) { showSleepy(); return; }
+                  if (!open && l.term) { setShake(l.id); setTimeout(() => setShake(undefined), 500); const b = termBlocker(chapters, l.term, progress.stars); say(`🔒 ${l.term === 1 ? '上' : '下'}学期的每一课都打一关，就能来这里庆祝啦${b ? `（还差：${b.chapter} · ${b.unit}）` : ''}`, false); speak(KINDER_LOCK_VOICE); return; }
                   if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const miss = missingPrereqs(ch.levels, i, progress.stars), need = miss.map(x => x.name); if (need.length && cfg.band === 'K') { say(`🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}`, false); speak(KINDER_LOCK_VOICE);
                     setLockHint(miss[0].id); clearTimeout(lockHintT.current); lockHintT.current = window.setTimeout(() => setLockHint(undefined), 3500); /* r16 小萌新：要先打的那一关跳动 + 👆 */ } else say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }   // r15.4：小班朗读不念关名（关名没录音），屏幕上照样写
                   onLevel(l);
                 }}>
                 {lockHint === l.id && <span className="lock-hint" data-testid="lock-hint" aria-hidden>👆</span>}
-                <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
+                <span className="lv-no">{open ? (l.term ? '🌈' : l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
                   : (() => { const bk = l.kind === 'boss' ? skinFor(ch.subject, 'boss', cfg.band, l.unit, { grade: l.pool[0]?.split(':')[0], volume: l.volume }) : null;   /* r15.3 学霸：Boss 标签（含锁着时）用这只 Boss 自己的主色，和战斗里的怪物同一个 hue-rotate */
                     return <span className={`kind-tag ${l.kind}`} data-testid="kind-tag" data-hue={bk?.hue ?? ''} style={bk?.hue ? { filter: `hue-rotate(${bk.hue}deg)` } : undefined}>{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${bk?.name ?? ch.subject}`}</span>; })()}
-                <Stars n={s} />
+                {l.term && s > 0 ? <img className="kterm-map-medal" src={(import.meta.env?.BASE_URL ?? './') + TERM_IMG.medal[l.term]} alt={TERM_MEDAL_NAME[l.term]} data-testid={`term-medal-${l.term}`} draggable={false} /> : null}<Stars n={s} />
               </button></Fragment>
             );
           })}
@@ -278,7 +280,7 @@ function KMonSheetFace({ m }: { m?: KMonOut }) {
   if (m && sh && !bad) return <div className="kmon-face" data-testid="result-k-mon" data-mon={m.name} role="img" aria-label={m.name} style={{ backgroundImage: `url(${sh.img})`, backgroundSize: `${sh.cols * 100}% ${sh.rows * 100}%`, aspectRatio: String(sh.ar) }} />;
   return <img src={`${base}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" data-testid="result-k-mon" data-mon={m && !bad ? m.name : '小乌云'} />;
 }
-export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
+export function ResultScreen({ kTerm, kMon, playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { kTerm?: TermNo; endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; kMon?: KMonOut; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -295,7 +297,7 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
   const kHappy = cfg.band === 'K' && win && kinder ? kinder.first + kinder.retry + kinder.demo : 0;   // r16.3：开心值总数（每题亮一个）
   useKAuto(kNoStar, has => { const a = kResultAuto(kHappy, [{ text: K_NOSTAR_TEXT, key: 'p:res_k_done' }, { text: K_NOSTAR_WHY, key: 'p:res_k_why' }], has); speak(a.text, 'zh-CN', a.keys ? { keys: a.keys } : {}); }, [kNoStar]);
   // r17：闯关成功动画（小班 / 中班赢了、这次加星的正常结算；时间到 / 不加星 / 强制结算不演）
-  const kFin = cfg.band === 'K' && win && !kNoStar && !kTime && !forcedTimeUp;
+  const kFin = cfg.band === 'K' && win && !kNoStar && !kTime && !forcedTimeUp && !kTerm;   // r17 D：期末关结算页是奖章，不演「变朋友」
   const rootRef = useRef<HTMLDivElement>(null); const finRef = useRef<ReturnType<typeof runKFinale> | null>(null);
   useLayoutEffect(() => { if (!kFin || !rootRef.current) return; const f = runKFinale(rootRef.current, hasVoice()); finRef.current = f; return () => { f.stop(); finRef.current = null; }; }, [kFin]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
@@ -309,9 +311,10 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
       : cfg.band === 'K' ? <>
         {/* r16.1 (c) 小萌新：打的是「点点数星熊」，结算页却写「小乌云…」——用战斗里真正出场的怪物（名字 + 立绘）；普通关 / 没加载出来 = 小乌云 */}
         {/* r17：闯关成功动画（kFinale.ts）：小狗 + 怪物（Q版默认 → 开心）+ 拥抱爱心；不动画时（时间到）照旧是 🤝 */}
-        {kFin ? <div className="row friends kfin-stage"><div className="kfin-pup" data-kfin="pup"><Sprite c={c} /></div><div className="kfin-mon" data-kfin="mon"><span className="kfin-heart" data-kfin="heart" aria-hidden>💗</span><KMonFinale m={kMon} /></div></div>
+        {kTerm ? <div className="row friends kterm-res"><Sprite c={c} /><img className="kterm-res-medal" src={(import.meta.env?.BASE_URL ?? './') + TERM_IMG.medal[kTerm]} alt={TERM_MEDAL_NAME[kTerm]} data-testid="result-term-medal" draggable={false} /></div>
+        : kFin ? <div className="row friends kfin-stage"><div className="kfin-pup" data-kfin="pup"><Sprite c={c} /></div><div className="kfin-mon" data-kfin="mon"><span className="kfin-heart" data-kfin="heart" aria-hidden>💗</span><KMonFinale m={kMon} /></div></div>
           : <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><KMonFace m={kMon} /></div>}
-        <h1 data-testid="result-k-friend">{kFriendLine(kMon)}</h1>
+        {kTerm ? <h1 data-testid="result-term-title">{TERM_TEXT.end[kTerm]} {TERM_MEDAL_NAME[kTerm]}</h1> : <h1 data-testid="result-k-friend">{kFriendLine(kMon)}</h1>}
         <KinderSub k={kinder} total={total} happy={kHappy} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} onSeg={kFin ? i => finRef.current?.seg(i) : undefined} />
         {kAgain && <p className="ksub" data-testid="result-k-again">{K_AGAIN_TEXT}</p>}
       </> : <>

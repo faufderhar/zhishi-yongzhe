@@ -2,6 +2,7 @@
    带变量的句子见 voiceLines.ts（按数据展开成固定句子；speak() 整句查不到时按句子拼接）。 */
 import { GRACE_VOICE, SLEEPY_VOICE, TIMEUP_K_TEXT, ROTATE_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from './playtime';
 import { dynamicPrompts } from './voiceLines';
+import { TERM_TEXT } from './kinderTerm';
 export const VOICE_PROMPTS: Record<string, string> = {
   dui: '对', cuo: '错',
   retry: '再试试～', think: '嗯～再想想',
@@ -16,6 +17,9 @@ export const VOICE_PROMPTS: Record<string, string> = {
   res_k_again: K_AGAIN_TEXT,   // r15.4.4：小班同一关今天第 2 次玩完
   res_k_why: K_NOSTAR_WHY,   // r16 小萌新：第 3 次不加星的原因
   ...Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`res_k_first_${i + 1}`, K_FIRST_LINE(i + 1)])),   // r16 小萌新：「自己答对 N 题」（幼儿园一关最多 5 题，留到 10）
+  /* r17 D：小班期末庆祝关（录音 1.1 倍速，deploy.r17_term 声明的语速例外） */
+  k_term1_intro: TERM_TEXT.intro[1], k_term2_intro: TERM_TEXT.intro[2], k_term1_end: TERM_TEXT.end[1], k_term2_end: TERM_TEXT.end[2],
+  k_term1_medal: TERM_TEXT.medal[1], k_term2_medal: TERM_TEXT.medal[2], k_term_heart: TERM_TEXT.heart, k_term_retry: TERM_TEXT.retry,
   ...dynamicPrompts(),   // r15.4：小班带变量的句子（角色名、出发、技能、开心值、怪兽回家…）按数据展开；batch.py 用 --prompt-list 读导出的 JSON
 };
 /** speak() 用：文字 → id */

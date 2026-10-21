@@ -8,7 +8,7 @@ import type { LevelKind } from './grades';
 /** 题库改版后旧关卡 id → 新关卡（按题池重合度生成，见 tools/level_aliases.md）；星级继承 */
 import LEVEL_ALIASES from './levelAliases.json';
 const ALIASES = LEVEL_ALIASES as Record<string, string[]>;
-export interface Level { lesson?: string /* r13：所属小节（册别|单元原文），重新分关时按「小节 + 第几关」迁移星星 */; ord?: number; bossPool?: string[] /* r11：本单元 usage=boss 的题（只在 Boss 关，优先出） */; id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */ }
+export interface Level { lesson?: string /* r13：所属小节（册别|单元原文），重新分关时按「小节 + 第几关」迁移星星 */; ord?: number; bossPool?: string[] /* r11：本单元 usage=boss 的题（只在 Boss 关，优先出） */; id: string; chapter: string; index: number; kind: LevelKind; name: string; pool: string[] /* question keys */; volume: string; unit: string; aliases?: string[] /* 旧版关卡 id（合并前的小节 Boss），星级继承 */; redirect?: string /* 语文题少的古诗课：卡片直接进同名诗词关 */; fresh?: string[] /* 精英关：生成时留给它、没分进前面普通关的题（策划 r7：精英先出没出现过的本课题） */; parts?: string[] /* 临时合并关：各课单独成关时的 id（得星时同时记到这些 id，拆回后星级保留） */; term?: 1 | 2 /* r17 D：小班期末庆祝关（kinderTerm.ts） */ }
 export interface Chapter { subject: string; name: string; icon: string; levels: Level[]; volumes: string[]; count: number }
 export const AREA: Record<string, [string, string]> = {
   数学: ['数之城', '🔢'], 语文: ['墨韵山', '🖌️'], 英语: ['星语港', '🔤'], 诗词: ['诗词江湖', '📜'], 历史: ['时光长廊', '⏳'],

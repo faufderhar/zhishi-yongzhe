@@ -4,6 +4,7 @@
    序列帧：public/fx/manifest.json  →  { "sprites": { "<角色或怪物id>_<动作>": { "file": "pup_suansuan_attack.png", "frames": 8, "fps": 16, "w": 256, "h": 256 } } }
      动作：idle / attack / skill / hit / dodge / victory / defeat；文件放 public/fx/
    音效：  public/sfx/manifest.json →  { "sfx": ["hit", "crit", "swing", ...] }，文件放 public/sfx/<名字>.mp3（iPad 也可 .m4a，登记为 "hit.m4a"） */
+import { TERM_SFX } from '../game/kinderTerm';
 import { audioCtx, audioPrefs } from '../tts';
 export type SfxName = 'swing' | 'hit' | 'crit' | 'dodge' | 'monster_attack' | 'player_hurt' | 'heal' | 'skill_math' | 'skill_chinese' | 'skill_english' | 'skill_poetry' | 'skill_chem' | 'skill_physics' | 'victory' | 'defeat' | 'soft_pop' | 'soft_cheer';
 export interface SpriteSheet { file: string; frames: number; fps: number; w: number; h: number }
@@ -51,6 +52,17 @@ async function playSkillSfx(id: string, o: { kinder?: boolean; fallback?: SfxNam
   if (!buf || !c) { sfxStats.skillFallback++; synth(o.fallback ?? 'skill_math'); return; }
   const s = c.createBufferSource(), g = c.createGain(); g.gain.value = SKILL_SFX_GAIN * audioPrefs.volume; s.buffer = buf; s.connect(g).connect(c.destination); s.start();
   sfxStats.skillPlayed++; sfxStats.last = path!; sfxStats.paths.push(id + '=' + path);
+}
+/* r17 D：小班期末庆祝关的庆祝短乐句（public/sfx/sfx_k_term_celebrate.mp3，≈4 s，音效同事出的主版；alt 不用）：
+   音量 ×0.5（和技能音效一样 −6 dB），不进预缓存，Service Worker 运行时 CacheFirst（zy-sfx-term）；读不出来 → 合成 soft_cheer */
+export const TERM_SFX_GAIN = 0.5;
+export async function playTermCelebrate() {
+  if (muted || !audioPrefs.sfx) return;
+  const buf = await loadSkillBuf(TERM_SFX); const c = audioCtx();
+  if (muted || !audioPrefs.sfx) return;
+  if (!buf || !c) { synth('soft_cheer'); return; }
+  const s = c.createBufferSource(), g = c.createGain(); g.gain.value = TERM_SFX_GAIN * audioPrefs.volume; s.buffer = buf; s.connect(g).connect(c.destination); s.start();
+  sfxStats.last = TERM_SFX; sfxStats.paths.push('term=' + TERM_SFX);
 }
 /** 播放音效：内置名（SfxName）或技能 ID（如 "j1_suansuan_2"）。静音开关对两者都生效 */
 export function sfx(name: SfxName | string, o: { kinder?: boolean; fallback?: SfxName } = {}) {

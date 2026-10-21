@@ -1,6 +1,7 @@
 /* 离线素材（技术QA R6-1）：学科怪物序列帧、技能特效/图标/音效不进安装预缓存（体积大）。
    首次启动后、联网且空闲时，按当前所有档案的学段与学科，在后台把它们放进 SW 运行时缓存（与 vite.config.ts 的 cacheName 一致）。
    小班与一二年级取 *_soft 版本。进度写 localStorage，家长页显示「离线就绪」。 */
+import { TERM_GRADE, TERM_SFX } from './game/kinderTerm';
 import MON from './game/monsters.manifest.json';
 import KBOSS from './game/kinderBoss.gen.json';
 import { bandOf, type Band } from './game/grades';
@@ -32,6 +33,7 @@ export function offlineList(needs: Need[], skills: Record<string, { stage: strin
     const st = STAGE[band];
     for (const [id, s] of Object.entries(skills)) if (s.stage === st) { add(json, `fx/skills/${id}.json`, 'zy-anim'); add(file, `fx/skills/icons/icon_${id}.webp`, 'zy-anim'); }
     for (const s of Object.values(sfx)) if (s.stage === st) add(file, 'sfx/' + (band === 'K' && s.kindergarten ? s.kindergarten : s.file), 'zy-sfx-skills');
+    if (n.grade === TERM_GRADE) add(file, 'sfx/' + TERM_SFX, 'zy-sfx-term');   // r17 D：小班期末庆祝乐句
   }
   return { json, file };
 }
