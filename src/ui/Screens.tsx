@@ -7,6 +7,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './common';
 import { Sprite, type KMonOut } from './Battle';
+import { qbanUrl } from '../game/kinderQban';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
@@ -259,6 +260,10 @@ function useKAuto(on: boolean, say: (hasClip: (k: string) => boolean) => void, d
 export const kFriendLine = (m?: { name: string }) => `${m?.name ?? '小乌云'}变成你的好朋友啦！`;
 /** 怪物立绘：idle 柔和版序列帧的第一帧（读不到 json / 图 → 小乌云静态图） */
 export function KMonFace({ m }: { m?: KMonOut }) {
+  if (m?.qban) return <img className="kmon-q" src={qbanUrl(m.qban, 'happy')} alt="" data-testid="result-k-mon" data-mon={m.name} data-qban="happy" draggable={false} />;   // r17：Q版「开心 / 变朋友」
+  return <KMonSheetFace m={m} />;
+}
+function KMonSheetFace({ m }: { m?: KMonOut }) {
   const base = import.meta.env.BASE_URL; const [sh, setSh] = useState<{ img: string; cols: number; rows: number; ar: number } | null>(null); const [bad, setBad] = useState(false);
   useEffect(() => { if (!m) return; let live = true; setSh(null); setBad(false);
     fetch(`${base}${m.dir}/${m.idle}.json`).then(r => r.ok ? r.json() : Promise.reject(new Error(String(r.status)))).then((j: { image: string; columns: number; rows: number; frame_width: number; frame_height: number }) => {

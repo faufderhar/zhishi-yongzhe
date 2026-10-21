@@ -151,7 +151,7 @@ const recLog: { url: string; t: number; dur: number }[] | null = __TEST_HOOKS__ 
    这段录音就当没有（不读错的数）：题干 / 选项朗读跳过这一段，演示句改用「是这个哦」，单独点选项 → 没有录音的提示。
    期望文字由 Battle 在拼键时登记（expectVoiceText）；只比汉字 / 字母 / 数字（标点、表情、零宽字符不算）。没登记 / 包里没写文字的键照常播。 */
 const expectTexts = new Map<string, string[]>();
-export const expectVoiceText = (key: string, ...texts: (string | undefined)[]) => { const t = texts.filter((x): x is string => !!x); if (t.length) expectTexts.set(key, t); return key; };
+export const expectVoiceText = (key: string, ...texts: (string | null | undefined)[]) => { const t = texts.filter((x): x is string => !!x); if (t.length) expectTexts.set(key, t); return key; };
 export const voiceTextStale = (key: string, meta: VoiceMan['meta']) => { const want = expectTexts.get(key); const mt = meta?.[key]?.text; if (!want || typeof mt !== 'string') return false; const n = norm(mt); return !!n && !want.some(w => norm(w) === n); };
 function staleFilter(items: Record<string, string | string[]>, meta: VoiceMan['meta'], keys: string[]) {
   if (!keys.some(k => voiceTextStale(k, meta))) return items; const out = { ...items }; for (const k of keys) if (voiceTextStale(k, meta)) delete out[k]; return out; }
