@@ -16,8 +16,8 @@ const all: Question[] = BUILTIN_GRADES.flatMap(g => loadBank(raw(g), `bank_${g}.
 const V52 = JSON.parse(readFileSync('tests/fixtures/r17_v52_revs_of_v56changed.json', 'utf8')) as Record<string, { grade: string; rev52: string }>;
 describe('r17 题库 v56', () => {
   it('发布号 v56；题量 18344 / 可玩 18281 不变；初三 / 大班 / 高三还没导入；高二物理强制隐藏，自动规则不藏别的', () => {
-    for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v56');
-    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v56', playable: 18281 });
+    for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v57 只改大班（K3C-071 新增、K3C-013 需家长确认），已导入年级逐题和 v56 相同
+    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v57', playable: 18281 });
     expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual([]);
     expect(vis.rows.map(r => `${r.grade}|${r.subject}|${r.volume}|${r.why}`)).toEqual(['11|物理|必修第三册|force', '11|物理|选择性必修第一册|force', '11|物理|选择性必修第二册|force']);
   });

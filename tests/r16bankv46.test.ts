@@ -29,7 +29,7 @@ const V51REV = JSON.parse(readFileSync('tests/fixtures/r162_v51_revs_of_v52chang
 /** r17 题库 v56：已导入年级 2825 题 qRev 变了（答案不变）——按 v52 的 rev 算（更早改过的题仍用更早的） */
 const V56REV = JSON.parse(readFileSync('tests/fixtures/r17_v52_revs_of_v56changed.json', 'utf8')) as Record<string, { grade: string; rev52: string }>;
 const REV48 = new Set(JSON.parse(readFileSync('tests/fixtures/r161_v48_revchanged.json', 'utf8')) as string[]);
-it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|5[0126])$/); });   // r16.2：v50 → v51
+it('内置题库是 v46（r16.1：v47）', () => { for (const g of Object.keys(fx)) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toMatch(/^v(4[678]|5[01267])$/); });   // r16.2：v50 → v51
 it('v45 已有的题：id 和 rev 全部不变（错题本 / 存档照常读）；高二只多了 D11-241～252', () => {
   for (const [g, f] of Object.entries(fx)) {
     const all = bank(g).all.filter(q => !(g === '11' && NEW.includes(q.id)) && !isNew47(q) && !isNew50(q));

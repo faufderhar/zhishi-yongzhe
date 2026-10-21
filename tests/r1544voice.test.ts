@@ -24,7 +24,7 @@ describe('r15.4.4 小班录音', () => {
     expect(man.items['KC-028#opt0']).toBeUndefined();
   });
   it('题库 v31 / v32：小班每道题的题干、每个能朗读的选项都有录音，文件都在；K-038 读「两个苹果」', () => {
-    expect(['v31', 'v32', 'v33', 'v34', 'v42', 'v43', 'v44', 'v45', 'v46', 'v47', 'v48', 'v50', 'v51', 'v52', 'v56']).toContain(bank.version);   // v56 小班 4 个选项改字（录音待补，tests/r17voice）   // v52 没改幼儿园（音频清单_v52 0 题）   // v51 小班 19 键改了文字：录音包同步换成 v51 包（音频设计，label K1 v51），下面逐键比对文字   // v50 小班题和 v48 逐字相同（tests/r162v50）   // v47 小班题和 v46 逐字相同   // v32 的小班题和 v31 相同（录音按 v31 生成）
+    expect(['v31', 'v32', 'v33', 'v34', 'v42', 'v43', 'v44', 'v45', 'v46', 'v47', 'v48', 'v50', 'v51', 'v52', 'v56', 'v57']).toContain(bank.version);   // v56 小班 4 个选项改字（录音待补，tests/r17voice）   // v52 没改幼儿园（音频清单_v52 0 题）   // v51 小班 19 键改了文字：录音包同步换成 v51 包（音频设计，label K1 v51），下面逐键比对文字   // v50 小班题和 v48 逐字相同（tests/r162v50）   // v47 小班题和 v46 逐字相同   // v32 的小班题和 v31 相同（录音按 v31 生成）
     const miss: string[] = [];
     for (const q of bank.questions) {
       const t = q.tts_text === '-' ? '' : (q.tts_text || q.question); if (t && speakable(t) && !man.items[q.id + '#stem']) miss.push(q.id + '#stem');
