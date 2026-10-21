@@ -6,14 +6,14 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v51 · K2 v51 · K3 v51 · r17 prompts",
+ "bank_version": "K1 v51 · K2 v51 · K3 v51 · r17 prompts · r17 term",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
   "en": 1.2
  },
  "pron_overrides": 57,
- "generated": "2026-10-20T10:19:30-07:00",
+ "generated": "2026-10-20T18:55:37-07:00",
  "complete": true,
  "items": {
   "K-001#opt0": "K-001_opt0.f0d0f7a55e.mp3",
@@ -3192,6 +3192,14 @@
   "p:home_english": "p_home_english.8da5a30871.mp3",
   "p:home_histgeo": "p_home_histgeo.e96ad0f2aa.mp3",
   "p:home_math": "p_home_math.4af596a4c1.mp3",
+  "p:k_term1_end": "p_k_term1_end.b12d9645a7.mp3",
+  "p:k_term1_intro": "p_k_term1_intro.c51503484d.mp3",
+  "p:k_term1_medal": "p_k_term1_medal.92c1449e45.mp3",
+  "p:k_term2_end": "p_k_term2_end.aea4970cd9.mp3",
+  "p:k_term2_intro": "p_k_term2_intro.edc042de3d.mp3",
+  "p:k_term2_medal": "p_k_term2_medal.7163d59ba2.mp3",
+  "p:k_term_heart": "p_k_term_heart.abb979d5a8.mp3",
+  "p:k_term_retry": "p_k_term_retry.48b0a1bc25.mp3",
   "p:laugh_bio": "p_laugh_bio.84a921919f.mp3",
   "p:laugh_chem": "p_laugh_chem.b53b3471a2.mp3",
   "p:laugh_cloud": "p_laugh_cloud.df97392081.mp3",
@@ -91721,6 +91729,198 @@
    "limiter_gr_db": 0.82,
    "gr_flag": false,
    "norm": "linear"
+  },
+  "p:k_term1_intro": {
+   "file": "p_k_term1_intro.c51503484d.mp3",
+   "text": "哎呀，大乌云有点不开心，我们一起答题逗它笑吧！",
+   "segments": [
+    [
+     "zh",
+     "哎呀，大乌云有点不开心，我们一起答题逗它笑吧！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "c51503484d1c6082e563ea2c14b08f554b1929ea82003baeea8f20d07ad066ed",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄞ1压1, ㄉㄚ4/ㄨ1云2/又2ㄉ言3/ㄅㄨ4ㄎㄞ1ㄒ阴1, 我3ㄇㄣ5/ㄧ4ㄑㄧ3/ㄉㄚ2ㄊㄧ2/ㄉㄡ4/ㄊㄚ1/ㄒ要4/ㄅㄚ5!"
+   ],
+   "synth_s": 1.19,
+   "duration": 4.776,
+   "lufs": -16.0,
+   "tp": -2.2,
+   "pregain_db": 8.78,
+   "limiter_gr_db": 3.62,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term_heart": {
+   "file": "p_k_term_heart.abb979d5a8.mp3",
+   "text": "点亮一颗爱心！",
+   "segments": [
+    [
+     "zh",
+     "点亮一颗爱心！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "abb979d5a80246c8e96c59c5ebcc85059191ffc785eccd7da2ec3a3953b9db41",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄉ言3ㄌ阳4/ㄧ4ㄎㄜ1/ㄞ4ㄒ阴1!"
+   ],
+   "synth_s": 4.72,
+   "duration": 1.752,
+   "lufs": -16.4,
+   "tp": -2.4,
+   "pregain_db": 6.39,
+   "limiter_gr_db": 0.67,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term_retry": {
+   "file": "p_k_term_retry.48b0a1bc25.mp3",
+   "text": "没关系，我们再想一想～",
+   "segments": [
+    [
+     "zh",
+     "没关系，我们再想一想"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "48b0a1bc255b35fe0ea0c7276624ce102375218e14af6521749a45aae9b9cae3",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄇㄟ2ㄍ万1ㄒㄧ5, 我3ㄇㄣ5/ㄗㄞ4/ㄒ阳3ㄧ5ㄒ阳3"
+   ],
+   "synth_s": 9.44,
+   "duration": 2.304,
+   "lufs": -16.4,
+   "tp": -2.1,
+   "pregain_db": 7.38,
+   "limiter_gr_db": 1.85,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term1_end": {
+   "file": "p_k_term1_end.b12d9645a7.mp3",
+   "text": "大乌云被你逗笑啦！",
+   "segments": [
+    [
+     "zh",
+     "大乌云被你逗笑啦！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "b12d9645a7e0dec852bcb94f927fac1272fbd1d606e95d856f39e0937481606d",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄉㄚ4/ㄨ1云2/ㄅㄟ4/ㄋㄧ3/ㄉㄡ4ㄒ要4/ㄌㄚ5!"
+   ],
+   "synth_s": 6.99,
+   "duration": 2.088,
+   "lufs": -16.4,
+   "tp": -2.5,
+   "pregain_db": 7.13,
+   "limiter_gr_db": 0.64,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term1_medal": {
+   "file": "p_k_term1_medal.92c1449e45.mp3",
+   "text": "你得到了上学期小勇士奖章！真棒！",
+   "segments": [
+    [
+     "zh",
+     "你得到了上学期小勇士奖章！真棒！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "92c1449e456c9982db502b05758b0bef90b5fbd1c18e5a9dff2c231a385700ab",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄋㄧ3/ㄉㄜ2ㄉㄠ4/ㄌㄜ5ㄕㄤ4/ㄒ月2ㄑㄧ1/ㄒ要2用3ㄕ十4/ㄐ阳3ㄓㄤ1! ㄓㄣ1ㄅㄤ4!"
+   ],
+   "synth_s": 1.25,
+   "duration": 3.528,
+   "lufs": -15.9,
+   "tp": -2.1,
+   "pregain_db": 8.49,
+   "limiter_gr_db": 1.64,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term2_intro": {
+   "file": "p_k_term2_intro.edc042de3d.mp3",
+   "text": "彩虹云来找你玩啦，答对题目它就会变出彩虹哦！",
+   "segments": [
+    [
+     "zh",
+     "彩虹云来找你玩啦，答对题目它就会变出彩虹哦！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "edc042de3d623699c2d6bbc4ac3797f0feb0dbca8b7531a886cd7a023f6f5f95",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄘㄞ3ㄏ中2/云2/ㄌㄞ2/ㄓㄠ2ㄋㄧ3/万2/ㄌㄚ5, ㄉㄚ2ㄉ为4/ㄊㄧ2ㄇㄨ4/ㄊㄚ1/ㄐ又4/ㄏ为4/ㄅ言4ㄔㄨ1/ㄘㄞ3ㄏ中2/ㄛ5!"
+   ],
+   "synth_s": 1.48,
+   "duration": 5.064,
+   "lufs": -16.0,
+   "tp": -2.0,
+   "pregain_db": 8.92,
+   "limiter_gr_db": 2.33,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term2_end": {
+   "file": "p_k_term2_end.aea4970cd9.mp3",
+   "text": "彩虹云笑得好开心，变出了一道大彩虹！",
+   "segments": [
+    [
+     "zh",
+     "彩虹云笑得好开心，变出了一道大彩虹！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "aea4970cd9ced730ad9eacc915f24c3b6a90acf6656804796094036afd60fd5c",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄘㄞ3ㄏ中2/云2/ㄒ要4/ㄉㄜ5/ㄏㄠ3ㄎㄞ1ㄒ阴1, ㄅ言4ㄔㄨ1/ㄌㄜ5/ㄧ2ㄉㄠ4/ㄉㄚ4/ㄘㄞ3ㄏ中2!"
+   ],
+   "synth_s": 5.94,
+   "duration": 4.128,
+   "lufs": -15.8,
+   "tp": -2.1,
+   "pregain_db": 8.67,
+   "limiter_gr_db": 2.62,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term2_medal": {
+   "file": "p_k_term2_medal.7163d59ba2.mp3",
+   "text": "你得到了下学期彩虹奖章！你长大啦！",
+   "segments": [
+    [
+     "zh",
+     "你得到了下学期彩虹奖章！你长大啦！"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "7163d59ba2ef59da06dce1a1615f849a2416779b7e004c9ce9d14843ceefdb98",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄋㄧ3/ㄉㄜ2ㄉㄠ4/ㄌㄜ5/ㄒ压4ㄒ月2ㄑㄧ1/ㄘㄞ3ㄏ中2/ㄐ阳3ㄓㄤ1! ㄋㄧ2ㄓㄤ3ㄉㄚ4/ㄌㄚ5!"
+   ],
+   "synth_s": 10.98,
+   "duration": 3.864,
+   "lufs": -16.0,
+   "tp": -2.1,
+   "pregain_db": 8.54,
+   "limiter_gr_db": 2.27,
+   "gr_flag": false,
+   "norm": "linear"
   }
  },
  "deploy": {
@@ -92035,6 +92235,23 @@
    "source": "prompts_r17.json (texts = zy-r16 HAPPY_TOTAL_LINE / K_FIRST_LINE)",
    "out": "/workspace/tts/out_r17p/zf_002",
    "note": "15 new prompts for r17 (游戏程序): p:happy_total_1..5, p:res_k_first_1..10; zf_002 1.2, chain v2.1; 2→两 (happy text has 两; res_k_first_2 via tts_subst 答对2题→答对两题)"
+  },
+  "r17_term": {
+   "date": "2026-10-20",
+   "keys": [
+    "p:k_term1_intro",
+    "p:k_term_heart",
+    "p:k_term_retry",
+    "p:k_term1_end",
+    "p:k_term1_medal",
+    "p:k_term2_intro",
+    "p:k_term2_end",
+    "p:k_term2_medal"
+   ],
+   "speed": 1.1,
+   "source": "prompts_r17_term.json",
+   "out": "/workspace/tts/out_r17term/zf_002",
+   "note": "小班 期末庆祝关 (上/下学期) voice lines; zf_002 speed 1.1 (user decision: gentler/slower than pack 1.2), chain v2.1; keys proposed by 音频设计 (no strings/keys in zy-r16 yet); 句尾 ～ deleted by synth_text rule"
   }
  },
  "banks": {

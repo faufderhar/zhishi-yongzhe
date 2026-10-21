@@ -32,7 +32,11 @@ if (MERGE) {
 if (man.complete !== true) die('manifest.complete 不是 true（还没生成完？）');
 if (man.test) die('manifest 标着 test（临时包），不能当正式包导入');
 const sp = man.speeds ?? {}; for (const k of ['questions', 'prompts', 'en']) if (sp[k] !== SPEED) die(`speeds.${k} = ${sp[k]}，不是 ${SPEED}`);
-const badMeta = Object.entries(man.meta ?? {}).filter(([, m]) => m && typeof m.speed === 'number' && m.speed !== SPEED).map(([k]) => k);
+// r17：包里登记过的例外语速（manifest.deploy.<批次>.keys + .speed，例如小班期末庆祝关 8 句 1.1 = 用户定的更慢）——只放过登记了的键、且语速和登记的一样
+const declared = new Map(Object.values(man.deploy ?? {}).flatMap(d => d && typeof d === 'object' && Array.isArray(d.keys) && typeof d.speed === 'number' ? d.keys.map(k => [k, d.speed]) : []));
+const badMeta = Object.entries(man.meta ?? {}).filter(([k, m]) => m && typeof m.speed === 'number' && m.speed !== SPEED && declared.get(k) !== m.speed).map(([k]) => k);
+const exc = Object.entries(man.meta ?? {}).filter(([k, m]) => m && typeof m.speed === 'number' && m.speed !== SPEED && declared.get(k) === m.speed).map(([k, m]) => `${k}@${m.speed}`);
+if (exc.length) console.log(`  登记过的例外语速 ${exc.length} 个：${exc.join(', ')}`);
 if (badMeta.length) die(`${badMeta.length} 个键的语速不是 ${SPEED}：${badMeta.slice(0, 5).join(', ')}`);
 const filesOf = it => [...new Set(Object.values(it ?? {}).flatMap(v => Array.isArray(v) ? v : [v]).filter(f => typeof f === 'string' && f))];
 const files = filesOf(man.items);
