@@ -31,7 +31,7 @@ export const TERM_IMG = {
   medal: { 1: 'images/k1_boss/medal_term1_sun_cloud.webp', 2: 'images/k1_boss/medal_term2_rainbow.webp' } as Record<TermNo, string>,
 };
 /** 期末关的显示文字（测试：都不含「打败 / 胜利」） */
-/** 庆祝乐句（public/sfx/，音量 ×0.5，运行时缓存 zy-sfx-term；小班档案的离线预下载也带上） */
+/** 庆祝乐句（public/sfx/，音量 ×0.5；主版进 SW 预缓存，离线第一次玩也有；运行时缓存 zy-sfx-term 作后备） */
 export const TERM_SFX = 'sfx_k_term_celebrate.mp3';
 export const TERM_BANNED = /打败|胜利/;
 export const termStrings = () => [...Object.values(TERM_TEXT.intro), ...Object.values(TERM_TEXT.end), ...Object.values(TERM_TEXT.medal), TERM_TEXT.heart, TERM_TEXT.retry, ...Object.values(TERM_NAME), ...Object.values(TERM_MEDAL_NAME), ...Object.values(TERM_MON_NAME), TERM_CHAPTER];

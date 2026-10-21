@@ -54,7 +54,7 @@ async function playSkillSfx(id: string, o: { kinder?: boolean; fallback?: SfxNam
   sfxStats.skillPlayed++; sfxStats.last = path!; sfxStats.paths.push(id + '=' + path);
 }
 /* r17 D：小班期末庆祝关的庆祝短乐句（public/sfx/sfx_k_term_celebrate.mp3，≈4 s，音效同事出的主版；alt 不用）：
-   音量 ×0.5（和技能音效一样 −6 dB），不进预缓存，Service Worker 运行时 CacheFirst（zy-sfx-term）；读不出来 → 合成 soft_cheer */
+   音量 ×0.5（和技能音效一样 −6 dB），SW 预缓存（离线第一次玩也有），运行时 CacheFirst（zy-sfx-term）作后备；读不出来 → 合成 soft_cheer */
 export const TERM_SFX_GAIN = 0.5;
 export async function playTermCelebrate() {
   if (muted || !audioPrefs.sfx) return;

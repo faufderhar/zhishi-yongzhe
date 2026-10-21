@@ -86,10 +86,13 @@ describe('r17 D 录音 / 音效 / 美术', () => {
       const m = man.meta[k]; expect(m.text, k).toBe(VOICE_PROMPTS[id]); expect(m.speed, k).toBe(1.1); expect(existsSync('public/voice/' + man.items[k]), k).toBe(true); }
     expect(VOICE_PROMPTS.k_term1_intro).toBe(TERM_TEXT.intro[1]);
   });
-  it('庆祝乐句：主版文件在、音量 ×0.5、SW 运行时 CacheFirst（不预缓存 mp3）、小班离线预下载带上', () => {
+  it('庆祝乐句：主版文件在、音量 ×0.5、主版预缓存（唯一预缓存的 mp3）+ SW 运行时 CacheFirst 后备、小班离线预下载带上', () => {
     expect(TERM_SFX).toBe('sfx_k_term_celebrate.mp3'); expect(existsSync('public/sfx/' + TERM_SFX)).toBe(true); expect(TERM_SFX_GAIN).toBe(0.5);
-    const v = readFileSync('vite.config.ts', 'utf8'); expect(v).toMatch(/urlPattern: \/\\\/sfx\\\/sfx_k_term_\[a-z_\]\+\\\.mp3\$\/, handler: 'CacheFirst', options: \{ cacheName: 'zy-sfx-term'/);
-    expect(v).not.toMatch(/globPatterns: \[[^\]]*mp3/);
+    const v = readFileSync('vite.config.ts', 'utf8'); expect(v).toMatch(/urlPattern: \/\\\/sfx\\\/sfx_k_term_celebrate\\\.mp3\$\/, handler: 'CacheFirst', options: \{ cacheName: 'zy-sfx-term'/);
+    // 总管 r17 上线条件：主版预缓存（离线第一次玩也有音乐）；alt 不预缓存、不进运行时规则
+    expect(v).toMatch(/globPatterns: \[[^\]]*'sfx\/sfx_k_term_celebrate\.mp3'\]/); expect(v).not.toMatch(/sfx_k_term_celebrate_alt|sfx_k_term_\[a-z_\]/);
+    for (const f of ['src/fx/assets.ts', 'src/offlineCache.ts', 'src/game/kinderTerm.ts']) expect(readFileSync(f, 'utf8'), f).not.toMatch(/_alt\.mp3/);
+    expect((v.match(/globPatterns: \[[^\]]*\]/)?.[0] ?? '').match(/mp3/g)).toEqual(['mp3']);   // 只有这一个 mp3 进预缓存（录音 / 技能音效不进）
     expect(readFileSync('src/offlineCache.ts', 'utf8')).toMatch(/n\.grade === TERM_GRADE\) add\(file, 'sfx\/' \+ TERM_SFX, 'zy-sfx-term'\)/);
   });
   it('美术：7 张图都在 public/images/k1_boss/（拷贝脚本管）；CSS 按 SPEC（彩虹层 1.5S×1.1875S @(−0.25S,−0.1875S)、×1.25、896×680 按 512 同比例、0.4 s 淡化、爱心 0.15 s / 0.3 s 1.15、减少动态只淡化、没有 brightness）', () => {
