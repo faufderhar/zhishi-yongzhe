@@ -1143,6 +1143,9 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .result-screen.kfin .row.friends img,.result-screen.kfin .row.friends .kmon-face{height:clamp(90px,calc(100vh - 400px),280px);max-height:none;width:auto}
 .result-screen.kfin .kfin-stars .stars{font-size:clamp(48px,9vh,88px) !important;line-height:1.05}   /* 分镜：星槽 600 高 72 px、800 高 88 px */
 @media (min-height:721px){.result-screen.kfin .row.friends img,.result-screen.kfin .row.friends .kmon-face{height:clamp(150px,calc(100vh - 530px),280px)}}   /* 单栏高屏：第 2 次玩多一行字也放得下 */
+/* r17 e2e r161-reslayout：第 2 次玩多「再玩」一行 + 标题行换行（约 +100px），而「自己答对 / 再试一次」两行也在 → 舞台图再矮一点，按钮不压字、不用滚 */
+@media (min-height:481px) and (max-height:720px){.result-screen.kfin:has([data-testid=result-k-again]) .row.friends img,.result-screen.kfin:has([data-testid=result-k-again]) .row.friends .kmon-face{height:clamp(90px,calc(100vh - 450px),280px)}}
+@media (min-height:721px){.result-screen.kfin:has([data-testid=result-k-again]) .row.friends img,.result-screen.kfin:has([data-testid=result-k-again]) .row.friends .kmon-face{height:clamp(140px,calc(100vh - 590px),280px)}}
 @media (min-height:561px) and (max-height:720px){.result-screen.kfin .kfin-stars .stars{font-size:44px !important}}
 @media (min-height:481px) and (max-height:560px){.result-screen.kfin .kfin-stars .stars{font-size:36px !important}}
 .result-screen.kfin .kfin-stars .stars .on{color:#f6d77e;text-shadow:0 2px 0 #c99a2e}

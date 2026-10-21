@@ -31,3 +31,10 @@ describe('kFinaleClock', () => {
     for (const hex of CONFETTI_COLORS) { const [r, g, b] = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255); const L = (Math.max(r, g, b) + Math.min(r, g, b)) / 2; expect(L, hex).toBeGreaterThanOrEqual(0.8); }
   });
 });
+// r17 e2e r161-reslayout：第 2 次玩（多「再玩」一行）舞台图再矮一点；只在 481 高以上（≤480 两栏规则不动）
+it('结算动画页：第 2 次玩舞台图更矮（481–720 / ≥721），≤480 两栏不受影响', async () => {
+  const { readFileSync } = await import('node:fs'); const css = readFileSync(new URL('../src/app.css', import.meta.url), 'utf8');
+  expect(css).toMatch(/@media \(min-height:481px\) and \(max-height:720px\)\{\.result-screen\.kfin:has\(\[data-testid=result-k-again\]\) \.row\.friends img[^}]*calc\(100vh - 450px\)/);
+  expect(css).toMatch(/@media \(min-height:721px\)\{\.result-screen\.kfin:has\(\[data-testid=result-k-again\]\) \.row\.friends img[^}]*calc\(100vh - 590px\)/);
+  expect(css).not.toMatch(/^\.result-screen\.kfin:has\(\[data-testid=result-k-again\]\)/m);
+});

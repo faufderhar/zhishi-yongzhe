@@ -24,7 +24,7 @@ for (const [W, H] of [[1280, 600], [1280, 610], [1280, 700], [1280, 740], [1280,
       await pg.click('.kopts:not(.kwait) .kopt[data-correct="1"]:not([disabled])', { timeout: 1500 }).catch(() => {}); await w(600); }
     await pg.waitForSelector('[data-testid=result-actions]', { timeout: 20000 }).catch(() => {}); await w(1500);
     const r = await pg.evaluate(() => { const cs = document.querySelector('.center-screen'); const act = document.querySelector('[data-testid=result-actions]').getBoundingClientRect();
-      const kids = [...cs.children].filter(e => e.dataset.testid !== 'result-actions'); const low = Math.max(...kids.map(e => e.getBoundingClientRect().bottom));
+      const kids = [...cs.children].filter(e => e.dataset.testid !== 'result-actions' && !e.classList.contains('kfin-layer'));   /* r17 C3：结算动画层（绝对定位、铺满、不挡点）不算内容 */ const low = Math.max(...kids.map(e => e.getBoundingClientRect().bottom));
       return { scroll: cs.scrollHeight - cs.clientHeight, low: Math.round(low), actTop: Math.round(act.top), actBottom: Math.round(act.bottom), vh: innerHeight, again: !!document.querySelector('[data-testid=result-k-again]'), lines: document.querySelector('.klines')?.textContent }; });
     await pg.screenshot({ path: `${OUT}reslayout-${W}x${H}-play${play}.png` });
     ok(r.scroll <= 1 && r.low <= r.actTop + 1 && r.actBottom <= r.vh + 1 && (play === 1 || r.again), `${W}x${H} play${play}: ${JSON.stringify(r)}`);
