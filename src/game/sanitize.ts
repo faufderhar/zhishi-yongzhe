@@ -16,7 +16,9 @@ export function cleanProgress(x: unknown) {
   if (!isObj(x)) return undefined;
   const stars: Record<string, number> = {}; if (isObj(x.stars)) for (const [k, v] of Object.entries(x.stars)) { const n = num(v, 0, 3, true); if (n !== undefined) stars[k] = n; }
   const plays: Record<string, { day: string; count: number }> = {}; if (isObj(x.plays)) for (const [k, v] of Object.entries(x.plays)) { if (!isObj(v) || typeof v.day !== 'string') continue; const c = num(v.count, 0, 999, true); if (c !== undefined) plays[k] = { day: v.day, count: c }; }
-  return { ...x, stars, plays, xp: num(x.xp, 0, XP_MAX, true) ?? 0, masteredStars: num(x.masteredStars, 0, MASTERED_MAX, true) ?? 0 };
+  const termLit: Record<string, number> = {}; if (isObj(x.termLit)) for (const [k, v] of Object.entries(x.termLit)) { const n = num(v, 0, 20, true); if (n !== undefined) termLit[k] = n; }   // r17：小班期末关已点亮的爱心
+  const { termLit: _t, ...rest } = x; void _t;
+  return { ...rest, stars, plays, xp: num(x.xp, 0, XP_MAX, true) ?? 0, masteredStars: num(x.masteredStars, 0, MASTERED_MAX, true) ?? 0, ...(isObj(x.termLit) ? { termLit } : {}) };
 }
 export function cleanUsage(x: unknown) {
   if (!isObj(x)) return undefined; const out: Record<string, { used: number; bonus: number; wrap?: number; wrapTail?: number; spent?: number; capAt?: number; cancelled?: 1 }> = {};

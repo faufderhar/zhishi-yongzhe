@@ -9,7 +9,7 @@ const LIMIT = Number(m?.[1]) * 1024 * 1024;
 describe('r16.1 题库预缓存上限', () => {
   it('上限是 6MB，题库没被 globIgnores 排除', () => {
     expect(LIMIT).toBe(6 * 1024 * 1024);
-    expect(cfg).toMatch(/globPatterns: \['\*\*\/\*\.\{[^}]*json[^}]*\}'\]/);
+    expect(cfg).toMatch(/globPatterns: \['\*\*\/\*\.\{[^}]*json[^}]*\}'(, '[^']+')*\]/);   // r17：后面多了一个单独的 mp3（期末庆祝乐句）
     expect(cfg.match(/globIgnores: \[([^\]]*)\]/)?.[1]).not.toMatch(/banks/);
   });
   it('每个 public/banks 文件都小于上限（留 15% 余量）', () => {

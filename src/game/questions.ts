@@ -22,7 +22,13 @@ export interface Question {
   tags: string[]; knowledge_point?: string; time?: number; source?: string; review_note?: string;
   /** r16.1（题库 v48）：填空题的输入方式——numeric = 数字键盘；text = 不弹数字键盘（字母键盘 / 系统输入法由 inputKind.fillKind 再分）。不参与 qRev */
   input_type?: 'numeric' | 'text';
+  /** r17（可选）：小班上 / 下学期（题库字段 term 或 semester：1 / 2 / 上 / 下 / 上学期 / 下学期）；有就覆盖按单元顺序的对半分。不参与 qRev */
+  term?: 1 | 2;
   order: number;          // 在源文件中的顺序（章节排序用）
+}
+/** r17：题库的学期字段 → 1 / 2（认不出 = 没有） */
+export function parseTerm(v: unknown): 1 | 2 | undefined {
+  const t = String(v ?? '').trim(); return /^(1|上|上学期|上册)$/.test(t) ? 1 : /^(2|下|下学期|下册)$/.test(t) ? 2 : undefined;
 }
 export const KEYS = 'ABCDEF'.split('');
 /** r16（题库 v43：ids 不变、判断题答案 / 选项文字 / 高一选项位置有改动）：题目「内容版本」= 题型 + 题干 + 选项 + 答案 + 容差 的短哈希。
@@ -138,6 +144,7 @@ export function normalize(q: any, order = 0, ctxGrade?: GradeKey): Question {
     knowledge_point: q.knowledge_point || undefined, time: t > 0 ? t : undefined, source: q.source, review_note: q.review_note || undefined,
     tolerance: q.tolerance === undefined || q.tolerance === '' || q.tolerance === null ? undefined : Number(q.tolerance),
     ...(q.usage === 'boss' ? { usage: 'boss' as const } : {}),
+    ...(parseTerm(q.term ?? q.semester) ? { term: parseTerm(q.term ?? q.semester) } : {}),
     ...(q.type === '填空' && (q.input_type === 'numeric' || q.input_type === 'text') ? { input_type: q.input_type as 'numeric' | 'text' } : {}),
     explanation: cleanExplanation(q.explanation ?? ''), order, template: q.template ? String(q.template) : undefined, visual: parseVisual(q.visual),
   };

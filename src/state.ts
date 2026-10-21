@@ -36,7 +36,7 @@ export interface Profile { id: string; name: string; avatar: string; grade: Grad
 /** 实际生效的每日时长（0 = 不限）：r9 起 limit 最少 5 分钟，不限由 unlimited 开关决定 */
 export const effLimit = (p: Pick<Profile, 'limit' | 'unlimited'>): TimeLimit => ({ weekday: p.unlimited?.weekday ? 0 : Math.max(MIN_LIMIT, p.limit.weekday), weekend: p.unlimited?.weekend ? 0 : Math.max(MIN_LIMIT, p.limit.weekend) });
 export const MIN_LIMIT = 5;
-export interface Progress { stars: Record<string, number>; plays: Record<string, { day: string; count: number }>; masteredStars: number; xp: number }
+export interface Progress { stars: Record<string, number>; plays: Record<string, { day: string; count: number }>; masteredStars: number; xp: number; termLit?: Record<string, number> /* r17：小班期末关已点亮的爱心（没完成时接着点） */ }
 export const DEFAULT_SETTINGS: Settings = { includePending: false, g1NoLimit: false };
 export const AVATARS = ['🧒', '👧', '👦', '🧑‍🎓', '🧑‍🔬', '🐱', '🐶', '🐰', '🦊', '🐼', '🦁', '🐯'];
 export const newProfile = (name: string, grade: GradeKey, avatar = '🧒'): Profile =>
@@ -109,7 +109,7 @@ const numRec = (x: unknown) => isObj(x) ? Object.fromEntries(Object.entries(x).f
 const clampN = (v: unknown, max: number) => Number.isFinite(v) ? Math.min(max, Math.max(0, Number(v))) : 0;
 export const loadProgress = (pid: string) => guarded<Progress>('progress:' + pid, x => isObj(x) ? {
   stars: starRec(x.stars), plays: isObj(x.plays) ? x.plays as Progress['plays'] : {},
-  masteredStars: clampN(x.masteredStars, MASTERED_MAX), xp: clampN(x.xp, XP_MAX) } : null, emptyProgress);
+  masteredStars: clampN(x.masteredStars, MASTERED_MAX), xp: clampN(x.xp, XP_MAX), ...(isObj(x.termLit) ? { termLit: Object.fromEntries(Object.entries(numRec(x.termLit)).map(([k, v]) => [k, Math.min(20, Math.max(0, Math.floor(v)))])) } : {}) } : null, emptyProgress);
 export const saveProgress = (pid: string, p: Progress) => saveKV('progress:' + pid, p);
 export const loadSkills = (pid: string) => guarded<Skills>('skills:' + pid, x => isObj(x) ? Object.fromEntries(Object.entries(x).filter(([, v]) => isObj(v) && Number.isFinite((v as { level?: number }).level))) as Skills : null, () => ({}));
 export const saveSkills = (pid: string, s: Skills) => saveKV('skills:' + pid, s);

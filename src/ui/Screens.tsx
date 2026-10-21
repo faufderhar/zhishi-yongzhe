@@ -7,9 +7,9 @@ import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from 
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './common';
 import { Sprite, type KMonOut } from './Battle';
-import { qbanUrl } from '../game/kinderQban';
+import { qbanUrl, QBAN_CLOUD } from '../game/kinderQban';
 import { runKFinale } from './kFinale';
-import { TERM_TEXT, TERM_IMG, TERM_MEDAL_NAME, termOpen, termBlocker, type TermNo } from '../game/kinderTerm';
+import { TERM_TEXT, TERM_KEYS, TERM_IMG, TERM_NAME, TERM_MEDAL_NAME, termOpen, termBlocker, termSlots, termHintKey, type TermNo } from '../game/kinderTerm';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
@@ -152,15 +152,32 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
 }
 
 const KIND_LABEL = { normal: '', elite: '精英', boss: 'Boss' };
-export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus = 0, bonusCancelled = false, c, onLevel, onBack, onWrongBook, onReview, onChar, chapterIdx, setChapterIdx }: {
-  p: Profile; cfg: BandConfig; chapters: Chapter[]; progress: Progress; wrong: WrongEntry[]; remaining: number; bonus?: number; bonusCancelled?: boolean; c: Character | undefined;
+/* r17 策划：小班期末关放在主地图上——每个学科章里，大乌云 = 上学期最后一个节点、彩虹云 = 下学期最后一个节点（同一关）。
+   没解锁 = 灰色小云剪影；解锁后第一次看到 = 轻轻弹一下 + 朗读开场白（每档案每学期一次） */
+const termNodeImg = (t: TermNo) => (import.meta.env?.BASE_URL ?? './') + (t === 1 ? qbanUrl(QBAN_CLOUD, 'default').replace(/^\.\//, '') : TERM_IMG.intro2);
+function TermNode({ l, open, s, hint, nudge, onClick }: { l: Level; open: boolean; s: number; hint: boolean; nudge: boolean; onClick: () => void }) {
+  const t = l.term!; const ref = useRef<HTMLButtonElement>(null);
+  useEffect(() => { if (hint) ref.current?.scrollIntoView?.({ block: 'nearest' }); }, [hint]);   // 刚解锁：节点可能在下面，滚进视野再弹
+  return <button ref={ref} className={`level kterm-node ${open ? '' : 'locked'} ${s ? 'done' : ''} ${hint ? 'khint' : ''} ${nudge ? 'nudge' : ''}`} data-testid={`term-node-${t}`} data-locked={open ? '0' : '1'} data-hint={hint ? '1' : '0'} aria-disabled={!open} aria-label={open ? TERM_NAME[t] : `${TERM_NAME[t]}（还没打开）`} onClick={onClick}>
+    <img className={`kterm-node-img ${open ? '' : 'silhouette'}`} src={termNodeImg(t)} alt="" draggable={false} data-testid={`term-node-img-${t}`} />
+    <span className="lv-name">{open ? TERM_NAME[t] : '🔒 ' + TERM_NAME[t]}</span>
+    {s > 0 ? <img className="kterm-map-medal" src={(import.meta.env?.BASE_URL ?? './') + TERM_IMG.medal[t]} alt={TERM_MEDAL_NAME[t]} data-testid={`term-medal-${t}`} draggable={false} /> : null}<Stars n={s} />
+  </button>;
+}
+export function MapScreen({ p, cfg, chapters, termLevels = [], progress, wrong, remaining, bonus = 0, bonusCancelled = false, c, onLevel, onBack, onWrongBook, onReview, onChar, chapterIdx, setChapterIdx }: {
+  p: Profile; cfg: BandConfig; chapters: Chapter[]; termLevels?: Level[]; progress: Progress; wrong: WrongEntry[]; remaining: number; bonus?: number; bonusCancelled?: boolean; c: Character | undefined;
   onLevel: (l: Level) => void; onBack: () => void; onWrongBook: () => void; onReview: () => void; onChar: () => void;
   chapterIdx: number; setChapterIdx: (i: number) => void;
 }) {
   const ch = chapters[Math.min(chapterIdx, chapters.length - 1)];
   // r14.2 小萌新：顶部总星 = 各学科卡片上的星之和（和地图显示的同一算法：锁着的关算 0、拆关前留下的旧关卡号不算）；错题掌握星另外显示
   const shownStars = (ls: Level[]) => ls.reduce((a, l, i) => a + (l.redirect || !isUnlocked(ls, i, progress.stars) ? 0 : starOf(l, progress.stars)), 0);
-  const levelStarsTotal = chapters.reduce((a, x) => a + shownStars(x.levels), 0);
+  const unlockAll = __TEST_HOOKS__ && !!(window as unknown as { __zyUnlockAll?: boolean }).__zyUnlockAll;   // 仅测试构建：全解锁
+  // r17：期末关「真的」打开了（这学期每个单元都打过一关）；测试构建可用 __zyTestTermOpen 模拟（全解锁时节点能点，但不弹不读）
+  const termReal = (t: TermNo) => termOpen(chapters, t, progress.stars) || (__TEST_HOOKS__ && !!(window as unknown as { __zyTestTermOpen?: number[] }).__zyTestTermOpen?.includes(t));
+  const termIsOpen = (t: TermNo) => unlockAll || termReal(t);
+  const termStars = termLevels.reduce((a, l) => a + (termIsOpen(l.term!) ? starOf(l, progress.stars) : 0), 0);
+  const levelStarsTotal = chapters.reduce((a, x) => a + shownStars(x.levels), 0) + termStars;
   const totalStars = levelStarsTotal + progress.masteredStars;
   const due = wrong.filter(e => isDue(e)).length;
   // 地图提示气泡（策划 X-11 / J-7）：锁定关卡说明、长按看全称、首次出现精英/Boss
@@ -175,11 +192,24 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
     if (ch?.levels.some(l => l.kind !== 'normal') && !localStorage.getItem(k)) { localStorage.setItem(k, '1'); say(cfg.band === 'K' ? '这里有小怪兽等你交朋友！' : '这里有厉害的大怪兽！', cfg.band === 'K'); }
   }, [ch?.subject]);
   const timeUp = remaining <= 0;
+  const [termHint, setTermHint] = useState<TermNo>();
+  useEffect(() => {   // r17：期末关刚解锁 → 节点轻轻弹一下 + 读开场白（每档案每学期一次，记住了下次不再来）
+    if (timeUp) return; const t = termLevels.map(l => l.term!).find(t => termReal(t) && !localStorage.getItem(termHintKey(p.id, t))); if (!t) return;
+    try { localStorage.setItem(termHintKey(p.id, t), '1'); } catch { /* */ }
+    setTermHint(t); speak(TERM_TEXT.intro[t], 'zh-CN', { keys: [TERM_KEYS.intro[t]] }); const id = window.setTimeout(() => setTermHint(undefined), 1600); return () => clearTimeout(id);
+  }, [termLevels, progress.stars, p.id, timeUp]);
   /* r15.4 小萌新：时间用完后点关卡以前什么反应都没有——改成弹出睡着的小怪兽（小班同时朗读），点一下或 4 秒后关掉 */
   const [sleepy, setSleepy] = useState(false);
   const sleepyOff = useRef<(() => void) | undefined>(undefined);   // r15.4.4：至少 4 秒，读完再收起（最多 9 秒）
   const showSleepy = () => { setSleepy(true); if (cfg.band === 'K') speak(SLEEPY_VOICE); sleepyOff.current?.(); sleepyOff.current = afterVoiceThen(4000, 9000, () => setSleepy(false)); };
   useEffect(() => () => sleepyOff.current?.(), []);
+  /** r17：这一章第 i 关后面要不要接期末节点（上学期节点在本章最后一个上学期关后面，下学期节点在最后） */
+  const termAfter = (i: number) => { if (!termLevels.length) return null; const slot = termSlots(ch); const ts = termLevels.filter(tl => (tl.term === 1 && i === slot.after1) || (tl.term === 2 && i === ch.levels.length - 1));
+            return ts.map(tl => { const t = tl.term!, op = termIsOpen(t), st = op ? starOf(tl, progress.stars) : 0;
+              return <TermNode key={tl.id} l={tl} open={op} s={st} hint={termHint === t} nudge={shake === tl.id} onClick={() => {
+                if (timeUp) { showSleepy(); return; }
+                if (!op) { setShake(tl.id); setTimeout(() => setShake(undefined), 500); const b = termBlocker(chapters, t, progress.stars); say(`🔒 ${t === 1 ? '上' : '下'}学期的每一课都打一关，就能来这里庆祝啦${b ? `（还差：${b.chapter} · ${b.unit}）` : ''}`, false); speak(KINDER_LOCK_VOICE); return; }
+                onLevel(tl); }} />; }); };
   return (
     <div className="map">
       <div className="map-top">
@@ -203,7 +233,7 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
         </div>
         <div className="levels" data-testid="levels">
           {ch.levels.map((l, i) => {
-            const open = (__TEST_HOOKS__ && !!(window as unknown as { __zyUnlockAll?: boolean }).__zyUnlockAll) || (l.term ? termOpen(chapters, l.term, progress.stars) : isUnlocked(ch.levels, i, progress.stars));   // r17 D：期末关 = 这学期每个单元都打过一关   // 仅测试构建：全解锁
+            const open = unlockAll || isUnlocked(ch.levels, i, progress.stars);
             const s0 = l.redirect ? starOf(chapters.flatMap(c => c.levels).find(x => x.id === l.redirect) ?? l, progress.stars) : starOf(l, progress.stars);
             const s = open ? s0 : 0;   // r14 小萌新：锁着的关不显示星星（Boss 合并单元时从其他小节 Boss 继承来的星，没解锁前不显示）
             const prev = ch.levels[i - 1];
@@ -218,18 +248,17 @@ export function MapScreen({ p, cfg, chapters, progress, wrong, remaining, bonus 
                 onClick={() => {
                   if (lp.current === -1) { lp.current = 0; return; }   // 长按看全称，不进关
                   if (timeUp) { showSleepy(); return; }
-                  if (!open && l.term) { setShake(l.id); setTimeout(() => setShake(undefined), 500); const b = termBlocker(chapters, l.term, progress.stars); say(`🔒 ${l.term === 1 ? '上' : '下'}学期的每一课都打一关，就能来这里庆祝啦${b ? `（还差：${b.chapter} · ${b.unit}）` : ''}`, false); speak(KINDER_LOCK_VOICE); return; }
                   if (!open) { setShake(l.id); setTimeout(() => setShake(undefined), 500); { const miss = missingPrereqs(ch.levels, i, progress.stars), need = miss.map(x => x.name); if (need.length && cfg.band === 'K') { say(`🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}`, false); speak(KINDER_LOCK_VOICE);
                     setLockHint(miss[0].id); clearTimeout(lockHintT.current); lockHintT.current = window.setTimeout(() => setLockHint(undefined), 3500); /* r16 小萌新：要先打的那一关跳动 + 👆 */ } else say(need.length ? `🔒 还要先打赢（共 ${need.length} 关）：${need.join('、')}` : '🔒 先打赢前一关，就能打开这一关哦', true); } return; }   // r15.4：小班朗读不念关名（关名没录音），屏幕上照样写
                   onLevel(l);
                 }}>
                 {lockHint === l.id && <span className="lock-hint" data-testid="lock-hint" aria-hidden>👆</span>}
-                <span className="lv-no">{open ? (l.term ? '🌈' : l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
+                <span className="lv-no">{open ? (l.kind === 'boss' ? '👑' : l.kind === 'elite' ? '⚡' : i + 1) : '🔒'}</span>
                 {l.kind === 'normal' ? <span className={`lv-name ${l.name.length > 10 ? 'long' : ''}`} title={l.name}>{l.name}</span>
                   : (() => { const bk = l.kind === 'boss' ? skinFor(ch.subject, 'boss', cfg.band, l.unit, { grade: l.pool[0]?.split(':')[0], volume: l.volume }) : null;   /* r15.3 学霸：Boss 标签（含锁着时）用这只 Boss 自己的主色，和战斗里的怪物同一个 hue-rotate */
                     return <span className={`kind-tag ${l.kind}`} data-testid="kind-tag" data-hue={bk?.hue ?? ''} style={bk?.hue ? { filter: `hue-rotate(${bk.hue}deg)` } : undefined}>{l.kind === 'elite' ? '精英挑战' : `${l.name === '本册 Boss' ? '本册' : '章节'} Boss · ${bk?.name ?? ch.subject}`}</span>; })()}
-                {l.term && s > 0 ? <img className="kterm-map-medal" src={(import.meta.env?.BASE_URL ?? './') + TERM_IMG.medal[l.term]} alt={TERM_MEDAL_NAME[l.term]} data-testid={`term-medal-${l.term}`} draggable={false} /> : null}<Stars n={s} />
-              </button></Fragment>
+<Stars n={s} />
+              </button>{termAfter(i)}</Fragment>
             );
           })}
         </div>

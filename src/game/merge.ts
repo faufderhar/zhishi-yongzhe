@@ -5,7 +5,7 @@ import { MASTERED_MAX, XP_MAX } from './limits';
    - 错题本、答题记录取并集去重（同一错题保留更新时间较晚的一条）
    - 家长密码、时长设置、今天已用时长、锁、时钟等设备状态保持本机 */
 type KV = [string, unknown][];
-interface Prog { stars?: Record<string, number>; plays?: Record<string, unknown>; masteredStars?: number; xp?: number }
+interface Prog { stars?: Record<string, number>; plays?: Record<string, unknown>; masteredStars?: number; xp?: number; termLit?: Record<string, number> }
 interface Ans { profileId: string; questionId: string; at: number; correct?: boolean }
 interface Wr { id: string; updatedAt?: number }
 export interface MergeIn { kv: KV; answers: [unknown, Ans][]; wrong: Wr[]; bank: { key: string }[] }
@@ -24,7 +24,9 @@ export function mergeBackup(cur: MergeIn, bk: MergeIn, today: string): { out: Me
     if (!b) continue; if (!a) { const st = Object.fromEntries(Object.entries(b.stars ?? {}).map(([id, v]) => [id, Math.min(3, num(v))])); out.set(k, { ...b, stars: st, xp: num(b.xp), masteredStars: num(b.masteredStars, MASTERED_MAX) }); levelsUpdated += Object.values(b.stars ?? {}).filter(v => v > 0).length; continue; }
     const stars = { ...(a.stars ?? {}) };
     for (const [id, v0] of Object.entries(b.stars ?? {})) { const v = Math.min(3, num(v0)); if (v > num(stars[id])) { stars[id] = v; levelsUpdated++; } }
-    out.set(k, { ...a, stars, xp: Math.max(num(a.xp), num(b.xp)), masteredStars: Math.max(num(a.masteredStars, MASTERED_MAX), num(b.masteredStars, MASTERED_MAX)) });
+    // r17：期末关已点亮的爱心——取多的；这关已经有星（完成过）就不再带回旧的半截进度
+    const tl = { ...(a.termLit ?? {}) }; for (const [id, v] of Object.entries(b.termLit ?? {})) if (!num(stars[id]) && num(v, 20) > num(tl[id], 20)) tl[id] = num(v, 20);
+    out.set(k, { ...a, stars, xp: Math.max(num(a.xp), num(b.xp)), masteredStars: Math.max(num(a.masteredStars, MASTERED_MAX), num(b.masteredStars, MASTERED_MAX)), ...(a.termLit || b.termLit ? { termLit: tl } : {}) });
   }
   for (const p of added) for (const pre of ['skills:', 'usage:']) {
     const k = pre + p.id; const v = bm.get(k); if (v === undefined || out.has(k)) continue;

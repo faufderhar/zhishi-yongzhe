@@ -1192,4 +1192,14 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (prefers-reduced-motion:reduce){.kheart.pop{animation:none}.kterm-overlay{translate:0 0;transition:opacity .4s linear}.kterm-medal{animation:ktermFade .4s linear 1 both}}
 .reduce-motion .kheart.pop{animation:none}.reduce-motion .kterm-overlay{translate:0 0;transition:opacity .4s linear}.reduce-motion .kterm-medal{animation:ktermFade .4s linear 1 both}
 .kterm-map-medal{height:40px;width:auto;flex:none}
+/* r17 策划：主地图上的期末节点（大乌云 / 彩虹云）。没解锁 = 灰色小云剪影；刚解锁 = 轻轻弹一次（减少动态：不弹） */
+.level.kterm-node{background:linear-gradient(180deg,#eaf6ff,#fff7fb);position:relative}
+.level.kterm-node.locked{opacity:1;background:#eef0f3}
+.kterm-node-img{height:64px;width:auto;max-width:100%;object-fit:contain;flex:none}
+.kterm-node-img.silhouette{filter:grayscale(1) contrast(0) opacity(.55)}
+.level.kterm-node.locked .lv-name{color:#8a909a}
+.level.kterm-node.khint .kterm-node-img{animation:ktermNodeHop .9s ease-out 1}
+@keyframes ktermNodeHop{0%{transform:translateY(0)}30%{transform:translateY(-12px)}55%{transform:translateY(0)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.level.kterm-node.khint .kterm-node-img{animation:none}}
+.reduce-motion .level.kterm-node.khint .kterm-node-img{animation:none}
 .result-screen .row.friends.kterm-res img.kterm-res-medal{max-height:none;height:clamp(84px,calc(100vh - 330px),260px);width:auto}

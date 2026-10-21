@@ -20,7 +20,7 @@ import { loadAllBanks, questionsOfGrade, type BankState } from './bankStore';
 import { syncNewVolumes, volLabel } from './game/volumes';
 import { playable, isBossOnly, shuffle, qRev, type Question } from './game/questions';
 import { bandConfig, timePrefs } from './game/grades';
-import { withTermChapter, termQuestions } from './game/kinderTerm';
+import { withSemesters, termLevels, termQuestions, termResume, withTermLit, clearTermLit, TERM_GRADE, type TermNo } from './game/kinderTerm';
 import { starOf, retreatCleared, buildChapters, levelStars, chalCostStar, bossPool, elitePool, assignedBefore, capMulti, lessonRank, levelsOfUnit, migrateStars, type Level } from './game/levels';
 import { selectQuestions, spreadTemplates, spaceReviews, noAdjacent, stemOf, updateSkill, type Skills } from './game/adaptive';
 import { onWrong, onReviewRight, isDue, dayStr, addDays, type WrongEntry } from './game/wrongbook';
@@ -57,7 +57,7 @@ function writeNav(n: Nav | null) { try { if (n) localStorage.setItem(NAV_KEY, JS
 type Screen =
   | { s: 'loading' } | { s: 'profiles'; adding?: boolean } | { s: 'gate'; next?: 'add' | 'pick'; pick?: string } | { s: 'parent' }
   | { s: 'stage' } | { s: 'grade'; stage: StageId } | { s: 'gate-grade'; g: GradeKey }
-  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; review?: string[]; prevStem?: string; nonce: number }
+  | { s: 'map' } | { s: 'char'; then?: Level } | { s: 'battle'; level: Level; qs: Question[]; extra: Question[]; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; review?: string[]; prevStem?: string; nonce: number; termLit0?: number }
   | { s: 'result'; level: Level; r: BattleResult; stars: number; mastered: number; best?: number; prevBest?: number; capped?: boolean; playN?: number }
   | { s: 'wrongbook' } | { s: 'review'; qs: Question[]; nonce: number } | { s: 'review-done'; right: number; total: number };
 
@@ -205,7 +205,9 @@ export default function App() {
   setKinderSpeech(cfg?.band === 'K');   // r15.4.4：小班系统朗读退路放慢（和 1.2 倍速录音一致）；幂等，渲染时直接设
   const gradeQs = useMemo(() => bank && p ? playable(questionsOfGrade(bank, p.grade), settings.includePending) : [], [bank, p?.grade, settings.includePending]);
   const allGradeQs = useMemo(() => bank && p ? questionsOfGrade(bank, p.grade) : [], [bank, p?.grade]);
-  const chapters = useMemo(() => withTermChapter(buildChapters(gradeQs, p?.volumes ?? null, allGradeQs), p?.grade ?? ''), [gradeQs, p?.volumes, allGradeQs, p?.grade]);   // r17 D：小班最后接「期末庆祝」章
+  const chapters = useMemo(() => { const ch = buildChapters(gradeQs, p?.volumes ?? null, allGradeQs); if (p?.grade !== TERM_GRADE) return ch;
+    const tk = new Map(allGradeQs.filter(q => q.term).map(q => [q.key, q.term!])); return tk.size ? withSemesters(ch, k => tk.get(k)) : ch; }, [gradeQs, p?.volumes, allGradeQs, p?.grade]);   // r17：小班题目标了学期（term）就按它分上 / 下学期
+  const kTermLevels = useMemo(() => termLevels(chapters, p?.grade ?? ''), [chapters, p?.grade]);   // r17：小班两个期末关（地图上放在各学科章的学期末尾）
   // 星级迁移：关卡表变化后把旧关卡的星写到新关卡（只升不降），持久化
   useEffect(() => { if (!p) return; const nx = migrateStars(chapters.flatMap(c => c.levels), progress.stars); if (nx) setProgress(pr => { const v = { ...pr, stars: { ...pr.stars, ...Object.fromEntries(Object.entries(nx).filter(([k, x]) => x > (pr.stars[k] ?? 0))) } }; S.saveProgress(p.id, v); return v; }); }, [chapters, p?.id, progress.stars]);
   // 仅自动化测试：导出关卡 → 题目 unit / 题干，供线上验收检查「诗词关卡里的题都属于这首诗」
@@ -511,11 +513,12 @@ export default function App() {
     if (!char) { setScreen({ s: 'char', then: level }); return; }
     if (level.redirect) { const t = chapters.flatMap(c => c.levels).find(l => l.id === level.redirect); if (t) { startLevel(t); return; } }   // 语文题少的古诗课 → 同名诗词关
     if (level.term) {   // r17 D：期末庆祝关——题从这学期打过的关里取（各学科轮流、易→难），不出复习题、不补题
-      const qs = termQuestions(chapters, level.term, progress.stars, bank!.byKey, q => playableKeys.has(q.key) && !isMultiSel(q) && !isBossOnly(q), cfg.questions.normal);
+      const lit0 = termResume(progress.termLit?.[level.id], cfg.questions.normal);   // r17：上次时间到 / 暂停超时点亮的爱心接着算，只出剩下的题
+      const qs = termQuestions(chapters, level.term, progress.stars, bank!.byKey, q => playableKeys.has(q.key) && !isMultiSel(q) && !isBossOnly(q), cfg.questions.normal - lit0);
       { const w = window as unknown as { __zyTest?: boolean; __zyForceQ?: string }; if ((__TEST_HOOKS__ && w.__zyTest) && w.__zyForceQ) { const fq = [...bank!.byKey.values()].find(q => q.id === w.__zyForceQ); if (fq) qs.unshift(fq); } }   // 仅自动化测试：指定首题
       if (!qs.length) return;
       masteredThisLevel.current = 0; setInterrupted(null);
-      setScreen({ s: 'battle', level, qs, extra: [], prior: [], review: [], reserve: [], adj: [], prevStem: undefined, nonce: Date.now() }); return;
+      setScreen({ s: 'battle', level, qs, extra: [], prior: [], review: [], reserve: [], adj: [], prevStem: undefined, nonce: Date.now(), termLit0: lit0 }); return;
     }
     const chapter = chapters.find(c => c.subject === level.chapter)!;
     const byKey = bank!.byKey;
@@ -603,7 +606,8 @@ export default function App() {
     const mastered = masteredThisLevel.current;
     // r12 小萌新：先落盘（星星、进度、清掉「没打完」记录）再显示结算页——结算页停多久、页面被关/刷新都不丢星
     const pr = progress;
-    const nx = { ...pr, stars: { ...pr.stars, ...Object.fromEntries([level.id, ...(level.parts ?? [])].map(id => [id, Math.max(pr.stars[id] ?? 0, gain)])) }, masteredStars: pr.masteredStars + mastered,
+    const pr1 = level.term && r.win ? clearTermLit(pr, level.term) : pr;   // r17：期末关完成（全部点亮、颁了奖章）→ 清掉半截进度
+    const nx = { ...pr1, stars: { ...pr.stars, ...Object.fromEntries([level.id, ...(level.parts ?? [])].map(id => [id, Math.max(pr.stars[id] ?? 0, gain)])) }, masteredStars: pr.masteredStars + mastered,
       plays: { ...pr.plays, [level.id]: { day: today, count: (pr.plays[level.id]?.day === today ? pr.plays[level.id].count : 0) + 1 } } };
     writeRun(p.id, null); writeNav({ pid: p.id, grade: vg, s: 'map', at: Date.now(), bv: BAL_VER });
     try { localStorage.setItem('zy.lastEnd:' + p.id, JSON.stringify({ levelId: level.id, at: Date.now() })); } catch { /* */ }   // r14.1：结算落盘时间（启动时比它早的「没打完」记录作废）
@@ -674,7 +678,7 @@ export default function App() {
         onRestorePin={(h, hint, rec) => setSettings({ ...settings, pinHash: h, pinHint: hint ?? settings.pinHint, pinRec: rec ?? settings.pinRec })} hasProgress={profiles.length > 0}
         onRequestReset={() => { setResetNoticeSeen(true); setSettings({ ...settings, pinReset: newPending(Date.now()) }); }}
         onOk={() => enterGrade(screen.g, true)} onCancel={() => setScreen({ s: 'grade', stage: stageOf(screen.g) })} />}
-      {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} progress={progress} wrong={wrong} remaining={myRemaining} bonus={pid ? bonusShown(usage[pid], today) : 0} bonusCancelled={pid ? bonusCancelledShown(usage[pid]?.[today]) : false} c={char}
+      {screen.s === 'map' && cfg && p && <MapScreen p={p} cfg={cfg} chapters={chapters} termLevels={kTermLevels} progress={progress} wrong={wrong} remaining={myRemaining} bonus={pid ? bonusShown(usage[pid], today) : 0} bonusCancelled={pid ? bonusCancelledShown(usage[pid]?.[today]) : false} c={char}
         chapterIdx={chapterIdx} setChapterIdx={setChapterIdx} onLevel={startLevel} onBack={() => setScreen({ s: 'grade', stage: stageOf(p.grade) })}
         onWrongBook={() => setScreen({ s: 'wrongbook' })} onChar={() => setScreen({ s: 'char' })}
         onReview={() => startReview(wrong.filter(e => isDue(e)).sort((a, b) => a.due.localeCompare(b.due)).slice(0, 10).map(e => e.qkey))} />}
@@ -682,7 +686,8 @@ export default function App() {
         ? <KinderTutorial c={char} onDone={finishTutorial} />
         : <StdTutorial cfg={cfg} onDone={finishTutorial} onlyCard3={onlyCard3} />)}
       {screen.s === 'battle' && cfg && char && !needTutorial && (cfg.battle === 'kinder'
-        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} term={screen.level.term}
+        ? <KinderBattle demoReward={settings.kinderDemoReward ?? DESIGN.kinderDemoReward} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra} term={screen.level.term} termLit0={screen.termLit0}
+            onTermLit={(t: TermNo, lit: number) => { if (p) setProgress(pr => { const nx = withTermLit(pr, t, lit); S.saveProgress(p.id, nx); return nx; }); }}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
         ? <RoundBattle electives={p0?.electives} prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}

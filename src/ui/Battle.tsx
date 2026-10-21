@@ -241,13 +241,13 @@ function TermHearts({ n, lit, pop }: { n: number; lit: number; pop: number }) {
   return <div className="hearts kterm-hearts" data-testid="hearts" data-term="1" aria-live="polite" aria-label={`爱心 ${lit}/${n}`}>{Array.from({ length: n }, (_, i) => { const on = i < lit || i === pop;
     return <span key={i} className={`kheart ${on ? 'on' : ''} ${i === pop ? 'pop' : ''}`} data-on={on ? '1' : '0'} data-testid="term-heart"><img className="kh-empty" src={termUrl(TERM_IMG.heartEmpty)} alt="" draggable={false} /><img className="kh-lit" src={termUrl(TERM_IMG.heartLit)} alt="" draggable={false} /></span>; })}</div>;
 }
-export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, onQuit, term, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean; term?: TermNo }) {
+export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, onQuit, term, termLit0 = 0, onTermLit, demoReward = DESIGN.kinderDemoReward }: BattleProps & { demoReward?: boolean; term?: TermNo; termLit0?: number /* r17：上次已点亮的爱心 */; onTermLit?: (t: TermNo, lit: number) => void /* r17：每点亮一颗就记下来 */ }) {
   const skRoll = useRef<SkillRoll>(newRoll()); const lastSkill = useRef('');
   useEffect(() => { preloadSkillArt(skillsFor('K', c.major)); }, [c.major]);
   useEffect(() => { if (__TEST_HOOKS__) (window as unknown as { __zyLastSkill?: () => string }).__zyLastSkill = () => lastSkill.current; }, []);   // r16.1 (k)：只在测试包
   // r10 策划裁定：小班精英 / Boss = 温和战斗（柔和版怪物跳进来、3 / 5 颗小星星、不掉血不攻击，最后变成朋友挥手回家）
   const gentle = !term && kind !== 'normal';
-  const hearts = term ? questions.length : Math.min(questions.length, gentle ? (kind === 'elite' ? 3 : 5) : cfg.questions[kind]);   // r17 D：期末关爱心数 = 题数
+  const hearts = term ? questions.length + termLit0 : Math.min(questions.length, gentle ? (kind === 'elite' ? 3 : 5) : cfg.questions[kind]);   // r17 D：期末关爱心数 = 题数
   // r16：按关卡类型选怪物；中班 Boss 有专属美术（不放大、不戴王冠），没有专属美术的 Boss = 本科目柔和版 + 王冠 + 放大 1.15
   const km = kinderMon(questions[0]?.subject, term ? 'normal' : kind, { grade: questions[0]?.grade, unit: unit ?? questions[0]?.unit });
   const gskin0 = gentle ? km.skin : null;
@@ -255,7 +255,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
   const qid = gskin0?.id ?? QBAN_CLOUD; const [qFail, setQFail] = useState(false); const useQ = hasQban(qid) && !qFail;
   useEffect(() => { if (!useQ) return; for (const s of ['default', 'happy', 'mischief'] as const) { const im = new Image(); im.src = qbanUrl(qid, s); } }, [qid, useQ]);
   const [idx, setIdx] = useState(0);
-  const [ks, setKs] = useState(newKinder(hearts));
+  const [ks, setKs] = useState(() => term ? { ...newKinder(hearts), lit: Math.min(termLit0, hearts) } : newKinder(hearts));   // r17：期末关接着上次点亮的爱心
   const [fx, setFx] = useState<'' | 'star' | 'shake' | 'demo' | 'ok'>('');
   const [justLit, setJustLit] = useState(-1);
   const [tilt, setTilt] = useState(false);
@@ -295,12 +295,18 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
   const wrong = useRef<string[]>([]);
   const down = useRef<string | null>(null);
   // r12 小萌新：暂停超时不再丢弃——已经答对过就按已答结算（全答完 = 胜利），一题没答才直接回地图
-  const kQuit = () => { const k = ksRef.current; if (term) { if (k.first + k.retry + k.demo) onEnd({ win: true, term, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); else onQuit(); return; }   // r17 D：期末关不失败——答过的就按答过的结算，一题没答回地图
+  /* r17 策划：期末关时间到 / 暂停超时 = 不算完成、不给奖章（爱心已经一颗颗记下了）：「大乌云要睡觉啦，下次再来玩～」→ 回地图；爱心都亮了才算完成 */
+  const [sleepy, setSleepy] = useState(false);
+  const termSleep = async () => { if (!term) return; lock.current = true; setBusy(true); setPaused(false); setSleepy(true); setSay(null);
+    speak(TERM_TEXT.sleep[term], 'zh-CN', { keys: [TERM_KEYS.sleep[term]] });   // 还没录音（p:k_term*_sleep 待录）：TTS + 字幕
+    await sleep(400); await afterVoice(2500, 8000); if (D.alive.current) onQuit(); };
+  const termDone = (k: typeof ks) => onEnd({ win: true, term, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon });
+  const kQuit = () => { const k = ksRef.current; if (term) { if (k.done) termDone(k); else void termSleep(); return; }   // r17：期末关不失败——没点完爱心 = 睡觉去，下次接着点
     if (k.done) { onEnd({ win: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); return; }
     if (!(k.first + k.retry + k.demo)) { onQuit(); return; } onEnd({ win: false, quit: true, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); };
   useWakeLock(); usePauseTimeout(paused, kQuit);
   const forced = useRef(false);
-  useForceEnd(async () => { if (forced.current) return; forced.current = true; lock.current = true; setBusy(true); await afterVoice(0, K_WAIT.endMax); if (!D.alive.current) return; const k = ksRef.current; if (term) { if (k.first + k.retry + k.demo) onEnd({ win: true, term, correct: k.first, total: k.first + k.retry + k.demo, revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); else onQuit(); return; } onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); });
+  useForceEnd(async () => { if (forced.current) return; forced.current = true; lock.current = true; setBusy(true); await afterVoice(0, K_WAIT.endMax); if (!D.alive.current) return; const k = ksRef.current; if (term) { if (k.done) termDone(k); else await termSleep(); return; } onEnd({ win: false, timeUp: true, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon }); });
   const q = questions[idx];
   const choices = useMemo(() => q ? kinderChoices(q) : [], [q]);
   useEffect(() => { if (q && cfg.autoTTS && introDone) speakStem(q, choices); }, [q, cfg.autoTTS, introDone]);
@@ -322,6 +328,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
       setTimeout(() => { setTilt(false); lock.current = false; setBusy(false); }, T.retryUnlockMs);
       return;
     }
+    if (term) onTermLit?.(term, ns.lit);   // r17：点亮一颗就记一颗（时间到 / 暂停超时 / 刷新都不丢）
     const last = ns.done || idx + 1 >= questions.length;
     const friendLine = gentle ? HOME_LINE(monName) : '小乌云变成你的好朋友啦！';
     let spoken: string; let spokenKeys: { keys?: string[] } = {};
@@ -411,6 +418,9 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
             {monFace && !useQ && <div className="mon-face" data-testid="mon-face">{monFace}</div>}</div>}
         </div>
         <canvas className="fx-canvas" ref={D.canvas} />
+        {term && sleepy && <div className="sleepy-pop kterm-sleep" data-testid="term-sleep" role="dialog" aria-label={TERM_TEXT.sleep[term]} onClick={() => onQuit()}><div className="sleepy-card">
+          <div className="sleepy-mon"><img src={term === 1 ? qbanUrl(QBAN_CLOUD, 'default') : termUrl(TERM_IMG.intro2)} alt="" draggable={false} /><span className="zzz" aria-hidden>💤</span></div>
+          <h2 data-testid="term-sleep-text">{TERM_TEXT.sleep[term]}</h2></div></div>}
         {term && medal && <div className="kterm-medal" data-testid="term-medal" data-term={term} role="status"><img src={termUrl(TERM_IMG.medal[term])} alt={TERM_MEDAL_NAME[term]} draggable={false} /><b>{TERM_MEDAL_NAME[term]}</b></div>}
         {/* r15.4.1 小萌新：「在说话」提示放在战斗区顶部（题目气泡下面），不再压住题干气泡上沿 */}
         {/* r15.4.2 小萌新：伙伴头顶有说话气泡（如「小七变成你的好朋友…」）时不再叠一个「在说话」提示（两个气泡在顶部压在一起）——气泡本身就说明在说话，点屏时气泡会晃一下 */}
