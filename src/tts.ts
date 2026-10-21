@@ -119,12 +119,12 @@ export function watchMedia(el: MediaLike, log?: (ev: string) => void): Promise<b
 }
 /** 限时等一个 promise：超时返回 fallback（原 promise 照常继续，结果留给下次用） */
 export const within = <T,>(p: Promise<T>, ms: number, fallback: T): Promise<T> => new Promise<T>(res => { const t = setTimeout(() => res(fallback), ms); p.then(v => { clearTimeout(t); res(v); }, () => { clearTimeout(t); res(fallback); }); });
-const playEl = (url: string, my: number) => { if (my !== recSeq) return Promise.resolve(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; return watchMedia(el, aLog ? ev => alog(ev, url) : undefined); };
-const playOne = async (url: string, my: number): Promise<boolean> => {
+const playEl = (url: string, my: number, onStart?: () => void) => { if (my !== recSeq) return Promise.resolve(false); const el = new Audio(url); recEl = el; el.volume = audioPrefs.volume; let st = false; return watchMedia(el, ev => { if (aLog) alog(ev, url); if (ev === 'el-start' && !st) { st = true; onStart?.(); } }); };
+const playOne = async (url: string, my: number, onStart?: () => void): Promise<boolean> => {
   if (my !== recSeq) return false;
-  const ctx = sfxCtx; if (!ctx || ctx.state !== 'running') return playEl(url, my);
-  const buf = await within(loadBuf(url), VOICE_START_MS, null); if (my !== recSeq) return false; if (!buf) return playEl(url, my);   // r16.2：取 / 解码卡住也不等
-  return playBuf(ctx, buf, src => { recSrc = src; recLog?.push({ url, t: performance.now(), dur: buf.duration }); if (aLog) alog('start', url, buf.duration); }, ev => { if (aLog) alog(ev, url); });
+  const ctx = sfxCtx; if (!ctx || ctx.state !== 'running') return playEl(url, my, onStart);
+  const buf = await within(loadBuf(url), VOICE_START_MS, null); if (my !== recSeq) return false; if (!buf) return playEl(url, my, onStart);   // r16.2：取 / 解码卡住也不等
+  return playBuf(ctx, buf, src => { recSrc = src; onStart?.(); recLog?.push({ url, t: performance.now(), dur: buf.duration }); if (aLog) alog('start', url, buf.duration); }, ev => { if (aLog) alog(ev, url); });
 };
 type CtxLike = { state: string; currentTime: number; destination: AudioNode; createBufferSource(): AudioBufferSourceNode; createGain(): GainNode };
 /** r16.2：在 AudioContext 上放一段：ended → true；最多等片长 + VOICE_TAIL_MS（收不到 ended 也走）；
@@ -157,17 +157,18 @@ function staleFilter(items: Record<string, string | string[]>, meta: VoiceMan['m
   if (!keys.some(k => voiceTextStale(k, meta))) return items; const out = { ...items }; for (const k of keys) if (voiceTextStale(k, meta)) delete out[k]; return out; }
 /** 录音：按 manifest 键依次播放（键之间按规格插停顿）。一个都没有 → false */
 let recHad = false;
-export async function playRecorded(keys: string[], strict = false): Promise<boolean> {
+/* r17：onSeg(i) = 第 i 个键（keys 里的序号）的录音开始播的那一刻（结算页动画按语音分段卡拍子）。被跳过的键（缺录音 / 文字过期）不回调。 */
+export async function playRecorded(keys: string[], strict = false, onSeg?: (i: number) => void): Promise<boolean> {
   recPending++; let it: Record<string, string | string[]>; try { const m = await within(voiceManifest(), VOICE_START_MS, {} as VoiceMan); it = staleFilter(m.items ?? {}, m.meta, keys); } finally { recPending--; }   // r16.2：清单取不到也不等
   if (strict && keys.some(k => !it[k])) return false;   // 拼接的句子：缺一段就不用录音（不读半句）
-  const steps: { url: string; gap: number }[] = []; let prevKey = '';
-  for (const k of keys) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
-    fs.forEach(f => { if (aLog) urlKey.set(vbase() + 'voice/' + f, k); }); fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS })); prevKey = k; }
+  const steps: { url: string; gap: number; seg: number }[] = []; let prevKey = '';
+  for (const [ki, k] of keys.entries()) { const v = it[k]; const fs = (Array.isArray(v) ? v : v ? [v] : []).filter(f => typeof f === 'string' && f); if (!fs.length) continue;
+    fs.forEach(f => { if (aLog) urlKey.set(vbase() + 'voice/' + f, k); }); fs.forEach((f, i) => steps.push({ url: vbase() + 'voice/' + f, gap: i ? VOICE_GAP_SEG_MS : !steps.length ? 0 : prevKey.endsWith('#stem') ? VOICE_GAP_STEM_MS : VOICE_GAP_OPT_MS, seg: i ? -1 : ki })); prevKey = k; }
   if (!steps.length) return false;
   recHad = true;   // r15.4.2：有录音只是没放出来（多半是还没下载、又断网）→ 提示「联网后自动补全」而不是「安装语音引擎」
   const my = ++recSeq; stopRec(); speakingFlag = true;
   steps.forEach(st => { void loadBuf(st.url); });   // 先并行取 / 解码，后面按顺序播
-  try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; const ok = await playOne(steps[i].url, my); if (my !== recSeq) return true; /* 被下一句打断不算失败 */ if (!ok && i === 0) return false; } return true; }
+  try { for (let i = 0; i < steps.length; i++) { if (steps[i].gap) await new Promise(r => setTimeout(r, steps[i].gap)); if (my !== recSeq) return true; const ok = await playOne(steps[i].url, my, steps[i].seg >= 0 && onSeg ? (() => { const sg = steps[i].seg; return () => onSeg(sg); })() : undefined); if (my !== recSeq) return true; /* 被下一句打断不算失败 */ if (!ok && i === 0) return false; } return true; }
   finally { if (my === recSeq) speakingFlag = false; }
 }
 /** 共用提示语：文字 → 提示语 id（ui/voicePrompts 登记）；speak() 用文字查录音 */
@@ -193,12 +194,15 @@ let prioBusy = false; let prioPending: (() => void) | null = null; let prioSeq =
 const prioDone = (my: number) => { if (my !== prioSeq || !prioBusy) return; prioBusy = false; const f = prioPending; prioPending = null; f?.(); };
 export const prioState = () => ({ busy: prioBusy, pending: !!prioPending });
 /** 朗读。o.id = 题号（有录音时用录音兜底）；o.prio = 重要提示，播完前别的朗读排队（只留最后一句） */
-export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[]; alt?: string[] /* keys 缺段时改放这几段 */; prio?: boolean } = {}) {
+/** r17：o.onSeg(i) = 第 i 段开始读（录音：keys[i] 那段开始播；系统朗读没有逐段事件 → 开始读时回调 0，后面的段按 o.segTexts 的字数估算时间回调）。
+    读不出来（没有声音）就不回调——调用方要有兜底时间。 */
+export const segOffsets = (segTexts: string[], rate: number) => { const out: number[] = []; let t = 0; for (const x of segTexts) { out.push(t); t += Math.max(0, sysEstimateMs(x, rate) - 1500) + VOICE_GAP_OPT_MS; } return out; };
+export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: string[]; alt?: string[] /* keys 缺段时改放这几段 */; prio?: boolean; onSeg?: (i: number) => void; segTexts?: string[] } = {}) {
   if (!audioPrefs.tts) return;
   if (prioBusy && !o.prio) { prioPending = () => speak(text, lang, o); return; }
   const myPrio = o.prio ? ++prioSeq : 0; if (o.prio) { prioBusy = true; prioPending = null; setTimeout(() => prioDone(myPrio), 8000); }   // 兜底：最多挡 8 秒
   const endPrio = () => { if (myPrio) prioDone(myPrio); };
-  const fallback = () => { recHad = false; void (o.alt ? playRecorded(keysFor(text, o), true).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id)).then(ok => { endPrio(); if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(recHad ? 'missing' : ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
+  const fallback = () => { recHad = false; void (o.alt ? playRecorded(keysFor(text, o), true, o.onSeg).then(ok => ok || playRecorded(o.alt!)) : playRecorded(keysFor(text, o), !o.keys && !o.id, o.onSeg)).then(ok => { endPrio(); if (!ok && __TEST_HOOKS__ && typeof window !== 'undefined') ((window as unknown as { __zyMissLog?: string[] }).__zyMissLog ??= []).push(text); if (!ok) notify(recHad ? 'missing' : ttsState === 'nozh' ? 'novoice' : 'unavailable'); }); };
   if (!canSystem(lang)) { fallback(); return; }
   synth!.cancel();
   const u = new SpeechSynthesisUtterance(speakable(text));
@@ -210,6 +214,7 @@ export function speak(text: string, lang = 'zh-CN', o: { id?: string; keys?: str
   speakingFlag = true; const done = () => { if (mySys !== sysSeq) return; speakingFlag = false; sysUntil = 0; };
   const est = sysEstimateMs(u.text, u.rate);
   u.onstart = () => { started = true; ttsState = 'ok'; if (mySys !== sysSeq) return; speakingFlag = true; sysUntil = performance.now() + est;
+    if (o.onSeg) segOffsets(o.segTexts ?? [text], u.rate).forEach((ms, i) => { if (!ms) o.onSeg!(i); else setTimeout(() => { if (mySys === sysSeq) o.onSeg!(i); }, ms); });
     setTimeout(() => { if (speakingFlag) { done(); endPrio(); } }, est); };   // r16.2：开始了但 onend 一直不来 → 按预计时长结束
   u.onend = () => { done(); endPrio(); }; u.onerror = (ev: SpeechSynthesisErrorEvent) => { done(); if (ev?.error === 'not-allowed') { notify('blocked'); endPrio(); } else if (!started && ev?.error !== 'interrupted' && ev?.error !== 'canceled') fallback(); else endPrio(); };
   synth!.speak(u);
