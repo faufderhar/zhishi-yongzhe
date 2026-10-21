@@ -19,9 +19,11 @@ for (const [W, H] of [[1280, 800], [1280, 600]]) {
     for (let i = 0; i < 10; i++) { const t = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!t) break; await t.click().catch(() => {}); await w(300); }
     for (let n = 0; n < 15 && !(await pg.$('[data-testid=result-k-friend]')); n++) { await pg.waitForSelector('.kopts:not(.kwait) .kopt[data-correct="1"]:not([disabled]), [data-testid=result-k-friend]', { timeout: 15000 }).catch(() => {}); await pg.click('.kopts:not(.kwait) .kopt[data-correct="1"]:not([disabled])', { timeout: 1500 }).catch(() => {}); await w(600); }
     await pg.waitForSelector('[data-testid=result-k-friend]', { timeout: 20000 }).catch(() => {}); await w(1200);
-    const r = await pg.evaluate(() => ({ t: document.querySelector('[data-testid=result-k-friend]')?.textContent, mon: document.querySelector('[data-testid=result-k-mon]')?.getAttribute('data-mon'), face: !!document.querySelector('.kmon-face'), sub: [...document.querySelectorAll('.center-screen p, .center-screen .ksub')].map(e => e.textContent).join(' | ') }));
+    const r = await pg.evaluate(() => ({ t: document.querySelector('[data-testid=result-k-friend]')?.textContent, mon: document.querySelector('[data-testid=result-k-mon]')?.getAttribute('data-mon'), face: !!document.querySelector('.kmon-face'), qsrc: [...document.querySelectorAll('[data-testid=result-k-mon] img.kmon-q, img.kmon-q[data-testid=result-k-mon]')].map(i => i.getAttribute('src')).join(' '), sub: [...document.querySelectorAll('.center-screen p, .center-screen .ksub')].map(e => e.textContent).join(' | ') }));
     await pg.screenshot({ path: `${OUT}kres-${kind}-${W}x${H}.png` });
-    ok(r.t === `${want}变成你的好朋友啦！` && r.mon === want && r.face === (kind === 'boss'), `${W}x${H} ${kind}: ${JSON.stringify(r)}`);
+    // r17 C1：Boss 结算用 Boss 自己的 Q版图（k_qban/…_boss_*），不再是序列帧的 .kmon-face；普通关仍不是 Boss 的脸
+    const bossArt = r.face || /k_qban\/mon_k\d?_?[a-z0-9_]*_boss_/.test(r.qsrc);
+    ok(r.t === `${want}变成你的好朋友啦！` && r.mon === want && bossArt === (kind === 'boss'), `${W}x${H} ${kind}: ${JSON.stringify(r)}`);
     await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(300); await pg.click('text=k2').catch(() => {}); await w(400); await toMap();
   }
   await ctx.close();
