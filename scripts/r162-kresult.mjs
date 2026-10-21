@@ -5,7 +5,7 @@ import { mkdirSync } from 'node:fs';
 const URL = process.env.URL || 'http://localhost:4471/'; const OUT = process.env.OUT || '/workspace/playtest/r16dev/kresult/'; mkdirSync(OUT, { recursive: true });
 const b = await chromium.launch(); let bad = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
 // r16.3 小萌新 #2：「1280×600 窗口」+ Chrome「恢复标签页」提示条 → 视口约 455 高；1024 宽也量（SIZES=宽x高,…；旧的 HS 只量 1280 宽）
-const SIZES = process.env.SIZES ? process.env.SIZES.split(',').map(x => x.split('x').map(Number)) : process.env.HS ? process.env.HS.split(',').map(h => [1280, +h]) : [420, 455, 481, 500, 510, 560, 600, 610].map(h => [1280, h]).concat([455, 510, 600].map(h => [1024, h]));
+const SIZES = process.env.SIZES ? process.env.SIZES.split(',').map(x => x.split('x').map(Number)) : process.env.HS ? process.env.HS.split(',').map(h => [1280, +h]) : [420, 455, 481, 500, 510, 560, 600, 610, 721, 800].map(h => [1280, h]).concat([455, 510, 600].map(h => [1024, h]));
 for (const [WD, H] of SIZES) {
   const ctx = await b.newContext({ viewport: { width: WD, height: H } }); const pg = await ctx.newPage(); pg.setDefaultTimeout(8000);
   await pg.addInitScript(() => { window.__zyTest = true; window.__zyNoOfflineCache = true; window.__zyTestNoTts = true; });
@@ -25,8 +25,8 @@ for (const [WD, H] of SIZES) {
     const m = await pg.evaluate(() => { const out = []; for (const el of [document.scrollingElement, ...document.querySelectorAll('*')]) { if (!el) continue; const cs = getComputedStyle(el); const sc = el === document.scrollingElement || /(auto|scroll)/.test(cs.overflowY); if (sc && el.scrollHeight > el.clientHeight) out.push(`${el.className || el.tagName}:${el.scrollHeight}-${el.clientHeight}`); } return out; });
     if (m.length) console.log('  children', JSON.stringify(await pg.evaluate(() => [...document.querySelector('.result-screen').children].map(e => `${e.tagName}.${e.className}:${Math.round(e.getBoundingClientRect().height)}`))), JSON.stringify(await pg.evaluate(() => { const c = getComputedStyle(document.querySelector('.result-screen')); return [c.gap, c.padding, c.justifyContent]; })));
     const act = await pg.$eval('[data-testid=result-actions]', e => { const r = e.getBoundingClientRect(); return r.bottom; });
-    // r16.3：顶上的伙伴不能被切（第一个子元素顶边 ≥ 0），各块之间不重叠
-    const lay = await pg.evaluate(() => { const ch = [...document.querySelector('.result-screen').children].filter(e => e.getBoundingClientRect().height > 0); const rs = ch.map(e => e.getBoundingClientRect()); let ov = 0; for (let i = 1; i < rs.length; i++) ov = Math.max(ov, rs[i - 1].bottom - rs[i].top); return { top: Math.round(rs[0].top), ov: Math.round(ov) }; });
+    // r16.3：顶上的伙伴不能被切（第一个子元素顶边 ≥ 0），各块之间不重叠；r17：结算动画的装饰层不算，两栏布局按二维判重叠
+    const lay = await pg.evaluate(() => { const ch = [...document.querySelector('.result-screen').children].filter(e => e.getBoundingClientRect().height > 0 && !e.classList.contains('kfin-layer')); const rs = ch.map(e => e.getBoundingClientRect()); let ov = 0; for (let i = 0; i < rs.length; i++) for (let j = i + 1; j < rs.length; j++) { const a = rs[i], b = rs[j]; const x = Math.min(a.right, b.right) - Math.max(a.left, b.left), y = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top); if (x > 1) ov = Math.max(ov, y); } return { top: Math.round(rs[0].top), ov: Math.round(ov) }; });
     ok(m.length === 0 && act <= H && lay.top >= 0 && lay.ov <= 1, `${WD}×${H} 第 ${run} 次结算页：可滚动溢出 ${JSON.stringify(m)}，按钮底 ${Math.round(act)}，顶 ${lay.top}，重叠 ${lay.ov}`);
     await pg.screenshot({ path: `${OUT}w${WD}h${H}_run${run}.png` });
     if (run < 3) { await pg.click('[data-testid=to-map]'); await w(600); await toMap(); }

@@ -3,11 +3,12 @@ import { fillKind, sciOf } from '../game/inputKind';
 import { TEST_DOM } from './common';
 import { KINDER_LOCK_VOICE, HAPPY_TOTAL_LINE } from '../game/voiceLines';
 import { skinFor } from '../game/monsterSkin';
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Tex } from '../Tex';
 import { Stars, Keypad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './common';
 import { Sprite, type KMonOut } from './Battle';
 import { qbanUrl } from '../game/kinderQban';
+import { runKFinale } from './kFinale';
 import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
@@ -259,6 +260,11 @@ function useKAuto(on: boolean, say: (hasClip: (k: string) => boolean) => void, d
 /** r16.1 (c)：幼儿园结算页的「X变成你的好朋友啦！」 */
 export const kFriendLine = (m?: { name: string }) => `${m?.name ?? '小乌云'}变成你的好朋友啦！`;
 /** 怪物立绘：idle 柔和版序列帧的第一帧（读不到 json / 图 → 小乌云静态图） */
+/** r17：结算动画里的怪物：Q版默认 + 开心两张叠在一起（kFinale 交叉淡化），头顶小爱心；没有 Q版 → 原来的立绘 */
+function KMonFinale({ m }: { m?: KMonOut }) {
+  if (!m?.qban) return <KMonFace m={m} />;
+  return <span className="kfin-q" data-testid="result-k-mon" data-mon={m.name} role="img" aria-label={m.name}><img className="kmon-q kfin-def" src={qbanUrl(m.qban, 'default')} alt="" draggable={false} /><img className="kmon-q kfin-happy" src={qbanUrl(m.qban, 'happy')} alt="" draggable={false} /><span className="kfin-up" aria-hidden>💗</span></span>;
+}
 export function KMonFace({ m }: { m?: KMonOut }) {
   if (m?.qban) return <img className="kmon-q" src={qbanUrl(m.qban, 'happy')} alt="" data-testid="result-k-mon" data-mon={m.name} data-qban="happy" draggable={false} />;   // r17：Q版「开心 / 变朋友」
   return <KMonSheetFace m={m} />;
@@ -288,18 +294,25 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
   const noStarSay = () => speak(`${K_NOSTAR_TEXT}。${K_NOSTAR_WHY}`, 'zh-CN', { keys: ['p:res_k_done', 'p:res_k_why'] });   // r16 小萌新：接着说原因
   const kHappy = cfg.band === 'K' && win && kinder ? kinder.first + kinder.retry + kinder.demo : 0;   // r16.3：开心值总数（每题亮一个）
   useKAuto(kNoStar, has => { const a = kResultAuto(kHappy, [{ text: K_NOSTAR_TEXT, key: 'p:res_k_done' }, { text: K_NOSTAR_WHY, key: 'p:res_k_why' }], has); speak(a.text, 'zh-CN', a.keys ? { keys: a.keys } : {}); }, [kNoStar]);
+  // r17：闯关成功动画（小班 / 中班赢了、这次加星的正常结算；时间到 / 不加星 / 强制结算不演）
+  const kFin = cfg.band === 'K' && win && !kNoStar && !kTime && !forcedTimeUp;
+  const rootRef = useRef<HTMLDivElement>(null); const finRef = useRef<ReturnType<typeof runKFinale> | null>(null);
+  useLayoutEffect(() => { if (!kFin || !rootRef.current) return; const f = runKFinale(rootRef.current, hasVoice()); finRef.current = f; return () => { f.stop(); finRef.current = null; }; }, [kFin]);
   useEffect(() => { if (cfg.band === 'K' && forcedTimeUp) { const id = setTimeout(() => speak(TIMEUP_K_TEXT), 800); return () => clearTimeout(id); } }, [cfg.band, forcedTimeUp]);
   return (
-    <div className="center-screen result-screen" data-ktime={kTime ? '1' : undefined}>
+    <div className={`center-screen result-screen ${kFin ? 'kfin' : ''}`} data-ktime={kTime ? '1' : undefined} ref={rootRef} data-testid="result-screen">
+      {kFin && <div className="kfin-layer" data-kfin="layer" aria-hidden />}
       {cfg.band === 'K' && forcedTimeUp ? <><div className="big-emoji xl" aria-hidden>😴</div><div className="row gap16 kt-title"><h1 data-testid="result-title">{TIMEUP_K_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={() => speak(TIMEUP_K_TEXT)}>🔊</button>}</div><p data-testid="timeup">⏰ 今天的时间到啦</p></>
       : kNoStar ? <><div className="big-emoji xl" aria-hidden data-testid="result-k-icon">🌈</div><div className="row gap16 kt-title"><h1 data-testid="result-k-done">{K_NOSTAR_TEXT}</h1>{hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="result-k-replay" onClick={noStarSay}>🔊</button>}</div>
         {/* r16 小萌新：不认字也看得懂——今天玩了 3 次 → 月亮（睡一觉）→ 明天的星星 */}
         <div className="knostar-why" data-testid="result-k-why" role="img" aria-label={K_NOSTAR_WHY}><span className="kplays">{[1, 2, 3].map(n => <b key={n}>{n}</b>)}</span><span className="karrow">➜</span><span>🌙</span><span className="karrow">➜</span><span className="kstar-tmr">⭐</span></div></>
       : cfg.band === 'K' ? <>
         {/* r16.1 (c) 小萌新：打的是「点点数星熊」，结算页却写「小乌云…」——用战斗里真正出场的怪物（名字 + 立绘）；普通关 / 没加载出来 = 小乌云 */}
-        <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><KMonFace m={kMon} /></div>
+        {/* r17：闯关成功动画（kFinale.ts）：小狗 + 怪物（Q版默认 → 开心）+ 拥抱爱心；不动画时（时间到）照旧是 🤝 */}
+        {kFin ? <div className="row friends kfin-stage"><div className="kfin-pup" data-kfin="pup"><Sprite c={c} /></div><div className="kfin-mon" data-kfin="mon"><span className="kfin-heart" data-kfin="heart" aria-hidden>💗</span><KMonFinale m={kMon} /></div></div>
+          : <div className="row friends"><Sprite c={c} /><span className="big-emoji">🤝</span><KMonFace m={kMon} /></div>}
         <h1 data-testid="result-k-friend">{kFriendLine(kMon)}</h1>
-        <KinderSub k={kinder} total={total} happy={kHappy} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} />
+        <KinderSub k={kinder} total={total} happy={kHappy} extra={kTime ? TIMEUP_K_TEXT : kAgain ? K_AGAIN_TEXT : undefined} onSeg={kFin ? i => finRef.current?.seg(i) : undefined} />
         {kAgain && <p className="ksub" data-testid="result-k-again">{K_AGAIN_TEXT}</p>}
       </> : <>
         <div className="big-emoji xl">{forcedTimeUp || timeUp ? '⏰' : win ? '🏆' : '💫'}</div>
@@ -315,7 +328,7 @@ export function ResultScreen({ kMon, playN, endReason, chalHint = false, cfg, c,
       </>}
       {/* r14 小萌新：不加星时不显示大星星，只写原因和最佳 */}
       {/* r14.1 小萌新：重玩没拿到新星也不显示大星星 */}
-      {!(cfg.band === 'K' && forcedTimeUp) && !capped && (cfg.band === 'K' || !(prevBest !== undefined && prevBest > 0 && stars <= prevBest)) && <Stars n={stars} size={72} />}
+      {!(cfg.band === 'K' && forcedTimeUp) && !capped && (cfg.band === 'K' || !(prevBest !== undefined && prevBest > 0 && stars <= prevBest)) && (kFin ? <span className="kfin-stars" data-kfin="stars" data-testid="result-k-stars"><Stars n={stars} size={72} /></span> : <Stars n={stars} size={72} />)}
       {/* r15.4.2 小萌新：小班普通结算页也不显示这句给大人看的星星比较 */}
       {!kTime && cfg.band !== 'K' && !capped && prevBest !== undefined && prevBest > 0 && stars <= prevBest && <p className="sub" data-testid="result-nonew">这次 {'★'.repeat(stars) || '0★'}，没有超过最佳 {'★'.repeat(prevBest)}，地图上的星星不变。</p>}
       {!kTime && !kNoStar && capped && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星），这次不加星（本次按规则可得 {'★'.repeat(stars)}）；地图上保留最佳 {'★'.repeat(best ?? 0) || '0★'}。明天再来挑战吧！</p>}
@@ -340,14 +353,16 @@ export function kinderSubtitle(k: { first: number } | undefined, total: number) 
   const f = k?.first ?? 0;
   return f === 0 ? '每道题都认真学会啦！下次试试第一次就答对哦' : f / Math.max(1, total) < 0.6 ? '越来越棒啦！' : '太厉害啦！';
 }
-function KinderSub({ k, total, extra, happy = 0 }: { k?: { first: number }; total: number; extra?: string; happy?: number }) {
+function KinderSub({ k, total, extra, happy = 0, onSeg }: { k?: { first: number }; total: number; extra?: string; happy?: number; onSeg?: (i: number) => void }) {
   const t = kinderSubtitle(k, total);
   /* r15.4.1：时间到时接着读「今天玩够啦，明天见」（录音：两段拼起来；系统朗读：一句读完） */
   // r16 小萌新：接着读「自己答对 N 题」（时间到时不读）
   const first = !extra || extra !== TIMEUP_K_TEXT ? (k?.first ?? 0) : 0;
   // r16.3：前面加「开心值一共 m 个」；等「变成好朋友」读完再开始（不再固定 1.5 s 后打断它）
   useKAuto(true, has => { const parts = [t, ...(extra ? [extra] : []), ...(first > 0 ? [K_FIRST_LINE(first)] : [])].map(x => ({ text: x, key: PROMPT_BY_TEXT[x] ? 'p:' + PROMPT_BY_TEXT[x] : undefined }));
-    if (parts.length === 1 && !happy) { speak(t); return; } const a = kResultAuto(happy, parts, has); speak(a.text, 'zh-CN', a.keys ? { keys: a.keys } : {}); }, [t, extra, first, happy]);
+    if (parts.length === 1 && !happy) { speak(t, 'zh-CN', { onSeg }); return; } const a = kResultAuto(happy, parts, has);
+    const segTexts = [...(happy > 0 ? [HAPPY_TOTAL_LINE(happy)] : []), ...parts.map(x => x.text)];   // r17：每段开始 → 结算动画的节拍（onSeg）
+    speak(a.text, 'zh-CN', a.keys ? { keys: a.keys, onSeg, segTexts } : { onSeg, segTexts }); }, [t, extra, first, happy]);
   /* r15.4.2 较真家长 A：小班结算（含时间到）也有 🔊 再听一遍，和题目页的喇叭同款 */
   const again = () => { if (!extra) { speak(t); return; } const ks = [PROMPT_BY_TEXT[t], PROMPT_BY_TEXT[extra]]; speak(`${t}。${extra}`, 'zh-CN', ks.every(Boolean) ? { keys: ks.map(x => 'p:' + x) } : {}); };
   return <div className="row gap16 kt-title"><p className="ksub" data-testid="kinder-sub">{t}</p>{hasVoice() && extra && <button className="kspeaker" aria-label="再听一遍" data-testid="timeup-replay" onClick={again}>🔊</button>}</div>;

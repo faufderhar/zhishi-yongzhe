@@ -5,5 +5,5 @@ it('结算页矮屏收紧规则在', () => {
   const c = readFileSync('src/app.css', 'utf8');
   expect(c).toMatch(/@media \(min-height:481px\) and \(max-height:720px\)\{\.result-screen\{gap:8px/);
   expect(c).toMatch(/@media \(min-height:721px\) and \(max-height:860px\)\{\.result-screen\{gap:14px/);
-  expect(c).toMatch(/\.result-actions\{position:sticky/); expect(readFileSync('src/ui/Screens.tsx', 'utf8')).toMatch(/className="center-screen result-screen"/);
+  expect(c).toMatch(/\.result-actions\{position:sticky/); expect(readFileSync('src/ui/Screens.tsx', 'utf8')).toMatch(/className=\{`center-screen result-screen /);   // r17：幼儿园闯关成功动画时多一个 kfin 类
 });
