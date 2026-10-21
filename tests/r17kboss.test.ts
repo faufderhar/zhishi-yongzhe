@@ -23,7 +23,7 @@ it('够格 12 道 → 导入；11 道（去掉 Boss 专用题）→ 跳过并打
   expect(so).not.toMatch(/小甲（/); expect(so).toMatch(/1 只幼儿园 Boss（中班 0 \/ 大班 1，跳过 1）/);
 });
 it('qualifying()：同科目同小节、去掉 Boss 专用题；12 道正好够', () => {
-  const r = execFileSync('python3', ['-c', `import importlib.util as u;s=u.spec_from_file_location('m','scripts/import-k2-monsters.py');m=u.module_from_spec(s);s.loader.exec_module(m)
+  const r = execFileSync('python3', ['-B', '-c', `import importlib.util as u;s=u.spec_from_file_location('m','scripts/import-k2-monsters.py');m=u.module_from_spec(s);s.loader.exec_module(m)
 qs=[{'id':f'X-{i}','subject':'数数','unit':'甲'} for i in range(14)]+[{'id':'Y','subject':'英语','unit':'甲'}]
 print(m.qualifying(qs,'数数','甲',{'X-0','X-1'}), m.qualifying(qs,'数数','甲',{'X-0','X-1','X-2'}), m.MIN_Q)`], { encoding: 'utf8' });
   expect(r.trim()).toBe('12 11 12');
