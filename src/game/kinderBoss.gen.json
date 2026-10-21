@@ -1130,6 +1130,45 @@
   },
   "aspect": 1.024
  },
+ "mon_k3_shape_mirrorfox_boss": {
+  "name": "镜子小狐狸",
+  "grade": "K3",
+  "level_kind": "boss",
+  "k2_subject": "shape",
+  "k2_topic": "mirrorfox",
+  "subject": "颜色形状",
+  "unit": "左右和镜像",
+  "subject_key": "math",
+  "theme": "number",
+  "tier": "boss",
+  "pool_cn": [
+   "颜色形状"
+  ],
+  "dir": "art/monsters/k3_boss/anim/mon_k3_shape_mirrorfox_boss",
+  "anims": {
+   "idle": {
+    "json": "idle",
+    "soft": "idle_soft",
+    "hit_frame": null
+   },
+   "attack": {
+    "json": "attack",
+    "soft": "attack_soft",
+    "hit_frame": 5
+   },
+   "hit": {
+    "json": "hit",
+    "soft": "hit_soft",
+    "hit_frame": null
+   },
+   "defeat": {
+    "json": "defeat",
+    "soft": "defeat_soft",
+    "hit_frame": null
+   }
+  },
+  "aspect": 0.979
+ },
  "mon_k3_shape_sortchest_boss": {
   "name": "分类百宝箱",
   "grade": "K3",

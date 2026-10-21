@@ -14,15 +14,15 @@ const K2_SRC = ['art/monsters/manifest.json', 'art/k2/todo.json', 'questions/中
 it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
   const miss = missing(...K2_SRC);
   skip(miss.length > 0 || boxPath('') !== '/workspace/', `开发机美术源不在（CI）：缺 ${miss.join('、') || '（ZY_BOX_ROOT 不是 /workspace，导入脚本只认 /workspace）'}——不重新生成比对`);
-  // r17：gen.json 按 v56 题库源生成（大班 镜子小狐狸 11 道 → 跳过）；源目录换成别的版本（v57 起 K3C-007 进了可用题库）就不重新生成比对——以后换题库时先导入再改这里
+  // r17：gen.json 按 v57 题库源生成（v57 左右和镜像新增 K3C-071 → 12 道，镜子小狐狸有 Boss 关了）；源目录换成别的版本就不重新生成比对——以后换题库时先导入再改这里
   const k3v = JSON.parse(readFileSync(boxPath('questions/题库_游戏可用_幼儿园大班.json'), 'utf8')).version;
-  skip(k3v !== 'v56', `题库源是 ${k3v}，kinderBoss.gen.json 钉在 v56——不重新生成比对`);
+  skip(k3v !== 'v57', `题库源是 ${k3v}，kinderBoss.gen.json 钉在 v57——不重新生成比对`);
   const before = readFileSync('src/game/kinderBoss.gen.json', 'utf8'); execFileSync('python3', ['scripts/import-k2-monsters.py']);
   expect(readFileSync('src/game/kinderBoss.gen.json', 'utf8')).toBe(before);
 });
-it('提交的 kinderBoss.gen.json：中班 23 + 大班 23 个 Boss（r17；镜子小狐狸不满 12 题跳过），引用的序列帧 json / 图片都在 public/', () => {
-  expect(KINDER_BOSS.length).toBe(46); expect(KINDER_BOSS.filter(b => b.grade === 'K2').length).toBe(23); expect(KINDER_BOSS.filter(b => b.grade === 'K3').length).toBe(23);
-  expect(KINDER_BOSS.some(b => b.id === 'mon_k3_shape_mirrorfox_boss')).toBe(false);
+it('提交的 kinderBoss.gen.json：中班 23 + 大班 24 个 Boss（r17 v57：镜子小狐狸够 12 题了），引用的序列帧 json / 图片都在 public/', () => {
+  expect(KINDER_BOSS.length).toBe(47); expect(KINDER_BOSS.filter(b => b.grade === 'K2').length).toBe(23); expect(KINDER_BOSS.filter(b => b.grade === 'K3').length).toBe(24);
+  expect(KINDER_BOSS.some(b => b.id === 'mon_k3_shape_mirrorfox_boss')).toBe(true);
   for (const b of KINDER_BOSS) for (const a of Object.values(b.anims)) {
     const j = `public/${b.dir}/${a.soft}.json`; expect(existsSync(j), j).toBe(true);
     expect(existsSync(`public/${b.dir}/${JSON.parse(readFileSync(j, 'utf8')).image}`)).toBe(true);

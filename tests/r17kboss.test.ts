@@ -11,7 +11,7 @@ function box() {
   w('art/monsters/manifest.json', JSON.stringify({ monsters: mons }));
   for (const m of mons) for (const k of ['idle', 'attack', 'hit', 'defeat']) w(`art/monsters/k3_boss/anim/${m.id}/${k}.json`, JSON.stringify({ hit_frame: k === 'attack' ? 5 : null }));
   w('questions/中班Boss名对照_v34.csv', '科目,册别 volume,小节 unit,Boss名,Boss专用题 id\n'); w('questions/题库_游戏可用_幼儿园中班.json', JSON.stringify({ questions: [] }));
-  w('questions/大班Boss名对照_v39.csv', '科目,册别 volume,小节 unit,Boss名,Boss专用题 id\n数数,大班,甲节,小甲,A-13 A-14\n颜色形状,大班,乙节,小乙,B-12 B-13\n');
+  w('questions/大班Boss名对照_v39.csv', '科目,册别 volume,小节 unit,Boss名,Boss专用题 id\n数数,大班,甲节,小甲,A-13 A-14 A-99\n颜色形状,大班,乙节,小乙,B-12 B-13\n');
   const qs = [...Array.from({ length: 14 }, (_, i) => ({ id: `A-${i + 1}`, subject: '数数', unit: '甲节' })), ...Array.from({ length: 13 }, (_, i) => ({ id: `B-${i + 1}`, subject: '颜色形状', unit: ' 乙节 ' }))];
   w('questions/题库_游戏可用_幼儿园大班.json', JSON.stringify({ questions: qs }));
   return d;
@@ -20,7 +20,8 @@ it('够格 12 道 → 导入；11 道（去掉 Boss 专用题）→ 跳过并打
   const d = box(); const out = join(d, 'gen.json');
   const so = execFileSync('python3', ['scripts/import-k2-monsters.py', '--dry'], { env: { ...process.env, ZY_BOX_ROOT: d, ZY_KBOSS_OUT: out }, encoding: 'utf8' });
   expect(so).toMatch(/WARN 跳过 K3 Boss 小乙（mon_k3_b_boss）：颜色形状·乙节 只有 11 道够格的题（< 12）/);
-  expect(so).not.toMatch(/小甲（/); expect(so).toMatch(/1 只幼儿园 Boss（中班 0 \/ 大班 1，跳过 1）/);
+  expect(so).toMatch(/WARN 大班Boss名对照_v39.csv：小甲 的 Boss 专用题 A-99 不在游戏可用题库（以题库为准，忽略）/);   // v57 K3C-013 这种情况：不报错
+  expect(so).not.toMatch(/跳过 K3 Boss 小甲/); expect(so).toMatch(/1 只幼儿园 Boss（中班 0 \/ 大班 1，跳过 1）/);
 });
 it('qualifying()：同科目同小节、去掉 Boss 专用题；12 道正好够', () => {
   const r = execFileSync('python3', ['-B', '-c', `import importlib.util as u;s=u.spec_from_file_location('m','scripts/import-k2-monsters.py');m=u.module_from_spec(s);s.loader.exec_module(m)

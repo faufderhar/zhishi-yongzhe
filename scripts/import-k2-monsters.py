@@ -4,6 +4,7 @@
 按字段匹配（grade + level_kind + k2_subject + k2_topic），id 只当键用；小节 unit 由 Boss 名对照表（同名 Boss 名）给出，并和 art/k2/todo.json 的来源核对。
 r17：也导入大班 Boss（grade=k3，字段 k3_subject / k3_topic，对照表 大班Boss名对照_v39.csv，序列帧到 public/art/monsters/k3_boss/anim/<id>/；
      gen.json 里统一写成 k2_subject / k2_topic 两个字段名，游戏按 grade 区分）。
+r17：对照表里列的 Boss 专用题如果不在游戏可用题库（比如 v57 K3C-013 改成需家长确认）→ 以题库为准，打印 WARN、忽略。
 r17：小节里够格的题（游戏可用题库里同科目同小节、去掉 Boss 专用题）不满 12 道 → 这一关没有章节 Boss（levels.ts 同一规则），
      这只 Boss 跳过并打印 WARN（不报错）。现在：大班 镜子小狐狸（左右和镜像 11 道，K3C-007 需家长确认没进可用题库）。
 用法：python3 scripts/import-k2-monsters.py [--dry]（--dry：只检查、打印，不写文件）；源目录 = $ZY_BOX_ROOT（默认 /workspace）"""
@@ -36,6 +37,9 @@ def main():
             if m['name'] not in unit_of: errs.append(f'{m["id"]}: Boss 名「{m["name"]}」不在{csv_name}'); continue
             subj_cn, unit, boss_only = unit_of[m['name']]
             if subj_cn != SUBJ[sub]: errs.append(f'{m["id"]}: 对照表科目 {subj_cn} ≠ {g}_subject {sub}'); continue
+            ids = {q.get('id') for q in qs}
+            gone = sorted(x for x in boss_only if x not in ids)
+            if gone: warns.append(f'WARN {csv_name}：{m["name"]} 的 Boss 专用题 {"、".join(gone)} 不在游戏可用题库（以题库为准，忽略）')
             n = qualifying(qs, subj_cn, unit, boss_only)
             if n < MIN_Q: warns.append(f'WARN 跳过 {G} Boss {m["name"]}（{m["id"]}）：{subj_cn}·{unit} 只有 {n} 道够格的题（< {MIN_Q}），这一节没有章节 Boss 关'); continue
             if g == 'k2' and todo is not None:
@@ -60,6 +64,6 @@ def main():
     if len(set(keys)) != len(keys): sys.exit('同一小节有两只 Boss')
     by = {G: sum(1 for v in out.values() if v['grade'] == G) for G in ('K2', 'K3')}
     if not DRY: json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    print(f'{len(out)} 只幼儿园 Boss（中班 {by["K2"]} / 大班 {by["K3"]}，跳过 {len(warns)}）→ {"（--dry 不写）" if DRY else OUT}；宽（aspect>1.15）：', sorted(k for k, v in out.items() if v['aspect'] > 1.15))
+    print(f'{len(out)} 只幼儿园 Boss（中班 {by["K2"]} / 大班 {by["K3"]}，跳过 {sum(1 for w in warns if w.startswith("WARN 跳过"))}）→ {"（--dry 不写）" if DRY else OUT}；宽（aspect>1.15）：', sorted(k for k, v in out.items() if v['aspect'] > 1.15))
 
 if __name__ == '__main__': main()

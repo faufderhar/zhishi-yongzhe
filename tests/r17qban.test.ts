@@ -6,8 +6,8 @@ import { hasQban, qbanIds, qbanUrl, qbanState, QBAN_CLOUD } from '../src/game/ki
 import { KINDER_BOSS, KINDER_MON } from '../src/game/monsterSkin';
 it('Q版范围：小乌云 + 5 只学科柔和版 + kinderBoss.gen.json 里全部 Boss；小黏黏只备用；三张图都在、≤150 KB', () => {
   const want = new Set([QBAN_CLOUD, ...Object.values(KINDER_MON), ...KINDER_BOSS.map(b => b.id)]);
-  expect(new Set(qbanIds())).toEqual(want); expect(qbanIds().length).toBe(52);
-  expect(hasQban('mon_k_sticky_jelly')).toBe(false); expect(hasQban('mon_k3_shape_mirrorfox_boss')).toBe(false);
+  expect(new Set(qbanIds())).toEqual(want); expect(qbanIds().length).toBe(53);
+  expect(hasQban('mon_k_sticky_jelly')).toBe(false); expect(hasQban('mon_k3_shape_mirrorfox_boss')).toBe(true);   // v57：镜子小狐狸有 Boss 关了
   for (const id of [...qbanIds(), 'mon_k_sticky_jelly']) for (const s of ['default', 'happy', 'mischief']) {
     const p = `public/art/k_qban/${id}_${s}.webp`; expect(existsSync(p), p).toBe(true); expect(statSync(p).size).toBeLessThanOrEqual(150 * 1024);
     expect(readFileSync(p).subarray(8, 12).toString()).toBe('WEBP'); }
