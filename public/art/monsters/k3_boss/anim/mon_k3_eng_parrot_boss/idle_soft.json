@@ -1,0 +1,19 @@
+{
+  "image": "idle_soft_sheet.webp",
+  "frame_width": 384,
+  "frame_height": 320,
+  "frame_count": 8,
+  "columns": 4,
+  "rows": 2,
+  "fps": 10,
+  "loop": true,
+  "anchor": {
+    "x": 192,
+    "y": 304,
+    "note": "pixels in frame; 脚底中心"
+  },
+  "facing": "left",
+  "webp_quality": 80,
+  "soft": true,
+  "max_saturation": 0.55
+}
