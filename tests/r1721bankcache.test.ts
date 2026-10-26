@@ -76,6 +76,12 @@ describe('r17.2.1 题库缓存', () => {
     const r = await fetchBuiltinBanks({ base: '', ver: 'H', release: 'v58', grades: ['9'], fetchFn: fn });
     expect(r.builtin['9'].version).toBe('v58'); expect(r.offline).toEqual(['9']);
   });
+  it('有 SW 接管且网络很慢：超时退回预缓存地址（不一直卡在加载题库）', async () => {
+    const fn = vi.fn((url: string) => url.includes('?v=') ? new Promise<Response>(() => {}) : Promise.resolve(resp(bank('9', 'v58')))) as unknown as typeof fetch;
+    const r = await fetchBuiltinBanks({ base: '', ver: 'H', release: 'v58', grades: ['9'], fetchFn: fn, timeoutMs: 30 });
+    expect(r.builtin['9'].version).toBe('v58'); expect(r.offline).toEqual(['9']);
+    expect((fn as unknown as { mock: { calls: [string, RequestInit?][] } }).mock.calls[0][1]?.signal).toBeDefined();
+  });
   it('开发环境（release=dev）不比对', async () => {
     const sw = fakeSW(OLD_IGNORE, pre(allV('v57')), allV('v58'));
     const r = await fetchBuiltinBanks({ base: '', ver: 'H', release: 'dev', grades: G, fetchFn: sw.fn });

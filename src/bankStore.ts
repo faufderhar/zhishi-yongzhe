@@ -39,13 +39,19 @@ export function mergeImported(byKey: Map<string, Question>, imp: any[], vis: Vis
     ② 兜底：全部读完后比对每册 version 和本构建的题库发布号（BANK_RELEASE），不一致 = 拿到的是旧缓存 →
        cache:'no-store' + 唯一参数 r= 重拉这几册（老 SW 只忽略 v / utm_，带 r= 的请求一定走网络），记 bank-stale 日志。 */
 export interface BankFetchResult { builtin: Record<string, Bank>; stale: string[]; refetched: string[]; offline: string[] }
-export async function fetchBuiltinBanks(o: { base: string; ver: string; release: string; grades?: GradeKey[]; fetchFn?: typeof fetch; onProgress?: (done: number, total: number) => void; now?: () => number; log?: (kind: string, msg: string) => void }): Promise<BankFetchResult> {
+export async function fetchBuiltinBanks(o: { base: string; ver: string; release: string; grades?: GradeKey[]; fetchFn?: typeof fetch; onProgress?: (done: number, total: number) => void; now?: () => number; /** 有 SW 接管时：网络超过这么多毫秒就用预缓存（0 = 不限） */ timeoutMs?: number; log?: (kind: string, msg: string) => void }): Promise<BankFetchResult> {
   const grades = o.grades ?? BUILTIN_GRADES, f = o.fetchFn ?? ((...a: Parameters<typeof fetch>) => fetch(...a)), log = o.log ?? (() => {});
   const builtin: Record<string, Bank> = {}, raws: Record<string, any> = {}, offline: string[] = []; let done = 0;
-  const get = async (url: string, init?: RequestInit) => { const r = await f(url, init); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); };
+  /* 网络很慢时别一直卡在「正在加载题库」：有 SW 接管时（timeoutMs>0）超时就退回预缓存那份 */
+  const get = async (url: string, init?: RequestInit, ms = 0) => {
+    const ac = ms > 0 && typeof AbortController !== 'undefined' ? new AbortController() : undefined; let t: ReturnType<typeof setTimeout> | undefined;
+    const job = (async () => { const r = await f(url, ac ? { ...init, signal: ac.signal } : init); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })();
+    if (!ms) return job;
+    try { return await Promise.race([job, new Promise((_, rej) => { t = setTimeout(() => { ac?.abort(); rej(new Error('timeout')); }, ms); })]); } finally { clearTimeout(t); }
+  };
   await Promise.all(grades.map(async g => {
     const plain = `${o.base}banks/bank_${g}.json`, url = `${plain}?v=${o.ver}`;
-    try { raws[g] = await get(url); }
+    try { raws[g] = await get(url, undefined, o.timeoutMs); }
     catch (e) {
       try { raws[g] = await get(plain); offline.push(g); }   // 断网：用预缓存里的那份
       catch { console.warn('题库加载失败', url, e); }
@@ -60,7 +66,7 @@ export async function fetchBuiltinBanks(o: { base: string; ver: string; release:
     console.warn('[zy] bank-stale', stale, o.release);
     const t = (o.now ?? Date.now)();
     await Promise.all(stale.map(async g => {
-      try { const raw = await get(`${o.base}banks/bank_${g}.json?v=${o.ver}&r=${t}`, { cache: 'no-store' }); if (verOf(raw) === o.release) { raws[g] = raw; refetched.push(g); } else log('bank-stale', `bank_${g} 重拉后仍是 ${verOf(raw)}`); }
+      try { const raw = await get(`${o.base}banks/bank_${g}.json?v=${o.ver}&r=${t}`, { cache: 'no-store' }, o.timeoutMs ? o.timeoutMs + 4000 : 0); if (verOf(raw) === o.release) { raws[g] = raw; refetched.push(g); } else log('bank-stale', `bank_${g} 重拉后仍是 ${verOf(raw)}`); }
       catch (e) { log('bank-stale', `bank_${g} 重拉失败（可能断网），先用旧的：${(e as Error)?.message ?? e}`); }
     }));
   }
@@ -68,7 +74,7 @@ export async function fetchBuiltinBanks(o: { base: string; ver: string; release:
   return { builtin, stale, refetched: refetched.sort(), offline };
 }
 export async function loadAllBanks(onProgress?: (done: number, total: number) => void): Promise<BankState> {
-  const { builtin } = await fetchBuiltinBanks({ base: import.meta.env.BASE_URL, ver: BANK_VER, release: BANK_RELEASE, onProgress, log: logErr });
+  const { builtin } = await fetchBuiltinBanks({ base: import.meta.env.BASE_URL, ver: BANK_VER, release: BANK_RELEASE, onProgress, log: logErr, timeoutMs: typeof navigator !== 'undefined' && navigator.serviceWorker?.controller ? 8000 : 0 });
   const byKey = new Map<string, Question>();
   /* r16 第 10 步：可见性 = 不在 FORCE_HIDDEN 且 内置题过题量门槛（game/visibility.ts）；藏起来的不进地图 / 推荐 / 复习 / 册别选择 */
   const vis = computeVisibility(BUILTIN_GRADES.flatMap(g => builtin[g]?.all ?? []));
