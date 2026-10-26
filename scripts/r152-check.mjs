@@ -55,7 +55,7 @@ async function jRun(useChal) {
   await pg.screenshot({ path: OUT + `r152-j-${useChal ? 'chal' : 'normal'}.png` }); await ctx.close(); return res;
 }
 {
-  const a = await jRun(false); ok(a && a.stars === 2 && a.hint && a.txt.includes('答对一道挑战题就能拿 3 星'), `初一普通关：挑战亮着但只答普通题 → ★★ + 提示（${JSON.stringify(a)}）`);
+  const a = await jRun(false); ok(a && a.stars === 2 && a.hint && a.txt.includes('就差答对 1 道挑战题'), `初一普通关：挑战亮着但只答普通题 → ★★ + 提示（${JSON.stringify(a)}）`);
   const b = await jRun(true); ok(b && b.stars === 3 && !b.hint, `初一普通关：答对 1 道挑战题 → ★★★、无提示（${JSON.stringify(b)}）`);
 }
 {

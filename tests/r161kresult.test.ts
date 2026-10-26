@@ -21,6 +21,6 @@ describe('r16.1 幼儿园结算页的怪物', () => {
     expect(s).not.toMatch(/<h1>小乌云变成你的好朋友啦！<\/h1>/);
     expect(s).toMatch(/kFriendLine\(kMon\)/);
     expect((b.match(/demo: (k|ns)\.demo \}, kMon \}/g) ?? []).length).toBe(6);   // r17：+2 处期末关（爱心全亮 termDone / 答完）；没点完爱心的时间到 / 暂停超时不结算（睡觉去）
-    expect(a).toMatch(/<ResultScreen (kTerm=\{screen\.r\.term\} )?kMon=\{screen\.r\.kMon\}/);
+    expect(a).toMatch(/<ResultScreen (kind=\{screen\.level\.kind\} )?(kTerm=\{screen\.r\.term\} )?kMon=\{screen\.r\.kMon\}/);
   });
 });

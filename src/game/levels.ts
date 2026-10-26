@@ -268,18 +268,31 @@ export function volRank(v: string) {
 
 /** 同一章（册别 + 章/单元）的所有关卡 */
 export const levelsOfUnit = (levels: Level[], l: Level) => levels.filter(x => x.volume === l.volume && x.unit === l.unit);
-/** 星级（策划 D3，全年龄统一）：正确率 = 第 1 次就答对 ÷ 作答题数；★ 通关；★★ ≥ 60%；★★★ ≥ 80% 且未复活 */
-/** 星级（策划 r6 裁定 1）：正确率 = 答对 ÷ 作答（我方 + 对方回合全部题；超时算错；多选漏选算 0.5）。
-    ★ 通关；★★ ≥60%；★★★ ≥80% 且未复活；回合上限撤退最多 ★；时间到 0★。小班沿用 D1–D3（只算自己第一次答对）。 */
-export const STAR_RULES = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成且没复活';
-/** r10 R9-3：轮流回合（小学 3–6、初一、高一）按 D14 */
+/** 星级（策划 r6 裁定 1；判定逻辑全年龄一套，图例按年级段 + 关卡类型取一行，见 学霸r16.1裁定_r17 §4.3 / r17-7）：
+    正确率 = 答对 ÷ 作答（我方 + 对方回合全部题；超时算错；多选漏选算 0.5）。
+    ★ 通关；★★ ≥60%；★★★ ≥80% 且未复活（轮流回合另要剩一半血以上；初中普通关另要答对 1 道挑战题）；回合上限撤退最多 ★；时间到 0★。小班沿用 D1–D3（只算自己第一次答对）。 */
+/** r17.1 r17-7：小学 1–2 年级（不能失败、没有复活）图例去掉「没复活」 */
+export const STAR_RULES = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成';
+/** r10 R9-3：轮流回合（小学 3–6、高中、初中精英 / Boss）按 D14 */
 export const STAR_RULES_ROUND = '⭐ 过关　⭐⭐ 答对六成　⭐⭐⭐ 答对八成、没复活、剩一半血以上';
+/** r17.1 r17-7：初中（初一 / 初二 / 初三）普通关 */
+export const STAR_RULES_J_NORMAL = STAR_RULES_ROUND + '，还要答对 1 道挑战题 🔥';
 export const STAR_RULES_K = '⭐ 过关　⭐⭐ 第一次就答对六成　⭐⭐⭐ 第一次就答对八成';
+/** r17.1 r17-7：按年级段 + 关卡类型取一行图例（结算页、「?」规则页、家长页同一份） */
+export function starRulesFor(band: string, kind?: LevelKind | string): string {
+  if (band === 'K') return STAR_RULES_K;
+  if (band === 'G1') return STAR_RULES;
+  return band === 'J' && kind === 'normal' ? STAR_RULES_J_NORMAL : STAR_RULES_ROUND;
+}
+/** r17.1 r17-7：补充说明（「?」规则页「星星」条和家长页显示全文，结算页不显示） */
+export const STAR_NOTE = '答对率 = 答对的题 ÷ 答过的题（攻击题和闪避题都算；超时算错，漏选算半道；复活题不算）。复活过的关最多 ⭐⭐。怪物撤退时，答对四成以上得 ⭐，不到四成没有星。时间用完没有星。初中普通关的 ⭐⭐⭐ 还要答对 1 道挑战题——这一关挑战按钮一直是灰的（没有更难的题）就不用。同一关每天从第 3 次起不再加星，地图上显示最好成绩。';
 /** r12（策划）：怪物撤退时正确率 ≥ 40%（半对算 0.5）才算通关，最多 ★ */
 export const RETREAT_CLEAR = 0.4;
 export const retreatCleared = (r: { correct: number; total: number }) => !!r.total && r.correct / r.total >= RETREAT_CLEAR - 1e-9;
-/** r15.2（用户 + 策划）：初一普通关 ★★★ 还要至少答对 1 道挑战题；挑战按钮整关一直灰着就不要求（chalNeed=false）。精英 / Boss / 其他年级不变 */
-export const CHAL_STAR_HINT = '答对一道挑战题就能拿 3 星';
+/** r15.2 / r17-7（用户 2026-10-20 拍板）：整个初中段（初一 / 初二 / 初三，mode==='j'）普通关 ★★★ 还要至少答对 1 道挑战题；挑战按钮整关一直灰着就不要求（chalNeed=false）。精英 / Boss / 其他年级不要求 */
+export const CHAL_STAR_HINT = '其他条件都够 ⭐⭐⭐ 了，就差答对 1 道挑战题';
+/** 本局要不要求挑战题：不得改成只限初一 */
+export const chalNeedOf = (mode: string | null | undefined, kind: LevelKind | string, chalSeen: boolean) => mode === 'j' && kind === 'normal' && chalSeen;
 export const chalMissing = (r: { chalNeed?: boolean; chalRight?: number }) => !!r.chalNeed && !(r.chalRight ?? 0);
 export function levelStars(r: { win: boolean; correct: number; total: number; revived: boolean; retreat?: boolean; timeUp?: boolean; hpPct?: number; chalNeed?: boolean; chalRight?: number }) {
   if (r.timeUp) return 0;

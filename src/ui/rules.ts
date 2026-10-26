@@ -1,5 +1,7 @@
 /* D14 §7：战斗页「？」规则说明（按学段）与首次短提示 */
 import type { RoundMode } from '../game/balance';
+import type { LevelKind } from '../game/grades';
+import { starRulesFor, STAR_NOTE } from '../game/levels';
 export type TipKey = 'partial' | 'dodge' | 'perfect' | 'guard' | 'rage' | 'challenge' | 'cap' | 'focus' | 'energy';
 export const TIP_KEYS: TipKey[] = ['partial', 'dodge', 'perfect', 'guard', 'rage', 'challenge', 'cap', 'focus', 'energy'];
 export const TIP_TEXT: Record<TipKey, string> = {
@@ -27,12 +29,15 @@ const RULES: Rule[] = [
   ['漏选（半对）', '多选题选对了一部分但没选全。我方回合只造成一半伤害，怪物也不反击；对方回合算没闪开，但伤害减半。', JH],
   ['加成上限', '连击、专注、技能、题卡、挑战、押注这些加成合起来最多 ×1.8；题目难度、角色主修、角色被动和怪物弱点另外计算。', ALL],
   ['Boss 二阶段', 'Boss 血条分两段，打掉第一段就会发怒：攻击 +20%，换一套招式；蓄力重击仍按原攻击 ×2，不叠加；第一段多打的伤害不会带到第二段。', JH],
-  ['挑战题', '每个我方回合出题前选：题更难一档，答对伤害 ×1.5；答错反击 ×1.5，而且闪不开。慢慢选，点了才出题、才开始计时，出题后不能再换。初一普通关要拿 3 星，得至少答对一道挑战题（这一关没有挑战题时不算）。', ['j']],
+  ['挑战题', '每个我方回合出题前选：题更难一档，答对伤害 ×1.5；答错反击 ×1.5，而且闪不开。慢慢选，点了才出题、才开始计时，出题后不能再换。初中普通关要拿 3 星，得至少答对一道挑战题（挑战按钮一直是灰的那关不算）。', ['j']],
   ['题卡', '轻击 / 标准 / 重击：卡上写的是实际伤害倍率（题越简单，加成越少：难度 1 只有一半，难度 2 是 3/4）；答错的反击倍率不变。', ['h']],
   ['押注', '我方回合看题前，题卡旁边有「押注」开关（默认不押，点一下打开；每回合重新选）。押了：答对伤害 ×1.25、能量额外 +1（答对本来就 +1，押注再 +1）；答错（半对也算错）反击 ×1.25，而且不能闪避。押注的 ×1.25 也算在「加成上限 ×1.8」里。不押就照常结算（答错有机会闪开）。对方回合没有押注。', ['h']],
-  ['复活和星星', '血条空了，答对 2 道错题就能复活一次。★ 通关；★★ 答对率 60%；★★★ 答对率 80%、没复活、剩一半血以上。', ALL],
+  ['复活', '血条空了可以挑战复活一次：最多 4 道题（本关没出过的新题优先）里答对 2 道，回到 50% 血量，不算回合。', ALL],   // r17-7：原「复活和星星」拆两条
+  ['星星', '', ALL],
 ];
-export const rulesFor = (m: RoundMode) => RULES.filter(r => r[2].includes(m)).map(r => [r[0], r[1]] as [string, string]);
+const BAND_OF: Record<RoundMode, string> = { p36: 'G2', j: 'J', h: 'H' };
+/** r17-7：「星星」条按年级段 + 关卡类型取一行图例 + 补充说明 */
+export const rulesFor = (m: RoundMode, kind?: LevelKind) => RULES.filter(r => r[2].includes(m)).map(r => [r[0], r[0] === '星星' ? `${starRulesFor(BAND_OF[m], kind ?? 'normal')}。${STAR_NOTE}` : r[1]] as [string, string]);
 /** 「Boss 怒了」低沉鼓声：WebAudio 合成两下低频（不依赖素材） */
 export function playRageDrum() {
   try {

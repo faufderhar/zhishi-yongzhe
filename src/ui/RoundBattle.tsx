@@ -1,3 +1,4 @@
+import { chalNeedOf } from '../game/levels';
 import { tierCap } from '../game/consolidate';
 import { fillKind } from '../game/inputKind';
 import { stemOf, reviewGate } from '../game/adaptive';
@@ -81,7 +82,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   useWakeLock(); usePauseTimeout(paused, () => quitRef.current());
   const exhausted = useRef(false); const shownN = useRef(0), lastRev = useRef(-1); const revSet = useMemo(() => new Set(review ?? []), []);
   const reviveFailed = useRef(false); const [reviveMsg, setReviveMsg] = useState('');
-  const result = (s: RState) => ({ endReason: s.over === 'lose' ? (reviveFailed.current ? 'reviveFail' as const : 'hp0' as const) : undefined, exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong, chalNeed: mode === 'j' && kind === 'normal' && chalSeen.current, chalRight: chalRight.current });
+  const result = (s: RState) => ({ endReason: s.over === 'lose' ? (reviveFailed.current ? 'reviveFail' as const : 'hp0' as const) : undefined, exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong, chalNeed: chalNeedOf(mode, kind, chalSeen.current), chalRight: chalRight.current });
   // r9：暂停超时 / 暂停里点回地图：按已答的题结算，不静默丢进度
   const quitNow = () => { if (!stats.current.total) { onQuit(); return; } onEnd({ ...result(bsRef.current), win: false, retreat: false, quit: true }); };
   quitRef.current = quitNow;
@@ -461,7 +462,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         <p className="hint">⚔ 攻击 · ⚡ 蓄力（下次重击 ×2）· 💥 重击 · 🛡 护盾</p>
         <button className="btn" data-testid="intent-ok" onClick={() => setIntentPop(false)}>知道了</button></Modal>}
       {rules && <Modal onClose={() => setRules(false)}><h2>规则说明</h2>
-        <ol className="rules-list" data-testid="rules-pop">{rulesFor(bs.mode).map((r, i) => <li key={i}><b>{r[0]}</b>：{r[1]}</li>)}</ol>
+        <ol className="rules-list" data-testid="rules-pop">{rulesFor(bs.mode, kind).map((r, i) => <li key={i}><b>{r[0]}</b>：{r[1]}</li>)}</ol>
         <button className="btn" data-testid="rules-ok" onClick={() => setRules(false)}>知道了</button></Modal>}
       {betHint && (phase === 'cards' || phase === 'bet') && <Modal onClose={closeBetHint}><h2>新玩法：押注</h2>
         <BetHintList />

@@ -14,8 +14,8 @@ import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { isUnlocked, missingPrereqs, starOf, STAR_RULES, STAR_RULES_ROUND, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
-import type { BandConfig } from '../game/grades';
+import { isUnlocked, missingPrereqs, starOf, starRulesFor, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
+import type { BandConfig, LevelKind } from '../game/grades';
 import { segOf, skillCardLine } from '../game/skills';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
@@ -309,7 +309,7 @@ function KMonSheetFace({ m }: { m?: KMonOut }) {
   if (m && sh && !bad) return <div className="kmon-face" data-testid="result-k-mon" data-mon={m.name} role="img" aria-label={m.name} style={{ backgroundImage: `url(${sh.img})`, backgroundSize: `${sh.cols * 100}% ${sh.rows * 100}%`, aspectRatio: String(sh.ar) }} />;
   return <img src={`${base}art/monsters/mon_k_naughty_cloud_sprite.png`} alt="" data-testid="result-k-mon" data-mon={m && !bad ? m.name : '小乌云'} />;
 }
-export function ResultScreen({ kTerm, kMon, playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { kTerm?: TermNo; endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
+export function ResultScreen({ kind, kTerm, kMon, playN, endReason, chalHint = false, cfg, c, win, stars, correct, total, newlyMastered, timeUp, forcedTimeUp, quit, onAgain, onNext, onMap, kinder, retreat, turns, best, prevBest, exhausted = false, half = 0, capped = false }: { kind?: LevelKind; kTerm?: TermNo; endReason?: 'hp0' | 'reviveFail'; chalHint?: boolean; capped?: boolean; playN?: number; prevBest?: number; exhausted?: boolean;
   half?: number; best?: number; cfg: BandConfig; c: Character; win: boolean; stars: number; correct: number; total: number; newlyMastered: number; timeUp: boolean; forcedTimeUp?: boolean; quit?: boolean; kinder?: { first: number; retry: number; demo: number }; kMon?: KMonOut; retreat?: boolean; turns?: number;
   onAgain: () => void; onNext?: () => void; onMap: () => void;
 }) {
@@ -367,7 +367,7 @@ export function ResultScreen({ kTerm, kMon, playN, endReason, chalHint = false, 
       {!kTime && cfg.band !== 'K' && !capped && best !== undefined && best < stars && <p className="sub" data-testid="result-capped">这是今天第 {playN ?? 3} 次玩这一关（同一关每天从第 3 次起不再加星）；地图上保留最佳 {'★'.repeat(best)}。明天再来挑战吧！</p>}
       {!kTime && !kNoStar && best !== undefined && best > stars && !(prevBest && stars <= prevBest) && <p className="sub" data-testid="result-best">本次 {'★'.repeat(stars) || '0★'} · 最佳 {'★'.repeat(best)}（地图上显示历史最佳，星星只升不降）</p>}
       {chalHint && <p className="sub" data-testid="result-chal-hint">🔥 {CHAL_STAR_HINT}</p>}   {/* r15.2：只因没答对挑战题拿 2 星 */}
-      {!kTime && cfg.band !== 'K' && <p className="star-rules" data-testid="star-rules">{cfg.battle === 'full' ? STAR_RULES_ROUND : STAR_RULES}</p>}   {/* r15.4.3 小萌新：小班不显示「第一次就答对六成 / 八成」图例（规则在家长页） */}
+      {!kTime && cfg.band !== 'K' && <p className="star-rules" data-testid="star-rules">{starRulesFor(cfg.band, kind)}</p>}   {/* r15.4.3 小萌新：小班不显示「第一次就答对六成 / 八成」图例（规则在家长页） */}
       {kNoStar ? null : cfg.band === 'K' ? <KinderLines k={kinder} /> : <p className="sub" data-testid="result-stats">{half ? `答对 ${Math.round(correct - half / 2)} 题、半对 ${half} 题，共 ${total} 题` : `答对 ${Math.round(correct)} / ${total} 题`}{` · 正确率 ${acc}%`}{turns ? ` · 共 ${turns} 回合` : ''}{newlyMastered ? ` · 掌握错题 +${newlyMastered}★` : ''}</p>}
       {timeUp && !(cfg.band === 'K' && forcedTimeUp) && <p className="warn">{kTime ? <>😴 {TIMEUP_K_TEXT}</> : '今天的时间用完啦，休息一下吧！明天 0:00 重新计时。'}</p>}
       {/* r16 小萌新：按钮带图标；按钮行贴在屏幕底部（窗口矮时不用往下滚） */}

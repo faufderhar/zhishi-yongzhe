@@ -10,7 +10,7 @@ import { VERSION_LABEL } from '../version';
 import { useInstallPrompt, isStandalone, isIOS, IosSteps, promptInstall } from './Screens';
 import { toggleVol as toggleVolS, toggleAllVols, volsValid, learnedCount } from '../game/volumes';
 import { effLimit, MIN_LIMIT } from '../state';
-import { STAR_RULES_K } from '../game/levels';
+import { STAR_RULES_K, starRulesFor, STAR_NOTE } from '../game/levels';
 import { K_NOSTAR_TEXT, K_AGAIN_TEXT } from '../game/playtime';
 declare const __BUILD__: string; declare const __BUILD_TIME__: string;
 /** 构建日期按用户设备的本地时区显示（r8） */
@@ -45,7 +45,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, PinPad, fmtMin, NameCount, NAME_MAX, pasteTooLong } from './common';
 import { GRADE_LABEL, loadBank, countStatuses, isPlayableStatus, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from '../game/questions';
 import { csvToQuestions, toCSV } from '../game/csv';
-import { PROFILE_GRADES, bandConfig } from '../game/grades';
+import { PROFILE_GRADES, bandConfig, bandOf } from '../game/grades';
 import { validPin, remainingSec, limitMinutes, addBonus, cancelBonus, bonusUsedSec, cancelPreview, bonusAllSpent, splitUsed, fmtMS, effBonus, SPENT_LINE, cancelLeftLine, fmtDur, type Usage, type DayUsage } from '../game/playtime';
 import { dayStr } from '../game/wrongbook';
 import { AVATARS, newProfile, type Profile, type Settings } from '../state';
@@ -762,6 +762,11 @@ function ReportTab(props: ParentProps) {
         {profiles.find(x => x.id === pid)?.grade.startsWith('K') && <div className="p-card" data-testid="report-star-rules-k"><b>⭐ {GRADE_LABEL[profiles.find(x => x.id === pid)!.grade].replace('幼儿园', '')}的星星怎么得</b>
           <p className="hint">{STAR_RULES_K.replace(/　/g, '；')}（「第一次就答对」= 这道题第一次就点对；点错后再试对的、看了示范的不算）。</p>
           <p className="hint">同一关每天从第 3 次起不再加星，地图上保留这一关的最佳星星（只升不降）。这时结算页只说一句「{K_NOSTAR_TEXT}」，不写规则；同一关第 2 次玩完照常加星，结算页说「{K_AGAIN_TEXT}」。</p></div>}
+        {/* r17.1 r17-7：其他年级段的星级说明（和结算页、「?」规则页同一份文案） */}
+        {(() => { const g = profiles.find(x => x.id === pid)?.grade; if (!g || g.startsWith('K')) return null; const b = bandOf(g);
+          return <div className="p-card" data-testid="report-star-rules"><b>⭐ 星星怎么得</b>
+            {b === 'J' ? <><p className="hint">普通关：{starRulesFor(b, 'normal')}</p><p className="hint">精英 / Boss 关：{starRulesFor(b, 'boss')}</p></> : <p className="hint">{starRulesFor(b)}</p>}
+            <p className="hint">{STAR_NOTE}</p></div>; })()}
       </>}
     </div>
   );
