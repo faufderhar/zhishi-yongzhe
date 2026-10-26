@@ -27,15 +27,15 @@ describe('数值不变', () => {
 describe('(v)(w)(x) 打穿阶段线', () => {
   const s0 = { ...newRound('h', 'boss'), monsterHp: 135 };
   const inp = { subject: '数学', difficulty: 3 };
-  it('剩 10 到阶段线：预计 −10，并说「本阶段最多扣 10，多出的被 Boss 护体挡住」；实际也只扣 10，多出的 = 原始 − 10', () => {
+  it('剩 10 到阶段线：预计 −10，并说「本阶段最多扣 10，多出的不会带到下一阶段」（r17-5 改文案）；实际也只扣 10，多出的 = 原始 − 10', () => {
     const est = estimateDealt(s0, asuan, inp); expect(est).toBe(10);
     const [s, o] = resolveRound(s0, asuan, { ...inp, correct: true, noSkill: true, rng: () => 0.999 });
     expect(o.dealt).toBe(10); expect(s.monsterHp).toBe(125);
     const raw = o.dmg!.per * o.dmg!.hits; expect(raw).toBeGreaterThan(10);
     expect(phaseOverflow(o)).toBe(raw - 10); expect(estimateOverflow(s0, asuan, inp)).toBe(raw - 10);
-    expect(phaseCapText(est)).toBe('本阶段最多扣 10，多出的被 Boss 护体挡住');
-    expect(guardText(52)).toBe('🛡 护体！第一阶段破了，多出 52 点没打进去');
-    expect(detailLines(o.dmg!, o.dealt, o.absorbed ?? 0).at(-1)).toBe(`实际造成 10（🛡 护体！第一阶段破了，多出 ${raw - 10} 点没打进去）`);
+    expect(phaseCapText(est)).toBe('本阶段最多扣 10，多出的不会带到下一阶段');
+    expect(guardText(52)).toBe('🚧 阶段线！第一阶段破了，多出 52 点没打进去');
+    expect(detailLines(o.dmg!, o.dealt, o.absorbed ?? 0).at(-1)).toBe(`实际造成 10（🚧 阶段线！第一阶段破了，多出 ${raw - 10} 点没打进去）`);
   });
   it('没打穿 / 不是 Boss / 第二阶段 → 0，不显示', () => {
     expect(estimateOverflow({ ...newRound('h', 'boss') }, asuan, inp)).toBe(0);

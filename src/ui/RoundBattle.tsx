@@ -297,7 +297,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     // r8b：致命一击在命中帧之后不再等受击/收招动作，直接进怪物 defeat（≤0.8 s）→ 结算
     /* r15.4.2 学霸：护盾挡掉的点数在命中时飘字显示——这一击打死怪物（直接去结算、看不到反馈文字）时也能看到 */
     const shieldFloat = () => { if (o.absorbed) setTimeout(() => D.dir.current?.float(D.dir.current.r.monster, `🛡 护盾挡掉 ${o.absorbed}`, 'soft'), 120); };
-    /* r16.1 (w) Boss补测裁定_r17 §2：打穿第一阶段线时飘字说明多出的被护体挡住（溢出不带入，数值不变） */
+    /* r16.1 (w) Boss补测裁定_r17 §2：打穿第一阶段线时飘字说明多出的不会带到下一阶段（溢出不带入，数值不变；r17-5 文案「🚧 阶段线」） */
     const ovN = phaseOverflow(o); const guardFloat = () => { if (ovN > 0) setTimeout(() => D.dir.current?.float(D.dir.current.r.monster, guardText(ovN), 'soft'), o.absorbed ? 420 : 160); };
     let hitDone = () => {}; const hitP = new Promise<void>(r => { hitDone = r; });
     const show = k && d && o.side === 'P'   // 攻击技能：横幅 + 技能特效替代普攻演出，命中帧结算数字（≤1.5 s）

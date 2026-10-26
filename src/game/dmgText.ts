@@ -23,10 +23,10 @@ export function summary(d: DmgInfo | undefined, n = 3): { items: SumItem[]; more
 }
 export const summaryText = (s: NonNullable<ReturnType<typeof summary>>) =>
   [s.items.map(x => `${x.name} ${fmtX(x.m)}`).join(' · ') + (s.more ? ' 等' : ''), s.cap ?? ''].filter(Boolean).join(' · ');
-/** r16.1 (w) Boss补测裁定_r17 §2：打穿第一阶段线时多出的伤害被 Boss 护体挡住（溢出不带入，数值不变） */
-export const guardText = (n: number) => `🛡 护体！第一阶段破了，多出 ${n} 点没打进去`;
+/** r16.1 (w) Boss补测裁定_r17 §2：打穿第一阶段线时多出的伤害不带到下一阶段（数值不变）；r17-5：叫「阶段线」，不再借用玩家技能的「护体」 */
+export const guardText = (n: number) => `🚧 阶段线！第一阶段破了，多出 ${n} 点没打进去`;
 /** r16.1 (v)：预计伤害会被阶段线截住时的说明 */
-export const phaseCapText = (x: number) => `本阶段最多扣 ${x}，多出的被 Boss 护体挡住`;
+export const phaseCapText = (x: number) => `本阶段最多扣 ${x}，多出的不会带到下一阶段`;
 /** 明细浮层的几行；最后一行的数 = 每段实际伤害（护盾抵扣前），dealt 给了就再写护盾 / 实际造成 */
 export function detailLines(d: DmgInfo, dealt?: number, absorbed = 0): string[] {
   const L: string[] = []; const ab = d.atk * d.diff;
