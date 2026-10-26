@@ -49,7 +49,8 @@ for (const vp of VPS) for (const grade of (process.env.GR || '10,7').split(','))
         let L = null; if (await vis('[data-testid=dmg-sum-detail]')) L = (await pg.textContent('[data-testid=dmg-sum-detail]')); 
         const lines = L ? await pg.$$eval('[data-testid=dmg-sum-detail] > div', es => es.map(e => e.textContent)) : [];
         const lastEq = lines.filter(l => /≈ \d+/.test(l)).pop(); const per = lastEq ? +lastEq.match(/≈ (\d+)/)[1] : null; const nh = lastEq && /共 (\d+) 段/.test(lastEq) ? +lastEq.match(/共 (\d+) 段/)[1] : 1;
-        const real = lines.find(l => /实际造成 \d+/.test(l)); const fin = real ? +real.match(/实际造成 (\d+)/)[1] : per !== null ? per * nh : null;
+        const real = lines.find(l => /实际造成 \d+/.test(l)); const tot = lastEq && lastEq.match(/≈ \d+（每段）× \d+ 段 = (\d+)\s*$/);   // B19 §6 多段：「≈ 26（每段）× 2 段 = 52」
+        const fin = real ? +real.match(/实际造成 (\d+)/)[1] : tot ? +tot[1] : per !== null ? per * nh : null;
         if (/已到上限 ×1\.8/.test(line.t)) capSeen = true;
         hits.push({ h3, sum: line.t, one: line.one && line.fit && row.wrapOk, dealt, fin, lines });
         if (hits.length === 3) await pg.screenshot({ path: `${OUT}${vp}-g${grade}-hit.png` });
