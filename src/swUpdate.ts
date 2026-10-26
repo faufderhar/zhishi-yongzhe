@@ -34,6 +34,19 @@ export function safeReload(reason: string, screen?: string) { if (!safeNow || is
 const BEAT = 'zy.beat', BYE = 'zy.bye';
 export const beat = (screen: string) => { try { localStorage.setItem(BEAT, JSON.stringify({ screen, at: Date.now() })); } catch { /* */ } };
 if (typeof window !== 'undefined') window.addEventListener('pagehide', () => { try { localStorage.setItem(BYE, String(Date.now())); } catch { /* */ } });
+/** r17.2.1：新 SW 接管计数。version.json 先发现新版时新 SW 可能还没装好——这时刷新，旧 SW 会用旧预缓存（旧题库）喂新页面。
+    所以先等新 SW 接管（controllerchange），最多等 ms 毫秒，再刷新 */
+let ctlGen = 0; export const controllerGen = () => ctlGen;
+type SWC = Pick<ServiceWorkerContainer, 'addEventListener' | 'removeEventListener'>;
+export function waitForController(sinceGen: number, ms = 8000, sw: SWC | undefined = typeof navigator !== 'undefined' ? navigator.serviceWorker : undefined): Promise<boolean> {
+  if (ctlGen !== sinceGen || !sw) return Promise.resolve(ctlGen !== sinceGen);
+  return new Promise(res => {
+    const done = (v: boolean) => { clearTimeout(t); sw.removeEventListener('controllerchange', on); res(v); };
+    const on = () => done(true); const t = setTimeout(() => done(false), ms);
+    sw.addEventListener('controllerchange', on);
+  });
+}
+let healWaiting = false;
 let pending = false;
 export const updatePending = () => pending;
 export function setupSW() {
@@ -42,7 +55,8 @@ export function setupSW() {
   let reg: ServiceWorkerRegistration | undefined;
   const check = () => { void reg?.update().catch(() => {}); };
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (!had) return;   // 第一次安装接管，不算更新
+    ctlGen++;
+    if (!had || healWaiting) return;   // r17.2.1：自愈那边正在等这次接管，它自己会刷新（不再弹第二个更新）   // 第一次安装接管，不算更新
     pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: (sc?: string) => { safeReload('controllerchange', sc); } }));
   });
   window.addEventListener('load', () => {
@@ -59,7 +73,14 @@ export function setupSW() {
       if (!v.build || v.build === __BUILD__) return;
       check(); const k = 'zy-heal-' + v.build;
       if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, '1');
-      pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: (sc?: string) => { safeReload('version.json:' + v.build, sc); } }));
+      const gen = ctlGen;
+      // r17.2.1：点更新条 / 自动刷新时，先让新 SW 装好并接管（最多 8 秒），再刷新——刷新后的页面和题库都来自新 SW
+      const go = async (sc?: string) => {
+        if (healWaiting) return false; healWaiting = true;
+        try { check(); reg?.waiting?.postMessage({ type: 'SKIP_WAITING' }); const got = await waitForController(gen); return safeReload('version.json:' + v.build + (got ? '' : ':no-sw'), sc); }
+        finally { healWaiting = false; }
+      };
+      pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: go }));
     } catch { /* 离线 */ }
   };
   window.addEventListener('load', () => { void heal(); });

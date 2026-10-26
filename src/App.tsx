@@ -428,15 +428,18 @@ export default function App() {
   const SAFE_RELOAD = ['profiles', 'stage', 'grade', 'map'];
   useEffect(() => {
     if (!updateReady || !SAFE_RELOAD.includes(screen.s) || restoreRef.current) return;
-    const t = setTimeout(() => {
-      const sc = screenRef.current.s; if (!SAFE_RELOAD.includes(sc) || restoreRef.current) return;
-      if (pid && readRun(pid) && sc !== 'profiles') return;
-      if (document.querySelector('[data-testid=interrupted]')) return;
-      // r14：正在输入 / 有弹窗 / 5 秒内刚点过——不刷新（以前在学段 / 年级页上操作时会被更新刷新打断）
-      const ae = document.activeElement; if (ae && ['INPUT', 'TEXTAREA', 'SELECT'].includes(ae.tagName)) return;
-      if (document.querySelector('.modal, [role=dialog]') || Date.now() - lastInput.current < 5000) return;
+    // r17.2.1：被挡住（正在输入 / 有弹窗 / 刚点过 / 没打完的提示）时不再放弃——每 3 秒再看一次，挡的东西没了就刷新（以前只试一次，停在同一页就一直不更新）
+    let t = 0;
+    const attempt = () => {
+      const sc = screenRef.current.s; if (!SAFE_RELOAD.includes(sc) || restoreRef.current) return;   // 离开安全页面：换页时 effect 会重新开始
+      const ae = document.activeElement;
+      const blocked = (pid && readRun(pid) && sc !== 'profiles') || document.querySelector('[data-testid=interrupted]')
+        // r14：正在输入 / 有弹窗 / 5 秒内刚点过——不刷新（以前在学段 / 年级页上操作时会被更新刷新打断）
+        || (ae && ['INPUT', 'TEXTAREA', 'SELECT'].includes(ae.tagName)) || document.querySelector('.modal, [role=dialog]') || Date.now() - lastInput.current < 5000;
+      if (blocked) { t = window.setTimeout(attempt, 3000); return; }
       try { sessionStorage.setItem('zy-sw-reload', '1'); } catch { /* */ } logNav(sc, 'reload', 'sw-update'); (updateReady as (sc?: string) => void)(sc);
-    }, 2000);
+    };
+    t = window.setTimeout(attempt, 2000);
     return () => clearTimeout(t);
   }, [updateReady, screen.s]);
   // r12（策划）：同一台设备当天换另一个孩子的档案要家长密码（防止换档案躲时长）；家长页可关
