@@ -5,8 +5,9 @@
 //      写 src/game/kinderQban.gen.json（有 Q版的 id 列表）
 //   2) 中班题干配图 K2N-010/011/012/014（/workspace/art/k2/stems/*.webp）→ public/images/k2/stems/（K2N-014 用当前版，不用 alt）
 //   3) 小班期末庆祝关（/workspace/art/k1_boss/rainbow_cloud/）→ public/images/k1_boss/：彩虹云 intro / end、爱心 empty / lit、两枚学期奖章、彩虹特效层
+//   4) r17.1 大班题图 / 选项图（/workspace/art/k3/{objects,stems}/*.webp，整目录，题库 v43 配合说明 §1）→ public/images/k3/{objects,stems}/；.py / .md / parts/ / flat_bak/ / overview 不拷
 // 用法：node scripts/copy-kinder-art.mjs [--dry]；源根目录 $ZY_BOX_ROOT（默认 /workspace）
-import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..'); const W = process.env.ZY_BOX_ROOT ?? '/workspace'; const dry = process.argv.includes('--dry');
@@ -33,5 +34,8 @@ if (existsSync(qsrc)) {
 const ssrc = join(W, 'art/k2/stems'); if (existsSync(ssrc)) K2_STEMS.forEach(f => cp(join(ssrc, f), `public/images/k2/stems/${f}`)); else warn.push(`题干配图源目录不在：${ssrc}`);
 // 3) 期末庆祝关
 const bsrc = join(W, 'art/k1_boss/rainbow_cloud'); if (existsSync(bsrc)) K1_BOSS.forEach(f => cp(join(bsrc, f), `public/images/k1_boss/${f}`)); else warn.push(`期末庆祝关源目录不在：${bsrc}`);
+// 4) 大班题图 / 选项图
+export const K3_DIRS = ['objects', 'stems'];
+for (const d of K3_DIRS) { const src = join(W, 'art/k3', d); if (existsSync(src)) readdirSync(src).filter(f => f.endsWith('.webp')).sort().forEach(f => cp(join(src, f), `public/images/k3/${d}/${f}`)); else warn.push(`大班配图源目录不在：${src}`); }
 for (const w of warn) console.log('WARN ' + w);
 console.log(`${dry ? '（--dry）' : ''}拷贝 ${copied} 个，已经一样 ${same} 个`);

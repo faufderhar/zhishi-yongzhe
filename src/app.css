@@ -1183,6 +1183,18 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (max-height:860px){.result-screen.kfin .kspeaker,.theme-kinder .result-screen.kfin .kspeaker{width:64px;height:64px;min-width:64px;min-height:64px;font-size:34px}}   /* r17：结算动画页的喇叭 64 px（还是够大的点按区），给人物留高度 */
 /* r17 C5：手机横屏（短边 ≤500、宽 ≤700）中班题干带横图时字号 18 px，四行变三行，小狗不挡字 */
 @media (orientation:landscape) and (max-height:500px) and (max-width:700px){.theme-kinder .kbattle .kq:has(>.q-img[src*="k2/stems/"]),.theme-kinder .kbattle.ktight .kq:has(>.q-img[src*="k2/stems/"]){font-size:18px;line-height:1.2}}
+/* r17.1 B4：大班题干有题图（k3/stems 方图或形状键 SVG）时，题干里的 emoji（题库保留作兜底，和题图重复）跟字排在同一行、字号跟字走，不再一段一行把气泡撑高 */
+.kbattle .kq:has(>.q-img[src*="k3/stems/"]) .kitems,.kbattle .kq:has(>.q-img.shape-img) .kitems{display:inline-flex;vertical-align:middle;margin:0 4px;max-width:none;gap:2px}
+.kbattle .kq:has(>.q-img[src*="k3/stems/"]) .kitem,.kbattle .kq:has(>.q-img.shape-img) .kitem{font-size:1.1em;min-width:0;min-height:0;padding:0 2px}
+/* r17.1 B4：大班题图（images/k3/stems/ 方图 512×512，或 K3C-022/023 题图形状键 SVG）在手机横屏同样字号 18 px；题图 ≤18 dvh、题干里的 emoji 小一号——小狗不挡字、选项卡不出视口 */
+@media (orientation:landscape) and (max-height:500px) and (max-width:700px){
+  .theme-kinder .kbattle .kq:has(>.q-img[src*="k3/stems/"]),.theme-kinder .kbattle.ktight .kq:has(>.q-img[src*="k3/stems/"]),.theme-kinder .kbattle .kq:has(>.q-img.shape-img),.theme-kinder .kbattle.ktight .kq:has(>.q-img.shape-img){font-size:18px;line-height:1.2}
+  .kbattle .kbubble .q-img[src*="k3/stems/"]{max-height:18dvh;float:left;margin:0 6px 2px 0}   /* 方图放左边、字绕排：省一行图的高度 */
+  .kbattle .kbubble .q-img.shape-img{width:min(72px,18dvh);height:min(72px,18dvh)}
+  .kbattle .kq:has(>.q-img[src*="k3/stems/"]) .kitem,.kbattle .kq:has(>.q-img.shape-img) .kitem{font-size:24px;min-width:30px;min-height:30px}
+  .kbattle .kq:has(>.q-img[src*="k3/stems/"]) .kitems,.kbattle .kq:has(>.q-img.shape-img) .kitems{display:inline-flex;vertical-align:middle;margin:0 2px;max-width:none}   /* 题干「长颈鹿🦒和小兔🐰谁更高？」emoji 跟字排在同一行，不再一段一行 */
+  .kbattle .kq:has(>.q-img[src*="k3/stems/"]) .kitems.two{gap:0;max-width:124px}.kbattle .kq:has(>.q-img[src*="k3/stems/"]) .kitems.two .kitem{font-size:22px;line-height:1.2;min-width:0;min-height:0;padding:0 2px}   /* K3N-017：题干八个🍎 + 题图，苹果紧凑排 */
+}
 /* r17 D：小班期末庆祝关（彩虹云 SPEC：爱心原地互换 0.15 s 淡化 + 0.3 s 1→1.15→1；结局 0.4 s 交叉淡化 / 彩虹层淡入上移 10 px；不闪白、不加亮度滤镜；减少动态 = 只淡化） */
 .kterm-hearts{display:flex;align-items:center;justify-content:flex-end}
 .kheart{--hs:clamp(40px,7dvh,64px);position:relative;display:inline-block;width:var(--hs);height:var(--hs);margin-left:calc(var(--hs) * .15);flex:none}
