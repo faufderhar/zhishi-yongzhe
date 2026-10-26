@@ -19,6 +19,7 @@ import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/mul
 import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById, triggerWhy, TRIGGER_TAG } from '../game/skills';
 import { guardText, phaseCapText } from '../game/dmgText';
+import { logRound, summarize, toCSV, logFileName, type BossLogRound, type BossLogSummary } from '../game/bossLog';   // r17.1：只在 __TEST_HOOKS__ 分支里用，正式版摇掉
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
 import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX, HURT_CAP } from '../game/balance';
@@ -55,6 +56,19 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     return th ? { ...s1, playerHp: th } : s1;
   });
   const bsRef = useRef(bs); bsRef.current = bs;
+  /* r17.1 Boss测试解锁_r17 §4.2-3/4/5（r16.1 延后项）：仅测试构建——本场统计 + 逐回合伤害日志写到 window.__zyBossLog = { summary, rounds[] }（数值取 ROut / ROut.dmg） */
+  const bossLog = useRef<{ rounds: BossLogRound[]; t0: number } | null>(__TEST_HOOKS__ ? { rounds: [], t0: Date.now() } : null);
+  const writeBossLog = (s: RState, end?: BossLogSummary['result']) => {
+    if (!__TEST_HOOKS__ || !bossLog.current) return;
+    const L = bossLog.current; (window as unknown as { __zyBossLog?: unknown }).__zyBossLog = { summary: summarize(L.rounds, s, { level: unit ?? title ?? '', monster: mon.name, seconds: Math.round((Date.now() - L.t0) / 100) / 10, end }), rounds: L.rounds };
+  };
+  const exportBossLog = (ext: 'json' | 'csv') => {
+    if (!__TEST_HOOKS__ || !bossLog.current) return;
+    const log = (window as unknown as { __zyBossLog?: { rounds: BossLogRound[] } }).__zyBossLog; if (!log) return;
+    const body = ext === 'json' ? JSON.stringify(log, null, 1) : '\ufeff' + toCSV(log.rounds);
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([body], { type: ext === 'json' ? 'application/json' : 'text/csv' }));
+    a.download = logFileName(questions[0]?.grade ?? '', String(unit ?? title ?? 'level').replace(/[^\w\u4e00-\u9fff-]+/g, '_'), ext); a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
   const used = useRef<Question[]>([]);
   const [phase, setPhase] = useState<Phase>('pre');
   const [ringPop, setRingPop] = useState(false); const [ringE, setRingE] = useState<number | null>(null);   // r16.1 (y)：演出期间能量环显示结算后的值（以前停在答题前的旧值）
@@ -84,9 +98,9 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const reviveFailed = useRef(false); const [reviveMsg, setReviveMsg] = useState('');
   const result = (s: RState) => ({ endReason: s.over === 'lose' ? (reviveFailed.current ? 'reviveFail' as const : 'hp0' as const) : undefined, exhausted: s.over === 'retreat' && exhausted.current, win: s.over !== 'lose' || !cfg.canFail, retreat: s.over === 'retreat', turns: s.turn, correct: stats.current.correct, half: stats.current.half, total: stats.current.total, revived: s.revived, hpPct: s.playerMax ? s.playerHp / s.playerMax : 1, wrongKeys: stats.current.wrong, chalNeed: chalNeedOf(mode, kind, chalSeen.current), chalRight: chalRight.current });
   // r9：暂停超时 / 暂停里点回地图：按已答的题结算，不静默丢进度
-  const quitNow = () => { if (!stats.current.total) { onQuit(); return; } onEnd({ ...result(bsRef.current), win: false, retreat: false, quit: true }); };
+  const quitNow = () => { if (__TEST_HOOKS__) writeBossLog(bsRef.current, '退出'); if (!stats.current.total) { onQuit(); return; } onEnd({ ...result(bsRef.current), win: false, retreat: false, quit: true }); };
   quitRef.current = quitNow;
-  useForceEnd(() => { const s = bsRef.current; onEnd({ ...result(s), win: false, retreat: false, timeUp: true }); });   // 到时强制结算：与回合上限撤退分开（技术QA R4-3）
+  useForceEnd(() => { const s = bsRef.current; if (__TEST_HOOKS__) writeBossLog(s, '超时'); onEnd({ ...result(s), win: false, retreat: false, timeUp: true }); });   // 到时强制结算：与回合上限撤退分开（技术QA R4-3）
   const mySkills = useMemo(() => skillsFor(bs.seg, c.major), [bs.seg, c.major]);
   useEffect(() => { preloadSkillArt(mySkills); }, [mySkills]);
   useEffect(() => {   // 仅自动化测试：直接播放任意技能特效（图集 / 护眼逐个检查）
@@ -231,7 +245,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const END_MS = 450;   // r13 技术QA R12-5：高一最慢 1069 ms，留出渲染余量（原 600）；r10 R8-2：0 血 → 结算 ≤ 0.8 s（含渲染余量）
   const finish = async (s: RState, played = false) => {
     if (ending) return; setEnding(true);
-    const r = result(s); setPhase('anim');
+    const r = result(s); setPhase('anim'); if (__TEST_HOOKS__) writeBossLog(s);
     if (s.over !== 'retreat' && !played) await Promise.race([r.win ? D.dir.current?.victory() : D.dir.current?.defeat(), sleep(END_MS)]);
     if (!D.alive.current) return;
     onEnd(r);
@@ -273,6 +287,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     pool.current = pool.current.filter(x => x.key !== qq.key); if (!used.current.includes(qq)) used.current.push(qq);
     const fast = elapsed <= (limit ? limit * PERFECT_FRACTION : PERFECT_NOLIMIT_SEC);
     const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs && P && wagerOn ? wager : false, challenge: chal && bs.side === 'P' && bs.mode === 'j' });
+    if (__TEST_HOOKS__ && bossLog.current) { bossLog.current.rounds.push(logRound(bs, ns, o, qq, { card: hs && P ? card : 'std', wager: !!(hs && P && wagerOn && wager), challenge: !!(chal && bs.side === 'P' && bs.mode === 'j'), grade: g })); writeBossLog(ns); }
     if (o.partial) tip('partial'); if (o.energyGain) tip('energy'); if (o.perfect && bs.perfectOn) tip('focus'); if (o.dodged && o.side === 'M') tip('dodge');   /* r12：「运气好闪开」只在怪物回合 */ if (o.perfect) tip('perfect'); if (o.guardUsed) tip('guard'); if (o.capped) tip('cap');
     if (o.rage) { tip('rage'); setRageAnim(true); playRageDrum(); setTimeout(() => setRageAnim(false), 1400); }
     const k = o.skill;
@@ -468,6 +483,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         <BetHintList />
         <button className="btn" data-testid="bet-hint-ok" onClick={closeBetHint}>知道了</button></Modal>}
       {paused && <PauseOverlay onResume={() => setPaused(false)} onQuit={quitNow} />}
+      {__TEST_HOOKS__ && (window as unknown as { __zyBossLab?: boolean }).__zyBossLab && <div data-testid="bosslog-export" style={{ position: 'fixed', left: 4, bottom: 4, zIndex: 60, display: 'flex', gap: 4, fontSize: 12 }}>   {/* r17.1：仅测试构建 + __zyBossLab：导出本场日志 */}
+        <button style={{ padding: '2px 8px', fontSize: 12 }} onClick={() => exportBossLog('json')}>导出 JSON</button><button style={{ padding: '2px 8px', fontSize: 12 }} onClick={() => exportBossLog('csv')}>导出 CSV</button></div>}
     </div>
   );
 }
