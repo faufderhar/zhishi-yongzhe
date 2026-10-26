@@ -278,7 +278,10 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
       const sc = parseFloat(getComputedStyle(wrap).scale) || 1;   // --kfit 缩放也作用在 translateX 上
       const room = st.getBoundingClientRect().right - (box.getBoundingClientRect().right - tx * sc) - 6;
       wrap.style.setProperty('--kdash', String(Math.max(0, Math.min(useQ ? 1 : dashScale(km.aspect), room / (160 * sc))))); };
-    fit(); const q = useQ ? wrap.querySelector('img.kmon.qban') as HTMLImageElement | null : null; if (q && !q.complete) { q.addEventListener('load', fit, { once: true }); return () => q.removeEventListener('load', fit); } }, [D.monState, km.aspect, useQ, qid]);
+    fit(); const q = useQ ? wrap.querySelector('img.kmon.qban') as HTMLImageElement | null : null; if (q && !q.complete) q.addEventListener('load', fit, { once: true });
+    // r17.1：useKFit 的 --kfit 由 ResizeObserver 异步写入（常在图片加载之后才变）→ 缩放一变就按新的 scale 再算一次，否则跳进来时会出战斗区（e2e 偶发 -47px）
+    const mo = typeof MutationObserver !== 'undefined' ? new MutationObserver(fit) : null; mo?.observe(st, { attributes: true, attributeFilter: ['style', 'data-kfit'] });
+    return () => { q?.removeEventListener('load', fit); mo?.disconnect(); }; }, [D.monState, km.aspect, useQ, qid]);
   const gskin = gskin0 && (useQ || D.monState !== 'fail') ? gskin0 : null;   // 柔和版怪兽没加载出来 → 小乌云，文字也跟着说小乌云
   const monName = term ? TERM_MON_NAME[term] : gskin?.name ?? '小乌云';
   const kMon: KMonOut | undefined = gskin ? { name: gskin.name, dir: gskin.art.dir, idle: gskin.art.anims.idle.soft, ...(useQ ? { qban: qid } : {}) } : useQ ? { name: '小乌云', dir: '', idle: '', qban: qid } : undefined;
