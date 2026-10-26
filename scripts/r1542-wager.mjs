@@ -19,6 +19,7 @@ async function toMap() { for (let i = 0; i < 30 && !(await vis('[data-testid=lev
 await pg.goto(URL); await pg.waitForSelector('[data-testid^=profile-]'); await w(400);
 await tap('[data-testid=add-child]'); await w(300); await pinIn('2468'); await pinIn('2468'); await tap('.pinpad input[type=radio]').catch(() => {}); await pg.fill('[data-testid=hint-answer]', 'x'); await pg.fill('[data-testid=hint-answer2]', 'x').catch(() => {}); await tap('[data-testid=hint-ok]'); await w(500);
 for (const sel of ['[data-testid=rec-done]', 'text=我已经抄好了']) if (await vis(sel)) { await tap(sel); await w(300); }
+await pg.waitForSelector('[data-testid=pin-verify]', { timeout: 3000 }).then(() => pinIn('2468')).catch(() => {}); await w(300);   // r16 8c 起：设完密码再验一次
 if (await vis('.modal >> text=稍后')) await tap('.modal >> text=稍后');
 await pg.fill('[data-testid=add-name]', 'r9'); await tap('[data-testid=home-grade-10]'); await w(400); await toMap();
 const st = { cardTurns: 0, cardToggle: 0, cardDefaultOff: 0, mTurns: 0, mToggle: 0, hints: [], ratios: [], betRight: [], noBetRight: [], betWrong: [], qToggle: 0 };
@@ -90,8 +91,8 @@ const gOk = (r, b) => r.gain >= Math.min(b, 5 - r.e0) && r.gain <= Math.min(b + 
 const nbad = st.noBetRight.filter(r => !gOk(r, 1)), bbad = st.betRight.filter(r => !gOk(r, 2)); const bfull = st.betRight.filter(r => r.e0 <= 3);
 ok(st.betRight.length >= 3 && bfull.length >= 2 && !nbad.length && !bbad.length, `押注答对能量多 +1（不押：${st.noBetRight.map(r => `${r.e0}→+${r.gain}`).join(' ')}；押注：${st.betRight.map(r => `${r.e0}→+${r.gain}`).join(' ')}）`);
 // 估算是「无技能」伤害；同回合放了技能的按技能说明换算：技能倍率乘在内层、同样受 INNER_CAP 封顶：×1.4 在 [估算, 估算×1.4]；多段（2 次每次 70%）在 [估算×2×70%, 估算×2]（估算已封顶时每段仍是封顶值）
-const skK = t => { const m = t.match(/(\d) 次，每次 (\d+)%/); if (m) return +m[1] * +m[2] / 100; const x = t.match(/✨[^造]*×([\d.]+)/); return x ? +x[1] : 1; };
+const skK = t => { const m = t.match(/(\d) (?:次，每次|下，每下) (\d+)%/);   /* r17.1：B7 起技能说明改成「连打 2 下，每下 70%」 */ if (m) return +m[1] * +m[2] / 100; const x = t.match(/✨[^造]*×([\d.]+)/); return x ? +x[1] : 1; };
 const dchk = st.betRight.map(r => ({ ...r, k: skK(r.text), want: Math.round(r.betEst * skK(r.text)) }));
-ok(dchk.length >= 3 && dchk.filter(r => r.k === 1).length >= 1 && dchk.every(r => { if (!r.betEst) return false; if (r.k === 1) return Math.abs(r.dealt - r.betEst) <= Math.max(2, r.betEst * 0.15); const n = +(r.text.match(/(\d) 次，每次/)?.[1] ?? 1); const lo = Math.min(r.want, r.betEst * n), hi = Math.max(r.want, r.betEst * n); return r.dealt >= lo * 0.95 - 2 && r.dealt <= hi * 1.05 + 2; }), `押注答对伤害 ≈ 押注估算（${dchk.map(r => `${r.dealt}≈${r.betEst}${r.k !== 1 ? '×' + r.k + '=' + r.want + '（' + r.text.match(/✨[^：]*/)?.[0] + '）' : ''}`).join('，')}）`);
+ok(dchk.length >= 3 && dchk.filter(r => r.k === 1).length >= 1 && dchk.every(r => { if (!r.betEst) return false; if (r.k === 1) return Math.abs(r.dealt - r.betEst) <= Math.max(2, r.betEst * 0.15); const n = +(r.text.match(/(\d) (?:次，每次|下，每下)/)?.[1] ?? 1); const lo = Math.min(r.want, r.betEst * n), hi = Math.max(r.want, r.betEst * n); return r.dealt >= lo * 0.95 - 2 && r.dealt <= hi * 1.05 + 2; }), `押注答对伤害 ≈ 押注估算（${dchk.map(r => `${r.dealt}≈${r.betEst}${r.k !== 1 ? '×' + r.k + '=' + r.want + '（' + r.text.match(/✨[^：]*/)?.[0] + '）' : ''}`).join('，')}）`);
 ok(st.betWrong.length >= 2 && st.betWrong.every(r => /押注失手：反击 ×1\.25，闪不开/.test(r.text) && r.taken > 0 && !/闪开/.test(r.text.replace('闪不开', ''))), `押注答错：怪物反击、闪不开（${st.betWrong.map(r => r.text).join(' | ')}）`);
 console.log(bad ? `r1542-wager FAIL ${bad}` : 'r1542-wager ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);
