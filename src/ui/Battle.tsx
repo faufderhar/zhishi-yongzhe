@@ -24,7 +24,7 @@ import { speak, hasVoice, isSpeaking, voiceKey, expectVoiceText, afterVoice, spe
 /* r16.3 总管方案 A：答对后只读表扬（+ 触发时的技能名），不再每题读「开心值…」；最后一题直接读「小乌云变成你的好朋友啦！」。
    等待上限（从答对时刻起算）：普通题 3.5 s、最后一题 4 s；这句话（按片长 / 系统朗读估计）更长时放宽到「读完 + margin」，技能名不被下一题切掉。
    endMax 只给时间到的强制收尾用（收尾提示 prio 读完再结算）。 */
-export const K_WAIT = { endMax: 10000, nextCap: 3500, endCap: 4000, margin: 600 };
+export const K_WAIT = { endMax: 10000, nextCap: 3500, endCap: 4000, margin: 600, finMs: 3000 /* r17.3：最后一题答对 → 结算页 */ };
 /** 答对后等多久（ms，从答对时刻起算）：max(基础上限, 这句话的时长 + margin) */
 export const kWaitCap = (base: number, speechMs: number) => Math.max(base, Math.round(speechMs) > 0 ? Math.round(speechMs) + K_WAIT.margin : 0);
 import { HOME_LINE } from '../game/voiceLines';
@@ -382,9 +382,12 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
           from = performance.now(); cap = await capOf(K_WAIT.endCap, friendLine);
           if (gentle) setSay(friendLine); speak(friendLine);
         }
-        if (gentle) { setMonFace('👋'); await sleep(Math.min(400, left())); setHome(true); await sleep(Math.min(1600, left())); }
-        else await Promise.race([D.dir.current?.kinderFinale(), sleep(Math.min(2500, left()))]);   // r12：演出有上限，后台/卡住也照样结算
-        await afterVoice(0, left());   // 这句读完再进结算页（结算页的朗读排在它后面）
+        /* r17.3 小萌新 r17.1：最后一题答对 → 结算页 ≈ 3 s（以前要等「（技能名）+ 变成好朋友，挥挥手回家啦」整句读完，4.4–7.4 s）。
+           演出（挥手 → 回家 / 走近 + 彩带）排进 K_WAIT.finMs；到点就进结算页，这句没读完就接着读（不取消），
+           结算页的自动朗读用 afterVoiceThen 排在它后面，不会两句同时响。演示学会的最后一题从「变成好朋友」那句开始算。 */
+        const finAt = (r === 'demo' ? from : waitFrom) + K_WAIT.finMs; const finLeft = () => Math.max(0, finAt - performance.now());
+        if (gentle) { setMonFace('👋'); await sleep(Math.min(250, finLeft())); setHome(true); await sleep(finLeft()); }
+        else { await Promise.race([D.dir.current?.kinderFinale(), sleep(finLeft())]); await sleep(finLeft()); }   // r12：演出有上限，后台/卡住也照样结算
         if (!D.alive.current || forced.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo }, kMon }); return;
       }
@@ -465,7 +468,9 @@ function KOptFace({ text, fit = [1, 1] }: { text: string; fit?: number[] }) {
   if (emos.length && !rest) { const n = emos.length, [cols] = gridOf(n), [fc, fr] = [Math.max(fit[0], cols), Math.max(fit[1], gridOf(n)[1])];
     return <span className="kcount" data-testid="kcount" data-n={n} style={{ '--cols': cols, '--fc': fc, '--fr': fr } as CSSProperties}>{emos.map((e, i) => <span key={i} className="kcount-i">{e}</span>)}</span>; }
   if (emo && rest) return <span className="kface"><span className="kface-emo">{emo}</span><span className={`kface-txt ${[...rest].length > 4 ? 'small' : ''}`}>{rest}</span></span>;
-  return <span className={`kopt-text ${[...text].length <= 3 ? 'short' : ''}`} style={{ '--len': Math.max(1, [...text].length) } as CSSProperties}>{text}</span>;
+  /* r17.3 小萌新 r17.1 低：英文选项不从单词中间断（Goodby/e!）——按最长单词缩字号，只在空格处换行 */
+  const lat = /[A-Za-z]{3,}/.test(text) && !/[\u4e00-\u9fff]/.test(text); const wl = lat ? Math.max(...text.split(/\s+/).map(x => x.length)) : 0;
+  return <span className={`kopt-text ${[...text].length <= 3 ? 'short' : ''} ${lat ? 'lat' : ''}`} style={{ '--len': Math.max(1, [...text].length), ...(lat ? { '--wl': Math.max(4, wl) } : {}) } as CSSProperties}>{text}</span>;
 }
 /** r17.1 中班「左右比多少」：一组图 = 一个大按钮（下面小字「左边 / 右边」）；两边同样大小、按两边较多的那组排网格（≤5 一排，6–10 两排） */
 const sideFit = (n: number) => { const cols = n <= 5 ? Math.max(1, n) : Math.ceil(n / 2); return [cols, Math.ceil(Math.max(1, n) / cols)]; };
