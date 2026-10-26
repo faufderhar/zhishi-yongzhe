@@ -16,12 +16,12 @@ const vA = JSON.parse(fs.readFileSync(`${ROOT}/v/A/version.json`, 'utf8')); cons
 fs.writeFileSync(`${ROOT}/v/B/version.json`, JSON.stringify({ ...vA, build: NEXT }));
 fs.appendFileSync(`${ROOT}/v/B/sw.js`, `\n// r173-keepopen ${NEXT}\n`);
 // 换版时 touch：python http.server 支持 If-Modified-Since（秒级），A / B 同一秒复制会让 sw.js 更新检查拿到 304
-const use = v => execSync(`find ${ROOT}/v/${v} -exec touch -d @${Math.floor(Date.now() / 1000) + 2} {} + && ln -sfn ${ROOT}/v/${v} ${ROOT}/srv/zy`);
+const serveV = v => execSync(`find ${ROOT}/v/${v} -exec touch -d @${Math.floor(Date.now() / 1000) + 2} {} + && ln -sfn ${ROOT}/v/${v} ${ROOT}/srv/zy`);
 const srv = spawn('python3', ['-m', 'http.server', String(PORT), '-b', '127.0.0.1', '-d', ROOT + '/srv'], { stdio: 'ignore' });
 await new Promise(r => setTimeout(r, 800));
 const b = await chromium.launch();
 async function scenario(name, { poll, body }) {
-  use('A'); const ctx = await b.newContext({ viewport: { width: 1024, height: 700 } }); const pg = await ctx.newPage();
+  serveV('A'); const ctx = await b.newContext({ viewport: { width: 1024, height: 700 } }); const pg = await ctx.newPage();
   const vj = []; pg.on('request', r => { if (/version\.json/.test(r.url())) vj.push(Date.now()); });
   await pg.addInitScript(p => { window.__zyTest = true; window.__zyTestNoTts = true; if (p) window.__zyUpdatePollMs = p; }, poll || 0);
   await pg.goto(U); await pg.waitForFunction(() => navigator.serviceWorker.controller, null, { timeout: 30000 });
@@ -33,7 +33,7 @@ async function scenario(name, { poll, body }) {
   console.log(`— ${name}`); await body(st); await ctx.close();
 }
 await scenario('1 可见轮询（钩子 4 秒）', { poll: 4000, body: async ({ pg, waitUpd, vj, upd }) => {
-  const n0 = vj.length; use('B'); const t = Date.now(); const u = await waitUpd(15000);
+  const n0 = vj.length; serveV('B'); const t = Date.now(); const u = await waitUpd(15000);
   ok(!!u, `换版后 ${u ? u.s.toFixed(1) + ' 秒' : '15 秒内没有'} 出现更新条 / 自动刷新 ${JSON.stringify(u)}`);
   ok(vj.length > n0, `开着的页面自己去查了 version.json（${vj.length - n0} 次，第一次在换版后 ${vj.length > n0 ? ((vj[n0] - t) / 1000).toFixed(1) : '-'} 秒）`);
   let rl = []; for (let i = 0; i < 30 && !rl.length; i++) { await pg.waitForTimeout(500); rl = (await upd()).reload || []; }
@@ -43,7 +43,7 @@ await scenario('1 可见轮询（钩子 4 秒）', { poll: 4000, body: async ({ 
   ok(await pg.isVisible('[data-testid^=profile-], [data-testid=add-child]'), '刷新后首页正常：' + label);
 } });
 await scenario('2 focus 限流 1 次/分钟（默认轮询）', { poll: 0, body: async ({ pg, waitUpd, vj, tLoad }) => {
-  use('B'); const n0 = vj.length; await pg.evaluate(() => { window.dispatchEvent(new Event('focus')); window.dispatchEvent(new Event('online')); }); await pg.waitForTimeout(3000);
+  serveV('B'); const n0 = vj.length; await pg.evaluate(() => { window.dispatchEvent(new Event('focus')); window.dispatchEvent(new Event('online')); }); await pg.waitForTimeout(3000);
   ok(vj.length === n0, `启动不到 1 分钟：focus / online 被限流，没查 version.json（${vj.length - n0} 次）`);
   ok(!(await waitUpd(1000)), '此时没有更新条');
   await pg.waitForTimeout(Math.max(0, tLoad + 61000 - Date.now())); const n1 = vj.length;
@@ -54,7 +54,7 @@ await scenario('2 focus 限流 1 次/分钟（默认轮询）', { poll: 0, body:
   ok(vj.length - n2 <= 1, `紧接着再 focus / pageshow：限流（${vj.length - n2} 次，刷新后的启动检查算 1 次）`);
 } });
 await scenario('3 对照：默认 5 分钟轮询、无 focus，20 秒内不检查', { poll: 0, body: async ({ waitUpd, vj }) => {
-  use('B'); const n0 = vj.length; const u = await waitUpd(20000);
+  serveV('B'); const n0 = vj.length; const u = await waitUpd(20000);
   ok(!u && vj.length === n0, `20 秒内无检查（version.json ${vj.length - n0} 次，${u ? '有更新' : '无更新'}）——说明场景 1 靠的是缩短后的可见轮询`);
 } });
 await b.close(); srv.kill();
