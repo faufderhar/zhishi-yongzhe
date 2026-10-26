@@ -407,7 +407,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
       </div>
       <div className="quiz">
         {phase === 'cards' && cards && (
-          <div className="cards" data-testid="cards"><p>选一张题卡</p><div className="row gap16">
+          <div className="cards card-pick" data-testid="cards"><p>选一张题卡</p><div className="row gap16">
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
               <b>{CARDS[k].label}</b><span>{cards[k].subject}{cards[k].subject === c.major ? <em className="card-major" data-testid={'card-major-' + k}>（主修 ×1.2{PASSIVE_MATH(c) ? ` · ${shortName(c)} ×1.1` : ''}）</em> : null} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
               <small data-testid={'card-mult-' + k}>伤害 ×{CARDS[k].out} · 答错反击 ×{CARDS[k].ctr}</small>{CARDS[k].out !== 1 && <small className="card-note" data-testid={'card-note-' + k}>题越难效果越足{cardOut(CARDS[k].out, cards[k].difficulty) !== CARDS[k].out ? ` · 本题 ×${+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)}` : ''}</small>}{/* r17.1 D15 §6.2 A：第一行基础值，第二行灰色写本题生效值 */}

@@ -1257,3 +1257,15 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .kside{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;min-height:0}
 .kside .kside-grid{flex:1 1 auto;min-height:0;height:auto}
 .kside-label{flex:none;font-size:clamp(18px,2.4vw,28px);font-weight:800;color:#5a3a1a;line-height:1.1}
+
+/* r17.3 技术QA r17.1 P3-1（N3）：高中「选一张题卡」——三张卡以前各 min-width:200px，.quiz 窄于 ≈680px 时（800/960/1024/1100×600、1024×768、
+   手机横屏、600 宽竖屏平板）往两边溢出：轻击被左栏盖住、重击出屏，标题切成「击」「重」，左边溢出滑不出来。
+   改成三张等宽、可缩小（min-width:0），一行放下；宽屏最宽 300px（1280 宽以上和以前一样大）；卡窄时字号 / 内边距跟着缩，长词可断行。
+   不按视口高度判断——溢出只取决于 .quiz 宽度（1024×768 也溢出）。手机竖屏 ≤500 宽仍沿用 r14.1 的换行规则（下面重申，另有「请横过来」盖层） */
+.card-pick .row{flex-wrap:nowrap;max-width:100%;min-width:0}
+.card-pick .qcard{flex:1 1 0;min-width:0;max-width:300px;overflow-wrap:anywhere}
+.card-pick .qcard b{white-space:nowrap}
+@media (max-width:1180px){.card-pick .row{gap:10px}.card-pick .qcard{padding:8px 6px;font-size:15px}.card-pick .qcard small{font-size:12px}.card-pick .qcard .dmg-sum{font-size:11px}}
+@media (orientation:landscape) and (max-width:900px){.card-pick .row{gap:8px}.card-pick .qcard{padding:6px 4px;font-size:14px;gap:2px;min-height:96px}.card-pick .qcard b{font-size:19px}.card-pick .qcard small{font-size:11.5px;line-height:1.3}}
+@media (orientation:landscape) and (max-height:420px){.card-pick .qcard{font-size:13px;min-height:84px}.card-pick .qcard b{font-size:17px}}
+@media (orientation:portrait) and (max-width:500px){.card-pick .row{flex-wrap:wrap;gap:8px}.card-pick .qcard{flex:1 1 140px;min-width:0;padding:8px}}
