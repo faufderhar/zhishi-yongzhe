@@ -31,7 +31,7 @@ describe('r16.1 题库 v47', () => {
   it('初二生物 14 / 地理 16 个章 Boss，名字都对得上（没有回退成通用名）', () => {
     for (const [s, n] of [['生物', 14], ['地理', 16]] as const) {
       const bs = lv('8', s).filter(l => l.kind === 'boss'); expect(bs.length, s).toBe(n);
-      expect(bs.filter(l => !chapterBoss(undefined, s, l.unit, { grade: '8' })).map(l => l.unit), s).toEqual([]);
+      expect(bs.filter(l => !chapterBoss(undefined, s, l.unit, { grade: '8', volume: l.volume })).map(l => l.unit), s).toEqual([]);   // r17.1：这 30 行改由对照表 v48 带册别生成，游戏里本来就传册别
     }
   });
   it('5B / 6B 本册 Boss：新 id + 旧 id 别名，旧存档的星星还在', () => {

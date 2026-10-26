@@ -6,22 +6,25 @@ import { volRank, buildChapters } from '../src/game/levels';
 import { loadBank, playable } from '../src/game/questions';
 import { readFileSync, existsSync } from 'node:fs';
 
-const NEW = CHAPTER_BOSS.filter(r => r[6] === undefined && ['8', '9', '11', '12'].includes(r[0]));
+// r17.1：这 77 行不再手写——改由 import-boss-names.py 从对照表（初二 v48 / 初三 v47 / 高二 v49 / 高三 v50）带册别生成（名字一样）；游戏里取名都传册别
+const P4 = new Set(['8|生物', '8|地理', '9|化学', '11|物理', '12|物理', '12|生物', '12|地理']);
+const NEW = CHAPTER_BOSS.filter(r => P4.has(`${r[0]}|${r[1]}`) && !(r[0] === '12' && r[1] !== '物理' && r[6] === '高考一轮复习（不分册）'));   // 高三生物 / 地理一轮复习的 9 个营地 Boss 是对照表 v50 新加的，不在 77 行里
 describe('77 个新章 Boss', () => {
   it('条数按年级 / 科目', () => {
     const c: Record<string, number> = {}; for (const r of NEW) c[`${r[0]}|${r[1]}`] = (c[`${r[0]}|${r[1]}`] ?? 0) + 1;
-    expect(NEW.length).toBe(77);
+    expect(NEW.length).toBe(77); expect(NEW.every(r => r[6])).toBe(true);
     expect(c).toEqual({ '8|生物': 14, '8|地理': 16, '9|化学': 14, '11|物理': 14, '12|物理': 11, '12|生物': 4, '12|地理': 4 });
   });
   it('名字不重复，也不和已有 Boss 重名（同年级）', () => {
     for (const g of ['8', '9', '11', '12']) { const n = CHAPTER_BOSS.filter(r => r[0] === g).map(r => r[4]); expect(n.filter((x, i) => n.indexOf(x) !== i), g).toEqual([]); }
   });
   it('不用 v40 沪教化学章名（人教版）', () => {
-    expect(NEW.filter(r => r[1] === '化学').map(r => r[3])).toContain('走进化学世界');
+    expect(NEW.filter(r => r[1] === '化学').map(r => r[3])).toContain('九上·第一单元 走进化学世界');
     expect(NEW.some(r => /开启化学之门|身边的化学物质/.test(r[3]))).toBe(false);
   });
   it('章节路径能找到 Boss（§2 的单元写法）', () => {
-    const b = (g: string, s: string, u: string) => chapterBoss(undefined, s, u, { grade: g })?.name;
+    const VOL: Record<string, string> = { 八上: '八年级上册', 学考复习: '学考复习（七年级）', 九上: '九年级上册', 九下: '九年级下册', 中考复习: '中考复习（不分册）', 必修三: '必修第三册', 选必一: '选择性必修第一册', 选必二: '选择性必修第二册', 选必三: '选择性必修第三册', 选择性必修三: '选择性必修第三册', 选择性必修3: '选择性必修第三册', 一轮复习: '高考一轮复习（不分册）' };
+    const b = (g: string, s: string, u: string) => chapterBoss(undefined, s, u, { grade: g, volume: VOL[u.split('·')[0]] })?.name;
     expect(b('8', '生物', '八上·第12章 消化系统·第1节 食物中的营养物质')).toBe('营养餐盘熊');
     expect(b('8', '生物', '学考复习·第1单元 生物体的结构层次·第1章 认识细胞')).toBe('细胞积木屋');
     expect(b('8', '地理', '八上·第一章 从世界看中国·第一节 疆域')).toBe('雄鸡地图仙');

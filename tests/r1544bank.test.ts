@@ -41,8 +41,8 @@ describe('题库 v32 / v33 / v34 导入', () => {
     const boss = buildChapters(playable(b.all, false), null, b.all).flatMap(c => c.levels.filter(l => l.kind === 'boss').map(l => ({ s: c.subject, v: l.volume, u: l.unit, n: chapterBoss('H', c.subject, l.unit, { grade: '10', volume: l.volume })?.name })));
     const v39 = new Set(CHAPTER_BOSS.filter(r => r[0] === '10' && r[6]).map(r => r[4]));
     expect(boss.length).toBe(88);   // v32 86 + v33 纲要上第六、第八单元（够 12 题，第一次有章节 Boss，通用名）
-    expect(boss.filter(x => !x.n).length).toBe(19);   // 没有章节专属名：数学 15（按章名 hMathBoss）+ 英语 / 诗词沿用学段默认名 + 纲要上第六、第八单元（v39 没给名）
-    expect(boss.filter(x => x.n && v39.has(x.n)).length).toBe(30);
+    expect(boss.filter(x => !x.n).length).toBe(15);   // r17.1：策划 r17 按章起名补上英语 Unit 1、诗词第三单元、纲要上第六 / 第八单元 4 个（19 → 15，只剩数学 15 个走 hMathBoss）   // 没有章节专属名：数学 15（按章名 hMathBoss）+ 英语 / 诗词沿用学段默认名 + 纲要上第六、第八单元（v39 没给名）
+    expect(boss.filter(x => x.n && v39.has(x.n)).length).toBe(34);   // r17.1：带册别的生成行 = v39 30 + r17 按章起名 4
     const named = boss.filter(x => x.n && !v39.has(x.n)).map(x => x.n);
     expect(named).toEqual(["橘子洲诗龙", "劝学师说翁", "荷塘月色仙", "华夏一统王", "盛唐交融使", "晚清觉醒狮", "宇宙星轨使", "大气环流精", "水循环精灵", "地貌雕刻师", "森林沃土王", "防灾预警官", "空想科学使", "星火燎原使", "改革开放舵手", "复兴梦想舟", "公有制基石", "市场调控师", "高质量引擎", "分配保障官", "位移速度侠", "匀变速飞车", "三力平衡师", "牛顿惯性王", "抛物线射手", "向心力陀螺", "摩尔计量师", "过滤蒸馏师", "海盐氯钠龙", "硫黄酸雨精", "元素周期表王", "原电池火花", "固氮循环王", "显微探秘者", "分子拼图后", "细胞城堡主", "细胞膜门卫", "能量工坊魔", "分裂镜像女王"]);
     // 生物必修2 的「第1章」不能拿到必修1 第1章的名字：只用 v39 对照表的名字

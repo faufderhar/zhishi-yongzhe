@@ -48,6 +48,11 @@ describe('r16.2 章 / 单元名里的「·」和括号（63 个）', () => {
     const NEW50 = new Set(['E5-156', 'E5-157', 'E5-158', 'E5-159', 'E5-160', 'E6-158', 'E6-159', 'E6-160', 'E6-161', 'E6-162', 'Y6-470', 'Y6-471', 'Y6-472', 'Y6-473', 'Y6-474', 'Y6-475', 'Y6-476', 'Y6-477', 'Y6-014', 'Y6-026']);
     const now = Object.fromEntries(Object.entries(all).filter(([k]) => k in fx.names).map(([k, v]) => [k, { ...v, pool: v.pool.split(',').filter(x => !NEW50.has(x.split(':')[1])).join(',') }]));
     expect(Object.keys(now).sort()).toEqual(Object.keys(fx.names).sort());
+    // r17.1：Boss 显示名只有两种变化（tests/fixtures/r171_boss_renames.json，176 关）：按章起名的不再加「科目·」前缀（172）；初一 / 高一 r17 按章起名替掉通用名（4）——换回旧名后其余照旧逐字比对
+    const RN = JSON.parse(readFileSync('tests/fixtures/r171_boss_renames.json', 'utf8')) as Record<string, [string, string]>;
+    expect(Object.entries(now).filter(([k, v]) => (v.boss ?? null) !== (RN[k]?.[1] ?? v.boss ?? null)).map(([k]) => k)).toEqual([]);
+    expect(Object.values(RN).filter(([o, n]) => !o.endsWith('·' + n)).map(([, n]) => n).sort()).toEqual(['共和晨钟', '开学小书包', '琵琶江月客', '胜利小号角'].sort());
+    for (const k of Object.keys(RN)) { expect(now[k]?.boss, k).toBe(RN[k][1]); now[k] = { ...now[k], boss: RN[k][0] }; }
     expect(createHash('sha1').update(JSON.stringify(Object.fromEntries(Object.entries(now).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0).map(([k, v]) => [k, [v.pool, v.volume, v.boss ?? null]])))).digest('hex')).toBe(fx.struct_sha);
     const diff = Object.entries(now).filter(([k, v]) => v.name !== fx.names[k][0] || v.unit !== fx.names[k][1]).map(([k, v]) => [k, v.name, v.unit]);
     expect(diff).toEqual([
