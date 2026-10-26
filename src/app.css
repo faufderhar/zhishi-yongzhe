@@ -1269,3 +1269,6 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (orientation:landscape) and (max-width:900px){.card-pick .row{gap:8px}.card-pick .qcard{padding:6px 4px;font-size:14px;gap:2px;min-height:96px}.card-pick .qcard b{font-size:19px}.card-pick .qcard small{font-size:11.5px;line-height:1.3}}
 @media (orientation:landscape) and (max-height:420px){.card-pick .qcard{font-size:13px;min-height:84px}.card-pick .qcard b{font-size:17px}}
 @media (orientation:portrait) and (max-width:500px){.card-pick .row{flex-wrap:wrap;gap:8px}.card-pick .qcard{flex:1 1 140px;min-width:0;padding:8px}}
+/* r17.3 小萌新 r17.1 低：英文选项（Thank you! / Goodbye! / Good morning!）不从单词中间断：只在空格换行，按最长单词（--wl 个字母）缩字号；不支持 cqw 的浏览器沿用 clamp，太长仍可断（anywhere） */
+.kopt-text.lat{word-break:normal;overflow-wrap:anywhere;hyphens:none}
+@supports (width:1cqw){.kopt-text.lat:not(.short){font-size:min(clamp(32px,4vw,56px),calc(140cqw / var(--wl,8)))}}
