@@ -10,11 +10,11 @@ const lastNum = (L: string[]) => Number(L.filter(l => /≈ \d+/.test(l)).pop()!.
 let seed = 7; const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
 
 describe('D15 验收', () => {
-  it('学霸那一击：主修 ×1.32 · 重击卡 ×1.6 · 押注 ×1.25 · 已到上限 ×1.8，明细最后 ≈ 93 = 实际', () => {
+  it('学霸那一击：主修 ×1.2 · 重击卡 ×1.6 · 押注 ×1.25 等 · 已到上限 ×1.8（r17.1 D15 §6.4），明细最后 ≈ 93 = 实际', () => {
     let hit = null as null | { o: ReturnType<typeof resolveRound>[1] };
     for (const d of [1, 2, 3, 4, 5]) { const [, o] = resolveRound(st('h'), asuan, { correct: true, subject: '数学', difficulty: d, card: 'heavy', wager: true, noSkill: true }); if (o.dealt === 93) { hit = { o }; break; } }
     expect(hit).not.toBeNull(); const o = hit!.o;
-    const s = summary(o.dmg)!; expect(summaryText(s)).toBe('主修 ×1.32 · 重击卡 ×1.6 · 押注 ×1.25 · 已到上限 ×1.8');
+    const s = summary(o.dmg)!; expect(summaryText(s)).toBe('主修 ×1.2 · 重击卡 ×1.6 · 押注 ×1.25 等 · 已到上限 ×1.8');
     const L = detailLines(o.dmg!, o.dealt, o.absorbed);
     expect(L).toContain('封顶加成：重击卡 ×1.6 · 押注 ×1.25 = ×2'); expect(L).toContain('已到上限，按 ×1.8 算');
     expect(lastNum(L)).toBe(93); expect(L[L.length - 1]).toMatch(/≈ 93$/);
@@ -53,7 +53,7 @@ describe('D15 验收', () => {
     expect(fmtX(1.6)).toBe('×1.6'); expect(fmtX(1.32)).toBe('×1.32'); expect(fmtX(2)).toBe('×2'); expect(fmtX(1.2 * 1.1)).toBe('×1.32');
     const [, o] = resolveRound(st('j', 3, 1), asuan, { correct: true, subject: '数学', difficulty: 3, card: 'light', challenge: true, stepIndex: 1, noSkill: true });
     const names = [...o.dmg!.outer, ...o.dmg!.inner].map(([n]) => n);
-    for (const x of names) expect(['主修', '克制', '多步题', '连击', '专注', '轻击卡', '标准卡', '重击卡', '挑战题', '押注', '技能']).toContain(x);
+    for (const x of names) expect(['主修', '阿算', '克制', '多步题', '连击', '专注', '轻击卡', '标准卡', '重击卡', '挑战题', '押注', '技能']).toContain(x);
   });
   it('双段技能：每段 ≈ per，共 2 段', () => {
     const a2h = SKILL_DATA.find(k => k.effect === 'A2H'); if (!a2h) return;

@@ -2,7 +2,7 @@
 import type { Character } from './characters';
 import type { LevelKind, Band } from './grades';
 import { ROUND, LOW_GRADE_PATTERN, DIFF_MULT, comboMult, DODGE_CAP, DODGE_PER_FOCUS, DODGE_BONUS_CAP, FOCUS_MAX, FOCUS_DMG, ENERGY_CAP,
-  WEAK, AFFINITY, CARDS, cardOut, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, BOSS_PHASES_BY_GRADE, type RoundMode, type MIntent, type RoundMonster } from './balance';
+  WEAK, AFFINITY, CARDS, cardOut, CARD_K, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, BOSS_PHASES_BY_GRADE, type RoundMode, type MIntent, type RoundMonster } from './balance';
 import { passive as PASSIVE } from './characters';
 import { roll, newRoll, tickCd, type SkillRoll, type SkillDef, type SkillSeg } from './skills';
 
@@ -114,23 +114,30 @@ export function innerParts(s: RState, i: RInput): [string, number][] {
 /** r16 D15：命中加成明细（只用于显示；数值来自 calcParts，和实际结算同一套）。
     outer = 不封顶（主修 / 被动 / 克制 / 多步题；难度单列在 diff），inner = 封顶（连击 / 专注 / 题卡 / 挑战题 / 押注 / 技能）。
     per = 每段护盾抵扣前的伤害（引擎同样 max(1, round)）；hits 段数；half 漏选 ×0.5 */
-export interface DmgInfo { atk: number; diff: number; outer: [string, number][]; base: number; inner: [string, number][]; innerRaw: number; innerUsed: number; capped: boolean; per: number; hits: number; half?: boolean; skill?: string }
+export interface DmgInfo { atk: number; diff: number; outer: [string, number][]; base: number; inner: [string, number][]; innerRaw: number; innerUsed: number; capped: boolean; per: number; hits: number; half?: boolean; skill?: string;
+  /** r17.1 D15 §6.3：只用于显示——outer 里哪一项是角色被动（短名）；题卡的基础值 / 难度 / 生效比例；多段技能每段倍率 */
+  passive?: string; card?: { name: string; base: number; d: number; k: number }; multi?: { hits: number; perHit: number } }
+/** 被动在摘要里用角色短名：「数理骑士·阿算」→「阿算」 */
+export const shortName = (c: { name: string }) => c.name.split('·').pop()!;
 export function dmgInfo(s: RState, c: Character, i: RInput, skillM = 1, skillName?: string, hits = 1, half = false): DmgInfo {
   const { outer, inner } = calcParts(s, c, i); const diff = DIFF_MULT[i.difficulty] ?? 1; const O: [string, number][] = [];
   const math = PASSIVE.mathBonus(c) && i.subject === '数学';
-  if (i.subject === c.major) O.push(['主修', AFFINITY * (math ? 1.1 : 1)]); else if (math) O.push([c.name, 1.1]);   // 阿算 / 算算：数学被动并进「主修」（题卡上一直写「主修 ×1.32」）
+  if (i.subject === c.major) O.push(['主修', AFFINITY]);
+  if (math) O.push([shortName(c), 1.1]);   // r17.1 D15 §6.2 B：主修和被动分开列（不再合成 ×1.32）
   if (weakOf(s) === i.subject) O.push(['克制', WEAK]);
   if (i.stepIndex != null) { const m = MULTI_STEP[Math.min(i.stepIndex, MULTI_STEP.length - 1)]; if (m !== 1) O.push(['多步题', m]); }
   const card = CARDS[i.card ?? 'std']; const I: [string, number][] = [];
   const cm = comboMult(s.combo); if (cm !== 1) I.push(['连击', cm]);
   if (s.focus) I.push(['专注', 1 + FOCUS_DMG * s.focus]);
   const co = cardOut(card.out, i.difficulty); if (co !== 1) I.push([card.label + '卡', co]);
+  const cardSrc = co !== 1 ? { name: card.label + '卡', base: card.out, d: i.difficulty, k: i.difficulty >= 3 ? 1 : CARD_K[i.difficulty] ?? 0.5 } : undefined;
   if (i.challenge) I.push(['挑战题', CHALLENGE.out]);
   if (i.wager && s.side === 'P') I.push(['押注', WAGER.out]);
   if (i.simSkillMult && i.simSkillMult !== 1) I.push(['技能', i.simSkillMult]);
   if (skillM !== 1) I.push(['技能', skillM]);
   const raw = inner * skillM, used = Math.min(INNER_CAP, raw);
-  return { atk: s.atk, diff, outer: O, base: outer, inner: I, innerRaw: raw, innerUsed: used, capped: raw > INNER_CAP + 1e-9, per: half ? r1(outer * Math.min(INNER_CAP, inner) * 0.5) : r1(outer * used), hits, half: half || undefined, skill: skillName };
+  return { atk: s.atk, diff, outer: O, base: outer, inner: I, innerRaw: raw, innerUsed: used, capped: raw > INNER_CAP + 1e-9, per: half ? r1(outer * Math.min(INNER_CAP, inner) * 0.5) : r1(outer * used), hits, half: half || undefined, skill: skillName,
+    passive: math ? shortName(c) : undefined, card: cardSrc, multi: hits > 1 && skillM !== 1 ? { hits, perHit: skillM } : undefined };
 }
 /** 无技能时的伤害（封顶后） */
 export function calcD(s: RState, c: Character, i: RInput) { const { outer, inner } = calcParts(s, c, i); return outer * Math.min(INNER_CAP, inner); }

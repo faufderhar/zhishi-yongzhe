@@ -1,7 +1,7 @@
-/* r16 D15：伤害加成摘要（一行灰色小字，放不下按「等」截断）+「明细 ⓘ」浮层（不打断战斗；再点一次或点空白处关闭；按设备记住展开状态） */
+/* r16 D15（r17.1 §6.2 B：增益 ｜ 多段技能 ｜ 减：减益，减益灰蓝、一直显示，放不下先收增益）：伤害加成摘要（一行灰色小字，放不下按「等」截断）+「明细 ⓘ」浮层（不打断战斗；再点一次或点空白处关闭；按设备记住展开状态） */
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { DmgInfo } from '../game/rounds';
-import { summary, detailLines, fmtX } from '../game/dmgText';
+import { summary, detailLines, fmtX, negText } from '../game/dmgText';
 
 const KEY = 'zy-dmg-detail';
 const readOpen = () => { try { return localStorage.getItem(KEY) === '1'; } catch { return false; } };
@@ -22,7 +22,9 @@ export function DmgSum({ d, dealt, absorbed, detail = true, tid = 'dmg-sum' }: {
     <div className="dmg-sum" data-testid={tid}>
       <span className="dmg-sum-line" ref={line} data-n={s.items.length}>
         {s.items.map((x, k) => <span key={k}>{k ? ' · ' : ''}{x.name} {fmtX(x.m)}</span>)}{s.more ? ' 等' : ''}
-        {s.cap && <b className="dmg-cap" data-testid={tid + '-cap'}>{s.items.length ? ' · ' : ''}{s.cap}</b>}
+        {s.multi && <span className="dmg-multi" data-testid={tid + '-multi'}>{s.items.length ? ' ｜ ' : ''}{s.multi}</span>}
+        {s.neg.length > 0 && <span className="dmg-neg" data-testid={tid + '-neg'}>{s.items.length || s.multi ? ' ｜ ' : ''}{negText(s.neg)}</span>}
+        {s.cap && <b className="dmg-cap" data-testid={tid + '-cap'}>{s.items.length || s.multi || s.neg.length ? ' · ' : ''}{s.cap}</b>}
       </span>
       {detail && <button type="button" className="dmg-more" data-testid={tid + '-more'} aria-expanded={open} onClick={toggle}>明细 ⓘ</button>}
     </div>

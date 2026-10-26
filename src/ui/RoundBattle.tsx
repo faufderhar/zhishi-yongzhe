@@ -16,7 +16,7 @@ import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
-import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
+import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, shortName, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
 import { skillsFor, skillById, triggerWhy, TRIGGER_TAG, ringTag, RING_TAG } from '../game/skills';
 import { SkillDetail } from './SkillDetail';
 import { guardText, phaseCapText } from '../game/dmgText';
@@ -409,8 +409,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {phase === 'cards' && cards && (
           <div className="cards" data-testid="cards"><p>选一张题卡</p><div className="row gap16">
             {(['light', 'std', 'heavy'] as CardKind[]).map(k => <button key={k} className={`qcard ${k}`} data-testid={'card-' + k} onClick={() => pickCard(k)}>
-              <b>{CARDS[k].label}</b><span>{cards[k].subject}{cards[k].subject === c.major ? <em className="card-major" data-testid={'card-major-' + k}>（主修 ×{+((PASSIVE_MATH(c) ? 1.32 : 1.2)).toFixed(2)}）</em> : null} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
-              <small data-testid={'card-mult-' + k}>伤害 ×{+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)} · 答错反击 ×{CARDS[k].ctr}</small>
+              <b>{CARDS[k].label}</b><span>{cards[k].subject}{cards[k].subject === c.major ? <em className="card-major" data-testid={'card-major-' + k}>（主修 ×1.2{PASSIVE_MATH(c) ? ` · ${shortName(c)} ×1.1` : ''}）</em> : null} · 难度 {cards[k].difficulty}{isMulti(cards[k]) ? ' · 多步题' : ''}</span>
+              <small data-testid={'card-mult-' + k}>伤害 ×{CARDS[k].out} · 答错反击 ×{CARDS[k].ctr}</small>{CARDS[k].out !== 1 && <small className="card-note" data-testid={'card-note-' + k}>题越难效果越足{cardOut(CARDS[k].out, cards[k].difficulty) !== CARDS[k].out ? ` · 本题 ×${+cardOut(CARDS[k].out, cards[k].difficulty).toFixed(2)}` : ''}</small>}{/* r17.1 D15 §6.2 A：第一行基础值，第二行灰色写本题生效值 */}
               <small className="card-dmg" data-testid={'card-dmg-' + k}>本题预计伤害 ≈ {estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })}{wagerOn ? `（押注 ≈ ${estimateDealt(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k, wager: true })}）` : ''}</small><DmgSum d={estimateInfo(bs, c, { subject: cards[k].subject, difficulty: cards[k].difficulty, card: k })} detail={false} tid={'card-sum-' + k} /></button>)}   {/* r15.2 策划：高一题卡显示预计伤害（不含技能、护盾、押注；数值不变） */}
           </div></div>
         )}
