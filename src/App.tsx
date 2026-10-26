@@ -91,6 +91,7 @@ export default function App() {
   const [usage, setUsageAll] = useState<Record<string, Usage>>({});
   const usageRef = useRef(usage); usageRef.current = usage;
   const [wrong, setWrong] = useState<WrongEntry[]>([]);
+  const wrongKeySet = useMemo(() => new Set(wrong.map(e => e.qkey)), [wrong]);   // r17.1 R3：Boss 同档降级「以前答错」那一层
   const [recentRight, setRecentRight] = useState<Set<string>>(new Set());
   const [seenKeys, setSeenKeys] = useState<Set<string>>(new Set());
   const lastAnswered = useRef<{ pid: string; q: Question } | undefined>(undefined);   // r15.3：上一局最后答的题（下一局开头避开同题干）   // 出过的题（Boss 选题优先没出过的）
@@ -690,7 +691,7 @@ export default function App() {
             onTermLit={(t: TermNo, lit: number) => { if (p) setProgress(pr => { const nx = withTermLit(pr, t, lit); S.saveProgress(p.id, nx); return nx; }); }}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} />
         : cfg.battle === 'full'
-        ? <RoundBattle electives={p0?.electives} prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
+        ? <RoundBattle wrongHist={wrongKeySet} electives={p0?.electives} prevStem={screen.prevStem} seen={seenKeys} prior={screen.prior} reserve={screen.reserve} adj={screen.adj} key={screen.nonce} cfg={cfg} c={char} kind={screen.level.kind} unit={screen.level.unit} title={screen.level.name} questions={screen.qs} review={screen.review} extra={screen.extra}
             wagerOn={settings.hsWager ?? true} lowGrade={p?.grade === '3' || p?.grade === '4'}
             tips={p0?.tips} onTip={k => { const id = pid; setProfiles(ps => ps.map(x => x.id === id ? { ...x, tips: { ...x.tips, [k]: true } } : x)); }}
             onAnswer={(q, ok, a) => onAnswer(q, ok, a)} onEnd={r => endLevel(screen.level, r)} onQuit={() => setScreen({ s: 'map' }, 'quit')} onFlag={flagQ} />

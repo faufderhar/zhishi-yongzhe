@@ -10,7 +10,7 @@ import { TIP_TEXT, rulesFor, playRageDrum, type TipKey } from './rules';
 import { QImage, CountVisual } from './QImage';
 import { Bar, Keypad, Modal } from './common';
 import { choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
-import { drawNext, normStem } from '../game/draw';
+import { drawNext, normStem, bossTiered } from '../game/draw';
 import { pickHarder, anyHarder } from '../game/harder';
 import { unseen, refill, REPEAT_CAP } from '../game/draw';
 import { DmgSum } from './DmgSum';
@@ -37,7 +37,7 @@ type Phase = 'pre' | 'chal' | 'cards' | 'bet' | 'question' | 'anim' | 'feedback'
 const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
-export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem, electives }: BattleProps & { electives?: Electives | null /* r16 R-13：档案选科 */; prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
+export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem, electives, wrongHist }: BattleProps & { wrongHist?: Set<string> /* r17.1 R3：本档案以前答错过的题（Boss 同档降级第 2 层） */; electives?: Electives | null /* r16 R-13：档案选科 */; prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
   const mon0 = MONSTERS[cfg.stats][kind];
   const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit, { grade: questions[0]?.grade, volume: questions[0]?.volume });   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
@@ -45,7 +45,14 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   // r10 同一局不重复：按题号和题面（去空格）去重；关外出过的题排在后面（Boss 优先没出过的）
   const pool = useRef<Question[]>((() => { const ks = new Set<string>(), ts = new Set<string>(), out: Question[] = [];
     const ex = [...extra].sort((a, b) => +!!seen?.has(a.key) - +!!seen?.has(b.key));
-    for (const q of [...questions, ...ex]) { const t = normQ(q); if (ks.has(q.key) || ts.has(t)) continue; ks.add(q.key); ts.add(t); out.push(q); } return out; })());
+    /* r17.1 学霸 r17-9 R2：Boss 每题都从「整章 + Boss 专用题、本局没出过」里挑——候选 = 开局题单 + 后备 + 整章（reserve），不再只看开局约 40 道 */
+    for (const q of [...questions, ...ex, ...(kind === 'boss' ? reserve ?? [] : [])]) { const t = normQ(q); if (ks.has(q.key) || ts.has(t)) continue; ks.add(q.key); ts.add(t); out.push(q); } return out; })());
+  /* r17.1 R4：一局 Boss 最多用掉本章「本档案没见过的难度 ≥3 题」的一半（至少 2 道） */
+  const fresh3Quota = useRef(Math.max(2, Math.floor(pool.current.filter(x => x.difficulty >= 3 && !seen?.has(x.key)).length / 2))).current;
+  const fresh3Left = () => fresh3Quota - used.current.filter(x => x.difficulty >= 3 && !seen?.has(x.key)).length;
+  const bossOpt = () => kind === 'boss' ? { wrong: wrongHist ?? new Set<string>(), fresh3Left: fresh3Left() } : undefined;
+  /* r17.1 R5：这道题是不是「≤ 当前档的题这局都出过了」才取的更难题（题头只在这时说） */
+  const overRef = useRef(false);
   const curated = useRef(new Set(questions.map(q => q.key))).current;
   /* r15.1 学霸：本关（含后备 / 相邻小节）去重后的题数 × 2 = 最多能打的回合数；题少时回合上限显示真实值 */
   const maxTurns = useMemo(() => new Set([...questions, ...extra, ...(reserve ?? []), ...(adj ?? []).flat()].map(q => q.key)).size * 2, []);
@@ -175,7 +182,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     // r8：多选规则优先于「最接近难度」（只初一/高一、我方回合、第 1 回合不出、每局 1–2 道）
     // r11：统一走 drawNext（去重 + 难度回落 + 多选规则）；只有本关题全部出过才重复
     // r15 策划：复习题前 2 题不出，之后每 4 题最多 1 道（只剩复习题时才放宽）
-    const dn = (pr: (x: Question) => boolean) => drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk), force: multiRule(multiCtx()).force ? isMultiSel : undefined, first: shownN.current === 0 && !used.current.length }).q;
+    const dn = (pr: (x: Question) => boolean) => { const r = drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk), force: multiRule(multiCtx()).force ? isMultiSel : undefined, first: shownN.current === 0 && !used.current.length, boss: bossOpt() }); overRef.current = !!r.over; return r.q; };
     const revOk = reviewAllowed(shownN.current, lastRev.current);
     /* r15.1 技术QA R15-2：本关题池里非复习题出完时，先从同单元后备题 / 相邻小节补一道非复习题，实在没有才出复习题（以前直接连出 4 道复习） */
     const nonRev = (x: Question) => pred(x) && !revSet.has(x.key);
@@ -198,7 +205,11 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     if (g.borrowed) pool.current = [...pool.current, g.borrowed];
     const rest = g.list; const unseenH = (xs: Question[]) => { const u = xs.filter(x => !seen?.has(x.key)); return u.length ? u : xs; };
     const fq = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyForceQ?: string }).__zyTest) ? pool.current.find(x => x.id === (window as unknown as { __zyForceQ?: string }).__zyForceQ) : undefined;   /* 仅测试构建：指定题也走选卡（r15.4.4：以前高一选卡不看指定题，C10-044 难度 4 出不成） */
-    const base = fq ?? pickByTier(unseenH(rest.filter(x => !isMulti(x))), tierRef.current) ?? rest[0]; if (!base) return null;
+    /* r17.1 R1：标准卡普通题 ≤ tierCap、同样近取低档；Boss 按 R3 / R4 同档降级 */
+    const cap = tierCap(tierRef.current.base), nm = rest.filter(x => !isMulti(x)), capped = nm.filter(x => x.difficulty <= cap);
+    const bt = !fq && kind === 'boss' ? bossTiered(nm, { seen, curated, tier: tierRef.current, boss: bossOpt()! }) : undefined;
+    const base = fq ?? bt?.q ?? pickByTier(unseenH(capped.length ? capped : nm), tierRef.current, true) ?? rest[0]; if (!base) return null;
+    overRef.current = bt ? bt.over : !fq && base.difficulty > tierRef.current.tier && !capped.some(x => x.difficulty <= tierRef.current.tier);
     const near = (d: number, used: string[]) => rest.filter(x => !used.includes(x.key) && !isMulti(x)).sort((a, b) => Math.abs(a.difficulty - d) - Math.abs(b.difficulty - d))[0];
     const light = near(base.difficulty - 1, [base.key]) ?? base;
     // r12：重击卡不再因没有更难题而缺位：先多步题，再更难一档（含前序小节），都没有就用当前难度的题（倍率按难度挂钩公式自然变小）
@@ -412,7 +423,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
           </div></div>}
         {showQ && <>
           {phase === 'revive-q' && <div className="revive-banner">复活挑战：答对 2 题（已对 {rv?.right ?? 0}，剩 {REVIVE.tries - (rv?.tries ?? 0)} 次机会）</div>}
-          <div className="qmeta"><span className="qmeta-txt">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : `，难度 ${tierNow || tierRef.current.tier} 的新题出完了，这题更难`) : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager && P && phase !== 'revive-q' ? ' · 押注' : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
+          <div className="qmeta"><span className="qmeta-txt">{review?.includes(cq.key) && <span className="review-tag" data-testid="review-tag">复习</span>}{phase !== 'revive-q' && (P ? '⚔ 攻击题' : '🛡 闪避题')} · {cq.subject} · {cq.type} · 难度{cq.difficulty}{phase !== 'revive-q' ? <span data-testid="tier-now">（当前难度 {tierNow || tierRef.current.tier}{(tierNow || tierRef.current.tier) >= tierCap(tierRef.current.base) ? '，普通题最高' : ''}{cq.difficulty > (tierNow || tierRef.current.tier) ? (chal || card === 'heavy' ? '，这题难一档' : overRef.current ? `，这${kind === 'boss' ? '一章' : '一关'}难度 ${tierNow || tierRef.current.tier} 及以下的题这局都出过了，这题更难` : '') : cq.difficulty < (tierNow || tierRef.current.tier) ? '，这题更容易' : ''}）</span> : null}{hs && P && phase !== 'revive-q' ? ` · ${CARDS[card].label}` : ''}{wager && P && phase !== 'revive-q' ? ' · 押注' : ''}{chal && P && phase !== 'revive-q' && <span className="chal-tag" data-testid="chal-tag"> · 🔥 挑战题</span>}{/* r15.3 学霸：选了普通题后，题卡标题不再写「挑战题 · 这一回合没有更难的题」 */}
             {cq.status !== '已通过' && cq.status !== 'AI初审通过' && <span className="pending">{cq.status}</span>}
             </span>{tts && (cfg.manualTTS || isEn) && <button className="mini" aria-label="朗读" data-testid="tts" onClick={() => speak(tts, isEn ? 'en' : 'zh-CN')}>🔊</button>}</div>
           {P && phase === 'question' && (() => { const inp = { subject: cq.subject, difficulty: cq.difficulty, card: hs ? card : 'std' as CardKind, wager: hs && wagerOn ? wager : false, challenge: chal && bs.mode === 'j' }; const est = estimateDealt(bs, c, inp), raw = bs.shield > 0 ? estimateDealt({ ...bs, shield: 0 }, c, inp) : est;

@@ -21,10 +21,11 @@ async function run(lab) {
   await pg.locator('.level.boss').first().click(); await w(900);
   const tut = async () => { for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-next]'); i++) { await pg.click('[data-testid=tutorial-next]'); await w(150); } for (let i = 0; i < 8 && await pg.isVisible('[data-testid=tutorial-skip]'); i++) { await pg.click('[data-testid=tutorial-skip]'); await w(300); } };
   const tipsOff = async () => { for (const t of await pg.$$('.first-tip')) await t.click().catch(() => {}); };
-  let qn = 0, exp = null;
+  let qn = 0, exp = null; const hdr = new Set();
   for (let s = 0; s < 600; s++) {
     if (await pg.isVisible('[data-testid=result-title]')) break;
     await tut(); await tipsOff();
+    for (const t of await pg.$$eval('.qmeta-txt', es => es.map(e => e.textContent ?? ''))) if (/出过了|出完了/.test(t)) hdr.add(t);
     if (lab && !exp && qn >= 3 && await pg.isVisible('[data-testid=bosslog-export]')) exp = 'seen';
     if (await pg.isVisible('[data-testid=chal-normal]')) { await pg.click('[data-testid=chal-normal]'); await w(200); continue; }
     if (await pg.isVisible('[data-testid=card-std]')) { await pg.click('[data-testid=card-std]'); await w(200); continue; }
@@ -38,9 +39,9 @@ async function run(lab) {
     await w(250);
   }
   const log = await pg.evaluate(() => window.__zyBossLog);
-  return { ctx, pg, log, qn, exp };
+  return { ctx, pg, log, qn, exp, hdr };
 }
-{ const { ctx, pg, log, qn, exp } = await run(true);
+{ const { ctx, pg, log, qn, exp, hdr } = await run(true);
   writeFileSync(OUT + 'bosslog.json', JSON.stringify(log, null, 1)); await pg.screenshot({ path: OUT + 'result.png' });
   const s = log?.summary ?? {}; const R = log?.rounds ?? [];
   ok(s.result === '击杀' && s.kind === 'boss', `结果 ${s.result} / ${s.kind}，${s.monster}，${s.turns} 回合，答 ${qn} 题`);
@@ -48,6 +49,9 @@ async function run(lab) {
   ok(s.correctByPhase?.length === 2 && s.correctByPhase[0] + s.correctByPhase[1] === s.correct, `分阶段：${JSON.stringify(s.correctByPhase)}`);
   ok(R.length === qn && R.at(-1)?.monHpAfter === 0 && R.every((r, i) => !i || r.monHpBefore === R[i - 1].monHpAfter), `rounds ${R.length} 行，血量首尾相接到 0`);
   ok(s.totalDealt === R.filter(r => r.side === 'P').reduce((a, r) => a + r.dealt, 0) && s.totalDealt >= R[0]?.monHpBefore, `总伤害 ${s.totalDealt}（≥ 开打血量 ${R[0]?.monHpBefore}），均 ${s.avgPerQ}；技能 ${s.skills}，封顶 ${s.caps}`);
+  // r17.1 学霸 r17-8 / r17-10：正常 Boss 局普通题难度 ≤ tierCap（≤3；挑战题 / 重击卡除外），题头不说「都出过了」
+  ok(R.filter(r => r.side === 'P' && !r.challenge && r.card !== 'heavy').every(r => r.difficulty <= 3), `普通题难度 ${R.filter(r => r.side === 'P').map(r => r.difficulty + (r.challenge ? '挑' : '')).join(' ')} ≤3`);
+  ok(hdr.size === 0, `题头没有「这一章…都出过了」${hdr.size ? '：' + [...hdr].join(' | ') : ''}`);
   ok(exp === 'seen' || await pg.isVisible('[data-testid=bosslog-export]'), '__zyBossLab：战斗里有导出按钮');
   // 结算页没有战斗组件了 → 下载用最后一份日志：再进一次 Boss，答 2 题，点导出
   await pg.click('[data-testid=to-map]').catch(() => {}); await pg.waitForTimeout(800); await pg.locator('.level.boss').first().click(); await pg.waitForTimeout(1200);

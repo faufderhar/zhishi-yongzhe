@@ -14,10 +14,11 @@ export const isConsolidating = (t: Tier) => t.tier < t.base;
 /** 从候选里按档位取题：降档时取最接近 tier 的题，尽量不低于 tier（最多降 1 档） */
 /** 离当前档的「距离」（巩固期低于当前档的额外加罚） */
 export const tierCost = (d: number, t: Tier) => (isConsolidating(t) && d < t.tier ? 10 : 0) + Math.abs(d - t.tier);
-export function pickByTier<T extends { difficulty: number }>(cands: T[], t: Tier): T | undefined {
+export function pickByTier<T extends { difficulty: number }>(cands: T[], t: Tier, lowTie = false): T | undefined {
   if (!cands.length) return undefined;
   // 不降档时也按「最接近当前档」取，避免同一关内 3→5→3→2 来回跳（补测报告 #6）；同分保持原顺序
+  // r17.1 学霸 R1（lowTie）：同样近时取低的那档（轮流回合关：drawNext / 高中选卡）
   const cost = (d: number) => tierCost(d, t);
-  return cands.reduce((b, q) => cost(q.difficulty) < cost(b.difficulty) ? q : b);
+  return cands.reduce((b, q) => cost(q.difficulty) < cost(b.difficulty) || (lowTie && cost(q.difficulty) === cost(b.difficulty) && q.difficulty < b.difficulty) ? q : b);
 }
 export const showConsolidateTag = (band: string) => band === 'J' || band === 'H';

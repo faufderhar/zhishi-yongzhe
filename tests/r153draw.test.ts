@@ -37,8 +37,13 @@ describe('r15.3 连续重开：整个小节没见过的先出', () => {
         const got = playRun(qs, extra, seen, n);
         const unseenBefore = lessonPool.filter(q => !seen.has(q.key)).length;
         const repeats = got.filter(q => seen.has(q.key)).length;
-        expect(repeats, `${level.name} 第 ${run + 1} 局：小节还有 ${unseenBefore} 道没见过，却重复了 ${repeats} 道`).toBe(Math.max(0, got.length - unseenBefore));
-        if (run > 0 && unseenBefore >= 2) expect(got.slice(0, 2).some(q => prevRun.slice(0, 2).some(x => x.key === q.key)), `${level.name} 第 ${run + 1} 局开头又是上一局开头的题`).toBe(false);
+        /* r17.1 学霸 r17-8 R1：普通题难度 ≤ tierCap（这里 base 2 → 3）。没见过的只剩难度 4+ 时，先出见过的 ≤3 档题（裁定：有没见过的 4 和见过的 3 → 出 3），
+           所以只对 ≤3 档要求「没见过的先」；小节里没有超档的没见过题时和 r15.3 完全一样 */
+        const unseenCap = lessonPool.filter(q => !seen.has(q.key) && q.difficulty <= 3).length;
+        if (unseenCap === unseenBefore) expect(repeats, `${level.name} 第 ${run + 1} 局：小节还有 ${unseenBefore} 道没见过，却重复了 ${repeats} 道`).toBe(Math.max(0, got.length - unseenBefore));
+        else expect(repeats, `${level.name} 第 ${run + 1} 局：小节还有 ${unseenCap} 道 ≤3 档没见过，却重复了 ${repeats} 道`).toBeLessThanOrEqual(Math.max(0, got.length - unseenCap));
+        expect(got.filter(q => !seen.has(q.key) && q.difficulty <= 3).length, `${level.name} 第 ${run + 1} 局 ≤3 档没见过的题都先用上`).toBe(Math.min(unseenCap, got.filter(q => q.difficulty <= 3).length));
+        if (run > 0 && unseenCap >= 2) expect(got.slice(0, 2).some(q => prevRun.slice(0, 2).some(x => x.key === q.key)), `${level.name} 第 ${run + 1} 局开头又是上一局开头的题`).toBe(false);
         got.forEach(q => seen.add(q.key)); prevRun = got; checked++;
       }
     }
