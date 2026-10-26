@@ -57,7 +57,8 @@ if (PARTS.includes('main')) for (const vp of Object.keys(ALLVP)) for (const rm o
   await pg.click(`[data-testid=term-node-${t}]`); await w(400);
   for (let i = 0; i < 10; i++) { const x = await pg.$('[data-testid=tutorial-skip], [data-testid=tutorial-next]'); if (!x) break; await x.click().catch(() => {}); await w(300); }
   await pg.waitForSelector('[data-testid=term-mon]', { timeout: 10000 }); await w(250);
-  const say0 = await pg.textContent('[data-testid=ksay]').catch(() => '');
+  // 开场白气泡可能比 term-mon 晚一点出（机器忙时 >250 ms）：最多等 3 s 拿到第一句非空
+  let say0 = ''; for (let i = 0; i < 30 && !say0; i++) { say0 = (await pg.textContent('[data-testid=ksay]').catch(() => '')) || ''; if (!say0) await w(100); }
   ok(say0 === TXT.intro[t], `${tag} 开场白 =「${say0}」`);
   await pg.screenshot({ path: `${OUT}${tag}_1intro.png` });
   const nH = await pg.$$eval('[data-testid=term-heart]', e => e.length); const nQ = await pg.evaluate(() => 0);
