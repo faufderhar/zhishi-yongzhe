@@ -17,11 +17,11 @@ describe('r17 录音', () => {
     for (let n = 1; n <= 10; n++) expect(man.meta['p:res_k_first_' + n].text, String(n)).toBe(K_FIRST_LINE(n));
     for (let m = 1; m <= 5; m++) expect(man.meta['p:happy_total_' + m].text, String(m)).toBe(HAPPY_TOTAL_LINE(m));
   });
-  it('期末庆祝关 10 句（r17.1 +睡觉句 2）（k_term*）：包里登记的例外语速 1.1，其他键都是 1.2；共 3281 键', () => {
+  it('期末庆祝关 10 句（r17.1 +睡觉句 2）（k_term*）：包里登记的例外语速 1.1，其他键都是 1.2；共 3284 键（r17.1 +年级名 3，1.2）', () => {
     const term = man.deploy.r17_term; expect(term.speed).toBe(1.1); expect(term.keys.length).toBe(10);
     for (const k of term.keys) { expect(man.items[k], k).toBeTruthy(); expect(man.meta[k].speed, k).toBe(1.1); }
     const other = Object.entries(man.meta as Record<string, { speed?: number }>).filter(([k, m]) => !term.keys.includes(k) && typeof m?.speed === 'number' && m.speed !== 1.2).map(([k]) => k);
-    expect(other).toEqual([]); expect(Object.keys(man.items).length).toBe(3281);
+    expect(other).toEqual([]); expect(Object.keys(man.items).length).toBe(3284);
     expect(man.meta['p:k_term1_end'].text).toBe('大乌云被你逗笑啦！');
   });
   it('录音文字过期判断（用假的 meta，不依赖当前包）：登记了期望文字且对不上 → 过期；一致（标点 / 表情 / 零宽字符不算）→ 不过期；没登记 / 包里没文字 → 不过期', async () => {
