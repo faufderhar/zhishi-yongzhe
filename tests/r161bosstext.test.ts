@@ -59,7 +59,7 @@ describe('(y) 数字风暴文案 / 能量环 / 横幅', () => {
     expect(skillCardLine('H', '数学', 'asuan')).toBe(STORM_CARD + '冷却 3 回合。');
     expect(skillCardLine('P12', '数学', 'suansuan')).toBeNull();
     for (const c of [...PUPS, ...SCIFI].filter(c => c.id !== 'suansuan' && c.id !== 'asuan')) for (const seg of ['P36', 'J', 'H'] as const) expect(skillCardLine(seg, c.major, c.id)).toBeNull();
-    expect(suan.desc).toBe('数学题伤害 ×1.2，再 +10%');   // 原来那句不动
+    expect(suan.desc).toBe('主修：数学题伤害 ×1.2\n被动：数学题再 ×1.1（合计 ×1.32）');   // r17.1 r17-3：主修 / 被动分两行
     expect(readFileSync('src/ui/Screens.tsx', 'utf8')).toMatch(/skillCardLine\(segOf\(cfg\.band\), c\.major, c\.id\)[\s\S]{0,120}data-testid=\{'char-skill-' \+ c\.id\}/);
   });
   it('触发原因：能量满 / 保底 / 幸运，和 roll 的必定触发条件同一处', () => {
