@@ -7,23 +7,23 @@ import { buildChapters } from '../src/game/levels';
 import { computeVisibility, isHiddenBy } from '../src/game/visibility';
 import { onWrong, wrongStale } from '../src/game/wrongbook';
 import { REV_CHANGED_SINCE_R16 } from '../src/game/revChanged';
-import { BUILTIN_GRADES } from '../src/bankStore';
+import { R16_GRADES } from './helpers/r16grades';   // r17.1：快照只看 r16–r17 的 12 个年级
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { Tex } from '../src/Tex';
 const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8'));
-const all: Question[] = BUILTIN_GRADES.flatMap(g => loadBank(raw(g), `bank_${g}.json`).all); const vis = computeVisibility(all); const byId = new Map(all.map(q => [q.id, q]));
+const all: Question[] = R16_GRADES.flatMap(g => loadBank(raw(g), `bank_${g}.json`).all); const vis = computeVisibility(all); const byId = new Map(all.map(q => [q.id, q]));
 const V52 = JSON.parse(readFileSync('tests/fixtures/r17_v52_revs_of_v56changed.json', 'utf8')) as Record<string, { grade: string; rev52: string }>;
 describe('r17 题库 v56', () => {
   it('发布号 v56；题量 18344 / 可玩 18281 不变；初三 / 大班 / 高三还没导入；高二物理强制隐藏，自动规则不藏别的', () => {
-    for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v57 只改大班（K3C-071 新增、K3C-013 需家长确认），已导入年级逐题和 v56 相同
+    for (const g of R16_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v57 只改大班（K3C-071 新增、K3C-013 需家长确认），已导入年级逐题和 v56 相同
     expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v57', playable: 23392 });   // r17.1：+大班 335 / 初三 2073 / 高三 2703
     expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);   // r17.1 导入
     expect(vis.rows.map(r => `${r.grade}|${r.subject}|${r.volume}|${r.why}`)).toEqual(['11|物理|必修第三册|force', '11|物理|选择性必修第一册|force', '11|物理|选择性必修第二册|force']);
   });
   it('可见关卡 2387 个，和 r16.2 快照（eefc5aa）一关不少', () => {
     const fx = JSON.parse(readFileSync('tests/fixtures/r162_levels_eefc5aa.json', 'utf8')) as { names: Record<string, [string, string]> };
-    const ids = new Set<string>(); for (const g of BUILTIN_GRADES) { const a = all.filter(q => q.grade === g); for (const ch of buildChapters(playable(a, false).filter(q => !isHiddenBy(vis, q)), null, a)) for (const l of ch.levels) ids.add(l.id); }
+    const ids = new Set<string>(); for (const g of R16_GRADES) { const a = all.filter(q => q.grade === g); for (const ch of buildChapters(playable(a, false).filter(q => !isHiddenBy(vis, q)), null, a)) for (const l of ch.levels) ids.add(l.id); }
     expect(ids.size).toBe(2387); expect(Object.keys(fx.names).filter(k => !ids.has(k))).toEqual([]);
   });
   it('2825 题 qRev 变了（含点名的 7 题），全在 REV_CHANGED_SINCE_R16；v52 时记的错题按「已更新」', () => {

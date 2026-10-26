@@ -8,7 +8,8 @@ import { buildChapters } from '../src/game/levels';
 import { computeVisibility, isHiddenBy } from '../src/game/visibility';
 import { onWrong, wrongStale } from '../src/game/wrongbook';
 import { REV_CHANGED_SINCE_R16 } from '../src/game/revChanged';
-import { mergeImported, BUILTIN_GRADES } from '../src/bankStore';
+import { mergeImported } from '../src/bankStore';
+import { R16_GRADES } from './helpers/r16grades';   // r17.1：快照只看 r16–r17 的 12 个年级
 import { speakable } from '../src/tts';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -18,12 +19,12 @@ import { judge } from '../src/game/questions';
 import { addNumKey } from '../src/game/keypad';
 const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8'));
 const B = (g: string) => loadBank(raw(g), `bank_${g}.json`);
-const all: Question[] = BUILTIN_GRADES.flatMap(g => B(g).all); const vis = computeVisibility(all); const byId = new Map(all.map(q => [q.id, q]));
+const all: Question[] = R16_GRADES.flatMap(g => B(g).all); const vis = computeVisibility(all); const byId = new Map(all.map(q => [q.id, q]));
 const V50 = JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.json', 'utf8')) as Record<string, { grade: string; rev50: string }>;
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
 describe('r16.2 题库 v51', () => {
   it('发布号 v51；题量 18344 不变；初三 / 大班 / 高三没导入；高二物理全部隐藏；自动规则不藏任何册', () => {
-    for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v56 → v57（同 id、同关卡；tests/r17v56）   // r16.2：v52 只改 4–6 年级 636 题（下面 v52 一节）
+    for (const g of R16_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v56 → v57（同 id、同关卡；tests/r17v56）   // r16.2：v52 只改 4–6 年级 636 题（下面 v52 一节）
     expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);   // r17.1 导入
     expect(all.filter(q => q.grade === '11' && q.subject === '物理').every(q => isHiddenBy(vis, q))).toBe(true);
     expect(vis.rows.map(r => `${r.grade}|${r.subject}|${r.volume}|${r.why}`)).toEqual(['11|物理|必修第三册|force', '11|物理|选择性必修第一册|force', '11|物理|选择性必修第二册|force']);
@@ -31,7 +32,7 @@ describe('r16.2 题库 v51', () => {
   it('可见关卡 2387 个，和线上 eefc5aa 快照比一关不少（新关只有 v50 的六下《学弈》）', () => {
     const fx = JSON.parse(readFileSync('tests/fixtures/r162_levels_eefc5aa.json', 'utf8')) as { names: Record<string, [string, string]> };
     const ids = new Set<string>(); let n = 0;
-    for (const g of BUILTIN_GRADES) { const a = B(g).all; for (const ch of buildChapters(playable(a, false).filter(q => !isHiddenBy(vis, q)), null, a)) for (const l of ch.levels) { ids.add(l.id); n++; } }
+    for (const g of R16_GRADES) { const a = B(g).all; for (const ch of buildChapters(playable(a, false).filter(q => !isHiddenBy(vis, q)), null, a)) for (const l of ch.levels) { ids.add(l.id); n++; } }
     expect(n).toBe(2387); expect(Object.keys(fx.names).filter(k => !ids.has(k))).toEqual([]); expect([...ids].filter(k => !(k in fx.names))).toEqual(['语文|N|6:Y6-014']);
   });
   it('626 题 qRev 变了，全在 REV_CHANGED_SINCE_R16 里；没在名单里的题（含只改 knowledge_point 的）qRev 和 v50 一样由 r16bankv46 指纹保证', () => {

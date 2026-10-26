@@ -38,7 +38,8 @@ describe('内置题库（v46）', () => {
     expect(vis.rows.filter(r => r.why === 'auto' && LIVE_R1544.includes(r.grade))).toEqual([]);
   });
   it('r16 新开年级里自动规则藏的：v46 没有（v45 时藏高二地理选必二——第二章第三节只有 4 题；v46 补进 D11-241～252）', () => {
-    expect(vis.rows.filter(r => r.why === 'auto').map(r => `${r.grade}|${r.subject}|${r.volume}`)).toEqual([]);
+    // r17.1：初三开放后自动规则藏初三 5 册（有小节不满 10 题，tests/r171grades 钉住），这里只看 r16–r17 的年级
+    expect(vis.rows.filter(r => r.why === 'auto' && !['K3', '9', '12'].includes(r.grade)).map(r => `${r.grade}|${r.subject}|${r.volume}`)).toEqual([]);
   });
   it('报告（R16_VIS_REPORT=1 时写 /workspace/playtest/r16dev/visibility_v46.md；含没开的 K3 / 9 / 12 供参考）', () => {
     if (!process.env.R16_VIS_REPORT) return;

@@ -27,10 +27,9 @@ import { answerFeedback } from '../feedback';
 
 /** 首页年级列表：可玩 + 即将开放（灰） */
 export const HOME_GRADES: { g: GradeKey; open: boolean }[] = [
-  ...(['K1', 'K2', '1', '2', '3', '4', '5', '6', '7', '8'] as GradeKey[]).map(g => ({ g, open: true })),   // r16：+中班、初二、高二
-  { g: '9' as GradeKey, open: false }, { g: '10' as GradeKey, open: true }, { g: '11' as GradeKey, open: true }, { g: '12' as GradeKey, open: false },
+  ...(['K1', 'K2', 'K3', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as GradeKey[]).map(g => ({ g, open: true })),   // r16：+中班、初二、高二；r17.1：+大班、初三、高三
 ];
-const DEFAULT_AVATAR: Record<string, string> = { K1: '🐰', K2: '🐻', 8: '🧑‍🎓', 11: '🧑‍🔬', 1: '🐣', 2: '🐥', 3: '🦊', 4: '🐼', 5: '🦁', 6: '🐯', 7: '🧑‍🎓', 10: '🧑‍🔬' };
+const DEFAULT_AVATAR: Record<string, string> = { K1: '🐰', K2: '🐻', K3: '🦒', 8: '🧑‍🎓', 9: '🧑‍🎓', 11: '🧑‍🔬', 12: '🧑‍🔬', 1: '🐣', 2: '🐥', 3: '🦊', 4: '🐼', 5: '🦁', 6: '🐯', 7: '🧑‍🎓', 10: '🧑‍🔬' };
 function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: () => void }) {
   const [name, setName] = useState(''); const [cut, setCut] = useState(false);
   return (

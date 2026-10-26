@@ -31,7 +31,7 @@ export function bandOf(g: GradeKey): Band {
 }
 export const bandConfig = (g: GradeKey) => BANDS[bandOf(g)];
 /** 可选的档案年级（有题库的年级） */
-export const PROFILE_GRADES: GradeKey[] = ['K1', 'K2', '1', '2', '3', '4', '5', '6', '7', '8', '10', '11'];   // r16 R-1：+中班 K2、初二 8、高二 11（大班 / 初三 / 高三 r17）
+export const PROFILE_GRADES: GradeKey[] = ['K1', 'K2', 'K3', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];   // r16 R-1：+中班 K2、初二 8、高二 11；r17.1：+大班 K3、初三 9、高三 12（15 个年级全开）
 /* r16 第 10 步：科目 / 册别隐藏挪到 game/visibility.ts（FORCE_HIDDEN 强制隐藏 + 题量门槛自动隐藏） */
 
 const READING_SUBJECTS = new Set(['语文', '英语', '历史', '道德与法治', '政治', '地理']);

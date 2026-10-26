@@ -7,9 +7,10 @@ import { buildChapters } from '../src/game/levels';
 import { computeVisibility, isHiddenBy, AUTO_EXEMPT, FORCE_HIDDEN, MIN_SECTION_QS } from '../src/game/visibility';
 import { onWrong, wrongStale } from '../src/game/wrongbook';
 import { REV_CHANGED_SINCE_R16 } from '../src/game/revChanged';
-import { mergeImported, BUILTIN_GRADES } from '../src/bankStore';
+import { mergeImported } from '../src/bankStore';
+import { R16_GRADES } from './helpers/r16grades';   // r17.1：快照只看 r16–r17 的 12 个年级
 const B = (g: string) => loadBank(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')), `bank_${g}.json`);
-const all: Question[] = BUILTIN_GRADES.flatMap(g => B(g).all); const vis = computeVisibility(all);
+const all: Question[] = R16_GRADES.flatMap(g => B(g).all); const vis = computeVisibility(all);
 const byId = new Map(all.map(q => [q.id, q]));
 const OLD6 = JSON.parse(readFileSync('tests/fixtures/r162_v48_old6.json', 'utf8')) as Record<string, { grade: string; q: Record<string, unknown> }>;
 const old = (id: string) => loadBank({ questions: [OLD6[id].q] }, `bank_${OLD6[id].grade}.json`).all[0];
@@ -17,7 +18,7 @@ const CHANGED = ['E5-129', 'H11-123', 'H11-151', 'D11-026', 'Z11-353', 'Z11-382'
 
 describe('r16.2 题库 v50', () => {
   it('发布号 v50；初三 / 大班 / 高三没导入；高二物理强制隐藏', () => {
-    for (const g of BUILTIN_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v57');   // r17 v56 → v57；r16.2：v50 → v51 → v52（同 id / 同关卡；tests/r162v51）
+    for (const g of R16_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v57');   // r17 v56 → v57；r16.2：v50 → v51 → v52（同 id / 同关卡；tests/r162v51）
     expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);   // r17.1 导入
     expect(all.some(q => /^(C9|P12|D12)-/.test(q.id))).toBe(false);
     expect(FORCE_HIDDEN['11']).toEqual(['物理']);
@@ -27,7 +28,7 @@ describe('r16.2 题库 v50', () => {
   it('线上可见的关卡（eefc5aa / v48 快照）一关不少、id 不变；新关只有六下《学弈》', () => {
     const fx = JSON.parse(readFileSync('tests/fixtures/r162_levels_eefc5aa.json', 'utf8')) as { names: Record<string, [string, string]> };
     const ids = new Set<string>(); const aliases = new Set<string>();
-    for (const g of BUILTIN_GRADES) { const a = B(g).all; const vq = playable(a, false).filter(q => !isHiddenBy(vis, q));
+    for (const g of R16_GRADES) { const a = B(g).all; const vq = playable(a, false).filter(q => !isHiddenBy(vis, q));
       for (const ch of buildChapters(vq, null, a)) for (const l of ch.levels) { ids.add(l.id); for (const x of l.aliases ?? []) aliases.add(x); } }
     expect(Object.keys(fx.names).filter(k => !ids.has(k) && !aliases.has(k))).toEqual([]);
     expect([...ids].filter(k => !(k in fx.names))).toEqual(['语文|N|6:Y6-014']);

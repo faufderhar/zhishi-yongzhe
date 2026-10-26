@@ -247,7 +247,7 @@ export function linkShortChinese(chs: Chapter[], zero: Question[] = []): Chapter
 }
 /** 上册 < 下册 < 第三册 < 通用 < 未标；其余按出现顺序 */
 /** r16：这些年级册内按题库顺序排小节（旧年级保持原排序，地图 / 解锁顺序不变） */
-export const BANK_ORDER_GRADES = new Set(['K2', '8', '11']);
+export const BANK_ORDER_GRADES = new Set(['K2', 'K3', '8', '11']);   // r17.1：+大班（题库顺序 = 教学顺序：数到20 → 10以内合分 …）；初三 / 高三两种排法结果一样，用默认
 /** 册别短名：选择性必修上册 → 选必上，选择性必修第一册 → 选必一 */
 export const volShort = (v: string) => v.replace(/^选择性必修/, '选必').replace(/^必修/, '必修').replace(/第([一二三四])册$/, '$1').replace(/册$/, '');
 export function volRank(v: string) {

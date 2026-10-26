@@ -8,7 +8,7 @@ export const BANK_VER = typeof __BANK_VER__ === 'string' ? __BANK_VER__ : 'dev';
 declare const __BANK_RELEASE__: string;
 /** 题库发布号（public/banks/release.json，如 v16） */
 export const BANK_RELEASE = typeof __BANK_RELEASE__ === 'string' ? __BANK_RELEASE__ : 'dev';
-export const BUILTIN_GRADES: GradeKey[] = ['K1', 'K2', '1', '2', '3', '4', '5', '6', '7', '8', '10', '11'];   // r16：+K2 / 8 / 11
+export const BUILTIN_GRADES: GradeKey[] = ['K1', 'K2', 'K3', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];   // r16：+K2 / 8 / 11；r17.1：+K3 / 9 / 12
 export interface BankState { /** r16.1 (m)：可见性（导入预览算「会被隐藏 N 题」） */ vis?: Visibility; /** r16 第 10 步：藏起来的 年级 / 科目 / 册别（家长题库页列出来） */ hidden?: HideRow[]; byKey: Map<string, Question>; builtin: Record<string, Bank>; importedCount: number; importedInvalid: number; /** r16：和内置题同号、但内置题已更新（或没有 base_rev 的旧导入）→ 用内置新版，导入那份不用 */ importedSuperseded?: number; /** r16.1：是哪些题（年级 / id / 科目 / 题干开头） */ importedSupersededList?: SupRow[] }
 /** r16：家长导入题叠加到内置题上。规则（总是按 id 读当前题库）：
     - 和内置题同号、内容一样 → 不算覆盖（以后题库升级照样生效）；
