@@ -256,8 +256,19 @@ export function shuffle<T>(a: T[], rnd = Math.random): T[] {
   return r;
 }
 /** 幼儿园：最多 3 个选项（正确 + 至多 2 个错误） */
+/** r17.1（r16.1 延后项 b，小萌新 r16 问题 3）中班「左右比多少」：「左边🍪🍪…，右边🍪🍪…，哪边的饼干多？」+ 选项只有「左边 / 右边」
+    → 两组图直接做成两个大按钮（只改显示；题库不动）。不是这种题 → null */
+const SIDE_EMO = '\\p{Extended_Pictographic}(?:\\uFE0F|\\u200D\\p{Extended_Pictographic}|\\p{Emoji_Modifier})*';
+const SIDE_RE = new RegExp(`^左边((?:${SIDE_EMO})+)[，,]\\s*右边((?:${SIDE_EMO})+)[，,]\\s*(.+)$`, 'u');
+export function sideGroups(q: Pick<Question, 'question' | 'type' | 'options'>): { left: string[]; right: string[]; ask: string } | null {
+  if (q.type !== '选择' || q.options.length !== 2 || q.options.some(o => o.image) || q.options.map(o => o.text.trim()).sort().join() !== ['右边', '左边'].sort().join()) return null;
+  const m = q.question.match(SIDE_RE); if (!m) return null;
+  const items = (t: string) => t.match(new RegExp(SIDE_EMO, 'gu')) ?? [];
+  return { left: items(m[1]), right: items(m[2]), ask: m[3].trim() };
+}
 export function kinderChoices(q: Question, rnd = Math.random): Option[] {
   const all = choicesOf(q);
+  if (sideGroups(q)) return [...all].sort((a, b) => (a.text.trim() === '左边' ? 0 : 1) - (b.text.trim() === '左边' ? 0 : 1));   // 左边那组放左边
   if (all.length <= 3) return all;
   const right = all.filter(c => q.answer.includes(c.key));
   return shuffle([...right, ...shuffle(all.filter(c => !right.includes(c)), rnd).slice(0, 3 - right.length)], rnd);

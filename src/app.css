@@ -1252,3 +1252,8 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (prefers-reduced-motion:reduce){.level.kterm-node.khint .kterm-node-img{animation:none}}
 .reduce-motion .level.kterm-node.khint .kterm-node-img{animation:none}
 .result-screen .row.friends.kterm-res img.kterm-res-medal{max-height:none;height:clamp(84px,calc(100vh - 330px),260px);width:auto}
+/* r17.1 中班「左右比多少」（小萌新 r16 问题 3）：两组图各是一个大按钮，下面小字「左边 / 右边」；按钮加宽，10 个也排两排放得下 */
+.kopt:has(.kside){width:clamp(220px,38vw,480px)}
+.kside{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;min-height:0}
+.kside .kside-grid{flex:1 1 auto;min-height:0;height:auto}
+.kside-label{flex:none;font-size:clamp(18px,2.4vw,28px);font-weight:800;color:#5a3a1a;line-height:1.1}

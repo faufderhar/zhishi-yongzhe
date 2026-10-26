@@ -10,7 +10,7 @@ import { Bar, Keypad, Modal } from './common';
 import { skinFor, softFor, kinderMon, dashScale } from '../game/monsterSkin';
 import { roll as rollSkill, newRoll, segOf, skillsFor, type SkillRoll } from '../game/skills';
 import { preloadSkillArt } from '../fx/skillFx';
-import { choicesOf, correctText, isCorrect, judge, kinderChoices, ttsText, type Question, type Option } from '../game/questions';
+import { choicesOf, correctText, isCorrect, judge, kinderChoices, sideGroups, ttsText, type Question, type Option } from '../game/questions';
 import { newBattle, resolveCorrect, resolveWrong, intentOf, outOfQuestions, newKinder, kinderAnswer, autoAction, revive, type BattleState, type Action } from '../game/battle';
 import { MONSTERS, MONSTER, AUTO_ATTACK_SECONDS, EXTRA_QUESTION_FACTOR } from '../game/balance';
 import { timeLimitFor, type BandConfig, type LevelKind } from '../game/grades';
@@ -225,6 +225,8 @@ function KStem({ q }: { q: Question }) {
   useEffect(() => setLit(0), [q.key]);
   const counting = /数一数|有几/.test(q.question);
   let n = 0;
+  const sides = sideGroups(q);
+  if (sides) return <div className="kq" data-testid="kq-sides">{sides.ask}</div>;   // r17.1：左右两组图放到两个大按钮里，题干只留问句
   if (q.visual) return <div className="kq">{segs.filter(sg => sg.text).map((sg, i) => <span key={i}>{sg.text}</span>)}<CountVisual v={q.visual} />{q.question_image && <QImage image={q.question_image} cls="q-img" fallback={null} />}</div>;
   return <div className="kq">{q.question_image && <QImage image={q.question_image} cls="q-img" fallback={null} />}{segs.map((sg, i) => sg.text ? <span key={i}>{sg.text}</span> :
     <div key={i} className={`kitems ${sg.items.length > 5 ? 'two' : ''}`} data-testid="kitems" data-count={sg.items.length}>
@@ -428,6 +430,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
       </div>
       <div className={`kopts ${busy || !introDone ? 'kwait' : ''}`} data-testid="kopts">
         {choices.map((ch, _i, all) => { const fit = all.map(x => gridOf(emojiOnlyN(x.text))).reduce((a, g) => [Math.max(a[0], g[0]), Math.max(a[1], g[1])], [1, 1]);
+          const sides = sideGroups(q), side = sides ? (ch.text.trim() === '左边' ? sides.left : sides.right) : null;
           const gone = ks.removed.includes(ch.key), right = q.answer.includes(ch.key);
           return (
             <button key={ch.key} style={{ background: KCOLORS[choices.indexOf(ch) % 3] }} aria-pressed={fx === 'ok' && right} disabled={gone}
@@ -437,7 +440,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
               onPointerUp={() => { if (down.current === ch.key) answer(ch); down.current = null; }}
               onPointerCancel={() => { down.current = null; }}
               onClick={e => { if (e.detail === 0) answer(ch); /* 键盘/读屏 */ }}>
-              <QImage image={ch.image} cls="kopt-img" fallback={<KOptFace text={ch.text} fit={fit} />} />
+              {side && sides ? <KSideFace items={side} label={ch.text.trim()} fit={sideFit(Math.max(sides.left.length, sides.right.length))} /> : <QImage image={ch.image} cls="kopt-img" fallback={<KOptFace text={ch.text} fit={fit} />} />}
             </button>
           );
         })}
@@ -460,6 +463,13 @@ function KOptFace({ text, fit = [1, 1] }: { text: string; fit?: number[] }) {
     return <span className="kcount" data-testid="kcount" data-n={n} style={{ '--cols': cols, '--fc': fc, '--fr': fr } as CSSProperties}>{emos.map((e, i) => <span key={i} className="kcount-i">{e}</span>)}</span>; }
   if (emo && rest) return <span className="kface"><span className="kface-emo">{emo}</span><span className={`kface-txt ${[...rest].length > 4 ? 'small' : ''}`}>{rest}</span></span>;
   return <span className={`kopt-text ${[...text].length <= 3 ? 'short' : ''}`} style={{ '--len': Math.max(1, [...text].length) } as CSSProperties}>{text}</span>;
+}
+/** r17.1 中班「左右比多少」：一组图 = 一个大按钮（下面小字「左边 / 右边」）；两边同样大小、按两边较多的那组排网格（≤5 一排，6–10 两排） */
+const sideFit = (n: number) => { const cols = n <= 5 ? Math.max(1, n) : Math.ceil(n / 2); return [cols, Math.ceil(Math.max(1, n) / cols)]; };
+function KSideFace({ items, label, fit }: { items: string[]; label: string; fit: number[] }) {
+  return <span className="kside" data-testid="kside" data-side={label} data-n={items.length}>
+    <span className="kcount kside-grid" style={{ '--cols': fit[0], '--fc': fit[0], '--fr': fit[1] + 0.4 } as CSSProperties}>{items.map((e, i) => <span key={i} className="kcount-i">{e}</span>)}</span>
+    <span className="kside-label">{label}</span></span>;
 }
 /** 长按按钮（小班暂停防误触，X-10）：按住时圆环进度 */
 export function HoldButton({ ms, onDone, children, className, label, testid }: { ms: number; onDone: () => void; children: ReactNode; className?: string; label: string; testid?: string }) {
