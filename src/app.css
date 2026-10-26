@@ -29,6 +29,7 @@ button:disabled{opacity:.4}
 .bar{display:flex;align-items:center;gap:8px}.track{width:180px;height:18px;border-radius:9px;background:#0005;overflow:hidden;display:inline-block}
 .fill{display:block;height:100%;background:#4cd964;transform-origin:left;transition:transform .4s}.mhp .fill{background:#ff5b5b}
 .timer.low{color:#ff6b6b;font-weight:bold}
+.timer-slot{display:none}
 .arena{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;min-height:0}
 .mon-info{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:20px}
 .intent{background:#0006;border-radius:12px;padding:4px 12px}
@@ -1124,6 +1125,24 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle .hud .pause-btn,.battle .hud .rules-btn,.battle .hud .energy-ring{flex-shrink:0}
   .battle .hud .track{width:clamp(90px,14vw,180px)}
   .battle .hud .lvl-title,.battle.rounds .hud .lvl-title{flex:1 1 140px;max-width:none !important}
+}
+
+/* r17.1 A3 技术QA r16.2 N2（P4）：600 高横屏（800–1100 宽）回合制顶栏不再换行——选卡→答题多出计时时整屏下跳 48px、⏸ 被挤到第二行和 ❓ 拆开、
+   800×600 键盘最后一行被切 ~12px。改：一行不换行；❓ ⏸ 固定在右上角（绝对定位，右侧留位）；选卡时给计时留同宽的空位；关名吃剩下的宽度（≤880 宽藏关名）；
+   血条可缩。tests：scripts/r162-hud.mjs（选卡 / 答题顶栏高度一样、❓ ⏸ 同一行在右上角、键盘最后一行在屏幕内） */
+@media (orientation:landscape) and (min-height:501px) and (max-width:1100px){
+  .battle.rounds .hud{position:relative;flex-wrap:nowrap;white-space:nowrap;overflow:hidden;column-gap:10px;padding:8px 116px 8px 12px}
+  .battle.rounds .hud>*{flex-shrink:0}
+  .battle.rounds .hud>.grow{display:none}
+  .battle.rounds .hud>.bar.hp{flex:0 1 auto;min-width:110px}
+  .battle.rounds .hud>.lvl-title,.battle.rounds .hud .lvl-title{flex:1 1 0;min-width:0;max-width:none !important;text-align:right}
+  .battle.rounds .hud .timer-slot{display:inline;visibility:hidden}
+  .battle.rounds .hud .rules-btn,.battle.rounds .hud .pause-btn{position:absolute;top:50%;transform:translateY(-50%);margin:0}
+  .battle.rounds .hud .pause-btn{right:10px;width:48px !important;min-width:48px !important;height:48px !important;min-height:48px !important}
+  .battle.rounds .hud .rules-btn{right:66px;flex:none !important;width:44px !important;height:44px !important}
+}
+@media (orientation:landscape) and (min-height:501px) and (max-width:880px){
+  .battle.rounds .hud .lvl-title{display:none !important}
 }
 
 /* r17 幼儿园闯关成功动画（src/ui/kFinale.ts，分镜 /workspace/art/k_qban/finale_storyboard.md）：不加白色遮罩 / brightness 滤镜；装饰层不挡按钮 */

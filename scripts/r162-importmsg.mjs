@@ -5,8 +5,8 @@ import { chromium } from 'playwright';
 const URL = process.env.URL || 'http://localhost:4471/'; const D = '/workspace/playtest/r16dev/importmsg/'; const OUT = process.env.OUT || D;
 const b = await chromium.launch(); let bad = 0; const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) bad++; };
 const errs = [];
-async function open(vp, failPut) {
-  const ctx = await b.newContext({ viewport: vp }); const pg = await ctx.newPage(); pg.setDefaultTimeout(15000); pg.on('pageerror', e => errs.push(String(e)));
+async function open(vp, failPut, touch = false) {
+  const ctx = await b.newContext({ viewport: vp, ...(touch ? { hasTouch: true, isMobile: true, deviceScaleFactor: 2 } : {}) }); const pg = await ctx.newPage(); pg.setDefaultTimeout(15000); pg.on('pageerror', e => errs.push(String(e)));
   await pg.addInitScript(f => { window.__zyTest = true; window.__zyTestNoTts = true; window.__zyNoOfflineCache = true;
     { const T = File.prototype.text; File.prototype.text = function () { return this.name === 'readfail.json' ? Promise.reject(new DOMException('NotReadableError', 'NotReadableError')) : T.call(this); }; }   // B6：读文件失败
     if (f) { const P = IDBObjectStore.prototype.put; IDBObjectStore.prototype.put = function (...a) { if (this.name === 'bank') throw new DOMException('quota', 'QuotaExceededError'); return P.apply(this, a); }; } }, failPut);
@@ -45,5 +45,14 @@ const count = pg => pg.evaluate(() => [...document.querySelectorAll('button')].m
   await pg.waitForSelector('[data-testid=import-msg]'); await w(800);
   const r = await pg.$eval('[data-testid=import-msg]', e => { const r = e.getBoundingClientRect(); return { top: r.top, bottom: r.bottom, vh: innerHeight }; });
   ok(r.top >= 0 && r.bottom <= r.vh, `B8 360×640 结果提示在屏幕内 ${JSON.stringify(r)}`); await pg.screenshot({ path: OUT + 'b8-360.png' }); await ctx.close(); }
+// r17.1 A3 / 技术QA r16.2 N1：360×640 触屏、QA 原文件（有错题 →「只导入正确的 1 题」）、CPU 降速 6×：成功提示 0.8 s 和 5 s 时都在屏幕内
+{ const { ctx, pg, w } = await open({ width: 360, height: 640 }, false, true);
+  const cdp = await ctx.newCDPSession(pg); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 6 });
+  await pg.setInputFiles('[data-testid=import-file]', '/workspace/playtest/r161_edited_g10.json'); await pg.waitForSelector('[data-testid=import-preview]');
+  const btn = await pg.textContent('[data-testid=import-confirm]'); await pg.tap('[data-testid=import-confirm]');
+  await pg.waitForSelector('[data-testid=import-msg]'); const box = () => pg.$eval('[data-testid=import-msg]', e => { const r = e.getBoundingClientRect(); return { top: Math.round(r.top), bottom: Math.round(r.bottom), vh: innerHeight, txt: e.textContent.slice(0, 20) }; });
+  await w(800); const r1 = await box(); await w(4200); const r2 = await box();
+  ok(/已导入/.test(r2.txt) && [r1, r2].every(r => r.top >= 0 && r.bottom <= r.vh), `N1 360×640 触屏「${btn}」成功提示 0.8 s ${JSON.stringify(r1)} / 5 s ${JSON.stringify(r2)} 都在屏幕内`);
+  await pg.screenshot({ path: OUT + 'n1-360x640-ok-msg.png' }); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); await ctx.close(); }
 console.log(errs.length ? 'pageerrors: ' + errs.join(' | ') : 'no pageerror'); ok(!errs.length, '没有 pageerror');
 console.log(bad ? `r162-importmsg FAIL ${bad}` : 'r162-importmsg ALL PASS'); await b.close(); process.exit(bad ? 1 : 0);

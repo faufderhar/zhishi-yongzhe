@@ -335,7 +335,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     <div className={`battle ${cfg.theme} ${cfg.stats} rounds side-${bs.side}`}>
       <div className="hud">
         <Bar label="❤" v={view.p} max={bs.playerMax} cls="hp" />
-        {asking && (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>)}
+        {asking ? (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>) : <span className="timer-slot" aria-hidden>⏱ 00s</span>}{/* r17.1 N2：选卡时给计时留位，顶栏不跳 */}
         <span data-testid="combo">连击 x{bs.combo}{comboTag && <small className="combo-tag" data-testid="combo-skill" title="技能让这次连击多 +1，前面的数字已经算进去了">含技能 +1</small>}{/* r15.4 学霸：数字已包含技能那 1 次（答对 +1、技能再 +1） */}</span>
         {bs.perfectOn && <span data-testid="focus">专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(FOCUS_MAX - bs.focus)}</span>}
         <button className="energy-ring" data-testid="energy" aria-label={`能量 ${ringE ?? bs.energy}/${ENERGY_CAP}（保底），点开看技能说明`} data-e={ringE ?? bs.energy} onClick={() => setRingPop(true)}>
