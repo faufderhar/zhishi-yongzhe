@@ -4,6 +4,7 @@ declare const __BUILD__: string;
    - 新 sw.js 自己 skipWaiting + clientsClaim（老页面 r1–r8 的代码不需要配合：下次打开就是新版）
    - updateViaCache:'none'：检查更新时不走 HTTP 缓存（GitHub Pages 统一 max-age=600，改不了响应头）
    - 启动、切回前台、每小时检查一次
+   - r17.3（学霸 r17.2.1：页开着跨发版 20 秒+ 无更新条）：页面可见时每 5 分钟检查一次（替代每小时）；focus / online / pageshow 也检查，限 1 次/分钟
    - 新 SW 接管后：只在安全页面（档案/学段/年级/地图）自动刷新；战斗中只记下，回到安全页面再刷新，并显示「有新版本」按钮 */
 export const UPDATE_READY = 'zy-update-ready';
 /** r12：每次由游戏自己发起的刷新都记原因（下次启动时能分辨「游戏更新刷新」和「浏览器回收 / 崩溃重载」） */
@@ -46,6 +47,17 @@ export function waitForController(sinceGen: number, ms = 8000, sw: SWC | undefin
     sw.addEventListener('controllerchange', on);
   });
 }
+/** r17.3：页面可见时的轮询间隔（5 分钟；隐藏时不轮询，切回前台另有 visibilitychange 检查）。测试构建可用 window.__zyUpdatePollMs 缩短 */
+export const UPDATE_POLL_MS = 5 * 60e3;
+/** r17.3：focus / online / pageshow 触发的检查最多 1 次/分钟 */
+export const NUDGE_MIN_GAP_MS = 60e3;
+/** r17.3：检查节流器。kick(force) = 启动 / 轮询 / 切回前台（照旧不受限）；nudge = focus / online / pageshow（距上次检查 < minGap 就跳过） */
+export function makeUpdateTrigger(run: (why: string) => void, minGap = NUDGE_MIN_GAP_MS, now: () => number = Date.now) {
+  let last = -Infinity;
+  const kick = (why: string) => { last = now(); run(why); };
+  const nudge = (why: string) => { if (now() - last < minGap) return false; kick(why); return true; };
+  return { kick, nudge };
+}
 let healWaiting = false;
 let pending = false;
 export const updatePending = () => pending;
@@ -83,9 +95,13 @@ export function setupSW() {
       pending = true; window.dispatchEvent(new CustomEvent(UPDATE_READY, { detail: go }));
     } catch { /* 离线 */ }
   };
-  window.addEventListener('load', () => { void heal(); });
   // r14 较真家长：选文件 / 弹键盘 / 系统对话框会让页面短暂隐藏——60 秒内回来不算「切回前台」，不触发更新检查
+  const trig = makeUpdateTrigger(() => { check(); void heal(); });
   let hiddenAt = 0;
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') { hiddenAt = Date.now(); return; } if (Date.now() - hiddenAt < 60e3) return; check(); void heal(); });
-  setInterval(() => { check(); void heal(); }, 60 * 60e3);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') { hiddenAt = Date.now(); return; } if (Date.now() - hiddenAt < 60e3) return; trig.kick('visible'); });
+  // r17.3：页开着跨发版——可见时每 5 分钟查一次（以前只有每小时，孩子一直开着页面就要等很久才看到「有新版本」）
+  const testPoll = __TEST_HOOKS__ ? Number((window as unknown as { __zyUpdatePollMs?: number }).__zyUpdatePollMs) || 0 : 0;
+  setInterval(() => { if (document.visibilityState === 'visible') trig.kick('poll'); }, testPoll > 0 ? testPoll : UPDATE_POLL_MS);
+  for (const ev of ['focus', 'online', 'pageshow'] as const) window.addEventListener(ev, () => { trig.nudge(ev); });
+  window.addEventListener('load', () => { trig.kick('load'); });   // 启动检查（自愈 version.json）；记下时间：紧跟着的 pageshow / focus 不再重复查
 }
