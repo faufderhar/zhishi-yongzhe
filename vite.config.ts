@@ -39,7 +39,7 @@ export default defineConfig({
         { src: 'icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
       ] },
     workbox: { skipWaiting: true, clientsClaim: true, cleanupOutdatedCaches: true, importScripts: ['sw-extra.js'], navigateFallback: null,   // r10：页面导航改为网络优先（sw-extra.js），离线才用缓存
-       ignoreURLParametersMatching: [/^v$/, /^utm_/], globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}', 'sfx/sfx_k_term_celebrate.mp3'],   /* r17：期末庆祝乐句（主版 ≈50 KB，alt 不要）预缓存——第一次玩期末关就在离线时也有音乐 */ maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,   // r16.1：v47/v48 加了初二生物 / 地理，bank_8.json 4.3MB 超过原来的 4MB → 构建失败、离线缓存不到初二题库（tests/r161precache.test.ts 守着）
+       ignoreURLParametersMatching: [/^utm_/],   /* r17.2.1：去掉 /^v$/——题库 banks/bank_*.json?v=新哈希 不再被当成预缓存里的旧题库（学霸 r17.2：旧档更新后初三仍 5 科）；断网时 bankStore 退回不带参数的预缓存地址 */ globPatterns: ['**/*.{js,css,html,svg,json,png,webp,woff2}', 'sfx/sfx_k_term_celebrate.mp3'],   /* r17：期末庆祝乐句（主版 ≈50 KB，alt 不要）预缓存——第一次玩期末关就在离线时也有音乐 */ maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,   // r16.1：v47/v48 加了初二生物 / 地理，bank_8.json 4.3MB 超过原来的 4MB → 构建失败、离线缓存不到初二题库（tests/r161precache.test.ts 守着）
      
       // 序列帧约 4.3MB：不进预缓存，战斗时懒加载并运行时缓存（家长页可一键预下载供离线）
       globIgnores: ['version.json', 'anim/**', 'fx/**', 'sfx/skills/**', 'art/monsters/subjects/**', 'images/k/**', 'art/monsters/k3_boss/**', 'art/k_qban/mon_k3_*'],   // r17：大班（还没开放）的 Boss 序列帧 / Q版不进预缓存，开放后按需缓存   // 技能特效 fx/skills/ 与音效 sfx/skills/ 也只运行时缓存

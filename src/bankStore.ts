@@ -1,6 +1,7 @@
 /* 题库：内置 public/banks/bank_<grade>.json（来自 /workspace/questions 的完整题库），再叠加家长导入（IndexedDB bank 表，相同 grade+id 覆盖） */
 import { loadBank, normalize, validateQuestion, qRev, sameAsBuiltin, type Bank, type GradeKey, type Question } from './game/questions';
 import { importedQuestions } from './db';
+import { logErr } from './navLog';
 import { computeVisibility, isHiddenBy, type Visibility, type HideRow } from './game/visibility';
 declare const __BANK_VER__: string;
 /** 题库内容哈希（构建时算），用于缓存失效 */
@@ -32,14 +33,42 @@ export function mergeImported(byKey: Map<string, Question>, imp: any[], vis: Vis
   }
   return { bad, superseded, same, supList };
 }
-export async function loadAllBanks(onProgress?: (done: number, total: number) => void): Promise<BankState> {
-  const builtin: Record<string, Bank> = {}; let done = 0;
-  await Promise.all(BUILTIN_GRADES.map(async g => {
-    const url = `${import.meta.env.BASE_URL}banks/bank_${g}.json?v=${BANK_VER}`;
-    try { const raw = await (await fetch(url)).json(); builtin[g] = loadBank(raw, `bank_${g}.json`); }
-    catch (e) { console.warn('题库加载失败', url, e); }
-    onProgress?.(++done, BUILTIN_GRADES.length);
+/** r17.2.1 热修（学霸 r17.2：旧档点更新条后初三仍只 5 科）：
+    ① 以前 SW 预缓存忽略 ?v=，老 SW / 预缓存会把旧题库当成新题库返回 → vite.config 已去掉 /^v$/，?v=新哈希 不再命中旧预缓存；
+       但这样断网时 ?v= 也不命中预缓存——网络失败就退回不带参数的地址（预缓存里那份，离线照常能玩）；
+    ② 兜底：全部读完后比对每册 version 和本构建的题库发布号（BANK_RELEASE），不一致 = 拿到的是旧缓存 →
+       cache:'no-store' + 唯一参数 r= 重拉这几册（老 SW 只忽略 v / utm_，带 r= 的请求一定走网络），记 bank-stale 日志。 */
+export interface BankFetchResult { builtin: Record<string, Bank>; stale: string[]; refetched: string[]; offline: string[] }
+export async function fetchBuiltinBanks(o: { base: string; ver: string; release: string; grades?: GradeKey[]; fetchFn?: typeof fetch; onProgress?: (done: number, total: number) => void; now?: () => number; log?: (kind: string, msg: string) => void }): Promise<BankFetchResult> {
+  const grades = o.grades ?? BUILTIN_GRADES, f = o.fetchFn ?? ((...a: Parameters<typeof fetch>) => fetch(...a)), log = o.log ?? (() => {});
+  const builtin: Record<string, Bank> = {}, raws: Record<string, any> = {}, offline: string[] = []; let done = 0;
+  const get = async (url: string, init?: RequestInit) => { const r = await f(url, init); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); };
+  await Promise.all(grades.map(async g => {
+    const plain = `${o.base}banks/bank_${g}.json`, url = `${plain}?v=${o.ver}`;
+    try { raws[g] = await get(url); }
+    catch (e) {
+      try { raws[g] = await get(plain); offline.push(g); }   // 断网：用预缓存里的那份
+      catch { console.warn('题库加载失败', url, e); }
+    }
+    o.onProgress?.(++done, grades.length);
   }));
+  const verOf = (raw: any) => raw && !Array.isArray(raw) && raw.version != null ? String(raw.version) : undefined;
+  const stale = o.release === 'dev' ? [] : grades.filter(g => { const v = verOf(raws[g]); return v !== undefined && v !== o.release; });
+  const refetched: string[] = [];
+  if (stale.length) {
+    log('bank-stale', `题库缓存旧了：${stale.map(g => `${g}=${verOf(raws[g])}`).join(',')}，应为 ${o.release}；no-store 重拉`);
+    console.warn('[zy] bank-stale', stale, o.release);
+    const t = (o.now ?? Date.now)();
+    await Promise.all(stale.map(async g => {
+      try { const raw = await get(`${o.base}banks/bank_${g}.json?v=${o.ver}&r=${t}`, { cache: 'no-store' }); if (verOf(raw) === o.release) { raws[g] = raw; refetched.push(g); } else log('bank-stale', `bank_${g} 重拉后仍是 ${verOf(raw)}`); }
+      catch (e) { log('bank-stale', `bank_${g} 重拉失败（可能断网），先用旧的：${(e as Error)?.message ?? e}`); }
+    }));
+  }
+  for (const g of grades) if (raws[g] !== undefined) { try { builtin[g] = loadBank(raws[g], `bank_${g}.json`); } catch (e) { console.warn('题库解析失败', g, e); } }
+  return { builtin, stale, refetched: refetched.sort(), offline };
+}
+export async function loadAllBanks(onProgress?: (done: number, total: number) => void): Promise<BankState> {
+  const { builtin } = await fetchBuiltinBanks({ base: import.meta.env.BASE_URL, ver: BANK_VER, release: BANK_RELEASE, onProgress, log: logErr });
   const byKey = new Map<string, Question>();
   /* r16 第 10 步：可见性 = 不在 FORCE_HIDDEN 且 内置题过题量门槛（game/visibility.ts）；藏起来的不进地图 / 推荐 / 复习 / 册别选择 */
   const vis = computeVisibility(BUILTIN_GRADES.flatMap(g => builtin[g]?.all ?? []));
