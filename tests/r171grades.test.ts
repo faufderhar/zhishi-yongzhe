@@ -28,12 +28,12 @@ it('大班：6 科、每个小节 ≥ 10 道可玩题（幼儿园本来就不受
   expect(chs.find(c => c.subject === '数数')!.levels[0].unit).toBe('数到20');
   expect(chs.every(c => c.levels.some(l => l.kind === 'boss'))).toBe(true);
 });
-it('初三：自动规则藏 5 册（有小节不满 10 题）→ 语文、历史、物理整科藏；数学九上、英语、化学、道法、诗词可见', () => {
+// r17.2（题库 v58 初三 +78）：r17.1 时自动规则藏的 5 册（语文 / 历史 / 物理 九上、数学 / 物理 中考复习）小节都补到 ≥ 10 → 一册不藏，8 科全可见；没加 AUTO_EXEMPT（tests/r172v58）
+it('初三：v58 后自动规则一册都不藏 → 语文、历史、物理回来；8 科全可见', () => {
   const b = bank('9'); expect(b.bad).toEqual([]); const vis = computeVisibility(b.all);
-  expect(vis.rows.map(r => `${r.subject}|${r.volume}|${r.why}`).sort()).toEqual(['历史|九年级上册|auto', '数学|中考复习（不分册）|auto', '物理|中考复习（不分册）|auto', '物理|九年级上册|auto', '语文|九年级上册|auto'].sort());
-  expect([...vis.hiddenSubj].sort()).toEqual(['9|历史', '9|物理', '9|语文']);
+  expect(vis.rows).toEqual([]); expect([...vis.hiddenSubj]).toEqual([]);
   const vq = b.all.filter(q => !isHiddenBy(vis, q)); const chs = buildChapters(playable(vq, false), null, vq);
-  expect(chs.map(c => c.subject).sort()).toEqual(['化学', '数学', '英语', '诗词', '道德与法治'].sort());
+  expect([...new Set(chs.map(c => c.subject))].sort()).toEqual(['化学', '历史', '数学', '物理', '英语', '诗词', '语文', '道德与法治'].sort());
 });
 it('高三：自动规则一册都不藏（物理选必三 / 一轮复习都够 10 题 → 物理可见）', () => {
   const b = bank('12'); expect(b.bad).toEqual([]); const vis = computeVisibility(b.all);
