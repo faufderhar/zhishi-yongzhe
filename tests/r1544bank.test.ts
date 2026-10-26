@@ -15,7 +15,7 @@ const LIST = '/workspace/questions/需家长确认清单_v34.csv';   // v34：v3
 describe('题库 v32 / v33 / v34 导入', () => {
   it('r16：中班 K2 / 初二 8 / 高二 11 进游戏题库；大班 K3 / 初三 9 / 高三 12 不进（r17）', () => {
     for (const g of ['K2', '8', '11']) expect(existsSync(`public/banks/bank_${g}.json`), g).toBe(true);
-    for (const g of ['K3', '9', '12']) expect(existsSync(`public/banks/bank_${g}.json`), g).toBe(false);
+    for (const g of ['K3', '9', '12']) expect(existsSync(`public/banks/bank_${g}.json`), g).toBe(true);   // r17.1：大班 / 初三 / 高三也导入了
     for (const g of G) expect(raw(g).questions.filter((q: { id: string }) => /^K[23][NCDLGEZ]-/.test(q.id)).length, g).toBe(0);
   });
   it('r15.4.3 正式版（题库 v30）的每个关卡 id 在现在的题库里都还在，或者是某关的别名（星星不丢；v34 曹冲称象首题 Y6-070 改需家长确认 → 别名）', () => {

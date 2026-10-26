@@ -4,7 +4,7 @@
 并和 需家长确认清单_vNN.csv 核对（清单里仍待确认的题一个都不能留下）。其余字段、顺序、格式不变（indent=1，和源文件同格式）。
 用法：python3 scripts/import-bank.py [--src /workspace/questions]"""
 import argparse, csv, glob, json, os, sys
-GR = {'K1': '幼儿园小班', 'K2': '幼儿园中班', '1': '1年级', '2': '2年级', '3': '3年级', '4': '4年级', '5': '5年级', '6': '6年级', '7': '初一', '8': '初二', '10': '高一', '11': '高二'}   # r16：+中班 K2、初二 8、高二 11；大班 K3 / 初三 9 / 高三 12 是 r17
+GR = {'K1': '幼儿园小班', 'K2': '幼儿园中班', 'K3': '幼儿园大班', '1': '1年级', '2': '2年级', '3': '3年级', '4': '4年级', '5': '5年级', '6': '6年级', '7': '初一', '8': '初二', '9': '初三', '10': '高一', '11': '高二', '12': '高三'}   # r16：+中班 K2、初二 8、高二 11；r17.1：+大班 K3、初三 9、高三 12
 PENDING = '需家长确认'
 ap = argparse.ArgumentParser(); ap.add_argument('--src', default='/workspace/questions'); ap.add_argument('--out', default=os.path.join(os.path.dirname(__file__), '..', 'public', 'banks'))
 a = ap.parse_args()
@@ -30,13 +30,13 @@ for g, name in GR.items():
     assert not left, left
     open(os.path.join(a.out, f'bank_{g}.json'), 'w', encoding='utf-8').write(json.dumps(d, ensure_ascii=False, indent=1))
     tot_ex += len(ex); rows.append((g, len(qs), len(d['questions']), ex))
-# r16（总管）：大班 K3 / 初三 9 / 高三 12 在 r17 才接入游戏——这里不导入，清单里属于没导入年级的题也不算「找不到」
+# r16（总管）：没列进 GR 的年级不导入，清单里属于没导入年级的题也不算「找不到」（r17.1 起 15 个年级全部导入）
 known = {f'题库_{n}.json' for n in GR.values()}
 skipped = sorted(os.path.basename(f) for f in glob.glob(os.path.join(a.src, '题库_*.json')) if not os.path.basename(f).startswith('题库_游戏可用_') and os.path.basename(f) not in known)
 skip_ids = set()
 for f in skipped:
     sq = json.load(open(os.path.join(a.src, f), encoding='utf-8'))['questions']; skip_ids |= {q['id'] for q in sq}
-    print(f'不导入 {f}（{len(sq)} 题，r17 接入）', file=sys.stderr)
+    print(f'不导入 {f}（{len(sq)} 题，GR 里没有这个年级）', file=sys.stderr)
 listed -= skip_ids
 miss = listed - {i for r in rows for i in r[3]}
 if miss: sys.exit(f'清单里的题在题库里找不到：{sorted(miss)}')

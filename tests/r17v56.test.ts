@@ -17,8 +17,8 @@ const V52 = JSON.parse(readFileSync('tests/fixtures/r17_v52_revs_of_v56changed.j
 describe('r17 题库 v56', () => {
   it('发布号 v56；题量 18344 / 可玩 18281 不变；初三 / 大班 / 高三还没导入；高二物理强制隐藏，自动规则不藏别的', () => {
     for (const g of BUILTIN_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v57 只改大班（K3C-071 新增、K3C-013 需家长确认），已导入年级逐题和 v56 相同
-    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v57', playable: 18281 });
-    expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual([]);
+    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8'))).toEqual({ release: 'v57', playable: 23392 });   // r17.1：+大班 335 / 初三 2073 / 高三 2703
+    expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);   // r17.1 导入
     expect(vis.rows.map(r => `${r.grade}|${r.subject}|${r.volume}|${r.why}`)).toEqual(['11|物理|必修第三册|force', '11|物理|选择性必修第一册|force', '11|物理|选择性必修第二册|force']);
   });
   it('可见关卡 2387 个，和 r16.2 快照（eefc5aa）一关不少', () => {

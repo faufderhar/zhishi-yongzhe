@@ -14,8 +14,8 @@ describe('r16.1 题库 v47', () => {
   it('发布号 v47；初三 / 大班 / 高三没有导入', () => {
     expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8')).release).toBe('v57');   // r17：v56 → v57（只改大班，未导入）；r16.1：v47 → v48（关卡结构相同）；r16.2：v50（tests/r162v50）
     for (const g of BUILTIN_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v57');   // r17：v56 → v57
-    expect(BUILTIN_GRADES).not.toContain('9'); expect(existsSync('public/banks/bank_9.json')).toBe(false);
-    expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual([]);
+    expect(BUILTIN_GRADES).not.toContain('9'); expect(existsSync('public/banks/bank_9.json')).toBe(true);   // r17.1 导入
+    expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);
     expect(all.some(q => /^C9-/.test(q.id))).toBe(false);   // C9-156→C9-360、删掉的 C9-060/109/146 不影响 r16.1
   });
   it('初二生物 532 / 地理 524 题，每个小节 ≥ 10 道可玩题，可见；高二物理仍强制隐藏', () => {
