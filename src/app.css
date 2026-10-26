@@ -1118,7 +1118,12 @@ body{font-size:clamp(18px,1.6vw,26px)}
   .battle .hud .energy-ring .ring-tag{padding:1px 5px;margin-left:2px}
 }
 .char-card .char-desc span{display:block}
-.char-card .char-skill{display:block;font-size:12px;line-height:1.35;opacity:.85;max-width:220px;text-align:left}
+.char-card .char-skill{display:block;font-size:13px;line-height:1.35;opacity:.85;max-width:220px;text-align:left}
+/* r17-1：技能块三行 +〔技能详情〕；卡片里的东西默认 pointer-events:none（整张卡是按钮），只放开〔技能详情〕 */
+.char-card .char-skill span{display:block;word-break:keep-all;overflow-wrap:anywhere}   /* 技能名不从中间断行（「数轴突/刺」），只在「 · 」处换 */
+.char-card .char-skill .cs-head{opacity:.75}
+.char-card .char-skill .cs-more{pointer-events:auto;cursor:pointer;color:#ffd54a;font-weight:600;padding:8px 4px 2px;margin:-4px 0 0;min-height:24px}
+.theme-kinder .char-card .char-skill .cs-more{color:#a35a00}
 /* r16.1 (s) 较真家长 P3：家长页「修改家长密码」在矮屏（≤ 760 高，例如 1280×600）改左右两栏：左边标题 / 圆点 / 提示，右边键盘，不用往下滚 */
 @media (max-height:760px){
   .pintab-pad .pinpad{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-auto-flow:row dense;column-gap:28px;row-gap:8px;align-items:center;justify-items:center;width:min(100%,720px);margin:0 auto}

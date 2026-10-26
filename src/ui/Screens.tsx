@@ -16,7 +16,8 @@ import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
 import { isUnlocked, missingPrereqs, starOf, starRulesFor, CHAL_STAR_HINT, type Chapter, type Level } from '../game/levels';
 import type { BandConfig, LevelKind } from '../game/grades';
-import { segOf, skillCardLine } from '../game/skills';
+import { segOf, skillBlock, SKILL_BLOCK_HEAD } from '../game/skills';
+import { SkillDetail } from './SkillDetail';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
@@ -128,6 +129,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
   // D10：点卡片只是选中，点〔就选它〕才保存；〔返回〕不改动
   const [sel, setSel] = useState<string | undefined>(current);
   const chosen = list.find(c => c.id === sel);
+  const [detail, setDetail] = useState<string | undefined>(); const detailC = list.find(c => c.id === detail);
   return (
     <div className="center-screen">
       <button className="back labeled" data-testid="back-char" onClick={() => { speak("返回"); onBack(); }} aria-label="返回">← <small>返回</small></button>
@@ -141,10 +143,19 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
             {cfg.band !== 'K' && rec(c) && <span className="tag rec" data-testid="rec">⭐ 推荐</span>}
             {cfg.band !== 'K' && <span className="tag">主修 {c.major}</span>}
             {cfg.band !== 'K' && <small className="char-desc" data-testid={'char-desc-' + c.id}>{c.desc.split('\n').map(l => <span key={l}>{l}</span>)}</small>}   {/* r17-3：主修 / 被动分两行 */}
-            {cfg.band !== 'K' && (() => { const t = skillCardLine(segOf(cfg.band), c.major, c.id); return t ? <small className="char-skill" data-testid={'char-skill-' + c.id}>{t}</small> : null; })()}   {/* r16.1 (y) Boss补测裁定_r17 §3 */}
+            {cfg.band !== 'K' && (() => { const sb = skillBlock(segOf(cfg.band), c.major); return sb ? <small className="char-skill" data-testid={'char-skill-' + c.id}>   {/* r17-1 学霸裁定 §1：技能块（幼儿园 / 小学 1–2 纯视觉技能不显示） */}
+              <span className="cs-head">{SKILL_BLOCK_HEAD}</span>
+              <span data-testid={'char-skill-mine-' + c.id}>⚔ 我方回合：{sb.mine.map(k => k.name).join(' · ')}</span>
+              <span data-testid={'char-skill-theirs-' + c.id}>🛡 对方回合：{sb.theirs.map(k => k.name).join(' · ')}</span>
+              <span className="cs-more" role="button" tabIndex={-1} data-testid={'char-skill-more-' + c.id} onClick={e => { e.stopPropagation(); setSel(c.id); setDetail(c.id); }}>〔技能详情〕</span>
+            </small> : null; })()}
           </button>
         ))}
       </div>
+      {detailC && <Modal onClose={() => setDetail(undefined)}><h2>{detailC.name} · 技能详情</h2>
+        <SkillDetail seg={segOf(cfg.band)} major={detailC.major} testid="skill-detail" />
+        <button className="btn" data-testid="skill-detail-ok" onClick={() => setDetail(undefined)}>知道了</button></Modal>}
+      {chosen && skillBlock(segOf(cfg.band), chosen.major) && <button className="btn ghost" data-testid="char-skill-detail" onClick={() => setDetail(chosen.id)}>〔技能详情：{chosen.name}〕</button>}   {/* r17-1：选中后也能从卡片下方打开（键盘可达） */}
       <button className="btn big" data-testid="char-confirm" disabled={!chosen} onClick={() => { if (!chosen) return; if (cfg.band === 'K' || cfg.band === 'G1') speak(chosen.name + '，出发！'); onPick(chosen); }}>就选它{chosen ? `：${chosen.name}` : ''}</button>
     </div>
   );

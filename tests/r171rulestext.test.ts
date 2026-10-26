@@ -24,8 +24,11 @@ it('共用触发行 / 冷却行 = 裁定原文，数字和 balance 一致', () =
 });
 it('RoundBattle：能量弹窗用共用文案、（高中有冷却）；护体图标 title / aria-label；结果行「（护体：只受 70%）」', () => {
   const rb = readFileSync('src/ui/RoundBattle.tsx', 'utf8');
-  expect(rb).toContain('<p data-testid="ring-pop">{SKILL_TRIGGER_TEXT}</p>{bs.mode === \'h\' && <p data-testid="ring-pop-cd">{SKILL_COOLDOWN_TEXT}</p>}');
-  expect(rb).toContain("'（高中有冷却）'"); expect(rb).toContain('title="护体：下一次受伤只受 70%" aria-label="护体：下一次受伤只受 70%"');
+  // r17-1：弹窗文案搬进共用组件 SkillDetail（角色卡〔技能详情〕同一个）
+  const sd = readFileSync('src/ui/SkillDetail.tsx', 'utf8');
+  expect(rb).toContain('<SkillDetail seg={bs.seg} major={c.major} testid="ring-pop" cdLeft={bs.sk.cd} />');
+  expect(sd).toContain('<p data-testid={testid}>{SKILL_TRIGGER_TEXT}</p>{seg === \'H\' && <p data-testid={testid + \'-cd\'}>{SKILL_COOLDOWN_TEXT}</p>}');
+  expect(sd).toContain("'（高中有冷却）'"); expect(rb).toContain('title="护体：下一次受伤只受 70%" aria-label="护体：下一次受伤只受 70%"');
   expect(rb).toContain("(o.guardUsed ? '（护体：只受 70%）' : '')");
 });
 it('全仓库 grep：不再有「下次答对必定」「护体抵挡 30%」「护体：下一次受伤 ×0.7」「高一有冷却」（hurtNote 明细的「护体 ×0.7」允许）', () => {

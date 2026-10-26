@@ -38,12 +38,17 @@ export function ringTag(r0: SkillRoll, seg: SkillSeg, major: string, side: 'P' |
 export const SKILL_TRIGGER_TEXT = '技能只在答对时放。每次答对有 20% 机会；答对后能量到 5 点，这道题一定放；连续 4 次答对没放，第 5 次一定放。放完能量清零。同一边的两个技能轮流出。答错、超时、漏选不会放。';
 export const SKILL_COOLDOWN_TEXT = '冷却：放过的技能，接下来 3 个回合（控制、恢复、清心类 4 个回合；双方回合都算）不会再出；这一边的技能都在冷却时，「一定放」顺延到下一次答对。';
 export const TRIGGER_TAG = { energy: '能量满', pity: '保底触发', luck: '幸运触发' } as const;
-/** r16.1 (y)：角色卡上的技能说明（目前只有数字风暴，文案见 Boss补测裁定_r17 §3）；cd > 0 时加「冷却 N 回合」 */
-export const STORM_CARD = '数字风暴：答对时有 20% 机会触发，本题伤害 ×1.4。能量攒满 5 点或连续 4 次答对没触发，下一次答对必定触发；触发后能量清零。';
-export function skillCardLine(seg: SkillSeg, major: string, charId: string): string | null {
-  const k = skillsFor(seg, major).find(x => x.charId === charId && x.name === '数字风暴');
-  return k ? STORM_CARD + (k.cd ? `冷却 ${k.cd} 回合。` : '') : null;
+/** r17-1（学霸裁定 §1）：角色卡技能块——「⚔ 我方回合」= 攻击技能（数据顺序），「🛡 对方回合」= 防护 / 恢复 / 控制（按抽取权重 防护 5 > 恢复 3 > 控制 2，同权重保持数据顺序）。
+ *  和战斗里 roll 用同一个 skillsFor(seg, major)（技能跟主修走）；幼儿园 / 小学 1–2（纯视觉技能）返回 null，不显示。替代 r16.1 只写数字风暴的那一行（已删） */
+export const SKILL_BLOCK_HEAD = '技能（答对时自动放，不用按）';
+export function skillBlock(seg: SkillSeg, major: string): { mine: SkillDef[]; theirs: SkillDef[] } | null {
+  if (isVisualSeg(seg)) return null;
+  const all = skillsFor(seg, major); if (!all.length) return null;
+  const theirs = all.filter(k => k.type !== 'atk').map((k, i) => [k, i] as const).sort((a, b) => SKILL.weight[b[0].type] - SKILL.weight[a[0].type] || a[1] - b[1]).map(x => x[0]);
+  return { mine: all.filter(k => k.type === 'atk'), theirs };
 }
+/** 技能详情 / 能量环弹窗逐技能一行：「名字：效果」（图标另外画） */
+export const skillLine = (k: SkillDef) => `${k.name}：${k.effectText}`;
 /** 答对后判定；返回 [新判定状态, 触发的技能或 null]。energy 为本次答对加完之后的能量 */
 export function roll(r0: SkillRoll, o: { seg: SkillSeg; major: string; side: 'P' | 'M'; correct: boolean; energy?: number; silenced?: boolean; rng: () => number }): [SkillRoll, SkillDef | null] {
   if (!o.correct || o.silenced) return [r0, null];

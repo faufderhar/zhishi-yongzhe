@@ -17,10 +17,11 @@ import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
 import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
-import { skillsFor, skillById, triggerWhy, TRIGGER_TAG, SKILL_TRIGGER_TEXT, SKILL_COOLDOWN_TEXT, ringTag, RING_TAG } from '../game/skills';
+import { skillsFor, skillById, triggerWhy, TRIGGER_TAG, ringTag, RING_TAG } from '../game/skills';
+import { SkillDetail } from './SkillDetail';
 import { guardText, phaseCapText } from '../game/dmgText';
 import { logRound, summarize, toCSV, logFileName, type BossLogRound, type BossLogSummary } from '../game/bossLog';   // r17.1：只在 __TEST_HOOKS__ 分支里用，正式版摇掉
-import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
+import { preloadSkillArt } from '../fx/skillFx';
 import { cardOut } from '../game/balance';
 import { MONSTERS, CARDS, PERFECT_FRACTION, PERFECT_NOLIMIT_SEC, REVIVE, ENERGY_CAP, FOCUS_MAX, HURT_CAP } from '../game/balance';
 import { timeLimitFor } from '../game/grades';
@@ -470,9 +471,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         )}
       </div>
       {ringPop && <Modal onClose={() => setRingPop(false)}><h2>⚡ 能量与技能</h2>
-        <p data-testid="ring-pop">{SKILL_TRIGGER_TEXT}</p>{bs.mode === 'h' && <p data-testid="ring-pop-cd">{SKILL_COOLDOWN_TEXT}</p>}   {/* r17-4：和技能详情同一份文案 */}
-        <p className="hint">我方回合答对 → 攻击技能；对方回合答对 → 防护 / 恢复 / 控制技能{bs.mode === 'h' ? '（高中有冷却）' : ''}</p>
-        <ul className="skill-list">{mySkills.map(k => <li key={k.id}><img src={skillIconUrl(k.id)} alt="" width={32} height={32} style={{ verticalAlign: 'middle' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} /> {k.icon} <b>{k.name}</b>：{k.effectText}{k.cd ? `（冷却 ${k.cd} 回合${bs.sk.cd[k.id] ? `，还剩 ${bs.sk.cd[k.id]}` : ''}）` : ''}</li>)}</ul>
+        <SkillDetail seg={bs.seg} major={c.major} testid="ring-pop" cdLeft={bs.sk.cd} />   {/* r17-1：和角色卡〔技能详情〕同一个组件 / 同一份文案（含 r17-4 共用触发行、高中冷却行） */}
         <button className="btn" data-testid="ring-ok" onClick={() => setRingPop(false)}>知道了</button></Modal>}
       {intentPop && <Modal onClose={() => setIntentPop(false)}><h2>怪物意图</h2><p className="intent-long" data-testid="intent-pop">{il.long}</p>
         <p className="hint">⚔ 攻击 · ⚡ 蓄力（下次重击 ×2）· 💥 重击 · 🛡 护盾</p>

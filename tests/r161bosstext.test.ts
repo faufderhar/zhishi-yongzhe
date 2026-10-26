@@ -2,7 +2,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { newRound, resolveRound, estimateDealt, estimateOverflow, phaseOverflow } from '../src/game/rounds';
-import { triggerWhy, TRIGGER_TAG, STORM_CARD, skillCardLine, roll, newRoll } from '../src/game/skills';
+import { triggerWhy, TRIGGER_TAG, skillBlock, roll, newRoll } from '../src/game/skills';
 import { SKILL, ENERGY_CAP, ROUND } from '../src/game/balance';
 import { detailLines, guardText, phaseCapText } from '../src/game/dmgText';
 import { SCIFI, PUPS } from '../src/game/characters';
@@ -53,14 +53,12 @@ describe('(v)(w)(x) 打穿阶段线', () => {
   });
 });
 describe('(y) 数字风暴文案 / 能量环 / 横幅', () => {
-  it('角色卡：算算（P36 / J）写完整规则；阿算（H）加「冷却 3 回合」；别的角色不加', () => {
-    expect(STORM_CARD).toBe('数字风暴：答对时有 20% 机会触发，本题伤害 ×1.4。能量攒满 5 点或连续 4 次答对没触发，下一次答对必定触发；触发后能量清零。');
-    expect(skillCardLine('P36', '数学', 'suansuan')).toBe(STORM_CARD); expect(skillCardLine('J', '数学', 'suansuan')).toBe(STORM_CARD);
-    expect(skillCardLine('H', '数学', 'asuan')).toBe(STORM_CARD + '冷却 3 回合。');
-    expect(skillCardLine('P12', '数学', 'suansuan')).toBeNull();
-    for (const c of [...PUPS, ...SCIFI].filter(c => c.id !== 'suansuan' && c.id !== 'asuan')) for (const seg of ['P36', 'J', 'H'] as const) expect(skillCardLine(seg, c.major, c.id)).toBeNull();
+  it('角色卡：r17-1 起改为技能块（STORM_CARD / skillCardLine 已删，见 tests/r171charskills）；数字风暴只写「本题伤害 ×1.4」', () => {
+    const sb = skillBlock('J', '数学')!; expect(sb.mine.map(k => k.name)).toContain('数字风暴');
+    expect(sb.mine.find(k => k.name === '数字风暴')!.effectText).toBe('本题伤害 ×1.4');
+    expect(skillBlock('P12', '数学')).toBeNull();
     expect(suan.desc).toBe('主修：数学题伤害 ×1.2\n被动：数学题再 ×1.1（合计 ×1.32）');   // r17.1 r17-3：主修 / 被动分两行
-    expect(readFileSync('src/ui/Screens.tsx', 'utf8')).toMatch(/skillCardLine\(segOf\(cfg\.band\), c\.major, c\.id\)[\s\S]{0,120}data-testid=\{'char-skill-' \+ c\.id\}/);
+    expect(readFileSync('src/ui/Screens.tsx', 'utf8')).toMatch(/skillBlock\(segOf\(cfg\.band\), c\.major\)[\s\S]{0,120}data-testid=\{'char-skill-' \+ c\.id\}/);
   });
   it('触发原因：能量满 / 保底 / 幸运，和 roll 的必定触发条件同一处', () => {
     const r0 = newRoll();
