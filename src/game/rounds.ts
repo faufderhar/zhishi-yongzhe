@@ -19,7 +19,7 @@ export interface RState {
   intentMod: MIntent | null;
   combo: number; focus: number; energy: number; comboGuardUsed: boolean;
   /** 护体：下一次受伤 ×0.7，不叠加 */
-  guard: boolean; silenced: number; debuffs: number; sk: SkillRoll;
+  guard: boolean; /** 当前没有负面状态来源：silenced / debuffs 只会被清，不会被加（r17-13） */ silenced: number; debuffs: number; sk: SkillRoll;
   over: null | 'win' | 'lose' | 'retreat'; revived: boolean; noDeath: boolean;
   /** D14：Boss 二阶段「怒」 */
   rage?: boolean;
@@ -235,6 +235,7 @@ export function resolveRound(prev: RState, c: Character, i: RInput, endTurn = tr
     if (ok && sk) {
       if (sk.effect === 'G70') s.guard = true;
       else if (sk.effect === 'H5') { const h = Math.min(Math.round(s.playerMax * SKILL.healPct), s.playerMax - s.playerHp); s.playerHp += h; o.healed += h; }
+      // r17-13：F1 的「解除负面状态」（debuffs-- / silenced = 0）当前没有负面状态来源（debuffs / silenced 没有地方会加），只留着不改逻辑；卡面只写「专注 +1」
       else if (sk.effect === 'F1') { if (s.debuffs) s.debuffs--; s.silenced = 0; s.focus = Math.min(FOCUS_MAX, s.focus + 1); }
       else if (sk.effect === 'C') {
         const from = baseIntent(s), to = downgrade(from);

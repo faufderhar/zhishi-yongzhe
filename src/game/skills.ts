@@ -1,4 +1,5 @@
 /* 角色技能：随机释放判定（规格 v0.3.7 §2）。数据来自自动生成的 skills.data.ts */
+/* r17-13：效果 F1（清心 / 催化剂）规格写的「解除 1 个负面状态」——当前没有负面状态来源（rounds.ts 里 debuffs / silenced 只清不加），实际效果只有专注 +1；不改逻辑。 */
 import { SKILL_DATA, type SkillDef, type SkillSeg } from './skills.data';
 import { SKILL, ENERGY_CAP } from './balance';
 import type { Band } from './grades';
