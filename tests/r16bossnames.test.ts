@@ -18,7 +18,7 @@ it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
   const ver = missing(boxPath('questions/src/VERSION')).length ? '' : readFileSync(boxPath('questions/src/VERSION'), 'utf8').trim();
   // r16.2：游戏题库换成 v50；v50 源重新生成的 gen.json 和 v48 的逐字一样（v50 只改了高三的 Boss 名对照，r16 不导入高三）→ v50 也比对
   // r16.2：源目录前进到 v51（r16.2 不换 v51）——v51 源重新生成的 gen.json 也逐字一样（v51 没改 Boss 名对照）→ v51 也比对
-  skip(!['v57'].includes(ver), `题库源是 ${ver}，gen.json 钉在 v57——不重新生成比对`);   // r17.1：大班 / 初三 / 高三导入、初二 v48 / 高二 v49 表、初一 / 高一按章起名 → 只认 v57 源   // v52 / v56（r17）源重新生成也逐字一样
+  skip(!['v57', 'v58'].includes(ver), `题库源是 ${ver}，gen.json 钉在 v57——不重新生成比对`);   // r17.2：v58 源重新生成逐字一样   // r17.1：大班 / 初三 / 高三导入、初二 v48 / 高二 v49 表、初一 / 高一按章起名 → 只认 v57 源   // v52 / v56（r17）源重新生成也逐字一样
   const before = readFileSync('src/game/chapterBoss.gen.json', 'utf8');
   execFileSync('python3', ['scripts/import-boss-names.py', boxPath('questions')]);
   expect(readFileSync('src/game/chapterBoss.gen.json', 'utf8')).toBe(before);

@@ -14,9 +14,9 @@ const K2_SRC = ['art/monsters/manifest.json', 'art/k2/todo.json', 'questions/中
 it('gen.json = 导入脚本输出（没被手改）', ({ skip }) => {
   const miss = missing(...K2_SRC);
   skip(miss.length > 0 || boxPath('') !== '/workspace/', `开发机美术源不在（CI）：缺 ${miss.join('、') || '（ZY_BOX_ROOT 不是 /workspace，导入脚本只认 /workspace）'}——不重新生成比对`);
-  // r17：gen.json 按 v57 题库源生成（v57 左右和镜像新增 K3C-071 → 12 道，镜子小狐狸有 Boss 关了）；源目录换成别的版本就不重新生成比对——以后换题库时先导入再改这里
+  // r17：gen.json 按 v57 题库源生成（v57 左右和镜像新增 K3C-071 → 12 道，镜子小狐狸有 Boss 关了）；源目录换成别的版本就不重新生成比对——以后换题库时先导入再改这里；r17.2：v58 源重新生成逐字一样
   const k3v = JSON.parse(readFileSync(boxPath('questions/题库_游戏可用_幼儿园大班.json'), 'utf8')).version;
-  skip(k3v !== 'v57', `题库源是 ${k3v}，kinderBoss.gen.json 钉在 v57——不重新生成比对`);
+  skip(!['v57', 'v58'].includes(k3v), `题库源是 ${k3v}，kinderBoss.gen.json 钉在 v57——不重新生成比对`);
   const before = readFileSync('src/game/kinderBoss.gen.json', 'utf8'); execFileSync('python3', ['scripts/import-k2-monsters.py']);
   expect(readFileSync('src/game/kinderBoss.gen.json', 'utf8')).toBe(before);
 });
