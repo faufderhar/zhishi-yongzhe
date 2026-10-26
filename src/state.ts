@@ -32,7 +32,7 @@ export interface Settings { pinHash?: string; includePending: boolean; g1NoLimit
 }
 export interface Profile { id: string; name: string; avatar: string; grade: GradeKey; volumes: string[] | null; limit: TimeLimit;
   electives?: Electives   /* r16 R-13 / r16.1：高二选科（{ all: true } =「还没选科（全科）」，高二及以上新档案默认；首选 1 + 再选 2；没有 = 全科），见 game/electives.ts */;
-  volsKnown?: string[]   /* r15.4.4：保存「已学册别」时题库里有哪些册别（之后题库新增的册别自动勾上一次） */; volNotice?: string[]   /* r15.4.4：自动勾上的新册别（家长页提示一次） */; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */; pinVault?: PinVault /* r11：家长密码副本 */; recHash?: string /* r12：恢复码哈希独立副本 */ }
+  volsKnown?: string[]   /* r15.4.4：保存「已学册别」时题库里有哪些册别（之后题库新增的册别自动勾上一次） */; volNotice?: string[]   /* r15.4.4：自动勾上的新册别（家长页提示一次） */; charId?: string; tutorialDone?: boolean; tutorialV036?: boolean; lastGrade?: GradeKey /* r8b：上次在入口选的年级 */; charIds?: Record<string, string> /* r8b：按学段记角色（幼儿园/小学/初中用小狗，高中用研究员） */; tips?: Record<string, boolean> /* D14 首次提示 */; electNote?: boolean /* r17.1 学霸 r17-11 §6-2：〔添加孩子〕新建的 ≥11 年级档案，第一次进地图提示「默认全科」后清掉；备份恢复的旧档案没有，不提示 */; kinderGuide?: boolean /* r9 小班首次引导看过 */; unlimited?: { weekday?: boolean; weekend?: boolean } /* r9：「不限」是单独开关，时长最少 5 分钟 */; pinVault?: PinVault /* r11：家长密码副本 */; recHash?: string /* r12：恢复码哈希独立副本 */ }
 /** 实际生效的每日时长（0 = 不限）：r9 起 limit 最少 5 分钟，不限由 unlimited 开关决定 */
 export const effLimit = (p: Pick<Profile, 'limit' | 'unlimited'>): TimeLimit => ({ weekday: p.unlimited?.weekday ? 0 : Math.max(MIN_LIMIT, p.limit.weekday), weekend: p.unlimited?.weekend ? 0 : Math.max(MIN_LIMIT, p.limit.weekend) });
 export const MIN_LIMIT = 5;
@@ -87,6 +87,7 @@ export function repairProfile(x: unknown): Profile | null {
     ...(isObj(x.charIds) ? { charIds: Object.fromEntries(Object.entries(x.charIds).filter(([, v]) => typeof v === 'string')) as Record<string, string> } : {}),
     ...(isObj(x.tips) ? { tips: Object.fromEntries(Object.entries(x.tips).filter(([, v]) => v === true)) as Record<string, boolean> } : {}),
     ...(isObj(x.kinderGuide) || x.kinderGuide === true ? { kinderGuide: true } : {}),
+    ...(x.electNote === true ? { electNote: true } : {}),   // r17.1 r17-11：刚建好、还没进过地图的高二 / 高三档案（刷新后还提示一次）
     ...(isObj(x.pinVault) && typeof x.pinVault.pinHash === 'string' && x.pinVault.pinHash ? { pinVault: x.pinVault as unknown as PinVault } : {}), ...(typeof x.recHash === 'string' && x.recHash ? { recHash: x.recHash } : {}) };   // r11：家长密码副本
 }
 export const loadSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await guarded<Partial<Settings>>('settings', x => isObj(x) ? x as Partial<Settings> : null, () => ({}))) });

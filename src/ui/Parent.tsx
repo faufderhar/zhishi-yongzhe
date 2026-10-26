@@ -1,5 +1,5 @@
 import { backupVault } from '../game/backupPin';
-import { ALL_SUBJECTS, ELECTIVE_FIRST, ELECTIVE_SECOND, electivesValid, isAllSubjects, needsElectives, electivesLabel, type Electives } from '../game/electives';
+import { ALL_SUBJECTS, ELECTIVE_FIRST, ELECTIVE_SECOND, electivesValid, isAllSubjects, needsElectives, electivesLabel, ELECT_UPGRADE_HINT, type Electives } from '../game/electives';
 import { logReload } from '../swUpdate';
 import { ReduceToggle } from './Battle';
 import { prefetchAll } from '../fx/sheets';
@@ -361,6 +361,8 @@ function ProfileEditor({ p, bank, onSave, onCancel, day, onCancelBonus }: { p: P
         <label>名字 <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} data-testid="profile-name" value={f.name} maxLength={NAME_MAX} onPaste={e => setNameCut(pasteTooLong(e))} onChange={e => setF({ ...f, name: e.target.value })} /></label><NameCount v={f.name} cut={nameCut} testid="profile-name-count" />
         <div className="row gap16 wrap avatars">{AVATARS.map(a => <button key={a} className={`chip ${a === f.avatar ? 'on' : ''}`} onClick={() => setF({ ...f, avatar: a })}>{a}</button>)}</div>
         <div><b>年级</b><div className="row gap16 wrap">{PROFILE_GRADES.map(g => <button key={g} className={`chip ${g === f.grade ? 'on' : ''}`} data-testid={'grade-' + g} onClick={() => setGrade(g)}>{GRADE_LABEL[g]}</button>)}</div></div>
+        {/* r17.1 学霸 r17-11 §6-3：年级 <11 → ≥11（高一升高二）时选科器上方一行；高二改高三、本来就有选科时不显示 */}
+        {needsElectives(f.grade) && !needsElectives(p.grade) && !p.electives && <p className="hint" data-testid="elect-upgrade-hint">{ELECT_UPGRADE_HINT}</p>}
         {needsElectives(f.grade) && <ElectivesPicker e={f.electives} onChange={e => setF({ ...f, electives: e })} />}
         <div><b>已学册别</b>（只从勾选的册别出题）<VolChips vols={vols} volumes={f.volumes} onVol={toggleVol} onAll={() => setF({ ...f, volumes: toggleAllVols(f.volumes) })} />
           {!volsValid(f.volumes) && <p className="warn-text" data-testid="vol-none">⚠ 至少要选一册才能保存（点〔全部册别〕可以全选）</p>}</div>

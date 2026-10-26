@@ -22,3 +22,7 @@ export function cleanElectives(v: unknown): Electives | undefined {
   return { ...(first ? { first } : {}), ...(second.length ? { second } : {}) };
 }
 export const electivesLabel = (e: Electives | null | undefined) => isAllSubjects(e) ? '还没选科（全科）' : [e!.first, ...(e!.second ?? [])].filter(Boolean).join(' + ');
+/* r17.1 学霸 r16.1 裁定 §6（r17-11）：高二 / 高三建档「默认全科」三处提示 */
+export const ELECT_ADD_HINT = '高二、高三默认「还没选科（全科）」，所有科目都能玩；已经选了科，到「家长 → 编辑档案 → 选科」里改。';
+export const electMapNote = (worlds: number) => `已按「还没选科（全科）」建好：${worlds} 个科目都能玩，Boss 没有弱点加成。选了科？到「家长 → 编辑档案 → 选科」里改。`;
+export const ELECT_UPGRADE_HINT = '升到高二后默认「还没选科（全科）」。孩子已经选科的话，在下面选「已选科」。';

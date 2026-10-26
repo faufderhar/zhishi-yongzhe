@@ -54,5 +54,5 @@ it('备份 → 恢复：全科和已选科都原样回来', async () => {
 it('界面：家长页档案编辑有选科（高二起），新建档案不用选科就能建', () => {
   const s = readFileSync('src/ui/Parent.tsx', 'utf8');
   expect(s).toMatch(/needsElectives\(f\.grade\) && <ElectivesPicker/); expect(s).toMatch(/data-testid="el-all"/); expect(s).toMatch(/还没选科（全科）/);
-  const h = readFileSync('src/ui/Screens.tsx', 'utf8'); expect(h).toMatch(/onAdd\(newProfile\(/);
+  const h = readFileSync('src/ui/Screens.tsx', 'utf8'); expect(h).toMatch(/onAdd\(\{ \.\.\.newProfile\(/);
 });

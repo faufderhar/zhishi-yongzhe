@@ -30,6 +30,7 @@ import { unlockAudio, speak, registerPrompts, afterVoiceThen, setKinderSpeech } 
 import { PROMPT_BY_TEXT } from './game/voicePrompts';
 registerPrompts(PROMPT_BY_TEXT);   // r15.4：共用提示语录音退路
 import { recordAnswer, wrongOf, putWrong, delWrong, answersOf } from './db';
+import { electMapNote } from './game/electives';
 import * as S from './state';
 import type { Profile, Progress, Settings } from './state';
 import { KinderTutorial, StdTutorial } from './ui/Tutorial';
@@ -341,6 +342,9 @@ export default function App() {
     const ps = stamp(ps0, vaultOf(settingsRef.current)); profilesRef.current = ps;   // 新档案也带一份密码副本
     setProfilesState(ps); S.saveProfiles(ps);
   };
+  /* r17.1 学霸 r17-11 §6-2：〔添加孩子〕新建的 ≥11 年级档案第一次进地图，sys-bar 提示一次「默认全科」（再进不出；点了关闭）。显示时就清掉档案标记 */
+  const [electBar, setElectBar] = useState<{ pid: string; n: number } | null>(null);
+  useEffect(() => { if (screen.s !== 'map' || !p0?.electNote || !chapters.length) return; const id = p0.id; setElectBar({ pid: id, n: chapters.length }); setProfiles(ps => ps.map(x => x.id === id ? { ...x, electNote: undefined } : x)); }, [screen.s, p0?.electNote, p0?.id, chapters.length]);   // eslint-disable-line react-hooks/exhaustive-deps
   /* r15.4.4（总管）：题库新增的册别（v32 政治必修3 = 必修第三册）给保存过「已学册别」的档案自动勾上一次，家长页提示一次（见 game/volumes.ts） */
   useEffect(() => {
     if (!bank || !profiles.length) return; let ch = false;
@@ -628,6 +632,7 @@ export default function App() {
       {storageErr && screen.s === 'parent' && <div className="sys-bar yellow-bar" data-testid="storage-error" onClick={() => setStorageErr(undefined)}>保存失败：平板存储空间可能不足，请导出备份（{storageErr}）。点此关闭</div>}
       {clock.locked && ['profiles', 'map'].includes(screen.s) && <div className="sys-bar warn-bar inflow" data-testid="clock-lock">⏰ 平板时间好像被调过了，请爸爸妈妈确认一下 <button className="chip" onClick={() => setScreen({ s: 'gate' })}>家长解锁</button></div>}
       {updateReady && ['profiles', 'map'].includes(screen.s) && <button className="sys-bar" data-testid="update-ready" onClick={() => updateReady()}>✨ 有新版本，点这里更新（不会丢进度）</button>}
+      {electBar && screen.s === 'map' && electBar.pid === pid && <div className="sys-bar ok-bar inflow" role="status" data-testid="elect-note" onClick={() => setElectBar(null)}>ℹ️ {electMapNote(electBar.n)}（点此关闭）</div>}
       {exitNote && (screen.s === 'profiles' || (screen.s === 'map' && !interrupted)) && <div className="sys-bar warn-bar inflow" data-testid="exit-note" onClick={() => setExitNote(undefined)}>ℹ️ {exitNote}（点此关闭）</div>}
       {interrupted && screen.s === 'map' && interrupted.pid === pid && <div className="sys-bar warn-bar inflow" data-testid="interrupted">上次玩「{interrupted.name}」没有打完：{CAUSE_TEXT[interrupted.cause ?? 'navigate'] ?? CAUSE_TEXT.navigate}。{interrupted.n ? `已答的 ${interrupted.n} 道题记进了学习记录和错题本，` : ''}这一关的星星没有算。点〔重新开始这一关〕＝马上从第 1 题重新打；点〔知道了〕＝关掉这条提示，留在地图。
         <button className="chip" data-testid="interrupted-again" onClick={() => { const l = chapters.flatMap(c => c.levels).find(x => x.id === interrupted.levelId); setInterrupted(null); if (l) startLevel(l); }}>重新开始这一关</button>

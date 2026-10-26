@@ -19,6 +19,7 @@ import type { BandConfig, LevelKind } from '../game/grades';
 import { segOf, skillBlock, SKILL_BLOCK_HEAD } from '../game/skills';
 import { SkillDetail } from './SkillDetail';
 import { newProfile, AVATARS, type Profile, type Progress } from '../state';
+import { needsElectives, ELECT_ADD_HINT } from '../game/electives';
 import { Modal } from './common';
 import type { GradeKey } from '../game/questions';
 import { isDue, INTERVAL, wrongStale, type WrongEntry } from '../game/wrongbook';
@@ -40,11 +41,13 @@ function AddChild({ onAdd, onClose }: { onAdd: (p: Profile) => void; onClose: ()
       <div className="grade-grid" data-testid="grade-list">
         {HOME_GRADES.map(({ g, open }) => (
           <button key={g} className="grade-btn" disabled={!open} data-testid={'home-grade-' + g}
-            onClick={() => onAdd(newProfile(name.trim() || '小勇者', g, DEFAULT_AVATAR[g] ?? AVATARS[0]))}>
+            onClick={() => onAdd({ ...newProfile(name.trim() || '小勇者', g, DEFAULT_AVATAR[g] ?? AVATARS[0]), ...(needsElectives(g) ? { electNote: true } : {}) })}>   {/* r17.1 学霸 r17-11 §6-2：≥11 年级新档第一次进地图提示一次 */}
             {GRADE_LABEL[g]}{!open && <small>即将开放</small>}
           </button>))}
       </div>
-      <p className="hint">之后可在「家长」里改名字、头像和每日时长。</p>
+      <p className="hint" data-testid="add-hint">之后可在「家长」里改名字、头像和每日时长。
+        {/* r17.1 学霸 r17-11 §6-1：点年级就建档，没有机会事后弹——有已开放的 ≥11 年级时第二行一直显示 */}
+        {HOME_GRADES.some(x => x.open && needsElectives(x.g)) && <><br /><span data-testid="add-hint-elect">{ELECT_ADD_HINT}</span></>}</p>
       <button className="btn ghost" onClick={onClose}>取消</button>
     </Modal>
   );
