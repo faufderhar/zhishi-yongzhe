@@ -6,7 +6,7 @@
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v57 · K2 v57 · K3 v57 · r17 prompts · r17 term",
+ "bank_version": "K1 v57 · K2 v57 · K3 v57 · r17 prompts · r17 term (+sleep r17.1)",
  "speeds": {
   "questions": 1.2,
   "prompts": 1.2,
@@ -3294,7 +3294,9 @@
   "p:tut_q2": "KD-002_stem.54e9aaa6f6.mp3",
   "p:tut_q3": "KC-001_stem.57340ecc5d.mp3",
   "p:tut_s2": "p_tut_s2.a759008860.mp3",
-  "p:tut_s3": "p_tut_s3.1a0cfbf54f.mp3"
+  "p:tut_s3": "p_tut_s3.1a0cfbf54f.mp3",
+  "p:k_term1_sleep": "p_k_term1_sleep.45d1bcd0aa.mp3",
+  "p:k_term2_sleep": "p_k_term2_sleep.f34ced5a3d.mp3"
  },
  "meta": {
   "K-001#opt0": {
@@ -92005,6 +92007,54 @@
    "status": "AI初审通过",
    "reused_from": "K2N-015#opt0",
    "grade": "K3"
+  },
+  "p:k_term1_sleep": {
+   "file": "p_k_term1_sleep.45d1bcd0aa.mp3",
+   "text": "大乌云要睡觉啦，下次再来玩～",
+   "segments": [
+    [
+     "zh",
+     "大乌云要睡觉啦，下次再来玩"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "45d1bcd0aaea5984bc7d5ebfb3f8341146ef194892aabf8dff0c744c4a42cff2",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄉㄚ4/ㄨ1云2/要4/ㄕ为4ㄐ要4/ㄌㄚ5, ㄒ压4ㄘㄭ4/ㄗㄞ4ㄌㄞ2/万2"
+   ],
+   "synth_s": 2.11,
+   "duration": 3.36,
+   "lufs": -15.9,
+   "tp": -2.2,
+   "pregain_db": 8.14,
+   "limiter_gr_db": 0.4,
+   "gr_flag": false,
+   "norm": "linear"
+  },
+  "p:k_term2_sleep": {
+   "file": "p_k_term2_sleep.f34ced5a3d.mp3",
+   "text": "彩虹云要睡觉啦，下次再来玩～",
+   "segments": [
+    [
+     "zh",
+     "彩虹云要睡觉啦，下次再来玩"
+    ]
+   ],
+   "voice": "zf_002",
+   "speed": 1.1,
+   "hash": "f34ced5a3de24573b4aab8f47ad8c6998b88ff6da498390f72b533962323db0f",
+   "phonemes": [
+    "zh|zf_002|1.1|ㄘㄞ3ㄏ中2/云2/要4/ㄕ为4ㄐ要4/ㄌㄚ5, ㄒ压4ㄘㄭ4/ㄗㄞ4ㄌㄞ2/万2"
+   ],
+   "synth_s": 1.33,
+   "duration": 3.336,
+   "lufs": -16.1,
+   "tp": -2.3,
+   "pregain_db": 7.88,
+   "limiter_gr_db": 2.69,
+   "gr_flag": false,
+   "norm": "linear"
   }
  },
  "deploy": {
@@ -92321,7 +92371,7 @@
    "note": "15 new prompts for r17 (游戏程序): p:happy_total_1..5, p:res_k_first_1..10; zf_002 1.2, chain v2.1; 2→两 (happy text has 两; res_k_first_2 via tts_subst 答对2题→答对两题)"
   },
   "r17_term": {
-   "date": "2026-10-20",
+   "date": "2026-10-26",
    "keys": [
     "p:k_term1_intro",
     "p:k_term_heart",
@@ -92330,12 +92380,14 @@
     "p:k_term1_medal",
     "p:k_term2_intro",
     "p:k_term2_end",
-    "p:k_term2_medal"
+    "p:k_term2_medal",
+    "p:k_term1_sleep",
+    "p:k_term2_sleep"
    ],
    "speed": 1.1,
    "source": "prompts_r17_term.json",
    "out": "/workspace/tts/out_r17term/zf_002",
-   "note": "小班 期末庆祝关 (上/下学期) voice lines; zf_002 speed 1.1 (user decision: gentler/slower than pack 1.2), chain v2.1; keys proposed by 音频设计 (no strings/keys in zy-r16 yet); 句尾 ～ deleted by synth_text rule"
+   "note": "小班 期末庆祝关 (上/下学期) voice lines; zf_002 speed 1.1 (user decision: gentler/slower than pack 1.2), chain v2.1; keys proposed by 音频设计 (no strings/keys in zy-r16 yet); 句尾 ～ deleted by synth_text rule; r17.1 追加 sleep 两句（时间到/暂停超时）: p:k_term1_sleep, p:k_term2_sleep"
   },
   "v57": {
    "date": "2026-10-20",

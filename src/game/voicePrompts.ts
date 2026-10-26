@@ -20,7 +20,7 @@ export const VOICE_PROMPTS: Record<string, string> = {
   /* r17 D：小班期末庆祝关（录音 1.1 倍速，deploy.r17_term 声明的语速例外） */
   k_term1_intro: TERM_TEXT.intro[1], k_term2_intro: TERM_TEXT.intro[2], k_term1_end: TERM_TEXT.end[1], k_term2_end: TERM_TEXT.end[2],
   k_term1_medal: TERM_TEXT.medal[1], k_term2_medal: TERM_TEXT.medal[2], k_term_heart: TERM_TEXT.heart, k_term_retry: TERM_TEXT.retry,
-  k_term1_sleep: TERM_TEXT.sleep[1], k_term2_sleep: TERM_TEXT.sleep[2],   // r17 策划：时间到 / 暂停超时（待录音：没录之前 TTS + 字幕）
+  k_term1_sleep: TERM_TEXT.sleep[1], k_term2_sleep: TERM_TEXT.sleep[2],   // r17 策划：时间到 / 暂停超时（r17.1 已录音，1.1 倍速）
   ...dynamicPrompts(),   // r15.4：小班带变量的句子（角色名、出发、技能、开心值、怪兽回家…）按数据展开；batch.py 用 --prompt-list 读导出的 JSON
 };
 /** speak() 用：文字 → id */

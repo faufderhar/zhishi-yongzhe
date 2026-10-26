@@ -298,7 +298,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
   /* r17 策划：期末关时间到 / 暂停超时 = 不算完成、不给奖章（爱心已经一颗颗记下了）：「大乌云要睡觉啦，下次再来玩～」→ 回地图；爱心都亮了才算完成 */
   const [sleepy, setSleepy] = useState(false);
   const termSleep = async () => { if (!term) return; lock.current = true; setBusy(true); setPaused(false); setSleepy(true); setSay(null);
-    speak(TERM_TEXT.sleep[term], 'zh-CN', { keys: [TERM_KEYS.sleep[term]] });   // 还没录音（p:k_term*_sleep 待录）：TTS + 字幕
+    speak(TERM_TEXT.sleep[term], 'zh-CN', { keys: [TERM_KEYS.sleep[term]] });   // r17.1 已录音（p:k_term*_sleep @1.1）；没下载到时 speak() 退回 TTS，字幕照旧
     await sleep(400); await afterVoice(2500, 8000); if (D.alive.current) onQuit(); };
   const termDone = (k: typeof ks) => onEnd({ win: true, term, correct: k.first, total: Math.max(1, k.first + k.retry + k.demo), revived: false, wrongKeys: wrong.current, kinder: { first: k.first, retry: k.retry, demo: k.demo }, kMon });
   const kQuit = () => { const k = ksRef.current; if (term) { if (k.done) termDone(k); else void termSleep(); return; }   // r17：期末关不失败——没点完爱心 = 睡觉去，下次接着点

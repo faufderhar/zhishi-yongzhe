@@ -98,7 +98,7 @@ describe('r17 D 温和规则 / 文字', () => {
     expect(kb).toMatch(/data-testid="term-sleep-text">\{TERM_TEXT\.sleep\[term\]\}/);
     expect(kb.replace(/revived: false/g, '')).not.toMatch(/revive/i);   // 只有结果里的 revived: false
     expect(TERM_TEXT.sleep).toEqual({ 1: '大乌云要睡觉啦，下次再来玩～', 2: '彩虹云要睡觉啦，下次再来玩～' });
-    expect(TERM_PENDING_KEYS).toEqual(['p:k_term1_sleep', 'p:k_term2_sleep']); for (const k of TERM_PENDING_KEYS) { expect(man.items[k], k).toBeUndefined(); expect(VOICE_PROMPTS[k.slice(2)], k).toBeTruthy(); }
+    expect(TERM_PENDING_KEYS).toEqual([]);   // r17.1：睡觉句已录（见下面 10 个 k_term 键）
   });
   it('时间到半路：已点亮的爱心记在进度里；再进来接着点（只出剩下的题），全亮才颁奖章；完成后清掉', () => {
     const id = 'K1:term1'; let pr = emptyProgress();
@@ -140,9 +140,12 @@ describe('r17 D 温和规则 / 文字', () => {
   });
 });
 describe('r17 D 录音 / 音效 / 美术', () => {
-  it('8 个 k_term 键都在录音包，文字和 VOICE_PROMPTS 一致，1.1 倍速', () => {
-    const ks = [...Object.values(TERM_KEYS.intro), ...Object.values(TERM_KEYS.end), ...Object.values(TERM_KEYS.medal), TERM_KEYS.heart, TERM_KEYS.retry];
-    expect(ks.length).toBe(8);
+  it('10 个 k_term 键（r17.1 +睡觉句 2）都在录音包，文字和 VOICE_PROMPTS / TERM_TEXT 一致（含句尾 ～），1.1 倍速，登记在 deploy.r17_term', () => {
+    const ks = [...Object.values(TERM_KEYS.intro), ...Object.values(TERM_KEYS.end), ...Object.values(TERM_KEYS.medal), TERM_KEYS.heart, TERM_KEYS.retry, ...Object.values(TERM_KEYS.sleep)];
+    expect(ks.length).toBe(10);
+    expect(man.meta['p:k_term1_sleep'].text).toBe(TERM_TEXT.sleep[1]); expect(man.meta['p:k_term2_sleep'].text).toBe(TERM_TEXT.sleep[2]);
+    expect(man.items['p:k_term1_sleep']).toBe('p_k_term1_sleep.45d1bcd0aa.mp3'); expect(man.items['p:k_term2_sleep']).toBe('p_k_term2_sleep.f34ced5a3d.mp3');
+    expect([...(man.deploy?.r17_term?.keys ?? [])].sort()).toEqual([...ks].sort());
     for (const k of ks) { expect(man.items[k], k).toMatch(/\.mp3$/); const id = k.slice(2); expect(VOICE_PROMPTS[id], k).toBeTruthy();
       const m = man.meta[k]; expect(m.text, k).toBe(VOICE_PROMPTS[id]); expect(m.speed, k).toBe(1.1); expect(existsSync('public/voice/' + man.items[k]), k).toBe(true); }
     expect(VOICE_PROMPTS.k_term1_intro).toBe(TERM_TEXT.intro[1]);

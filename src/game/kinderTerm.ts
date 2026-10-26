@@ -20,12 +20,12 @@ export const TERM_TEXT = {
   end: { 1: '大乌云被你逗笑啦！', 2: '彩虹云笑得好开心，变出了一道大彩虹！' },
   medal: { 1: '你得到了上学期小勇士奖章！真棒！', 2: '你得到了下学期彩虹奖章！你长大啦！' },
   heart: '点亮一颗爱心！', retry: '没关系，我们再想一想～',
-  /** 时间到 / 暂停超时（还没录音：p:k_term1_sleep / p:k_term2_sleep 待录，先用文字 + TTS） */
+  /** 时间到 / 暂停超时（r17.1 已录音 p:k_term1_sleep / p:k_term2_sleep，1.1 倍速；文字照旧做字幕） */
   sleep: { 1: '大乌云要睡觉啦，下次再来玩～', 2: '彩虹云要睡觉啦，下次再来玩～' },
 } as const;
 export const TERM_KEYS = { intro: { 1: 'p:k_term1_intro', 2: 'p:k_term2_intro' }, end: { 1: 'p:k_term1_end', 2: 'p:k_term2_end' }, medal: { 1: 'p:k_term1_medal', 2: 'p:k_term2_medal' }, heart: 'p:k_term_heart', retry: 'p:k_term_retry', sleep: { 1: 'p:k_term1_sleep', 2: 'p:k_term2_sleep' } } as const;
-/** 还没录音的键（录音包里没有时 speak() 用 TTS / 字幕） */
-export const TERM_PENDING_KEYS = ['p:k_term1_sleep', 'p:k_term2_sleep'] as const;
+/** 还没录音的键（录音包里没有时 speak() 用 TTS / 字幕）。r17.1：睡觉句已录，清空 */
+export const TERM_PENDING_KEYS: readonly string[] = [];
 export const TERM_NAME: Record<TermNo, string> = { 1: '上学期 · 逗笑大乌云', 2: '下学期 · 彩虹云来玩' };
 export const TERM_MEDAL_NAME: Record<TermNo, string> = { 1: '上学期小勇士奖章', 2: '下学期彩虹奖章' };
 export const TERM_MON_NAME: Record<TermNo, string> = { 1: '大乌云', 2: '彩虹云' };
