@@ -91,6 +91,8 @@ export default function BossLab({ qsOf }: { qsOf: (g: GradeKey) => Question[] })
     setFight({ row, qs: start, extra: pool.filter(x => !start.includes(x)), lab, nonce: Date.now(), auto, p, card, wager, seed });
   };
   const endFight = () => { const f = fight; setFight(null); const L = win().__zyBossLog; if (f && L) show(f.row, L, `进入 · 种子 ${f.seed}${f.auto === 'auto' ? ` · 自动 p=${f.p}` : ' · 手动'}`); };
+  // 自动化脚本（window.__zyTest）按坐标点按钮：右下角 🧪 会盖住小屏 PIN 键盘的〔确定〕（r16-p4 640×360 130%）→ 那时不显示 🧪（#bosslab 仍可打开面板）
+  if (!open && (window as unknown as { __zyTest?: boolean }).__zyTest) return null;
   if (!open) return <button data-testid="bosslab-btn" title="Boss 测试面板（仅测试版）" onClick={() => setOpen(true)} style={{ position: 'fixed', right: 8, bottom: 8, zIndex: 80, opacity: .45, fontSize: 18, padding: '2px 6px', minHeight: 0 }}>🧪</button>;
   if (fight) return <div ref={froot} data-testid="bosslab-fight" style={{ position: 'fixed', inset: 0, zIndex: 90, background: '#1d2340' }}>
     <RoundBattle key={fight.nonce} cfg={bandConfig(grade)} c={ch} kind="boss" unit={fight.row.level.unit} title={fight.row.level.name} questions={fight.qs} extra={fight.extra} review={[]}
