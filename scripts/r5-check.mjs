@@ -75,7 +75,7 @@ const S = await session();
   ok(!(await pg.$('[data-testid=skill]')) && !(await pg.$('.skill-btn')), '§6-1 界面没有手动技能按钮');
   await pg.click('[data-testid=energy]'); await w(250);
   const rp = await pg.textContent('[data-testid=ring-pop]'); const li = await pg.$$('.skill-list li');
-  ok(/答对.*20%.*能量攒满 5 点必定触发.*连续 4 次/.test(rp) && li.length >= 3, `§6-1 能量环可点开说明（列出本角色 ${li.length} 个技能）`);
+  ok(/答对.*20%.*能量到 5 点，这道题一定放.*连续 4 次/.test(rp) && li.length >= 3, `§6-1 能量环可点开说明（列出本角色 ${li.length} 个技能）`);
   await pg.screenshot({ path: OUT + 'r5-energy-ring.png' }); await pg.click('[data-testid=ring-ok]'); await w(200);
   const before = reqs.filter(u => /\/fx\/skills\//.test(u));
   const ids = [...new Set(before.map(u => (u.match(/fx\/skills\/(?:icons\/icon_)?([a-z0-9_]+)\.(json|webp)/) || [])[1]).filter(Boolean))];

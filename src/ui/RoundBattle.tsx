@@ -17,7 +17,7 @@ import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
 import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
-import { skillsFor, skillById, triggerWhy, TRIGGER_TAG } from '../game/skills';
+import { skillsFor, skillById, triggerWhy, TRIGGER_TAG, SKILL_TRIGGER_TEXT, SKILL_COOLDOWN_TEXT } from '../game/skills';
 import { guardText, phaseCapText } from '../game/dmgText';
 import { logRound, summarize, toCSV, logFileName, type BossLogRound, type BossLogSummary } from '../game/bossLog';   // r17.1：只在 __TEST_HOOKS__ 分支里用，正式版摇掉
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
@@ -312,7 +312,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
       if (!D.alive.current) return;
       setView({ p: ns.playerHp, m: ns.monsterHp }); setBs(ns); setRingE(null);
       const full = g === 'full';   // 漏选不算答对（策划裁定 6）：显示解析，至少停 2 秒
-      setFb({ ok: full, o, partial: g === 'partial', text: (full ? '✔ 正确！' : g === 'partial' ? '◐ 漏选了！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体抵挡 30%）' : '') });
+      setFb({ ok: full, o, partial: g === 'partial', text: (full ? '✔ 正确！' : g === 'partial' ? '◐ 漏选了！' : val === '' ? '⏰ 超时了！' : '✘ 答错了！') + o.text + (k ? ` ✨${k.name}：${k.effectText}` : '') + (o.guardUsed ? '（护体：只受 70%）' : '') });
       if (ns.over === 'win') { void finish(ns); return; }
       if (ns.over === 'lose') {   // 直接倒地 → 复活挑战 / 结算
         
@@ -377,7 +377,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         </div>
         <div className="stage" ref={D.stage}>
           <div className="fx-shake" ref={D.shake}>
-            {bs.guard && <div className="guard-badge" data-testid="guard" title="护体：下一次受伤 ×0.7">🛡️</div>}
+            {bs.guard && <div className="guard-badge" data-testid="guard" title="护体：下一次受伤只受 70%" aria-label="护体：下一次受伤只受 70%">🛡️</div>}
             <div className={`unit-wrap hero-wrap ${fb?.o?.dodged || fb?.o?.perfect ? 'sidestep' : ''}`} ref={D.hero}><div className="breathe"><Sprite className="unit hero" c={c} /></div></div>
             <div className={`unit-wrap mon-wrap ${kind} ${phase === 'retreat' ? 'retreating' : ''} ${rageAnim ? 'rage-pop' : ''} ${bs.rage ? 'raged' : ''}`} ref={D.monster} style={skin?.hue ? { filter: `hue-rotate(${skin.hue}deg)` } : undefined}><div className="breathe slow">{kind === 'boss' && <svg className="boss-crown in-mon" data-testid="boss-crown" viewBox="0 0 64 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L32 4 L42 24 L56 10 L60 36 Z" fill="#ffd23f" stroke="#b8860b" strokeWidth="3" strokeLinejoin="round" /><circle cx="32" cy="26" r="4" fill="#e63946" /><circle cx="16" cy="29" r="3" fill="#4cc9f0" /><circle cx="48" cy="29" r="3" fill="#4cc9f0" /></svg>}
               <img className={`unit monster ${kind}`} src={MONSTER_IMG[mon.img]} alt={mon.name} data-testid="monster-img" draggable={false} />
@@ -469,8 +469,8 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         )}
       </div>
       {ringPop && <Modal onClose={() => setRingPop(false)}><h2>⚡ 能量与技能</h2>
-        <p data-testid="ring-pop">技能会在<b>答对</b>时随机触发：每次答对 20%；能量攒满 5 点必定触发；连续 4 次答对没触发，第 5 次必定触发。触发后能量清零。答错、超时不会触发。</p>
-        <p className="hint">我方回合答对 → 攻击技能；对方回合答对 → 防护 / 恢复 / 控制技能{bs.mode === 'h' ? '（高一有冷却）' : ''}</p>
+        <p data-testid="ring-pop">{SKILL_TRIGGER_TEXT}</p>{bs.mode === 'h' && <p data-testid="ring-pop-cd">{SKILL_COOLDOWN_TEXT}</p>}   {/* r17-4：和技能详情同一份文案 */}
+        <p className="hint">我方回合答对 → 攻击技能；对方回合答对 → 防护 / 恢复 / 控制技能{bs.mode === 'h' ? '（高中有冷却）' : ''}</p>
         <ul className="skill-list">{mySkills.map(k => <li key={k.id}><img src={skillIconUrl(k.id)} alt="" width={32} height={32} style={{ verticalAlign: 'middle' }} onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }} /> {k.icon} <b>{k.name}</b>：{k.effectText}{k.cd ? `（冷却 ${k.cd} 回合${bs.sk.cd[k.id] ? `，还剩 ${bs.sk.cd[k.id]}` : ''}）` : ''}</li>)}</ul>
         <button className="btn" data-testid="ring-ok" onClick={() => setRingPop(false)}>知道了</button></Modal>}
       {intentPop && <Modal onClose={() => setIntentPop(false)}><h2>怪物意图</h2><p className="intent-long" data-testid="intent-pop">{il.long}</p>

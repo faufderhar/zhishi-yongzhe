@@ -79,7 +79,7 @@ describe('效果数值（v0.3.7 新数值，取代 r4 的 4 个手动技能）',
     const [s4, o4] = R({ ...j(), combo: 0 }, poet, true, { forceSkill: f('A125C') }); expect(o4.dealt).toBe(Math.round(24 * 1.25)); expect(s4.combo).toBe(2);
     expect(base).toBe(24);
   });
-  it('护体：下一次受伤 ×0.7，消耗，不叠加', () => {
+  it('护体：下一次受伤只受 70%，消耗，不叠加', () => {
     let s = { ...j(), side: 'M' as const }; const g = SKILL_DATA.find(k => k.seg === 'J' && k.effect === 'G70')!;
     [s] = R(s, poet, true, { forceSkill: g }); expect(s.guard).toBe(true);
     const [s2, o] = R(s, poet, false);   // 我方回合答错被反击 = 下一次受伤

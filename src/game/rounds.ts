@@ -18,7 +18,7 @@ export interface RState {
   /** 控制技能：把怪物下一个意图降级（不推进循环索引） */
   intentMod: MIntent | null;
   combo: number; focus: number; energy: number; comboGuardUsed: boolean;
-  /** 护体：下一次受伤 ×0.7，不叠加 */
+  /** 护体：下一次受伤只受 70%（×0.7），不叠加 */
   guard: boolean; /** 当前没有负面状态来源：silenced / debuffs 只会被清，不会被加（r17-13） */ silenced: number; debuffs: number; sk: SkillRoll;
   over: null | 'win' | 'lose' | 'retreat'; revived: boolean; noDeath: boolean;
   /** D14：Boss 二阶段「怒」 */

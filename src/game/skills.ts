@@ -26,6 +26,9 @@ export function triggerWhy(r0: SkillRoll, seg: SkillSeg, energy?: number): 'ener
   if (r0.dry >= SKILL.pity[vis ? 'visual' : 'battle']) return 'pity';
   return 'luck';
 }
+/** r17-4（学霸裁定 §1 / §3）：能量环弹窗和技能详情共用的触发规则行；高中另加冷却行 */
+export const SKILL_TRIGGER_TEXT = '技能只在答对时放。每次答对有 20% 机会；答对后能量到 5 点，这道题一定放；连续 4 次答对没放，第 5 次一定放。放完能量清零。同一边的两个技能轮流出。答错、超时、漏选不会放。';
+export const SKILL_COOLDOWN_TEXT = '冷却：放过的技能，接下来 3 个回合（控制、恢复、清心类 4 个回合；双方回合都算）不会再出；这一边的技能都在冷却时，「一定放」顺延到下一次答对。';
 export const TRIGGER_TAG = { energy: '能量满', pity: '保底触发', luck: '幸运触发' } as const;
 /** r16.1 (y)：角色卡上的技能说明（目前只有数字风暴，文案见 Boss补测裁定_r17 §3）；cd > 0 时加「冷却 N 回合」 */
 export const STORM_CARD = '数字风暴：答对时有 20% 机会触发，本题伤害 ×1.4。能量攒满 5 点或连续 4 次答对没触发，下一次答对必定触发；触发后能量清零。';
