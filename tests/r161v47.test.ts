@@ -12,8 +12,8 @@ const all: Question[] = R16_GRADES.flatMap(g => B(g)); const vis = computeVisibi
 const lv = (g: string, s: string) => { const a = B(g).filter(q => q.subject === s); return buildChapters(playable(a, false), null, a).flatMap(c => c.levels); };
 describe('r16.1 题库 v47', () => {
   it('发布号 v47；初三 / 大班 / 高三没有导入', () => {
-    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8')).release).toBe('v57');   // r17：v56 → v57（只改大班，未导入）；r16.1：v47 → v48（关卡结构相同）；r16.2：v50（tests/r162v50）
-    for (const g of R16_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v57');   // r17：v56 → v57
+    expect(JSON.parse(readFileSync('public/banks/release.json', 'utf8')).release).toBe('v58');   // r17.2：v58（只补初三 +78）；r17：v56 → v57（只改大班，未导入）；r16.1：v47 → v48（关卡结构相同）；r16.2：v50（tests/r162v50）
+    for (const g of R16_GRADES) expect(JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')).version, g).toBe('v58');   // r17.2：v58；r17：v56 → v57
     expect(existsSync('public/banks/bank_9.json')).toBe(true);   // r17.1：初三导入并开放（tests/r171grades）
     expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);
     expect(all.some(q => /^C9-/.test(q.id))).toBe(false);   // C9-156→C9-360、删掉的 C9-060/109/146 不影响 r16.1

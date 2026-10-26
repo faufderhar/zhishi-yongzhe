@@ -1,6 +1,6 @@
 {
- "bank_name": "三兄妹题库-初三-v57（AI初审）",
- "version": "v57",
+ "bank_name": "三兄妹题库-初三-v58（AI初审）",
+ "version": "v58",
  "questions": [
   {
    "id": "Y9-001",
@@ -764,6 +764,51 @@
    ]
   },
   {
+   "id": "Y9-247",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元·2 周总理，你在哪里",
+   "type": "选择",
+   "question": "《周总理，你在哪里》写于哪一年？",
+   "options": [
+    {
+     "text": "1949年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1977年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1966年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1984年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "这首诗是柯岩在1977年1月周总理逝世一周年之际写的，抒发人民对总理的深切怀念。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "周总理，你在哪里",
+   "game_ready": true,
+   "template": "Taeae37",
+   "change_tag": "新增",
+   "tags": [
+    "周总理，你在哪里"
+   ]
+  },
+  {
    "id": "Y9-020",
    "status": "AI初审通过",
    "subject": "语文",
@@ -1109,6 +1154,51 @@
    "template": "Taf4d2c",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "我爱这土地"
+   ]
+  },
+  {
+   "id": "Y9-248",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元·3 我爱这土地",
+   "type": "选择",
+   "question": "《我爱这土地》中“这永远汹涌着我们的悲愤的河流”“这无止息地吹刮着的激怒的风”象征什么？",
+   "options": [
+    {
+     "text": "江河的壮美景色",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "四季变化的风雨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "诗人对家乡山水的思念",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "人民的悲愤与反抗",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "“悲愤的河流”“激怒的风”象征人民心中的悲愤和不屈的反抗精神。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "我爱这土地",
+   "game_ready": true,
+   "template": "T5e8fa5",
+   "change_tag": "新增",
    "tags": [
     "我爱这土地"
    ]
@@ -1501,6 +1591,32 @@
    ]
   },
   {
+   "id": "Y9-249",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元·4 乡愁",
+   "type": "填空",
+   "question": "补全《乡愁》诗句：“而现在 / 乡愁是一湾浅浅的海峡 / 我在这头 / ____在那头”。",
+   "answer": [
+    "大陆"
+   ],
+   "explanation": "诗的最后一节写海峡两岸：“我在这头，大陆在那头”，把个人乡愁升华为家国之思。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "乡愁",
+   "game_ready": true,
+   "template": "Tc63044",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "乡愁"
+   ]
+  },
+  {
    "id": "Y9-038",
    "status": "AI初审通过",
    "subject": "语文",
@@ -1866,6 +1982,51 @@
    "template": "T331d81",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "你是人间的四月天——一句爱的赞颂"
+   ]
+  },
+  {
+   "id": "Y9-250",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元·5 你是人间的四月天——一句爱的赞颂",
+   "type": "选择",
+   "question": "林徽因除了是诗人，还是著名的？",
+   "options": [
+    {
+     "text": "建筑学家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物理学家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "音乐家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "外交家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "林徽因是诗人、作家，也是建筑学家，参与了中华人民共和国国徽的设计。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "你是人间的四月天——一句爱的赞颂",
+   "game_ready": true,
+   "template": "T725fe4",
+   "change_tag": "新增",
    "tags": [
     "你是人间的四月天——一句爱的赞颂"
    ]
@@ -2359,6 +2520,77 @@
    ]
   },
   {
+   "id": "Y9-251",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元·6 我看",
+   "type": "选择",
+   "question": "穆旦原名是？",
+   "options": [
+    {
+     "text": "查良镛",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "蒋海澄",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "查良铮",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "舒庆春",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "穆旦原名查良铮，诗人、翻译家。查良镛是金庸，蒋海澄是艾青，舒庆春是老舍。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "我看",
+   "game_ready": true,
+   "template": "T0c564e",
+   "change_tag": "新增",
+   "tags": [
+    "我看"
+   ]
+  },
+  {
+   "id": "Y9-252",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元·6 我看",
+   "type": "填空",
+   "question": "补全《我看》诗句：“我看一阵向晚的春风 / 悄悄揉过____”。",
+   "answer": [
+    "丰润的青草"
+   ],
+   "explanation": "原句是“我看一阵向晚的春风 / 悄悄揉过丰润的青草”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "我看",
+   "game_ready": true,
+   "template": "Tf262ea",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "我看"
+   ]
+  },
+  {
    "id": "Y9-059",
    "status": "AI初审通过",
    "subject": "语文",
@@ -2748,6 +2980,51 @@
    ]
   },
   {
+   "id": "Y9-253",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元·7 培养德智体美劳全面发展的社会主义建设者和接班人",
+   "type": "选择",
+   "question": "《培养德智体美劳全面发展的社会主义建设者和接班人》是在哪次会议上的讲话（节选）？",
+   "options": [
+    {
+     "text": "2018年全国人民代表大会",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "2018年全国教育大会",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "全国科学技术大会",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "全国文艺工作座谈会",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "本文是2018年9月10日在全国教育大会上讲话的一部分。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "培养德智体美劳全面发展的社会主义建设者和接班人",
+   "game_ready": true,
+   "template": "T2d4054",
+   "change_tag": "新增",
+   "tags": [
+    "培养德智体美劳全面发展的社会主义建设者和接班人"
+   ]
+  },
+  {
    "id": "Y9-068",
    "status": "AI初审通过",
    "subject": "语文",
@@ -3116,6 +3393,32 @@
    ]
   },
   {
+   "id": "Y9-254",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元·8 中国人失掉自信力了吗",
+   "type": "填空",
+   "question": "补全《中国人失掉自信力了吗》中的句子：“说中国人失掉了自信力，用以指一部分人则可，倘若加于全体，那简直是____。”",
+   "answer": [
+    "诬蔑"
+   ],
+   "explanation": "鲁迅指出，用“失掉自信力”指一部分人可以，加于全体“那简直是诬蔑”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "中国人失掉自信力了吗",
+   "game_ready": true,
+   "template": "Ta2fda2",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "中国人失掉自信力了吗"
+   ]
+  },
+  {
    "id": "Y9-077",
    "status": "AI初审通过",
    "subject": "语文",
@@ -3475,6 +3778,51 @@
    "knowledge_point": "谈骨气",
    "game_ready": true,
    "template": "T747543",
+   "change_tag": "新增",
+   "tags": [
+    "谈骨气"
+   ]
+  },
+  {
+   "id": "Y9-255",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元·9 谈骨气",
+   "type": "选择",
+   "question": "《谈骨气》的作者吴晗是著名的？",
+   "options": [
+    {
+     "text": "物理学家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "画家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "外交家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "历史学家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "吴晗是历史学家，文中用文天祥等历史事例论证“中国人是有骨气的”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "谈骨气",
+   "game_ready": true,
+   "template": "T26f5bf",
    "change_tag": "新增",
    "tags": [
     "谈骨气"
@@ -3987,6 +4335,74 @@
    "usage": "boss",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "创造宣言"
+   ]
+  },
+  {
+   "id": "Y9-256",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元·10 创造宣言",
+   "type": "判断",
+   "question": "《创造宣言》的作者陶行知是教育家，提出过“生活即教育”的主张。",
+   "answer": "对",
+   "explanation": "陶行知是人民教育家，主张“生活即教育”“社会即学校”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "创造宣言",
+   "game_ready": true,
+   "template": "T1de906",
+   "change_tag": "新增",
+   "tags": [
+    "创造宣言"
+   ]
+  },
+  {
+   "id": "Y9-257",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元·10 创造宣言",
+   "type": "选择",
+   "question": "陶行知主张的“行是知之始”，意思最接近？",
+   "options": [
+    {
+     "text": "实践是认识的开端",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "知识比行动重要",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "先读书后做事",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "行动要慢慢开始",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "“行是知之始”强调先有实践，才有认识，实践是认识的来源。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "创造宣言",
+   "game_ready": true,
+   "template": "Tcdaec3",
+   "change_tag": "新增",
    "tags": [
     "创造宣言"
    ]
@@ -4713,6 +5129,51 @@
    ]
   },
   {
+   "id": "Y9-258",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元·12 醉翁亭记",
+   "type": "选择",
+   "question": "《醉翁亭记》中，醉翁亭是谁建造的？",
+   "options": [
+    {
+     "text": "太守欧阳修",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滁州百姓",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "山僧智仙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "苏轼",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "文中写“作亭者谁？山之僧智仙也”，给亭命名的是太守（欧阳修）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "醉翁亭记",
+   "game_ready": true,
+   "template": "T8f091f",
+   "change_tag": "新增",
+   "tags": [
+    "醉翁亭记"
+   ]
+  },
+  {
    "id": "Y9-117",
    "status": "AI初审通过",
    "subject": "语文",
@@ -5222,6 +5683,51 @@
    "usage": "boss",
    "change_tag": "新增",
    "input_type": "text",
+   "tags": [
+    "湖心亭看雪"
+   ]
+  },
+  {
+   "id": "Y9-259",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元·13 湖心亭看雪",
+   "type": "选择",
+   "question": "《湖心亭看雪》“湖中人鸟声俱绝”中“绝”的意思是？",
+   "options": [
+    {
+     "text": "绝妙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "消失",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "断绝往来",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "极其",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "“俱绝”指人和鸟的声音都消失了，写出大雪后西湖的寂静。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "湖心亭看雪",
+   "game_ready": true,
+   "template": "T18a226",
+   "change_tag": "新增",
    "tags": [
     "湖心亭看雪"
    ]
@@ -6032,6 +6538,29 @@
    ]
   },
   {
+   "id": "Y9-260",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元·16 我的叔叔于勒",
+   "type": "判断",
+   "question": "《我的叔叔于勒》中，菲利普一家从哲尔赛岛回来时，改乘圣玛洛船，以免再遇见于勒。",
+   "answer": "对",
+   "explanation": "发现于勒成了穷水手后，母亲说“我们回去改乘圣玛洛船，免得再碰见他”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "我的叔叔于勒",
+   "game_ready": true,
+   "template": "Tf624f6",
+   "change_tag": "新增",
+   "tags": [
+    "我的叔叔于勒"
+   ]
+  },
+  {
    "id": "Y9-149",
    "status": "AI初审通过",
    "subject": "语文",
@@ -6414,6 +6943,29 @@
    "template": "T76dfeb",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "孤独之旅"
+   ]
+  },
+  {
+   "id": "Y9-261",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元·17 孤独之旅",
+   "type": "判断",
+   "question": "《孤独之旅》中，杜小康因家道中落辍学，跟着父亲去放鸭。",
+   "answer": "对",
+   "explanation": "杜家败落后，杜小康不得不辍学，随父亲到芦荡放鸭，在孤独中成长。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "孤独之旅",
+   "game_ready": true,
+   "template": "Ted9765",
+   "change_tag": "新增",
    "tags": [
     "孤独之旅"
    ]
@@ -6992,6 +7544,51 @@
    ]
   },
   {
+   "id": "Y9-262",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元·18 蒲柳人家（节选）",
+   "type": "选择",
+   "question": "《蒲柳人家》中，何大学问是何满子的？",
+   "options": [
+    {
+     "text": "父亲",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "舅舅",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "老师",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "爷爷",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "何大学问是何满子的爷爷，一丈青大娘是他的奶奶。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "蒲柳人家（节选）",
+   "game_ready": true,
+   "template": "T89f3e0",
+   "change_tag": "新增",
+   "tags": [
+    "蒲柳人家（节选）"
+   ]
+  },
+  {
    "id": "Y9-171",
    "status": "AI初审通过",
    "subject": "语文",
@@ -7336,6 +7933,74 @@
    "template": "Te646fe",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "想和做"
+   ]
+  },
+  {
+   "id": "Y9-263",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·19 想和做",
+   "type": "判断",
+   "question": "《想和做》既反对“只想不做”，也反对“只做不想”。",
+   "answer": "对",
+   "explanation": "文章认为只想不做、只做不想都不对，应该想和做结合起来。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "想和做",
+   "game_ready": true,
+   "template": "T8d54c1",
+   "change_tag": "新增",
+   "tags": [
+    "想和做"
+   ]
+  },
+  {
+   "id": "Y9-264",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·19 想和做",
+   "type": "选择",
+   "question": "下列成语最能形容“只想不做、空谈理论”的是？",
+   "options": [
+    {
+     "text": "纸上谈兵",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "熟能生巧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "亡羊补牢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水滴石穿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "纸上谈兵比喻空谈理论、不能解决实际问题，正是“只想不做”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "想和做",
+   "game_ready": true,
+   "template": "T478d83",
+   "change_tag": "新增",
    "tags": [
     "想和做"
    ]
@@ -7710,6 +8375,51 @@
    ]
   },
   {
+   "id": "Y9-265",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·20 怀疑与学问",
+   "type": "选择",
+   "question": "《怀疑与学问》的作者顾颉刚是著名的？",
+   "options": [
+    {
+     "text": "天文学家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "物理学家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "历史学家",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "作曲家",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "顾颉刚是历史学家，“古史辨”学派的代表人物。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "怀疑与学问",
+   "game_ready": true,
+   "template": "Tb0c12c",
+   "change_tag": "新增",
+   "tags": [
+    "怀疑与学问"
+   ]
+  },
+  {
    "id": "Y9-188",
    "status": "AI初审通过",
    "subject": "语文",
@@ -8044,6 +8754,96 @@
    "knowledge_point": "就英法联军远征中国致巴特勒上尉的信",
    "game_ready": true,
    "template": "Td66503",
+   "change_tag": "新增",
+   "tags": [
+    "就英法联军远征中国致巴特勒上尉的信"
+   ]
+  },
+  {
+   "id": "Y9-266",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·21 就英法联军远征中国致巴特勒上尉的信",
+   "type": "选择",
+   "question": "雨果在信中谴责的英法联军火烧圆明园事件发生在哪一年？",
+   "options": [
+    {
+     "text": "1840年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1860年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1900年",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "1894年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "1860年第二次鸦片战争中，英法联军抢劫并焚毁圆明园；雨果1861年写信谴责。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "就英法联军远征中国致巴特勒上尉的信",
+   "game_ready": true,
+   "template": "T6bf975",
+   "change_tag": "新增",
+   "tags": [
+    "就英法联军远征中国致巴特勒上尉的信"
+   ]
+  },
+  {
+   "id": "Y9-267",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·21 就英法联军远征中国致巴特勒上尉的信",
+   "type": "选择",
+   "question": "下列作品中，作者是雨果的是？",
+   "options": [
+    {
+     "text": "《羊脂球》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《欧也妮·葛朗台》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《红与黑》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《巴黎圣母院》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "《巴黎圣母院》《悲惨世界》是雨果的作品；《羊脂球》是莫泊桑的，《欧也妮·葛朗台》是巴尔扎克的，《红与黑》是司汤达的。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "就英法联军远征中国致巴特勒上尉的信",
+   "game_ready": true,
+   "template": "Taec8ff",
    "change_tag": "新增",
    "tags": [
     "就英法联军远征中国致巴特勒上尉的信"
@@ -8577,6 +9377,74 @@
    ]
   },
   {
+   "id": "Y9-268",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·22 精神的三间小屋",
+   "type": "判断",
+   "question": "《精神的三间小屋》的作者毕淑敏曾经当过医生。",
+   "answer": "对",
+   "explanation": "毕淑敏曾在西藏当兵、做过医生，后来成为作家。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "精神的三间小屋",
+   "game_ready": true,
+   "template": "Tab288b",
+   "change_tag": "新增",
+   "tags": [
+    "精神的三间小屋"
+   ]
+  },
+  {
+   "id": "Y9-269",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元·22 精神的三间小屋",
+   "type": "选择",
+   "question": "按照《精神的三间小屋》的观点，下列做法最符合“经常打扫精神小屋”的是？",
+   "options": [
+    {
+     "text": "经常反思，清除偏见和怨恨",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "把所有烦恼都藏在心里",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "只关心别人怎么评价自己",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "不停追求物质享受",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "作者主张时常清扫精神空间，不让偏见、怨恨等堆积，保持精神的充实明亮。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "精神的三间小屋",
+   "game_ready": true,
+   "template": "T9cce25",
+   "change_tag": "新增",
+   "tags": [
+    "精神的三间小屋"
+   ]
+  },
+  {
    "id": "Y9-208",
    "status": "AI初审通过",
    "subject": "语文",
@@ -8953,6 +9821,32 @@
    ]
   },
   {
+   "id": "Y9-270",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元·23 曹刿论战",
+   "type": "填空",
+   "question": "补全《曹刿论战》句子：“小大之狱，虽不能察，____。”",
+   "answer": [
+    "必以情"
+   ],
+   "explanation": "原句“小大之狱，虽不能察，必以情”，曹刿认为这是“忠之属也，可以一战”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "曹刿论战",
+   "game_ready": true,
+   "template": "T71a1c3",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "曹刿论战"
+   ]
+  },
+  {
    "id": "Y9-217",
    "status": "AI初审通过",
    "subject": "语文",
@@ -9276,6 +10170,77 @@
    ]
   },
   {
+   "id": "Y9-271",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元·24 邹忌讽齐王纳谏",
+   "type": "填空",
+   "question": "补全《邹忌讽齐王纳谏》句子：“群臣吏民能面刺寡人之过者，____。”",
+   "answer": [
+    "受上赏"
+   ],
+   "explanation": "齐王下令：“能面刺寡人之过者，受上赏”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "邹忌讽齐王纳谏",
+   "game_ready": true,
+   "template": "T8c7320",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "邹忌讽齐王纳谏"
+   ]
+  },
+  {
+   "id": "Y9-272",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元·24 邹忌讽齐王纳谏",
+   "type": "选择",
+   "question": "“由此观之，王之蔽甚矣”中“蔽”的意思是？",
+   "options": [
+    {
+     "text": "被遮挡住",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "破旧",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "受蒙蔽",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "隐藏",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "“蔽”指受蒙蔽，邹忌由自己受蒙蔽推出齐王受蒙蔽更深。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "邹忌讽齐王纳谏",
+   "game_ready": true,
+   "template": "T78c2af",
+   "change_tag": "新增",
+   "tags": [
+    "邹忌讽齐王纳谏"
+   ]
+  },
+  {
    "id": "Y9-225",
    "status": "AI初审通过",
    "subject": "语文",
@@ -9573,6 +10538,77 @@
    "knowledge_point": "陈涉世家",
    "game_ready": true,
    "template": "T7613f6",
+   "change_tag": "新增",
+   "tags": [
+    "陈涉世家"
+   ]
+  },
+  {
+   "id": "Y9-273",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元·25 陈涉世家",
+   "type": "填空",
+   "question": "补全《陈涉世家》中陈涉的话：“苟富贵，____。”",
+   "answer": [
+    "无相忘"
+   ],
+   "explanation": "陈涉对同伴说“苟富贵，无相忘”，表现了他的远大志向。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "陈涉世家",
+   "game_ready": true,
+   "template": "T2a0c35",
+   "change_tag": "新增",
+   "input_type": "text",
+   "tags": [
+    "陈涉世家"
+   ]
+  },
+  {
+   "id": "Y9-274",
+   "status": "AI初审通过",
+   "subject": "语文",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元·25 陈涉世家",
+   "type": "选择",
+   "question": "陈胜起义后在陈县建立的政权号称？",
+   "options": [
+    {
+     "text": "大楚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "张楚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "西楚",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汉",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "陈胜在陈县称王，“号为张楚”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "陈涉世家",
+   "game_ready": true,
+   "template": "Tdbc68d",
    "change_tag": "新增",
    "tags": [
     "陈涉世家"
@@ -34505,6 +35541,51 @@
    ]
   },
   {
+   "id": "P9-288",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "九上·第十四章 欧姆定律·二 变阻器",
+   "type": "选择",
+   "question": "滑动变阻器的电阻丝通常用什么制成？",
+   "options": [
+    {
+     "text": "铜导线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "银导线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "镍铬合金线",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铝导线",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "变阻器的电阻丝要用电阻率较大的合金（如镍铬合金）制成；铜、银、铝电阻率小，多用作导线。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "变阻器",
+   "game_ready": true,
+   "template": "T19c25c",
+   "change_tag": "新增",
+   "tags": [
+    "变阻器"
+   ]
+  },
+  {
    "id": "P9-180",
    "status": "AI初审通过",
    "subject": "物理",
@@ -44350,6 +45431,51 @@
    ]
   },
   {
+   "id": "H9-207",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元 文明的产生和古代亚非文明·第1课 从原始社会到奴隶社会",
+   "type": "选择",
+   "question": "人类最早使用的金属工具，大多是用什么金属制造的？",
+   "options": [
+    {
+     "text": "铁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铝",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "钢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铜",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "人类先使用铜（包括青铜）制造工具，后来才普遍使用铁器。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "从原始社会到奴隶社会",
+   "game_ready": true,
+   "template": "Tbe2aaa",
+   "change_tag": "新增",
+   "tags": [
+    "从原始社会到奴隶社会"
+   ]
+  },
+  {
    "id": "H9-010",
    "status": "AI初审通过",
    "subject": "历史",
@@ -44738,6 +45864,51 @@
    ]
   },
   {
+   "id": "H9-208",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元 文明的产生和古代亚非文明·第2课 古代两河流域",
+   "type": "选择",
+   "question": "《汉谟拉比法典》原文被刻在什么上面？",
+   "options": [
+    {
+     "text": "石柱",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "竹简",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "纸草",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "丝绸",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "《汉谟拉比法典》刻在一根黑色玄武岩石柱上，现藏于法国卢浮宫。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "古代两河流域",
+   "game_ready": true,
+   "template": "Tb6c89b",
+   "change_tag": "新增",
+   "tags": [
+    "古代两河流域"
+   ]
+  },
+  {
    "id": "H9-019",
    "status": "AI初审通过",
    "subject": "历史",
@@ -45117,6 +46288,51 @@
    "template": "T7ecf5a",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "古代埃及"
+   ]
+  },
+  {
+   "id": "H9-209",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元 文明的产生和古代亚非文明·第3课 古代埃及",
+   "type": "选择",
+   "question": "古埃及金字塔附近著名的巨型雕像是？",
+   "options": [
+    {
+     "text": "自由女神像",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大卫像",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "狮身人面像",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "思想者",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "狮身人面像位于吉萨金字塔群附近，是古埃及的著名雕像。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "古代埃及",
+   "game_ready": true,
+   "template": "Te09bd0",
+   "change_tag": "新增",
    "tags": [
     "古代埃及"
    ]
@@ -45695,6 +46911,51 @@
    ]
   },
   {
+   "id": "H9-210",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第一单元 文明的产生和古代亚非文明·第4课 古代印度",
+   "type": "选择",
+   "question": "古代印度孔雀王朝阿育王时期大力推广的宗教是？",
+   "options": [
+    {
+     "text": "基督教",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "佛教",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "伊斯兰教",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "道教",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "阿育王皈依佛教并大力推广，佛教由此向外传播。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "古代印度",
+   "game_ready": true,
+   "template": "T021106",
+   "change_tag": "新增",
+   "tags": [
+    "古代印度"
+   ]
+  },
+  {
    "id": "H9-041",
    "status": "AI初审通过",
    "subject": "历史",
@@ -46084,6 +47345,29 @@
    "review_note": "Boss 名为文档原有名，按新版单元调配到“古代欧洲文明”，策划可改",
    "game_ready": true,
    "template": "T8990fe",
+   "change_tag": "新增",
+   "tags": [
+    "古代希腊"
+   ]
+  },
+  {
+   "id": "H9-211",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元 古代欧洲文明·第5课 古代希腊",
+   "type": "判断",
+   "question": "古代希腊城邦的特点是“小国寡民”。",
+   "answer": "对",
+   "explanation": "希腊城邦一般以一个城市为中心，面积小、人口少，所以称“小国寡民”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "古代希腊",
+   "game_ready": true,
+   "template": "T1f6c98",
    "change_tag": "新增",
    "tags": [
     "古代希腊"
@@ -46662,6 +47946,29 @@
    ]
   },
   {
+   "id": "H9-212",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第二单元 古代欧洲文明·第6课 古代罗马",
+   "type": "判断",
+   "question": "4世纪末，基督教成为罗马帝国的国教。",
+   "answer": "对",
+   "explanation": "基督教起初受迫害，后来被承认，4世纪末被定为罗马帝国国教。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "古代罗马",
+   "game_ready": true,
+   "template": "T032d3a",
+   "change_tag": "新增",
+   "tags": [
+    "古代罗马"
+   ]
+  },
+  {
    "id": "H9-063",
    "status": "AI初审通过",
    "subject": "历史",
@@ -47049,6 +48356,51 @@
    ]
   },
   {
+   "id": "H9-213",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元 封建时代的欧洲·第7课 法兰克王国和西欧封建制度",
+   "type": "选择",
+   "question": "843年，查理曼帝国的三个孙子签订条约，把帝国一分为三，这个条约是？",
+   "options": [
+    {
+     "text": "《巴黎和约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《凡尔赛和约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《南京条约》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《凡尔登条约》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "843年《凡尔登条约》将查理曼帝国分为三部分，大致奠定了法、德、意的雏形。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "法兰克王国和西欧封建制度",
+   "game_ready": true,
+   "template": "Tc60751",
+   "change_tag": "新增",
+   "tags": [
+    "法兰克王国和西欧封建制度"
+   ]
+  },
+  {
    "id": "H9-072",
    "status": "AI初审通过",
    "subject": "历史",
@@ -47385,6 +48737,96 @@
    "template": "T8ad2e9",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "西欧的城市和大学"
+   ]
+  },
+  {
+   "id": "H9-214",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元 封建时代的欧洲·第8课 西欧的城市和大学",
+   "type": "选择",
+   "question": "西欧中世纪流传“城市的空气使人自由”，这句话指的是？",
+   "options": [
+    {
+     "text": "逃到城市住满一定期限的农奴可获得自由",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "城市的空气比乡村更清新",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "城市居民都不需要纳税",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "城市都由国王直接管理",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "按照当时惯例，逃入城市的农奴住满一年零一天，就可获得自由身份。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "西欧的城市和大学",
+   "game_ready": true,
+   "template": "T545e4e",
+   "change_tag": "新增",
+   "tags": [
+    "西欧的城市和大学"
+   ]
+  },
+  {
+   "id": "H9-215",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元 封建时代的欧洲·第8课 西欧的城市和大学",
+   "type": "选择",
+   "question": "中世纪欧洲的博洛尼亚大学以哪门学科著称？",
+   "options": [
+    {
+     "text": "天文学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "化学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "法学",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地理学",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "博洛尼亚大学是欧洲最早的大学之一，以研究罗马法、法学著称。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "西欧的城市和大学",
+   "game_ready": true,
+   "template": "T07ba7c",
+   "change_tag": "新增",
    "tags": [
     "西欧的城市和大学"
    ]
@@ -47917,6 +49359,74 @@
    ]
   },
   {
+   "id": "H9-216",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元 封建时代的欧洲·第9课 拜占庭帝国",
+   "type": "选择",
+   "question": "拜占庭帝国最著名的建筑是？",
+   "options": [
+    {
+     "text": "雅典帕特农神庙",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "圣索菲亚大教堂",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "罗马斗兽场",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "巴黎圣母院",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "圣索菲亚大教堂建于查士丁尼时期，是拜占庭建筑的代表。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "拜占庭帝国",
+   "game_ready": true,
+   "template": "T387f7b",
+   "change_tag": "新增",
+   "tags": [
+    "拜占庭帝国"
+   ]
+  },
+  {
+   "id": "H9-217",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第三单元 封建时代的欧洲·第9课 拜占庭帝国",
+   "type": "判断",
+   "question": "西罗马帝国灭亡后，拜占庭帝国又延续了将近一千年。",
+   "answer": "对",
+   "explanation": "西罗马帝国476年灭亡，拜占庭帝国直到1453年才被奥斯曼土耳其灭亡，相隔近千年。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "拜占庭帝国",
+   "game_ready": true,
+   "template": "T1f4c7c",
+   "change_tag": "新增",
+   "tags": [
+    "拜占庭帝国"
+   ]
+  },
+  {
    "id": "H9-092",
    "status": "AI初审通过",
    "subject": "历史",
@@ -48267,6 +49777,96 @@
    ]
   },
   {
+   "id": "H9-218",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元 中古时期的亚洲、非洲和美洲·第10课 封建时代的日本",
+   "type": "选择",
+   "question": "大化改新是以哪位天皇的名义推行的？",
+   "options": [
+    {
+     "text": "明治天皇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "昭和天皇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大正天皇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "孝德天皇",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "646年，孝德天皇颁布诏书，推行大化改新。明治天皇是19世纪明治维新时的天皇。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "封建时代的日本",
+   "game_ready": true,
+   "template": "Tfa9010",
+   "change_tag": "新增",
+   "tags": [
+    "封建时代的日本"
+   ]
+  },
+  {
+   "id": "H9-219",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元 中古时期的亚洲、非洲和美洲·第10课 封建时代的日本",
+   "type": "选择",
+   "question": "日本幕府时期，效忠将军和大名、以武艺为职业的人被称为？",
+   "options": [
+    {
+     "text": "武士",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "骑士",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "农奴",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "僧侣",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "武士是日本幕府统治的重要支柱，效忠于将军和大名。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "封建时代的日本",
+   "game_ready": true,
+   "template": "T3050b1",
+   "change_tag": "新增",
+   "tags": [
+    "封建时代的日本"
+   ]
+  },
+  {
    "id": "H9-100",
    "status": "AI初审通过",
    "subject": "历史",
@@ -48602,6 +50202,74 @@
    "knowledge_point": "阿拉伯帝国",
    "game_ready": true,
    "template": "T1b3fae",
+   "change_tag": "新增",
+   "tags": [
+    "阿拉伯帝国"
+   ]
+  },
+  {
+   "id": "H9-220",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元 中古时期的亚洲、非洲和美洲·第11课 阿拉伯帝国",
+   "type": "选择",
+   "question": "伊斯兰教是在阿拉伯半岛的哪个城市兴起的？",
+   "options": [
+    {
+     "text": "巴格达",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "开罗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "麦加",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "伊斯坦布尔",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "7世纪初，穆罕默德在麦加创立伊斯兰教。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "阿拉伯帝国",
+   "game_ready": true,
+   "template": "T4350bb",
+   "change_tag": "新增",
+   "tags": [
+    "阿拉伯帝国"
+   ]
+  },
+  {
+   "id": "H9-221",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元 中古时期的亚洲、非洲和美洲·第11课 阿拉伯帝国",
+   "type": "判断",
+   "question": "622年，穆罕默德带领信徒从麦加迁往麦地那。",
+   "answer": "对",
+   "explanation": "622年穆罕默德率信徒迁往麦地那，这一年后来被定为伊斯兰教历元年。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "阿拉伯帝国",
+   "game_ready": true,
+   "template": "T9f0519",
    "change_tag": "新增",
    "tags": [
     "阿拉伯帝国"
@@ -49131,6 +50799,96 @@
    ]
   },
   {
+   "id": "H9-222",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元 中古时期的亚洲、非洲和美洲·第12课 中古时期的非洲和美洲",
+   "type": "选择",
+   "question": "下列农作物中，最早由美洲印第安人培育的是？",
+   "options": [
+    {
+     "text": "小麦",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "玉米",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "水稻",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "大豆",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "玉米、马铃薯等是美洲印第安人培育的，后来传到世界各地。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "中古时期的非洲和美洲",
+   "game_ready": true,
+   "template": "T386e06",
+   "change_tag": "新增",
+   "tags": [
+    "中古时期的非洲和美洲"
+   ]
+  },
+  {
+   "id": "H9-223",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第四单元 中古时期的亚洲、非洲和美洲·第12课 中古时期的非洲和美洲",
+   "type": "选择",
+   "question": "印加人在安第斯山上修建的著名古城遗址是？",
+   "options": [
+    {
+     "text": "庞贝古城",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "特洛伊古城",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "吴哥窟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "马丘比丘",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "马丘比丘位于秘鲁安第斯山区，是印加文明的著名遗址。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "中古时期的非洲和美洲",
+   "game_ready": true,
+   "template": "Tf32f56",
+   "change_tag": "新增",
+   "tags": [
+    "中古时期的非洲和美洲"
+   ]
+  },
+  {
    "id": "H9-120",
    "status": "AI初审通过",
    "subject": "历史",
@@ -49518,6 +51276,51 @@
    ]
   },
   {
+   "id": "H9-224",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元 走向近代·第13课 西欧经济社会发展与文艺复兴运动",
+   "type": "选择",
+   "question": "文艺复兴时期，《西斯廷圣母》的作者是？",
+   "options": [
+    {
+     "text": "拉斐尔",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "达·芬奇",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "米开朗琪罗",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "但丁",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "《西斯廷圣母》是拉斐尔的名作；达·芬奇画了《蒙娜丽莎》，但丁写了《神曲》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "西欧经济社会发展与文艺复兴运动",
+   "game_ready": true,
+   "template": "T279c8e",
+   "change_tag": "新增",
+   "tags": [
+    "西欧经济社会发展与文艺复兴运动"
+   ]
+  },
+  {
    "id": "H9-129",
    "status": "AI初审通过",
    "subject": "历史",
@@ -49897,6 +51700,51 @@
    "template": "Tb4f3ac",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "探寻新航路"
+   ]
+  },
+  {
+   "id": "H9-225",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元 走向近代·第14课 探寻新航路",
+   "type": "选择",
+   "question": "新航路开辟前，激起欧洲人到东方寻找黄金的一本书是？",
+   "options": [
+    {
+     "text": "《神曲》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《十日谈》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《马可·波罗行纪》",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "《罗密欧与朱丽叶》",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "《马可·波罗行纪》描述东方的富庶，激起了欧洲人对东方财富的向往。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "探寻新航路",
+   "game_ready": true,
+   "template": "Ta8ea8a",
+   "change_tag": "新增",
    "tags": [
     "探寻新航路"
    ]
@@ -50431,6 +52279,74 @@
    ]
   },
   {
+   "id": "H9-226",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元 走向近代·第15课 早期殖民掠夺",
+   "type": "选择",
+   "question": "西班牙殖民者在美洲大量开采并运回欧洲的贵金属主要是？",
+   "options": [
+    {
+     "text": "铁矿",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "白银",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "煤炭",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铜矿",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "西班牙在美洲大量开采金银矿，尤其是白银，运回欧洲。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "早期殖民掠夺",
+   "game_ready": true,
+   "template": "T45893e",
+   "change_tag": "新增",
+   "tags": [
+    "早期殖民掠夺"
+   ]
+  },
+  {
+   "id": "H9-227",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第五单元 走向近代·第15课 早期殖民掠夺",
+   "type": "判断",
+   "question": "17世纪，荷兰殖民者曾侵占中国台湾。",
+   "answer": "对",
+   "explanation": "荷兰于1624年侵占台湾，1662年郑成功收复台湾。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "早期殖民掠夺",
+   "game_ready": true,
+   "template": "Td20443",
+   "change_tag": "新增",
+   "tags": [
+    "早期殖民掠夺"
+   ]
+  },
+  {
    "id": "H9-150",
    "status": "AI初审通过",
    "subject": "历史",
@@ -50772,6 +52688,96 @@
    ]
   },
   {
+   "id": "H9-228",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元 资本主义制度的初步确立·第16课 英国资产阶级革命",
+   "type": "选择",
+   "question": "英国资产阶级革命爆发的根本原因是？",
+   "options": [
+    {
+     "text": "国王向人民征收重税",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "清教徒受到宗教迫害",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "英国在对外战争中失利",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "专制统治阻碍资本主义发展",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "斯图亚特王朝的封建专制统治严重阻碍资本主义发展，这是革命的根本原因。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "英国资产阶级革命",
+   "game_ready": true,
+   "template": "Tdaed93",
+   "change_tag": "新增",
+   "tags": [
+    "英国资产阶级革命"
+   ]
+  },
+  {
+   "id": "H9-229",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元 资本主义制度的初步确立·第16课 英国资产阶级革命",
+   "type": "选择",
+   "question": "1688年“光荣革命”中被推翻的英国国王是？",
+   "options": [
+    {
+     "text": "詹姆士二世",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "查理一世",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "亨利八世",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "伊丽莎白一世",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "1688年议会发动政变，推翻詹姆士二世，迎立威廉和玛丽，史称“光荣革命”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "英国资产阶级革命",
+   "game_ready": true,
+   "template": "T51b04a",
+   "change_tag": "新增",
+   "tags": [
+    "英国资产阶级革命"
+   ]
+  },
+  {
    "id": "H9-158",
    "status": "AI初审通过",
    "subject": "历史",
@@ -51106,6 +53112,74 @@
    "knowledge_point": "美国的独立",
    "game_ready": true,
    "template": "T80f73f",
+   "change_tag": "新增",
+   "tags": [
+    "美国的独立"
+   ]
+  },
+  {
+   "id": "H9-230",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元 资本主义制度的初步确立·第17课 美国的独立",
+   "type": "选择",
+   "question": "1773年北美人民反抗英国茶叶税的事件是？",
+   "options": [
+    {
+     "text": "莱克星顿枪声",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "萨拉托加大捷",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "波士顿倾茶事件",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "约克镇战役",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1773年波士顿人把英国东印度公司的茶叶倒入海中，史称“波士顿倾茶事件”。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "美国的独立",
+   "game_ready": true,
+   "template": "Te3e617",
+   "change_tag": "新增",
+   "tags": [
+    "美国的独立"
+   ]
+  },
+  {
+   "id": "H9-231",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元 资本主义制度的初步确立·第17课 美国的独立",
+   "type": "判断",
+   "question": "1789年，华盛顿当选为美国第一任总统。",
+   "answer": "对",
+   "explanation": "1787年宪法生效后，华盛顿于1789年当选美国第一任总统。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "美国的独立",
+   "game_ready": true,
+   "template": "T5fa729",
    "change_tag": "新增",
    "tags": [
     "美国的独立"
@@ -51639,6 +53713,96 @@
    ]
   },
   {
+   "id": "H9-232",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元 资本主义制度的初步确立·第18课 法国大革命和拿破仑帝国",
+   "type": "选择",
+   "question": "法国大革命中，革命达到高潮的是哪一派统治时期？",
+   "options": [
+    {
+     "text": "吉伦特派",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "雅各宾派",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "君主立宪派",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "保王派",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "1793年雅各宾派掌权，采取激进措施，法国大革命达到高潮。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "法国大革命和拿破仑帝国",
+   "game_ready": true,
+   "template": "Td3841b",
+   "change_tag": "新增",
+   "tags": [
+    "法国大革命和拿破仑帝国"
+   ]
+  },
+  {
+   "id": "H9-233",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第六单元 资本主义制度的初步确立·第18课 法国大革命和拿破仑帝国",
+   "type": "选择",
+   "question": "1815年，拿破仑在哪场战役中失败，帝国最终覆灭？",
+   "options": [
+    {
+     "text": "特拉法加海战",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "奥斯特里茨战役",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "萨拉托加战役",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "滑铁卢战役",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "1815年滑铁卢战役失败后，拿破仑帝国彻底覆灭。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "法国大革命和拿破仑帝国",
+   "game_ready": true,
+   "template": "T7d1d43",
+   "change_tag": "新增",
+   "tags": [
+    "法国大革命和拿破仑帝国"
+   ]
+  },
+  {
    "id": "H9-178",
    "status": "AI初审通过",
    "subject": "历史",
@@ -52026,6 +54190,51 @@
    ]
   },
   {
+   "id": "H9-234",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第七单元 第一次工业革命和马克思主义的诞生·第19课 第一次工业革命",
+   "type": "选择",
+   "question": "第一次工业革命期间，美国人富尔顿发明了？",
+   "options": [
+    {
+     "text": "汽船",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "飞机",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "汽车",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "电话",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "1807年富尔顿制成汽船；飞机、汽车、电话都是第二次工业革命时期的发明。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "第一次工业革命",
+   "game_ready": true,
+   "template": "Td81269",
+   "change_tag": "新增",
+   "tags": [
+    "第一次工业革命"
+   ]
+  },
+  {
    "id": "H9-187",
    "status": "AI初审通过",
    "subject": "历史",
@@ -52340,6 +54549,96 @@
    "knowledge_point": "马克思主义的诞生",
    "game_ready": true,
    "template": "T2b1cf6",
+   "change_tag": "新增",
+   "tags": [
+    "马克思主义的诞生"
+   ]
+  },
+  {
+   "id": "H9-235",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第七单元 第一次工业革命和马克思主义的诞生·第20课 马克思主义的诞生",
+   "type": "选择",
+   "question": "《共产党宣言》是马克思、恩格斯为哪个组织起草的纲领？",
+   "options": [
+    {
+     "text": "第一国际",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "巴黎公社委员会",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "共产主义者同盟",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "第二国际",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "1848年，马克思、恩格斯为共产主义者同盟起草了纲领《共产党宣言》。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "马克思主义的诞生",
+   "game_ready": true,
+   "template": "T3a9555",
+   "change_tag": "新增",
+   "tags": [
+    "马克思主义的诞生"
+   ]
+  },
+  {
+   "id": "H9-236",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第七单元 第一次工业革命和马克思主义的诞生·第20课 马克思主义的诞生",
+   "type": "选择",
+   "question": "马克思主义诞生于什么时候？",
+   "options": [
+    {
+     "text": "18世纪中期",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "19世纪40年代",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "20世纪初",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "17世纪末",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "1848年《共产党宣言》发表，标志着马克思主义诞生，即19世纪40年代。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "马克思主义的诞生",
+   "game_ready": true,
+   "template": "T471d04",
    "change_tag": "新增",
    "tags": [
     "马克思主义的诞生"
@@ -52869,6 +55168,96 @@
    "template": "Tad72f1",
    "usage": "boss",
    "review_changed": "是",
+   "change_tag": "新增",
+   "tags": [
+    "第一国际和巴黎公社"
+   ]
+  },
+  {
+   "id": "H9-237",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第七单元 第一次工业革命和马克思主义的诞生·第21课 第一国际和巴黎公社",
+   "type": "选择",
+   "question": "《国际歌》的词作者是巴黎公社委员？",
+   "options": [
+    {
+     "text": "马克思",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "恩格斯",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "维克多·雨果",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "欧仁·鲍狄埃",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "巴黎公社失败后，公社委员欧仁·鲍狄埃写下了《国际歌》的歌词。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "第一国际和巴黎公社",
+   "game_ready": true,
+   "template": "T0bda8f",
+   "change_tag": "新增",
+   "tags": [
+    "第一国际和巴黎公社"
+   ]
+  },
+  {
+   "id": "H9-238",
+   "status": "AI初审通过",
+   "subject": "历史",
+   "grade": 9,
+   "textbook": "统编版2024",
+   "textbook_note": "国家统编教材，全国统一，无苏教版",
+   "unit": "九上·第七单元 第一次工业革命和马克思主义的诞生·第21课 第一国际和巴黎公社",
+   "type": "选择",
+   "question": "1871年的巴黎公社存在了大约多久？",
+   "options": [
+    {
+     "text": "72天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "一年多",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "10天",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "5年",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "巴黎公社从1871年3月存在到5月，共72天。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "九年级上册",
+   "knowledge_point": "第一国际和巴黎公社",
+   "game_ready": true,
+   "template": "T328881",
    "change_tag": "新增",
    "tags": [
     "第一国际和巴黎公社"
@@ -59127,6 +61516,33 @@
    ]
   },
   {
+   "id": "M9-431",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2026秋新版",
+   "unit": "中考复习·数学·专题1 数与式·二次根式",
+   "type": "填空",
+   "question": "计算 $\\sqrt{(-5)^2}$ 的结果是多少？",
+   "tts_text": "-",
+   "answer": [
+    "5"
+   ],
+   "explanation": "$\\sqrt{a^2}=|a|$，所以 $\\sqrt{(-5)^2}=|-5|=5$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "二次根式",
+   "game_ready": true,
+   "template": "T07a574",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "二次根式"
+   ]
+  },
+  {
    "id": "M9-259",
    "status": "AI初审通过",
    "subject": "数学",
@@ -59747,6 +62163,33 @@
    ]
   },
   {
+   "id": "M9-432",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2026秋新版",
+   "unit": "中考复习·数学·专题2 方程与不等式·一元二次方程",
+   "type": "填空",
+   "question": "方程 $x^2-7x+12=0$ 的两个根中，较大的根是多少？",
+   "tts_text": "-",
+   "answer": [
+    "4"
+   ],
+   "explanation": "$x^2-7x+12=(x-3)(x-4)=0$，两根为 $3$ 和 $4$，较大的根是 $4$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "一元二次方程",
+   "game_ready": true,
+   "template": "T36e29a",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "一元二次方程"
+   ]
+  },
+  {
    "id": "M9-278",
    "status": "AI初审通过",
    "subject": "数学",
@@ -60159,6 +62602,79 @@
    "usage": "boss",
    "change_tag": "新增",
    "review_changed": "是",
+   "tags": [
+    "分式方程"
+   ]
+  },
+  {
+   "id": "M9-433",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2026秋新版",
+   "unit": "中考复习·数学·专题2 方程与不等式·分式方程",
+   "type": "填空",
+   "question": "分式方程 $\\dfrac{1}{x+1}=\\dfrac{1}{2}$ 的解 $x$ 是多少？",
+   "tts_text": "-",
+   "answer": [
+    "1"
+   ],
+   "explanation": "去分母得 $x+1=2$，$x=1$，检验 $x+1=2\\neq0$，所以 $x=1$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "分式方程",
+   "game_ready": true,
+   "template": "T4f8453",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "分式方程"
+   ]
+  },
+  {
+   "id": "M9-434",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2026秋新版",
+   "unit": "中考复习·数学·专题2 方程与不等式·分式方程",
+   "type": "选择",
+   "question": "解分式方程 $\\dfrac{x}{x-3}=2$ 时，去分母后得到的整式方程是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$x=2x-3$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x=2(x-3)$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x=2$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$x-3=2x$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "两边同乘 $(x-3)$ 得 $x=2(x-3)$，解得 $x=6$，检验 $x-3\\neq0$。注意 $2$ 也要乘 $(x-3)$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "分式方程",
+   "game_ready": true,
+   "template": "T3a0c48",
+   "change_tag": "新增",
    "tags": [
     "分式方程"
    ]
@@ -60838,6 +63354,52 @@
    "knowledge_point": "反比例函数",
    "game_ready": true,
    "template": "T1b643c",
+   "change_tag": "新增",
+   "tags": [
+    "反比例函数"
+   ]
+  },
+  {
+   "id": "M9-435",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2026秋新版",
+   "unit": "中考复习·数学·专题3 函数·反比例函数",
+   "type": "选择",
+   "question": "若反比例函数 $y=\\dfrac{k}{x}$ 的图象位于第二、四象限，则 $k$ 的取值范围是？",
+   "tts_text": "-",
+   "options": [
+    {
+     "text": "$k>0$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$k\\geq0$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$k>1$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$k<0$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "$k>0$ 时图象在第一、三象限，$k<0$ 时在第二、四象限，所以 $k<0$（$k\\neq0$）。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "反比例函数",
+   "game_ready": true,
+   "template": "T08672c",
    "change_tag": "新增",
    "tags": [
     "反比例函数"
@@ -63328,6 +65890,32 @@
    ]
   },
   {
+   "id": "M9-436",
+   "status": "AI初审通过",
+   "subject": "数学",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中数学，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2026秋新版",
+   "unit": "中考复习·数学·专题5 圆·与圆有关的位置关系",
+   "type": "填空",
+   "question": "⊙O 的半径为 5，直线 l 与⊙O 相切，圆心 O 到直线 l 的距离是多少？",
+   "answer": [
+    "5"
+   ],
+   "explanation": "直线与圆相切时，圆心到直线的距离等于半径，即 $d=r=5$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "与圆有关的位置关系",
+   "game_ready": true,
+   "template": "T687da1",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "与圆有关的位置关系"
+   ]
+  },
+  {
    "id": "M9-380",
    "status": "AI初审通过",
    "subject": "数学",
@@ -64497,6 +67085,33 @@
    ]
   },
   {
+   "id": "P9-289",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题1 力学·运动与力",
+   "type": "填空",
+   "question": "质量为 $2\\ \\text{kg}$ 的物体受到的重力是多少 N？（$g$ 取 $10\\ \\text{N/kg}$）",
+   "tts_text": "-",
+   "answer": [
+    "20"
+   ],
+   "explanation": "$G=mg=2\\ \\text{kg}\\times10\\ \\text{N/kg}=20\\ \\text{N}$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "运动与力",
+   "game_ready": true,
+   "template": "T592576",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "运动与力"
+   ]
+  },
+  {
    "id": "P9-217",
    "status": "AI初审通过",
    "subject": "物理",
@@ -64856,6 +67471,51 @@
    ]
   },
   {
+   "id": "P9-290",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题1 力学·压强与浮力",
+   "type": "选择",
+   "question": "历史上首先测出大气压数值的实验是？",
+   "options": [
+    {
+     "text": "马德堡半球实验",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "托里拆利实验",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "奥斯特实验",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "焦耳实验",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "B",
+   "explanation": "托里拆利实验首先测出了大气压的值；马德堡半球实验证明了大气压的存在。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "压强与浮力",
+   "game_ready": true,
+   "template": "T83cf76",
+   "change_tag": "新增",
+   "tags": [
+    "压强与浮力"
+   ]
+  },
+  {
    "id": "P9-227",
    "status": "AI初审通过",
    "subject": "物理",
@@ -65188,6 +67848,60 @@
    "template": "T261956",
    "usage": "boss",
    "change_tag": "新增",
+   "tags": [
+    "功和机械能与简单机械"
+   ]
+  },
+  {
+   "id": "P9-291",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题1 力学·功和机械能与简单机械",
+   "type": "填空",
+   "question": "用定滑轮匀速提起重 $300\\ \\text{N}$ 的物体（不计绳重和摩擦），拉力是多少 N？",
+   "tts_text": "-",
+   "answer": [
+    "300"
+   ],
+   "explanation": "定滑轮不省力，只改变力的方向，所以拉力 $F=G=300\\ \\text{N}$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "功和机械能与简单机械",
+   "game_ready": true,
+   "template": "Ta9c2cb",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "功和机械能与简单机械"
+   ]
+  },
+  {
+   "id": "P9-292",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题1 力学·功和机械能与简单机械",
+   "type": "填空",
+   "question": "用 $50\\ \\text{N}$ 的水平推力推着箱子沿水平方向前进 $4\\ \\text{m}$，推力做的功是多少 J？",
+   "tts_text": "-",
+   "answer": [
+    "200"
+   ],
+   "explanation": "$W=Fs=50\\ \\text{N}\\times4\\ \\text{m}=200\\ \\text{J}$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "功和机械能与简单机械",
+   "game_ready": true,
+   "template": "Ta2a2d5",
+   "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "功和机械能与简单机械"
    ]
@@ -65549,6 +68263,33 @@
    ]
   },
   {
+   "id": "P9-293",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题2 电学·电路与欧姆定律",
+   "type": "填空",
+   "question": "某导体的电阻是 $10\\ \\Omega$，通过它的电流是 $0.4\\ \\text{A}$，它两端的电压是多少 V？",
+   "tts_text": "-",
+   "answer": [
+    "4"
+   ],
+   "explanation": "$U=IR=0.4\\ \\text{A}\\times10\\ \\Omega=4\\ \\text{V}$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "电路与欧姆定律",
+   "game_ready": true,
+   "template": "Te57a8a",
+   "change_tag": "新增",
+   "input_type": "numeric",
+   "tags": [
+    "电路与欧姆定律"
+   ]
+  },
+  {
    "id": "P9-247",
    "status": "AI初审通过",
    "subject": "物理",
@@ -65881,6 +68622,78 @@
    "template": "Te75d11",
    "usage": "boss",
    "change_tag": "新增",
+   "tags": [
+    "电功率与安全用电"
+   ]
+  },
+  {
+   "id": "P9-294",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题2 电学·电功率与安全用电",
+   "type": "选择",
+   "question": "家庭电路中，控制电灯的开关应该接在？",
+   "options": [
+    {
+     "text": "零线和电灯之间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "地线和电灯之间",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "任意一根导线上",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "火线和电灯之间",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "D",
+   "explanation": "开关要接在火线上（火线和电灯之间），断开开关后电灯与火线断开，换灯泡时更安全。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "电功率与安全用电",
+   "game_ready": true,
+   "template": "T094aed",
+   "change_tag": "新增",
+   "tags": [
+    "电功率与安全用电"
+   ]
+  },
+  {
+   "id": "P9-295",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题2 电学·电功率与安全用电",
+   "type": "填空",
+   "question": "标有“$220\\ \\text{V}\\ 100\\ \\text{W}$”的灯泡正常工作 $10\\ \\text{h}$，消耗多少 kW·h 的电能？",
+   "tts_text": "-",
+   "answer": [
+    "1"
+   ],
+   "explanation": "$W=Pt=0.1\\ \\text{kW}\\times10\\ \\text{h}=1\\ \\text{kW·h}$。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "电功率与安全用电",
+   "game_ready": true,
+   "template": "Tc8cad4",
+   "change_tag": "新增",
+   "input_type": "numeric",
    "tags": [
     "电功率与安全用电"
    ]
@@ -66245,6 +69058,74 @@
    "game_ready": true,
    "template": "Tde3523",
    "usage": "boss",
+   "change_tag": "新增",
+   "tags": [
+    "电与磁"
+   ]
+  },
+  {
+   "id": "P9-296",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题2 电学·电与磁",
+   "type": "选择",
+   "question": "电磁铁的铁芯通常用什么材料制成？",
+   "options": [
+    {
+     "text": "软铁",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "钢",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "紫铜",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "铝合金",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "A",
+   "explanation": "软铁容易被磁化，断电后磁性很快消失，适合做电磁铁铁芯；钢磁化后会保留磁性，铜、铝不能被磁化。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "电与磁",
+   "game_ready": true,
+   "template": "T5f46df",
+   "change_tag": "新增",
+   "tags": [
+    "电与磁"
+   ]
+  },
+  {
+   "id": "P9-297",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题2 电学·电与磁",
+   "type": "判断",
+   "question": "磁极间的相互作用规律是：同名磁极相互排斥，异名磁极相互吸引。",
+   "answer": "对",
+   "explanation": "这是磁极间相互作用的基本规律。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "电与磁",
+   "game_ready": true,
+   "template": "Tddd032",
    "change_tag": "新增",
    "tags": [
     "电与磁"
@@ -66688,6 +69569,51 @@
    ]
   },
   {
+   "id": "P9-298",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题3 光热声·声与光",
+   "type": "选择",
+   "question": "光在真空中的传播速度约为？",
+   "options": [
+    {
+     "text": "$340\\ \\text{m/s}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3\\times10^5\\ \\text{m/s}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$3\\times10^8\\ \\text{m/s}$",
+     "image": "",
+     "audio": ""
+    },
+    {
+     "text": "$1500\\ \\text{m/s}$",
+     "image": "",
+     "audio": ""
+    }
+   ],
+   "answer": "C",
+   "explanation": "光在真空中的速度约为 $3\\times10^8\\ \\text{m/s}$（即 $3\\times10^5\\ \\text{km/s}$）；$340\\ \\text{m/s}$ 是声音在15 ℃空气中的速度。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "声与光",
+   "game_ready": true,
+   "template": "T7c4342",
+   "change_tag": "新增",
+   "tags": [
+    "声与光"
+   ]
+  },
+  {
    "id": "P9-277",
    "status": "AI初审通过",
    "subject": "物理",
@@ -67103,6 +70029,29 @@
    "usage": "boss",
    "change_tag": "新增",
    "input_type": "numeric",
+   "tags": [
+    "热学"
+   ]
+  },
+  {
+   "id": "P9-299",
+   "status": "AI初审通过",
+   "subject": "物理",
+   "grade": 9,
+   "textbook": "苏科版2024",
+   "textbook_note": "苏教版无初中物理，用江苏通用的苏科版2024（江苏凤凰科学技术出版社）替代；九上为2025秋新版",
+   "unit": "中考复习·物理·专题3 光热声·热学",
+   "type": "判断",
+   "question": "物体的内能增加，它的温度一定升高。",
+   "answer": "错",
+   "explanation": "不一定。比如晶体熔化时吸热，内能增加，但温度保持不变。",
+   "difficulty": 2,
+   "source": "AI",
+   "volume": "中考复习（不分册）",
+   "knowledge_point": "热学",
+   "game_ready": true,
+   "template": "Tc4d1e2",
+   "change_tag": "新增",
    "tags": [
     "热学"
    ]

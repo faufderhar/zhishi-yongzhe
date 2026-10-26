@@ -3,9 +3,9 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 const raw = (g: string) => JSON.parse(readFileSync(`public/banks/bank_${g}.json`, 'utf8')) as { version: string; questions: { id: string; status: string }[] };
 describe('r17.1 新年级题库', () => {
-  it('v57；题量 大班 335 / 初三 2073 / 高三 2703；没有需家长确认的题', () => {
-    for (const [g, n] of [['K3', 335], ['9', 2073], ['12', 2703]] as const) {
-      const b = raw(g); expect(b.version, g).toBe('v57'); expect(b.questions.length, g).toBe(n);
+  it('v58；题量 大班 335 / 初三 2151（r17.2 v58 +78） / 高三 2703；没有需家长确认的题', () => {
+    for (const [g, n] of [['K3', 335], ['9', 2151], ['12', 2703]] as const) {
+      const b = raw(g); expect(b.version, g).toBe('v58'); expect(b.questions.length, g).toBe(n);
       expect(b.questions.filter(q => q.status === '需家长确认').map(q => q.id), g).toEqual([]);
     }
   });

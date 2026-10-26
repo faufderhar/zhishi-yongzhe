@@ -24,7 +24,7 @@ const V50 = JSON.parse(readFileSync('tests/fixtures/r162_v50_revs_of_v51changed.
 const man = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
 describe('r16.2 题库 v51', () => {
   it('发布号 v51；题量 18344 不变；初三 / 大班 / 高三没导入；高二物理全部隐藏；自动规则不藏任何册', () => {
-    for (const g of R16_GRADES) expect(raw(g).version, g).toBe('v57');   // r17：v56 → v57（同 id、同关卡；tests/r17v56）   // r16.2：v52 只改 4–6 年级 636 题（下面 v52 一节）
+    for (const g of R16_GRADES) expect(raw(g).version, g).toBe('v58');   // r17.2：v58；r17：v56 → v57（同 id、同关卡；tests/r17v56）   // r16.2：v52 只改 4–6 年级 636 题（下面 v52 一节）
     expect(all.length).toBe(18344); expect(readdirSync('public/banks').filter(f => /bank_(9|12|K3)\.json/.test(f))).toEqual(['bank_12.json', 'bank_9.json', 'bank_K3.json']);   // r17.1 导入
     expect(all.filter(q => q.grade === '11' && q.subject === '物理').every(q => isHiddenBy(vis, q))).toBe(true);
     expect(vis.rows.map(r => `${r.grade}|${r.subject}|${r.volume}|${r.why}`)).toEqual(['11|物理|必修第三册|force', '11|物理|选择性必修第一册|force', '11|物理|选择性必修第二册|force']);

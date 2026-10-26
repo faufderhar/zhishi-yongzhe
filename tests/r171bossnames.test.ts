@@ -29,7 +29,7 @@ it('9A 英语：U5 旋律八音盒（在用）、U6 色彩心情盒、U8 侦探�
   expect(CHAPTER_BOSS.some(r => r[4] === '荧屏遥控器')).toBe(false);
 });
 it('初三 / 高三 / 初二 / 高二：可见科目的每个章 Boss 都有对照表名字，同年级不重名', () => {
-  for (const [g, band, n] of [['9', 'J', 33], ['12', 'H', 77], ['8', 'J', 107], ['11', 'H', 75]] as const) {
+  for (const [g, band, n] of [['9', 'J', 59], ['12', 'H', 77], ['8', 'J', 107], ['11', 'H', 75]] as const) {
     const all0 = bank(g); const vis = computeVisibility(all0); const all = all0.filter(q => !isHiddenBy(vis, q));
     const names: string[] = []; const miss: string[] = [];
     for (const c of buildChapters(playable(all, false), null, all)) for (const l of c.levels.filter(l => l.kind === 'boss')) {
