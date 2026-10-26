@@ -140,7 +140,7 @@ export function CharSelect({ cfg, current, subjects, onPick, onBack }: { cfg: Ba
             <b>{c.name}</b>
             {cfg.band !== 'K' && rec(c) && <span className="tag rec" data-testid="rec">⭐ 推荐</span>}
             {cfg.band !== 'K' && <span className="tag">主修 {c.major}</span>}
-            {cfg.band !== 'K' && <small>{c.desc}</small>}
+            {cfg.band !== 'K' && <small className="char-desc" data-testid={'char-desc-' + c.id}>{c.desc.split('\n').map(l => <span key={l}>{l}</span>)}</small>}   {/* r17-3：主修 / 被动分两行 */}
             {cfg.band !== 'K' && (() => { const t = skillCardLine(segOf(cfg.band), c.major, c.id); return t ? <small className="char-skill" data-testid={'char-skill-' + c.id}>{t}</small> : null; })()}   {/* r16.1 (y) Boss补测裁定_r17 §3 */}
           </button>
         ))}
