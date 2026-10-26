@@ -119,7 +119,7 @@ export function ProfileSelect({ profiles, remaining, bonus = {}, bonusCancelled 
         <div className="row gap16"><button className="btn ghost" onClick={() => setDelAsk(null)}>取消</button><button className="btn" data-testid="del-ask-go" onClick={() => { setDelAsk(null); onParent(); }}>去家长设置</button></div></div></div>}
       <InstallGuide />
       <button className="parent-btn icon-only" data-testid="parent" aria-label="家长" title="家长" onClick={onParent}>🔒</button>
-      <span className="ver-corner" data-testid="version-label">{VERSION_LABEL}</span>
+      <span className="ver-corner" data-testid="version-label">{VERSION_LABEL}{__TEST_HOOKS__ && <b data-testid="test-build-tag" style={{ color: '#ff5a5a', marginLeft: 6 }}>• 测试版</b>}</span>
     </div>
   );
 }

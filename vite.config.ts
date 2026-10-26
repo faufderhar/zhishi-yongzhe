@@ -29,7 +29,8 @@ export default defineConfig({
   define: { __BANK_VER__: JSON.stringify(BANK_VER), __BANK_RELEASE__: JSON.stringify(BANK_RELEASE), __BUILD__: JSON.stringify(BUILD), __RELEASE__: JSON.stringify(RELEASE), __BUILD_TIME__: JSON.stringify(BUILD_TIME),
     // r8：测试钩子只在测试构建（ZY_TEST=1）、dev 服务器、vitest 里保留；正式构建为 false，整段代码被删除
     __TEST_HOOKS__: JSON.stringify(process.env.ZY_TEST === '1' || !!process.env.VITEST || !process.argv.includes('build')) },
-  plugins: [react(), ({ name: 'zy-version', generateBundle() { this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify({ build: BUILD, release: RELEASE, time: BUILD_TIME }) }); } } as Plugin), VitePWA({
+  plugins: [react(), ({ name: 'zy-test-noindex', transformIndexHtml(html: string) {   // r17.1 Boss测试解锁_r17 §4.1：测试构建 / 开发服务器的页面不让搜索引擎收录（正式构建不加）
+    return process.env.ZY_TEST === '1' || !process.argv.includes('build') ? html.replace('</head>', '  <meta name="robots" content="noindex,nofollow">\n</head>') : html; } } as Plugin), ({ name: 'zy-version', generateBundle() { this.emitFile({ type: 'asset', fileName: 'version.json', source: JSON.stringify({ build: BUILD, release: RELEASE, time: BUILD_TIME }) }); } } as Plugin), VitePWA({
     registerType: 'prompt', injectRegister: false, includeAssets: ['apple-touch-icon.png', 'icon.svg'],
     manifest: { name: '知识勇者', short_name: '知识勇者', display: 'standalone', orientation: 'landscape', background_color: '#1d2340', theme_color: '#2b3a78', start_url: './', scope: './', id: './', lang: 'zh-CN',
       icons: [

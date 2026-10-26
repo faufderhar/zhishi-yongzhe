@@ -37,7 +37,7 @@ type Phase = 'pre' | 'chal' | 'cards' | 'bet' | 'question' | 'anim' | 'feedback'
 const normQ = normStem;
 const isMulti = (q: Question) => (q as Question & { steps?: unknown[] }).steps?.length;   // 多步题（题库字段 steps；当前题库没有）
 
-export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem, electives, wrongHist }: BattleProps & { wrongHist?: Set<string> /* r17.1 R3：本档案以前答错过的题（Boss 同档降级第 2 层） */; electives?: Electives | null /* r16 R-13：档案选科 */; prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
+export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, review, onAnswer, onEnd, onQuit, onFlag, wagerOn = true, lowGrade = false, tips, onTip, seen, prior, reserve, adj, prevStem, electives, wrongHist, labRng }: BattleProps & { labRng?: { rng: () => number; rnd: () => number; cur?: Question } /* r17.1 BossLab（仅测试构建）：固定种子（伤害 / 闪避 / 技能、首题随机）；cur = 当前题，给面板自动答题 */; wrongHist?: Set<string> /* r17.1 R3：本档案以前答错过的题（Boss 同档降级第 2 层） */; electives?: Electives | null /* r16 R-13：档案选科 */; prevStem?: string; prior?: Question[]; reserve?: Question[]; adj?: Question[][]; wagerOn?: boolean; lowGrade?: boolean; tips?: Record<string, boolean>; onTip?: (k: string) => void; seen?: Set<string> }) {
   const mode = roundModeOf(cfg.band)!; const hs = mode === 'h';
   const mon0 = MONSTERS[cfg.stats][kind];
   const skin = skinFor(questions[0]?.subject, kind, cfg.band, unit ?? questions[0]?.unit, { grade: questions[0]?.grade, volume: questions[0]?.volume });   // 按科目换怪物外观（数值不变，策划 r6 裁定 3）
@@ -64,6 +64,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     return th ? { ...s1, playerHp: th } : s1;
   });
   const bsRef = useRef(bs); bsRef.current = bs;
+  const lab = __TEST_HOOKS__ ? labRng : undefined;
   /* r17.1 Boss测试解锁_r17 §4.2-3/4/5（r16.1 延后项）：仅测试构建——本场统计 + 逐回合伤害日志写到 window.__zyBossLog = { summary, rounds[] }（数值取 ROut / ROut.dmg） */
   const bossLog = useRef<{ rounds: BossLogRound[]; t0: number } | null>(__TEST_HOOKS__ ? { rounds: [], t0: Date.now() } : null);
   const writeBossLog = (s: RState, end?: BossLogSummary['result']) => {
@@ -182,7 +183,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     // r8：多选规则优先于「最接近难度」（只初一/高一、我方回合、第 1 回合不出、每局 1–2 道）
     // r11：统一走 drawNext（去重 + 难度回落 + 多选规则）；只有本关题全部出过才重复
     // r15 策划：复习题前 2 题不出，之后每 4 题最多 1 道（只剩复习题时才放宽）
-    const dn = (pr: (x: Question) => boolean) => { const r = drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk), force: multiRule(multiCtx()).force ? isMultiSel : undefined, first: shownN.current === 0 && !used.current.length, boss: bossOpt() }); overRef.current = !!r.over; return r.q; };
+    const dn = (pr: (x: Question) => boolean) => { const r = drawNext(pool.current, used.current, { pred: pr, curated, seen, tier: tierRef.current, multi: (xs, pk) => pickWithMulti(xs, multiCtx(), pk), force: multiRule(multiCtx()).force ? isMultiSel : undefined, first: shownN.current === 0 && !used.current.length, boss: bossOpt(), rnd: lab?.rnd }); overRef.current = !!r.over; return r.q; };
     const revOk = reviewAllowed(shownN.current, lastRev.current);
     /* r15.1 技术QA R15-2：本关题池里非复习题出完时，先从同单元后备题 / 相邻小节补一道非复习题，实在没有才出复习题（以前直接连出 4 道复习） */
     const nonRev = (x: Question) => pred(x) && !revSet.has(x.key);
@@ -245,6 +246,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   const [ttsTick, setTtsTick] = useState(0);
   const [elapsed, setElapsed] = useState(0);
   const asking = phase === 'question' || phase === 'revive-q';
+  if (lab) lab.cur = asking ? cq : undefined;   // r17.1 BossLab（仅测试构建）
   useEffect(() => { if (asking) { setTimeLeft(limit); setElapsed(0); } }, [cq?.key, asking, rv?.i]);
   useEffect(() => { if (cq && cfg.autoTTS && asking) { const t = ttsText(cq); if (t) speak(t, cq.subject === '英语' ? 'en' : 'zh-CN'); } }, [cq?.key, asking]);
   useEffect(() => {
@@ -298,7 +300,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
     onAnswer(qq, g === 'full', val);
     pool.current = pool.current.filter(x => x.key !== qq.key); if (!used.current.includes(qq)) used.current.push(qq);
     const fast = elapsed <= (limit ? limit * PERFECT_FRACTION : PERFECT_NOLIMIT_SEC);
-    const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs && P && wagerOn ? wager : false, challenge: chal && bs.side === 'P' && bs.mode === 'j' });
+    const [ns, o] = resolveRound(bs, c, { correct: ok, partial: g === 'partial', subject: qq.subject, difficulty: qq.difficulty, fast, card: hs && P ? card : 'std', wager: hs && P && wagerOn ? wager : false, challenge: chal && bs.side === 'P' && bs.mode === 'j', rng: lab?.rng });
     if (__TEST_HOOKS__ && bossLog.current) { bossLog.current.rounds.push(logRound(bs, ns, o, qq, { card: hs && P ? card : 'std', wager: !!(hs && P && wagerOn && wager), challenge: !!(chal && bs.side === 'P' && bs.mode === 'j'), grade: g })); writeBossLog(ns); }
     if (o.partial) tip('partial'); if (o.energyGain) tip('energy'); if (o.perfect && bs.perfectOn) tip('focus'); if (o.dodged && o.side === 'M') tip('dodge');   /* r12：「运气好闪开」只在怪物回合 */ if (o.perfect) tip('perfect'); if (o.guardUsed) tip('guard'); if (o.capped) tip('cap');
     if (o.rage) { tip('rage'); setRageAnim(true); playRageDrum(); setTimeout(() => setRageAnim(false), 1400); }

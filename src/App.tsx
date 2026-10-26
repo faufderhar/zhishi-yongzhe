@@ -5,7 +5,7 @@ import { bonusShown, bonusCancelledShown, effBonus, tickGrace, GRACE_MS, GRACE_V
 import { withBossFirst } from './game/bossUsage';
 import { netCheck, pendingDays, pendingWaitedMs, PEND_DAYS, tickPending, resumePending, pendingDue, pendingLeftMs, writeRec, findRec, findVault, vaultOf, writeLocal, writeCache, resetDue, newPending, fmtWhen, type PinVault } from './game/pinVault';
 import { GRADE_LABEL, type GradeKey } from './game/questions';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './app.css';
 import { loadFxManifests } from './fx/assets';
 import { prefetchAll } from './fx/sheets';
@@ -67,6 +67,8 @@ const CAUSE_TEXT: Record<string, string> = { discarded: '浏览器为了省内�
 const EXIT_TEXT: Record<string, string> = { quit: '刚才在暂停里点了〔回地图〕，还没答题，所以没有结算。', timeup: '今天的游戏时间用完了，关卡已结束。' };
 /* r15 学霸：选角色页（幼儿园以外）也列出另一套角色；这里必须同样接受，否则高一选「算算」后角色为空，点关卡永远跳回选角色 */
 const allowedChars = (g: GradeKey) => { const c = bandConfig(g); const own = c.chars === 'scifi' ? SCIFI : PUPS; return c.band === 'K' ? own : [...PUPS, ...SCIFI]; };
+/** r17.1 Boss测试解锁_r17 §4：Boss 测试面板——只在测试构建 / 开发服务器里有（正式构建 __TEST_HOOKS__ = false，这个模块不进 dist） */
+const BossLab = __TEST_HOOKS__ ? lazy(() => import('./debug/BossLab')) : null;
 export default function App() {
   const [screen, setScreen0] = useState<Screen>({ s: 'loading' });
   const phonePortrait = usePhonePortrait();   // r15.4.2 技术QA P1-1
@@ -624,6 +626,7 @@ export default function App() {
   const flagQ = (q: Question) => { const nf = { ...flags, [q.key]: (flags[q.key] ?? 0) + 1 }; setFlags(nf); S.saveFlags(nf); };
   const startReview = (keys: string[]) => { if (myRemaining <= 0) { setTimeUpNote(true); return; } const qs = keys.map(k => bank!.byKey.get(k)).filter((q): q is Question => !!q); if (qs.length) { masteredThisLevel.current = 0; setScreen({ s: 'review', qs, nonce: Date.now() }); } };
 
+  const labQsOf = useCallback((g: GradeKey) => bank ? questionsOfGrade(bank, g) : [], [bank]);   // r17.1 BossLab（仅测试构建）
   const theme = cfg && !['profiles', 'gate', 'parent', 'loading'].includes(screen.s) ? 'theme-' + cfg.theme : '';
   return (
     <div className={`app ${theme}`} onPointerDown={e => unlockAudio(e.nativeEvent)}>
@@ -711,6 +714,7 @@ export default function App() {
         onDone={(right, total) => { if (masteredThisLevel.current && p) setProgress(pr => { const nx = { ...pr, masteredStars: pr.masteredStars + masteredThisLevel.current }; S.saveProgress(p.id, nx); return nx; }); setScreen({ s: 'review-done', right, total }); }} />}
       {screen.s === 'review-done' && <div className="center-screen"><div className="big-emoji xl">📕</div><h1>复习完成</h1><p className="sub" data-testid="review-stats">答对 {screen.right} / {screen.total} 题</p>
         <div className="row gap24"><button className="btn ghost" onClick={() => setScreen({ s: 'wrongbook' })}>看错题本</button><button className="btn" onClick={() => setScreen({ s: 'map' })}>回地图</button></div></div>}
+      {BossLab && bank && <Suspense fallback={null}><BossLab qsOf={labQsOf} /></Suspense>}
     </div>
   );
 }
