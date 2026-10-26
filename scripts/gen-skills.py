@@ -37,6 +37,17 @@ def icon_of(desc, name, t):
         if k in name or k in desc: return v
     return {'atk': '⚔️', 'guard': '🛡️', 'heal': '💚', 'control': '⏸️', 'visual': '✨'}[t]
 out, seen = [], {}
+# r17.1（学霸r16.1裁定_r17 §1 / r17-2）：卡面 / 横幅 effectText 按裁定表的「效果」部分（只改文字；id、cd、数值字段不变）。
+# 写在生成器里（按效果码），数据源 data.py 不动；H5 写血量 = 5% × 本学段玩家最大血量（balance.ts PLAYER：std 100 / hs 160）。
+PLAYER_HP = {'P36': 100, 'J': 100, 'H': 160}
+EFFECT_TEXT = {
+    'A14': '本题伤害 ×1.4', 'A2H': '连打 2 下，每下 70%（合计约 140%）', 'A13P': '本题伤害 ×1.3，无视怪物护盾', 'A125C': '本题伤害 ×1.25，连击多算 1 层',
+    'G70': '获得护体（下一次受伤只受 70%）', 'C': '怪物下一招变弱：⚔ 攻击→发呆，💥 重击→普通攻击，⚡ 蓄力 / 🛡 护盾→取消',
+    'F1': '专注 +1（下次攻击 +25%、闪避 +10%）',   # 「解除负面状态」去掉：代码里没有负面状态来源（r17-13）
+}
+def effect_text(eff, sk):
+    if eff == 'H5': return f'回复 5% 最大血量（{round(PLAYER_HP[sk] * 0.05)} 血）'
+    return EFFECT_TEXT.get(eff, D['EFFECT'][eff])
 for (seg, ch, name, typ, eff, cd, desc, dur, color, parts, sound) in D['S']:
     sk = SEG[seg]; cid, major = CHAR[ch]; t = TYPE[typ]
     seen[(sk, cid)] = seen.get((sk, cid), 0) + 1
@@ -46,7 +57,7 @@ for (seg, ch, name, typ, eff, cd, desc, dur, color, parts, sound) in D['S']:
     count = min(int(n[0]) if n else 12, CAP[sk])
     d = float(dur)
     limit = 1.2 if sk == 'K' else 1.0 if t in ('guard', 'heal', 'control') else 1.5
-    out.append(dict(id=sid, seg=sk, char=ch, charId=cid, major=major, name=name, type=t, effect=eff, effectText=D['EFFECT'][eff], cd=int(cd),
+    out.append(dict(id=sid, seg=sk, char=ch, charId=cid, major=major, name=name, type=t, effect=eff, effectText=effect_text(eff, sk), cd=int(cd),
         anim=desc, durMs=int(round(min(d, limit) * 1000)), srcDurMs=int(round(d * 1000)), colors=[c.upper() for c in cols], particles=count, sfxNote=sound,
         recipe=recipe(t, desc), glyphs=glyphs(desc, major), icon=icon_of(desc, name, t),
         assets=dict(fx=f'fx/skills/{sid}.webp', icon=f'fx/skills/icons/icon_{sid}.webp', sfx=f'sfx/skills/sfx_skill_{sid}.mp3')))
