@@ -26,6 +26,14 @@ export function triggerWhy(r0: SkillRoll, seg: SkillSeg, energy?: number): 'ener
   if (r0.dry >= SKILL.pity[vis ? 'visual' : 'battle']) return 'pity';
   return 'luck';
 }
+/** r17-6（学霸裁定 §2.3）：能量环标签——下一次答对一定放（能量 +1 后到 5 点，或已连续 N 次没放；和 roll 同一个 triggerWhy 判定）→「答对必放」，
+ *  否则「满5必放」。这一边能放的技能全在冷却（高中）时，答对也不会放，不显示「答对必放」 */
+export const RING_TAG = { must: '答对必放', cap: '满5必放' } as const;
+export function ringTag(r0: SkillRoll, seg: SkillSeg, major: string, side: 'P' | 'M', energy: number): keyof typeof RING_TAG {
+  const vis = isVisualSeg(seg);
+  const pool = skillsFor(seg, major).filter(k => vis ? true : side === 'P' ? k.type === 'atk' : k.type !== 'atk').filter(k => !(r0.cd[k.id] > 0));
+  return pool.length && triggerWhy(r0, seg, Math.min(ENERGY_CAP, energy + 1)) !== 'luck' ? 'must' : 'cap';
+}
 /** r17-4（学霸裁定 §1 / §3）：能量环弹窗和技能详情共用的触发规则行；高中另加冷却行 */
 export const SKILL_TRIGGER_TEXT = '技能只在答对时放。每次答对有 20% 机会；答对后能量到 5 点，这道题一定放；连续 4 次答对没放，第 5 次一定放。放完能量清零。同一边的两个技能轮流出。答错、超时、漏选不会放。';
 export const SKILL_COOLDOWN_TEXT = '冷却：放过的技能，接下来 3 个回合（控制、恢复、清心类 4 个回合；双方回合都算）不会再出；这一边的技能都在冷却时，「一定放」顺延到下一次答对。';

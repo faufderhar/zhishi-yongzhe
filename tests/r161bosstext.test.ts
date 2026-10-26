@@ -70,10 +70,10 @@ describe('(y) 数字风暴文案 / 能量环 / 横幅', () => {
     const R = (r: typeof r0, e: number) => roll(r, { seg: 'H', major: '数学', side: 'P', correct: true, energy: e, rng: () => 0.999 })[1];
     expect(R(r0, 5)).not.toBeNull(); expect(R({ ...r0, dry: 4 }, 1)).not.toBeNull(); expect(R({ ...r0, dry: 3 }, 4)).toBeNull();
   });
-  it('UI：横幅带原因小字；能量环加「保底」，演出期间显示结算后的值（不再停在旧值）', () => {
+  it('UI：横幅带原因小字；能量环加标签（r17-6 改「满5必放」/「答对必放」），演出期间显示结算后的值（不再停在旧值）', () => {
     expect(rb).toMatch(/const skTag = k \? TRIGGER_TAG\[triggerWhy\(bs\.sk, bs\.seg, bs\.energy \+ o\.energyGain\)\] : undefined; setRingE\(ns\.energy\);/);
     expect((rb.match(/tag: skTag/g) ?? []).length).toBe(2);
-    expect(rb).toMatch(/\{ringE \?\? bs\.energy\}\/\{ENERGY_CAP\}<small className="ring-tag" data-testid="energy-tag">保底<\/small>/);
+    expect(rb).toMatch(/\{ringE \?\? bs\.energy\}\/\{ENERGY_CAP\}<small className="ring-tag" data-testid="energy-tag">\{RING_TAG\[rt\]\}<\/small>/);   // r17-6：「保底」→「满5必放」/「答对必放」
     expect(rb).toMatch(/setBs\(ns\); setRingE\(null\);/);
     expect(readFileSync('src/fx/skillFx.ts', 'utf8')).toMatch(/\$\{o\.tag \? `<small class="skill-tag">\$\{o\.tag\}<\/small>` : ''\}/);
   });

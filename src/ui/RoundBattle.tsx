@@ -17,7 +17,7 @@ import { DmgSum } from './DmgSum';
 import { reviewAllowed } from '../game/adaptive';
 import { multiRule, pickWithMulti, isMultiSel, type MultiCtx } from '../game/multi';
 import { calcD, estimateDealt, estimateInfo, estimateOverflow, phaseOverflow, newRound, resolveRound, reviveRound, intentLabel, nextIntent, roundModeOf, roundsLeft, weakOf, phaseOf, bossWeak, type Electives, type RState, type CardKind, type Wager, type ROut } from '../game/rounds';
-import { skillsFor, skillById, triggerWhy, TRIGGER_TAG, SKILL_TRIGGER_TEXT, SKILL_COOLDOWN_TEXT } from '../game/skills';
+import { skillsFor, skillById, triggerWhy, TRIGGER_TAG, SKILL_TRIGGER_TEXT, SKILL_COOLDOWN_TEXT, ringTag, RING_TAG } from '../game/skills';
 import { guardText, phaseCapText } from '../game/dmgText';
 import { logRound, summarize, toCSV, logFileName, type BossLogRound, type BossLogSummary } from '../game/bossLog';   // r17.1：只在 __TEST_HOOKS__ 分支里用，正式版摇掉
 import { preloadSkillArt, skillIconUrl } from '../fx/skillFx';
@@ -353,10 +353,11 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
         {asking ? (limit ? <span className={`timer ${timeLeft <= 5 ? 'low' : ''}`} data-testid="timer">⏱ {timeLeft}s</span> : <span>⏱ 不限时</span>) : <span className="timer-slot" aria-hidden>⏱ 00s</span>}{/* r17.1 N2：选卡时给计时留位，顶栏不跳 */}
         <span data-testid="combo">连击 x{bs.combo}{comboTag && <small className="combo-tag" data-testid="combo-skill" title="技能让这次连击多 +1，前面的数字已经算进去了">含技能 +1</small>}{/* r15.4 学霸：数字已包含技能那 1 次（答对 +1、技能再 +1） */}</span>
         {bs.perfectOn && <span data-testid="focus">专注 {'◆'.repeat(bs.focus)}{'◇'.repeat(FOCUS_MAX - bs.focus)}</span>}
-        <button className="energy-ring" data-testid="energy" aria-label={`能量 ${ringE ?? bs.energy}/${ENERGY_CAP}（保底），点开看技能说明`} data-e={ringE ?? bs.energy} onClick={() => setRingPop(true)}>
+        {(() => { const rt = ringTag(bs.sk, bs.seg, c.major, bs.side as 'P' | 'M', ringE ?? bs.energy); return (   /* r17-6：标签「满5必放」/「答对必放」 */
+        <button className={`energy-ring${rt === 'must' ? ' must' : ''}`} data-testid="energy" aria-label={`能量 ${ringE ?? bs.energy}/${ENERGY_CAP}（${RING_TAG[rt]}），点开看技能说明`} data-e={ringE ?? bs.energy} data-tag={rt} onClick={() => setRingPop(true)}>
           <svg viewBox="0 0 40 40" aria-hidden>{Array.from({ length: ENERGY_CAP }, (_, i) => { const a0 = (i / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 + 0.08, a1 = ((i + 1) / ENERGY_CAP) * 2 * Math.PI - Math.PI / 2 - 0.08;
             return <path key={i} d={`M ${20 + 16 * Math.cos(a0)} ${20 + 16 * Math.sin(a0)} A 16 16 0 0 1 ${20 + 16 * Math.cos(a1)} ${20 + 16 * Math.sin(a1)}`} fill="none" strokeWidth="5" strokeLinecap="round" stroke={i < (ringE ?? bs.energy) ? '#ffd54a' : 'rgba(255,255,255,.25)'} />; })}
-            <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{ringE ?? bs.energy}/{ENERGY_CAP}<small className="ring-tag" data-testid="energy-tag">保底</small></button>
+            <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{ringE ?? bs.energy}/{ENERGY_CAP}<small className="ring-tag" data-testid="energy-tag">{RING_TAG[rt]}</small></button>); })()}
         <span className="grow" />
         <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`}>第 {curTurn} 回合 / {Math.min(bs.cap, maxTurns)}{maxTurns < bs.cap && <small className="turn-note" data-testid="turn-note">（题少，最多 {maxTurns} 回合）</small>}</span>
         <span className="grow" />

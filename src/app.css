@@ -1106,7 +1106,17 @@ body{font-size:clamp(18px,1.6vw,26px)}
 
 /* r16.1 (y) Boss补测裁定_r17 §3：技能横幅小字、能量环「保底」、角色卡技能说明 */
 .skill-banner .skill-tag{font-size:12px;opacity:.85;margin-left:4px;padding:1px 6px;border-radius:999px;background:rgba(255,255,255,.18)}
-.energy-ring .ring-tag{font-size:10px;opacity:.8;margin-left:2px}
+/* r17-6（学霸裁定 §2.3）：标签 ≥13px、字重 600、不透明；自带深底 / 高亮底保证对比度 ≥4.5:1；按钮可点区域 ≥44×44（小手机上圈缩小时用 ::after 扩点击区，不改排版） */
+.energy-ring{position:relative}.energy-ring::after{content:'';position:absolute;inset:-6px}
+.energy-ring .ring-tag{font-size:13px;font-weight:600;line-height:1.2;margin-left:4px;padding:2px 6px;border-radius:8px;background:#1d2340;color:#fff;white-space:nowrap}
+.energy-ring.must .ring-tag{background:#ffd54a;color:#2b1d00}
+/* r17-6：短横屏顶栏按钮一律 28×28（上面 max-height:500px 那段），能量环里还有「0/5」和标签，固定 28 宽会让文字溢到旁边、环图标被压成 0 宽；
+   这里让能量环按内容撑开（≥44 宽），环图标 22×22；高度跟其它顶栏按钮一样受 32px 顶栏限制 */
+@media (orientation:landscape) and (max-height:500px){
+  .battle .hud .energy-ring{width:auto !important;min-width:44px !important;gap:3px}
+  .battle .hud .energy-ring svg{width:22px !important;height:22px !important;flex:0 0 22px}
+  .battle .hud .energy-ring .ring-tag{padding:1px 5px;margin-left:2px}
+}
 .char-card .char-desc span{display:block}
 .char-card .char-skill{display:block;font-size:12px;line-height:1.35;opacity:.85;max-width:220px;text-align:left}
 /* r16.1 (s) 较真家长 P3：家长页「修改家长密码」在矮屏（≤ 760 高，例如 1280×600）改左右两栏：左边标题 / 圆点 / 提示，右边键盘，不用往下滚 */
