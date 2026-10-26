@@ -43,8 +43,8 @@ for (const kid of ['kid-7', 'kid-10']) {
   await pg.setViewportSize({ width: 1280, height: 800 }); await w(200);
   const seen = []; let must = null, fired = null;
   let lv = 0;
-  for (let s = 0; s < 240 && seen.length < 24 && !(must && fired !== null); s++) {
-    if (await pg.isVisible('[data-testid=result-title]')) { if (++lv > 3) break; seen.push('|'); await pg.click('[data-testid=to-map]').catch(() => {}); await w(800); await pg.locator('.level:not(.boss)').nth(lv).click().catch(() => {}); await w(900); continue; }
+  for (let s = 0; s < 900 && seen.length < 120 && !(must && fired !== null); s++) {   // r17.1 加固：随机触发的技能会把能量清零，高一偶尔 4 关内到不了 ⚡4 → 最多 10 关、120 题
+    if (await pg.isVisible('[data-testid=result-title]')) { if (++lv > 9) break; seen.push('|'); await pg.click('[data-testid=to-map]').catch(() => {}); await w(800); await pg.locator('.level:not(.boss)').nth(lv).click().catch(() => {}); await w(900); continue; }
     await step();
     if (!(await atQ())) { await w(250); continue; }
     const st = await pg.evaluate(() => { const e = document.querySelector('[data-testid=energy]'); return { e: +e.dataset.e, tag: e.dataset.tag, txt: document.querySelector('[data-testid=energy-tag]').textContent }; });
