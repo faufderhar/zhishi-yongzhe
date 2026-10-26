@@ -2,7 +2,7 @@
 import type { Character } from './characters';
 import type { LevelKind, Band } from './grades';
 import { ROUND, LOW_GRADE_PATTERN, DIFF_MULT, comboMult, DODGE_CAP, DODGE_PER_FOCUS, DODGE_BONUS_CAP, FOCUS_MAX, FOCUS_DMG, ENERGY_CAP,
-  WEAK, AFFINITY, CARDS, cardOut, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, type RoundMode, type MIntent, type RoundMonster } from './balance';
+  WEAK, AFFINITY, CARDS, cardOut, INNER_CAP, CHALLENGE, WAGER, HURT_CAP, MULTI_STEP, REVIVE, LEVEL_UP, SKILL, BOSS_PHASES_BY_GRADE, type RoundMode, type MIntent, type RoundMonster } from './balance';
 import { passive as PASSIVE } from './characters';
 import { roll, newRoll, tickCd, type SkillRoll, type SkillDef, type SkillSeg } from './skills';
 
@@ -41,8 +41,14 @@ export function bossWeak(grade: string | undefined, subject: string | undefined,
   const picked = [el?.first, ...(el?.second ?? [])].filter((x): x is string => !!x);
   return [subject, [...picked, ...CORE_SUBJECTS].find(x => x !== subject)];
 }
-export function newRound(mode: RoundMode, kind: LevelKind, opts: { lowGrade?: boolean; level?: number; noDeath?: boolean; weak?: [string | undefined, string | undefined] | null } = {}): RState {
-  const S = ROUND[mode], def0 = S.monsters[kind], def = opts.weak && def0.phases ? { ...def0, phases: def0.phases.map((p, i) => ({ ...p, weak: opts.weak![i] })) } : def0, lv = Math.min(LEVEL_UP.max, Math.max(1, opts.level ?? 1)) - 1;
+/** r17.1：命中 BOSS_PHASES_BY_GRADE 的年级，Boss 换成该年级的两阶段 HP（总 HP = 两段之和），弱点 / 攻击 / 回合上限不变 */
+export function bossForGrade(def: RoundMonster, grade?: string): RoundMonster {
+  const o = grade != null ? BOSS_PHASES_BY_GRADE[String(grade)] : undefined;
+  if (!o || !def.phases) return def;
+  return { ...def, hp: o[0] + o[1], phases: [{ ...def.phases[0], hp: o[0] }, { ...def.phases[1], hp: o[1] }] };
+}
+export function newRound(mode: RoundMode, kind: LevelKind, opts: { lowGrade?: boolean; level?: number; noDeath?: boolean; weak?: [string | undefined, string | undefined] | null; grade?: string } = {}): RState {
+  const S = ROUND[mode], def0 = bossForGrade(S.monsters[kind], opts.grade), def = opts.weak && def0.phases ? { ...def0, phases: def0.phases.map((p, i) => ({ ...p, weak: opts.weak![i] })) } : def0, lv = Math.min(LEVEL_UP.max, Math.max(1, opts.level ?? 1)) - 1;
   const pattern = opts.lowGrade ? LOW_GRADE_PATTERN : def.pat;
   const hp = S.player.hp + lv * LEVEL_UP.hp;
   return { mode, seg: SEG_OF[mode], kind, def: opts.lowGrade ? { ...def, pat: LOW_GRADE_PATTERN, half: undefined } : def, shieldVal: S.shield, baseDodge: S.dodge, perfectOn: S.perfect,

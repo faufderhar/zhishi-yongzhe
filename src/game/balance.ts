@@ -46,6 +46,9 @@ export const ROUND: Record<RoundMode, RoundStats> = {
     normal: { hp: 100, atk: 18, cap: 14, pat: N }, elite: { hp: 190, atk: 24, cap: 20, pat: E },
     boss: { hp: 250, atk: 22, cap: BOSS_CAP.h, pat: B, half: R, rage: 1.2, phases: [{ hp: 125, weak: '数学' }, { hp: 125, weak: '化学' }] } } },
 };
+/** r17.1（Boss补测裁定_r17 §1.5 / §4 #5）：Boss 两阶段 HP 按年级覆盖，不改 ROUND（ROUND.h 高一定稿 250、ROUND.j 初一/初二 200 不动）。
+    高二 130+130 = 260，高三沿用高二。阶段溢出仍不带入；D14 内层封顶 ×1.8、连击 ×1.3 等常量不变。只列在这里的年级才变。 */
+export const BOSS_PHASES_BY_GRADE: Record<string, [number, number]> = { '11': [130, 130], '12': [130, 130] };
 /** 小学 3–4 年级：所有怪都用 ⚔ → ⚔ → 🛡 */
 export const LOW_GRADE_PATTERN: MIntent[] = N;
 export const LEVEL_UP = { hp: 5, atk: 1, max: 20 };

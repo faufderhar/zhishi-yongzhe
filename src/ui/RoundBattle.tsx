@@ -47,7 +47,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
   /* r15.1 学霸：本关（含后备 / 相邻小节）去重后的题数 × 2 = 最多能打的回合数；题少时回合上限显示真实值 */
   const maxTurns = useMemo(() => new Set([...questions, ...extra, ...(reserve ?? []), ...(adj ?? []).flat()].map(q => q.key)).size * 2, []);
   const [bs, setBs] = useState<RState>(() => {
-    const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail, weak: bossWeak(questions[0]?.grade, questions[0]?.subject, electives) });   // r16 R-13
+    const s0 = newRound(mode, kind, { lowGrade, noDeath: !cfg.canFail, weak: bossWeak(questions[0]?.grade, questions[0]?.subject, electives), grade: questions[0]?.grade });   // r16 R-13
     const th = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestHp?: number }).__zyTest) ? (window as unknown as { __zyTestHp?: number }).__zyTestHp : undefined;   // 仅自动化测试
     const tm = (__TEST_HOOKS__ && (window as unknown as { __zyTest?: boolean; __zyTestMonHp?: number }).__zyTest) ? (window as unknown as { __zyTestMonHp?: number }).__zyTestMonHp : undefined;   // 仅自动化测试：怪物血量
     const s1 = tm ? { ...s0, monsterHp: tm, monsterMax: tm } : s0;
