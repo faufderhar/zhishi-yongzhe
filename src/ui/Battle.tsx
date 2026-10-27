@@ -24,9 +24,13 @@ import { speak, hasVoice, isSpeaking, voiceKey, expectVoiceText, afterVoice, spe
 /* r16.3 总管方案 A：答对后只读表扬（+ 触发时的技能名），不再每题读「开心值…」；最后一题直接读「小乌云变成你的好朋友啦！」。
    等待上限（从答对时刻起算）：普通题 3.5 s、最后一题 4 s；这句话（按片长 / 系统朗读估计）更长时放宽到「读完 + margin」，技能名不被下一题切掉。
    endMax 只给时间到的强制收尾用（收尾提示 prio 读完再结算）。 */
-export const K_WAIT = { endMax: 10000, nextCap: 3500, endCap: 4000, margin: 600, finMs: 3000 /* r17.3：最后一题答对 → 结算页 */ };
+export const K_WAIT = { endMax: 10000, nextCap: 3500, endCap: 4000, margin: 600, finMs: 3000 /* r17.3：最后一题答对 → 结算页 */, nextMax: 4000 /* r17.4：普通题答对（含放技能）最多等 4 s 就出下一题 */ };
 /** 答对后等多久（ms，从答对时刻起算）：max(基础上限, 这句话的时长 + margin) */
 export const kWaitCap = (base: number, speechMs: number) => Math.max(base, Math.round(speechMs) > 0 ? Math.round(speechMs) + K_WAIT.margin : 0);
+/** 幼儿园答对后读的那句。r16.3 方案 A：普通题 = 表扬 + 技能名；最后一题 = （技能名 +）「变成好朋友」。
+    r17.4 小萌新 r17.3：题间放技能（顶上弹「算算·积木城堡」横幅）时，以前读「表扬 + 技能名」两段（≈3 s+），下一题要等它读完 → 4.8–6.1 s（无技能 2–2.7 s）。
+    现在放技能就只读技能名（横幅 + 星星本身就是表扬），整句和表扬差不多长，等待上限仍是 K_WAIT.nextCap（技能名不会被下一题切掉）。 */
+export const kCorrectLine = (o: { last: boolean; praise: string; skillLine: string; friendLine: string }) => o.last ? o.skillLine + o.friendLine : (o.skillLine || o.praise);
 import { HOME_LINE } from '../game/voiceLines';
 import { answerFeedback, softBump } from '../feedback';
 import { Director } from '../fx/director';
@@ -353,7 +357,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
       if (gentle) { setMonFace('😆'); setTimeout(() => setMonFace(null), 1100); }
       const skillLine = k2 ? `${k2.char}的${k2.name}！` : '';   // r10：技能名也朗读
       // r16.3 方案 A：普通题 = 表扬 + 技能名；最后一题 = （技能名 +）「变成好朋友」，不先读表扬；「开心值…」挪到结算页读一次
-      spoken = last ? skillLine + friendLine : praise + skillLine;
+      spoken = kCorrectLine({ last, praise, skillLine, friendLine });
       if (last && gentle) setSay(friendLine); speak(spoken);
       if (k2 && D.dir.current) { const k = k2; lastSkill.current = k.id; void D.dir.current.playSkill(k, { kinder: true, maxMs: 1000 }); } else D.dir.current?.kinderCorrect();
       if (k2) setBusyLow(true);   // 技能横幅在顶上：「在说话」提示排在横幅下面，横幅收起后也不挪位置
@@ -363,7 +367,7 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
     /* r15.4.4：从答对时刻起算最长等待（含 correctMs 动画）。r16.3：上限 = max(3.5 / 4 s, 这句话时长 + margin) */
     const waitFrom = performance.now(); const animMs = r === 'demo' ? T.demoMs : T.correctMs;
     const capOf = (base: number, text: string, o: { keys?: string[] } = {}) => speechMs(text, 'zh-CN', o).then(ms => kWaitCap(base, ms), () => base);
-    const capP = capOf(last && r !== 'demo' ? K_WAIT.endCap : K_WAIT.nextCap, spoken, spokenKeys);
+    const capP = capOf(last && r !== 'demo' ? K_WAIT.endCap : K_WAIT.nextCap, spoken, spokenKeys).then(c => !last && r !== 'demo' ? Math.min(K_WAIT.nextMax, c) : c);   // r17.4：系统朗读估时含 1.5 s 余量，放技能时上限曾到 5.5 s
     setTimeout(async () => {
       setTilt(false);
       let cap = await capP; let from = waitFrom;
