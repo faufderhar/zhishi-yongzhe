@@ -395,18 +395,18 @@ export function KinderBattle({ unit, cfg, c, kind, questions, onAnswer, onEnd, o
         if (!D.alive.current || forced.current) return;
         onEnd({ win: true, correct: ns.first, total: idx + 1, revived: false, wrongKeys: wrong.current, kinder: { first: ns.first, retry: ns.retry, demo: ns.demo }, kMon }); return;
       }
-      await afterVoice(0, left());   // 表扬 + 技能名读完再出下一题（✓ 一直亮到这里）
+      await afterVoice(0, left());   // 表扬（放技能时只读技能名）读完再出下一题（✓ 一直亮到这里）
       if (!D.alive.current || forced.current) return;
       setFx(''); setBusyLow(false); setKs(ns); setIdx(i => i + 1); setJustLit(-1); lock.current = false; setBusy(false);
     }, animMs);
   };
   return (
-    <div className="kbattle">
+    <div className="kbattle" data-term-end={term && ended ? '1' : undefined}>   {/* 用 data-：kbattle 的 class 会被 fit() 加 ktight，React 改 className 会把它冲掉 */}
       <div className="ktop">
         <div className="row gap16 kleft">
           <HoldButton className="pause-btn" label="暂停（按住）" testid="pause" ms={2000} onDone={() => setPaused(true)}>⏸</HoldButton>
         </div>
-        <div className="kbubble">
+        <div className="kbubble" aria-hidden={term && ended ? true : undefined}>   {/* r17.4 小萌新 r17.1：庆祝关结尾题已答完，题干淡出，伙伴的结尾语 / 奖章语气泡不再压在题干上 */}
           {hasVoice() && <button className="kspeaker" aria-label="再听一遍" data-testid="speak" onClick={() => speakStem(q, choices)}>🔊</button>}
           <KStem q={q} />
         </div>
