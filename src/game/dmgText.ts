@@ -27,7 +27,12 @@ export function summary(d: DmgInfo | undefined, n = 3): { items: SumItem[]; more
   const keep = new Set([...gain].sort((a, b) => b.m - a.m).slice(0, n));
   return { items: gain.filter(x => keep.has(x)), more: gain.length > n, cap: d.capped ? `已到上限 ${fmtX(INNER_CAP)}` : null, multi, neg };
 }
-export const negText = (neg: SumItem[]) => neg.length ? '减：' + neg.map(x => `${x.name} ${fmtX(x.m)}`).join(' · ') : '';
+/** self = 题卡自己的名字（卡面上）：r17.4 技术QA N4，卡面已经写着「轻击」，减益里这张卡自己就只写倍率 →「减 ×0.9」（800×600 窄卡放得下） */
+export const negText = (neg: SumItem[], self?: string) => {
+  if (!neg.length) return '';
+  const parts = neg.map(x => self && x.name === self ? fmtX(x.m) : `${x.name} ${fmtX(x.m)}`);
+  return (self && neg.every(x => x.name === self) ? '减 ' : '减：') + parts.join(' · ');
+};
 export const summaryText = (s: NonNullable<ReturnType<typeof summary>>) =>
   [[s.items.map(x => `${x.name} ${fmtX(x.m)}`).join(' · ') + (s.more ? ' 等' : ''), s.multi ?? '', negText(s.neg)].filter(Boolean).join(' ｜ '), s.cap ?? ''].filter(Boolean).join(' · ');
 /** r16.1 (w) Boss补测裁定_r17 §2：打穿第一阶段线时多出的伤害不带到下一阶段（数值不变）；r17-5：叫「阶段线」，不再借用玩家技能的「护体」 */

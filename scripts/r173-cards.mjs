@@ -58,6 +58,11 @@ async function measure(tag) {
         // 卡里每一行（直接子元素）不超出卡的左右边
         const kids = [...c.children].filter(e => e.offsetWidth > 0); const spill = kids.filter(e => { const er = e.getBoundingClientRect(); return er.left < r.left - 1 || er.right > r.right + 1; }).map(e => e.className || e.tagName);
         const tClip = t.scrollWidth > t.clientWidth + 1 || tr.left < r.left || tr.right > r.right;
+        // r17.4 技术QA r17.3 P4-1：卡底「减 ×0.9」不被切（文字在卡内、行不截断）
+        const dClip = [...c.querySelectorAll('.dmg-sum-line, .dmg-sum-line *')].filter(e => { const er = e.getBoundingClientRect(); return er.width > 0 && (er.left < r.left - 1 || er.right > r.right + 1 || e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflow !== 'visible'); }).map(e => (e.textContent || '').slice(0, 16));
+        const dTxt = [...c.querySelectorAll('.dmg-sum-line')].map(e => e.textContent).join(' ');
+        if (k === 'light' && /减/.test(dTxt) && !/×0\.9/.test(dTxt)) dClip.push('缺 ×0.9');
+        if (dClip.length) spill.push('dmg:' + dClip.join(','));
         return { k, title: t.textContent, x0: Math.round(r.left), x1: Math.round(r.right), y0: Math.round(r.top), y1: Math.round(r.bottom), w: Math.round(r.width), inX, inV: r.left >= 0 && r.right <= vw, hitT, spill, tClip }; });
       return { q: { l: Math.round(qr.left), r: Math.round(qr.right), sw: q.scrollWidth, cw: q.clientWidth }, cards, docW: document.documentElement.scrollWidth }; });
     const good = m.cards.every(c => !c.missing && c.inX && c.inV && c.hitT && !c.spill.length && !c.tClip) && m.q.sw <= m.q.cw + 1 && m.docW <= W;

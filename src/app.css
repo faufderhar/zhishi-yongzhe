@@ -1053,6 +1053,9 @@ body{font-size:clamp(18px,1.6vw,26px)}
 .dmg-more{flex:none;border:1px solid rgba(154,163,181,.5);background:transparent;color:inherit;border-radius:10px;padding:0 8px;font-size:12px;line-height:20px;cursor:pointer}
 .dmg-detail{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 6px);z-index:30;min-width:min(340px,92vw);max-width:94vw;text-align:left;font-size:13px;line-height:1.6;background:rgba(18,22,36,.96);color:#e8ecf6;border-radius:10px;padding:8px 12px;box-shadow:0 6px 18px rgba(0,0,0,.4);font-variant-numeric:tabular-nums}
 .qcard .dmg-sum{font-size:11px}
+/* r17.4 技术QA N4：选卡卡面的加成小字可以按段换行（每段「名 ×k」/「｜ 减 ×0.9」不从中间断），800×600 / 1024×600 窄卡不再把减益切掉 */
+.card-pick .qcard .dmg-sum-line{white-space:normal;overflow:visible;text-align:center}
+.card-pick .qcard .dmg-sum-line>span{white-space:nowrap}
 
 /* r16 技术QA_r1544 P4 */
 /* P4-a 押注说明：矮横屏缩小（类名是 .bet-hint-pop），还装不下时列表内滚动 +「往下滑还有」 */
