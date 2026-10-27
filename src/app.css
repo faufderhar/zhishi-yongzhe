@@ -1165,6 +1165,19 @@ body{font-size:clamp(18px,1.6vw,26px)}
 @media (orientation:landscape) and (min-height:501px) and (max-width:880px){
   .battle.rounds .hud .lvl-title{display:none !important}
 }
+/* r17.4.1 技术QA r17.4 N5（P3）：r17.4 回合文字改成「第 1 回合（最多 14）」（一行 150px）+ 计时留位 61px，800×600 把 ❤ 血条挤到 9px（r17.3 ~36px）。
+   ≤880 宽的 600 高横屏：「（最多 14）」/「（题少，最多 N 回合）」换到「第 x 回合」下面一行（小字，居中），回合块从 150px 缩到 ~80px，宽度还给血条；
+   顶栏块间距 10→6px；血条保底 44px（.bar.hp 最小宽按 ❤ + 44px + 数字留，不会让「160/160」叠到计时上）。字号不变，顶栏还是一行、选卡 / 答题同高。tests：scripts/r1741-hpbar.mjs（800 / 820 / 880 / 960 / 1024 / 1100 × 600 等，选卡 + 答题） */
+@media (orientation:landscape) and (min-height:501px) and (max-width:880px){
+  .battle.rounds .hud .turn-no{display:inline-flex;flex-direction:column;align-items:center;line-height:1.1}
+  .battle.rounds .hud .turn-no .turn-cap,.battle.rounds .hud .turn-no .turn-note{margin-left:0;line-height:1.15}
+  .battle.rounds .hud{column-gap:6px}   /* 「（题少，最多 N 回合）」那种更长的第二行也不伸到 ❓ 下面 */
+}
+@media (orientation:landscape) and (min-height:501px) and (max-width:1100px){
+  .battle.rounds .hud>.bar.hp{min-width:calc(44px + 6em)}.battle.rounds .hud .bar.hp .track{min-width:44px}   /* 血条可缩但不低于 44px；整条（❤ + 44px 血条 + 「160/160」）最少留这么宽，数字不会叠到 ⏱ 上 */
+  .battle.rounds .hud .turn-no:has(.turn-note){display:inline-flex;flex-direction:column;align-items:center;line-height:1.1}   /* 「（题少，最多 N 回合）」更长：这一档都放第二行（960 宽一行时会伸到 ❓ 下面） */
+  .battle.rounds .hud .turn-no .turn-note{margin-left:0;line-height:1.15}
+}
 
 /* r17 幼儿园闯关成功动画（src/ui/kFinale.ts，分镜 /workspace/art/k_qban/finale_storyboard.md）：不加白色遮罩 / brightness 滤镜；装饰层不挡按钮 */
 .result-screen.kfin{position:relative}
