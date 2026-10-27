@@ -10,7 +10,7 @@ import { Sprite, type KMonOut } from './Battle';
 import { qbanUrl, QBAN_CLOUD } from '../game/kinderQban';
 import { runKFinale } from './kFinale';
 import { TERM_TEXT, TERM_KEYS, TERM_IMG, TERM_NAME, TERM_MEDAL_NAME, termOpen, termBlocker, termSlots, termHintKey, type TermNo } from '../game/kinderTerm';
-import { PUPS, SCIFI, MONSTER_IMG, type Character } from '../game/characters';
+import { PUPS, SCIFI, type Character } from '../game/characters';
 import { SLEEPY_TEXT, SLEEPY_RESET, SLEEPY_VOICE, TIMEUP_K_TEXT, K_NOSTAR_TEXT, K_AGAIN_TEXT, K_NOSTAR_WHY, K_FIRST_LINE } from '../game/playtime';
 import { PROMPT_BY_TEXT } from '../game/voicePrompts';
 import { GRADE_LABEL, choicesOf, correctText, judge, ttsText, type Question } from '../game/questions';
@@ -278,7 +278,7 @@ export function MapScreen({ p, cfg, chapters, termLevels = [], progress, wrong, 
       </div>}
       {tip && <div className="map-tip" data-testid="map-tip" role="status">{tip}</div>}
       {sleepy && <div className="sleepy-pop" data-testid="sleepy" role="dialog" aria-label={SLEEPY_TEXT} onClick={() => setSleepy(false)}><div className="sleepy-card">
-        <div className="sleepy-mon"><img src={MONSTER_IMG.kinder} alt="" draggable={false} /><span className="zzz" aria-hidden>💤</span></div>
+        <div className="sleepy-mon"><img src={qbanUrl(QBAN_CLOUD, 'default')} alt="" draggable={false} /><span className="zzz" aria-hidden>💤</span></div>
         <h2>{SLEEPY_TEXT}</h2><p data-testid="sleepy-reset">{SLEEPY_RESET}</p></div></div>}
       {timeUp && <div className="timeup-bar" data-testid="timeup-bar">今天的时间用完啦。<br />明天 0:00 重新计时。<br /><small>（家长可在设置里加时间）</small></div>}
     </div>

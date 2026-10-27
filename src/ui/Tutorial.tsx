@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { BandConfig } from '../game/grades';
 import type { Character } from '../game/characters';
-import { MONSTER_IMG } from '../game/characters';
+import { qbanUrl, QBAN_CLOUD } from '../game/kinderQban';
 import { speak, afterVoiceThen } from '../tts';
 import { Sprite, useKFit } from './Battle';
 
@@ -21,6 +21,8 @@ export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void
   const kst = useRef<HTMLDivElement>(null); useKFit(kst);
   const later = (ms: number, f: () => void) => { timers.current.push(window.setTimeout(f, ms)); };
   const offs = useRef<(() => void)[]>([]);
+  // r17.4 小萌新：练习关的小乌云和正式关一样用 Q版三态（以前是旧扁平 MONSTER_IMG.kinder）；先预载三张，换表情不闪
+  useEffect(() => { for (const st of ['default', 'happy', 'mischief'] as const) { const im = new Image(); im.src = qbanUrl(QBAN_CLOUD, st); } }, []);
   useEffect(() => () => { timers.current.forEach(clearTimeout); offs.current.forEach(f => f()); }, []);
   const cur = QS[step - 1];
   useEffect(() => { if (done) return; timers.current.forEach(clearTimeout); timers.current = []; speak(cur.say); later(7000, () => speak(cur.q)); }, [step, done]);
@@ -47,7 +49,7 @@ export function KinderTutorial({ c, onDone }: { c: Character; onDone: () => void
       </div>
       <div className="kstage" ref={kst}>
         <div className={`unit-wrap kpup-wrap ${wig ? 'headshake' : ''}`}><div className="breathe"><Sprite className="kpup" c={c} /></div></div>
-        <div className="unit-wrap kmon-wrap"><div className="breathe slow"><img className={`kmon ${lit ? 'smile' : ''}`} src={MONSTER_IMG.kinder} alt="小乌云" /></div></div>
+        <div className="unit-wrap kmon-wrap"><div className="breathe slow"><img className="kmon qban" src={qbanUrl(QBAN_CLOUD, wig ? 'mischief' : lit ? 'happy' : 'default')} alt="小乌云" data-testid="tut-mon" data-qban={wig ? 'mischief' : lit ? 'happy' : 'default'} draggable={false} /></div></div>
       </div>
       <div className="kopts">{okFirst ? [btnOk, btnNo] : [btnNo, btnOk]}</div>
       {done && <div className="tut-done" data-testid="tut-done">🎉 练习完成，开始闯关啦！</div>}
