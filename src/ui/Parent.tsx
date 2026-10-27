@@ -63,7 +63,7 @@ import type { WrongEntry } from '../game/wrongbook';
 import { DESIGN } from '../game/config';
 import { HoldButton } from './Battle';
 import { noZhVoice } from '../tts';
-import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, LK_PIN, LK_IMPORT, markPinSet, pinWasSet, HINT_QUESTIONS, normAnswer, type LockState } from '../game/pin';
+import { nextLock24, LK_REC, makePinHash, verifyPin, loadLock, saveLock, nextLock, tickLock, lockLeft, LK_HINT, LK_PIN, LK_IMPORT, markPinSet, pinWasSet, HINT_QUESTIONS, hintQText, normAnswer, type LockState } from '../game/pin';
 import { pendingDays, pendingWaitedMs, PEND_DAYS, findRec, newPending } from '../game/pinVault';
 import { hintCandidates, answerVariants, readLocal, readCache, makeRecoveryCode, normCode, RESET_DELAY_MS, fmtWhen, fmtDay } from '../game/pinVault';
 import type { Skills } from '../game/adaptive';
@@ -154,7 +154,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       {/* r16 较真家长 3：答案输两次，不一致当场提示（提交前唯一能拦住输入丢字的自检） */}
       <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="hint-answer2" placeholder="再输一次答案" value={ha2} onChange={e => setHa2(e.target.value)} />
       {!!ha2 && normAnswer(ha2) !== normAnswer(ha) && <p className="warn" data-testid="hint-mismatch">两次输入的答案不一样，请检查</p>}
-      <button className="btn" data-testid="hint-ok" disabled={!hq.trim() || !normAnswer(ha) || normAnswer(ha2) !== normAnswer(ha)} onClick={async () => finishSet(pend, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) })}>完成</button>{selfBox}</div></div>);
+      <button className="btn" data-testid="hint-ok" disabled={!hq.trim() || !normAnswer(ha) || normAnswer(ha2) !== normAnswer(ha)} onClick={async () => finishSet(pend, { q: hintQText(hq), a: await makePinHash(normAnswer(ha)) })}>完成</button>{selfBox}</div></div>);
   // r14 较真家长：恢复码重设——新密码、确认密码、找回问题和答案在同一个面板里一次提交；提交成功才作废旧恢复码、发新码
   if (mode === 'recset') { const okPin = /^\d{4}$/.test(np1) && np1 === np2; return (
     <div className="center-screen"><div className="pinpad wide-panel" data-testid="recset"><h2>设新密码</h2>
@@ -166,7 +166,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
       {/* r16.1 (q) 较真家长 P2：和首次设置一样，答案输两次、不一致当场提示 */}
       <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="recset-answer2" placeholder="再输一次答案" value={ha2} onChange={e => setHa2(e.target.value)} />
       {!!ha2 && normAnswer(ha2) !== normAnswer(ha) && <p className="warn" data-testid="recset-answer-mismatch">两次输入的答案不一样，请检查</p>}
-      <div className="row gap16"><button className="btn" data-testid="recset-ok" disabled={!okPin || !hq.trim() || !normAnswer(ha) || normAnswer(ha2) !== normAnswer(ha)} onClick={async () => { if (!(await finishSet(np1, { q: hq.trim(), a: await makePinHash(normAnswer(ha)) }))) return; setResetting(false); }}>确定（旧恢复码作废）</button>
+      <div className="row gap16"><button className="btn" data-testid="recset-ok" disabled={!okPin || !hq.trim() || !normAnswer(ha) || normAnswer(ha2) !== normAnswer(ha)} onClick={async () => { if (!(await finishSet(np1, { q: hintQText(hq), a: await makePinHash(normAnswer(ha)) }))) return; setResetting(false); }}>确定（旧恢复码作废）</button>
         <button className="btn ghost" onClick={() => { setResetting(false); setMode(settings.pinHint ? 'forgot' : 'rec'); }}>取消</button></div>{selfBox}
       {!(okPin && hq.trim() && normAnswer(ha) && normAnswer(ha2) === normAnswer(ha)) && <p className="hint" data-testid="recset-why">还差：{[!/^\d{4}$/.test(np1) && '4 位新密码', /^\d{4}$/.test(np1) && np1 !== np2 && '再输一次相同的密码', !hq.trim() && '选或写一个找回问题', !normAnswer(ha) && '找回问题的答案', !!normAnswer(ha) && normAnswer(ha2) !== normAnswer(ha) && '再输一次相同的答案'].filter(Boolean).join('、')}</p>}</div></div>); }
   if (mode === 'forgot' && settings.pinHint && OLD_HINT_QUESTIONS.includes(settings.pinHint.q)) return (
@@ -182,7 +182,7 @@ export function ParentGate({ onRecConfirmed, allHints, settings, onSetPin, onOk,
             <label className="pbar-row">已打开 {daysN} / 3 天<progress data-testid="reset-bar-days" max={3} value={daysN} /></label></div>}
           {/* 规则不变：申请本身不用答题（r15.1 起就有「申请重设」按钮）；到期后要答对找回问题才设新密码 */}
           {!pr && <button className="btn ghost" data-testid="reset-request" onClick={() => onRequestReset?.()}>申请重设</button>}
-          {pr?.ready && <><p>{settings.pinHint.q}</p><input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="forgot-answer" value={ha} disabled={hlocked} onChange={e => setHa(e.target.value)} />
+          {pr?.ready && <><p data-testid="forgot-q">{hintQText(settings.pinHint.q)}</p><input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="forgot-answer" value={ha} disabled={hlocked} onChange={e => setHa(e.target.value)} />
             <button className="btn" data-testid="forgot-ok" disabled={hlocked || !ha} onClick={async () => {
               const ok = await checkHint(ha); const n = await noteH(ok); if (ok) { await note(true); setResetting(true); setMode('pin'); setFirst(undefined); setErr(undefined); }
               else setErr(lockLeft(n) > 0 ? undefined : `答案不对，还可以试 ${5 - n.fails} 次`);
@@ -696,11 +696,11 @@ function HintQ({ q, setQ }: { q: string; setQ: (q: string) => void }) {
 /** r13 较真家长：修改找回问题（家长页内，已过密码）。不预选问题 */
 function HintEdit({ settings, setSettings, forced }: { settings: Settings; setSettings: (s: Settings) => void; forced?: boolean }) {
   const [open, setOpen] = useState(!!forced); const [q, setQ] = useState(''); const [a, setA] = useState(''); const [done, setDone] = useState(false);
-  if (!open) return <div className="p-card"><b>找回问题</b><p className="hint">{done ? '✔ 找回问题已修改。' : settings.pinHint ? `现在的问题：${settings.pinHint.q}（答案只存了指纹）` : '还没有找回问题。'}</p><button className="btn ghost" data-testid="hint-edit" onClick={() => { setOpen(true); setQ(''); setA(''); }}>修改找回问题</button></div>;
+  if (!open) return <div className="p-card"><b>找回问题</b><p className="hint">{done ? '✔ 找回问题已修改。' : settings.pinHint ? `现在的问题：${hintQText(settings.pinHint.q)}（答案只存了指纹）` : '还没有找回问题。'}</p><button className="btn ghost" data-testid="hint-edit" onClick={() => { setOpen(true); setQ(''); setA(''); }}>修改找回问题</button></div>;
   return <div className="p-card wide-panel" data-testid="hint-edit-box"><b>修改找回问题</b><p className="hint">别选孩子也知道答案的问题。</p>
     <HintQ q={q} setQ={setQ} />
     <input autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} className="name-input" data-testid="hint-edit-answer" placeholder="答案" value={a} onChange={e => setA(e.target.value)} />
-    <div className="row gap16"><button className="btn" data-testid="hint-edit-ok" disabled={!q.trim() || !normAnswer(a)} onClick={async () => { setSettings({ ...settings, pinHint: { q: q.trim(), a: await makePinHash(normAnswer(a)) } }); setOpen(false); setDone(true); }}>保存</button><button className="btn ghost" onClick={() => setOpen(false)}>取消</button></div></div>;
+    <div className="row gap16"><button className="btn" data-testid="hint-edit-ok" disabled={!q.trim() || !normAnswer(a)} onClick={async () => { setSettings({ ...settings, pinHint: { q: hintQText(q), a: await makePinHash(normAnswer(a)) } }); setOpen(false); setDone(true); }}>保存</button><button className="btn ghost" onClick={() => setOpen(false)}>取消</button></div></div>;
 }
 /** r15 策划 R141-2：显示恢复码后，家长把它打回来确认已抄好（可以「稍后」） */
 function RecTypeBack({ code, onConfirmed, onLater, doneId = 'rec-done' }: { code: string; onConfirmed: () => void; onLater: () => void; doneId?: string }) {

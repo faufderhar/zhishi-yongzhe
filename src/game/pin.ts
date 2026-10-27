@@ -17,6 +17,8 @@ export async function verifyPin(pin: string, stored?: string): Promise<boolean> 
 }
 // r13 策划：只给孩子不太可能知道答案的问题；不预选；另可「自己写问题」
 export const HINT_QUESTIONS = ['你初中班主任姓什么？', '你第一台手机的牌子？', '你小学最好的朋友叫什么？', '你第一份工作的公司名？', '你小时候住的街道名？'];
+/** r17.4 学霸 L3：找回问题统一用全角「？」（预设 5 个本来就是全角）。家长自己写的问题结尾的半角 ? / ？? 之类收成一个全角「？」；保存和显示都过一遍（旧档案里存的半角也显示成全角，不影响答案指纹） */
+export const hintQText = (q: string) => q.trim().replace(/[?？]+$/, '？');
 /** r13 策划：答案不分大小写、空格、全角半角（NFKC）；旧答案由 answerVariants 兼容 */
 export const normAnswer = (s: string) => s.normalize('NFKC').replace(/\s+/g, '').toLowerCase();
 
