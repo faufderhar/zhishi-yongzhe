@@ -373,7 +373,7 @@ export function RoundBattle({ unit, cfg, c, kind, title, questions, extra, revie
             return <path key={i} d={`M ${20 + 16 * Math.cos(a0)} ${20 + 16 * Math.sin(a0)} A 16 16 0 0 1 ${20 + 16 * Math.cos(a1)} ${20 + 16 * Math.sin(a1)}`} fill="none" strokeWidth="5" strokeLinecap="round" stroke={i < (ringE ?? bs.energy) ? '#ffd54a' : 'rgba(255,255,255,.25)'} />; })}
             <text x="20" y="25" textAnchor="middle" fontSize="13" fill="#fff">⚡</text></svg>{ringE ?? bs.energy}/{ENERGY_CAP}<small className="ring-tag" data-testid="energy-tag">{RING_TAG[rt]}</small></button>); })()}
         <span className="grow" />
-        <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`}>第 {curTurn} 回合 / {Math.min(bs.cap, maxTurns)}{maxTurns < bs.cap && <small className="turn-note" data-testid="turn-note">（题少，最多 {maxTurns} 回合）</small>}</span>
+        <span data-testid="turn" className={`turn-no ${left <= 2 ? 'warn' : ''}`} aria-label={`第 ${curTurn} 回合，最多 ${Math.min(bs.cap, maxTurns)} 回合`}>第 {curTurn} 回合{maxTurns < bs.cap ? <small className="turn-note" data-testid="turn-note">（题少，最多 {maxTurns} 回合）</small> : <small className="turn-cap" data-testid="turn-cap">（最多 {bs.cap}）</small>}</span>   {/* r17.4 学霸 L1：以前「第 1 回合 / 14」像进度（要打满 14 回合），其实 14 是上限，3 回合打死就结束 → 写成「第 1 回合（最多 14）」 */}
         <span className="grow" />
         <span className="lvl-title" title={title} data-testid="lvl-title">{title}</span>
         <button className="rules-btn" aria-label="规则说明" data-testid="rules" onClick={() => setRules(true)}>？</button>

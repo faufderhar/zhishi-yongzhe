@@ -46,7 +46,7 @@ await pg.screenshot({ path: OUT + 'r4-tutorial-1.png' });
 const tut = await tutAll();
 ok(tut.length === 4 && /我方回合答对就攻击.*对方回合答对就能闪避，答得快还能攒专注/.test(tut[2]) && /点一下能看说明/.test(tut[1]), '§10 初一引导 4 张，第 2、3 张文案正确');
 await pg.waitForSelector('[data-testid=banner]', { timeout: 10000 });
-ok(/我方回合/.test(await pg.textContent('[data-testid=banner]')) && /第 1 回合 \/ 14/.test(await turnText()), '我方先手；顶栏「第 1 回合 / 14」（D14 上限 14）（学霸 #3）');
+ok(/我方回合/.test(await pg.textContent('[data-testid=banner]')) && /^第 1 回合（最多 14）$/.test(await turnText()), '我方先手；顶栏「第 1 回合（最多 14）」（D14 上限 14；r17.4 学霸 L1 不再写成「/ 14」）（学霸 #3）');
 ok(!(await pg.$('[data-testid=stance-attack], [data-testid=start-answer], [data-testid=act-attack], .countbar')), '没有进攻/防守、〔开始答题〕、限时行动条');
 await pg.screenshot({ path: OUT + 'r4-my-turn.png' });
 await pg.click('[data-testid=intent]'); await w(250);

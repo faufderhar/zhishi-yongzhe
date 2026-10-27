@@ -710,7 +710,7 @@ body{font-size:clamp(18px,1.6vw,26px)}
 
 /* r15.1 */
 .combo-tag{margin-left:6px;padding:1px 6px;border-radius:8px;background:#ffd34d;color:#5a3a00;font-size:12px;font-weight:800;animation:pop .3s}
-.turn-note{margin-left:4px;font-size:12px;opacity:.85}
+.turn-note,.turn-cap{margin-left:4px;font-size:12px;opacity:.85;font-weight:600}
 @media (orientation:portrait) and (max-height:740px){.battle.rounds .qmeta{min-height:0}.battle.rounds .qmeta .speak,.battle.rounds .quiz .tts-btn{transform:scale(.75);margin:-6px 0}}
 @media (orientation:portrait) and (max-height:740px){.battle.rounds .qtext{max-height:84px;overflow-y:auto;overscroll-behavior:contain}}
 /* r15.2 技术QA：较高的手机竖屏（如 414×896）题干元信息多一行时，英语键盘最后一排也在第一屏 */
