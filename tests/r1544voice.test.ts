@@ -43,7 +43,7 @@ describe('r15.4.4 小班录音', () => {
     // r16：新开的三个年级名（年级选择里朗读）等录音——列在 /workspace/playtest/r16dev/new_voice_lines.md，录好后这里改回 []
     // r16 新句（/workspace/playtest/r16dev/new_voice_lines.md），等音频设计录：年级名 + 中班 23 只 Boss 的「回家 / 笑啦」
     // r16.3 总管方案 A：结算页新句「开心值一共 m 个」（p:happy_total_1..5）——r17 已导入音频设计的录音（连同 p:res_k_first_1..10）
-    const PENDING = ['grade_k2', 'grade_8', 'grade_11', /* r17.1：grade_k3「大班」/ grade_9「初三」/ grade_12「高三」已录（deploy.r171_grades） */ 'res_k_why' /* r17.1：k_term1_sleep / k_term2_sleep 已录 */, ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
+    const PENDING = [/* r17.5：grade_k2「中班」已录（k_zf003_s10，zf_003@1.0） */ 'grade_8', 'grade_11', /* r17.1：grade_k3「大班」/ grade_9「初三」/ grade_12「高三」已录（deploy.r171_grades） */ 'res_k_why' /* r17.1：k_term1_sleep / k_term2_sleep 已录 */, ...KINDER_BOSS.flatMap(b => { const id = b.id.replace(/^mon_/, '').replace(/_boss$/, ''); return ['home_' + id, 'laugh_' + id]; })];
     const miss = Object.keys(VOICE_PROMPTS).filter(id => !man.items['p:' + id]); expect(miss.sort()).toEqual(PENDING.sort());
   });
 });

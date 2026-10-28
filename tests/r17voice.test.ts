@@ -17,11 +17,17 @@ describe('r17 录音', () => {
     for (let n = 1; n <= 10; n++) expect(man.meta['p:res_k_first_' + n].text, String(n)).toBe(K_FIRST_LINE(n));
     for (let m = 1; m <= 5; m++) expect(man.meta['p:happy_total_' + m].text, String(m)).toBe(HAPPY_TOTAL_LINE(m));
   });
-  it('期末庆祝关 10 句（r17.1 +睡觉句 2）（k_term*）：包里登记的例外语速 1.1，其他键都是 1.2；共 3284 键（r17.1 +年级名 3，1.2）', () => {
-    const term = man.deploy.r17_term; expect(term.speed).toBe(1.1); expect(term.keys.length).toBe(10);
-    for (const k of term.keys) { expect(man.items[k], k).toBeTruthy(); expect(man.meta[k].speed, k).toBe(1.1); }
-    const other = Object.entries(man.meta as Record<string, { speed?: number }>).filter(([k, m]) => !term.keys.includes(k) && typeof m?.speed === 'number' && m.speed !== 1.2).map(([k]) => k);
-    expect(other).toEqual([]); expect(Object.keys(man.items).length).toBe(3284);
+  it('r17.5 幼儿园 zf_003@1.0（k_zf003_s10）：3268 键 zf_003@1.0（含期末庆祝关 10 句，原 r17_term 1.1 已不适用）+ 17 个小学/初高年级名仍 zf_002@1.2（= scripts/voice/r175_keep_1.2.txt）；共 3285 键', () => {
+    const term = man.deploy.r17_term; expect(term.keys.length).toBe(10);   // 旧批次登记原样保留（speed 1.1），但本包这些键已是 1.0
+    for (const k of term.keys) { expect(man.items[k], k).toBeTruthy(); expect(man.meta[k], k).toMatchObject({ voice: 'zf_003', speed: 1.0 }); }
+    const keep = ['p:grade_1', 'p:grade_2', 'p:grade_3', 'p:grade_4', 'p:grade_5', 'p:grade_6', 'p:grade_7', 'p:grade_9', 'p:grade_10', 'p:grade_12', 'p:stage_p', 'p:stage_j', 'p:stage_h', 'p:soon_8', 'p:soon_9', 'p:soon_11', 'p:soon_12'];
+    expect(readFileSync('scripts/voice/r175_keep_1.2.txt', 'utf8').split(/\s+/).filter(Boolean).sort()).toEqual([...keep].sort());
+    const metas = Object.entries(man.meta as Record<string, { speed?: number; voice?: string }>);
+    expect(metas.filter(([, m]) => m.voice === 'zf_002' && m.speed === 1.2).map(([k]) => k).sort()).toEqual([...keep].sort());
+    expect(metas.filter(([k, m]) => !keep.includes(k) && !(m.voice === 'zf_003' && m.speed === 1.0)).map(([k]) => k)).toEqual([]);
+    expect(metas.length - keep.length).toBe(3268); expect(Object.keys(man.items).length).toBe(3285);
+    expect(man.deploy.k_zf003_s10).toMatchObject({ voice: 'zf_003', speed: 1.0, keys: 3268 }); expect([...man.deploy.k_zf003_s10.unchanged_zf002_keys].sort()).toEqual([...keep].sort());
+    expect(man.meta['p:grade_k2']).toMatchObject({ text: '中班', voice: 'zf_003', speed: 1.0 });
     expect(man.meta['p:k_term1_end'].text).toBe('大乌云被你逗笑啦！');
   });
   it('录音文字过期判断（用假的 meta，不依赖当前包）：登记了期望文字且对不上 → 过期；一致（标点 / 表情 / 零宽字符不算）→ 不过期；没登记 / 包里没文字 → 不过期', async () => {

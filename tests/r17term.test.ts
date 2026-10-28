@@ -140,14 +140,14 @@ describe('r17 D 温和规则 / 文字', () => {
   });
 });
 describe('r17 D 录音 / 音效 / 美术', () => {
-  it('10 个 k_term 键（r17.1 +睡觉句 2）都在录音包，文字和 VOICE_PROMPTS / TERM_TEXT 一致（含句尾 ～），1.1 倍速，登记在 deploy.r17_term', () => {
+  it('10 个 k_term 键（r17.1 +睡觉句 2）都在录音包，文字和 VOICE_PROMPTS / TERM_TEXT 一致（含句尾 ～），r17.5 起 zf_003@1.0（原 1.1 例外不再适用），仍登记在 deploy.r17_term', () => {
     const ks = [...Object.values(TERM_KEYS.intro), ...Object.values(TERM_KEYS.end), ...Object.values(TERM_KEYS.medal), TERM_KEYS.heart, TERM_KEYS.retry, ...Object.values(TERM_KEYS.sleep)];
     expect(ks.length).toBe(10);
     expect(man.meta['p:k_term1_sleep'].text).toBe(TERM_TEXT.sleep[1]); expect(man.meta['p:k_term2_sleep'].text).toBe(TERM_TEXT.sleep[2]);
-    expect(man.items['p:k_term1_sleep']).toBe('p_k_term1_sleep.45d1bcd0aa.mp3'); expect(man.items['p:k_term2_sleep']).toBe('p_k_term2_sleep.f34ced5a3d.mp3');
+    expect(man.items['p:k_term1_sleep']).toBe('p_k_term1_sleep.0e5f5eab85.mp3'); expect(man.items['p:k_term2_sleep']).toBe('p_k_term2_sleep.3a4c730470.mp3');   // r17.5 zf_003@1.0 新录
     expect([...(man.deploy?.r17_term?.keys ?? [])].sort()).toEqual([...ks].sort());
     for (const k of ks) { expect(man.items[k], k).toMatch(/\.mp3$/); const id = k.slice(2); expect(VOICE_PROMPTS[id], k).toBeTruthy();
-      const m = man.meta[k]; expect(m.text, k).toBe(VOICE_PROMPTS[id]); expect(m.speed, k).toBe(1.1); expect(existsSync('public/voice/' + man.items[k]), k).toBe(true); }
+      const m = man.meta[k]; expect(m.text, k).toBe(VOICE_PROMPTS[id]); expect(m.speed, k).toBe(1.0); expect(m.voice, k).toBe('zf_003'); expect(existsSync('public/voice/' + man.items[k]), k).toBe(true); }
     expect(VOICE_PROMPTS.k_term1_intro).toBe(TERM_TEXT.intro[1]);
   });
   it('庆祝乐句：主版文件在、音量 ×0.5、主版预缓存（唯一预缓存的 mp3）+ SW 运行时 CacheFirst 后备、小班离线预下载带上', () => {
