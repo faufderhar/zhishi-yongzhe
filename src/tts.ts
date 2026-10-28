@@ -57,8 +57,8 @@ const synthBusy = () => !!synth?.speaking && ttsState === 'ok' && (typeof perfor
 /** 系统朗读预计时长（毫秒）：汉字约 4 字 / 秒 × 语速，英文按词；+1.5 s 余量，最多 VOICE_CAP_MS */
 export const sysEstimateMs = (text: string, rate: number) => { const zh = (text.match(/[\u4e00-\u9fff]/g) ?? []).length, words = (text.replace(/[\u4e00-\u9fff]/g, ' ').match(/[A-Za-z0-9]+/g) ?? []).length;
   return Math.min(VOICE_CAP_MS, Math.round((zh / 4 + words / 2.5) * 1000 / (rate || 1)) + 1500); };
-/* r15.4.4 音频设计：小班录音语速 1.5 → 1.2（zf_002）。系统朗读退路同样放慢：0.9 × 1.2 / 1.5 = 0.72。App 按当前档案的学段设 */
-export const SYS_RATE = 0.9, K_VOICE_SPEED = 1.2, K_VOICE_SPEED_OLD = 1.5;
+/* r15.4.4 音频设计：小班录音语速 1.5 → 1.2（zf_002）。r17.5：幼儿园录音 zf_003@1.0，系统朗读退路同步：0.9 × 1.0 / 1.5 = 0.6。App 按当前档案的学段设 */
+export const SYS_RATE = 0.9, K_VOICE_SPEED = 1.0, K_VOICE_SPEED_OLD = 1.5;
 let kinderSpeech = false;
 export const setKinderSpeech = (on: boolean) => { kinderSpeech = on; };
 export const sysRate = () => kinderSpeech ? SYS_RATE * K_VOICE_SPEED / K_VOICE_SPEED_OLD : SYS_RATE;

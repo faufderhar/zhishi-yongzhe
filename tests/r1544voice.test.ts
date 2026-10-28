@@ -35,9 +35,9 @@ describe('r15.4.4 小班录音', () => {
     expect(man.meta['K-038#stem'].text).toBe('哪一组是两个苹果？');
     for (const id of ['KG-036', 'KD-041', 'KE-041', 'KE-050']) expect(man.items[id + '#stem']).toMatch(/\.mp3$/);
   });
-  it('小班系统朗读退路语速跟着放慢：0.9 × 1.2 / 1.5 = 0.72；其他年级 0.9', () => {
-    expect(K_VOICE_SPEED).toBe(1.2);
-    setKinderSpeech(true); expect(sysRate()).toBeCloseTo(0.72, 9); setKinderSpeech(false); expect(sysRate()).toBe(0.9);
+  it('小班系统朗读退路语速跟着放慢：0.9 × 1.0 / 1.5 = 0.6；其他年级 0.9', () => {
+    expect(K_VOICE_SPEED).toBe(1.0);
+    setKinderSpeech(true); expect(sysRate()).toBeCloseTo(0.6, 9); setKinderSpeech(false); expect(sysRate()).toBe(0.9);
   });
   it('每句登记过的提示语都有录音（含新句 p:res_k_again）', () => {
     // r16：新开的三个年级名（年级选择里朗读）等录音——列在 /workspace/playtest/r16dev/new_voice_lines.md，录好后这里改回 []
