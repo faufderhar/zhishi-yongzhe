@@ -27,6 +27,9 @@ describe('r17 录音', () => {
     expect(metas.filter(([k, m]) => !keep.includes(k) && !(m.voice === 'zf_003' && m.speed === 1.0)).map(([k]) => k)).toEqual([]);
     expect(metas.length - keep.length).toBe(3268); expect(Object.keys(man.items).length).toBe(3285);
     expect(man.deploy.k_zf003_s10).toMatchObject({ voice: 'zf_003', speed: 1.0, keys: 3268 }); expect([...man.deploy.k_zf003_s10.unchanged_zf002_keys].sort()).toEqual([...keep].sort());
+    expect(man.voice).toBe('zf_003'); expect(man.speeds).toEqual({ questions: 1.0, prompts: 1.0, en: 1.0 });
+    expect(String(man.deploy.k_zf003_s10.status)).not.toMatch(/DRAFT|staging|未进主包/i);
+    expect(man.bank_version).toMatch(/k_zf003_s10/); expect(man.bank_version).not.toMatch(/staging/);
     expect(man.meta['p:grade_k2']).toMatchObject({ text: '中班', voice: 'zf_003', speed: 1.0 });
     expect(man.meta['p:k_term1_end'].text).toBe('大乌云被你逗笑啦！');
   });

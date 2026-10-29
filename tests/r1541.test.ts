@@ -96,7 +96,7 @@ describe('r15.4.1 小班时间到结算页 / 录音', () => {
   it('「今天玩够啦，明天见」登记成提示语 p:timeup_k，并且已经有录音（manifest）', () => {
     expect(VOICE_PROMPTS.timeup_k).toBe('今天玩够啦，明天见');
     const m = JSON.parse(readFileSync('public/voice/manifest.json', 'utf8'));
-    for (const k of ['p:timeup_k', 'p:grace', 'p:sleepy']) { expect(m.items[k]).toMatch(/\.mp3$/); expect(m.meta[k].voice).toBe('zf_003'); expect(m.meta[k].speed).toBe(1.0); /* r15.4.4：跟录音包的语速（1.5 → 1.2）；r17.5 幼儿园 zf_003@1.0（包头 speeds 仍写 1.2，按键为准） */ }
+    for (const k of ['p:timeup_k', 'p:grace', 'p:sleepy']) { expect(m.items[k]).toMatch(/\.mp3$/); expect(m.meta[k].voice).toBe('zf_003'); expect(m.meta[k].speed).toBe(1.0); /* r15.4.4：跟录音包的语速（1.5 → 1.2）；r17.5 幼儿园 zf_003@1.0；r17.5.1 包头 voice/speeds 已对齐为 zf_003 / 1.0 */ }
   });
   it('结算页：小班时间到不显示星星比较，自动朗读', () => {
     const src = readFileSync('src/ui/Screens.tsx', 'utf8');

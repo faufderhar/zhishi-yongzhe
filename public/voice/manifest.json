@@ -1,16 +1,16 @@
 {
  "_spec": "r15.4 录音退路：mp3 单声道 24 kHz 40 kbps；键 = 题号#stem / 题号#optN（N = 原始选项序号）/ p:提示语 id（见 src/game/voicePrompts.ts）→ 文件名（相对 voice/）。播放器插停顿：题干→选项 200 ms，选项之间 100 ms（音频设计 2026-10-17 改；r15.4 代码里的 VOICE_GAP_STEM_MS=400 / VOICE_GAP_OPT_MS=300 需同步）。中英混读的题干在一个文件里拼接，英文段（af_maple）与中文段之间留 120 ms。小班不降 6 dB。文件首尾按音频设计规格留 50 ms / 150 ms。",
- "voice": "zf_002",
+ "voice": "zf_003",
  "en_voice": "af_maple",
  "model": "hexgrad/Kokoro-82M-v1.1-zh",
  "model_sha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
  "post_chain": "v2.1-trim50dB-50/150ms-lim-2dBFS@96k-makeup-iter-ln@96k-16I-1.5TP-mp3-40k",
  "bank": "题库_幼儿园小班.json",
- "bank_version": "K1 v57 · K2 v57 · K3 v57 · r17 prompts · r17 term (+sleep r17.1) +grade k3/9/12 · k_zf003_s10 staging",
+ "bank_version": "K1 v57 · K2 v57 · K3 v57 · r17 prompts · r17 term (+sleep r17.1) +grade k3/9/12 · k_zf003_s10",
  "speeds": {
-  "questions": 1.2,
-  "prompts": 1.2,
-  "en": 1.2
+  "questions": 1.0,
+  "prompts": 1.0,
+  "en": 1.0
  },
  "pron_overrides": 57,
  "generated": "2026-10-28T04:14:11-07:00",
@@ -89413,7 +89413,7 @@
    "note": "r17.1 开放大班/初三/高三年级名"
   },
   "k_zf003_s10": {
-   "status": "DRAFT / staging — 未进主包",
+   "status": "LIVE in main pack (r17.5 → r17.5.1 label fix)",
    "date": "2026-10-28T03:39:30-07:00",
    "voice": "zf_003",
    "speed": 1.0,
@@ -89445,7 +89445,7 @@
     "p:stage_j",
     "p:stage_p"
    ],
-   "note": "staging 未进主包；进版需 importer 接受 1.0 例外清单（或把全局 --speed 改为按键）；原 r17_term 1.1 期末键在本批已改为 1.0；p:grade_k2「中班」为新补录；小学/初高 grade_1..、stage_p/j/h、soon_* 仍为 zf_002@1.2。"
+   "note": "主包顶层 voice/speeds 已与实际一致：zf_003@1.0（英文 af_maple@1.0）。3268 键幼儿园题/提示为 zf_003@1.0（含原 r17_term 1.1 期末键，现已 1.0）；p:grade_k2「中班」新补录；17 条小学/初高年级与学段选择提示仍为旧声 zf_002@1.2（unchanged_zf002_keys / scripts/voice/r175_keep_1.2.txt），幼儿园答题路径不受影响。"
   },
   "k_zf003_s10_gapfix": {
    "date": "2026-10-28",
@@ -89453,7 +89453,7 @@
    "files_gapfixed": 154,
    "failed": 0,
    "staging": "/workspace/tts/deploy/voice_k_zf003_s10_staging",
-   "note": "r17.5: mixed en/zh clips from /workspace/playtest/r175/mixed_no_gapfix.tsv re-run through analysis/gapfix_s12.py --max-gap 0.25 from raw wav (s0/s1/s2), new hash names; k_zf003_s10 DRAFT gapfix gap now filled; main pack /workspace/tts/deploy/voice untouched"
+   "note": "r17.5: mixed en/zh clips from /workspace/playtest/r175/mixed_no_gapfix.tsv re-run through analysis/gapfix_s12.py --max-gap 0.25 from raw wav (s0/s1/s2), new hash names; k_zf003_s10 gapfix filled and imported into main pack."
   }
  },
  "banks": {
